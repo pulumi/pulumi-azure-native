@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// System meta data for this resource, including creation and modification information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.FluidRelay
 
             string? storagesku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

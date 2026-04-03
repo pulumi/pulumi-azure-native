@@ -72,7 +72,7 @@ export interface GetBotResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.botservice.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

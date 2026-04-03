@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class RedisArgs:
                  sku: pulumi.Input['SkuArgs'],
                  disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -50,7 +52,7 @@ class RedisArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
         :param pulumi.Input[_builtins.bool] disable_access_key_authentication: Authentication to Redis through access keys is disabled when set as true. Default value is false.
         :param pulumi.Input[_builtins.bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[_builtins.str] name: The name of the RedisResource
@@ -163,14 +165,14 @@ class RedisArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -374,7 +376,7 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -406,7 +408,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disable_access_key_authentication: Authentication to Redis through access keys is disabled when set as true. Default value is false.
         :param pulumi.Input[_builtins.bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[_builtins.str] name: The name of the RedisResource
@@ -457,7 +459,7 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -624,7 +626,7 @@ class Redis(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -680,7 +682,7 @@ class Redis(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv4.outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connection associated with the specified redis cache
         """
@@ -776,7 +778,7 @@ class Redis(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv4.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

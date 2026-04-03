@@ -58,7 +58,7 @@ export class ConfigServiceConfigurationRecorderStatus extends pulumi.CustomResou
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.awsconnector.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */

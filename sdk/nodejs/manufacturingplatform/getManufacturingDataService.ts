@@ -46,7 +46,7 @@ export interface GetManufacturingDataServiceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.manufacturingplatform.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -62,11 +62,11 @@ export interface GetManufacturingDataServiceResult {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    readonly sku?: outputs.manufacturingplatform.SkuResponse;
+    readonly sku?: outputs.commonTypesV5.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.manufacturingplatform.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

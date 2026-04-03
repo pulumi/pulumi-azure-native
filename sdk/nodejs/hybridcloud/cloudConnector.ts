@@ -70,7 +70,7 @@ export class CloudConnector extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * Resource tags.
      */

@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Metadata pertaining to creation and last modification of Share
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string shareStatus,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type,
 

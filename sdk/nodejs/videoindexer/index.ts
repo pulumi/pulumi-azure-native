@@ -26,9 +26,6 @@ export const PrivateEndpointConnection: typeof import("./privateEndpointConnecti
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 
-// Export enums:
-export * from "../types/enums/videoindexer";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

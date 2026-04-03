@@ -65,7 +65,7 @@ export interface GetModelingResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.recommendationsservice.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Workspace title.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string title,
 

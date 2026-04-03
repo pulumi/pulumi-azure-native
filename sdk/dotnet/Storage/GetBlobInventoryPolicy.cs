@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Storage
 
             Outputs.BlobInventoryPolicySchemaResponse policy,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

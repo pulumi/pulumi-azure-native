@@ -69,7 +69,7 @@ export interface GetAppResiliencyResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.app.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Defines parameters for tcp connection pooling
      */

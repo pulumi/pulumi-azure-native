@@ -86,7 +86,7 @@ export class KubernetesRole extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of Role
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */

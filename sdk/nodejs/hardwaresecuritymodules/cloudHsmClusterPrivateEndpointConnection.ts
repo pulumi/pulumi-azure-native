@@ -60,11 +60,11 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
     /**
      * The private endpoint resource.
      */
-    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.hardwaresecuritymodules.PrivateEndpointResponse | undefined>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commonTypesV5.PrivateEndpointResponse | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.hardwaresecuritymodules.PrivateLinkServiceConnectionStateResponse>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commonTypesV5.PrivateLinkServiceConnectionStateResponse>;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -72,7 +72,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hardwaresecuritymodules.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -143,7 +143,7 @@ export interface CloudHsmClusterPrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.hardwaresecuritymodules.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.commonTypesV5.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// tag for rule
         /// </summary>
@@ -243,7 +243,7 @@ namespace Pulumi.AzureNative.Cloudngfw
 
             Outputs.SourceAddrResponse? source,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
 
             ImmutableArray<Outputs.TagInfoResponse> tags,
 

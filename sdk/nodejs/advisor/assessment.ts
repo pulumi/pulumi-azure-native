@@ -72,7 +72,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.advisor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV4.SystemDataResponse>;
     /**
      * Resource Type
      */

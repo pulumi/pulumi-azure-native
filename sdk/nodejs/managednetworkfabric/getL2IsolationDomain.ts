@@ -80,7 +80,7 @@ export interface GetL2IsolationDomainResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.managednetworkfabric.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

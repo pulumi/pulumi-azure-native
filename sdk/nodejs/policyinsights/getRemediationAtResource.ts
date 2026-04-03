@@ -104,7 +104,7 @@ export interface GetRemediationAtResourceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.policyinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
     /**
      * The type of the remediation.
      */

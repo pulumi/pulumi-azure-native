@@ -80,7 +80,7 @@ export interface GetActionGroupResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.monitor.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The list of incident receivers that are part of this action group.
      */

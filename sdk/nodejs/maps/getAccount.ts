@@ -48,7 +48,7 @@ export interface GetAccountResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.maps.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * Get or Set Kind property.
      */
@@ -72,7 +72,7 @@ export interface GetAccountResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.maps.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

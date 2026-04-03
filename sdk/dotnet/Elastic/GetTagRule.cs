@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the rule set.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Elastic
 
             Outputs.MonitoringTagRulesPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string type)
         {

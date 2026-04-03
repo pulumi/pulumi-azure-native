@@ -53,7 +53,7 @@ export interface GetComputeResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -69,11 +69,11 @@ export interface GetComputeResult {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.SkuResponse;
+    readonly sku?: outputs.commonTypesV3.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

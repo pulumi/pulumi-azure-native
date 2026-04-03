@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

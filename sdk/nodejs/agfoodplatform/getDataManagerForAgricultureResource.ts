@@ -46,7 +46,7 @@ export interface GetDataManagerForAgricultureResourceResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.agfoodplatform.IdentityResponse;
+    readonly identity?: outputs.commonTypesV4.IdentityResponse;
     /**
      * Uri of the Data Manager For Agriculture instance.
      */
@@ -62,7 +62,7 @@ export interface GetDataManagerForAgricultureResourceResult {
     /**
      * Private endpoints.
      */
-    readonly privateEndpointConnections: outputs.agfoodplatform.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commonTypesV4.PrivateEndpointConnectionResponse[];
     /**
      * Data Manager For Agriculture instance provisioning state.
      */
@@ -78,7 +78,7 @@ export interface GetDataManagerForAgricultureResourceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.agfoodplatform.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV4.SystemDataResponse;
     /**
      * Resource tags.
      */

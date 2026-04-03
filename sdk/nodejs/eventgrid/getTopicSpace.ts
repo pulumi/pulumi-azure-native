@@ -65,7 +65,7 @@ export interface GetTopicSpaceResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * The topic filters in the topic space.
      * Example: "topicTemplates": [ 

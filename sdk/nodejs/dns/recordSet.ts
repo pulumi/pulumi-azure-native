@@ -112,7 +112,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dns.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * A reference to an azure resource from where the dns resource value is taken.
      */

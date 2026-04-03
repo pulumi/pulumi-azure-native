@@ -58,7 +58,7 @@ export interface GetDeploymentStacksWhatIfResultsAtManagementGroupResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.resources.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

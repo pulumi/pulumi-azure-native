@@ -76,7 +76,7 @@ export interface GetAccountResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.cognitiveservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource tags.
      */

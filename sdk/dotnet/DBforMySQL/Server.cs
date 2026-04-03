@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// PrivateEndpointConnections related properties of a server.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of replicas that a primary server can have.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

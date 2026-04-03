@@ -48,7 +48,7 @@ export interface GetSiteNetworkServiceResult {
     /**
      * The managed identity of the Site network service, if configured.
      */
-    readonly identity?: outputs.hybridnetwork.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export interface GetSiteNetworkServiceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags.
      */

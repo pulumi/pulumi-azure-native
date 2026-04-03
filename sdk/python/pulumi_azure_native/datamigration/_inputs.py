@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import commontypesv6
+from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 
 __all__ = [
@@ -106,8 +108,6 @@ __all__ = [
     'GetUserTablesSqlTaskInputArgsDict',
     'GetUserTablesSqlTaskPropertiesArgs',
     'GetUserTablesSqlTaskPropertiesArgsDict',
-    'ManagedServiceIdentityArgs',
-    'ManagedServiceIdentityArgsDict',
     'MiSqlConnectionInfoArgs',
     'MiSqlConnectionInfoArgsDict',
     'MigrateMongoDbTaskPropertiesArgs',
@@ -338,7 +338,7 @@ class AzureBlobArgsDict(TypedDict):
     """
     Blob container name where backups are stored.
     """
-    identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgsDict']]
     """
     Identity details for authentication using a Managed Identity.
     """
@@ -353,7 +353,7 @@ class AzureBlobArgs:
                  account_key: Optional[pulumi.Input[_builtins.str]] = None,
                  auth_type: Optional[pulumi.Input['AuthType']] = None,
                  blob_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
                  storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Blob Details
@@ -361,7 +361,7 @@ class AzureBlobArgs:
         :param pulumi.Input[_builtins.str] account_key: Storage Account Key.
         :param pulumi.Input['AuthType'] auth_type: Authentication type used for accessing Azure Blob Storage.
         :param pulumi.Input[_builtins.str] blob_container_name: Blob container name where backups are stored.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity details for authentication using a Managed Identity.
+        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: Identity details for authentication using a Managed Identity.
         :param pulumi.Input[_builtins.str] storage_account_resource_id: Resource Id of the storage account where backups are stored.
         """
         if account_key is not None:
@@ -413,14 +413,14 @@ class AzureBlobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
         """
         Identity details for authentication using a Managed Identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -3928,59 +3928,6 @@ class GetUserTablesSqlTaskPropertiesArgs:
     @task_id.setter
     def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "task_id", value)
-
-
-class ManagedServiceIdentityArgsDict(TypedDict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-    """
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 class MiSqlConnectionInfoArgsDict(TypedDict):

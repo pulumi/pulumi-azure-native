@@ -82,7 +82,7 @@ export interface GetWebhookResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.appcomplianceautomation.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Tenant id.
      */

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -30,7 +32,7 @@ class CommunityArgs:
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']] = None,
                  policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
@@ -46,7 +48,7 @@ class CommunityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: DNS Servers.
         :param pulumi.Input[Union[_builtins.str, 'FirewallSKU']] firewall_sku: SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
         :param pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]] governed_service_list: List of services governed by a community.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceModeConfigurationModelArgs'] maintenance_mode_configuration: Maintenance Mode configuration.
         :param pulumi.Input[Union[_builtins.str, 'PolicyOverride']] policy_override: Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
@@ -178,14 +180,14 @@ class CommunityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -250,7 +252,7 @@ class Community(pulumi.CustomResource):
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
                  policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
@@ -274,7 +276,7 @@ class Community(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: DNS Servers.
         :param pulumi.Input[Union[_builtins.str, 'FirewallSKU']] firewall_sku: SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
         :param pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]] governed_service_list: List of services governed by a community.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']] maintenance_mode_configuration: Maintenance Mode configuration.
         :param pulumi.Input[Union[_builtins.str, 'PolicyOverride']] policy_override: Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
@@ -317,7 +319,7 @@ class Community(pulumi.CustomResource):
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
                  policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
@@ -460,7 +462,7 @@ class Community(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -484,7 +486,7 @@ class Community(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedOnBehalfOfConfiguration")
-    def managed_on_behalf_of_configuration(self) -> pulumi.Output['outputs.ManagedOnBehalfOfConfigurationResponse']:
+    def managed_on_behalf_of_configuration(self) -> pulumi.Output['_commontypesv5.outputs.ManagedOnBehalfOfConfigurationResponse']:
         """
         Managed On Behalf Of Configuration.
         """
@@ -532,7 +534,7 @@ class Community(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

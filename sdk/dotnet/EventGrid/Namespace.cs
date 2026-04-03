@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

@@ -8,7 +8,6 @@ from enum import Enum
 
 __all__ = [
     'CmkIdentityType',
-    'PrivateEndpointServiceConnectionStatus',
     'ProvisioningState',
     'ResourceIdentityType',
     'StorageSKU',
@@ -22,16 +21,6 @@ class CmkIdentityType(_builtins.str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-@pulumi.type_token("azure-native:fluidrelay:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:fluidrelay:ProvisioningState")

@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             Outputs.DevicePoolPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

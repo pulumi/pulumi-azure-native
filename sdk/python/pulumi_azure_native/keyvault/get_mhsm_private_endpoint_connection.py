@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetMHSMPrivateEndpointConnectionResult',
@@ -94,7 +95,7 @@ class GetMHSMPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """

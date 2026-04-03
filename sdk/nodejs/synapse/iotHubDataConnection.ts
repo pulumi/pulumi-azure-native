@@ -87,7 +87,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.synapse.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV1.SystemDataResponse>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */

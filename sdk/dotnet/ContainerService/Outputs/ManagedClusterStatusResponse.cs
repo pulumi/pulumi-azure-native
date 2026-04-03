@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse ProvisioningError;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse ProvisioningError;
 
         [OutputConstructor]
-        private ManagedClusterStatusResponse(Outputs.ErrorDetailResponse provisioningError)
+        private ManagedClusterStatusResponse(Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse provisioningError)
         {
             ProvisioningError = provisioningError;
         }

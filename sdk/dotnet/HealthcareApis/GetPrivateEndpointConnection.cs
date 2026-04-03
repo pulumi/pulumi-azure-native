@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -140,13 +140,13 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse systemData,
 
             string type)
         {

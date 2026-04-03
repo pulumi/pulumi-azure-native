@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5 as _commontypesv5
+from .. import commontypesv6 as _commontypesv6
 
 __all__ = [
     'GetServerResult',
@@ -243,7 +245,7 @@ class GetServerResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv6.outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections associated with the specified server.
         """
@@ -307,7 +309,7 @@ class GetServerResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv6.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

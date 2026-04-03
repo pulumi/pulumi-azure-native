@@ -80,7 +80,7 @@ export interface GetCloudResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.scvmm.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags
      */

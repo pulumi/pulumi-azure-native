@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Errors during provisioning
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorResponseResponse> ProvisioningErrors;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> ProvisioningErrors;
         /// <summary>
         /// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.VirtualMachineSchemaPropertiesResponse? properties,
 
-            ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> provisioningErrors,
 
             string provisioningState,
 

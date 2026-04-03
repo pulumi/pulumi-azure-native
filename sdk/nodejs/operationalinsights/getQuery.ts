@@ -81,7 +81,7 @@ export interface GetQueryResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.operationalinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Tags associated with the query.
      */

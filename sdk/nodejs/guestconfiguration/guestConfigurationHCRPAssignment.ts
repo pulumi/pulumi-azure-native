@@ -60,7 +60,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.guestconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * The type of the resource.
      */

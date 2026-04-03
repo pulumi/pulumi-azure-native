@@ -48,7 +48,7 @@ export interface GetManagedHsmResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.keyvault.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */

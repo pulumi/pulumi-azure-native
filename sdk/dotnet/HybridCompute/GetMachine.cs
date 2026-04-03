@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Details about the error state.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse> ErrorDetails;
         /// <summary>
         /// Machine Extensions information (deprecated field)
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
-        public readonly Outputs.LocationDataResponse? LocationData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.LocationDataResponse? LocationData;
         /// <summary>
         /// Specifies the hybrid machine FQDN.
         /// </summary>
@@ -246,7 +246,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -288,13 +288,13 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string domainName,
 
-            ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse> errorDetails,
 
             ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.IdentityResponse? identity,
 
             string? kind,
 
@@ -304,7 +304,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string location,
 
-            Outputs.LocationDataResponse? locationData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.LocationDataResponse? locationData,
 
             string machineFqdn,
 
@@ -338,7 +338,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

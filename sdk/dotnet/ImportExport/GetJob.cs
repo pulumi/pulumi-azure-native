@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.ImportExport
         /// <summary>
         /// SystemData of ImportExport Jobs.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.ImportExport
 
             Outputs.JobDetailsResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             object? tags,
 

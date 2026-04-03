@@ -64,7 +64,7 @@ export interface GetAccountResult {
     /**
      * The identity used for the resource.
      */
-    readonly identity?: outputs.netapp.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -80,7 +80,7 @@ export interface GetAccountResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.netapp.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

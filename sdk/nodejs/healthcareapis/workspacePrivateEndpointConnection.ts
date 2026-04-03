@@ -52,11 +52,11 @@ export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The resource of private end point.
      */
-    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.healthcareapis.PrivateEndpointResponse | undefined>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commonTypesV1.PrivateEndpointResponse | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.healthcareapis.PrivateLinkServiceConnectionStateResponse>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commonTypesV1.PrivateLinkServiceConnectionStateResponse>;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -64,7 +64,7 @@ export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV1.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -127,7 +127,7 @@ export interface WorkspacePrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.healthcareapis.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.commonTypesV1.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */

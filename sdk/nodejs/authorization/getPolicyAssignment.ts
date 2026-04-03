@@ -129,7 +129,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.authorization.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * The type of the policy assignment.
      */

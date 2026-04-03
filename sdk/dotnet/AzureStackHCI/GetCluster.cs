@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -270,7 +270,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -280,7 +280,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             AadApplicationObjectId = aadApplicationObjectId;
             AadClientId = aadClientId;

@@ -58,7 +58,7 @@ export class Vendor extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

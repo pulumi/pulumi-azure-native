@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Managed identity properties
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location for the environment type
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Managed identity properties
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location for the environment type

@@ -83,13 +83,13 @@ namespace Pulumi.AzureNative.DevCenter
         /// The SKU for Dev Boxes created using this definition.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -222,7 +222,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// The SKU for Dev Boxes created using this definition.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

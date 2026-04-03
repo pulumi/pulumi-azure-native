@@ -52,11 +52,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The resource-specific properties for this resource.
      */
-    declare public readonly properties: pulumi.Output<outputs.mongocluster.PrivateEndpointConnectionPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.commonTypesV5.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mongocluster.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -116,7 +116,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.mongocluster.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.commonTypesV5.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

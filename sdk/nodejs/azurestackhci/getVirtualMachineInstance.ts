@@ -63,7 +63,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azurestackhci.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The virtual machine instance view.
      */
@@ -103,7 +103,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

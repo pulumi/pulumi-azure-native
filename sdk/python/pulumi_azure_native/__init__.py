@@ -100,6 +100,18 @@ if typing.TYPE_CHECKING:
     codesigning = __codesigning
     import pulumi_azure_native.cognitiveservices as __cognitiveservices
     cognitiveservices = __cognitiveservices
+    import pulumi_azure_native.commontypesv1 as __commontypesv1
+    commontypesv1 = __commontypesv1
+    import pulumi_azure_native.commontypesv2 as __commontypesv2
+    commontypesv2 = __commontypesv2
+    import pulumi_azure_native.commontypesv3 as __commontypesv3
+    commontypesv3 = __commontypesv3
+    import pulumi_azure_native.commontypesv4 as __commontypesv4
+    commontypesv4 = __commontypesv4
+    import pulumi_azure_native.commontypesv5 as __commontypesv5
+    commontypesv5 = __commontypesv5
+    import pulumi_azure_native.commontypesv6 as __commontypesv6
+    commontypesv6 = __commontypesv6
     import pulumi_azure_native.communication as __communication
     communication = __communication
     import pulumi_azure_native.community as __community
@@ -564,6 +576,12 @@ else:
     cloudngfw = _utilities.lazy_import('pulumi_azure_native.cloudngfw')
     codesigning = _utilities.lazy_import('pulumi_azure_native.codesigning')
     cognitiveservices = _utilities.lazy_import('pulumi_azure_native.cognitiveservices')
+    commontypesv1 = _utilities.lazy_import('pulumi_azure_native.commontypesv1')
+    commontypesv2 = _utilities.lazy_import('pulumi_azure_native.commontypesv2')
+    commontypesv3 = _utilities.lazy_import('pulumi_azure_native.commontypesv3')
+    commontypesv4 = _utilities.lazy_import('pulumi_azure_native.commontypesv4')
+    commontypesv5 = _utilities.lazy_import('pulumi_azure_native.commontypesv5')
+    commontypesv6 = _utilities.lazy_import('pulumi_azure_native.commontypesv6')
     communication = _utilities.lazy_import('pulumi_azure_native.communication')
     community = _utilities.lazy_import('pulumi_azure_native.community')
     compute = _utilities.lazy_import('pulumi_azure_native.compute')

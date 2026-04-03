@@ -76,7 +76,7 @@ export interface GetVirtualEnclaveResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.mission.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -88,7 +88,7 @@ export interface GetVirtualEnclaveResult {
     /**
      * Managed On Behalf Of Configuration.
      */
-    readonly managedOnBehalfOfConfiguration: outputs.mission.ManagedOnBehalfOfConfigurationResponse;
+    readonly managedOnBehalfOfConfiguration: outputs.commonTypesV5.ManagedOnBehalfOfConfigurationResponse;
     /**
      * Managed resource group name.
      */
@@ -108,7 +108,7 @@ export interface GetVirtualEnclaveResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.mission.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

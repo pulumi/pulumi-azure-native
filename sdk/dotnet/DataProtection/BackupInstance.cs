@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataProtection
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Proxy Resource tags.

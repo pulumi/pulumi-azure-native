@@ -106,7 +106,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.datamigration.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Target Cosmos DB Mongo connection details.
      */

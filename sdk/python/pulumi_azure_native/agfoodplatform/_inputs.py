@@ -22,14 +22,10 @@ __all__ = [
     'ApiPropertiesArgsDict',
     'DataConnectorPropertiesArgs',
     'DataConnectorPropertiesArgsDict',
-    'IdentityArgs',
-    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
     'OAuthClientCredentialsArgs',
     'OAuthClientCredentialsArgsDict',
-    'PrivateLinkServiceConnectionStateArgs',
-    'PrivateLinkServiceConnectionStateArgsDict',
     'SensorIntegrationArgs',
     'SensorIntegrationArgsDict',
     'SolutionPropertiesArgs',
@@ -156,40 +152,6 @@ class DataConnectorPropertiesArgs:
     @credentials.setter
     def credentials(self, value: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
-
-
-class IdentityArgsDict(TypedDict):
-    """
-    Identity for the resource.
-    """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
-    """
-    The identity type.
-    """
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
-        """
-        Identity for the resource.
-
-        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
 
 
 class KeyVaultPropertiesArgsDict(TypedDict):
@@ -335,80 +297,6 @@ class OAuthClientCredentialsArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kind", value)
-
-
-class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-    """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A message indicating if changes on the service provider require any updates on the consumer.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The reason for approval/rejection of the connection.
-    """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-
-        :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 class SensorIntegrationArgsDict(TypedDict):

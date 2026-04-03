@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv1 as _commontypesv1
 from ._enums import *
 
 __all__ = [
@@ -32,9 +33,6 @@ __all__ = [
     'ImplementationGuidesConfigurationResponse',
     'IotEventHubIngestionEndpointConfigurationResponse',
     'IotMappingPropertiesResponse',
-    'PrivateEndpointConnectionResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'ResourceVersionPolicyConfigurationResponse',
     'ServiceAccessPolicyEntryResponse',
     'ServiceAcrConfigurationInfoResponse',
@@ -910,194 +908,6 @@ class IotMappingPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
-    """
-    The Private Endpoint Connection resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 name: _builtins.str,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: _builtins.str,
-                 type: _builtins.str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
-        """
-        The Private Endpoint Connection resource.
-
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param _builtins.str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The resource of private end point.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The Private Endpoint resource.
-    """
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        The Private Endpoint resource.
-
-        :param _builtins.str id: The ARM identifier for Private Endpoint
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ARM identifier for Private Endpoint
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: Optional[_builtins.str] = None,
-                 description: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-
-        :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param _builtins.str description: The reason for approval/rejection of the connection.
-        :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[_builtins.str]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[_builtins.str]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
 class ResourceVersionPolicyConfigurationResponse(dict):
     """
     The settings for history tracking for FHIR resources.
@@ -1772,7 +1582,7 @@ class ServicesPropertiesResponse(dict):
                  cosmos_db_configuration: Optional['outputs.ServiceCosmosDbConfigurationInfoResponse'] = None,
                  export_configuration: Optional['outputs.ServiceExportConfigurationInfoResponse'] = None,
                  import_configuration: Optional['outputs.ServiceImportConfigurationInfoResponse'] = None,
-                 private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
+                 private_endpoint_connections: Optional[Sequence['_commontypesv1.outputs.PrivateEndpointConnectionResponse']] = None,
                  public_network_access: Optional[_builtins.str] = None):
         """
         The properties of a service instance.
@@ -1785,7 +1595,7 @@ class ServicesPropertiesResponse(dict):
         :param 'ServiceCosmosDbConfigurationInfoResponse' cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
         :param 'ServiceExportConfigurationInfoResponse' export_configuration: The settings for the export operation of the service instance.
         :param 'ServiceImportConfigurationInfoResponse' import_configuration: The settings for the import operation of the service instance.
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
+        :param Sequence['_commontypesv1.PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param _builtins.str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1874,7 +1684,7 @@ class ServicesPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['_commontypesv1.outputs.PrivateEndpointConnectionResponse']]:
         """
         The list of private endpoint connections that are set up for this resource.
         """
@@ -2303,13 +2113,13 @@ class WorkspaceResponseProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 private_endpoint_connections: Sequence['_commontypesv1.outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: _builtins.str,
                  public_network_access: _builtins.str):
         """
         Workspaces resource specific properties.
 
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
+        :param Sequence['_commontypesv1.PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param _builtins.str provisioning_state: The provisioning state.
         :param _builtins.str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
@@ -2319,7 +2129,7 @@ class WorkspaceResponseProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv1.outputs.PrivateEndpointConnectionResponse']:
         """
         The list of private endpoint connections that are set up for this resource.
         """

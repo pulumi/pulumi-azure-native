@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the lab.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.LabServices
 
             string state,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -60,7 +60,7 @@ export interface GetConfigurationProfileResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.automanage.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource tags.
      */

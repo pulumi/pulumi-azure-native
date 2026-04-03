@@ -14,7 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._inputs import *
 
 __all__ = ['CapacityReservationGroupInitArgs', 'CapacityReservationGroup']
@@ -25,10 +26,10 @@ class CapacityReservationGroupInitArgs:
                  capacity_reservation_group_properties: pulumi.Input['CapacityReservationGroupArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv3.SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityReservationGroup resource.
@@ -36,10 +37,10 @@ class CapacityReservationGroupInitArgs:
         :param pulumi.Input['CapacityReservationGroupArgs'] capacity_reservation_group_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] group_id: Group ID
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
+        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "capacity_reservation_group_properties", capacity_reservation_group_properties)
@@ -95,14 +96,14 @@ class CapacityReservationGroupInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -131,14 +132,14 @@ class CapacityReservationGroupInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv3.SkuArgs']]:
         """
         Sku details required for ARM contract for Autoscaling.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv3.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -162,11 +163,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_properties: Optional[pulumi.Input[Union['CapacityReservationGroupArgs', 'CapacityReservationGroupArgsDict']]] = None,
                  group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -179,11 +180,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityReservationGroupArgs', 'CapacityReservationGroupArgsDict']] capacity_reservation_group_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] group_id: Group ID
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku details required for ARM contract for Autoscaling.
+        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -215,11 +216,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_properties: Optional[pulumi.Input[Union['CapacityReservationGroupArgs', 'CapacityReservationGroupArgsDict']]] = None,
                  group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -300,7 +301,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -332,7 +333,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SkuResponse']]:
         """
         Sku details required for ARM contract for Autoscaling.
         """
@@ -340,7 +341,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

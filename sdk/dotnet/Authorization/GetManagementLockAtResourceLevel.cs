@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.ManagementLockOwnerResponse> owners,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

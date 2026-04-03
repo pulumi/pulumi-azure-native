@@ -188,7 +188,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.apimanagement.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags.
      */

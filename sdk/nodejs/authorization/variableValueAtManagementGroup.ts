@@ -52,7 +52,7 @@ export class VariableValueAtManagementGroup extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/variables/values).
      */

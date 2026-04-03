@@ -84,7 +84,7 @@ export class Macc extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV6.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -108,7 +108,7 @@ export class Macc extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commonTypesV6.PlanResponse | undefined>;
     /**
      * Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
      */
@@ -136,7 +136,7 @@ export class Macc extends pulumi.CustomResource {
     /**
      * The resource model definition representing SKU
      */
-    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commonTypesV6.SkuResponse | undefined>;
     /**
      * Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
      */
@@ -148,7 +148,7 @@ export class Macc extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
     /**
      * This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
      */
@@ -289,7 +289,7 @@ export interface MaccArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV6.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -313,7 +313,7 @@ export interface MaccArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
+    plan?: pulumi.Input<inputs.commonTypesV6.PlanArgs>;
     /**
      * Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
      */
@@ -341,7 +341,7 @@ export interface MaccArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
+    sku?: pulumi.Input<inputs.commonTypesV6.SkuArgs>;
     /**
      * Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
      */

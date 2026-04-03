@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Defines the SAP monitor errors.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Errors;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse Errors;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -172,11 +172,11 @@ namespace Pulumi.AzureNative.Workloads
 
             string azureApiVersion,
 
-            Outputs.ErrorDetailResponse errors,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse errors,
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string storageAccountArmId,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

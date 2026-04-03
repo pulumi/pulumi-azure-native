@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.Security
         /// List of private endpoint connections associated with this private link. Each connection represents a private endpoint from a customer's virtual network.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// List of private link resources available for connection. For Defender services, this typically includes the 'containers' group with 'api' and regional data endpoints.
         /// </summary>
         [Output("privateLinkResources")]
-        public Output<ImmutableArray<Outputs.PrivateLinkResourceResponse>> PrivateLinkResources { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateLinkResourceResponse>> PrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
         /// The current provisioning state of the private link resource. Indicates whether the resource is being created, updated, deleted, or has completed successfully.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Security
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.PowerBI
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of the resource.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Identity details for authentication using a Managed Identity.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Resource Id of the storage account where backups are stored.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? blobContainerName,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? storageAccountResourceId)
         {

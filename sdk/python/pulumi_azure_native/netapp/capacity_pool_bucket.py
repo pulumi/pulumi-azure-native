@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv6 as _commontypesv6
 from ._inputs import *
 
 __all__ = ['CapacityPoolBucketArgs', 'CapacityPoolBucket']
@@ -354,7 +355,7 @@ class CapacityPoolBucket(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

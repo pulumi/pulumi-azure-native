@@ -13,9 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 
@@ -23,7 +23,7 @@ __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 class StorageSyncServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -33,7 +33,7 @@ class StorageSyncServiceArgs:
         The set of arguments for constructing a StorageSyncService resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -68,14 +68,14 @@ class StorageSyncServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -145,7 +145,7 @@ class StorageSyncService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -163,7 +163,7 @@ class StorageSyncService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -200,7 +200,7 @@ class StorageSyncService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -286,7 +286,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -334,7 +334,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connection associated with the specified storage sync service
         """
@@ -366,7 +366,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

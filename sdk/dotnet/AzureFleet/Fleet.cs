@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// Details of the resource plan.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The status of the last operation.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -213,7 +213,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// Details of the resource plan.
         /// </summary>
         [Input("plan")]
-        public Input<Inputs.PlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// Configuration Options for Regular instances in Compute Fleet.

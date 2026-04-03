@@ -60,7 +60,7 @@ export class Suppression extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.advisor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV4.SystemDataResponse>;
     /**
      * The duration for which the suppression is valid.
      */

@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Advisor
 
             string state,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse systemData,
 
             string type,
 

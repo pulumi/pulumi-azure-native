@@ -64,7 +64,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.redis.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV4.ManagedServiceIdentityResponse | undefined>;
     /**
      * List of the Redis instances associated with the cache
      */
@@ -92,7 +92,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * List of private endpoint connection associated with the specified redis cache
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.redis.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV4.PrivateEndpointConnectionResponse[]>;
     /**
      * Redis instance provisioning status.
      */
@@ -140,7 +140,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.redis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV4.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -270,7 +270,7 @@ export interface RedisArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.redis.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

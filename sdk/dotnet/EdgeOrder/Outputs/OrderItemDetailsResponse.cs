@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Top level error for the job.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Error;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Forward Package Shipping details.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string deletionStatus,
 
-            Outputs.ErrorDetailResponse error,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse error,
 
             Outputs.ForwardShippingDetailsResponse forwardShippingDetails,
 

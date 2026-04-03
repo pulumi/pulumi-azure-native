@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// The error object.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse? Error;
         /// <summary>
         /// URL for the details of the response.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         private GetNetworkFabricTopologyResult(
             string configurationState,
 
-            Outputs.ErrorDetailResponse? error,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse? error,
 
             string? url)
         {

@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// The errors that were encountered during the feature enrollment or disenrollment.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Error;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Properties for the Machine ESU profile.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
             string enrollmentDate,
 
-            Outputs.ErrorDetailResponse error,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse error,
 
             Outputs.LicenseProfileMachineInstanceViewEsuPropertiesResponse? esuProfile,
 

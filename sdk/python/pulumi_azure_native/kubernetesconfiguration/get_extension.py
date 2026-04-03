@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2 as _commontypesv2
 
 __all__ = [
     'GetExtensionResult',
@@ -153,7 +154,7 @@ class GetExtensionResult:
 
     @_builtins.property
     @pulumi.getter(name="errorInfo")
-    def error_info(self) -> 'outputs.ErrorDetailResponse':
+    def error_info(self) -> '_commontypesv2.outputs.ErrorDetailResponse':
         """
         Error information from the Agent - e.g. errors during installation.
         """
@@ -177,7 +178,7 @@ class GetExtensionResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['_commontypesv2.outputs.IdentityResponse']:
         """
         Identity of the Extension resource
         """
@@ -209,7 +210,7 @@ class GetExtensionResult:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['_commontypesv2.outputs.PlanResponse']:
         """
         The plan information.
         """
@@ -249,7 +250,7 @@ class GetExtensionResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv2.outputs.SystemDataResponse':
         """
         Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         """

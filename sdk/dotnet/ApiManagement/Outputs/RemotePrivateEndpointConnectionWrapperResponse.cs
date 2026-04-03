@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             Outputs.ArmIdWrapperResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 

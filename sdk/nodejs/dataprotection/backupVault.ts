@@ -68,7 +68,7 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dataprotection.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV4.SystemDataResponse>;
     /**
      * Resource tags.
      */

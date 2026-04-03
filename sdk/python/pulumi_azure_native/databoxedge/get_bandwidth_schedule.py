@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv2 as _commontypesv2
 
 __all__ = [
     'GetBandwidthScheduleResult',
@@ -114,7 +114,7 @@ class GetBandwidthScheduleResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv2.outputs.SystemDataResponse':
         """
         Metadata pertaining to creation and last modification of BandwidthSchedule
         """

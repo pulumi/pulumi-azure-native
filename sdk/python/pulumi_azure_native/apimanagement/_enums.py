@@ -41,7 +41,6 @@ __all__ = [
     'PolicyContentFormat',
     'PolicyFragmentContentFormat',
     'PolicyRestrictionRequireBase',
-    'PrivateEndpointServiceConnectionStatus',
     'ProductState',
     'Protocol',
     'ProvisioningState',
@@ -606,16 +605,6 @@ class PolicyRestrictionRequireBase(_builtins.str, Enum):
     """
     The policy does not require to have base policy
     """
-
-
-@pulumi.type_token("azure-native:apimanagement:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:apimanagement:ProductState")

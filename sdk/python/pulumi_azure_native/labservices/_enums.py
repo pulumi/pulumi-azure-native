@@ -11,9 +11,7 @@ __all__ = [
     'CreateOption',
     'EnableState',
     'RecurrenceFrequency',
-    'ResourceIdentityType',
     'ShutdownOnIdleMode',
-    'SkuTier',
     'WeekDay',
 ]
 
@@ -67,14 +65,6 @@ class RecurrenceFrequency(_builtins.str, Enum):
     """
 
 
-@pulumi.type_token("azure-native:labservices:ResourceIdentityType")
-class ResourceIdentityType(_builtins.str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
 @pulumi.type_token("azure-native:labservices:ShutdownOnIdleMode")
 class ShutdownOnIdleMode(_builtins.str, Enum):
     """
@@ -92,17 +82,6 @@ class ShutdownOnIdleMode(_builtins.str, Enum):
     """
     The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
     """
-
-
-@pulumi.type_token("azure-native:labservices:SkuTier")
-class SkuTier(_builtins.str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 @pulumi.type_token("azure-native:labservices:WeekDay")

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv1
+from .. import commontypesv1 as _commontypesv1
 from ._enums import *
 from ._inputs import *
 

@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain &lt; &gt; % &amp; \ ? /
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Billing
 
             Outputs.BillingRoleAssignmentPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -224,38 +224,6 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
-    /// Values can be systemAssignedIdentity or userAssignedIdentity
-    /// </summary>
-    [EnumType]
-    public readonly struct IdentityType : IEquatable<IdentityType>
-    {
-        private readonly string _value;
-
-        private IdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IdentityType SystemAssignedIdentity { get; } = new IdentityType("systemAssignedIdentity");
-        public static IdentityType UserAssignedIdentity { get; } = new IdentityType("userAssignedIdentity");
-        public static IdentityType DelegatedResourceIdentity { get; } = new IdentityType("delegatedResourceIdentity");
-
-        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
-        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(IdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
-        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
     /// </summary>
     [EnumType]
@@ -309,39 +277,6 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LocalAdminStatus other && Equals(other);
         public bool Equals(LocalAdminStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
-    {
-        private readonly string _value;
-
-        private ManagedServiceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
-        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
-        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
-
-        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
-        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -495,39 +430,6 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SingleSignOnStatus other && Equals(other);
         public bool Equals(SingleSignOnStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
-    {
-        private readonly string _value;
-
-        private SkuTier(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SkuTier Free { get; } = new SkuTier("Free");
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
-        public static SkuTier Standard { get; } = new SkuTier("Standard");
-        public static SkuTier Premium { get; } = new SkuTier("Premium");
-
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
-
-        public static explicit operator string(SkuTier value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -73,7 +73,7 @@ export interface GetTemplateSpecResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.resources.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
     /**
      * Resource tags.
      */

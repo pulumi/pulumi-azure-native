@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.Chaos
     }
 
     /// <summary>
-    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// overwrite default enum for type to reflect experiment's support of only one identity
     /// </summary>
     [EnumType]
     public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
@@ -53,7 +53,6 @@ namespace Pulumi.AzureNative.Chaos
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);

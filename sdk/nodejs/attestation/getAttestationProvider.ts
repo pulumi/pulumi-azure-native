@@ -58,7 +58,7 @@ export interface GetAttestationProviderResult {
     /**
      * List of private endpoint connections associated with the attestation provider.
      */
-    readonly privateEndpointConnections: outputs.attestation.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commonTypesV3.PrivateEndpointConnectionResponse[];
     /**
      * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
      */
@@ -70,7 +70,7 @@ export interface GetAttestationProviderResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.attestation.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags.
      */

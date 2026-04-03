@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Mapped Azure Load Test resource test-profile-id.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string? sourceResourceId,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string? testProfileId,
 

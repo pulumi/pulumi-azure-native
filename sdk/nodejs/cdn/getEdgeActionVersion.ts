@@ -77,7 +77,7 @@ export interface GetEdgeActionVersionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.cdn.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

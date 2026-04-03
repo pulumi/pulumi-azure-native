@@ -58,7 +58,7 @@ export interface GetGarnetClusterResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.cosmosdb.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

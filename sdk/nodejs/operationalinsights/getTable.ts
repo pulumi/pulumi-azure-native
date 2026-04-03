@@ -97,7 +97,7 @@ export interface GetTableResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.operationalinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */

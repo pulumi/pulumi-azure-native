@@ -58,7 +58,7 @@ export interface GetVirtualMachineResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.azurestackhci.IdentityResponse;
+    readonly identity?: outputs.commonTypesV3.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -94,7 +94,7 @@ export interface GetVirtualMachineResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags.
      */

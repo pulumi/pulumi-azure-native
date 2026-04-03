@@ -101,7 +101,7 @@ export interface GetWorkbookResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.applicationinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
     /**
      * Resource tags.
      */

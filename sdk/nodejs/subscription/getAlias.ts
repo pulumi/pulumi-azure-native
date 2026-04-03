@@ -51,7 +51,7 @@ export interface GetAliasResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.subscription.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource type, Microsoft.Subscription/aliases.
      */

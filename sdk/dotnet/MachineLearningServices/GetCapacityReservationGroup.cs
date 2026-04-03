@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         /// </summary>
@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -142,9 +142,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

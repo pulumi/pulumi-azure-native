@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// How long the user has used their virtual machines in this lab.
         /// </summary>
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.LabServices
 
             Outputs.ResourceOperationErrorResponse resourceOperationError,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string totalUsage,
 

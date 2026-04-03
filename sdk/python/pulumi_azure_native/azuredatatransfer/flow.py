@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -25,9 +28,9 @@ class FlowArgs:
                  connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 plan: Optional[pulumi.Input['_commontypesv5.PlanArgs']] = None,
                  properties: Optional[pulumi.Input['FlowPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -36,9 +39,9 @@ class FlowArgs:
         :param pulumi.Input[_builtins.str] connection_name: The name for the connection that is to be requested.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] flow_name: The name for the flow that is to be onboarded.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the flow resource, if configured.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The managed identity of the flow resource, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['_commontypesv5.PlanArgs'] plan: Plan for the resource.
         :param pulumi.Input['FlowPropertiesArgs'] properties: Properties of flow
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -95,14 +98,14 @@ class FlowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The managed identity of the flow resource, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -119,14 +122,14 @@ class FlowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['_commontypesv5.PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['_commontypesv5.PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -162,9 +165,9 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -181,9 +184,9 @@ class Flow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_name: The name for the connection that is to be requested.
         :param pulumi.Input[_builtins.str] flow_name: The name for the flow that is to be onboarded.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the flow resource, if configured.
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: The managed identity of the flow resource, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']] plan: Plan for the resource.
         :param pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']] properties: Properties of flow
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -219,9 +222,9 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -295,7 +298,7 @@ class Flow(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed identity of the flow resource, if configured.
         """
@@ -319,7 +322,7 @@ class Flow(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['_commontypesv5.outputs.PlanResponse']]:
         """
         Plan for the resource.
         """
@@ -335,7 +338,7 @@ class Flow(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

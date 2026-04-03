@@ -60,11 +60,11 @@ export interface GetPlanResult {
     /**
      * The SKU for DevCenters created using this definition.
      */
-    readonly sku?: outputs.devcenter.SkuResponse;
+    readonly sku?: outputs.commonTypesV5.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.devcenter.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

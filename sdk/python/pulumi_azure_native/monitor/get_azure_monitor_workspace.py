@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetAzureMonitorWorkspaceResult',
@@ -137,7 +139,7 @@ class GetAzureMonitorWorkspaceResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv4.outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections
         """
@@ -161,7 +163,7 @@ class GetAzureMonitorWorkspaceResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

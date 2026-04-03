@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ __all__ = ['NetworkFunctionArgs', 'NetworkFunction']
 class NetworkFunctionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_function_name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['NetworkFunctionValueWithSecretsArgs', 'NetworkFunctionValueWithoutSecretsArgs']]] = None,
@@ -32,7 +34,7 @@ class NetworkFunctionArgs:
         The set of arguments for constructing a NetworkFunction resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the network function.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The managed identity of the network function.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] network_function_name: Resource name for the network function resource.
         :param pulumi.Input[Union['NetworkFunctionValueWithSecretsArgs', 'NetworkFunctionValueWithoutSecretsArgs']] properties: Network function properties.
@@ -64,14 +66,14 @@ class NetworkFunctionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The managed identity of the network function.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -129,7 +131,7 @@ class NetworkFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_function_name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union[Union['NetworkFunctionValueWithSecretsArgs', 'NetworkFunctionValueWithSecretsArgsDict'], Union['NetworkFunctionValueWithoutSecretsArgs', 'NetworkFunctionValueWithoutSecretsArgsDict']]]] = None,
@@ -146,7 +148,7 @@ class NetworkFunction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the network function.
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: The managed identity of the network function.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] network_function_name: Resource name for the network function resource.
         :param pulumi.Input[Union[Union['NetworkFunctionValueWithSecretsArgs', 'NetworkFunctionValueWithSecretsArgsDict'], Union['NetworkFunctionValueWithoutSecretsArgs', 'NetworkFunctionValueWithoutSecretsArgsDict']]] properties: Network function properties.
@@ -182,7 +184,7 @@ class NetworkFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_function_name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union[Union['NetworkFunctionValueWithSecretsArgs', 'NetworkFunctionValueWithSecretsArgsDict'], Union['NetworkFunctionValueWithoutSecretsArgs', 'NetworkFunctionValueWithoutSecretsArgsDict']]]] = None,
@@ -263,7 +265,7 @@ class NetworkFunction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed identity of the network function.
         """
@@ -295,7 +297,7 @@ class NetworkFunction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

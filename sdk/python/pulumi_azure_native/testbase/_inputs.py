@@ -48,8 +48,6 @@ __all__ = [
     'ReleasePropertiesArgsDict',
     'SubscriptionReceiverValueArgs',
     'SubscriptionReceiverValueArgsDict',
-    'SystemAssignedServiceIdentityArgs',
-    'SystemAssignedServiceIdentityArgsDict',
     'TabStateArgs',
     'TabStateArgsDict',
     'TargetOSInfoArgs',
@@ -1711,39 +1709,6 @@ class SubscriptionReceiverValueArgs:
     @subscription_name.setter
     def subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subscription_name", value)
-
-
-class SystemAssignedServiceIdentityArgsDict(TypedDict):
-    """
-    Managed service identity (either system assigned, or none)
-    """
-    type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]
-    """
-    Type of managed service identity (either system assigned, or none).
-    """
-
-@pulumi.input_type
-class SystemAssignedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]):
-        """
-        Managed service identity (either system assigned, or none)
-
-        :param pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
-        """
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]:
-        """
-        Type of managed service identity (either system assigned, or none).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
 
 
 class TabStateArgsDict(TypedDict):

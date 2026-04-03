@@ -52,7 +52,7 @@ export interface GetTestBaseAccountResult {
     /**
      * The identity of the testBaseAccount.
      */
-    readonly identity?: outputs.testbase.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.SystemAssignedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export interface GetTestBaseAccountResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.testbase.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

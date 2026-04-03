@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +30,7 @@ class PoolArgs:
                  maximum_concurrency: pulumi.Input[_builtins.int],
                  organization_profile: pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  pool_name: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
@@ -42,7 +44,7 @@ class PoolArgs:
         :param pulumi.Input[_builtins.int] maximum_concurrency: Defines how many resources can there be created at any given time.
         :param pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']] organization_profile: Defines the organization in which the pool will be used.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] pool_name: Name of the pool. It needs to be globally unique.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the current operation.
@@ -139,14 +141,14 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -207,7 +209,7 @@ class Pool(pulumi.CustomResource):
                  agent_profile: Optional[pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]]] = None,
                  dev_center_project_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fabric_profile: Optional[pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  organization_profile: Optional[pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]]] = None,
@@ -229,7 +231,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]] agent_profile: Defines how the machine will be handled once it executed a job.
         :param pulumi.Input[_builtins.str] dev_center_project_resource_id: The resource id of the DevCenter Project the pool belongs to.
         :param pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']] fabric_profile: Defines the type of fabric the agent will run on.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] maximum_concurrency: Defines how many resources can there be created at any given time.
         :param pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]] organization_profile: Defines the organization in which the pool will be used.
@@ -270,7 +272,7 @@ class Pool(pulumi.CustomResource):
                  agent_profile: Optional[pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]]] = None,
                  dev_center_project_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fabric_profile: Optional[pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  organization_profile: Optional[pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]]] = None,
@@ -387,7 +389,7 @@ class Pool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -435,7 +437,7 @@ class Pool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

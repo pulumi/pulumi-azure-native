@@ -64,7 +64,7 @@ export class Export extends pulumi.CustomResource {
     /**
      * The managed identity associated with Export
      */
-    declare public readonly identity: pulumi.Output<outputs.costmanagement.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The location of the Export's managed identity. Only required when utilizing managed identity.
      */
@@ -178,7 +178,7 @@ export interface ExportArgs {
     /**
      * The managed identity associated with Export
      */
-    identity?: pulumi.Input<inputs.costmanagement.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.SystemAssignedServiceIdentityArgs>;
     /**
      * The location of the Export's managed identity. Only required when utilizing managed identity.
      */

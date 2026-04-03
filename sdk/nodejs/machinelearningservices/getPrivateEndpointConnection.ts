@@ -53,7 +53,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
     /**
      * *Same as workspace location.
      */
@@ -77,11 +77,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    readonly sku?: outputs.machinelearningservices.SkuResponse;
+    readonly sku?: outputs.commonTypesV3.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     readonly tags?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

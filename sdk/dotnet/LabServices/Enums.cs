@@ -145,36 +145,6 @@ namespace Pulumi.AzureNative.LabServices
     }
 
     /// <summary>
-    /// The identity type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
-    {
-        private readonly string _value;
-
-        private ResourceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ResourceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Whether a VM will get shutdown when it has idled for a period of time.
     /// </summary>
     [EnumType]
@@ -208,39 +178,6 @@ namespace Pulumi.AzureNative.LabServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ShutdownOnIdleMode other && Equals(other);
         public bool Equals(ShutdownOnIdleMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
-    {
-        private readonly string _value;
-
-        private SkuTier(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SkuTier Free { get; } = new SkuTier("Free");
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
-        public static SkuTier Standard { get; } = new SkuTier("Standard");
-        public static SkuTier Premium { get; } = new SkuTier("Premium");
-
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
-
-        public static explicit operator string(SkuTier value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

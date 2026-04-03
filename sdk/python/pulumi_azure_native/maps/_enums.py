@@ -7,22 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'InfrastructureEncryption',
     'Kind',
-    'ManagedServiceIdentityType',
     'Name',
-    'PrivateEndpointServiceConnectionStatus',
     'SigningKey',
 ]
-
-
-@pulumi.type_token("azure-native:maps:InfrastructureEncryption")
-class InfrastructureEncryption(_builtins.str, Enum):
-    """
-    (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
 
 
 @pulumi.type_token("azure-native:maps:Kind")
@@ -33,33 +21,12 @@ class Kind(_builtins.str, Enum):
     GEN2 = "Gen2"
 
 
-@pulumi.type_token("azure-native:maps:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-
-
 @pulumi.type_token("azure-native:maps:Name")
 class Name(_builtins.str, Enum):
     """
     The name of the SKU, in standard format (such as G2).
     """
     G2 = "G2"
-
-
-@pulumi.type_token("azure-native:maps:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:maps:SigningKey")

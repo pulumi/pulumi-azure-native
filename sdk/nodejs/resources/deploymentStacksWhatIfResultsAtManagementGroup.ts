@@ -58,7 +58,7 @@ export class DeploymentStacksWhatIfResultsAtManagementGroup extends pulumi.Custo
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resources.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
     /**
      * Resource tags.
      */

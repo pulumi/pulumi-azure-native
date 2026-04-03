@@ -13,8 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._enums import *
+from .. import commontypesv2
+from .. import commontypesv2 as _commontypesv2
 from ._inputs import *
 
 __all__ = ['PrivateEndpointConnectionByNameArgs', 'PrivateEndpointConnectionByName']
@@ -242,7 +242,7 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['_commontypesv2.outputs.PrivateEndpointResponse']]:
         """
         The resource of private end point.
         """
@@ -250,7 +250,7 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output['_commontypesv2.outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """

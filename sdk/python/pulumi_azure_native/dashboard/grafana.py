@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ __all__ = ['GrafanaArgs', 'Grafana']
 class GrafanaArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input['ManagedGrafanaPropertiesArgs']] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
@@ -33,7 +35,7 @@ class GrafanaArgs:
         The set of arguments for constructing a Grafana resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the grafana resource.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The managed identity of the grafana resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the grafana resource lives
         :param pulumi.Input['ManagedGrafanaPropertiesArgs'] properties: Properties specific to the grafana resource.
         :param pulumi.Input['ResourceSkuArgs'] sku: The Sku of the grafana resource.
@@ -68,14 +70,14 @@ class GrafanaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The managed identity of the grafana resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -145,7 +147,7 @@ class Grafana(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['ManagedGrafanaPropertiesArgs', 'ManagedGrafanaPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -163,7 +165,7 @@ class Grafana(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the grafana resource.
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: The managed identity of the grafana resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the grafana resource lives
         :param pulumi.Input[Union['ManagedGrafanaPropertiesArgs', 'ManagedGrafanaPropertiesArgsDict']] properties: Properties specific to the grafana resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -200,7 +202,7 @@ class Grafana(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['ManagedGrafanaPropertiesArgs', 'ManagedGrafanaPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -274,7 +276,7 @@ class Grafana(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed identity of the grafana resource.
         """
@@ -314,7 +316,7 @@ class Grafana(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         The system meta data relating to this grafana resource.
         """

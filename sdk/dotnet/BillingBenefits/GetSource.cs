@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The billing period of the impact for the resource. Format YYYYMM
         /// </summary>
@@ -142,11 +142,11 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Plan for the resource.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.PlanResponse? Plan;
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SkuResponse? Sku;
         /// <summary>
         /// The uri of the resource impacted which lead to the grant of the credit.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? impactedBillingPeriod,
 
@@ -190,15 +190,15 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.PlanResponse? plan,
 
-            Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.SkuResponse? sku,
 
             string? sourceResourceId,
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

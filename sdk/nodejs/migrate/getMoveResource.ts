@@ -61,7 +61,7 @@ export interface GetMoveResourceResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.migrate.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The type of the resource.
      */

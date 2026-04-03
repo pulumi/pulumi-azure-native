@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The system metadata relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

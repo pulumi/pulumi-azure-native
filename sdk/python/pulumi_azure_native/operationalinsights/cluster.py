@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class ClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  billing_type: Optional[pulumi.Input[Union[_builtins.str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
@@ -38,7 +40,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'BillingType']] billing_type: The cluster's billing type.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Log Analytics cluster.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Resource's identity.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: Resource's identity.
         :param pulumi.Input[_builtins.bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         :param pulumi.Input[_builtins.bool] is_double_encryption_enabled: Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The associated key properties.
@@ -104,14 +106,14 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         Resource's identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -195,7 +197,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: Optional[pulumi.Input[Union[_builtins.str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
@@ -216,7 +218,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'BillingType']] billing_type: The cluster's billing type.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Log Analytics cluster.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Resource's identity.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: Resource's identity.
         :param pulumi.Input[_builtins.bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         :param pulumi.Input[_builtins.bool] is_double_encryption_enabled: Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
         :param pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']] key_vault_properties: The associated key properties.
@@ -256,7 +258,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: Optional[pulumi.Input[Union[_builtins.str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
@@ -387,7 +389,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         Resource's identity.
         """

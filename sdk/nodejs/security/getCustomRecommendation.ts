@@ -82,7 +82,7 @@ export interface GetCustomRecommendationResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.security.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource type
      */

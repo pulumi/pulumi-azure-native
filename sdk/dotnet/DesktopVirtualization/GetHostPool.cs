@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         public readonly string? PersonalDesktopAssignmentType;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// List of private endpoint connection associated with the specified resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         /// </summary>
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The ring number of HostPool.
         /// </summary>
         public readonly int? Ring;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// ClientId for the registered Relying Party used to issue WVD SSO certificates.
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string id,
 
-            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
 
             string? kind,
 
@@ -269,11 +269,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? personalDesktopAssignmentType,
 
-            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             string preferredAppGroupType,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? publicNetworkAccess,
 
@@ -281,7 +281,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? ring,
 
-            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             string? ssoClientId,
 
@@ -293,7 +293,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             bool? startVMOnConnect,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -36,7 +38,7 @@ class ClusterArgs:
                  command_output_settings: Optional[pulumi.Input['CommandOutputSettingsArgs']] = None,
                  compute_deployment_threshold: Optional[pulumi.Input['ValidationThresholdArgs']] = None,
                  compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
                  runtime_protection_configuration: Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']] = None,
@@ -63,7 +65,7 @@ class ClusterArgs:
         :param pulumi.Input['ValidationThresholdArgs'] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         :param pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
                cluster, or an empty list in a single-rack cluster.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity for the resource.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input['RuntimeProtectionConfigurationArgs'] runtime_protection_configuration: The settings for cluster runtime protection.
@@ -285,14 +287,14 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -410,7 +412,7 @@ class Cluster(pulumi.CustomResource):
                  compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
                  compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -443,7 +445,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
                cluster, or an empty list in a single-rack cluster.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster manager associated with the cluster.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity for the resource.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[_builtins.str] network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
@@ -494,7 +496,7 @@ class Cluster(pulumi.CustomResource):
                  compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
                  compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -811,7 +813,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The identity for the resource.
         """
@@ -899,7 +901,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

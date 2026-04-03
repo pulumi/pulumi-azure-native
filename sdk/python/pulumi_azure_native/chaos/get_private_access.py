@@ -13,7 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv5 as _commontypesv5
+from .. import commontypesv6 as _commontypesv6
 
 __all__ = [
     'GetPrivateAccessResult',
@@ -93,7 +94,7 @@ class GetPrivateAccessResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv6.outputs.PrivateEndpointConnectionResponse']:
         """
         A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
         """
@@ -117,7 +118,7 @@ class GetPrivateAccessResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

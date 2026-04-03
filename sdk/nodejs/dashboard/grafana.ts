@@ -48,7 +48,7 @@ export class Grafana extends pulumi.CustomResource {
     /**
      * The managed identity of the grafana resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.dashboard.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the grafana resource lives
      */
@@ -68,7 +68,7 @@ export class Grafana extends pulumi.CustomResource {
     /**
      * The system meta data relating to this grafana resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dashboard.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * The tags for grafana resource.
      */
@@ -128,7 +128,7 @@ export interface GrafanaArgs {
     /**
      * The managed identity of the grafana resource.
      */
-    identity?: pulumi.Input<inputs.dashboard.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV3.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the grafana resource lives
      */

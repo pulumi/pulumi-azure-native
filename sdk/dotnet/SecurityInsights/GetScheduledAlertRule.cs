@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tactics of the alert rule
         /// </summary>
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             bool suppressionEnabled,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableArray<string> tactics,
 

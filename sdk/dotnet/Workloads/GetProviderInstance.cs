@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Defines the provider instance errors.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Errors;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse Errors;
         /// <summary>
         /// Resource health details
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Workloads
         private GetProviderInstanceResult(
             string azureApiVersion,
 
-            Outputs.ErrorDetailResponse errors,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse errors,
 
             Outputs.HealthResponse health,
 
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string type)
         {

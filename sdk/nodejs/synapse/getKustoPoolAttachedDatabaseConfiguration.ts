@@ -84,7 +84,7 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.synapse.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
     /**
      * Table level sharing specifications
      */

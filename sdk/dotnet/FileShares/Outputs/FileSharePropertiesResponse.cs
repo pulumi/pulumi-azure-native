@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.FileShares.Outputs
         /// <summary>
         /// The list of associated private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The file sharing protocol for this file share.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.FileShares.Outputs
 
             Outputs.NfsProtocolPropertiesResponse? nfsProtocolProperties,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? protocol,
 

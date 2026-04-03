@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Collection of errors encountered when doing os patching.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorResponseResponse> OsPatchingErrors;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> OsPatchingErrors;
         /// <summary>
         /// The os patching status.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private OsPatchingStatusResponse(
             string? latestPatchTime,
 
-            ImmutableArray<Outputs.ErrorResponseResponse> osPatchingErrors,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> osPatchingErrors,
 
             string? patchStatus,
 

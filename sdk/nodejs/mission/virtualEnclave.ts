@@ -76,7 +76,7 @@ export class VirtualEnclave extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.mission.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,7 +88,7 @@ export class VirtualEnclave extends pulumi.CustomResource {
     /**
      * Managed On Behalf Of Configuration.
      */
-    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
+    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.commonTypesV5.ManagedOnBehalfOfConfigurationResponse>;
     /**
      * Managed resource group name.
      */
@@ -108,7 +108,7 @@ export class VirtualEnclave extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -224,7 +224,7 @@ export interface VirtualEnclaveArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.mission.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -108,7 +108,7 @@ export interface GetCacheResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.storagecache.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource tags.
      */

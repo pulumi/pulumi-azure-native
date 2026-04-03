@@ -54,7 +54,7 @@ export class EnvironmentSpecificationVersion extends pulumi.CustomResource {
     /**
      * System data associated with resource provider
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -48,7 +48,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.storagesync.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ManagedServiceIdentityResponse | undefined>;
     /**
      * Incoming Traffic Policy
      */
@@ -72,7 +72,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * List of private endpoint connection associated with the specified storage sync service
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.storagesync.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV5.PrivateEndpointConnectionResponse[]>;
     /**
      * StorageSyncService Provisioning State
      */
@@ -88,7 +88,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -164,7 +164,7 @@ export interface StorageSyncServiceArgs {
     /**
      * managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.storagesync.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.ManagedServiceIdentityArgs>;
     /**
      * Incoming Traffic Policy
      */

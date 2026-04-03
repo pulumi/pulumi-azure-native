@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -221,7 +221,7 @@ namespace Pulumi.AzureNative.Resources
 
             ImmutableArray<string> supportingScriptUris,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -65,7 +65,7 @@ export interface GetB2CTenantResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.azureactivedirectory.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Resource Tags
      */

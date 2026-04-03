@@ -130,7 +130,7 @@ export interface GetClusterResult {
     /**
      * The identity for the resource.
      */
-    readonly identity?: outputs.networkcloud.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -174,7 +174,7 @@ export interface GetClusterResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.networkcloud.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

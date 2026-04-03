@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv2 as _commontypesv2
 
 __all__ = [
     'GetPrivateEndpointConnectionResult',
@@ -76,7 +76,7 @@ class GetPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> Optional['_commontypesv2.outputs.PrivateEndpointResponse']:
         """
         The resource of private end point.
         """
@@ -84,7 +84,7 @@ class GetPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> '_commontypesv2.outputs.PrivateLinkServiceConnectionStateResponse':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """

@@ -83,7 +83,7 @@ export interface GetExtensionResult {
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    readonly errorInfo: outputs.kubernetesconfiguration.ErrorDetailResponse;
+    readonly errorInfo: outputs.commonTypesV2.ErrorDetailResponse;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
@@ -95,7 +95,7 @@ export interface GetExtensionResult {
     /**
      * Identity of the Extension resource
      */
-    readonly identity?: outputs.kubernetesconfiguration.IdentityResponse;
+    readonly identity?: outputs.commonTypesV2.IdentityResponse;
     /**
      * Flag to note if this extension is a system extension
      */
@@ -111,7 +111,7 @@ export interface GetExtensionResult {
     /**
      * The plan information.
      */
-    readonly plan?: outputs.kubernetesconfiguration.PlanResponse;
+    readonly plan?: outputs.commonTypesV2.PlanResponse;
     /**
      * Status of installation of this extension.
      */
@@ -131,7 +131,7 @@ export interface GetExtensionResult {
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData: outputs.kubernetesconfiguration.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

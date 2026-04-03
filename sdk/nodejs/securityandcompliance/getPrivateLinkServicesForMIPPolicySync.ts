@@ -70,7 +70,7 @@ export interface GetPrivateLinkServicesForMIPPolicySyncResult {
     /**
      * Required property for system data
      */
-    readonly systemData: outputs.securityandcompliance.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The resource tags.
      */

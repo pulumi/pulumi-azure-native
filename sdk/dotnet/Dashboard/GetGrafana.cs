@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed identity of the grafana resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the grafana resource lives
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The system meta data relating to this grafana resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags for grafana resource.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Dashboard
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Dashboard
 
             Outputs.ResourceSkuResponse? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

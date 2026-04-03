@@ -59,7 +59,7 @@ export interface GetRegistrationAssignmentResult {
     /**
      * The metadata for the registration assignment resource.
      */
-    readonly systemData: outputs.managedservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
      */

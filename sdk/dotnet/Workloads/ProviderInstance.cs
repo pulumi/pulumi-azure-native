@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the provider instance errors.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
 
         /// <summary>
         /// Resource health details
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

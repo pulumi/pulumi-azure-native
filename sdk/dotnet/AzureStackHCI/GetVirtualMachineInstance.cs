@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The virtual machine instance view.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? identity,
 
             Outputs.VirtualMachineInstanceViewResponse instanceView,
 
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             Outputs.VirtualMachineInstancePropertiesStorageProfileResponse? storageProfile,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string type,
 

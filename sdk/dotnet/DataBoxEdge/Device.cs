@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// DataBoxEdge Resource
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).

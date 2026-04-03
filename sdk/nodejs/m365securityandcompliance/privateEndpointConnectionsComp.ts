@@ -62,7 +62,7 @@ export class PrivateEndpointConnectionsComp extends pulumi.CustomResource {
     /**
      * Required property for system data
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.m365securityandcompliance.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

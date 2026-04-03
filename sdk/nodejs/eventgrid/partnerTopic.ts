@@ -94,7 +94,7 @@ export class PartnerTopic extends pulumi.CustomResource {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Tags of the resource.
      */

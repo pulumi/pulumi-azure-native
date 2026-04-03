@@ -72,7 +72,7 @@ export interface GetConditionalCreditResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.billingbenefits.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -92,7 +92,7 @@ export interface GetConditionalCreditResult {
     /**
      * Plan for the resource.
      */
-    readonly plan?: outputs.billingbenefits.PlanResponse;
+    readonly plan?: outputs.commonTypesV6.PlanResponse;
     /**
      * Product code for the conditional credit
      */
@@ -108,7 +108,7 @@ export interface GetConditionalCreditResult {
     /**
      * The resource model definition representing SKU
      */
-    readonly sku?: outputs.billingbenefits.SkuResponse;
+    readonly sku?: outputs.commonTypesV6.SkuResponse;
     /**
      * Start date of the conditional credit
      */
@@ -120,7 +120,7 @@ export interface GetConditionalCreditResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.billingbenefits.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

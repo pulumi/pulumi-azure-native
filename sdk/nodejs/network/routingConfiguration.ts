@@ -66,7 +66,7 @@ export class RoutingConfiguration extends pulumi.CustomResource {
     /**
      * The system metadata related to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.network.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource type.
      */

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 
 __all__ = [
@@ -406,8 +408,6 @@ __all__ = [
     'ManagedResourceGroupAssignedIdentitiesArgsDict',
     'ManagedResourceGroupSettingsArgs',
     'ManagedResourceGroupSettingsArgsDict',
-    'ManagedServiceIdentityArgs',
-    'ManagedServiceIdentityArgsDict',
     'MarketplaceSubscriptionPropertiesArgs',
     'MarketplaceSubscriptionPropertiesArgsDict',
     'MaterializationComputeResourceArgs',
@@ -568,8 +568,6 @@ __all__ = [
     'SetupScriptsArgsDict',
     'SharedPrivateLinkResourceArgs',
     'SharedPrivateLinkResourceArgsDict',
-    'SkuArgs',
-    'SkuArgsDict',
     'SparkJobPythonEntryArgs',
     'SparkJobPythonEntryArgsDict',
     'SparkJobScalaEntryArgs',
@@ -23692,7 +23690,7 @@ class ManagedComputeIdentityArgsDict(TypedDict):
     Monitor compute identity type enum.
     Expected value is 'ManagedIdentity'.
     """
-    identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgsDict']]
     """
     The identity which will be leveraged by the monitoring jobs.
     """
@@ -23701,13 +23699,13 @@ class ManagedComputeIdentityArgsDict(TypedDict):
 class ManagedComputeIdentityArgs:
     def __init__(__self__, *,
                  compute_identity_type: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None):
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None):
         """
         Managed compute identity definition.
 
         :param pulumi.Input[_builtins.str] compute_identity_type: Monitor compute identity type enum.
                Expected value is 'ManagedIdentity'.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity which will be leveraged by the monitoring jobs.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The identity which will be leveraged by the monitoring jobs.
         """
         pulumi.set(__self__, "compute_identity_type", 'ManagedIdentity')
         if identity is not None:
@@ -23728,14 +23726,14 @@ class ManagedComputeIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The identity which will be leveraged by the monitoring jobs.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
 
@@ -24720,59 +24718,6 @@ class ManagedResourceGroupSettingsArgs:
     @assigned_identities.setter
     def assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "assigned_identities", value)
-
-
-class ManagedServiceIdentityArgsDict(TypedDict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-    """
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 class MarketplaceSubscriptionPropertiesArgsDict(TypedDict):
@@ -32277,119 +32222,6 @@ class SharedPrivateLinkResourceArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
-
-
-class SkuArgsDict(TypedDict):
-    """
-    The resource model definition representing SKU
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the SKU. Ex - P3. It is typically a letter+number code
-    """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-    """
-    family: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    If the service has different generations of hardware, for the same SKU, then that can be captured here.
-    """
-    size: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-    """
-    tier: NotRequired[pulumi.Input['SkuTier']]
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
-        """
-        The resource model definition representing SKU
-
-        :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
-        :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "capacity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "family", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "size", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
-        pulumi.set(self, "tier", value)
 
 
 class SparkJobPythonEntryArgsDict(TypedDict):

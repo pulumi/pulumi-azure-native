@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Collection of errors encountered by various compute nodes during node setup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorResponseResponse> Errors;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> Errors;
         /// <summary>
         /// Network is isolated or not
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             bool? enableNodePublicIp,
 
-            ImmutableArray<Outputs.ErrorResponseResponse> errors,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> errors,
 
             bool? isolatedNetwork,
 

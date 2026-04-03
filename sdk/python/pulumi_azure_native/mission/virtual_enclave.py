@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +31,7 @@ class VirtualEnclaveArgs:
                  enclave_default_settings: Optional[pulumi.Input['EnclaveDefaultSettingsModelArgs']] = None,
                  enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -45,7 +47,7 @@ class VirtualEnclaveArgs:
         :param pulumi.Input['EnclaveDefaultSettingsModelArgs'] enclave_default_settings: Enclave default settings.
         :param pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]] enclave_role_assignments: Enclave role assignments
         :param pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]] governed_service_list: Enclave specific policies
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceModeConfigurationModelArgs'] maintenance_mode_configuration: Maintenance Mode configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -164,14 +166,14 @@ class VirtualEnclaveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -247,7 +249,7 @@ class VirtualEnclave(pulumi.CustomResource):
                  enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
                  enclave_virtual_network: Optional[pulumi.Input[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -271,7 +273,7 @@ class VirtualEnclave(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]] enclave_role_assignments: Enclave role assignments
         :param pulumi.Input[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']] enclave_virtual_network: Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]] governed_service_list: Enclave specific policies
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']] maintenance_mode_configuration: Maintenance Mode configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -314,7 +316,7 @@ class VirtualEnclave(pulumi.CustomResource):
                  enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
                  enclave_virtual_network: Optional[pulumi.Input[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
                  governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -472,7 +474,7 @@ class VirtualEnclave(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -496,7 +498,7 @@ class VirtualEnclave(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedOnBehalfOfConfiguration")
-    def managed_on_behalf_of_configuration(self) -> pulumi.Output['outputs.ManagedOnBehalfOfConfigurationResponse']:
+    def managed_on_behalf_of_configuration(self) -> pulumi.Output['_commontypesv5.outputs.ManagedOnBehalfOfConfigurationResponse']:
         """
         Managed On Behalf Of Configuration.
         """
@@ -536,7 +538,7 @@ class VirtualEnclave(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

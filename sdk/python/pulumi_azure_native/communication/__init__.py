@@ -22,5 +22,4 @@ from .sender_username import *
 from .smtp_username import *
 from .suppression_list import *
 from .suppression_list_address import *
-from ._inputs import *
 from . import outputs

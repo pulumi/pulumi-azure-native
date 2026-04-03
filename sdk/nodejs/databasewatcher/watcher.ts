@@ -56,7 +56,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.databasewatcher.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV4.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -76,7 +76,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -148,7 +148,7 @@ export interface WatcherArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.databasewatcher.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -47,7 +47,7 @@ export interface GetMapDependencyViewForAllMachinesResult {
     /**
      * Contains error details if status is Failed/Canceled.
      */
-    readonly error?: outputs.dependencymap.ErrorDetailResponse;
+    readonly error?: outputs.commonTypesV3.ErrorDetailResponse;
     /**
      * The status URL of the asynchronous operation.
      */

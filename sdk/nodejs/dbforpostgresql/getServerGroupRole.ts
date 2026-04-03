@@ -67,7 +67,7 @@ export interface GetServerGroupRoleResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV4.SystemDataResponse;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.
      */

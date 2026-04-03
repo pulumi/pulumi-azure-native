@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Details about the error state.
         /// </summary>
         [Output("errorDetails")]
-        public Output<ImmutableArray<Outputs.ErrorDetailResponse>> ErrorDetails { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse>> ErrorDetails { get; private set; } = null!;
 
         /// <summary>
         /// Machine Extensions information (deprecated field)
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
         [Output("locationData")]
-        public Output<Outputs.LocationDataResponse?> LocationData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.LocationDataResponse?> LocationData { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the hybrid machine FQDN.
@@ -233,7 +233,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -374,7 +374,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
@@ -398,7 +398,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
         [Input("locationData")]
-        public Input<Inputs.LocationDataArgs>? LocationData { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.LocationDataArgs>? LocationData { get; set; }
 
         /// <summary>
         /// The name of the hybrid machine.

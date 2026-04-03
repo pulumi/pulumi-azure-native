@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv2 as _commontypesv2
 
 __all__ = [
     'GetSecurityOperatorResult',
@@ -62,7 +62,7 @@ class GetSecurityOperatorResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['_commontypesv2.outputs.IdentityResponse']:
         """
         Identity for the resource.
         """

@@ -73,7 +73,7 @@ export interface GetWorkspaceManagerAssignmentResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * The resource name of the workspace manager group targeted by the workspace manager assignment
      */

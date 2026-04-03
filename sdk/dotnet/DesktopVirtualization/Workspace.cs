@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         [Output("identity")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -89,13 +89,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> ObjectId { get; private set; } = null!;
 
         [Output("plan")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// List of private endpoint connection associated with the specified resource
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         [Output("sku")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         [Input("identity")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string>? ManagedBy { get; set; }
 
         [Input("plan")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
@@ -266,7 +266,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("sku")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

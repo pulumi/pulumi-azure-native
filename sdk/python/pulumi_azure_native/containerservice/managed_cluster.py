@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4 as _commontypesv4
+from .. import commontypesv5 as _commontypesv5
+from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -1243,7 +1246,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="identityProfile")
-    def identity_profile(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']]]:
+    def identity_profile(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]]:
         """
         The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
         """
@@ -1467,7 +1470,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

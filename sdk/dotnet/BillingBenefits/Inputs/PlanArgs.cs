@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        /// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;

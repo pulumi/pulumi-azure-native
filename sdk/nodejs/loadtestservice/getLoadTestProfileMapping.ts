@@ -60,7 +60,7 @@ export interface GetLoadTestProfileMappingResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.loadtestservice.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Mapped Azure Load Test resource test-profile-id.
      */

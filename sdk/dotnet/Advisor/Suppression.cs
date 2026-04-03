@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Advisor
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The duration for which the suppression is valid.

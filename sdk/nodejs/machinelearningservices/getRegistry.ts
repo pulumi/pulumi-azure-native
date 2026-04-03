@@ -52,7 +52,7 @@ export interface GetRegistryResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
     /**
      * IntellectualPropertyPublisher for the registry
      */
@@ -97,11 +97,11 @@ export interface GetRegistryResult {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    readonly sku?: outputs.machinelearningservices.SkuResponse;
+    readonly sku?: outputs.commonTypesV3.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -135,7 +136,6 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointConnectionResponseV1',
     'PrivateEndpointConnectionResponseV2',
-    'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProjectPropertiesResponse',
     'ProjectSummaryResponse',
@@ -11662,22 +11662,22 @@ class PrivateEndpointConnectionResponse(dict):
                  group_ids: Sequence[_builtins.str],
                  id: _builtins.str,
                  name: _builtins.str,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 private_link_service_connection_state: '_commontypesv5.outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
-                 system_data: 'outputs.SystemDataResponse',
+                 system_data: '_commontypesv5.outputs.SystemDataResponse',
                  type: _builtins.str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+                 private_endpoint: Optional['_commontypesv5.outputs.PrivateEndpointResponse'] = None):
         """
         Private endpoint connection resource.
 
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param '_commontypesv5.PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param '_commontypesv5.SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        :param '_commontypesv5.PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
         pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
@@ -11715,7 +11715,7 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> '_commontypesv5.outputs.PrivateLinkServiceConnectionStateResponse':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -11731,7 +11731,7 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -11747,7 +11747,7 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> Optional['_commontypesv5.outputs.PrivateEndpointResponse']:
         """
         The private endpoint resource.
         """
@@ -11934,29 +11934,6 @@ class PrivateEndpointConnectionResponseV2(dict):
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The private endpoint resource.
-    """
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        The private endpoint resource.
-
-        :param _builtins.str id: The ARM identifier for private endpoint.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ARM identifier for private endpoint.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -14888,7 +14865,7 @@ class SystemDataResponse(dict):
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_at: The type of identity that last modified the resource.
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -14933,7 +14910,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[_builtins.str]:
         """
-        The timestamp of resource last modification (UTC)
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_at")
 

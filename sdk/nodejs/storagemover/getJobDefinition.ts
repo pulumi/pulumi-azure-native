@@ -106,7 +106,7 @@ export interface GetJobDefinitionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.storagemover.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * The name of the target Endpoint.
      */

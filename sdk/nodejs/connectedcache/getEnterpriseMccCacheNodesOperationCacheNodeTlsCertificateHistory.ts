@@ -59,7 +59,7 @@ export interface GetEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHisto
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.connectedcache.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -65,7 +65,7 @@ export interface GetMaintenanceConfigurationResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.containerservice.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */

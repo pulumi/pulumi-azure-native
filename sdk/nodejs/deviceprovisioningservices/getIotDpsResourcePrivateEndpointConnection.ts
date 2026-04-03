@@ -61,7 +61,7 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.deviceprovisioningservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The resource type.
      */

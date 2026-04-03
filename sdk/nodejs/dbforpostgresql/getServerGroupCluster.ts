@@ -184,7 +184,7 @@ export interface GetServerGroupClusterResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV4.SystemDataResponse;
     /**
      * Resource tags.
      */

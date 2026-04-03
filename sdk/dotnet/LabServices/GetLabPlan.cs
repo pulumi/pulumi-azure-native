@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Managed Identity Information
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Base Url of the lms instance this lab plan can link lab rosters against.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the lab plan.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.LabServices
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.IdentityResponse? identity,
 
             string? linkedLmsInstance,
 
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.LabServices
 
             Outputs.SupportInfoResponse? supportInfo,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

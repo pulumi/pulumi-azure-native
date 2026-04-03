@@ -104,7 +104,7 @@ export interface GetServerResult {
     /**
      * List of private endpoint connections associated with the specified server.
      */
-    readonly privateEndpointConnections: outputs.dbforpostgresql.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commonTypesV6.PrivateEndpointConnectionResponse[];
     /**
      * Read replica properties of a server. Required only in case that you want to promote a server.
      */
@@ -136,7 +136,7 @@ export interface GetServerResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

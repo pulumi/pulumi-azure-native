@@ -78,8 +78,6 @@ __all__ = [
     'TargetPropertiesArgsDict',
     'TaskPropertiesArgs',
     'TaskPropertiesArgsDict',
-    'TrackedResourceArgs',
-    'TrackedResourceArgsDict',
     'UpdateConfigurationArgs',
     'UpdateConfigurationArgsDict',
     'WindowsPropertiesArgs',
@@ -2226,59 +2224,6 @@ class TaskPropertiesArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source", value)
-
-
-class TrackedResourceArgsDict(TypedDict):
-    """
-    The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
-    """
-    location: pulumi.Input[_builtins.str]
-    """
-    The geo-location where the resource lives
-    """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    Resource tags.
-    """
-
-@pulumi.input_type
-class TrackedResourceArgs:
-    def __init__(__self__, *,
-                 location: pulumi.Input[_builtins.str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
-        """
-        The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
-
-        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        """
-        pulumi.set(__self__, "location", location)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> pulumi.Input[_builtins.str]:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "tags", value)
 
 
 class UpdateConfigurationArgsDict(TypedDict):

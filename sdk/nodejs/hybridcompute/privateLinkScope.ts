@@ -60,7 +60,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * Resource tags
      */

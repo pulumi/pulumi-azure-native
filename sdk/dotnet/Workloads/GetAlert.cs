@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Defines the alert instance errors.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Errors;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse Errors;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Name of the alert template from which it was created.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string azureApiVersion,
 
-            Outputs.ErrorDetailResponse errors,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse errors,
 
             string id,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string? templateName,
 

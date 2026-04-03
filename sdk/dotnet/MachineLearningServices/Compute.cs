@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -53,13 +53,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The sku of the workspace.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

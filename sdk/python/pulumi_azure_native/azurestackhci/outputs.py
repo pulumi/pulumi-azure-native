@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv5 as _commontypesv5
+from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 
 __all__ = [
@@ -50,9 +53,7 @@ __all__ = [
     'EdgeMachineRemoteSupportJobReportedPropertiesResponse',
     'EdgeMachineRemoteSupportNodeSettingsResponse',
     'EdgeMachineReportedPropertiesResponse',
-    'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
-    'ErrorDetailResponseV1',
     'ExtendedLocationResponse',
     'ExtensionInstanceViewResponse',
     'ExtensionInstanceViewResponseStatus',
@@ -91,7 +92,6 @@ __all__ = [
     'IPConfigurationResponse',
     'IPPoolInfoResponse',
     'IPPoolResponse',
-    'IdentityResponse',
     'ImageArmReferenceResponse',
     'InboundNATRulePropertiesResponse',
     'InboundNATRuleResponse',
@@ -125,7 +125,6 @@ __all__ = [
     'LogicalNetworkStatusResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
-    'ManagedServiceIdentityResponse',
     'MarketplaceGalleryImageStatusDownloadStatusResponse',
     'MarketplaceGalleryImageStatusProvisioningStatusResponse',
     'MarketplaceGalleryImageStatusResponse',
@@ -200,11 +199,9 @@ __all__ = [
     'SubnetResponse',
     'SwitchDetailResponse',
     'SwitchExtensionResponse',
-    'SystemDataResponse',
     'TargetDeviceConfigurationResponse',
     'TimeConfigurationResponse',
     'UpdatePrerequisiteResponse',
-    'UserAssignedIdentityResponse',
     'UserDetailsResponse',
     'VMDiskSecurityProfileResponse',
     'VirtualHardDiskArmReferenceResponse',
@@ -2047,7 +2044,7 @@ class DownloadOsJobPropertiesResponse(dict):
     def __init__(__self__, *,
                  download_request: 'outputs.DownloadRequestResponse',
                  end_time_utc: _builtins.str,
-                 error: 'outputs.ErrorDetailResponse',
+                 error: '_commontypesv6.outputs.ErrorDetailResponse',
                  job_id: _builtins.str,
                  job_type: _builtins.str,
                  provisioning_state: _builtins.str,
@@ -2060,7 +2057,7 @@ class DownloadOsJobPropertiesResponse(dict):
 
         :param 'DownloadRequestResponse' download_request: Download OS request.
         :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
-        :param 'ErrorDetailResponse' error: error details.
+        :param '_commontypesv6.ErrorDetailResponse' error: error details.
         :param _builtins.str job_id: Unique, immutable job id.
         :param _builtins.str job_type: Job Type supported.
                Expected value is 'DownloadOs'.
@@ -2101,7 +2098,7 @@ class DownloadOsJobPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDetailResponse':
+    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
         """
         error details.
         """
@@ -2539,7 +2536,7 @@ class EdgeMachineCollectLogJobPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  end_time_utc: _builtins.str,
-                 error: 'outputs.ErrorDetailResponse',
+                 error: '_commontypesv6.outputs.ErrorDetailResponse',
                  from_date: _builtins.str,
                  job_id: _builtins.str,
                  job_type: _builtins.str,
@@ -2554,7 +2551,7 @@ class EdgeMachineCollectLogJobPropertiesResponse(dict):
         Properties for pausing a server in the cluster.
 
         :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
-        :param 'ErrorDetailResponse' error: error details.
+        :param '_commontypesv6.ErrorDetailResponse' error: error details.
         :param _builtins.str from_date: From date for log collection.
         :param _builtins.str job_id: Unique, immutable job id.
         :param _builtins.str job_type: Job Type supported.
@@ -2591,7 +2588,7 @@ class EdgeMachineCollectLogJobPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDetailResponse':
+    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
         """
         error details.
         """
@@ -3329,7 +3326,7 @@ class EdgeMachineRemoteSupportJobPropertiesResponse(dict):
     def __init__(__self__, *,
                  access_level: _builtins.str,
                  end_time_utc: _builtins.str,
-                 error: 'outputs.ErrorDetailResponse',
+                 error: '_commontypesv6.outputs.ErrorDetailResponse',
                  expiration_timestamp: _builtins.str,
                  job_id: _builtins.str,
                  job_type: _builtins.str,
@@ -3344,7 +3341,7 @@ class EdgeMachineRemoteSupportJobPropertiesResponse(dict):
 
         :param _builtins.str access_level: Remote support access level.
         :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
-        :param 'ErrorDetailResponse' error: error details.
+        :param '_commontypesv6.ErrorDetailResponse' error: error details.
         :param _builtins.str expiration_timestamp: Remote support expiration timestamp.
         :param _builtins.str job_id: Unique, immutable job id.
         :param _builtins.str job_type: Job Type supported.
@@ -3388,7 +3385,7 @@ class EdgeMachineRemoteSupportJobPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDetailResponse':
+    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
         """
         error details.
         """
@@ -3769,125 +3766,7 @@ class EdgeMachineReportedPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ErrorAdditionalInfoResponse(dict):
-    """
-    The resource management error additional info.
-    """
-    def __init__(__self__, *,
-                 info: Any,
-                 type: _builtins.str):
-        """
-        The resource management error additional info.
-
-        :param Any info: The additional info.
-        :param _builtins.str type: The additional info type.
-        """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def info(self) -> Any:
-        """
-        The additional info.
-        """
-        return pulumi.get(self, "info")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The additional info type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class ErrorDetailResponse(dict):
-    """
-    The error detail.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "additionalInfo":
-            suggest = "additional_info"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ErrorDetailResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ErrorDetailResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
-                 code: _builtins.str,
-                 details: Sequence['outputs.ErrorDetailResponse'],
-                 message: _builtins.str,
-                 target: _builtins.str):
-        """
-        The error detail.
-
-        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
-        :param _builtins.str code: The error code.
-        :param Sequence['ErrorDetailResponse'] details: The error details.
-        :param _builtins.str message: The error message.
-        :param _builtins.str target: The error target.
-        """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
-
-    @_builtins.property
-    @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
-        """
-        The error additional info.
-        """
-        return pulumi.get(self, "additional_info")
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> _builtins.str:
-        """
-        The error code.
-        """
-        return pulumi.get(self, "code")
-
-    @_builtins.property
-    @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
-        """
-        The error details.
-        """
-        return pulumi.get(self, "details")
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> _builtins.str:
-        """
-        The error message.
-        """
-        return pulumi.get(self, "message")
-
-    @_builtins.property
-    @pulumi.getter
-    def target(self) -> _builtins.str:
-        """
-        The error target.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
-class ErrorDetailResponseV1(dict):
     """
     details of validation failure
     """
@@ -4188,7 +4067,7 @@ class ExtensionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 error_details: Sequence['outputs.ErrorDetailResponseV1'],
+                 error_details: Sequence['outputs.ErrorDetailResponse'],
                  extension_name: _builtins.str,
                  extension_resource_id: _builtins.str,
                  managed_by: Optional[_builtins.str] = None,
@@ -4197,7 +4076,7 @@ class ExtensionResponse(dict):
         """
         Arc extension installed on edge device.
 
-        :param Sequence['ErrorDetailResponseV1'] error_details: Error details while installing Arc extension.
+        :param Sequence['ErrorDetailResponse'] error_details: Error details while installing Arc extension.
         :param _builtins.str extension_name: Arc extension name installed on edge device.
         :param _builtins.str extension_resource_id: Arc Extension Azure resource id.
         :param _builtins.str managed_by: Extension managed by user or Azure.
@@ -4215,7 +4094,7 @@ class ExtensionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponseV1']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         Error details while installing Arc extension.
         """
@@ -4775,7 +4654,7 @@ class GuestAgentInstallStatusResponse(dict):
 
     def __init__(__self__, *,
                  agent_version: _builtins.str,
-                 error_details: Sequence['outputs.ErrorDetailResponse'],
+                 error_details: Sequence['_commontypesv5.outputs.ErrorDetailResponse'],
                  last_status_change: _builtins.str,
                  status: _builtins.str,
                  vm_uuid: _builtins.str):
@@ -4783,7 +4662,7 @@ class GuestAgentInstallStatusResponse(dict):
         Defines the status of a guest agent installation.
 
         :param _builtins.str agent_version: The hybrid machine agent full version.
-        :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
+        :param Sequence['_commontypesv5.ErrorDetailResponse'] error_details: Details about the error state.
         :param _builtins.str last_status_change: The time of the last status change.
         :param _builtins.str status: The installation status of the hybrid machine agent installation.
         :param _builtins.str vm_uuid: Specifies the VM's unique SMBIOS ID.
@@ -4804,7 +4683,7 @@ class GuestAgentInstallStatusResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['_commontypesv5.outputs.ErrorDetailResponse']:
         """
         Details about the error state.
         """
@@ -4865,7 +4744,7 @@ class GuestAgentProfileResponse(dict):
 
     def __init__(__self__, *,
                  agent_version: _builtins.str,
-                 error_details: Sequence['outputs.ErrorDetailResponse'],
+                 error_details: Sequence['_commontypesv3.outputs.ErrorDetailResponse'],
                  last_status_change: _builtins.str,
                  status: _builtins.str,
                  vm_uuid: _builtins.str):
@@ -4873,7 +4752,7 @@ class GuestAgentProfileResponse(dict):
         Defines the resource properties.
 
         :param _builtins.str agent_version: The hybrid machine agent full version.
-        :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
+        :param Sequence['_commontypesv3.ErrorDetailResponse'] error_details: Details about the error state.
         :param _builtins.str last_status_change: The time of the last status change.
         :param _builtins.str status: The status of the hybrid machine agent.
         :param _builtins.str vm_uuid: Specifies the VM's unique SMBIOS ID.
@@ -4894,7 +4773,7 @@ class GuestAgentProfileResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['_commontypesv3.outputs.ErrorDetailResponse']:
         """
         Details about the error state.
         """
@@ -6855,71 +6734,6 @@ class IPPoolResponse(dict):
         Start of the IP address pool
         """
         return pulumi.get(self, "start")
-
-
-@pulumi.output_type
-class IdentityResponse(dict):
-    """
-    Identity for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: Optional[_builtins.str] = None):
-        """
-        Identity for the resource.
-
-        :param _builtins.str principal_id: The principal ID of resource identity.
-        :param _builtins.str tenant_id: The tenant ID of resource.
-        :param _builtins.str type: The identity type.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -9334,84 +9148,6 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
 
 
 @pulumi.output_type
-class ManagedServiceIdentityResponse(dict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
 class MarketplaceGalleryImageStatusDownloadStatusResponse(dict):
     """
     The download status of the gallery image
@@ -10748,7 +10484,7 @@ class OperationDetailResponse(dict):
 
     def __init__(__self__, *,
                  description: _builtins.str,
-                 error: 'outputs.ErrorDetailResponse',
+                 error: '_commontypesv6.outputs.ErrorDetailResponse',
                  id: _builtins.str,
                  name: _builtins.str,
                  resource_id: _builtins.str,
@@ -10758,7 +10494,7 @@ class OperationDetailResponse(dict):
         operation detail.
 
         :param _builtins.str description: operation description.
-        :param 'ErrorDetailResponse' error: error details.
+        :param '_commontypesv6.ErrorDetailResponse' error: error details.
         :param _builtins.str id: operation id.
         :param _builtins.str name: operation name.
         :param _builtins.str resource_id: operation resource id.
@@ -10783,7 +10519,7 @@ class OperationDetailResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDetailResponse':
+    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
         """
         error details.
         """
@@ -11667,7 +11403,7 @@ class ProvisionOsJobPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  end_time_utc: _builtins.str,
-                 error: 'outputs.ErrorDetailResponse',
+                 error: '_commontypesv6.outputs.ErrorDetailResponse',
                  job_id: _builtins.str,
                  job_type: _builtins.str,
                  provisioning_request: 'outputs.ProvisioningRequestResponse',
@@ -11680,7 +11416,7 @@ class ProvisionOsJobPropertiesResponse(dict):
         Represents the properties of an Azure Linux restricted operating environment Provision Os job.
 
         :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
-        :param 'ErrorDetailResponse' error: error details.
+        :param '_commontypesv6.ErrorDetailResponse' error: error details.
         :param _builtins.str job_id: Unique, immutable job id.
         :param _builtins.str job_type: Job Type supported.
                Expected value is 'ProvisionOs'.
@@ -11714,7 +11450,7 @@ class ProvisionOsJobPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDetailResponse':
+    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
         """
         error details.
         """
@@ -14849,117 +14585,6 @@ class SwitchExtensionResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[_builtins.str] = None,
-                 created_by: Optional[_builtins.str] = None,
-                 created_by_type: Optional[_builtins.str] = None,
-                 last_modified_at: Optional[_builtins.str] = None,
-                 last_modified_by: Optional[_builtins.str] = None,
-                 last_modified_by_type: Optional[_builtins.str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-
-        :param _builtins.str created_at: The timestamp of resource creation (UTC).
-        :param _builtins.str created_by: The identity that created the resource.
-        :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
-        :param _builtins.str last_modified_by: The identity that last modified the resource.
-        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @_builtins.property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
 class TargetDeviceConfigurationResponse(dict):
     """
     Device configuration.
@@ -15184,59 +14809,6 @@ class UpdatePrerequisiteResponse(dict):
         Version of the prerequisite.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponse(dict):
-    """
-    User assigned identity properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        User assigned identity properties
-
-        :param _builtins.str client_id: The client ID of the assigned identity.
-        :param _builtins.str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

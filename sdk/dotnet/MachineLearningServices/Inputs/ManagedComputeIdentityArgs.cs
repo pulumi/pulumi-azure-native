@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// The identity which will be leveraged by the monitoring jobs.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         public ManagedComputeIdentityArgs()
         {

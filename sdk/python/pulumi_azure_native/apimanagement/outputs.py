@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2 as _commontypesv2
 from ._enums import *
 
 __all__ = [
@@ -67,8 +68,6 @@ __all__ = [
     'ParameterContractResponse',
     'ParameterExampleContractResponse',
     'PipelineDiagnosticSettingsResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'RemotePrivateEndpointConnectionWrapperResponse',
     'RepresentationContractResponse',
     'RequestContractResponse',
@@ -77,7 +76,6 @@ __all__ = [
     'ResponseContractResponse',
     'SamplingSettingsResponse',
     'SubscriptionKeyParameterNamesContractResponse',
-    'SystemDataResponse',
     'TokenBodyParameterContractResponse',
     'UserIdentityContractResponse',
     'UserIdentityPropertiesResponse',
@@ -3035,94 +3033,6 @@ class PipelineDiagnosticSettingsResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The Private Endpoint resource.
-    """
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        The Private Endpoint resource.
-
-        :param _builtins.str id: The ARM identifier for Private Endpoint
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ARM identifier for Private Endpoint
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: Optional[_builtins.str] = None,
-                 description: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-
-        :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param _builtins.str description: The reason for approval/rejection of the connection.
-        :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[_builtins.str]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[_builtins.str]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
 class RemotePrivateEndpointConnectionWrapperResponse(dict):
     """
     Remote Private Endpoint Connection resource.
@@ -3152,7 +3062,7 @@ class RemotePrivateEndpointConnectionWrapperResponse(dict):
 
     def __init__(__self__, *,
                  group_ids: Sequence[_builtins.str],
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 private_link_service_connection_state: '_commontypesv2.outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
@@ -3162,7 +3072,7 @@ class RemotePrivateEndpointConnectionWrapperResponse(dict):
         Remote Private Endpoint Connection resource.
 
         :param Sequence[_builtins.str] group_ids: All the Group ids.
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param '_commontypesv2.PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param _builtins.str id: Private Endpoint connection resource id
         :param _builtins.str name: Private Endpoint Connection Name
@@ -3191,7 +3101,7 @@ class RemotePrivateEndpointConnectionWrapperResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> '_commontypesv2.outputs.PrivateLinkServiceConnectionStateResponse':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -3688,117 +3598,6 @@ class SubscriptionKeyParameterNamesContractResponse(dict):
         Subscription key query string parameter name.
         """
         return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[_builtins.str] = None,
-                 created_by: Optional[_builtins.str] = None,
-                 created_by_type: Optional[_builtins.str] = None,
-                 last_modified_at: Optional[_builtins.str] = None,
-                 last_modified_by: Optional[_builtins.str] = None,
-                 last_modified_by_type: Optional[_builtins.str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-
-        :param _builtins.str created_at: The timestamp of resource creation (UTC).
-        :param _builtins.str created_by: The identity that created the resource.
-        :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
-        :param _builtins.str last_modified_by: The identity that last modified the resource.
-        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @_builtins.property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

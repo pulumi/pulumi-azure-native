@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.Migrate
         /// The private endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Migrate
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

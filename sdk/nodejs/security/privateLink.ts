@@ -56,11 +56,11 @@ export class PrivateLink extends pulumi.CustomResource {
     /**
      * List of private endpoint connections associated with this private link. Each connection represents a private endpoint from a customer's virtual network.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.security.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV6.PrivateEndpointConnectionResponse[]>;
     /**
      * List of private link resources available for connection. For Defender services, this typically includes the 'containers' group with 'api' and regional data endpoints.
      */
-    declare public /*out*/ readonly privateLinkResources: pulumi.Output<outputs.security.PrivateLinkResourceResponse[]>;
+    declare public /*out*/ readonly privateLinkResources: pulumi.Output<outputs.commonTypesV6.PrivateLinkResourceResponse[]>;
     /**
      * The current provisioning state of the private link resource. Indicates whether the resource is being created, updated, deleted, or has completed successfully.
      */
@@ -68,7 +68,7 @@ export class PrivateLink extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
     /**
      * Resource tags.
      */

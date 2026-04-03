@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetDataManagerForAgricultureResourceResult',
@@ -86,7 +87,7 @@ class GetDataManagerForAgricultureResourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['_commontypesv4.outputs.IdentityResponse']:
         """
         Identity for the resource.
         """
@@ -118,7 +119,7 @@ class GetDataManagerForAgricultureResourceResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv4.outputs.PrivateEndpointConnectionResponse']:
         """
         Private endpoints.
         """
@@ -150,7 +151,7 @@ class GetDataManagerForAgricultureResourceResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv4.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -104,7 +104,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * List of private endpoint connections associated with the specified server.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV6.PrivateEndpointConnectionResponse[]>;
     /**
      * Read replica properties of a server. Required only in case that you want to promote a server.
      */
@@ -136,7 +136,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
     /**
      * Resource tags.
      */

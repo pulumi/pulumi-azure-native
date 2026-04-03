@@ -84,7 +84,7 @@ export class DicomService extends pulumi.CustomResource {
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV1.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state.
      */

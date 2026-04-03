@@ -48,7 +48,7 @@ export interface GetEdgeMachineResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azurestackhci.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export interface GetEdgeMachineResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -58,7 +58,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     /**
      * The metadata for the registration assignment resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managedservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
     /**
      * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */

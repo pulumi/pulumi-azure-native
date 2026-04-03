@@ -66,7 +66,7 @@ export interface GetFreeServiceResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.billingbenefits.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -86,7 +86,7 @@ export interface GetFreeServiceResult {
     /**
      * Plan for the resource.
      */
-    readonly plan?: outputs.billingbenefits.PlanResponse;
+    readonly plan?: outputs.commonTypesV6.PlanResponse;
     /**
      * This is the catalog UPN for the product.
      */
@@ -98,7 +98,7 @@ export interface GetFreeServiceResult {
     /**
      * The resource model definition representing SKU
      */
-    readonly sku?: outputs.billingbenefits.SkuResponse;
+    readonly sku?: outputs.commonTypesV6.SkuResponse;
     /**
      * Date and time when the free services become active
      */
@@ -110,7 +110,7 @@ export interface GetFreeServiceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.billingbenefits.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * This is the globally unique identifier of the free services which will not change for its lifetime.
      */

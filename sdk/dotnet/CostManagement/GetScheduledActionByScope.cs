@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Kind of the scheduled action.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type,
 

@@ -106,7 +106,7 @@ export interface GetPrivateRecordSetResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.privatedns.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */

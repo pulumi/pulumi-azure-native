@@ -108,7 +108,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * Resource tags.
      */

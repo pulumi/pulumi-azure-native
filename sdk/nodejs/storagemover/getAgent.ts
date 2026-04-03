@@ -98,7 +98,7 @@ export interface GetAgentResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.storagemover.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
     /**
      * The agent's local time zone represented in Windows format.
      */

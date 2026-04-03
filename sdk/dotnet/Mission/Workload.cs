@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Mission
         /// Managed On Behalf Of Configuration.
         /// </summary>
         [Output("managedOnBehalfOfConfiguration")]
-        public Output<Outputs.ManagedOnBehalfOfConfigurationResponse> ManagedOnBehalfOfConfiguration { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedOnBehalfOfConfigurationResponse> ManagedOnBehalfOfConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Mission
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -72,7 +72,7 @@ export interface GetGraphQueryResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.resourcegraph.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags
      */

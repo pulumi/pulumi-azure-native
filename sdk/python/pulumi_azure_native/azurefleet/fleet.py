@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,9 +29,9 @@ class FleetArgs:
                  vm_sizes_profile: pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]],
                  additional_locations_profile: Optional[pulumi.Input['AdditionalLocationsProfileArgs']] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 plan: Optional[pulumi.Input['_commontypesv5.PlanArgs']] = None,
                  regular_priority_profile: Optional[pulumi.Input['RegularPriorityProfileArgs']] = None,
                  spot_priority_profile: Optional[pulumi.Input['SpotPriorityProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -43,9 +45,9 @@ class FleetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
         :param pulumi.Input['AdditionalLocationsProfileArgs'] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Compute Fleet
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
+        :param pulumi.Input['_commontypesv5.PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input['RegularPriorityProfileArgs'] regular_priority_profile: Configuration Options for Regular instances in Compute Fleet.
         :param pulumi.Input['SpotPriorityProfileArgs'] spot_priority_profile: Configuration Options for Spot instances in Compute Fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -138,14 +140,14 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -162,14 +164,14 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['_commontypesv5.PlanArgs']]:
         """
         Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['_commontypesv5.PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -242,9 +244,9 @@ class Fleet(pulumi.CustomResource):
                  additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
                  compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']]] = None,
                  regular_priority_profile: Optional[pulumi.Input[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
@@ -266,9 +268,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
         :param pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']] compute_profile: Compute Profile to use for running user's workloads.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Compute Fleet
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Details of the resource plan.
+        :param pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']] plan: Details of the resource plan.
         :param pulumi.Input[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']] regular_priority_profile: Configuration Options for Regular instances in Compute Fleet.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']] spot_priority_profile: Configuration Options for Spot instances in Compute Fleet.
@@ -309,9 +311,9 @@ class Fleet(pulumi.CustomResource):
                  additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
                  compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv5.PlanArgs', '_commontypesv5.PlanArgsDict']]] = None,
                  regular_priority_profile: Optional[pulumi.Input[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
@@ -424,7 +426,7 @@ class Fleet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -448,7 +450,7 @@ class Fleet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['_commontypesv5.outputs.PlanResponse']]:
         """
         Details of the resource plan.
         """
@@ -480,7 +482,7 @@ class Fleet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

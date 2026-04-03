@@ -84,7 +84,7 @@ export interface GetSecurityConnectorResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.security.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * A list of key value pairs that describe the resource.
      */

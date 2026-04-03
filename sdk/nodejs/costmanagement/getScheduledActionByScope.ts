@@ -88,7 +88,7 @@ export interface GetScheduledActionByScopeResult {
     /**
      * Kind of the scheduled action.
      */
-    readonly systemData: outputs.costmanagement.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

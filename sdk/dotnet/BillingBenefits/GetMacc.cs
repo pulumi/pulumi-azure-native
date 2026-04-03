@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Plan for the resource.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.PlanResponse? Plan;
         /// <summary>
         /// Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
         /// </summary>
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SkuResponse? Sku;
         /// <summary>
         /// Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -248,7 +248,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.PlanResponse? plan,
 
             string? primaryBillingAccountResourceId,
 
@@ -262,13 +262,13 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             Outputs.ShortfallResponse? shortfall,
 
-            Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.SkuResponse? sku,
 
             string? startAt,
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
 
             string? systemId,
 

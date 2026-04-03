@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.HealthDataAIServices.Outputs
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The status of the last operation.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.HealthDataAIServices.Outputs
 
         [OutputConstructor]
         private DeidServicePropertiesResponse(
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

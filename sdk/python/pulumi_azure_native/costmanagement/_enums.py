@@ -41,7 +41,6 @@ __all__ = [
     'ScheduledActionStatus',
     'SettingsKind',
     'StatusType',
-    'SystemAssignedServiceIdentityType',
     'ThresholdType',
     'TimeGrainType',
     'TimeframeType',
@@ -483,15 +482,6 @@ class StatusType(_builtins.str, Enum):
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
-
-
-@pulumi.type_token("azure-native:costmanagement:SystemAssignedServiceIdentityType")
-class SystemAssignedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (either system assigned, or none).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:costmanagement:ThresholdType")

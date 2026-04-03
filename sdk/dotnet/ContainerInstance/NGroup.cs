@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

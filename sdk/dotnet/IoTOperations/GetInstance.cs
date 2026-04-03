@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.IoTOperations
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.IoTOperations
 
             Outputs.InstancePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

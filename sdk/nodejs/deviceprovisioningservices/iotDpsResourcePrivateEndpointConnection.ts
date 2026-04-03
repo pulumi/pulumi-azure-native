@@ -56,7 +56,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceprovisioningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * The resource type.
      */

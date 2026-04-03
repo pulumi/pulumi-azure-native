@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Distinguishes the kind of cluster. Read-only.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// List of private endpoint connections associated with the specified Redis Enterprise cluster
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Current provisioning status of the cluster
@@ -229,7 +229,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -73,7 +73,7 @@ export interface GetFleetspaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.cosmosdb.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Configuration for throughput pool in the fleetspace.
      */

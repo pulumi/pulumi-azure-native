@@ -61,7 +61,7 @@ export interface GetSourceResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.billingbenefits.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
     /**
      * The billing period of the impact for the resource. Format YYYYMM
      */
@@ -85,11 +85,11 @@ export interface GetSourceResult {
     /**
      * Plan for the resource.
      */
-    readonly plan?: outputs.billingbenefits.PlanResponse;
+    readonly plan?: outputs.commonTypesV6.PlanResponse;
     /**
      * The resource model definition representing SKU
      */
-    readonly sku?: outputs.billingbenefits.SkuResponse;
+    readonly sku?: outputs.commonTypesV6.SkuResponse;
     /**
      * The uri of the resource impacted which lead to the grant of the credit.
      */
@@ -101,7 +101,7 @@ export interface GetSourceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.billingbenefits.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

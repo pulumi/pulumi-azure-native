@@ -106,7 +106,7 @@ export interface GetEventHubDataConnectionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.synapse.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */

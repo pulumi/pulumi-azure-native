@@ -13,9 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._enums import *
-from ._inputs import *
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = ['PlanArgs', 'Plan']
 
@@ -25,7 +24,7 @@ class PlanArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv5.SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Plan resource.
@@ -33,7 +32,7 @@ class PlanArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
-        :param pulumi.Input['SkuArgs'] sku: The SKU for DevCenters created using this definition.
+        :param pulumi.Input['_commontypesv5.SkuArgs'] sku: The SKU for DevCenters created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -84,14 +83,14 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv5.SkuArgs']]:
         """
         The SKU for DevCenters created using this definition.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv5.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -116,7 +115,7 @@ class Plan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  plan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -132,7 +131,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU for DevCenters created using this definition.
+        :param pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']] sku: The SKU for DevCenters created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -167,7 +166,7 @@ class Plan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  plan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -258,7 +257,7 @@ class Plan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv5.outputs.SkuResponse']]:
         """
         The SKU for DevCenters created using this definition.
         """
@@ -266,7 +265,7 @@ class Plan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

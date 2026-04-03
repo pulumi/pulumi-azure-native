@@ -57,7 +57,7 @@ export interface GetWorkloadResult {
     /**
      * Managed On Behalf Of Configuration.
      */
-    readonly managedOnBehalfOfConfiguration: outputs.mission.ManagedOnBehalfOfConfigurationResponse;
+    readonly managedOnBehalfOfConfiguration: outputs.commonTypesV5.ManagedOnBehalfOfConfigurationResponse;
     /**
      * The name of the resource
      */
@@ -73,7 +73,7 @@ export interface GetWorkloadResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.mission.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

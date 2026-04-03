@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv6
+from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -31,19 +33,19 @@ class MaccArgs:
                  commitment: Optional[pulumi.Input['CommitmentArgs']] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  macc_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  milestones: Optional[pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 plan: Optional[pulumi.Input['_commontypesv6.PlanArgs']] = None,
                  primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  shortfall: Optional[pulumi.Input['ShortfallArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv6.SkuArgs']] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -60,19 +62,19 @@ class MaccArgs:
         :param pulumi.Input['CommitmentArgs'] commitment: Commitment towards the benefit.
         :param pulumi.Input[_builtins.str] display_name: Display name
         :param pulumi.Input[_builtins.str] end_at: Must be end of month. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] macc_name: Name of primary MACC.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]] milestones: List of milestones associated with this MACC.
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['_commontypesv6.PlanArgs'] plan: Plan for the resource.
         :param pulumi.Input[_builtins.str] primary_billing_account_resource_id: Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
         :param pulumi.Input[_builtins.str] primary_resource_id: Fully-qualified resource identifier of the primary MACC. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         :param pulumi.Input[_builtins.str] product_code: Represents catalog UPN.
         :param pulumi.Input[_builtins.str] resource_id: This is the resource identifier of either the primary MACC or the contributor. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         :param pulumi.Input['ShortfallArgs'] shortfall: MACC shortfall
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input['_commontypesv6.SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] start_at: Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
         :param pulumi.Input[Union[_builtins.str, 'MaccStatus']] status: Represents the current status of the MACC.
         :param pulumi.Input[_builtins.str] system_id: This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
@@ -239,14 +241,14 @@ class MaccArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -311,14 +313,14 @@ class MaccArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['_commontypesv6.PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['_commontypesv6.PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -383,14 +385,14 @@ class MaccArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv6.SkuArgs']]:
         """
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv6.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -456,20 +458,20 @@ class Macc(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_type: Optional[pulumi.Input[Union[_builtins.str, 'MaccEntityType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  macc_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  milestones: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
                  primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  shortfall: Optional[pulumi.Input[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -493,20 +495,20 @@ class Macc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: Display name
         :param pulumi.Input[_builtins.str] end_at: Must be end of month. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
         :param pulumi.Input[Union[_builtins.str, 'MaccEntityType']] entity_type: Represents type of the object being operated on. Possible values are primary or contributor.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] macc_name: Name of primary MACC.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]] milestones: List of milestones associated with this MACC.
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']] plan: Plan for the resource.
         :param pulumi.Input[_builtins.str] primary_billing_account_resource_id: Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
         :param pulumi.Input[_builtins.str] primary_resource_id: Fully-qualified resource identifier of the primary MACC. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         :param pulumi.Input[_builtins.str] product_code: Represents catalog UPN.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: This is the resource identifier of either the primary MACC or the contributor. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         :param pulumi.Input[Union['ShortfallArgs', 'ShortfallArgsDict']] shortfall: MACC shortfall
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] start_at: Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
         :param pulumi.Input[Union[_builtins.str, 'MaccStatus']] status: Represents the current status of the MACC.
         :param pulumi.Input[_builtins.str] system_id: This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
@@ -549,20 +551,20 @@ class Macc(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_type: Optional[pulumi.Input[Union[_builtins.str, 'MaccEntityType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  macc_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  milestones: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
                  primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  shortfall: Optional[pulumi.Input[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -750,7 +752,7 @@ class Macc(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -798,7 +800,7 @@ class Macc(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['_commontypesv6.outputs.PlanResponse']]:
         """
         Plan for the resource.
         """
@@ -854,7 +856,7 @@ class Macc(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv6.outputs.SkuResponse']]:
         """
         The resource model definition representing SKU
         """
@@ -878,7 +880,7 @@ class Macc(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             ImmutableArray<Outputs.SubResourceResponse> skus,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

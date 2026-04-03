@@ -88,7 +88,7 @@ export interface GetMaintenanceConfigurationResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.maintenance.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Gets or sets tags of the resource
      */

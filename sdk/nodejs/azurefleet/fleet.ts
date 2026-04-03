@@ -56,7 +56,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.azurefleet.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Details of the resource plan.
      */
-    declare public readonly plan: pulumi.Output<outputs.azurefleet.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commonTypesV5.PlanResponse | undefined>;
     /**
      * The status of the last operation.
      */
@@ -84,7 +84,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurefleet.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -200,7 +200,7 @@ export interface FleetArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurefleet.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -208,7 +208,7 @@ export interface FleetArgs {
     /**
      * Details of the resource plan.
      */
-    plan?: pulumi.Input<inputs.azurefleet.PlanArgs>;
+    plan?: pulumi.Input<inputs.commonTypesV5.PlanArgs>;
     /**
      * Configuration Options for Regular instances in Compute Fleet.
      */

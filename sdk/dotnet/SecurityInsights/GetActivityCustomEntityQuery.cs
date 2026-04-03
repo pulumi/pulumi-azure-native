@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The template id this activity was created from
         /// </summary>
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             ImmutableArray<ImmutableArray<string>> requiredInputFieldsSets,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string? templateName,
 

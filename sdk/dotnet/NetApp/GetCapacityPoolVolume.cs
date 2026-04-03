@@ -333,7 +333,7 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// T2 network information
         /// </summary>
@@ -482,7 +482,7 @@ namespace Pulumi.AzureNative.NetApp
 
             string subnetId,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string t2Network,
 

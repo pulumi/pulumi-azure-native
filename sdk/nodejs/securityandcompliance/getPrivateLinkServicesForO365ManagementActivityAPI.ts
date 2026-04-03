@@ -70,7 +70,7 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIResult {
     /**
      * Required property for system data
      */
-    readonly systemData: outputs.securityandcompliance.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The resource tags.
      */

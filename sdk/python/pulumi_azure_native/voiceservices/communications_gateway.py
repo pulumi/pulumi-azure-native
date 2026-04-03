@@ -14,6 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 from ._inputs import *
 
@@ -34,11 +38,11 @@ class CommunicationsGatewayArgs:
                  custom_sip_headers: Optional[pulumi.Input['CustomSipHeadersPropertiesArgs']] = None,
                  dns_delegations: Optional[pulumi.Input['DnsDelegationsPropertiesArgs']] = None,
                  emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
                  integrated_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  on_prem_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv3.SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  teams_voicemail_pilot_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -56,11 +60,11 @@ class CommunicationsGatewayArgs:
         :param pulumi.Input['CustomSipHeadersPropertiesArgs'] custom_sip_headers: Custom SIP Header to add to any subscriber with a custom_header value, if required.
         :param pulumi.Input['DnsDelegationsPropertiesArgs'] dns_delegations: Details of DNS Domains to delegate to the Communications Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.bool] integrated_mcp_enabled: Whether an integrated Mobile Control Point is in use.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
-        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
         """
@@ -249,14 +253,14 @@ class CommunicationsGatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -297,14 +301,14 @@ class CommunicationsGatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv3.SkuArgs']]:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv3.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -347,14 +351,14 @@ class CommunicationsGateway(pulumi.CustomResource):
                  dns_delegations: Optional[pulumi.Input[Union['DnsDelegationsPropertiesArgs', 'DnsDelegationsPropertiesArgsDict']]] = None,
                  e911_type: Optional[pulumi.Input[Union[_builtins.str, 'E911Type']]] = None,
                  emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  integrated_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  on_prem_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CommunicationsPlatform']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  teams_voicemail_pilot_number: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -377,14 +381,14 @@ class CommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[Union['DnsDelegationsPropertiesArgs', 'DnsDelegationsPropertiesArgsDict']] dns_delegations: Details of DNS Domains to delegate to the Communications Gateway.
         :param pulumi.Input[Union[_builtins.str, 'E911Type']] e911_type: How to handle 911 calls
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.bool] integrated_mcp_enabled: Whether an integrated Mobile Control Point is in use.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CommunicationsPlatform']]]] platforms: What platforms to support
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]] service_locations: The regions in which to deploy the resources needed for Teams Calling
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
         """
@@ -426,14 +430,14 @@ class CommunicationsGateway(pulumi.CustomResource):
                  dns_delegations: Optional[pulumi.Input[Union['DnsDelegationsPropertiesArgs', 'DnsDelegationsPropertiesArgsDict']]] = None,
                  e911_type: Optional[pulumi.Input[Union[_builtins.str, 'E911Type']]] = None,
                  emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  integrated_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  on_prem_mcp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CommunicationsPlatform']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  teams_voicemail_pilot_number: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -641,7 +645,7 @@ class CommunicationsGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -705,7 +709,7 @@ class CommunicationsGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SkuResponse']]:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
@@ -721,7 +725,7 @@ class CommunicationsGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

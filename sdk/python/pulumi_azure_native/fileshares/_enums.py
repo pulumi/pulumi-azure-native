@@ -8,7 +8,6 @@ from enum import Enum
 
 __all__ = [
     'MediaTier',
-    'PrivateEndpointServiceConnectionStatus',
     'Protocol',
     'PublicNetworkAccess',
     'Redundancy',
@@ -25,16 +24,6 @@ class MediaTier(_builtins.str, Enum):
     """
     SSD media tier.
     """
-
-
-@pulumi.type_token("azure-native:fileshares:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:fileshares:Protocol")

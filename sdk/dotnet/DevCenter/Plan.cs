@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.DevCenter
         /// The SKU for DevCenters created using this definition.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// The SKU for DevCenters created using this definition.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

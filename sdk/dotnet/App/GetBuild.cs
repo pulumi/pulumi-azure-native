@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Endpoint to use to retrieve an authentication token for log streaming and uploading source code.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.App
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string tokenEndpoint,
 

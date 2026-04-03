@@ -64,7 +64,7 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
     /**
      * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    declare public readonly identity: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -108,7 +108,7 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -204,7 +204,7 @@ export interface ContainerAppsSessionPoolArgs {
     /**
      * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tenant id of the principal
         /// </summary>
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string role,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse systemData,
 
             string? tenantId,
 

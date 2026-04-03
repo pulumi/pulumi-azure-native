@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class VirtualMachineArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['VirtualMachinePropertiesHardwareProfileArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.IdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input['VirtualMachinePropertiesNetworkProfileArgs']] = None,
                  os_profile: Optional[pulumi.Input['VirtualMachinePropertiesOsProfileArgs']] = None,
@@ -39,7 +41,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualMachinePropertiesHardwareProfileArgs'] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input['_commontypesv3.IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['VirtualMachinePropertiesNetworkProfileArgs'] network_profile: NetworkProfile - describes the network configuration the virtual machine
         :param pulumi.Input['VirtualMachinePropertiesOsProfileArgs'] os_profile: OsProfile - describes the configuration of the operating system and sets login data
@@ -108,14 +110,14 @@ class VirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.IdentityArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -211,7 +213,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesHardwareProfileArgs', 'VirtualMachinePropertiesHardwareProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesNetworkProfileArgs', 'VirtualMachinePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesOsProfileArgs', 'VirtualMachinePropertiesOsProfileArgsDict']]] = None,
@@ -231,7 +233,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union['VirtualMachinePropertiesHardwareProfileArgs', 'VirtualMachinePropertiesHardwareProfileArgsDict']] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['VirtualMachinePropertiesNetworkProfileArgs', 'VirtualMachinePropertiesNetworkProfileArgsDict']] network_profile: NetworkProfile - describes the network configuration the virtual machine
         :param pulumi.Input[Union['VirtualMachinePropertiesOsProfileArgs', 'VirtualMachinePropertiesOsProfileArgsDict']] os_profile: OsProfile - describes the configuration of the operating system and sets login data
@@ -270,7 +272,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesHardwareProfileArgs', 'VirtualMachinePropertiesHardwareProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesNetworkProfileArgs', 'VirtualMachinePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachinePropertiesOsProfileArgs', 'VirtualMachinePropertiesOsProfileArgsDict']]] = None,
@@ -386,7 +388,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.IdentityResponse']]:
         """
         Identity for the resource.
         """
@@ -458,7 +460,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

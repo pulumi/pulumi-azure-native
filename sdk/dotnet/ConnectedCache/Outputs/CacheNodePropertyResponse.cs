@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
         /// <summary>
         /// Mcc response error details.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse? Error;
         /// <summary>
         /// The provisioned state of the resource
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
 
             Outputs.CacheNodeEntityResponse? cacheNode,
 
-            Outputs.ErrorDetailResponse? error,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse? error,
 
             string provisioningState,
 

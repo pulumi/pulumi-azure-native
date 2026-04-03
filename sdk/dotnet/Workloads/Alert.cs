@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the alert instance errors.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Name of the alert template from which it was created.

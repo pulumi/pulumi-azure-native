@@ -144,7 +144,7 @@ export interface GetClusterResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -164,7 +164,7 @@ export interface GetClusterResult {
     /**
      * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
      */
-    readonly userAssignedIdentities?: {[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse};
+    readonly userAssignedIdentities?: {[key: string]: outputs.commonTypesV4.UserAssignedIdentityResponse};
 }
 /**
  * Get HCI cluster.

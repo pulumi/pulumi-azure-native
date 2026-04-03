@@ -48,7 +48,7 @@ export interface GetNamespaceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.deviceregistry.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV5.SystemAssignedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export interface GetNamespaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.deviceregistry.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Resource tags.
      */

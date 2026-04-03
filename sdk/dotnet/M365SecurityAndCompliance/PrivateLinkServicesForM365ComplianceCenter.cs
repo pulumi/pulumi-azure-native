@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// Required property for system data
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

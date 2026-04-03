@@ -86,7 +86,7 @@ export interface GetAutomationRuleResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
     /**
      * Describes automation rule triggering logic.
      */

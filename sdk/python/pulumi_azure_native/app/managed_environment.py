@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -31,7 +33,7 @@ class ManagedEnvironmentArgs:
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
                  disk_encryption_configuration: Optional[pulumi.Input['DiskEncryptionConfigurationArgs']] = None,
                  environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  ingress_configuration: Optional[pulumi.Input['IngressConfigurationArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -56,7 +58,7 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input[_builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input['DiskEncryptionConfigurationArgs'] disk_encryption_configuration: Disk encryption configuration for the Managed Environment.
         :param pulumi.Input[_builtins.str] environment_name: Name of the Environment.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         :param pulumi.Input['IngressConfigurationArgs'] ingress_configuration: Ingress configuration for the Managed Environment.
         :param pulumi.Input[_builtins.str] kind: Kind of the Environment.
@@ -224,14 +226,14 @@ class ManagedEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -393,7 +395,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
                  disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -426,7 +428,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']] disk_encryption_configuration: Disk encryption configuration for the Managed Environment.
         :param pulumi.Input[_builtins.str] environment_name: Name of the Environment.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         :param pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']] ingress_configuration: Ingress configuration for the Managed Environment.
         :param pulumi.Input[_builtins.str] kind: Kind of the Environment.
@@ -478,7 +480,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
                  disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -695,7 +697,7 @@ class ManagedEnvironment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         """
@@ -815,7 +817,7 @@ class ManagedEnvironment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

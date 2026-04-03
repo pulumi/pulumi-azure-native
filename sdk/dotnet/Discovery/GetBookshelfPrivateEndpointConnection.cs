@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -126,9 +126,9 @@ namespace Pulumi.AzureNative.Discovery
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             string type)
         {

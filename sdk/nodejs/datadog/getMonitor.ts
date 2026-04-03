@@ -54,7 +54,7 @@ export interface GetMonitorResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.datadog.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     readonly tags?: {[key: string]: string};
     /**
      * The type of the monitor resource.

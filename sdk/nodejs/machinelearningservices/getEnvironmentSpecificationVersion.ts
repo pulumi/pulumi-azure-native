@@ -64,7 +64,7 @@ export interface GetEnvironmentSpecificationVersionResult {
     /**
      * System data associated with resource provider
      */
-    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

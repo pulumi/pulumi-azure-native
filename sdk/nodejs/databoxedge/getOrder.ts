@@ -92,7 +92,7 @@ export interface GetOrderResult {
     /**
      * Metadata pertaining to creation and last modification of Order
      */
-    readonly systemData: outputs.databoxedge.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

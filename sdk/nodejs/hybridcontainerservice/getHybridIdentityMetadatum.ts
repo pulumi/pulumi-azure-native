@@ -71,7 +71,7 @@ export interface GetHybridIdentityMetadatumResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.hybridcontainerservice.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

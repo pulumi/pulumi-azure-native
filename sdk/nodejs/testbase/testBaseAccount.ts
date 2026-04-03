@@ -52,7 +52,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
     /**
      * The identity of the testBaseAccount.
      */
-    declare public readonly identity: pulumi.Output<outputs.testbase.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -138,7 +138,7 @@ export interface TestBaseAccountArgs {
     /**
      * The identity of the testBaseAccount.
      */
-    identity?: pulumi.Input<inputs.testbase.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV5.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

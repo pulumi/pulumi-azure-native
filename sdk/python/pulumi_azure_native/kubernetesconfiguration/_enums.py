@@ -11,9 +11,7 @@ __all__ = [
     'LevelType',
     'OperatorScopeType',
     'OperatorType',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccessType',
-    'ResourceIdentityType',
     'ScopeType',
     'SourceKindType',
 ]
@@ -55,16 +53,6 @@ class OperatorType(_builtins.str, Enum):
     FLUX = "Flux"
 
 
-@pulumi.type_token("azure-native:kubernetesconfiguration:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
 @pulumi.type_token("azure-native:kubernetesconfiguration:PublicNetworkAccessType")
 class PublicNetworkAccessType(_builtins.str, Enum):
     """
@@ -78,14 +66,6 @@ class PublicNetworkAccessType(_builtins.str, Enum):
     """
     Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
     """
-
-
-@pulumi.type_token("azure-native:kubernetesconfiguration:ResourceIdentityType")
-class ResourceIdentityType(_builtins.str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:kubernetesconfiguration:ScopeType")

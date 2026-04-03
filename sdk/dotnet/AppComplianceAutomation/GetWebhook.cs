@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tenant id.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
 
             string tenantId,
 

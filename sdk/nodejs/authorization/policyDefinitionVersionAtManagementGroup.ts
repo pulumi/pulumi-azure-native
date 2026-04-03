@@ -80,7 +80,7 @@ export class PolicyDefinitionVersionAtManagementGroup extends pulumi.CustomResou
     /**
      * The system metadata relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
      */

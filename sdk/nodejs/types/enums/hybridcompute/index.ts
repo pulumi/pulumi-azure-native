@@ -162,15 +162,6 @@ export const PublicNetworkAccessType = {
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
 export const StatusLevelTypes = {
     Info: "Info",
     Warning: "Warning",

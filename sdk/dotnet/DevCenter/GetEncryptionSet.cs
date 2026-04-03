@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Managed identity properties
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? keyEncryptionKeyUrl,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

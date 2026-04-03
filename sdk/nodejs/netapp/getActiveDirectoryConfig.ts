@@ -52,7 +52,7 @@ export interface GetActiveDirectoryConfigResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.netapp.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export interface GetActiveDirectoryConfigResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.netapp.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
     /**
      * Resource tags.
      */

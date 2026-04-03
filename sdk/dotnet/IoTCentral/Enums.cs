@@ -71,38 +71,6 @@ namespace Pulumi.AzureNative.IoTCentral
     }
 
     /// <summary>
-    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateEndpointServiceConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Whether requests from the public network are allowed.
     /// </summary>
     [EnumType]
@@ -126,37 +94,6 @@ namespace Pulumi.AzureNative.IoTCentral
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of managed service identity (either system assigned, or none).
-    /// </summary>
-    [EnumType]
-    public readonly struct SystemAssignedServiceIdentityType : IEquatable<SystemAssignedServiceIdentityType>
-    {
-        private readonly string _value;
-
-        private SystemAssignedServiceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SystemAssignedServiceIdentityType None { get; } = new SystemAssignedServiceIdentityType("None");
-        public static SystemAssignedServiceIdentityType SystemAssigned { get; } = new SystemAssignedServiceIdentityType("SystemAssigned");
-
-        public static bool operator ==(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(SystemAssignedServiceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SystemAssignedServiceIdentityType other && Equals(other);
-        public bool Equals(SystemAssignedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

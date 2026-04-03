@@ -31,7 +31,6 @@ __all__ = [
     'LifecycleType',
     'LogLevel',
     'ManagedCertificateDomainControlValidation',
-    'ManagedServiceIdentityType',
     'PatchingMode',
     'PoolManagementType',
     'PrivateEndpointServiceConnectionStatus',
@@ -276,17 +275,6 @@ class ManagedCertificateDomainControlValidation(_builtins.str, Enum):
     CNAME = "CNAME"
     HTTP = "HTTP"
     TXT = "TXT"
-
-
-@pulumi.type_token("azure-native:app:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:app:PatchingMode")

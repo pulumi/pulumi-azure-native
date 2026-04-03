@@ -112,7 +112,7 @@ export interface GetHostResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
+    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
     /**
      * Gets or sets the Resource tags.
      */

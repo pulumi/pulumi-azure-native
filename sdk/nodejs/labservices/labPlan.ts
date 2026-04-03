@@ -64,7 +64,7 @@ export class LabPlan extends pulumi.CustomResource {
     /**
      * Managed Identity Information
      */
-    declare public readonly identity: pulumi.Output<outputs.labservices.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commonTypesV2.IdentityResponse | undefined>;
     /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */
@@ -96,7 +96,7 @@ export class LabPlan extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the lab plan.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.labservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -186,7 +186,7 @@ export interface LabPlanArgs {
     /**
      * Managed Identity Information
      */
-    identity?: pulumi.Input<inputs.labservices.IdentityArgs>;
+    identity?: pulumi.Input<inputs.commonTypesV2.IdentityArgs>;
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */

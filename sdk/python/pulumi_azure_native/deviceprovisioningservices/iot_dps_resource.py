@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2 as _commontypesv2
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +28,7 @@ class IotDpsResourceArgs:
                  properties: pulumi.Input['IotDpsPropertiesDescriptionArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['IotDpsSkuInfoArgs'],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resourcegroup: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,7 +40,7 @@ class IotDpsResourceArgs:
         :param pulumi.Input['IotDpsPropertiesDescriptionArgs'] properties: Service specific properties for a provisioning service
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group identifier.
         :param pulumi.Input['IotDpsSkuInfoArgs'] sku: Sku info for a provisioning Service.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identities for a provisioning service.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed identities for a provisioning service.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[_builtins.str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[_builtins.str] resourcegroup: The resource group of the resource.
@@ -98,14 +101,14 @@ class IotDpsResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         The managed identities for a provisioning service.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -175,7 +178,7 @@ class IotDpsResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -195,7 +198,7 @@ class IotDpsResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identities for a provisioning service.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed identities for a provisioning service.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']] properties: Service specific properties for a provisioning service
         :param pulumi.Input[_builtins.str] provisioning_service_name: Name of provisioning service to create or update.
@@ -234,7 +237,7 @@ class IotDpsResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -328,7 +331,7 @@ class IotDpsResource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed identities for a provisioning service.
         """
@@ -384,7 +387,7 @@ class IotDpsResource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv2.outputs.SystemDataResponse']:
         """
         Metadata pertaining to creation and last modification of the resource.
         """

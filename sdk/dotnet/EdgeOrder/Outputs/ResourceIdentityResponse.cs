@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// User Assigned Identities
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV5.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ResourceIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV5.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// A type definition that refers the id to an Azure Resource Manager resource.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string? roleType,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse systemData,
 
             string? tenantId,
 
