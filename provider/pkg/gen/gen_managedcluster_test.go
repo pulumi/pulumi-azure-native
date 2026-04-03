@@ -26,9 +26,8 @@ func TestManagedClusterGen(t *testing.T) {
 	assert.NotEmpty(t, modules, "read modules from azure-specs are not empty")
 	modules = openapi.ApplyTransformations(modules, openapi.DefaultVersions{
 		"ContainerService": {
-			"ManagedCluster": {
-				ApiVersion: "2025-09-01",
-			},
+			"ManagedCluster":    {ApiVersion: "2025-10-01"},
+			"NodeCustomization": {ApiVersion: "2025-09-02-preview"}, // ← adds 2-prop conflict
 		},
 	}, openapi.DefaultVersions{}, nil, nil)
 	versioning := versioningStub{
