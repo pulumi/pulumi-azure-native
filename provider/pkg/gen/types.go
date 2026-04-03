@@ -469,7 +469,20 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	}
 	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
-	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
+	// Use the commonTypesVN module if the enum is defined inside a common-types file.
+	// Local $refs like "#/definitions/SkuTier" have no path in the schema URL, so we
+	// fall back to context.CommonTypesVersion() which checks the resolved file URL.
+	// Without this, enums defined in common-types get placed in the calling service's
+	// module (e.g. machinelearningservices:SkuTier), making each service encounter of
+	// a shared type like Sku look structurally different and triggering spurious
+	// SkuV1/SkuV2/... variants via disambiguateTypeToken.
+	module := string(m.module)
+	if commonTypeModule, ok := commonTypesVersion(schema); ok {
+		module = commonTypeModule
+	} else if commonTypeModule, ok := context.CommonTypesVersion(); ok {
+		module = commonTypeModule
+	}
+	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, module, enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
@@ -725,6 +738,14 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, schema *spec.S
 			return fmt.Sprintf("azure-native:%s/%s:%s%s", commonTypeModule, version, referenceName, suffix)
 		}
 
+		return fmt.Sprintf("azure-native:%s:%s%s", commonTypeModule, referenceName, suffix)
+	}
+	// Also check if the resolved context lives inside a common-types file. This handles local
+	// $refs within common-types (e.g. "#/definitions/ErrorDetail" inside
+	// "common-types/resource-management/v6/types.json"), where the $ref URL has an empty path
+	// and commonTypesVersion(schema) returns false. Without this, inner types get placed in the
+	// calling module's namespace, causing spurious V1/V2/... duplicates in the schema.
+	if commonTypeModule, ok := ctx.CommonTypesVersion(); ok {
 		return fmt.Sprintf("azure-native:%s:%s%s", commonTypeModule, referenceName, suffix)
 	}
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
