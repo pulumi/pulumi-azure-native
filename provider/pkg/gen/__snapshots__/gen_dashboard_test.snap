@@ -61,7 +61,7 @@
    "type": "object"
   },
   "systemData": {
-   "$ref": "#/types/azure-native:portal:SystemDataResponse",
+   "$ref": "#/types/azure-native:commonTypesV5:SystemDataResponse",
    "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
    "type": "object"
   },
@@ -164,7 +164,7 @@
    "$ref": "#/types/azure-native:portal:DashboardPropertiesWithProvisioningStateResponse"
   },
   "systemData": {
-   "$ref": "#/types/azure-native:portal:SystemDataResponse"
+   "$ref": "#/types/azure-native:commonTypesV5:SystemDataResponse"
   },
   "tags": {
    "additionalProperties": {
@@ -249,6 +249,36 @@
    },
    "tenantId": {
     "description": "The subscription tenant ID.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native:commonTypesV5:SystemDataResponse": {
+  "description": "Metadata pertaining to creation and last modification of the resource.",
+  "properties": {
+   "createdAt": {
+    "description": "The timestamp of resource creation (UTC).",
+    "type": "string"
+   },
+   "createdBy": {
+    "description": "The identity that created the resource.",
+    "type": "string"
+   },
+   "createdByType": {
+    "description": "The type of identity that created the resource.",
+    "type": "string"
+   },
+   "lastModifiedAt": {
+    "description": "The timestamp of resource last modification (UTC)",
+    "type": "string"
+   },
+   "lastModifiedBy": {
+    "description": "The identity that last modified the resource.",
+    "type": "string"
+   },
+   "lastModifiedByType": {
+    "description": "The type of identity that last modified the resource.",
     "type": "string"
    }
   },
@@ -637,36 +667,6 @@
   },
   "type": "object"
  },
- "azure-native:portal/v20200901preview:SystemDataResponse": {
-  "description": "Metadata pertaining to creation and last modification of the resource.",
-  "properties": {
-   "createdAt": {
-    "description": "The timestamp of resource creation (UTC).",
-    "type": "string"
-   },
-   "createdBy": {
-    "description": "The identity that created the resource.",
-    "type": "string"
-   },
-   "createdByType": {
-    "description": "The type of identity that created the resource.",
-    "type": "string"
-   },
-   "lastModifiedAt": {
-    "description": "The timestamp of resource last modification (UTC)",
-    "type": "string"
-   },
-   "lastModifiedBy": {
-    "description": "The identity that last modified the resource.",
-    "type": "string"
-   },
-   "lastModifiedByType": {
-    "description": "The type of identity that last modified the resource.",
-    "type": "string"
-   }
-  },
-  "type": "object"
- },
  "azure-native:portal/v20200901preview:ViolationResponse": {
   "description": "Violation information.",
   "properties": {
@@ -952,36 +952,6 @@
   ],
   "type": "object"
  },
- "azure-native:portal:SystemDataResponse": {
-  "description": "Metadata pertaining to creation and last modification of the resource.",
-  "properties": {
-   "createdAt": {
-    "description": "The timestamp of resource creation (UTC).",
-    "type": "string"
-   },
-   "createdBy": {
-    "description": "The identity that created the resource.",
-    "type": "string"
-   },
-   "createdByType": {
-    "description": "The type of identity that created the resource.",
-    "type": "string"
-   },
-   "lastModifiedAt": {
-    "description": "The timestamp of resource last modification (UTC)",
-    "type": "string"
-   },
-   "lastModifiedBy": {
-    "description": "The identity that last modified the resource.",
-    "type": "string"
-   },
-   "lastModifiedByType": {
-    "description": "The type of identity that last modified the resource.",
-    "type": "string"
-   }
-  },
-  "type": "object"
- },
  "azure-native:storage:BlobAccessTier": {
   "description": "The access tier of a storage blob.",
   "enum": [
@@ -1019,6 +989,16 @@
 
 [TestPortalDashboardGen - 4]
 {
+ "azure-native:commonTypesV5:SystemDataResponse": {
+  "properties": {
+   "createdAt": {},
+   "createdBy": {},
+   "createdByType": {},
+   "lastModifiedAt": {},
+   "lastModifiedBy": {},
+   "lastModifiedByType": {}
+  }
+ },
  "azure-native:portal/v20200901preview:ConfigurationProperties": {
   "properties": {
    "enforcePrivateMarkdownStorage": {
@@ -1259,16 +1239,6 @@
    }
   }
  },
- "azure-native:portal/v20200901preview:SystemDataResponse": {
-  "properties": {
-   "createdAt": {},
-   "createdBy": {},
-   "createdByType": {},
-   "lastModifiedAt": {},
-   "lastModifiedBy": {},
-   "lastModifiedByType": {}
-  }
- },
  "azure-native:portal/v20200901preview:ViolationResponse": {
   "properties": {
    "errorMessage": {},
@@ -1457,16 +1427,6 @@
     "$ref": "pulumi.json#/Any"
    },
    "provisioningState": {}
-  }
- },
- "azure-native:portal:SystemDataResponse": {
-  "properties": {
-   "createdAt": {},
-   "createdBy": {},
-   "createdByType": {},
-   "lastModifiedAt": {},
-   "lastModifiedBy": {},
-   "lastModifiedByType": {}
   }
  }
 }

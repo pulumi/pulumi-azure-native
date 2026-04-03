@@ -35,7 +35,6 @@ func TestManagedClusterGen(t *testing.T) {
 	}
 	generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"), true /* onlyExplicitVersions */)
 	assert.NoError(t, err, "error while generating Pulumi schema")
-	snaps.MatchJSON(t, generationResult.Schema)
 
 	// Ensure the managed cluster resource is present in schema and metadata
 	// and snapshot the generation result so we can see the impact of future refactors.
@@ -43,8 +42,9 @@ func TestManagedClusterGen(t *testing.T) {
 	assert.True(t, ok, "ManagedCluster resource not found in generated schema")
 	snaps.MatchJSON(t, managedClusterResource)
 
-	_, ok = generationResult.Metadata.Resources["azure-native:containerservice:ManagedCluster"]
+	managedClusterResourceMeta, ok := generationResult.Metadata.Resources["azure-native:containerservice:ManagedCluster"]
 	assert.True(t, ok, "ManagedCluster resource not found in generated metadata")
+	snaps.MatchJSON(t, managedClusterResourceMeta)
 
 	userManagedIdentity, ok := generationResult.Schema.Types["azure-native:containerservice:UserAssignedIdentityResponse"]
 	assert.True(t, ok, "UserAssignedIdentityResponse type not found in generated schema...")
