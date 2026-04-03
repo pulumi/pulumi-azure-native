@@ -322,7 +322,10 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	}
 
 	for typeTok, typeName := range commonTypes {
-		moduleName, _, name, err := resources.ParseToken(typeTok)
+		moduleName, version, name, err := resources.ParseToken(typeTok)
+		if version != "" {
+			moduleName = fmt.Sprintf("%s/%s", moduleName, version)
+		}
 		newToken := fmt.Sprintf("%s:%s:%s", newPackageName, moduleName, name)
 		newSchema.Types[newToken] = schema.Types[typeTok]
 		apiType, ok, err := p.lookupType(typeTok)
