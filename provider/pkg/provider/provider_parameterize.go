@@ -208,6 +208,64 @@ func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module,
 	return newMetadata, nil
 }
 
+// updateSchemaCommonTypeRefs updates all `$ref` pointers that use common types
+// in the schema to use the new package name.
+func updateSchemaCommonTypeRefs(schema pschema.PackageSpec, newPackageName string) pschema.PackageSpec {
+	newRef := func(ref string) string {
+		newTypeRef := fmt.Sprintf("#/types/%s:commonTypes", newPackageName)
+		return strings.ReplaceAll(ref, "#/types/azure-native:commonTypes", newTypeRef)
+	}
+
+	updateProperties := func(props map[string]pschema.PropertySpec) {
+		for _, prop := range props {
+			if prop.Ref != "" {
+				prop.Ref = newRef(prop.Ref)
+			}
+
+			if prop.Items != nil && prop.Items.Ref != "" {
+				prop.Items.Ref = newRef(prop.Items.Ref)
+			}
+
+			if prop.AdditionalProperties != nil && prop.AdditionalProperties.Ref != "" {
+				prop.AdditionalProperties.Ref = newRef(prop.AdditionalProperties.Ref)
+			}
+		}
+	}
+
+	for _, typeSpec := range schema.Types {
+		updateProperties(typeSpec.Properties)
+	}
+
+	for _, resourceSpec := range schema.Resources {
+		updateProperties(resourceSpec.Properties)
+		updateProperties(resourceSpec.InputProperties)
+	}
+
+	for _, functionSpec := range schema.Functions {
+		if functionSpec.Inputs != nil {
+			updateProperties(functionSpec.Inputs.Properties)
+		}
+
+		if functionSpec.Outputs != nil {
+			updateProperties(functionSpec.Outputs.Properties)
+		}
+
+		if functionSpec.ReturnType != nil {
+			typeSpec := functionSpec.ReturnType.TypeSpec
+			if typeSpec != nil && typeSpec.Ref != "" {
+				typeSpec.Ref = newRef(typeSpec.Ref)
+			}
+
+			objectTypeSpec := functionSpec.ReturnType.ObjectTypeSpec
+			if objectTypeSpec != nil {
+				updateProperties(objectTypeSpec.Properties)
+			}
+		}
+	}
+
+	return schema
+}
+
 func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []string {
 	versions := map[string]struct{}{}
 	for resourceName := range schema.Resources {
@@ -322,9 +380,10 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	}
 
 	for typeTok, typeName := range commonTypes {
-		moduleName, version, name, err := resources.ParseToken(typeTok)
-		if version != "" {
-			moduleName = fmt.Sprintf("%s/%s", moduleName, version)
+		// common types are not versioned, hence why we don't use the version
+		moduleName, _, name, err := resources.ParseToken(typeTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
 		}
 		newToken := fmt.Sprintf("%s:%s:%s", newPackageName, moduleName, name)
 		newSchema.Types[newToken] = schema.Types[typeTok]
@@ -376,6 +435,7 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 		Invokes:   resources.GoMap[resources.AzureAPIInvoke](metadataInvokes),
 	}
 
+	newSchema = updateSchemaCommonTypeRefs(newSchema, newPackageName)
 	return &newSchema, metadata, nil
 }
 

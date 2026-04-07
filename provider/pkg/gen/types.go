@@ -732,12 +732,6 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, schema *spec.S
 	standardName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
 	referenceName := m.typeNameOverride(standardName)
 	if commonTypeModule, ok := commonTypesVersion(schema); ok {
-		// For common types, use a distinct module name in the shape of "commonTypesV{version}" (e.g. "commonTypesV5") and
-		// include the version in the token to disambiguate between different versions of common types.
-		if version := moduleVersion(string(m.module)); version != "" {
-			return fmt.Sprintf("azure-native:%s/%s:%s%s", commonTypeModule, version, referenceName, suffix)
-		}
-
 		return fmt.Sprintf("azure-native:%s:%s%s", commonTypeModule, referenceName, suffix)
 	}
 	// Also check if the resolved context lives inside a common-types file. This handles local
