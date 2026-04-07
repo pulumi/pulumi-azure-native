@@ -189,40 +189,13 @@ func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiV
 func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
 	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
 	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
-	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
-}
+	newSchema := bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 
-func updateMetadataCommonTypeRefs(
-	typesMetadata map[string]resources.AzureAPIType,
-	newPackageName string) {
-	newRef := func(ref string) string {
-		newTypeRef := fmt.Sprintf("#/types/%s:commonTypes", newPackageName)
-		return strings.ReplaceAll(ref, "#/types/azure-native:commonTypes", newTypeRef)
-	}
-
-	var updateProperty func(p resources.AzureAPIProperty)
-
-	updateProperty = func(p resources.AzureAPIProperty) {
-		if p.Ref != "" {
-			p.Ref = newRef(p.Ref)
-		}
-
-		if p.Items != nil {
-			nested := *p.Items
-			updateProperty(nested)
-		}
-
-		if p.AdditionalProperties != nil {
-			nested := *p.AdditionalProperties
-			updateProperty(nested)
-		}
-	}
-
-	for _, apiType := range typesMetadata {
-		for _, property := range apiType.Properties {
-			updateProperty(property)
-		}
-	}
+	// update common types refs as well
+	oldCommonRefPrefix := `"$ref":"#/types/azure-native:commonTypes`
+	newCommonRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:commonTypes`, newPackageName)
+	newSchemaWithModifiedCommonTypes := bytes.ReplaceAll(newSchema, []byte(oldCommonRefPrefix), []byte(newCommonRefPrefix))
+	return newSchemaWithModifiedCommonTypes
 }
 
 // updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
@@ -239,64 +212,6 @@ func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module,
 		return nil, status.Errorf(codes.Internal, "failed to unmarshal metadata: %v", err)
 	}
 	return newMetadata, nil
-}
-
-// updateSchemaCommonTypeRefs updates all `$ref` pointers that use common types
-// in the schema to use the new package name.
-func updateSchemaCommonTypeRefs(schema pschema.PackageSpec, newPackageName string) pschema.PackageSpec {
-	newRef := func(ref string) string {
-		newTypeRef := fmt.Sprintf("#/types/%s:commonTypes", newPackageName)
-		return strings.ReplaceAll(ref, "#/types/azure-native:commonTypes", newTypeRef)
-	}
-
-	updateProperties := func(props map[string]pschema.PropertySpec) {
-		for _, prop := range props {
-			if prop.Ref != "" {
-				prop.Ref = newRef(prop.Ref)
-			}
-
-			if prop.Items != nil && prop.Items.Ref != "" {
-				prop.Items.Ref = newRef(prop.Items.Ref)
-			}
-
-			if prop.AdditionalProperties != nil && prop.AdditionalProperties.Ref != "" {
-				prop.AdditionalProperties.Ref = newRef(prop.AdditionalProperties.Ref)
-			}
-		}
-	}
-
-	for _, typeSpec := range schema.Types {
-		updateProperties(typeSpec.Properties)
-	}
-
-	for _, resourceSpec := range schema.Resources {
-		updateProperties(resourceSpec.Properties)
-		updateProperties(resourceSpec.InputProperties)
-	}
-
-	for _, functionSpec := range schema.Functions {
-		if functionSpec.Inputs != nil {
-			updateProperties(functionSpec.Inputs.Properties)
-		}
-
-		if functionSpec.Outputs != nil {
-			updateProperties(functionSpec.Outputs.Properties)
-		}
-
-		if functionSpec.ReturnType != nil {
-			typeSpec := functionSpec.ReturnType.TypeSpec
-			if typeSpec != nil && typeSpec.Ref != "" {
-				typeSpec.Ref = newRef(typeSpec.Ref)
-			}
-
-			objectTypeSpec := functionSpec.ReturnType.ObjectTypeSpec
-			if objectTypeSpec != nil {
-				updateProperties(objectTypeSpec.Properties)
-			}
-		}
-	}
-
-	return schema
 }
 
 func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []string {
@@ -462,15 +377,12 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 		}
 	}
 
-	updateMetadataCommonTypeRefs(metadataTypes, newPackageName)
-
 	metadata := &resources.APIMetadata{
 		Types:     resources.GoMap[resources.AzureAPIType](metadataTypes),
 		Resources: resources.GoMap[resources.AzureAPIResource](metadataResources),
 		Invokes:   resources.GoMap[resources.AzureAPIInvoke](metadataInvokes),
 	}
 
-	newSchema = updateSchemaCommonTypeRefs(newSchema, newPackageName)
 	return &newSchema, metadata, nil
 }
 
