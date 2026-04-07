@@ -192,6 +192,39 @@ func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []
 	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 }
 
+func updateMetadataCommonTypeRefs(
+	typesMetadata map[string]resources.AzureAPIType,
+	newPackageName string) {
+	newRef := func(ref string) string {
+		newTypeRef := fmt.Sprintf("#/types/%s:commonTypes", newPackageName)
+		return strings.ReplaceAll(ref, "#/types/azure-native:commonTypes", newTypeRef)
+	}
+
+	var updateProperty func(p resources.AzureAPIProperty)
+
+	updateProperty = func(p resources.AzureAPIProperty) {
+		if p.Ref != "" {
+			p.Ref = newRef(p.Ref)
+		}
+
+		if p.Items != nil {
+			nested := *p.Items
+			updateProperty(nested)
+		}
+
+		if p.AdditionalProperties != nil {
+			nested := *p.AdditionalProperties
+			updateProperty(nested)
+		}
+	}
+
+	for _, apiType := range typesMetadata {
+		for _, property := range apiType.Properties {
+			updateProperty(property)
+		}
+	}
+}
+
 // updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
 // This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
 func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module, apiVersion string) (*resources.APIMetadata, error) {
@@ -428,6 +461,8 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 			metadataInvokes[newTok] = invoke
 		}
 	}
+
+	updateMetadataCommonTypeRefs(metadataTypes, newPackageName)
 
 	metadata := &resources.APIMetadata{
 		Types:     resources.GoMap[resources.AzureAPIType](metadataTypes),
