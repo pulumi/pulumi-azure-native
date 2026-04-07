@@ -61,7 +61,7 @@
    "type": "object"
   },
   "systemData": {
-   "$ref": "#/types/azure-native:commonTypesV5:SystemDataResponse",
+   "$ref": "#/types/azure-native:commontypesv5:SystemDataResponse",
    "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
    "type": "object"
   },
@@ -164,7 +164,7 @@
    "$ref": "#/types/azure-native:portal:DashboardPropertiesWithProvisioningStateResponse"
   },
   "systemData": {
-   "$ref": "#/types/azure-native:commonTypesV5:SystemDataResponse"
+   "$ref": "#/types/azure-native:commontypesv5:SystemDataResponse"
   },
   "tags": {
    "additionalProperties": {
@@ -254,7 +254,7 @@
   },
   "type": "object"
  },
- "azure-native:commonTypesV5:SystemDataResponse": {
+ "azure-native:commontypesv5:SystemDataResponse": {
   "description": "Metadata pertaining to creation and last modification of the resource.",
   "properties": {
    "createdAt": {
@@ -989,7 +989,7 @@
 
 [TestPortalDashboardGen - 4]
 {
- "azure-native:commonTypesV5:SystemDataResponse": {
+ "azure-native:commontypesv5:SystemDataResponse": {
   "properties": {
    "createdAt": {},
    "createdBy": {},
