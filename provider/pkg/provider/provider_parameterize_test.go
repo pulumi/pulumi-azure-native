@@ -116,7 +116,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 
 	parameterizationArgs := []string{"aad", "v20221201"}
-	expectedProviderName := "azure-native_aad" + "_v20221201"
+	expectedProviderName := "azure-native_aad_v20221201"
 
 	require.NoError(t, err)
 
