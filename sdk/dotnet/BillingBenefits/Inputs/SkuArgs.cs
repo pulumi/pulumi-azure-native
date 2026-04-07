@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNative.CommonTypesV6.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

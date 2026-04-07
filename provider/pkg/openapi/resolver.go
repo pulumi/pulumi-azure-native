@@ -68,7 +68,7 @@ type Schema struct {
 
 // CommonTypesVersion checks whether this context's URL points to a common-types file (e.g.
 // "common-types/resource-management/v6/types.json") and, if so, returns the disambiguating
-// module name (e.g. "commonTypesV6"). This is needed to correctly namespace types defined by
+// module name (e.g. "commontypesv6"). This is needed to correctly namespace types defined by
 // local $refs inside a common-types file (e.g. "#/definitions/ErrorDetail"), where the $ref URL
 // itself carries no path information.
 func (ctx *ReferenceContext) CommonTypesVersion() (string, bool) {
@@ -81,7 +81,7 @@ func (ctx *ReferenceContext) CommonTypesVersion() (string, bool) {
 			v := parts[i+2]
 			if strings.HasPrefix(v, "v") {
 				if _, err := strconv.Atoi(v[1:]); err == nil {
-					result := "commonTypes" + strings.ToUpper(v[:1]) + v[1:]
+					result := "commontypes" + strings.ToLower(v[:1]) + v[1:]
 					return result, true
 				}
 			}

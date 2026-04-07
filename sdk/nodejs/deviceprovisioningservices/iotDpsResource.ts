@@ -52,7 +52,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * The managed identities for a provisioning service.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse | undefined>;
     /**
      * The resource location.
      */
@@ -80,7 +80,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The resource tags.
      */
@@ -152,7 +152,7 @@ export interface IotDpsResourceArgs {
     /**
      * The managed identities for a provisioning service.
      */
-    identity?: pulumi.Input<inputs.commonTypesV5.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
     /**
      * The resource location.
      */

@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -140,16 +140,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// ObjectId of ApplicationGroup. (internal use)
         /// </summary>
         public readonly string ObjectId;
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// Boolean representing whether the applicationGroup is show in the feed.
         /// </summary>
         public readonly bool? ShowInFeed;
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
 
             string? kind,
 
@@ -193,13 +193,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string objectId,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             bool? showInFeed,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

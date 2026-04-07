@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -134,13 +134,13 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateEndpointResponse? privateEndpoint,
+            Pulumi.AzureNative.Commontypesv1.Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Pulumi.AzureNative.Commontypesv1.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

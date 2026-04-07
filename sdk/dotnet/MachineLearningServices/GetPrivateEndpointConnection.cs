@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// *Same as workspace location.
         /// </summary>
@@ -134,11 +134,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -163,9 +163,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? sku,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

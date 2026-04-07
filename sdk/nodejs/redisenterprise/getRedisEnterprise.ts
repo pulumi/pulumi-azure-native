@@ -60,7 +60,7 @@ export interface GetRedisEnterpriseResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.commonTypesV4.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
     /**
      * Distinguishes the kind of cluster. Read-only.
      */
@@ -80,7 +80,7 @@ export interface GetRedisEnterpriseResult {
     /**
      * List of private endpoint connections associated with the specified Redis Enterprise cluster
      */
-    readonly privateEndpointConnections: outputs.commonTypesV2.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commontypesv2.PrivateEndpointConnectionResponse[];
     /**
      * Current provisioning status of the cluster
      */

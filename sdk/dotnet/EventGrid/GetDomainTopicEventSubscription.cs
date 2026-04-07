@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The system metadata relating to the Event Grid resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             Outputs.RetryPolicyResponse? retryPolicy,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string topic,
 

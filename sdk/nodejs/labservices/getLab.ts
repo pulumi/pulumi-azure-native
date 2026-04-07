@@ -96,7 +96,7 @@ export interface GetLabResult {
     /**
      * Metadata pertaining to creation and last modification of the lab.
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

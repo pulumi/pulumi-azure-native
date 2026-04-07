@@ -96,7 +96,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * PrivateEndpointConnections related properties of a server.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV5.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv5.PrivateEndpointConnectionResponse[]>;
     /**
      * The maximum number of replicas that a primary server can have.
      */
@@ -124,7 +124,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */

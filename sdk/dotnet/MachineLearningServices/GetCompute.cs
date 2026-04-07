@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -154,9 +154,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             object properties,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? sku,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

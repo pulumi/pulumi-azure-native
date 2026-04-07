@@ -48,7 +48,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
     /**
      * *Same as workspace location.
      */
@@ -72,11 +72,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    declare public readonly sku: pulumi.Output<outputs.commonTypesV3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -141,7 +141,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commonTypesV3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
     /**
      * *Same as workspace location.
      */
@@ -161,7 +161,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    sku?: pulumi.Input<inputs.commonTypesV3.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure Machine Learning Workspace Name

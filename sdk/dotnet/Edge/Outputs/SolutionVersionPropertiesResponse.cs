@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Edge.Outputs
         /// <summary>
         /// Error Details if any failure is there
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse ErrorDetails;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse ErrorDetails;
         /// <summary>
         /// External validation id
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Edge.Outputs
 
             string configuration,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ErrorDetailResponse errorDetails,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse errorDetails,
 
             string externalValidationId,
 

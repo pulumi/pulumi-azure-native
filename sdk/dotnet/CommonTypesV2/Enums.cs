@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNative.CommonTypesV2
+namespace Pulumi.AzureNative.Commontypesv2
 {
     /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.

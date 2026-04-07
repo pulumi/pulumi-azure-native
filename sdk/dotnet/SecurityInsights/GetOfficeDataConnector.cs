@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string tenantId,
 

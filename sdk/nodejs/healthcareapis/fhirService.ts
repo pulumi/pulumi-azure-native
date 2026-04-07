@@ -100,7 +100,7 @@ export class FhirService extends pulumi.CustomResource {
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV1.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv1.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state.
      */

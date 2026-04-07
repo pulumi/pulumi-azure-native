@@ -67,7 +67,7 @@ export interface GetAssessmentResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commonTypesV4.SystemDataResponse;
+    readonly systemData: outputs.commontypesv4.SystemDataResponse;
     /**
      * Resource Type
      */

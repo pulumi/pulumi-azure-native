@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Resource system metadata.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.AppConfiguration
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

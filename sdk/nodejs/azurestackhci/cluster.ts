@@ -144,7 +144,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -164,7 +164,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
      */
-    declare public readonly userAssignedIdentities: pulumi.Output<{[key: string]: outputs.commonTypesV4.UserAssignedIdentityResponse} | undefined>;
+    declare public readonly userAssignedIdentities: pulumi.Output<{[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -307,7 +307,7 @@ export interface ClusterArgs {
     /**
      * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
      */
-    type: pulumi.Input<string | enums.commonTypesV4.ManagedServiceIdentityType>;
+    type: pulumi.Input<string | enums.commontypesv4.ManagedServiceIdentityType>;
     /**
      * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
      */

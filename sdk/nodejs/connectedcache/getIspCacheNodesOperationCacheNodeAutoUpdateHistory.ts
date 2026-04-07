@@ -59,7 +59,7 @@ export interface GetIspCacheNodesOperationCacheNodeAutoUpdateHistoryResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

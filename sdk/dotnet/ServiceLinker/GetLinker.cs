@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The target service properties
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.ServiceLinker
 
             Outputs.SecretStoreResponse? secretStore,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             object? targetService,
 

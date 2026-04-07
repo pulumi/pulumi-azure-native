@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// The managed identities for the IoT Central application.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// Private endpoint connections created on this IoT Central application.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the application.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// The managed identities for the IoT Central application.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -114,7 +114,7 @@ export interface GetUpdateRunResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Timestamp of the update run was started.
      */

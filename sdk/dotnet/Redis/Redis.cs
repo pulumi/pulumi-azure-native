@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Redis
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// List of the Redis instances associated with the cache
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Redis
         /// List of private endpoint connection associated with the specified redis cache
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Redis instance provisioning status.
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.Redis
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -294,7 +294,7 @@ namespace Pulumi.AzureNative.Redis
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
         [Output("userAssignedIdentities")]
-        public Output<ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>?> UserAssignedIdentities { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv4.Outputs.UserAssignedIdentityResponse>?> UserAssignedIdentities { get; private set; } = null!;
 
 
         /// <summary>
@@ -360,7 +360,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.CommonTypesV4.ManagedServiceIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Commontypesv4.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputList<string>? _userAssignedIdentities;

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV5.Inputs
+namespace Pulumi.AzureNative.Commontypesv5.Inputs
 {
 
     public sealed class ResourceModelWithAllowedPropertySetIdentityArgs : global::Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CommonTypesV5.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.CommonTypesV5.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.ResourceIdentityType>? Type { get; set; }
 
         public ResourceModelWithAllowedPropertySetIdentityArgs()
         {

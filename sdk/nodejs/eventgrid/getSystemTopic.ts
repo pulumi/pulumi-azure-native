@@ -72,7 +72,7 @@ export interface GetSystemTopicResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Tags of the resource.
      */

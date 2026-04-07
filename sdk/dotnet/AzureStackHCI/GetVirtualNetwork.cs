@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             ImmutableArray<Outputs.VirtualNetworkPropertiesResponseSubnets> subnets,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

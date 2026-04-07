@@ -20,13 +20,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv4.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityPropertiesResponse(
             string? type,
 
-            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv4.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;

@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
         /// <summary>
         /// All Customer-managed key encryption properties for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.CustomerManagedKeyEncryptionResponse? CustomerManagedKeyEncryption;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.CustomerManagedKeyEncryptionResponse? CustomerManagedKeyEncryption;
 
         [OutputConstructor]
-        private EncryptionResponse(Pulumi.AzureNative.CommonTypesV4.Outputs.CustomerManagedKeyEncryptionResponse? customerManagedKeyEncryption)
+        private EncryptionResponse(Pulumi.AzureNative.Commontypesv4.Outputs.CustomerManagedKeyEncryptionResponse? customerManagedKeyEncryption)
         {
             CustomerManagedKeyEncryption = customerManagedKeyEncryption;
         }

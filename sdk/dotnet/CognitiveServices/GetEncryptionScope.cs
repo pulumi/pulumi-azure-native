@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.EncryptionScopePropertiesResponse properties,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

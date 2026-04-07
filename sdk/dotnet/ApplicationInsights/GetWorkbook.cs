@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             string? storageUri,
 
-            Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

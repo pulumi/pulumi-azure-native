@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV5.Inputs
+namespace Pulumi.AzureNative.Commontypesv5.Inputs
 {
 
     public sealed class ResourceModelWithAllowedPropertySetSkuArgs : global::Pulumi.ResourceArgs
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.CommonTypesV5.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNative.CommonTypesV5.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.SkuTier>? Tier { get; set; }
 
         public ResourceModelWithAllowedPropertySetSkuArgs()
         {

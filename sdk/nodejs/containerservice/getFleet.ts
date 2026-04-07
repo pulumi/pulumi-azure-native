@@ -56,7 +56,7 @@ export interface GetFleetResult {
     /**
      * Managed identity.
      */
-    readonly identity?: outputs.commonTypesV4.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export interface GetFleetResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

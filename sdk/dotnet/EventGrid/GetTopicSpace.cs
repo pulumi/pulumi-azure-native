@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The system metadata relating to the Event Grid resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The topic filters in the topic space.
         /// Example: "topicTemplates": [ 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableArray<string> topicTemplates,
 

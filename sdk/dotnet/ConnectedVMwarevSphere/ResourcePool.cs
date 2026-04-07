@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// The system data.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the Resource tags.

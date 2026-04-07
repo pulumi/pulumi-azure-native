@@ -46,7 +46,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV4.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv4.IdentityResponse | undefined>;
     /**
      * Uri of the Data Manager For Agriculture instance.
      */
@@ -62,7 +62,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**
      * Private endpoints.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV4.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv4.PrivateEndpointConnectionResponse[]>;
     /**
      * Data Manager For Agriculture instance provisioning state.
      */
@@ -78,7 +78,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV4.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv4.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -148,7 +148,7 @@ export interface DataManagerForAgricultureResourceArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.commonTypesV4.IdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv4.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

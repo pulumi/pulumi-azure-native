@@ -110,11 +110,11 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The SKU for DevCenters created using this definition.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.DevCenter
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse? sku,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

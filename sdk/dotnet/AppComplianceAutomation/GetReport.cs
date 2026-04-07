@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Report's tenant id.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
             ImmutableArray<string> subscriptions,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string tenantId,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DevCenter.Inputs
         /// All Customer-managed key encryption properties for the resource.
         /// </summary>
         [Input("customerManagedKeyEncryption")]
-        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.CustomerManagedKeyEncryptionArgs>? CustomerManagedKeyEncryption { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv4.Inputs.CustomerManagedKeyEncryptionArgs>? CustomerManagedKeyEncryption { get; set; }
 
         public EncryptionArgs()
         {

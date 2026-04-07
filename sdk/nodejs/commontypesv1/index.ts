@@ -3,4 +3,4 @@
 
 
 // Export enums:
-export * from "../types/enums/commonTypesV1";
+export * from "../types/enums/commontypesv1";

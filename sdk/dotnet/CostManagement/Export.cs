@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// The managed identity associated with Export
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the Export's managed identity. Only required when utilizing managed identity.
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// The managed identity associated with Export
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the Export's managed identity. Only required when utilizing managed identity.

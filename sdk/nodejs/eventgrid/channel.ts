@@ -77,7 +77,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Type of the resource.
      */

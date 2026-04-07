@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The agent's local time zone represented in Windows format.
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.StorageMover
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string timeZone,
 

@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// <summary>
         /// Error related to resource provisioning.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse? ProvisionError;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse? ProvisionError;
         /// <summary>
         /// The status of the resource at the time the operation was called.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
 
             string? nodeSku,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse? provisionError,
+            Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse? provisionError,
 
             string provisioningState,
 

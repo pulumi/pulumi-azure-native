@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Ticket ID for the approval request
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Mission
 
             string? stateChangedAt,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string? ticketId,
 

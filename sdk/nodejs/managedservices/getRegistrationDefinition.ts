@@ -58,7 +58,7 @@ export interface GetRegistrationDefinitionResult {
     /**
      * The metadata for the registration assignment resource.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */

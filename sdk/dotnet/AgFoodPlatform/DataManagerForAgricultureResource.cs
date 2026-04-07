@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Uri of the Data Manager For Agriculture instance.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Private endpoints.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Pulumi.AzureNative.CommonTypesV4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Data Manager For Agriculture instance provisioning state.
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv4.Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

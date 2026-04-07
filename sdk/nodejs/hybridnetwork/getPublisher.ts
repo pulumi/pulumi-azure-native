@@ -48,7 +48,7 @@ export interface GetPublisherResult {
     /**
      * The managed identity of the publisher, if configured.
      */
-    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export interface GetPublisherResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

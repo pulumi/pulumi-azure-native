@@ -53,7 +53,7 @@ export interface GetFlowResult {
     /**
      * The managed identity of the flow resource, if configured.
      */
-    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -65,7 +65,7 @@ export interface GetFlowResult {
     /**
      * Plan for the resource.
      */
-    readonly plan?: outputs.commonTypesV5.PlanResponse;
+    readonly plan?: outputs.commontypesv5.PlanResponse;
     /**
      * Properties of flow
      */
@@ -73,7 +73,7 @@ export interface GetFlowResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

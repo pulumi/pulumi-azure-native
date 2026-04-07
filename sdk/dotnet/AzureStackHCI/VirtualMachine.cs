@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

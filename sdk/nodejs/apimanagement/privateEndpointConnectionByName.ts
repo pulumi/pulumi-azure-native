@@ -52,11 +52,11 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
     /**
      * The resource of private end point.
      */
-    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commonTypesV2.PrivateEndpointResponse | undefined>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commontypesv2.PrivateEndpointResponse | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    declare public /*out*/ readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commonTypesV2.PrivateLinkServiceConnectionStateResponse>;
+    declare public /*out*/ readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse>;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

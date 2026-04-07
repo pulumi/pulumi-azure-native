@@ -104,7 +104,7 @@ export interface GetConfigurationStoreResult {
     /**
      * Resource system metadata.
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

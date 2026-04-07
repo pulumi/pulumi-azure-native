@@ -76,7 +76,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the schedule.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The IANA timezone id for the schedule.
      */

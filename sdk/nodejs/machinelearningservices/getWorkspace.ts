@@ -85,7 +85,7 @@ export interface GetWorkspaceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
     /**
      * The compute name for image build
      */
@@ -155,7 +155,7 @@ export interface GetWorkspaceResult {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    readonly sku?: outputs.commonTypesV3.SkuResponse;
+    readonly sku?: outputs.commontypesv3.SkuResponse;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
@@ -167,7 +167,7 @@ export interface GetWorkspaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * The auth mode used for accessing the system datastores of the workspace.
      */

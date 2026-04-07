@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The internally assigned unique identifier of the resource.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             string systemId,
 

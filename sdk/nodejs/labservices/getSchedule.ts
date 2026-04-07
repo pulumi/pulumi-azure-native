@@ -81,7 +81,7 @@ export interface GetScheduleResult {
     /**
      * Metadata pertaining to creation and last modification of the schedule.
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The IANA timezone id for the schedule.
      */

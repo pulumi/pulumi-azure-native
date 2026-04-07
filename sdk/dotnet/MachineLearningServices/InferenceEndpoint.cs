@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -57,13 +57,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
         [Output("sku")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
         [Input("sku")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -48,7 +48,7 @@ export class Compute extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
     /**
      * Specifies the location of the resource.
      */
@@ -64,11 +64,11 @@ export class Compute extends pulumi.CustomResource {
     /**
      * The sku of the workspace.
      */
-    declare public readonly sku: pulumi.Output<outputs.commonTypesV3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
@@ -136,7 +136,7 @@ export interface ComputeArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.commonTypesV3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -152,7 +152,7 @@ export interface ComputeArgs {
     /**
      * The sku of the workspace.
      */
-    sku?: pulumi.Input<inputs.commonTypesV3.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

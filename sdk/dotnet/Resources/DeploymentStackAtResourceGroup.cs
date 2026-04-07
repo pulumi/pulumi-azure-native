@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Resources
         /// The error detail.
         /// </summary>
         [Output("error")]
-        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Resources
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

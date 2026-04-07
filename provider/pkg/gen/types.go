@@ -54,7 +54,7 @@ func extractNumericSuffix(s string) (int, string) {
 
 // commonTypesVersion extracts a disambiguating suffix from a common-types $ref URL.
 // Given a path like "../../common-types/resource-management/v5/managedidentity.json",
-// it returns "commonTypesV5". Returns "" if the path does not match the pattern.
+// it returns "commontypesv5". Returns "" if the path does not match the pattern.
 func commonTypesVersion(schema *spec.Schema) (string, bool) {
 	url := schema.SchemaProps.Ref.GetURL()
 	if url == nil || url.Path == "" {
@@ -69,7 +69,7 @@ func commonTypesVersion(schema *spec.Schema) (string, bool) {
 			v := parts[i+2]
 			if strings.HasPrefix(v, "v") {
 				if _, err := strconv.Atoi(v[1:]); err == nil {
-					result := "commonTypes" + strings.ToUpper(v[:1]) + v[1:]
+					result := "commontypes" + strings.ToLower(v[:1]) + v[1:]
 					return result, true
 				}
 			}
@@ -469,7 +469,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	}
 	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
-	// Use the commonTypesVN module if the enum is defined inside a common-types file.
+	// Use the commontypesv{N} module if the enum is defined inside a common-types file.
 	// Local $refs like "#/definitions/SkuTier" have no path in the schema URL, so we
 	// fall back to context.CommonTypesVersion() which checks the resolved file URL.
 	// Without this, enums defined in common-types get placed in the calling service's

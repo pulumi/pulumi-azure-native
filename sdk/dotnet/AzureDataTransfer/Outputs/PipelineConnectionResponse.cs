@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Connection type inside pipeline
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             Outputs.PipelineConnectionResponseProperties? properties,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string type)
         {

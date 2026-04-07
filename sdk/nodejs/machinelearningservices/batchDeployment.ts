@@ -48,7 +48,7 @@ export class BatchDeployment extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -68,11 +68,11 @@ export class BatchDeployment extends pulumi.CustomResource {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    declare public readonly sku: pulumi.Output<outputs.commonTypesV3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -153,7 +153,7 @@ export interface BatchDeploymentArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commonTypesV3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -173,7 +173,7 @@ export interface BatchDeploymentArgs {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    sku?: pulumi.Input<inputs.commonTypesV3.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
     /**
      * Resource tags.
      */

@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// List of private endpoint connections associated with this private link. Each connection represents a private endpoint from a customer's virtual network.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// List of private link resources available for connection. For Defender services, this typically includes the 'containers' group with 'api' and regional data endpoints.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateLinkResourceResponse> PrivateLinkResources;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.PrivateLinkResourceResponse> PrivateLinkResources;
         /// <summary>
         /// The current provisioning state of the private link resource. Indicates whether the resource is being created, updated, deleted, or has completed successfully.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -138,13 +138,13 @@ namespace Pulumi.AzureNative.Security
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV6.Outputs.PrivateLinkResourceResponse> privateLinkResources,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.PrivateLinkResourceResponse> privateLinkResources,
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

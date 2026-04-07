@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV3.Inputs
+namespace Pulumi.AzureNative.Commontypesv3.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.CommonTypesV3.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

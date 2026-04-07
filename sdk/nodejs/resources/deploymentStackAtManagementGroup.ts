@@ -88,7 +88,7 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
     /**
      * The error detail.
      */
-    declare public /*out*/ readonly error: pulumi.Output<outputs.commonTypesV6.ErrorDetailResponse>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.commontypesv6.ErrorDetailResponse>;
     /**
      * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
@@ -124,7 +124,7 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */

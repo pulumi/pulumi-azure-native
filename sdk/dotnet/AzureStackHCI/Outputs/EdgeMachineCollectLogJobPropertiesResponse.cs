@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// error details.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse Error;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// From date for log collection.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string endTimeUtc,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.ErrorDetailResponse error,
+            Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse error,
 
             string fromDate,
 

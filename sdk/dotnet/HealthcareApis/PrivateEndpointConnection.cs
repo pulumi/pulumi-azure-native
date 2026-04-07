@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// The resource of private end point.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv1.Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Pulumi.AzureNative.CommonTypesV1.Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv1.Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV1.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Pulumi.AzureNative.CommonTypesV1.Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Commontypesv1.Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.

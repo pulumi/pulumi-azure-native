@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
         /// <summary>
         /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.ErrorResponseResponse? ProvisioningInfo;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ErrorResponseResponse? ProvisioningInfo;
         /// <summary>
         /// Sensor integration instance provisioning state.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
         private SensorIntegrationResponse(
             string? enabled,
 
-            Pulumi.AzureNative.CommonTypesV4.Outputs.ErrorResponseResponse? provisioningInfo,
+            Pulumi.AzureNative.Commontypesv4.Outputs.ErrorResponseResponse? provisioningInfo,
 
             string provisioningState)
         {

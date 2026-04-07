@@ -48,7 +48,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * The managed identity of the flow resource, if configured.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -60,7 +60,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.commonTypesV5.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv5.PlanResponse | undefined>;
     /**
      * Properties of flow
      */
@@ -68,7 +68,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -140,7 +140,7 @@ export interface FlowArgs {
     /**
      * The managed identity of the flow resource, if configured.
      */
-    identity?: pulumi.Input<inputs.commonTypesV3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -148,7 +148,7 @@ export interface FlowArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.commonTypesV5.PlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv5.PlanArgs>;
     /**
      * Properties of flow
      */

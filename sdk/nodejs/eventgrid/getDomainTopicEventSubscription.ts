@@ -106,7 +106,7 @@ export interface GetDomainTopicEventSubscriptionResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Name of the topic of the event subscription.
      */

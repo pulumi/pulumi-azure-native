@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// Managed On Behalf Of Configuration.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedOnBehalfOfConfigurationResponse ManagedOnBehalfOfConfiguration;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedOnBehalfOfConfigurationResponse ManagedOnBehalfOfConfiguration;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Mission
 
             string location,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedOnBehalfOfConfigurationResponse managedOnBehalfOfConfiguration,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedOnBehalfOfConfigurationResponse managedOnBehalfOfConfiguration,
 
             string name,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Mission
 
             ImmutableArray<string> resourceGroupCollection,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

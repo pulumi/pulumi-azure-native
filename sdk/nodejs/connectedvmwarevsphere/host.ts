@@ -112,7 +112,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * The system data.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * Gets or sets the Resource tags.
      */

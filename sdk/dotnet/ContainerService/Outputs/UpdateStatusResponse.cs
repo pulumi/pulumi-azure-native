@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The error details when a failure is encountered.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse Error;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// The time the operation or group was started.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private UpdateStatusResponse(
             string completedTime,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse error,
+            Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse error,
 
             string startTime,
 

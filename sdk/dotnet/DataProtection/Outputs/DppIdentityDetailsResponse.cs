@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// <summary>
         /// Gets or sets the user assigned identities.
         /// </summary>
-        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv4.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private DppIdentityDetailsResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV4.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv4.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

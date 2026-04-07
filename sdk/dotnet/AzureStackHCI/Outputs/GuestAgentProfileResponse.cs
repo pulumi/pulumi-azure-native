@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Details about the error state.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse> ErrorDetails;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse> ErrorDetails;
         /// <summary>
         /// The time of the last status change.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         private GuestAgentProfileResponse(
             string agentVersion,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorDetailResponse> errorDetails,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse> errorDetails,
 
             string lastStatusChange,
 

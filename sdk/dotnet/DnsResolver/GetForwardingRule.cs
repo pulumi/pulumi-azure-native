@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// DNS servers to forward the DNS query to.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.DnsResolver
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableArray<Outputs.TargetDnsServerResponse> targetDnsServers,
 

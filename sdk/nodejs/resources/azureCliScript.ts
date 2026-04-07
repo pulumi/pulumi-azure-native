@@ -119,7 +119,7 @@ export class AzureCliScript extends pulumi.CustomResource {
     /**
      * The system metadata related to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV1.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv1.SystemDataResponse>;
     /**
      * Resource tags.
      */

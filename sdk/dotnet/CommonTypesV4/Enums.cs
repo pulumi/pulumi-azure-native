@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNative.CommonTypesV4
+namespace Pulumi.AzureNative.Commontypesv4
 {
     /// <summary>
     /// Values can be systemAssignedIdentity or userAssignedIdentity

@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Transmit end time of a contact (ISO 8601 UTC standard).
         /// </summary>
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.Orbital
 
             string status,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string txEndTime,
 

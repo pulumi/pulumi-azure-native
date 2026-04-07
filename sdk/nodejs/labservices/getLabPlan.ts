@@ -64,7 +64,7 @@ export interface GetLabPlanResult {
     /**
      * Managed Identity Information
      */
-    readonly identity?: outputs.commonTypesV2.IdentityResponse;
+    readonly identity?: outputs.commontypesv2.IdentityResponse;
     /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */
@@ -96,7 +96,7 @@ export interface GetLabPlanResult {
     /**
      * Metadata pertaining to creation and last modification of the lab plan.
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

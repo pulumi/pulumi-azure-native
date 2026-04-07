@@ -46,7 +46,7 @@ export class BulkAction extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV6.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -54,7 +54,7 @@ export class BulkAction extends pulumi.CustomResource {
     /**
      * Details of the resource plan.
      */
-    declare public readonly plan: pulumi.Output<outputs.commonTypesV6.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv6.PlanResponse | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
@@ -62,7 +62,7 @@ export class BulkAction extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -129,7 +129,7 @@ export interface BulkActionArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commonTypesV6.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
     /**
      * The location name.
      */
@@ -141,7 +141,7 @@ export interface BulkActionArgs {
     /**
      * Details of the resource plan.
      */
-    plan?: pulumi.Input<inputs.commonTypesV6.PlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv6.PlanArgs>;
     /**
      * The resource-specific properties for this resource.
      */

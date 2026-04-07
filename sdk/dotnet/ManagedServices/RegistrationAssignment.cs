@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.ManagedServices
         /// The metadata for the registration assignment resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).

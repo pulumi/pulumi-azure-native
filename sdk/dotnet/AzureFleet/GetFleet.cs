@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// <summary>
         /// Details of the resource plan.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.PlanResponse? Plan;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.PlanResponse? Plan;
         /// <summary>
         /// The status of the last operation.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -174,13 +174,13 @@ namespace Pulumi.AzureNative.AzureFleet
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.PlanResponse? plan,
+            Pulumi.AzureNative.Commontypesv5.Outputs.PlanResponse? plan,
 
             string provisioningState,
 
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.AzureFleet
 
             Outputs.SpotPriorityProfileResponse? spotPriorityProfile,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

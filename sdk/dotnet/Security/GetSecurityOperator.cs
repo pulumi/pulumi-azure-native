@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.IdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Security
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.IdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse? identity,
 
             string name,
 

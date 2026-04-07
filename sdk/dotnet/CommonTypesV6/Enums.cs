@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNative.CommonTypesV6
+namespace Pulumi.AzureNative.Commontypesv6
 {
     /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).

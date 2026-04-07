@@ -67,7 +67,7 @@ export interface GetNamespaceResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * The tags to be persisted on the managed cluster namespace.
      */

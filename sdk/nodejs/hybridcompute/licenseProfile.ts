@@ -72,7 +72,7 @@ export class LicenseProfile extends pulumi.CustomResource {
     /**
      * The errors that were encountered during the feature enrollment or disenrollment.
      */
-    declare public /*out*/ readonly error: pulumi.Output<outputs.commonTypesV3.ErrorDetailResponse>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.commontypesv3.ErrorDetailResponse>;
     /**
      * Indicates the eligibility state of Esu.
      */
@@ -120,7 +120,7 @@ export class LicenseProfile extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */

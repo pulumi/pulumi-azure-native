@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateEndpointResponse? privateEndpoint,
+            Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Pulumi.AzureNative.Commontypesv2.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 

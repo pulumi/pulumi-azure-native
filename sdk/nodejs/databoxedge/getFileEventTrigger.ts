@@ -72,7 +72,7 @@ export interface GetFileEventTriggerResult {
     /**
      * Metadata pertaining to creation and last modification of Trigger
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

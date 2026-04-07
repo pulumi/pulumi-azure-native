@@ -48,7 +48,7 @@ export interface GetStorageSyncServiceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * Incoming Traffic Policy
      */
@@ -72,7 +72,7 @@ export interface GetStorageSyncServiceResult {
     /**
      * List of private endpoint connection associated with the specified storage sync service
      */
-    readonly privateEndpointConnections: outputs.commonTypesV5.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
     /**
      * StorageSyncService Provisioning State
      */
@@ -88,7 +88,7 @@ export interface GetStorageSyncServiceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -498,7 +498,7 @@ export namespace agfoodplatform {
         /**
          * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
          */
-        provisioningInfo?: outputs.commonTypesV4.ErrorResponseResponse;
+        provisioningInfo?: outputs.commontypesv4.ErrorResponseResponse;
         /**
          * Sensor integration instance provisioning state.
          */
@@ -2741,7 +2741,7 @@ export namespace apimanagement {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV2.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -5788,7 +5788,7 @@ export namespace app {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -7474,7 +7474,7 @@ export namespace applicationinsights {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV3.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv3.UserAssignedIdentityResponse};
     }
 
     /**
@@ -11275,7 +11275,7 @@ export namespace authorization {
         /**
          * The system metadata relating to this resource.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
          */
@@ -11366,7 +11366,7 @@ export namespace authorization {
         /**
          * The system metadata relating to this resource.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource (Microsoft.Authorization/policySetDefinitions/versions).
          */
@@ -12254,7 +12254,7 @@ export namespace automation {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -38131,7 +38131,7 @@ export namespace azuredatatransfer {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
+        identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
         /**
          * The geo-location where the resource lives
          */
@@ -38143,7 +38143,7 @@ export namespace azuredatatransfer {
         /**
          * Details of the resource plan.
          */
-        plan?: outputs.commonTypesV5.PlanResponse;
+        plan?: outputs.commontypesv5.PlanResponse;
         /**
          * Properties of flow
          */
@@ -38151,7 +38151,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38345,7 +38345,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38479,7 +38479,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38517,7 +38517,7 @@ export namespace azuredatatransfer {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * Connection type inside pipeline
          */
@@ -40604,7 +40604,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40650,7 +40650,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40742,7 +40742,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40796,7 +40796,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -41548,7 +41548,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Unique, immutable job id.
          */
@@ -41685,7 +41685,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * From date for log collection.
          */
@@ -41938,7 +41938,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Remote support expiration timestamp.
          */
@@ -42340,7 +42340,7 @@ export namespace azurestackhci {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commonTypesV5.ErrorDetailResponse[];
+        errorDetails: outputs.commontypesv5.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -42366,7 +42366,7 @@ export namespace azurestackhci {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commonTypesV3.ErrorDetailResponse[];
+        errorDetails: outputs.commontypesv3.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -44095,7 +44095,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * operation id.
          */
@@ -44389,7 +44389,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Unique, immutable job id.
          */
@@ -47351,7 +47351,7 @@ export namespace batch {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The tags of the resource.
          */
@@ -49069,7 +49069,7 @@ export namespace billingbenefits {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV6.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
     }
 
     /**
@@ -50447,7 +50447,7 @@ export namespace botservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -50634,7 +50634,7 @@ export namespace botservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -54551,7 +54551,7 @@ export namespace chaos {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -56437,7 +56437,7 @@ export namespace cognitiveservices {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -57582,11 +57582,11 @@ export namespace cognitiveservices {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commonTypesV2.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv2.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV2.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -57620,7 +57620,7 @@ export namespace cognitiveservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -58299,7 +58299,7 @@ export namespace cognitiveservices {
 
 }
 
-export namespace commonTypesV1 {
+export namespace commontypesv1 {
     /**
      * The resource management error additional info.
      */
@@ -58321,7 +58321,7 @@ export namespace commonTypesV1 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV1.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv1.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -58329,7 +58329,7 @@ export namespace commonTypesV1 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV1.ErrorResponseResponse[];
+        details: outputs.commontypesv1.ErrorResponseResponse[];
         /**
          * The error message.
          */
@@ -58355,11 +58355,11 @@ export namespace commonTypesV1 {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commonTypesV1.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv1.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV1.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv1.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -58430,7 +58430,7 @@ export namespace commonTypesV1 {
 
 }
 
-export namespace commonTypesV2 {
+export namespace commontypesv2 {
     /**
      * The resource management error additional info.
      */
@@ -58452,7 +58452,7 @@ export namespace commonTypesV2 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV2.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv2.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -58460,7 +58460,7 @@ export namespace commonTypesV2 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV2.ErrorDetailResponse[];
+        details: outputs.commontypesv2.ErrorDetailResponse[];
         /**
          * The error message.
          */
@@ -58530,11 +58530,11 @@ export namespace commonTypesV2 {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commonTypesV2.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv2.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV2.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -58631,7 +58631,7 @@ export namespace commonTypesV2 {
 
 }
 
-export namespace commonTypesV3 {
+export namespace commontypesv3 {
     /**
      * The resource management error additional info.
      */
@@ -58653,7 +58653,7 @@ export namespace commonTypesV3 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV3.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv3.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -58661,7 +58661,7 @@ export namespace commonTypesV3 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV3.ErrorDetailResponse[];
+        details: outputs.commontypesv3.ErrorDetailResponse[];
         /**
          * The error message.
          */
@@ -58679,7 +58679,7 @@ export namespace commonTypesV3 {
         /**
          * The error object.
          */
-        error?: outputs.commonTypesV3.ErrorDetailResponse;
+        error?: outputs.commontypesv3.ErrorDetailResponse;
     }
 
     /**
@@ -58741,7 +58741,7 @@ export namespace commonTypesV3 {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV3.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv3.UserAssignedIdentityResponse};
     }
 
     /**
@@ -58759,11 +58759,11 @@ export namespace commonTypesV3 {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commonTypesV3.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv3.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV3.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv3.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -58771,7 +58771,7 @@ export namespace commonTypesV3 {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -58896,7 +58896,7 @@ export namespace commonTypesV3 {
 
 }
 
-export namespace commonTypesV4 {
+export namespace commontypesv4 {
     /**
      * All Customer-managed key encryption properties for the resource.
      */
@@ -58904,7 +58904,7 @@ export namespace commonTypesV4 {
         /**
          * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
          */
-        keyEncryptionKeyIdentity?: outputs.commonTypesV4.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity;
+        keyEncryptionKeyIdentity?: outputs.commontypesv4.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity;
         /**
          * key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
          */
@@ -58972,7 +58972,7 @@ export namespace commonTypesV4 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV4.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv4.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -58980,7 +58980,7 @@ export namespace commonTypesV4 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV4.ErrorDetailResponse[];
+        details: outputs.commontypesv4.ErrorDetailResponse[];
         /**
          * The error message.
          */
@@ -58998,7 +58998,7 @@ export namespace commonTypesV4 {
         /**
          * The error object.
          */
-        error?: outputs.commonTypesV4.ErrorDetailResponse;
+        error?: outputs.commontypesv4.ErrorDetailResponse;
     }
 
     /**
@@ -59038,7 +59038,7 @@ export namespace commonTypesV4 {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV4.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
     }
 
     /**
@@ -59060,11 +59060,11 @@ export namespace commonTypesV4 {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV4.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv4.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV4.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -59072,7 +59072,7 @@ export namespace commonTypesV4 {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV4.SystemDataResponse;
+        systemData: outputs.commontypesv4.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -59153,7 +59153,7 @@ export namespace commonTypesV4 {
 
 }
 
-export namespace commonTypesV5 {
+export namespace commontypesv5 {
     /**
      * All encryption configuration for a resource.
      */
@@ -59161,7 +59161,7 @@ export namespace commonTypesV5 {
         /**
          * All Customer-managed key encryption properties for the resource.
          */
-        customerManagedKeyEncryption?: outputs.commonTypesV5.EncryptionResponseCustomerManagedKeyEncryption;
+        customerManagedKeyEncryption?: outputs.commontypesv5.EncryptionResponseCustomerManagedKeyEncryption;
         /**
          * (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
          */
@@ -59175,7 +59175,7 @@ export namespace commonTypesV5 {
         /**
          * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
          */
-        keyEncryptionKeyIdentity?: outputs.commonTypesV5.EncryptionResponseKeyEncryptionKeyIdentity;
+        keyEncryptionKeyIdentity?: outputs.commontypesv5.EncryptionResponseKeyEncryptionKeyIdentity;
         /**
          * key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
          */
@@ -59225,7 +59225,7 @@ export namespace commonTypesV5 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV5.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv5.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -59233,7 +59233,7 @@ export namespace commonTypesV5 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV5.ErrorDetailResponse[];
+        details: outputs.commontypesv5.ErrorDetailResponse[];
         /**
          * The error message.
          */
@@ -59251,7 +59251,7 @@ export namespace commonTypesV5 {
         /**
          * Managed-On-Behalf-Of broker resources
          */
-        moboBrokerResources?: outputs.commonTypesV5.MoboBrokerResourceResponse[];
+        moboBrokerResources?: outputs.commontypesv5.MoboBrokerResourceResponse[];
     }
 
     /**
@@ -59273,7 +59273,7 @@ export namespace commonTypesV5 {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -59323,11 +59323,11 @@ export namespace commonTypesV5 {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -59353,11 +59353,11 @@ export namespace commonTypesV5 {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -59365,7 +59365,7 @@ export namespace commonTypesV5 {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -59551,7 +59551,7 @@ export namespace commonTypesV5 {
 
 }
 
-export namespace commonTypesV6 {
+export namespace commontypesv6 {
     /**
      * The resource management error additional info.
      */
@@ -59573,7 +59573,7 @@ export namespace commonTypesV6 {
         /**
          * The error additional info.
          */
-        additionalInfo: outputs.commonTypesV6.ErrorAdditionalInfoResponse[];
+        additionalInfo: outputs.commontypesv6.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -59581,7 +59581,7 @@ export namespace commonTypesV6 {
         /**
          * The error details.
          */
-        details: outputs.commonTypesV6.ErrorDetailResponse[];
+        details: outputs.commontypesv6.ErrorDetailResponse[];
         /**
          * The error message.
          */
@@ -59611,7 +59611,7 @@ export namespace commonTypesV6 {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV6.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
     }
 
     /**
@@ -59651,11 +59651,11 @@ export namespace commonTypesV6 {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV6.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv6.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV6.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv6.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -59681,11 +59681,11 @@ export namespace commonTypesV6 {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV6.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv6.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV6.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv6.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -59693,7 +59693,7 @@ export namespace commonTypesV6 {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -59737,7 +59737,7 @@ export namespace commonTypesV6 {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -62647,7 +62647,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -62950,7 +62950,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Gets the creation time of the restore point.
          */
@@ -63962,7 +63962,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -68557,7 +68557,7 @@ export namespace connectedcache {
         /**
          * The error details
          */
-        error?: outputs.commonTypesV5.ErrorDetailResponse;
+        error?: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68595,7 +68595,7 @@ export namespace connectedcache {
         /**
          * Mcc response error details.
          */
-        error?: outputs.commonTypesV5.ErrorDetailResponse;
+        error?: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68707,7 +68707,7 @@ export namespace connectedcache {
         /**
          * Mcc response error details.
          */
-        error: outputs.commonTypesV5.ErrorDetailResponse;
+        error: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68964,7 +68964,7 @@ export namespace connectedvmwarevsphere {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commonTypesV3.ErrorDetailResponse[];
+        errorDetails: outputs.commontypesv3.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -73363,7 +73363,7 @@ export namespace containerservice {
         /**
          * The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
          */
-        provisioningError: outputs.commonTypesV6.ErrorDetailResponse;
+        provisioningError: outputs.commontypesv6.ErrorDetailResponse;
     }
 
     /**
@@ -73736,7 +73736,7 @@ export namespace containerservice {
         /**
          * The last operation error of the fleet managed namespace
          */
-        lastOperationError: outputs.commonTypesV5.ErrorDetailResponse;
+        lastOperationError: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * The last operation ID for the fleet managed namespace
          */
@@ -74713,7 +74713,7 @@ export namespace containerservice {
         /**
          * The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
          */
-        delegatedResources?: {[key: string]: outputs.commonTypesV4.DelegatedResourceResponse};
+        delegatedResources?: {[key: string]: outputs.commontypesv4.DelegatedResourceResponse};
         /**
          * The principal id of the system assigned identity which is used by master components.
          */
@@ -75319,7 +75319,7 @@ export namespace containerservice {
         /**
          * The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
          */
-        provisioningError: outputs.commonTypesV6.ErrorDetailResponse;
+        provisioningError: outputs.commontypesv6.ErrorDetailResponse;
     }
 
     /**
@@ -75769,7 +75769,7 @@ export namespace containerservice {
          * If not specified the default agentpool identity will be used.
          * This does not affect provisioned nodes.
          */
-        identityProfile?: outputs.commonTypesV5.UserAssignedIdentityResponse;
+        identityProfile?: outputs.commontypesv5.UserAssignedIdentityResponse;
         /**
          * The provisioning state of the node customization.
          */
@@ -76431,7 +76431,7 @@ export namespace containerservice {
         /**
          * The error details when a failure is encountered.
          */
-        error: outputs.commonTypesV3.ErrorDetailResponse;
+        error: outputs.commontypesv3.ErrorDetailResponse;
         /**
          * The time the operation or group was started.
          */
@@ -76654,7 +76654,7 @@ export namespace containerstorage {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commonTypesV4.ManagedServiceIdentityResponse;
+        identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
         /**
          * The name of the key vault key.
          */
@@ -77752,7 +77752,7 @@ export namespace cosmosdb {
         /**
          * Error related to resource provisioning.
          */
-        provisionError?: outputs.commonTypesV6.ErrorDetailResponse;
+        provisionError?: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * The status of the resource at the time the operation was called.
          */
@@ -81099,11 +81099,11 @@ export namespace dashboard {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commonTypesV3.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv3.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV3.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv3.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -81111,7 +81111,7 @@ export namespace dashboard {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -113586,7 +113586,7 @@ export namespace datamigration {
         /**
          * Identity details for authentication using a Managed Identity.
          */
-        identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
+        identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
         /**
          * Resource Id of the storage account where backups are stored.
          */
@@ -121413,7 +121413,7 @@ export namespace dataprotection {
         /**
          * Gets or sets the user assigned identities.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV4.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
     }
 
     /**
@@ -124869,7 +124869,7 @@ export namespace dbforpostgresql {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV4.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
     }
 
     /**
@@ -125143,11 +125143,11 @@ export namespace dbforpostgresql {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState?: outputs.commonTypesV4.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState?: outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV4.SystemDataResponse;
+        systemData: outputs.commontypesv4.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -125882,7 +125882,7 @@ export namespace devcenter {
         /**
          * All Customer-managed key encryption properties for the resource.
          */
-        customerManagedKeyEncryption?: outputs.commonTypesV4.CustomerManagedKeyEncryptionResponse;
+        customerManagedKeyEncryption?: outputs.commontypesv4.CustomerManagedKeyEncryptionResponse;
     }
 
     /**
@@ -126053,7 +126053,7 @@ export namespace devcenter {
         /**
          * Error response describing why the sync failed.
          */
-        lastSyncError?: outputs.commonTypesV5.ErrorDetailResponse;
+        lastSyncError?: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * When the plan member was last synced.
          */
@@ -126553,7 +126553,7 @@ export namespace deviceprovisioningservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The resource type.
          */
@@ -128262,7 +128262,7 @@ export namespace deviceupdate {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -128779,7 +128779,7 @@ export namespace devtestlab {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The tags of the resource.
          */
@@ -129590,7 +129590,7 @@ export namespace devtestlab {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -130233,7 +130233,7 @@ export namespace discovery {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commonTypesV5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
         /**
          * Private Endpoint Subnet ID for private endpoint connections.
          */
@@ -130253,7 +130253,7 @@ export namespace discovery {
         /**
          * User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
          */
-        workloadIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        workloadIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -130431,7 +130431,7 @@ export namespace discovery {
         /**
          * User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
          */
-        workloadIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        workloadIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -130526,7 +130526,7 @@ export namespace discovery {
         /**
          * Managed-On-Behalf-Of broker resources
          */
-        moboBrokerResources: outputs.commonTypesV5.MoboBrokerResourceResponse[];
+        moboBrokerResources: outputs.commontypesv5.MoboBrokerResourceResponse[];
     }
 
     /**
@@ -130560,7 +130560,7 @@ export namespace discovery {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commonTypesV5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
         /**
          * Private Endpoint Subnet ID for private endpoint connections.
          */
@@ -131753,7 +131753,7 @@ export namespace edge {
         /**
          * Error Details if any failure is there
          */
-        errorDetails: outputs.commonTypesV5.ErrorDetailResponse;
+        errorDetails: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * External validation id
          */
@@ -132665,7 +132665,7 @@ export namespace edgeorder {
         /**
          * Top level error for the job.
          */
-        error: outputs.commonTypesV5.ErrorDetailResponse;
+        error: outputs.commontypesv5.ErrorDetailResponse;
         /**
          * Forward Package Shipping details.
          */
@@ -133062,7 +133062,7 @@ export namespace edgeorder {
         /**
          * User Assigned Identities
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
     /**
      * resourceIdentityResponseProvideDefaults sets the appropriate defaults for ResourceIdentityResponse
@@ -133957,7 +133957,7 @@ export namespace elasticsan {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -136483,7 +136483,7 @@ export namespace fileshares {
         /**
          * The list of associated private endpoint connections.
          */
-        privateEndpointConnections: outputs.commonTypesV6.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv6.PrivateEndpointConnectionResponse[];
         /**
          * The file sharing protocol for this file share.
          */
@@ -138068,11 +138068,11 @@ export namespace hardwaresecuritymodules {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -138080,7 +138080,7 @@ export namespace hardwaresecuritymodules {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -138799,7 +138799,7 @@ export namespace hdinsight {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -139722,7 +139722,7 @@ export namespace healthcareapis {
         /**
          * The list of private endpoint connections that are set up for this resource.
          */
-        privateEndpointConnections?: outputs.commonTypesV1.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections?: outputs.commontypesv1.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state.
          */
@@ -139848,7 +139848,7 @@ export namespace healthcareapis {
         /**
          * The list of private endpoint connections that are set up for this resource.
          */
-        privateEndpointConnections: outputs.commonTypesV1.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv1.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state.
          */
@@ -139869,7 +139869,7 @@ export namespace healthdataaiservices {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commonTypesV5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
         /**
          * The status of the last operation.
          */
@@ -140171,7 +140171,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the feature enrollment or disenrollment.
          */
-        error: outputs.commonTypesV3.ErrorDetailResponse;
+        error: outputs.commontypesv3.ErrorDetailResponse;
         /**
          * Properties for the Machine ESU profile.
          */
@@ -140233,7 +140233,7 @@ export namespace hybridcompute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -140365,7 +140365,7 @@ export namespace hybridcompute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -140525,7 +140525,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the hotpatch capability enrollment or disenrollment.
          */
-        error: outputs.commonTypesV3.ErrorDetailResponse;
+        error: outputs.commontypesv3.ErrorDetailResponse;
         /**
          * Indicates the current status of the hotpatch being enabled or disabled.
          */
@@ -140627,7 +140627,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the feature enrollment or disenrollment.
          */
-        error: outputs.commonTypesV3.ErrorDetailResponse;
+        error: outputs.commontypesv3.ErrorDetailResponse;
         /**
          * Product feature name.
          */
@@ -144202,7 +144202,7 @@ export namespace integrationspaces {
         /**
          * The system data of the business process development artifact.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
     }
 
     /**
@@ -151181,7 +151181,7 @@ export namespace kubernetesconfiguration {
         /**
          * The collection of associated Private Endpoint Connections.
          */
-        privateEndpointConnections: outputs.commonTypesV3.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv3.PrivateEndpointConnectionResponse[];
         /**
          * The Guid id of the private link scope.
          */
@@ -151867,7 +151867,7 @@ export namespace kusto {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -152293,7 +152293,7 @@ export namespace labservices {
         /**
          * The SKU for the lab. Defines the type of virtual machines used in the lab.
          */
-        sku: outputs.commonTypesV2.SkuResponse;
+        sku: outputs.commontypesv2.SkuResponse;
         /**
          * The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
          */
@@ -154873,7 +154873,7 @@ export namespace m365securityandcompliance {
         /**
          * Required property for system data
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -155137,7 +155137,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -155437,7 +155437,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered by various compute nodes during node setup.
          */
-        errors: outputs.commonTypesV3.ErrorResponseResponse[];
+        errors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * Network is isolated or not
          */
@@ -155540,7 +155540,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -157698,7 +157698,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered on this ComputeInstance.
          */
-        errors: outputs.commonTypesV3.ErrorResponseResponse[];
+        errors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
          */
@@ -157797,7 +157797,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158509,7 +158509,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158557,7 +158557,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158697,7 +158697,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -159233,7 +159233,7 @@ export namespace machinelearningservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
          */
@@ -160453,7 +160453,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -162168,7 +162168,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -162737,7 +162737,7 @@ export namespace machinelearningservices {
         /**
          * The identity which will be leveraged by the monitoring jobs.
          */
-        identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+        identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
     }
 
     export interface ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse {
@@ -163728,7 +163728,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered when doing os patching.
          */
-        osPatchingErrors?: outputs.commonTypesV3.ErrorResponseResponse[];
+        osPatchingErrors?: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The os patching status.
          */
@@ -163944,7 +163944,7 @@ export namespace machinelearningservices {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+        identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
         /**
          * *Same as workspace location.
          */
@@ -163968,11 +163968,11 @@ export namespace machinelearningservices {
         /**
          * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
          */
-        sku?: outputs.commonTypesV3.SkuResponse;
+        sku?: outputs.commontypesv3.SkuResponse;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         tags?: {[key: string]: string};
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -165657,7 +165657,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -166587,7 +166587,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commonTypesV3.ErrorResponseResponse[];
+        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -168914,7 +168914,7 @@ export namespace managedservices {
         /**
          * The metadata for the registration definition resource.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
          */
@@ -169187,7 +169187,7 @@ export namespace management {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The serviceGroup tags.
          */
@@ -169640,7 +169640,7 @@ export namespace maps {
         /**
          * All encryption configuration for a resource.
          */
-        encryption?: outputs.commonTypesV5.EncryptionResponse;
+        encryption?: outputs.commontypesv5.EncryptionResponse;
         /**
          * The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
          */
@@ -173105,11 +173105,11 @@ export namespace migrate {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commonTypesV5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commonTypesV5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -173117,7 +173117,7 @@ export namespace migrate {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -175321,7 +175321,7 @@ export namespace mongocluster {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commonTypesV5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state of the mongo cluster.
          */
@@ -176145,7 +176145,7 @@ export namespace monitor {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -176309,7 +176309,7 @@ export namespace monitor {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -176557,7 +176557,7 @@ export namespace monitor {
         /**
          * The system metadata related to this resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -197178,7 +197178,7 @@ export namespace notificationhubs {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -197431,7 +197431,7 @@ export namespace offazure {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -199620,7 +199620,7 @@ export namespace powerbi {
         /**
          * The system meta data relating to this resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * Specifies the type of the resource.
          */
@@ -200300,7 +200300,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV6.SystemDataResponse;
+        systemData: outputs.commontypesv6.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -200538,7 +200538,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV6.SystemDataResponse;
+        systemData: outputs.commontypesv6.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -202295,7 +202295,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV6.SystemDataResponse;
+        systemData: outputs.commontypesv6.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -202814,7 +202814,7 @@ export namespace purview {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -214270,7 +214270,7 @@ export namespace relay {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -214440,7 +214440,7 @@ export namespace resourcehealth {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV3.SystemDataResponse;
+        systemData: outputs.commontypesv3.SystemDataResponse;
         /**
          * Impacted resource region name.
          */
@@ -214833,7 +214833,7 @@ export namespace resources {
         /**
          * The deployment error.
          */
-        error: outputs.commonTypesV1.ErrorResponseResponse;
+        error: outputs.commontypesv1.ErrorResponseResponse;
         /**
          * The deployment mode. Possible values are Incremental and Complete.
          */
@@ -214901,7 +214901,7 @@ export namespace resources {
         /**
          * Additional error information.
          */
-        additionalInfo?: outputs.commonTypesV6.ErrorAdditionalInfoResponse[];
+        additionalInfo?: outputs.commontypesv6.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -215161,7 +215161,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215231,7 +215231,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215301,7 +215301,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215642,7 +215642,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commonTypesV6.ErrorDetailResponse;
+        error: outputs.commontypesv6.ErrorDetailResponse;
         /**
          * The ARM Resource ID of a resource managed by the deployment stack.
          */
@@ -215674,7 +215674,7 @@ export namespace resources {
         /**
          * Error that is relayed from the script execution.
          */
-        error?: outputs.commonTypesV1.ErrorResponseResponse;
+        error?: outputs.commontypesv1.ErrorResponseResponse;
         /**
          * Time the deployment script resource will expire.
          */
@@ -216806,7 +216806,7 @@ export namespace scvmm {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commonTypesV2.ErrorDetailResponse[];
+        errorDetails: outputs.commontypesv2.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -217305,7 +217305,7 @@ export namespace search {
         /**
          * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV6.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
     }
 
     /**
@@ -217419,7 +217419,7 @@ export namespace search {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV6.SystemDataResponse;
+        systemData: outputs.commontypesv6.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -217498,7 +217498,7 @@ export namespace search {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV6.SystemDataResponse;
+        systemData: outputs.commontypesv6.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -218051,7 +218051,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -219551,7 +219551,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -219628,7 +219628,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -220398,7 +220398,7 @@ export namespace securityandcompliance {
         /**
          * Required property for system data
          */
-        systemData: outputs.commonTypesV2.SystemDataResponse;
+        systemData: outputs.commontypesv2.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -226474,7 +226474,7 @@ export namespace signalrservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -226655,7 +226655,7 @@ export namespace signalrservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -240884,7 +240884,7 @@ export namespace webpubsub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -241029,7 +241029,7 @@ export namespace webpubsub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commonTypesV5.SystemDataResponse;
+        systemData: outputs.commontypesv5.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -242998,7 +242998,7 @@ export namespace workloads {
         /**
          * The identities assigned to this resource by the user.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**
@@ -243596,7 +243596,7 @@ export namespace workloads {
         /**
          * User assigned identities dictionary
          */
-        userAssignedIdentities?: {[key: string]: outputs.commonTypesV5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
     }
 
     /**

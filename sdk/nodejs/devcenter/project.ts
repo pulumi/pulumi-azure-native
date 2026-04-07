@@ -68,7 +68,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Managed identity properties
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV4.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv4.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,7 +88,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -174,7 +174,7 @@ export interface ProjectArgs {
     /**
      * Managed identity properties
      */
-    identity?: pulumi.Input<inputs.commonTypesV4.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV3.Inputs
+namespace Pulumi.AzureNative.Commontypesv3.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.CommonTypesV3.Inputs
         /// Type of managed service identity (either system assigned, or none).
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.CommonTypesV3.SystemAssignedServiceIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Commontypesv3.SystemAssignedServiceIdentityType> Type { get; set; } = null!;
 
         public SystemAssignedServiceIdentityArgs()
         {

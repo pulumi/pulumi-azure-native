@@ -89,7 +89,7 @@ export interface GetMachineResult {
     /**
      * Details about the error state.
      */
-    readonly errorDetails: outputs.commonTypesV3.ErrorDetailResponse[];
+    readonly errorDetails: outputs.commontypesv3.ErrorDetailResponse[];
     /**
      * Machine Extensions information (deprecated field)
      */
@@ -101,7 +101,7 @@ export interface GetMachineResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.commonTypesV3.IdentityResponse;
+    readonly identity?: outputs.commontypesv3.IdentityResponse;
     /**
      * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
      */
@@ -121,7 +121,7 @@ export interface GetMachineResult {
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    readonly locationData?: outputs.commonTypesV3.LocationDataResponse;
+    readonly locationData?: outputs.commontypesv3.LocationDataResponse;
     /**
      * Specifies the hybrid machine FQDN.
      */
@@ -189,7 +189,7 @@ export interface GetMachineResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

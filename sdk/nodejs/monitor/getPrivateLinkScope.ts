@@ -60,7 +60,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.commonTypesV2.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commontypesv2.PrivateEndpointConnectionResponse[];
     /**
      * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
      */
@@ -68,7 +68,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * System data
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

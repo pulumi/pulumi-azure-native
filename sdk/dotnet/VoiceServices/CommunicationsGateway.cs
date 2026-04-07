@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Whether an integrated Mobile Control Point is in use.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the deployment.
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -297,7 +297,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Whether an integrated Mobile Control Point is in use.
@@ -351,7 +351,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

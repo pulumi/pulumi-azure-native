@@ -48,7 +48,7 @@ export interface GetInferencePoolResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.commonTypesV3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -68,11 +68,11 @@ export interface GetInferencePoolResult {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    readonly sku?: outputs.commonTypesV3.SkuResponse;
+    readonly sku?: outputs.commontypesv3.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV3.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

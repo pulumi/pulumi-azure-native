@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.ProviderHub
 
             Outputs.AuthorizedApplicationPropertiesResponse properties,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
 
             string type)
         {

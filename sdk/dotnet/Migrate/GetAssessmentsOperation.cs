@@ -292,7 +292,7 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Time Range for which the historic utilization data should be considered for
         /// assessment.
@@ -398,7 +398,7 @@ namespace Pulumi.AzureNative.Migrate
 
             ImmutableDictionary<string, int> suitabilitySummary,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string? timeRange,
 

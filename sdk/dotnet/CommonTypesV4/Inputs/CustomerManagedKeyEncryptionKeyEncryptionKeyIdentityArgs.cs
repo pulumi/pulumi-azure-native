@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV4.Inputs
+namespace Pulumi.AzureNative.Commontypesv4.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CommonTypesV4.Inputs
         /// Values can be systemAssignedIdentity or userAssignedIdentity
         /// </summary>
         [Input("identityType")]
-        public InputUnion<string, Pulumi.AzureNative.CommonTypesV4.IdentityType>? IdentityType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Commontypesv4.IdentityType>? IdentityType { get; set; }
 
         /// <summary>
         /// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/&lt;resource group&gt;/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.

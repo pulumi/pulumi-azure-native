@@ -72,7 +72,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.commonTypesV2.ErrorDetailResponse>;
+    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.commontypesv2.ErrorDetailResponse>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
@@ -80,7 +80,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Identity of the Extension resource
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV2.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv2.IdentityResponse | undefined>;
     /**
      * Flag to note if this extension is a system extension
      */
@@ -96,7 +96,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The plan information.
      */
-    declare public readonly plan: pulumi.Output<outputs.commonTypesV2.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv2.PlanResponse | undefined>;
     /**
      * Status of installation of this extension.
      */
@@ -116,7 +116,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -248,11 +248,11 @@ export interface ExtensionArgs {
     /**
      * Identity of the Extension resource
      */
-    identity?: pulumi.Input<inputs.commonTypesV2.IdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv2.IdentityArgs>;
     /**
      * The plan information.
      */
-    plan?: pulumi.Input<inputs.commonTypesV2.PlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv2.PlanArgs>;
     /**
      * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */

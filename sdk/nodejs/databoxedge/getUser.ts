@@ -65,7 +65,7 @@ export interface GetUserResult {
     /**
      * Metadata pertaining to creation and last modification of User
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

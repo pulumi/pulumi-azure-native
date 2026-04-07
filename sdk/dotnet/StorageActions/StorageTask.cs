@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// The managed service identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.ManagedServiceIdentityResponse> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// The managed service identity of the resource.
         /// </summary>
         [Input("identity", required: true)]
-        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.ManagedServiceIdentityArgs> Identity { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ManagedServiceIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

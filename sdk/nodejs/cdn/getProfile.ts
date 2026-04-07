@@ -56,7 +56,7 @@ export interface GetProfileResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commonTypesV6.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
     /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
@@ -92,7 +92,7 @@ export interface GetProfileResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV6.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

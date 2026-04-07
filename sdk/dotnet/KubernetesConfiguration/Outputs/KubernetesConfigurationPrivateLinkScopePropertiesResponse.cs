@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// <summary>
         /// The collection of associated Private Endpoint Connections.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The Guid id of the private link scope.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         private KubernetesConfigurationPrivateLinkScopePropertiesResponse(
             string clusterResourceId,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string privateLinkScopeId,
 

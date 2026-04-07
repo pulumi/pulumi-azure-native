@@ -44,7 +44,7 @@ export interface GetNetworkFabricTopologyResult {
     /**
      * The error object.
      */
-    readonly error?: outputs.commonTypesV5.ErrorDetailResponse;
+    readonly error?: outputs.commontypesv5.ErrorDetailResponse;
     /**
      * URL for the details of the response.
      */

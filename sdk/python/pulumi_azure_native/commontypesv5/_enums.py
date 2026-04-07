@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 
-@pulumi.type_token("azure-native:commonTypesV5:InfrastructureEncryption")
+@pulumi.type_token("azure-native:commontypesv5:InfrastructureEncryption")
 class InfrastructureEncryption(_builtins.str, Enum):
     """
     (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
@@ -25,7 +25,7 @@ class InfrastructureEncryption(_builtins.str, Enum):
     DISABLED = "disabled"
 
 
-@pulumi.type_token("azure-native:commonTypesV5:ManagedServiceIdentityType")
+@pulumi.type_token("azure-native:commontypesv5:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(_builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -36,7 +36,7 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
-@pulumi.type_token("azure-native:commonTypesV5:PrivateEndpointServiceConnectionStatus")
+@pulumi.type_token("azure-native:commontypesv5:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -46,7 +46,7 @@ class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     REJECTED = "Rejected"
 
 
-@pulumi.type_token("azure-native:commonTypesV5:ResourceIdentityType")
+@pulumi.type_token("azure-native:commontypesv5:ResourceIdentityType")
 class ResourceIdentityType(_builtins.str, Enum):
     """
     The identity type.
@@ -54,7 +54,7 @@ class ResourceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
-@pulumi.type_token("azure-native:commonTypesV5:SkuTier")
+@pulumi.type_token("azure-native:commontypesv5:SkuTier")
 class SkuTier(_builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -65,7 +65,7 @@ class SkuTier(_builtins.str, Enum):
     PREMIUM = "Premium"
 
 
-@pulumi.type_token("azure-native:commonTypesV5:SystemAssignedServiceIdentityType")
+@pulumi.type_token("azure-native:commontypesv5:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(_builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).

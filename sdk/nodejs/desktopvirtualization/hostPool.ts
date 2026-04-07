@@ -81,7 +81,7 @@ export class HostPool extends pulumi.CustomResource {
      * HostPool type for desktop.
      */
     declare public readonly hostPoolType: pulumi.Output<string>;
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -114,7 +114,7 @@ export class HostPool extends pulumi.CustomResource {
      * PersonalDesktopAssignment type for HostPool.
      */
     declare public readonly personalDesktopAssignmentType: pulumi.Output<string | undefined>;
-    declare public readonly plan: pulumi.Output<outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -122,7 +122,7 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * List of private endpoint connection associated with the specified resource
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV5.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv5.PrivateEndpointConnectionResponse[]>;
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
@@ -135,7 +135,7 @@ export class HostPool extends pulumi.CustomResource {
      * The ring number of HostPool.
      */
     declare public readonly ring: pulumi.Output<number | undefined>;
-    declare public readonly sku: pulumi.Output<outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
@@ -159,7 +159,7 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -311,7 +311,7 @@ export interface HostPoolArgs {
      * HostPool type for desktop.
      */
     hostPoolType: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
-    identity?: pulumi.Input<inputs.commonTypesV5.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -336,7 +336,7 @@ export interface HostPoolArgs {
      * PersonalDesktopAssignment type for HostPool.
      */
     personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.PersonalDesktopAssignmentType>;
-    plan?: pulumi.Input<inputs.commonTypesV5.ResourceModelWithAllowedPropertySetPlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -357,7 +357,7 @@ export interface HostPoolArgs {
      * The ring number of HostPool.
      */
     ring?: pulumi.Input<number>;
-    sku?: pulumi.Input<inputs.commonTypesV5.ResourceModelWithAllowedPropertySetSkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */

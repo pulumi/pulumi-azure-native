@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets the thumbprint of the certificate.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Automation
 
             string name,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string thumbprint,
 

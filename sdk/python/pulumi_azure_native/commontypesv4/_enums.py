@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 
-@pulumi.type_token("azure-native:commonTypesV4:IdentityType")
+@pulumi.type_token("azure-native:commontypesv4:IdentityType")
 class IdentityType(_builtins.str, Enum):
     """
     Values can be systemAssignedIdentity or userAssignedIdentity
@@ -24,7 +24,7 @@ class IdentityType(_builtins.str, Enum):
     DELEGATED_RESOURCE_IDENTITY = "delegatedResourceIdentity"
 
 
-@pulumi.type_token("azure-native:commonTypesV4:ManagedServiceIdentityType")
+@pulumi.type_token("azure-native:commontypesv4:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(_builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -35,7 +35,7 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
-@pulumi.type_token("azure-native:commonTypesV4:PrivateEndpointServiceConnectionStatus")
+@pulumi.type_token("azure-native:commontypesv4:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -45,7 +45,7 @@ class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     REJECTED = "Rejected"
 
 
-@pulumi.type_token("azure-native:commonTypesV4:ResourceIdentityType")
+@pulumi.type_token("azure-native:commontypesv4:ResourceIdentityType")
 class ResourceIdentityType(_builtins.str, Enum):
     """
     The identity type.

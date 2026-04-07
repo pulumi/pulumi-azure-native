@@ -68,7 +68,7 @@ export interface GetClusterResult {
     /**
      * Resource's identity.
      */
-    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */

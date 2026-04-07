@@ -192,8 +192,8 @@ func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []
 	newSchema := bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 
 	// update common types refs as well
-	oldCommonRefPrefix := `"$ref":"#/types/azure-native:commonTypes`
-	newCommonRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:commonTypes`, newPackageName)
+	oldCommonRefPrefix := `"$ref":"#/types/azure-native:commontypes`
+	newCommonRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:commontypes`, newPackageName)
 	newSchemaWithModifiedCommonTypes := bytes.ReplaceAll(newSchema, []byte(oldCommonRefPrefix), []byte(newCommonRefPrefix))
 	return newSchemaWithModifiedCommonTypes
 }
@@ -303,7 +303,7 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
 		}
 
-		if strings.HasPrefix(moduleName, "commonTypes") {
+		if strings.HasPrefix(moduleName, "commontypes") {
 			if version != "" && version != targetApiVersion {
 				continue
 			}

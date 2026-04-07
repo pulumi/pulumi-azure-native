@@ -61,7 +61,7 @@ export interface GetDomainTopicResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Type of the resource.
      */

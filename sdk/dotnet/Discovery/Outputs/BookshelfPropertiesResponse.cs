@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Private Endpoint Subnet ID for private endpoint connections.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
         /// <summary>
         /// User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV5.Outputs.UserAssignedIdentityResponse>? WorkloadIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? WorkloadIdentities;
 
         [OutputConstructor]
         private BookshelfPropertiesResponse(
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
 
             string managedResourceGroup,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? privateEndpointSubnetId,
 
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
 
             string? searchSubnetId,
 
-            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV5.Outputs.UserAssignedIdentityResponse>? workloadIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? workloadIdentities)
         {
             BookshelfUri = bookshelfUri;
             CustomerManagedKeys = customerManagedKeys;

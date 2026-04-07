@@ -136,7 +136,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * SystemData of ScheduledQueryRule.
      */
-    readonly systemData: outputs.commonTypesV2.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -56,7 +56,7 @@ export class PrivateAccess extends pulumi.CustomResource {
     /**
      * A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV6.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv6.PrivateEndpointConnectionResponse[]>;
     /**
      * Most recent provisioning state for the given privateAccess resource.
      */
@@ -68,7 +68,7 @@ export class PrivateAccess extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */

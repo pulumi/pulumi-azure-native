@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? identity,
 
             string location,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
             string storageAccountContainerUrl,
 
-            Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

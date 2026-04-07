@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// The managed identity of the flow resource, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Plan for the resource.
         /// </summary>
         [Output("plan")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Properties of flow
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// The managed identity of the flow resource, if configured.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Plan for the resource.
         /// </summary>
         [Input("plan")]
-        public Input<Pulumi.AzureNative.CommonTypesV5.Inputs.PlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// Properties of flow

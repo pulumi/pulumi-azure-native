@@ -11,7 +11,7 @@ __all__ = [
 ]
 
 
-@pulumi.type_token("azure-native:commonTypesV1:PrivateEndpointServiceConnectionStatus")
+@pulumi.type_token("azure-native:commontypesv1:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.

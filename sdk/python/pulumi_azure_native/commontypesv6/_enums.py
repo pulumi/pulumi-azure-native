@@ -13,7 +13,7 @@ __all__ = [
 ]
 
 
-@pulumi.type_token("azure-native:commonTypesV6:ManagedServiceIdentityType")
+@pulumi.type_token("azure-native:commontypesv6:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(_builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -24,7 +24,7 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
-@pulumi.type_token("azure-native:commonTypesV6:PrivateEndpointServiceConnectionStatus")
+@pulumi.type_token("azure-native:commontypesv6:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -34,7 +34,7 @@ class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     REJECTED = "Rejected"
 
 
-@pulumi.type_token("azure-native:commonTypesV6:SkuTier")
+@pulumi.type_token("azure-native:commontypesv6:SkuTier")
 class SkuTier(_builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.

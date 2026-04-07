@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices.Outputs
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

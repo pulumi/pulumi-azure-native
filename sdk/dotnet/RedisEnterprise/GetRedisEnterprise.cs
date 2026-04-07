@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Distinguishes the kind of cluster. Read-only.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// List of private endpoint connections associated with the specified Redis Enterprise cluster
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Current provisioning status of the cluster
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV4.Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? identity,
 
             string kind,
 
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV2.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

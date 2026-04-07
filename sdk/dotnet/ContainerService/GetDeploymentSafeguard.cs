@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// System defined list of namespaces excluded from Deployment Safeguards. These are determined by the underlying provider (such as AKS), and cannot be changed. Deployments in these namespaces will not be checked
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string provisioningState,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
 
             ImmutableArray<string> systemExcludedNamespaces,
 

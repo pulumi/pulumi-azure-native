@@ -119,7 +119,7 @@ export interface GetAzureCliScriptResult {
     /**
      * The system metadata related to this resource.
      */
-    readonly systemData: outputs.commonTypesV1.SystemDataResponse;
+    readonly systemData: outputs.commontypesv1.SystemDataResponse;
     /**
      * Resource tags.
      */

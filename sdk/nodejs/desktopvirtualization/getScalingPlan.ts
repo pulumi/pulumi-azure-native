@@ -69,7 +69,7 @@ export interface GetScalingPlanResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    readonly identity?: outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponseIdentity;
+    readonly identity?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseIdentity;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -90,16 +90,16 @@ export interface GetScalingPlanResult {
      * ObjectId of scaling plan. (internal use)
      */
     readonly objectId: string;
-    readonly plan?: outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponsePlan;
+    readonly plan?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
      * List of ScalingPlanPooledSchedule definitions.
      */
     readonly schedules?: outputs.desktopvirtualization.ScalingScheduleResponse[];
-    readonly sku?: outputs.commonTypesV5.ResourceModelWithAllowedPropertySetResponseSku;
+    readonly sku?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

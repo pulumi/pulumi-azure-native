@@ -56,7 +56,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The managed identities for the IoT Central application.
      */
-    declare public readonly identity: pulumi.Output<outputs.commonTypesV3.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Private endpoint connections created on this IoT Central application.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commonTypesV4.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv4.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the application.
      */
@@ -96,7 +96,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commonTypesV3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -183,7 +183,7 @@ export interface AppArgs {
     /**
      * The managed identities for the IoT Central application.
      */
-    identity?: pulumi.Input<inputs.commonTypesV3.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

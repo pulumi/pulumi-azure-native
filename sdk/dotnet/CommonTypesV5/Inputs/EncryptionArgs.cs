@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.CommonTypesV5.Inputs
+namespace Pulumi.AzureNative.Commontypesv5.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CommonTypesV5.Inputs
         /// (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
         /// </summary>
         [Input("infrastructureEncryption")]
-        public InputUnion<string, Pulumi.AzureNative.CommonTypesV5.InfrastructureEncryption>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Commontypesv5.InfrastructureEncryption>? InfrastructureEncryption { get; set; }
 
         public EncryptionArgs()
         {

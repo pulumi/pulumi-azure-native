@@ -52,7 +52,7 @@ export interface GetMonitorResult {
     /**
      * Defines the SAP monitor errors.
      */
-    readonly errors: outputs.commonTypesV5.ErrorDetailResponse;
+    readonly errors: outputs.commontypesv5.ErrorDetailResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -60,7 +60,7 @@ export interface GetMonitorResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commonTypesV5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -100,7 +100,7 @@ export interface GetMonitorResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commonTypesV5.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

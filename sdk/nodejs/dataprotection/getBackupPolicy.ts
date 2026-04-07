@@ -58,7 +58,7 @@ export interface GetBackupPolicyResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commonTypesV4.SystemDataResponse;
+    readonly systemData: outputs.commontypesv4.SystemDataResponse;
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */

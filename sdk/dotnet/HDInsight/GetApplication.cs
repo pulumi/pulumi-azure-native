@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags for the application.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.HDInsight
 
             Outputs.ApplicationPropertiesResponse properties,
 
-            Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

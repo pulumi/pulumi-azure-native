@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// <summary>
         /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV6.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv6.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 
             string type,
 
-            ImmutableDictionary<string, Pulumi.AzureNative.CommonTypesV6.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv6.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

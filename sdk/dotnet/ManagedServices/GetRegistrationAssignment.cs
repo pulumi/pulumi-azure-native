@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// The metadata for the registration assignment resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.ManagedServices
 
             Outputs.RegistrationAssignmentPropertiesResponse properties,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string type)
         {

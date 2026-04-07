@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Identifier of the tenant in which the Microsoft Entra principal exists.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string? principalType,
 
-            Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
 
             string? tenantId,
 

@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.ImportExport
         /// SystemData of ImportExport Jobs.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the tags that are assigned to the job.

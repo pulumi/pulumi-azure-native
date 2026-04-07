@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// Details of the resource plan.
         /// </summary>
         [Output("plan")]
-        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.CommonTypesV6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.CommonTypesV6.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location name.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// Details of the resource plan.
         /// </summary>
         [Input("plan")]
-        public Input<Pulumi.AzureNative.CommonTypesV6.Inputs.PlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

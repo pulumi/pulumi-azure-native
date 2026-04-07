@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// The managed identities for the IoT Central application.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// Private endpoint connections created on this IoT Central application.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV4.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the application.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.IoTCentral
 
             string id,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemAssignedServiceIdentityResponse? identity,
 
             string location,
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.IoTCentral
 
             Outputs.NetworkRuleSetsResponse? networkRuleSets,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV4.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.IoTCentral
 
             string? subdomain,
 
-            Pulumi.AzureNative.CommonTypesV3.Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

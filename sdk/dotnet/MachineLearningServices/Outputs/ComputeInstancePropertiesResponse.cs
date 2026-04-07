@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Collection of errors encountered on this ComputeInstance.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> Errors;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.ErrorResponseResponse> Errors;
         /// <summary>
         /// Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
         /// </summary>
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             bool? enableSSO,
 
-            ImmutableArray<Pulumi.AzureNative.CommonTypesV3.Outputs.ErrorResponseResponse> errors,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.ErrorResponseResponse> errors,
 
             string? idleTimeBeforeShutdown,
 
