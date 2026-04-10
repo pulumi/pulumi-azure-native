@@ -44,11 +44,13 @@ NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
 # Depending on the major version, we use the full schema with all API versions or default versions only.
 CODEGEN_SCHEMA = $(shell if [ $(MAJOR_VERSION) -lt 3 ]; then echo "bin/schema-full.json"; else echo "bin/schema-default-versions.json"; fi)
 
-# Set these variables to enable signing of the windows binary
+# Set these variables to enable signing of the windows binary with Azure Trusted Signing.
 AZURE_SIGNING_CLIENT_ID ?=
 AZURE_SIGNING_CLIENT_SECRET ?=
 AZURE_SIGNING_TENANT_ID ?=
-AZURE_SIGNING_KEY_VAULT_URI ?=
+AZURE_SIGNING_ACCOUNT_ENDPOINT ?=
+AZURE_SIGNING_ACCOUNT_NAME ?=
+AZURE_SIGNING_CERT_PROFILE_NAME ?=
 
 # Ensure make directory exists
 # For targets which either don't generate a single file output, or the file is committed, we use a "sentinel"
@@ -262,8 +264,8 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: .make/provider_mod_download .make/prebu
 	@# Move the binary to a temporary location and sign it there to avoid the target being up-to-date if signing fails
 	set -e; \
 	if [[ "${TARGET}" = "windows-amd64" ]]; then \
-		if [[ "|${AZURE_SIGNING_CLIENT_ID}|${AZURE_SIGNING_CLIENT_SECRET}|${AZURE_SIGNING_TENANT_ID}|${AZURE_SIGNING_KEY_VAULT_URI}|" == *"||"* ]]; then \
-			echo "Skipping signing as required configuration not set: AZURE_SIGNING_CLIENT_ID, AZURE_SIGNING_CLIENT_SECRET, AZURE_SIGNING_TENANT_ID, AZURE_SIGNING_KEY_VAULT_URI"; \
+		if [[ "|${AZURE_SIGNING_CLIENT_ID}|${AZURE_SIGNING_CLIENT_SECRET}|${AZURE_SIGNING_TENANT_ID}|${AZURE_SIGNING_ACCOUNT_ENDPOINT}|${AZURE_SIGNING_ACCOUNT_NAME}|${AZURE_SIGNING_CERT_PROFILE_NAME}|" == *"||"* ]]; then \
+			echo "Skipping signing as required configuration not set: AZURE_SIGNING_CLIENT_ID, AZURE_SIGNING_CLIENT_SECRET, AZURE_SIGNING_TENANT_ID, AZURE_SIGNING_ACCOUNT_ENDPOINT, AZURE_SIGNING_ACCOUNT_NAME, AZURE_SIGNING_CERT_PROFILE_NAME"; \
 			echo "To rebuild with signing delete the unsigned $@ and re-run with the fixed configuration"; \
 		else \
 			mv $@ $@.unsigned; \
@@ -272,13 +274,16 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: .make/provider_mod_download .make/prebu
 				--password "${AZURE_SIGNING_CLIENT_SECRET}" \
 				--tenant "${AZURE_SIGNING_TENANT_ID}" \
 				--output none; \
-			ACCESS_TOKEN=$$(az account get-access-token --resource "https://vault.azure.net" | jq -r .accessToken); \
-			wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar --output-document=bin/jsign-6.0.jar; \
-			java -jar bin/jsign-6.0.jar \
-				--storetype AZUREKEYVAULT \
-				--keystore "PulumiCodeSigning" \
-				--url "${AZURE_SIGNING_KEY_VAULT_URI}" \
+			ACCESS_TOKEN=$$(az account get-access-token --resource "https://codesigning.azure.net" | jq -r .accessToken); \
+			ENDPOINT_HOST="$${AZURE_SIGNING_ACCOUNT_ENDPOINT#https://}"; \
+			ENDPOINT_HOST="$${ENDPOINT_HOST#http://}"; \
+			ENDPOINT_HOST="$${ENDPOINT_HOST%/}"; \
+			wget https://github.com/ebourg/jsign/releases/download/7.4/jsign-7.4.jar --output-document=bin/jsign-7.4.jar; \
+			java -jar bin/jsign-7.4.jar \
+				--storetype TRUSTEDSIGNING \
+				--keystore "$${ENDPOINT_HOST}" \
 				--storepass "$${ACCESS_TOKEN}" \
+				--alias "${AZURE_SIGNING_ACCOUNT_NAME}/${AZURE_SIGNING_CERT_PROFILE_NAME}" \
 				$@.unsigned; \
 			mv $@.unsigned $@; \
 			az logout; \
