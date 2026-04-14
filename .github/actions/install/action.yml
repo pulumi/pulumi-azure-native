@@ -20,7 +20,17 @@ runs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v6
       with:
-        pulumi-version: dev
+        # Pinned to v3.230.0 (stable, released 2026-04-08T20:50 UTC). The `dev`
+        # channel currently installs v3.231.0-alpha.* builds which contain
+        # pulumi/pulumi#22569 ("Send Cancel RPC to plugins on host close for
+        # graceful shutdown", merged 2026-04-13T12:52 UTC). That PR breaks
+        # in-process attached providers used by pulumitest.NewPulumiTest +
+        # opttest.AttachProvider, causing `context canceled` at the first
+        # resource create in every e2e test in provider/pkg/provider/.
+        # v3.230.0 predates the merge and is the last known-good version for
+        # these tests. This is a backport branch — we should not be tracking
+        # the bleeding-edge dev channel anyway.
+        pulumi-version: v3.230.0
 
     - name: Setup Node
       uses: actions/setup-node@v4
