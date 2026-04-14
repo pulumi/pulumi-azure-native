@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - v2.*.*
+    # Fire on pushes to this throwaway investigation branch so we can exercise
+    # release.yml's build_test phase against the v2.92.0 baseline without opening
+    # a PR or pushing a real tag. Remove this branch entry before merging anywhere.
+    branches:
+      - guin/v2.92.0-baseline
 
 jobs:
   version:
@@ -25,6 +30,10 @@ jobs:
       upload_codecov: false
 
   publish:
+    # Guard: only publish when triggered by an actual v2.*.* tag push, never on a
+    # branch push. This prevents the throwaway branch trigger above from accidentally
+    # pushing artifacts to npm/PyPI/NuGet/Maven/GH Releases when build_test passes.
+    if: github.ref_type == 'tag'
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs:
