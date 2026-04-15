@@ -11,7 +11,6 @@ on:
       # prevents a self-retrigger loop where publish.yml's Create GH Release
       # step creates a new v2-shaped tag that fires release.yml again.
       - '!v2.*.*-**'
-      - '!v2.*.*+**'
 
 jobs:
   version:
