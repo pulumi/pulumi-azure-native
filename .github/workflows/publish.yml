@@ -130,6 +130,12 @@ jobs:
         if: inputs.publishGhRelease
         with:
           tag_name: v${{ inputs.version }}
+          # If tag_name refers to a tag that doesn't yet exist, action-gh-release
+          # will CREATE it — and without target_commitish set, the action defaults
+          # to the repo's default branch (master), which on a v2 release produces a
+          # tag pointing at master HEAD with v2 assets. Force the new tag to be
+          # created on the commit that triggered the workflow.
+          target_commitish: ${{ github.sha }}
           prerelease: ${{ inputs.prerelease }}
           # We keep pre-releases as drafts so they're not visible until we manually publish them.
           draft: ${{ inputs.prerelease }}

@@ -14,10 +14,27 @@ jobs:
     name: Calculate Dev Version
     steps:
       - id: version
-        name: Set hardcoded v2 dev version
-        # The provider-version-action reads git tags and returns v3.x since v3 is the
-        # latest major. On the v2 maintenance branch we hardcode a v2 dev version so
-        # that MAJOR_VERSION stays 2 and codegen selects the correct v2 configuration.
-        run: echo "VERSION=2.91.0-alpha.0+dev" >> "$GITHUB_OUTPUT"
+        name: Calculate v2 version
+        # The provider-version-action reads git tags and returns v3.x since v3
+        # is the latest major, which is wrong on v2. On tag pushes we derive
+        # the version from the tag name (v2.92.2 -> 2.92.2). On branch/PR
+        # events we fall back to a dev version so MAJOR_VERSION stays 2 and
+        # codegen selects the correct v2 configuration.
+        #
+        # release.yml's trigger already excludes prerelease tags (v2.*.*-**
+        # and v2.*.*+**), so this step only ever sees clean v2.X.Y tags or
+        # non-tag events.
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ "$REF_TYPE" == "tag" ]]; then
+            VERSION="${REF_NAME#v}"
+            echo "Using tag-based version: $VERSION"
+          else
+            VERSION="2.91.0-alpha.0+dev"
+            echo "Using dev version: $VERSION"
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
     outputs:
       version: ${{ steps.version.outputs.VERSION }}
