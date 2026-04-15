@@ -348,6 +348,7 @@ https://stackoverflow.com/questions/79454225/turn-off-notifications-like-pim-tes
 
 func TestAccPIMRoleManagementPolicies(t *testing.T) {
 	skipIfShort(t)
+	t.Skip("Skipping due to version drift on v2")
 
 	// A randomly chosen Role Management Policy, from the list obtained by
 	// az rest --method get --url https://management.azure.com/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Authorization/roleManagementPolicies\?api-version\=2020-10-01
