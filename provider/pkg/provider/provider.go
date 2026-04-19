@@ -372,7 +372,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if err != nil {
 			return nil, err
 		}
-		body, err := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
+		body, err := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), nil, k.converter)
 		if err != nil {
 			if body == nil {
 				return nil, fmt.Errorf("error preparing body for %s: %v", label, err)
@@ -1104,7 +1104,7 @@ func customCreate(ctx context.Context, inputs resource.PropertyMap, id string, c
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
 	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc) (string, map[string]any, error) {
-	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs)
+	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs, nil)
 	if err != nil {
 		bodyError := fmt.Errorf("error preparing body for %s: %v", id, err)
 		if bodyParams == nil {
@@ -1568,7 +1568,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		if err != nil {
 			return nil, err
 		}
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient, previousInputs))
+		outputs, err = k.defaultUpdate(ctx, req, inputs, previousInputs, id, queryParams, crudClient, reader(customRes, crudClient, previousInputs))
 		if err != nil {
 			return nil, err
 		}
@@ -1590,11 +1590,11 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}, nil
 }
 
-func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs resource.PropertyMap,
+func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs, previousInputs resource.PropertyMap,
 	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc,
 ) (map[string]any, error) {
 
-	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs)
+	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs, previousInputs)
 	if err != nil {
 		bodyError := fmt.Errorf("error preparing body for %s: %v", id, err)
 		if bodyParams == nil {
@@ -1690,7 +1690,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				continue
 			}
 			if param.Location == "body" {
-				requestBody, err := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
+				requestBody, err := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, nil, id)
 				if err != nil {
 					// Log conversion errors but continue with the deletion.
 					k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("error converting inputs to request body: %v", err))

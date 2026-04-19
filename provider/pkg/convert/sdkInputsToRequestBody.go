@@ -14,8 +14,12 @@ import (
 
 // SdkInputsToRequestBody converts a map of SDK properties to JSON request body to be sent to an HTTP API.
 // Returns a map of request body properties and a map of unmapped values.
+// previousValues contains the previous SDK input values (e.g. from the last apply). When non-nil,
+// entries that were present in previousValues but absent from values for IsStringSet properties are
+// emitted as JSON null — the explicit removal signal required by merge-patch Azure endpoints such as
+// CosmosDB's CreateOrUpdate. Pass nil for create operations where there is no previous state.
 func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.AzureAPIProperty,
-	values map[string]interface{}, id string) (map[string]interface{}, error) {
+	values map[string]interface{}, previousValues map[string]interface{}, id string) (map[string]interface{}, error) {
 	result := map[string]interface{}{}
 
 	unusedValues := map[string]interface{}{}
@@ -38,8 +42,13 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 				return nil, fmt.Errorf("property %s is a constant of value %q and cannot be modified to be %q", name, prop.Const, value)
 			}
 
+			var previousValue interface{}
+			if previousValues != nil {
+				previousValue = previousValues[sdkName]
+			}
+
 			container := k.buildContainer(result, prop.Containers)
-			container[name] = k.convertSdkPropToRequestBodyPropValue(id, &p, value)
+			container[name] = k.convertSdkPropToRequestBodyPropValue(id, &p, value, previousValue)
 		}
 	}
 
@@ -55,8 +64,8 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 }
 
 // convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.
-func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *resources.AzureAPIProperty, value interface{}) interface{} {
-	return k.convertTypedSdkInputObjectsToRequestBody(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *resources.AzureAPIProperty, value, previousValue interface{}) interface{} {
+	return k.convertTypedSdkInputObjectsToRequestBody(prop, value, previousValue, func(typeName string, props map[string]resources.AzureAPIProperty, values, previousValues map[string]interface{}) map[string]interface{} {
 		// Detect if we are dealing with a special case of a SubResource type with an ID property.
 		// These properties reference a sub-ID of the currently modified resource (e.g.
 		// an ID of a backend pool in a load balancer while creating the load balancer).
@@ -70,7 +79,7 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 		}
 
 		// Otherwise, delegate to the normal map conversion flow.
-		converted, _ := k.SdkInputsToRequestBody(props, values, id)
+		converted, _ := k.SdkInputsToRequestBody(props, values, previousValues, id)
 		// We ignore the error here as we haven't previously handled these errors recursively through convertTypedSdkInputObjectsToRequestBody.
 		// A difficulty is that the error is treated as a warning if we got a valid result, so should only be thrown if `converted` is nil.
 		return converted
@@ -95,7 +104,7 @@ func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path [
 }
 
 // convertTypedSdkInputObjectsToRequestBody recursively finds map types with a known type and calls convertMap on them.
-func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resources.AzureAPIProperty, value interface{}, convertObject convertTypedObject) interface{} {
+func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resources.AzureAPIProperty, value, previousValue interface{}, convertObject convertTypedObjectWithPrev) interface{} {
 	if value == nil {
 		return nil
 	}
@@ -110,7 +119,7 @@ func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resou
 				continue
 			}
 
-			request := convertObject(typeName, typ.Properties, value.(map[string]interface{}))
+			request := convertObject(typeName, typ.Properties, value.(map[string]interface{}), nil)
 			if request != nil {
 				return request
 			}
@@ -127,13 +136,17 @@ func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resou
 			if !ok || err != nil {
 				return value
 			}
-			return convertObject(typeName, typ.Properties, valueMap)
+			var previousValueMap map[string]interface{}
+			if previousValue != nil {
+				previousValueMap, _ = previousValue.(map[string]interface{})
+			}
+			return convertObject(typeName, typ.Properties, valueMap, previousValueMap)
 		}
 
 		if prop.AdditionalProperties != nil {
 			result := map[string]interface{}{}
 			for key, item := range valueMap {
-				result[key] = k.convertTypedSdkInputObjectsToRequestBody(prop.AdditionalProperties, item, convertObject)
+				result[key] = k.convertTypedSdkInputObjectsToRequestBody(prop.AdditionalProperties, item, nil, convertObject)
 			}
 			return result
 		}
@@ -142,12 +155,29 @@ func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resou
 		if prop.IsStringSet {
 			emptyValue := struct{}{}
 			setResult := map[string]interface{}{}
+
+			// Add all entries present in the new value.
 			for _, setItem := range value.([]interface{}) {
 				if reflect.TypeOf(setItem).Kind() != reflect.String {
 					// This should have been handled by validation
 					continue
 				}
 				setResult[setItem.(string)] = emptyValue
+			}
+
+			// For any entry that existed before but is absent now, emit null.
+			// This is required by Azure endpoints that use merge-patch semantics (e.g. CosmosDB),
+			// where omitting a key means "no change" rather than "remove".
+			if previousValue != nil {
+				if prevSlice, ok := previousValue.([]interface{}); ok {
+					for _, prevItem := range prevSlice {
+						if key, ok := prevItem.(string); ok {
+							if _, exists := setResult[key]; !exists {
+								setResult[key] = nil
+							}
+						}
+					}
+				}
 			}
 			return setResult
 		}
@@ -158,7 +188,7 @@ func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resou
 		result := make([]interface{}, 0)
 		s := reflect.ValueOf(value)
 		for i := 0; i < s.Len(); i++ {
-			result = append(result, k.convertTypedSdkInputObjectsToRequestBody(prop.Items, s.Index(i).Interface(), convertObject))
+			result = append(result, k.convertTypedSdkInputObjectsToRequestBody(prop.Items, s.Index(i).Interface(), nil, convertObject))
 		}
 		return result
 	}

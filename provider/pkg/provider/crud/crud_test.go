@@ -382,3 +382,41 @@ func TestSetNestedFieldNoCopy(t *testing.T) {
 	assert.Error(t, err, `value cannot be set because x.y is not a map[string]interface{}`)
 
 }
+
+func TestContainsNilValues(t *testing.T) {
+	t.Run("empty map", func(t *testing.T) {
+		assert.False(t, containsNilValues(map[string]any{}))
+	})
+	t.Run("no nils", func(t *testing.T) {
+		assert.False(t, containsNilValues(map[string]any{
+			"a": "hello",
+			"b": map[string]any{"c": 42},
+		}))
+	})
+	t.Run("top-level nil", func(t *testing.T) {
+		assert.True(t, containsNilValues(map[string]any{
+			"a": "hello",
+			"b": nil,
+		}))
+	})
+	t.Run("nested nil", func(t *testing.T) {
+		assert.True(t, containsNilValues(map[string]any{
+			"identity": map[string]any{
+				"userAssignedIdentities": map[string]any{
+					"msi1": struct{}{},
+					"msi2": nil,
+				},
+			},
+		}))
+	})
+	t.Run("deeply nested no nil", func(t *testing.T) {
+		assert.False(t, containsNilValues(map[string]any{
+			"identity": map[string]any{
+				"userAssignedIdentities": map[string]any{
+					"msi1": struct{}{},
+					"msi2": struct{}{},
+				},
+			},
+		}))
+	})
+}
