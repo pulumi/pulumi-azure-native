@@ -29,7 +29,10 @@ type AzureRESTConverter interface {
 	// PrepareAzureRESTBody prepares the body of an Azure REST API request.
 	// It returns the body as a map of strings to any, which can be marshaled to JSON.
 	// An error might be returned instead of or as well as the body. If the body is not nil, the error can be treated as a warning.
-	PrepareAzureRESTBody(id string, inputs resource.PropertyMap) (map[string]any, error)
+	// previousInputs contains the previous resource inputs and is used to detect removed IsStringSet entries,
+	// which must be sent as JSON null for Azure endpoints with merge-patch semantics (e.g. CosmosDB).
+	// Pass nil for create operations where there is no previous state.
+	PrepareAzureRESTBody(id string, inputs, previousInputs resource.PropertyMap) (map[string]any, error)
 
 	// ResponseBodyToSdkOutputs converts an Azure REST API response to Pulumi SDK outputs.
 	ResponseBodyToSdkOutputs(response map[string]any) map[string]any
@@ -134,8 +137,12 @@ func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.Property
 	})
 }
 
-func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) (map[string]any, error) {
-	return PrepareAzureRESTBody(id, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), r.converter)
+func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs, previousInputs resource.PropertyMap) (map[string]any, error) {
+	var previousMappable map[string]any
+	if previousInputs != nil {
+		previousMappable = previousInputs.Mappable()
+	}
+	return PrepareAzureRESTBody(id, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), previousMappable, r.converter)
 }
 
 func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIParameter, methodInputs, clientInputs map[string]any) (string, map[string]any, error) {
@@ -217,7 +224,7 @@ func findInContainer(container map[string]any, path []string) (interface{}, bool
 }
 
 func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, requiredContainers [][]string,
-	methodInputs map[string]any, converter *convert.SdkShapeConverter) (map[string]any, error) {
+	methodInputs, previousMethodInputs map[string]any, converter *convert.SdkShapeConverter) (map[string]any, error) {
 	// Build the body JSON.
 	var body map[string]interface{}
 	var err error
@@ -225,7 +232,7 @@ func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, r
 		if param.Location != "body" {
 			continue
 		}
-		body, err = converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, id)
+		body, err = converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, previousMethodInputs, id)
 		break
 	}
 
@@ -388,7 +395,7 @@ func (r *resourceCrudClient) ResponseToSdkInputs(pathValues map[string]string, r
 
 func (r *resourceCrudClient) SdkInputsToRequestBody(properties map[string]any, id string) (map[string]any, error) {
 	if bodyParam, ok := r.res.BodyParameter(); ok {
-		return r.converter.SdkInputsToRequestBody(bodyParam.Body.Properties, properties, id)
+		return r.converter.SdkInputsToRequestBody(bodyParam.Body.Properties, properties, nil, id)
 	}
 	return nil, nil
 }
@@ -405,7 +412,30 @@ func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, body
 	if r.res.UpdateMethod == "PATCH" {
 		op = r.azureClient.Patch
 	}
+	// If the body contains nil values (from removed IsStringSet entries like userAssignedIdentities),
+	// switch to PATCH. Azure endpoints with merge-patch semantics (e.g. CosmosDB) reject null in PUT
+	// but accept it in PATCH as the explicit removal signal.
+	if containsNilValues(bodyParams) {
+		logging.V(5).Infof("Body contains nil values (removed IsStringSet entries), switching to PATCH for %s", id)
+		op = r.azureClient.Patch
+	}
 	return op(ctx, id, bodyParams, queryParams, r.res.PutAsyncStyle)
+}
+
+// containsNilValues recursively checks whether a map contains any nil values.
+// This is used to detect removed IsStringSet entries that must be sent via PATCH.
+func containsNilValues(m map[string]any) bool {
+	for _, v := range m {
+		if v == nil {
+			return true
+		}
+		if nested, ok := v.(map[string]any); ok {
+			if containsNilValues(nested) {
+				return true
+			}
+		}
+	}
+	return false
 }
 
 func (r *resourceCrudClient) Read(ctx context.Context, id string, overrideApiVersion string) (map[string]any, error) {

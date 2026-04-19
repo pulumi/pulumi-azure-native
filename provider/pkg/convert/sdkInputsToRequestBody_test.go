@@ -51,7 +51,7 @@ func TestSdkInputsToRequestBodySubResource(t *testing.T) {
 			Ref: "#/types/azure-native:testing:Structure",
 		},
 	}
-	actualBody, err := c.SdkInputsToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
+	actualBody, err := c.SdkInputsToRequestBody(bodyProperties, sdkData, nil, "/sub/456/rg/my/network/abc")
 	assert.Nil(t, err)
 	assert.Equal(t, expectedBody, actualBody)
 }
@@ -81,10 +81,11 @@ func captureStderr(f func()) string {
 
 func TestSdkInputsToRequestBody(t *testing.T) {
 	type testCaseArgs struct {
-		id     string
-		types  map[string]map[string]resources.AzureAPIProperty
-		props  map[string]resources.AzureAPIProperty
-		inputs map[string]interface{}
+		id             string
+		types          map[string]map[string]resources.AzureAPIProperty
+		props          map[string]resources.AzureAPIProperty
+		inputs         map[string]interface{}
+		previousInputs map[string]interface{}
 	}
 
 	convertWithError := func(args testCaseArgs) (map[string]interface{}, error) {
@@ -97,7 +98,7 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 			}
 		}
 		c := NewSdkShapeConverterFull(types)
-		return c.SdkInputsToRequestBody(args.props, args.inputs, args.id)
+		return c.SdkInputsToRequestBody(args.props, args.inputs, args.previousInputs, args.id)
 	}
 
 	convert := func(args testCaseArgs) map[string]interface{} {
@@ -392,6 +393,56 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("string set removal emits null for removed entries", func(t *testing.T) {
+		// Simulates an update where "b" is removed from userAssignedIdentities.
+		// Azure endpoints with merge-patch semantics (e.g. CosmosDB) require an explicit null
+		// to remove an entry; simply omitting the key means "no change".
+		actual := convert(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					IsStringSet: true,
+					Type:        "object",
+				},
+			},
+			inputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{"a"},
+			},
+			previousInputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{"a", "b"},
+			},
+		})
+		expected := map[string]interface{}{
+			"userAssignedIdentities": map[string]interface{}{
+				"a": struct{}{},
+				"b": nil, // explicit null signals removal
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("string set with no previous values emits no nulls (create path)", func(t *testing.T) {
+		// On create there is no previous state; previousInputs is nil.
+		// No null entries should be added.
+		actual := convert(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					IsStringSet: true,
+					Type:        "object",
+				},
+			},
+			inputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{"a"},
+			},
+			// previousInputs intentionally nil
+		})
+		expected := map[string]interface{}{
+			"userAssignedIdentities": map[string]interface{}{
+				"a": struct{}{},
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("missing ref type continues with no change", func(t *testing.T) {
 		actual := convert(testCaseArgs{
 			props: map[string]resources.AzureAPIProperty{
@@ -524,8 +575,14 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		inputs := map[string]interface{}{
 			"nested": args.inputs,
 		}
+		var previousInputs map[string]interface{}
+		if args.previousInputs != nil {
+			previousInputs = map[string]interface{}{
+				"nested": args.previousInputs,
+			}
+		}
 		c := NewSdkShapeConverterFull(types)
-		body, err := c.SdkInputsToRequestBody(props, inputs, args.id)
+		body, err := c.SdkInputsToRequestBody(props, inputs, previousInputs, args.id)
 		assert.Nil(t, err)
 		return body
 	}
@@ -783,6 +840,34 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 				"userAssignedIdentities": map[string]interface{}{
 					"a": struct{}{},
 					"b": struct{}{},
+				},
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("nested string set removal emits null for removed entries", func(t *testing.T) {
+		// Simulates a CosmosDB-style update where "b" is removed from a nested userAssignedIdentities.
+		// The removed entry must appear as null in the ARM body.
+		actual := convertNested(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					IsStringSet: true,
+					Type:        "object",
+				},
+			},
+			inputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{"a"},
+			},
+			previousInputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{"a", "b"},
+			},
+		})
+		expected := map[string]interface{}{
+			"nested": map[string]interface{}{
+				"userAssignedIdentities": map[string]interface{}{
+					"a": struct{}{},
+					"b": nil, // explicit null signals removal to merge-patch Azure endpoints
 				},
 			},
 		}

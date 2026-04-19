@@ -9,3 +9,7 @@ import (
 // convertTypedObject is a callback that performs some kind of arbitrary conversion of an object for which we know its property types.
 // Returning nil indicates that the given value is not of the expected type.
 type convertTypedObject func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{}
+
+// convertTypedObjectWithPrev is like convertTypedObject but also receives the corresponding previous
+// values so that removed entries in IsStringSet properties can be detected during updates.
+type convertTypedObjectWithPrev func(typeName string, props map[string]resources.AzureAPIProperty, values, previousValues map[string]interface{}) map[string]interface{}
