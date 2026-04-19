@@ -32,7 +32,7 @@ func (c *roleManagementPolicyClient) create(ctx context.Context, id string, inpu
 		return nil, err
 	}
 
-	bodyParams, err := c.client.PrepareAzureRESTBody(id, inputs)
+	bodyParams, err := c.client.PrepareAzureRESTBody(id, inputs, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func (c *roleManagementPolicyClient) update(ctx context.Context, id string, news
 		restoreDefaultsForDeletedRules(olds, news)
 	}
 
-	bodyParams, err := c.client.PrepareAzureRESTBody(id, news)
+	bodyParams, err := c.client.PrepareAzureRESTBody(id, news, nil)
 	if err != nil {
 		return nil, err
 	}
