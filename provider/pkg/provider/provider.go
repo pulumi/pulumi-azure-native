@@ -98,6 +98,9 @@ func makeProviderInternal(host *provider.HostClient, name, version string, schem
 
 	ctx, shutdown := context.WithCancel(context.Background())
 
+	fmt.Fprintf(os.Stderr, "[DIAG %s] makeProviderInternal: new provider instance, k.context created\n",
+		time.Now().Format("15:04:05.000"))
+
 	// Return the new provider
 	p := &azureNativeProvider{
 		// Note: azureClient and subscriptionId will be initialized in Configure.
@@ -233,6 +236,9 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Configure entered: k.context.Err=%v incomingCtx.Err=%v\n",
+		time.Now().Format("15:04:05.000"), k.context.Err(), ctx.Err())
 
 	if k.getVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
 		// https://github.com/pulumi/pulumi-azure-native/issues/2686
@@ -986,6 +992,8 @@ func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
 func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Create entered: urn=%s k.context.Err=%v incomingCtx.Err=%v\n",
+		time.Now().Format("15:04:05.000"), req.GetUrn(), k.context.Err(), ctx.Err())
 	// Use the global context to handle provider shutdown.
 	ctx = k.context
 	urn := resource.URN(req.GetUrn())
@@ -1254,6 +1262,8 @@ func getPreviousInputs(state resource.PropertyMap, reqInputs *structpb.Struct, l
 
 // Read the current live state associated with a resource.
 func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Read entered: urn=%s k.context.Err=%v incomingCtx.Err=%v\n",
+		time.Now().Format("15:04:05.000"), req.GetUrn(), k.context.Err(), ctx.Err())
 	// Use the global context to handle provider shutdown.
 	ctx = k.context
 	urn := resource.URN(req.GetUrn())
@@ -1496,6 +1506,8 @@ func deleteFromMap(m map[string]interface{}, path []string) bool {
 
 // Update updates an existing resource with new values.
 func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Update entered: urn=%s k.context.Err=%v incomingCtx.Err=%v\n",
+		time.Now().Format("15:04:05.000"), req.GetUrn(), k.context.Err(), ctx.Err())
 	// Use the global context to handle provider shutdown.
 	ctx = k.context
 	urn := resource.URN(req.GetUrn())
@@ -1645,6 +1657,8 @@ func isSingleton(res *resources.AzureAPIResource) bool {
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
 func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Delete entered: urn=%s k.context.Err=%v incomingCtx.Err=%v\n",
+		time.Now().Format("15:04:05.000"), req.GetUrn(), k.context.Err(), ctx.Err())
 	// Use the global context to handle provider shutdown.
 	ctx = k.context
 	urn := resource.URN(req.GetUrn())
@@ -1753,6 +1767,8 @@ func (k *azureNativeProvider) GetMapping(context.Context, *rpc.GetMappingRequest
 // to the host to decide how long to wait after Cancel is called before (e.g.)
 // hard-closing any gRPC connection.
 func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
+	fmt.Fprintf(os.Stderr, "[DIAG %s] Cancel RPC received (k.context.Err before shutdown=%v) — calling k.shutdown()\n",
+		time.Now().Format("15:04:05.000"), k.context.Err())
 	k.shutdown() // Cancel the global provider context.
 	return &pbempty.Empty{}, nil
 }
