@@ -47,7 +47,7 @@ jobs:
     uses: ./.github/workflows/build-test.yml
     needs: version
     with:
-      ref: ${{ github.event.pull_request.base.ref }}
+      ref: ${{ github.event.pull_request.head.sha || github.sha }}
       version: ${{ inputs.version || needs.version.outputs.version }}
       short_test: ${{ (github.event_name == 'pull_request' || inputs.short_test) || false }}
       retention_days: 30
