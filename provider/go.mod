@@ -30,18 +30,18 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go v1.81.0
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/providertest v0.6.0
+	github.com/pulumi/providertest v0.7.0
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.102.0
 	github.com/pulumi/pulumi-java/pkg v1.21.3
 	github.com/pulumi/pulumi-yaml v1.30.2
 	github.com/pulumi/pulumi/pkg/v3 v3.228.0
-	github.com/pulumi/pulumi/sdk/v3 v3.228.0
+	github.com/pulumi/pulumi/sdk/v3 v3.230.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.11.1
 	github.com/zclconf/go-cty v1.17.0
 	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792
-	google.golang.org/grpc v1.79.3
+	google.golang.org/grpc v1.80.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
 	pgregory.net/rapid v1.1.0
@@ -146,7 +146,7 @@ require (
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.8.0 // indirect
-	github.com/go-git/go-git/v5 v5.17.1 // indirect
+	github.com/go-git/go-git/v5 v5.17.2 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
