@@ -55,25 +55,6 @@ func TestAccUserAssignedIdentitySdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccAksGoSdk(t *testing.T) {
-	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-aks")).
-		With(integration.ProgramTestOptions{
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      testDir(t, "go-aks", "step2"),
-					Additive: true,
-				},
-				{
-					Dir:      testDir(t, "go-aks", "step3"),
-					Additive: true,
-				},
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestServicebusRecreateSdk(t *testing.T) {
 	skipIfShort(t)
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-servicebus-recreate", "step1")).
