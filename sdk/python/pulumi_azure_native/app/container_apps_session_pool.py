@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class ContainerAppsSessionPoolArgs:
                  custom_container_template: Optional[pulumi.Input['CustomContainerTemplateArgs']] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input['DynamicPoolConfigurationArgs']] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[_builtins.str, 'PoolManagementType']]] = None,
@@ -44,7 +46,7 @@ class ContainerAppsSessionPoolArgs:
         :param pulumi.Input['CustomContainerTemplateArgs'] custom_container_template: The custom container configuration if the containerType is CustomContainer.
         :param pulumi.Input['DynamicPoolConfigurationArgs'] dynamic_pool_configuration: The pool configuration if the poolManagementType is dynamic.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of the session pool's environment.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]] managed_identity_settings: Optional settings for a Managed Identity that is assigned to the Session pool.
         :param pulumi.Input[Union[_builtins.str, 'PoolManagementType']] pool_management_type: The pool management type of the session pool.
@@ -144,14 +146,14 @@ class ContainerAppsSessionPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -261,7 +263,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  custom_container_template: Optional[pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']]] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[_builtins.str, 'PoolManagementType']]] = None,
@@ -286,7 +288,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']] custom_container_template: The custom container configuration if the containerType is CustomContainer.
         :param pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']] dynamic_pool_configuration: The pool configuration if the poolManagementType is dynamic.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of the session pool's environment.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]] managed_identity_settings: Optional settings for a Managed Identity that is assigned to the Session pool.
         :param pulumi.Input[Union[_builtins.str, 'PoolManagementType']] pool_management_type: The pool management type of the session pool.
@@ -330,7 +332,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  custom_container_template: Optional[pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']]] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[_builtins.str, 'PoolManagementType']]] = None,
@@ -459,7 +461,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         """
@@ -547,7 +549,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

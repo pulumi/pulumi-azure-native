@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Subscription
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource type, Microsoft.Subscription/aliases.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Subscription
 
             Outputs.SubscriptionAliasResponsePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             string type)
         {

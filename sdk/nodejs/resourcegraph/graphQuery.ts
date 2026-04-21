@@ -72,7 +72,7 @@ export class GraphQuery extends pulumi.CustomResource {
     /**
      * The system metadata relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resourcegraph.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags
      */

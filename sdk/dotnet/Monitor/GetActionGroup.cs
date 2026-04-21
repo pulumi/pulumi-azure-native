@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The list of incident receivers that are part of this action group.
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.IncidentReceiverResponse> incidentReceivers,
 

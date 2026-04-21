@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv1.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state.
         /// </summary>
@@ -200,7 +200,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv1.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

@@ -44,7 +44,7 @@ export class Package extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public readonly allOf: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public readonly allOf: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * The Azure API version of the resource.
      */
@@ -80,7 +80,7 @@ export class Package extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -163,7 +163,7 @@ export interface PackageArgs {
     /**
      * The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
      */
-    allOf?: pulumi.Input<inputs.automation.TrackedResourceArgs>;
+    allOf?: pulumi.Input<inputs.commontypesv5.TrackedResourceArgs>;
     /**
      * The name of the automation account.
      */

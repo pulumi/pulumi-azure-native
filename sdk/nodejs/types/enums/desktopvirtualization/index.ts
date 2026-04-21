@@ -120,17 +120,6 @@ export const PreferredAppGroupType = {
  */
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
 
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
-
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -161,15 +150,6 @@ export const RemoteApplicationType = {
  * Resource Type of Application.
  */
 export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SSOSecretType = {
     SharedKey: "SharedKey",
@@ -240,18 +220,6 @@ export const SetStartVMOnConnect = {
  * The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
  */
 export type SetStartVMOnConnect = (typeof SetStartVMOnConnect)[keyof typeof SetStartVMOnConnect];
-
-export const SkuTier = {
-    Free: "Free",
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-} as const;
-
-/**
- * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
- */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StartupBehavior = {
     /**

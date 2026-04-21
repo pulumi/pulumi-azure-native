@@ -10,4 +10,3 @@ from .get_label_by_workspace import *
 from .get_workspace import *
 from .label_by_workspace import *
 from .workspace import *
-from . import outputs

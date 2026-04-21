@@ -73,7 +73,7 @@ export interface GetLicenseProfileResult {
     /**
      * The errors that were encountered during the feature enrollment or disenrollment.
      */
-    readonly error: outputs.hybridcompute.ErrorDetailResponse;
+    readonly error: outputs.commontypesv3.ErrorDetailResponse;
     /**
      * Indicates the eligibility state of Esu.
      */
@@ -125,7 +125,7 @@ export interface GetLicenseProfileResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.hybridcompute.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

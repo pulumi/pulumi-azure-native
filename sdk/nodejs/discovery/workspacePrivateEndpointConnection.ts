@@ -50,11 +50,11 @@ export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The resource-specific properties for this resource.
      */
-    declare public readonly properties: pulumi.Output<outputs.discovery.PrivateEndpointConnectionPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.commontypesv5.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.discovery.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -110,7 +110,7 @@ export interface WorkspacePrivateEndpointConnectionArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.commontypesv5.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

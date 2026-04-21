@@ -11,49 +11,20 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The error detail.
+    /// details of validation failure
     /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {
         /// <summary>
-        /// The error additional info.
+        /// Exception details while installing extension.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorAdditionalInfoResponse> AdditionalInfo;
-        /// <summary>
-        /// The error code.
-        /// </summary>
-        public readonly string Code;
-        /// <summary>
-        /// The error details.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponse> Details;
-        /// <summary>
-        /// The error message.
-        /// </summary>
-        public readonly string Message;
-        /// <summary>
-        /// The error target.
-        /// </summary>
-        public readonly string Target;
+        public readonly string Exception;
 
         [OutputConstructor]
-        private ErrorDetailResponse(
-            ImmutableArray<Outputs.ErrorAdditionalInfoResponse> additionalInfo,
-
-            string code,
-
-            ImmutableArray<Outputs.ErrorDetailResponse> details,
-
-            string message,
-
-            string target)
+        private ErrorDetailResponse(string exception)
         {
-            AdditionalInfo = additionalInfo;
-            Code = code;
-            Details = details;
-            Message = message;
-            Target = target;
+            Exception = exception;
         }
     }
 }

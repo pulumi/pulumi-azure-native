@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetRegistrationDefinitionResult',
@@ -92,7 +93,7 @@ class GetRegistrationDefinitionResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
         """
         The metadata for the registration assignment resource.
         """

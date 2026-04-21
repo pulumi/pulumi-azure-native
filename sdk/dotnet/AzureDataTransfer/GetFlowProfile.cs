@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
             Outputs.FlowProfilePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

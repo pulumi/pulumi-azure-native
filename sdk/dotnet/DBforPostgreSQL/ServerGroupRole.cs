@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// A type definition that refers the id to an Azure Resource Manager resource.

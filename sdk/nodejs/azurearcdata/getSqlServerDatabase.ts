@@ -65,7 +65,7 @@ export interface GetSqlServerDatabaseResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurearcdata.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -14,7 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._inputs import *
 
 __all__ = ['NamespaceArgs', 'Namespace']
@@ -23,7 +24,7 @@ __all__ = ['NamespaceArgs', 'Namespace']
 class NamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  messaging: Optional[pulumi.Input['MessagingArgs']] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,7 +33,7 @@ class NamespaceArgs:
         The set of arguments for constructing a Namespace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MessagingArgs'] messaging: Assigned and unassigned messaging endpoints.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
@@ -64,14 +65,14 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -129,7 +130,7 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  messaging: Optional[pulumi.Input[Union['MessagingArgs', 'MessagingArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -146,7 +147,7 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MessagingArgs', 'MessagingArgsDict']] messaging: Assigned and unassigned messaging endpoints.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
@@ -182,7 +183,7 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  messaging: Optional[pulumi.Input[Union['MessagingArgs', 'MessagingArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -257,7 +258,7 @@ class Namespace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.SystemAssignedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -297,7 +298,7 @@ class Namespace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

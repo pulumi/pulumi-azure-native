@@ -56,7 +56,7 @@ export interface GetFleetResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azurefleet.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export interface GetFleetResult {
     /**
      * Details of the resource plan.
      */
-    readonly plan?: outputs.azurefleet.PlanResponse;
+    readonly plan?: outputs.commontypesv5.PlanResponse;
     /**
      * The status of the last operation.
      */
@@ -84,7 +84,7 @@ export interface GetFleetResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurefleet.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

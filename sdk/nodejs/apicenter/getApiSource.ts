@@ -72,7 +72,7 @@ export interface GetApiSourceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.apicenter.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * The target environment resource ID.
      */

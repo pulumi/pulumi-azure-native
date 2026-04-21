@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -256,7 +256,7 @@ namespace Pulumi.AzureNative.Search
 
             string statusDetails,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

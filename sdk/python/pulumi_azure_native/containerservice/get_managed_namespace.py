@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetManagedNamespaceResult',
@@ -106,7 +107,7 @@ class GetManagedNamespaceResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         The system metadata relating to this resource.
         """

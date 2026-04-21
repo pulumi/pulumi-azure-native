@@ -124,7 +124,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**
      * The system data.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.scvmm.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags
      */

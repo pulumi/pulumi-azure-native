@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Topic name
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.App
 
             ImmutableArray<string> scopes,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string? topic,
 

@@ -82,11 +82,11 @@ export interface GetCommunityTrainingResult {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    readonly sku?: outputs.community.SkuResponse;
+    readonly sku?: outputs.commontypesv3.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.community.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

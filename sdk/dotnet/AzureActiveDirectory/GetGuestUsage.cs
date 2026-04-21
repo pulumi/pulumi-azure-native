@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -53,7 +53,7 @@ export interface GetFlowProfileResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azuredatatransfer.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -69,7 +69,7 @@ export interface GetFlowProfileResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azuredatatransfer.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

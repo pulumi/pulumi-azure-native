@@ -72,7 +72,7 @@ export interface GetCommunityResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.mission.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -84,7 +84,7 @@ export interface GetCommunityResult {
     /**
      * Managed On Behalf Of Configuration.
      */
-    readonly managedOnBehalfOfConfiguration: outputs.mission.ManagedOnBehalfOfConfigurationResponse;
+    readonly managedOnBehalfOfConfiguration: outputs.commontypesv5.ManagedOnBehalfOfConfigurationResponse;
     /**
      * Managed resource group name.
      */
@@ -108,7 +108,7 @@ export interface GetCommunityResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.mission.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

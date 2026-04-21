@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The immutable resource Id of the communication service.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Communication
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string immutableResourceId,
 
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Communication
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -11,28 +11,35 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// User assigned identity properties
+    /// User Assigned Identity
     /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The client ID of the assigned identity.
+        /// The clientId(aka appId) of the user assigned identity.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The principal ID of the assigned identity.
+        /// The principal ID of the user assigned identity.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The tenant ID of the user assigned identity.
+        /// </summary>
+        public readonly string TenantId;
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
             string clientId,
 
-            string principalId)
+            string principalId,
+
+            string tenantId)
         {
             ClientId = clientId;
             PrincipalId = principalId;
+            TenantId = tenantId;
         }
     }
 }

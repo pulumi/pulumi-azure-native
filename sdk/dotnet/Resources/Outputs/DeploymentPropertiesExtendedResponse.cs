@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// The deployment error.
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse Error;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.ErrorResponseResponse Error;
         /// <summary>
         /// The deployment mode. Possible values are Incremental and Complete.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             string duration,
 
-            Outputs.ErrorResponseResponse error,
+            Pulumi.AzureNative.Commontypesv1.Outputs.ErrorResponseResponse error,
 
             string mode,
 

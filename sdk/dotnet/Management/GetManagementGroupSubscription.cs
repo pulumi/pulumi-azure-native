@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Management
 
             string? state,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string? tenant,
 

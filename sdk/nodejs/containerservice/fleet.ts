@@ -56,7 +56,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Managed identity.
      */
-    declare public readonly identity: pulumi.Output<outputs.containerservice.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv4.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -142,7 +142,7 @@ export interface FleetArgs {
     /**
      * Managed identity.
      */
-    identity?: pulumi.Input<inputs.containerservice.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

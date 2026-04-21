@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Discovery.Outputs
         /// <summary>
         /// Managed-On-Behalf-Of broker resources
         /// </summary>
-        public readonly ImmutableArray<Outputs.MoboBrokerResourceResponse> MoboBrokerResources;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.MoboBrokerResourceResponse> MoboBrokerResources;
 
         [OutputConstructor]
-        private WithMoboBrokerResourcesResponse(ImmutableArray<Outputs.MoboBrokerResourceResponse> moboBrokerResources)
+        private WithMoboBrokerResourcesResponse(ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.MoboBrokerResourceResponse> moboBrokerResources)
         {
             MoboBrokerResources = moboBrokerResources;
         }

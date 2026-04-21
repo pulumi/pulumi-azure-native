@@ -52,7 +52,7 @@ export class ActiveDirectoryConfig extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.netapp.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export class ActiveDirectoryConfig extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -132,7 +132,7 @@ export interface ActiveDirectoryConfigArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

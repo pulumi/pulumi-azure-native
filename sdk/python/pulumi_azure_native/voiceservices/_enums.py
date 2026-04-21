@@ -12,8 +12,6 @@ __all__ = [
     'CommunicationsPlatform',
     'Connectivity',
     'E911Type',
-    'ManagedServiceIdentityType',
-    'SkuTier',
     'TeamsCodecs',
     'TestLinePurpose',
 ]
@@ -100,28 +98,6 @@ class E911Type(_builtins.str, Enum):
     """
     Emergency calls are routed directly to the ESRP
     """
-
-
-@pulumi.type_token("azure-native:voiceservices:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-
-
-@pulumi.type_token("azure-native:voiceservices:SkuTier")
-class SkuTier(_builtins.str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 @pulumi.type_token("azure-native:voiceservices:TeamsCodecs")

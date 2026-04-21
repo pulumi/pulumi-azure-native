@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The billing period of the impact for the resource. Format YYYYMM
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// Plan for the resource.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The uri of the resource impacted which lead to the grant of the credit.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The billing period of the impact for the resource. Format YYYYMM
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// Plan for the resource.
         /// </summary>
         [Input("plan")]
-        public Input<Inputs.PlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -223,7 +223,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// The resource model definition representing SKU
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// Name of the credit source

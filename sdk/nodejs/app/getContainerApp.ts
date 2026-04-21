@@ -72,7 +72,7 @@ export interface GetContainerAppResult {
     /**
      * managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    readonly identity?: outputs.app.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
      */
@@ -124,7 +124,7 @@ export interface GetContainerAppResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.app.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

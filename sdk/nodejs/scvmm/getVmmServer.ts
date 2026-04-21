@@ -84,7 +84,7 @@ export interface GetVmmServerResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.scvmm.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags
      */

@@ -96,7 +96,7 @@ export class VCenter extends pulumi.CustomResource {
     /**
      * The system data.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * Gets or sets the Resource tags.
      */

@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.AwsConnector
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.AwsConnector
 
             Outputs.Ec2FlowLogPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

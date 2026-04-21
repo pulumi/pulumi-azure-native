@@ -65,7 +65,7 @@ export class Workspace extends pulumi.CustomResource {
      * Friendly name of Workspace.
      */
     declare public readonly friendlyName: pulumi.Output<string | undefined>;
-    declare public readonly identity: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -86,20 +86,20 @@ export class Workspace extends pulumi.CustomResource {
      * ObjectId of Workspace. (internal use)
      */
     declare public /*out*/ readonly objectId: pulumi.Output<string>;
-    declare public readonly plan: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * List of private endpoint connection associated with the specified resource
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv5.PrivateEndpointConnectionResponse[]>;
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
-    declare public readonly sku: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -188,7 +188,7 @@ export interface WorkspaceArgs {
      * Friendly name of Workspace.
      */
     friendlyName?: pulumi.Input<string>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -201,7 +201,7 @@ export interface WorkspaceArgs {
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
     managedBy?: pulumi.Input<string>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
@@ -210,7 +210,7 @@ export interface WorkspaceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv5.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */

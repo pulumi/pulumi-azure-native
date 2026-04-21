@@ -139,18 +139,6 @@ export const EntityImpact = {
  */
 export type EntityImpact = (typeof EntityImpact)[keyof typeof EntityImpact];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const MetricAggregationType = {
     None: "None",
     Average: "Average",

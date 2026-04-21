@@ -82,7 +82,6 @@ __all__ = [
     'ManagedRuleOverrideResponse',
     'ManagedRuleSetListResponse',
     'ManagedRuleSetResponse',
-    'ManagedServiceIdentityResponse',
     'MatchConditionResponse',
     'OriginAuthenticationPropertiesResponse',
     'OriginGroupOverrideActionParametersResponse',
@@ -126,7 +125,6 @@ __all__ = [
     'UrlSigningKeyParametersResponse',
     'UrlSigningKeyResponse',
     'UrlSigningParamIdentifierResponse',
-    'UserAssignedIdentityResponse',
     'UserManagedHttpsParametersResponse',
 ]
 
@@ -4064,84 +4062,6 @@ class ManagedRuleSetResponse(dict):
 
 
 @pulumi.output_type
-class ManagedServiceIdentityResponse(dict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
 class MatchConditionResponse(dict):
     """
     Define match conditions
@@ -6347,7 +6267,7 @@ class SslProtocolMatchConditionParametersResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    Metadata pertaining to creation and last modification of the resource.
+    Read only system data
     """
     @staticmethod
     def __key_warning(key: str):
@@ -6384,14 +6304,14 @@ class SystemDataResponse(dict):
                  last_modified_by: Optional[_builtins.str] = None,
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Read only system data
 
-        :param _builtins.str created_at: The timestamp of resource creation (UTC).
-        :param _builtins.str created_by: The identity that created the resource.
-        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str created_at: The timestamp of resource creation (UTC)
+        :param _builtins.str created_by: An identifier for the identity that created the resource
+        :param _builtins.str created_by_type: The type of identity that created the resource
         :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
-        :param _builtins.str last_modified_by: The identity that last modified the resource.
-        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        :param _builtins.str last_modified_by: An identifier for the identity that last modified the resource
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -6410,7 +6330,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
         """
-        The timestamp of resource creation (UTC).
+        The timestamp of resource creation (UTC)
         """
         return pulumi.get(self, "created_at")
 
@@ -6418,7 +6338,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[_builtins.str]:
         """
-        The identity that created the resource.
+        An identifier for the identity that created the resource
         """
         return pulumi.get(self, "created_by")
 
@@ -6426,7 +6346,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[_builtins.str]:
         """
-        The type of identity that created the resource.
+        The type of identity that created the resource
         """
         return pulumi.get(self, "created_by_type")
 
@@ -6442,7 +6362,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[_builtins.str]:
         """
-        The identity that last modified the resource.
+        An identifier for the identity that last modified the resource
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -6450,7 +6370,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[_builtins.str]:
         """
-        The type of identity that last modified the resource.
+        The type of identity that last modified the resource
         """
         return pulumi.get(self, "last_modified_by_type")
 
@@ -7357,59 +7277,6 @@ class UrlSigningParamIdentifierResponse(dict):
         Parameter name
         """
         return pulumi.get(self, "param_name")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponse(dict):
-    """
-    User assigned identity properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        User assigned identity properties
-
-        :param _builtins.str client_id: The client ID of the assigned identity.
-        :param _builtins.str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

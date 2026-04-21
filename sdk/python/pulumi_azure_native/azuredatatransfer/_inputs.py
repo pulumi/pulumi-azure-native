@@ -30,8 +30,6 @@ __all__ = [
     'FlowProfileRulesetsArgsDict',
     'FlowPropertiesArgs',
     'FlowPropertiesArgsDict',
-    'ManagedServiceIdentityArgs',
-    'ManagedServiceIdentityArgsDict',
     'MessagingOptionsArgs',
     'MessagingOptionsArgsDict',
     'MimeFilterRulesetArgs',
@@ -40,8 +38,6 @@ __all__ = [
     'MimeTypeFilterArgsDict',
     'PipelinePropertiesArgs',
     'PipelinePropertiesArgsDict',
-    'PlanArgs',
-    'PlanArgsDict',
     'SchemaArgs',
     'SchemaArgsDict',
     'SelectedResourceArgs',
@@ -1136,59 +1132,6 @@ class FlowPropertiesArgs:
         pulumi.set(self, "stream_protocol", value)
 
 
-class ManagedServiceIdentityArgsDict(TypedDict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-    """
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
 class MessagingOptionsArgsDict(TypedDict):
     """
     The option associated with messaging flows.
@@ -1442,117 +1385,6 @@ class PipelinePropertiesArgs:
     @subscribers.setter
     def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberArgs']]]]):
         pulumi.set(self, "subscribers", value)
-
-
-class PlanArgsDict(TypedDict):
-    """
-    Plan for the resource.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    A user defined name of the 3rd Party Artifact that is being procured.
-    """
-    product: pulumi.Input[_builtins.str]
-    """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-    """
-    publisher: pulumi.Input[_builtins.str]
-    """
-    The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-    """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-    """
-    version: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The version of the desired product/artifact.
-    """
-
-@pulumi.input_type
-class PlanArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 product: pulumi.Input[_builtins.str],
-                 publisher: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Plan for the resource.
-
-        :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A user defined name of the 3rd Party Artifact that is being procured.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def product(self) -> pulumi.Input[_builtins.str]:
-        """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        """
-        return pulumi.get(self, "product")
-
-    @product.setter
-    def product(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "product", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def publisher(self) -> pulumi.Input[_builtins.str]:
-        """
-        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "publisher", value)
-
-    @_builtins.property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        """
-        return pulumi.get(self, "promotion_code")
-
-    @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "promotion_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the desired product/artifact.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "version", value)
 
 
 class SchemaArgsDict(TypedDict):

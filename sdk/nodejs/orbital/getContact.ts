@@ -111,7 +111,7 @@ export interface GetContactResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.orbital.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Transmit end time of a contact (ISO 8601 UTC standard).
      */

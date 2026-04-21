@@ -68,7 +68,7 @@ export interface GetProjectResult {
     /**
      * Managed identity properties
      */
-    readonly identity?: outputs.devcenter.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -88,7 +88,7 @@ export interface GetProjectResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.devcenter.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

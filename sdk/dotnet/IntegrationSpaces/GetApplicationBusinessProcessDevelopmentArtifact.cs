@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The system data of the business process development artifact.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
 
         [OutputConstructor]
         private GetApplicationBusinessProcessDevelopmentArtifactResult(
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
             Outputs.BusinessProcessDevelopmentArtifactPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData)
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData)
         {
             Name = name;
             Properties = properties;

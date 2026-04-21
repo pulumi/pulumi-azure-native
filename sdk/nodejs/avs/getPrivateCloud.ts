@@ -79,7 +79,7 @@ export interface GetPrivateCloudResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.avs.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.SystemAssignedServiceIdentityResponse;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -139,11 +139,11 @@ export interface GetPrivateCloudResult {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    readonly sku: outputs.avs.SkuResponse;
+    readonly sku: outputs.commontypesv5.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.avs.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -65,7 +65,7 @@ export interface GetWorkspaceResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    readonly identity?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity;
+    readonly identity?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseIdentity;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -86,20 +86,20 @@ export interface GetWorkspaceResult {
      * ObjectId of Workspace. (internal use)
      */
     readonly objectId: string;
-    readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
+    readonly plan?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
      * List of private endpoint connection associated with the specified resource
      */
-    readonly privateEndpointConnections: outputs.desktopvirtualization.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
     readonly publicNetworkAccess?: string;
-    readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
+    readonly sku?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

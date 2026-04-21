@@ -80,7 +80,7 @@ export interface GetPrometheusRuleGroupResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.alertsmanagement.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Resource tags.
      */

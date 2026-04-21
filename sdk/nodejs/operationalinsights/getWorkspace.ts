@@ -112,7 +112,7 @@ export interface GetWorkspaceResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.operationalinsights.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

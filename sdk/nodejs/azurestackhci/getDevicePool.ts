@@ -46,7 +46,7 @@ export interface GetDevicePoolResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azurestackhci.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -62,7 +62,7 @@ export interface GetDevicePoolResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

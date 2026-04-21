@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2 as _commontypesv2
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +30,7 @@ class RedisEnterpriseArgs:
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']] = None,
                  high_availability: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailability']]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -40,7 +43,7 @@ class RedisEnterpriseArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input['ClusterPropertiesEncryptionArgs'] encryption: Encryption-at-rest configuration for the cluster.
         :param pulumi.Input[Union[_builtins.str, 'HighAvailability']] high_availability: Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -127,14 +130,14 @@ class RedisEnterpriseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -195,7 +198,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailability']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -216,7 +219,7 @@ class RedisEnterprise(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']] encryption: Encryption-at-rest configuration for the cluster.
         :param pulumi.Input[Union[_builtins.str, 'HighAvailability']] high_availability: Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -256,7 +259,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailability']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -374,7 +377,7 @@ class RedisEnterprise(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -414,7 +417,7 @@ class RedisEnterprise(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv2.outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connections associated with the specified Redis Enterprise cluster
         """

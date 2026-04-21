@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Consumption
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Consumption
 
             ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string timeGrain,
 

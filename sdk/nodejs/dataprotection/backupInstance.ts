@@ -56,7 +56,7 @@ export class BackupInstance extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dataprotection.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv4.SystemDataResponse>;
     /**
      * Proxy Resource tags.
      */

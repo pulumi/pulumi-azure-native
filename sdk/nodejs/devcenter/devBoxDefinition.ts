@@ -84,11 +84,11 @@ export class DevBoxDefinition extends pulumi.CustomResource {
     /**
      * The SKU for Dev Boxes created using this definition.
      */
-    declare public readonly sku: pulumi.Output<outputs.devcenter.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -202,7 +202,7 @@ export interface DevBoxDefinitionArgs {
     /**
      * The SKU for Dev Boxes created using this definition.
      */
-    sku: pulumi.Input<inputs.devcenter.SkuArgs>;
+    sku: pulumi.Input<inputs.commontypesv3.SkuArgs>;
     /**
      * Resource tags.
      */

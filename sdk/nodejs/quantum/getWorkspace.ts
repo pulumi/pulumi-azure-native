@@ -48,7 +48,7 @@ export interface GetWorkspaceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.quantum.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export interface GetWorkspaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.quantum.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

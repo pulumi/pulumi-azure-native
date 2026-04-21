@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
         /// <summary>
         /// User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? WorkloadIdentities;
+        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? WorkloadIdentities;
 
         [OutputConstructor]
         private SupercomputerIdentitiesResponse(
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
 
             Outputs.IdentityResponse kubeletIdentity,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? workloadIdentities)
+            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? workloadIdentities)
         {
             ClusterIdentity = clusterIdentity;
             KubeletIdentity = kubeletIdentity;

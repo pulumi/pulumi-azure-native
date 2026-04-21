@@ -131,7 +131,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The identity for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.networkcloud.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -175,7 +175,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -371,7 +371,7 @@ export interface ClusterArgs {
     /**
      * The identity for the resource.
      */
-    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

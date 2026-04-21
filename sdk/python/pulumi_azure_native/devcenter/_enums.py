@@ -14,16 +14,13 @@ __all__ = [
     'DomainJoinType',
     'EnvironmentTypeEnableStatus',
     'HibernateSupport',
-    'IdentityType',
     'LicenseType',
     'LocalAdminStatus',
-    'ManagedServiceIdentityType',
     'PlanMemberType',
     'ScheduleEnableStatus',
     'ScheduledFrequency',
     'ScheduledType',
     'SingleSignOnStatus',
-    'SkuTier',
     'StopOnDisconnectEnableStatus',
     'VirtualNetworkType',
 ]
@@ -91,16 +88,6 @@ class HibernateSupport(_builtins.str, Enum):
     ENABLED = "Enabled"
 
 
-@pulumi.type_token("azure-native:devcenter:IdentityType")
-class IdentityType(_builtins.str, Enum):
-    """
-    Values can be systemAssignedIdentity or userAssignedIdentity
-    """
-    SYSTEM_ASSIGNED_IDENTITY = "systemAssignedIdentity"
-    USER_ASSIGNED_IDENTITY = "userAssignedIdentity"
-    DELEGATED_RESOURCE_IDENTITY = "delegatedResourceIdentity"
-
-
 @pulumi.type_token("azure-native:devcenter:LicenseType")
 class LicenseType(_builtins.str, Enum):
     """
@@ -116,17 +103,6 @@ class LocalAdminStatus(_builtins.str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-@pulumi.type_token("azure-native:devcenter:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 @pulumi.type_token("azure-native:devcenter:PlanMemberType")
@@ -170,17 +146,6 @@ class SingleSignOnStatus(_builtins.str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-@pulumi.type_token("azure-native:devcenter:SkuTier")
-class SkuTier(_builtins.str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 @pulumi.type_token("azure-native:devcenter:StopOnDisconnectEnableStatus")

@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"os"
@@ -13,6 +14,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 
 	"github.com/stretchr/testify/assert"
@@ -162,6 +164,11 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, "aad", args.Module)
 	assert.Equal(t, "v20221201", args.Version)
+
+	// check that common types refs were updated in the schema
+	oldCommonTypeRefPrefix := []byte(`"#/types/azure-native:commonTypes"`)
+	containsOldCommonTypeRefs := bytes.Contains(provider.schemaBytes, oldCommonTypeRefPrefix)
+	assert.False(t, containsOldCommonTypeRefs, "schema should not contain old common types refs")
 }
 
 func TestParameterizeUpdatesConverterTypes(t *testing.T) {
@@ -442,18 +449,29 @@ func pulumiPackageAdd(
 	if _, err := os.Stat(localProviderBinPath); os.IsNotExist(err) {
 		t.Fatalf("Provider binary not found at path: %s", localProviderBinPath)
 	}
+
 	absLocalProviderBinPath, err := filepath.Abs(localProviderBinPath)
 	require.NoError(t, err)
 
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	localPulumiBinPath := filepath.Join(cwd, "../../../.pulumi")
+	if _, err := os.Stat(localPulumiBinPath); os.IsNotExist(err) {
+		t.Fatalf("Pulumi binary not found at path: %s", localPulumiBinPath)
+	}
 	ctx := context.Background()
 	allArgs := append([]string{"package", "add", absLocalProviderBinPath}, args...)
-	stdout, stderr, exitCode, err := pt.CurrentStack().Workspace().PulumiCommand().Run(
+	cmd, err := auto.NewPulumiCommand(&auto.PulumiCommandOptions{
+		Root: localPulumiBinPath,
+	})
+	require.NoError(t, err)
+	stdout, stderr, exitCode, err := cmd.Run(
 		ctx,
 		pt.WorkingDir(),
 		nil, /* reader */
 		nil, /* additionalOutput */
 		nil, /* additionalErrorOutput */
-		nil, /* additionalEnv */
+		[]string{"PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=true"}, /* additionalEnv */
 		allArgs...,
 	)
 	if err != nil || exitCode != 0 {

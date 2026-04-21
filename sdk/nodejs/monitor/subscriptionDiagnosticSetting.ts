@@ -74,7 +74,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
     /**
      * The system metadata related to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

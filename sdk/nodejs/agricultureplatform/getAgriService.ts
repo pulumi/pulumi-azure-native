@@ -46,7 +46,7 @@ export interface GetAgriServiceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.agricultureplatform.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -62,11 +62,11 @@ export interface GetAgriServiceResult {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    readonly sku?: outputs.agricultureplatform.SkuResponse;
+    readonly sku?: outputs.commontypesv5.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.agricultureplatform.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

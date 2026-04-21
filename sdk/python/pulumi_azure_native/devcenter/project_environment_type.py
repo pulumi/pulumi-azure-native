@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +31,7 @@ class ProjectEnvironmentTypeArgs:
                  deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -42,7 +45,7 @@ class ProjectEnvironmentTypeArgs:
         :param pulumi.Input[_builtins.str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] display_name: The display name of the project environment type.
         :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
+        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location for the environment type
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -143,14 +146,14 @@ class ProjectEnvironmentTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
         """
         Managed identity properties
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -212,7 +215,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -234,7 +237,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] display_name: The display name of the project environment type.
         :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
+        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location for the environment type
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,7 +278,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -394,7 +397,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identity properties
         """
@@ -434,7 +437,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = ['WorkloadArgs', 'Workload']
 
@@ -263,7 +263,7 @@ class Workload(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedOnBehalfOfConfiguration")
-    def managed_on_behalf_of_configuration(self) -> pulumi.Output['outputs.ManagedOnBehalfOfConfigurationResponse']:
+    def managed_on_behalf_of_configuration(self) -> pulumi.Output['_commontypesv5.outputs.ManagedOnBehalfOfConfigurationResponse']:
         """
         Managed On Behalf Of Configuration.
         """
@@ -295,7 +295,7 @@ class Workload(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

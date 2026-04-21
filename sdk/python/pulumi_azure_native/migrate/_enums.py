@@ -57,7 +57,6 @@ __all__ = [
     'OsLicense',
     'Percentile',
     'PricingTier',
-    'PrivateEndpointServiceConnectionStatus',
     'ProjectStatus',
     'ProvisioningState',
     'ReservedInstance',
@@ -1774,16 +1773,6 @@ class PricingTier(_builtins.str, Enum):
     """
     Free Pricing Tier.
     """
-
-
-@pulumi.type_token("azure-native:migrate:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:migrate:ProjectStatus")

@@ -60,7 +60,7 @@ export interface GetFleetResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.cosmosdb.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

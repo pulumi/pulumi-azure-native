@@ -68,11 +68,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    declare public readonly sku: pulumi.Output<outputs.avs.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv5.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -161,7 +161,7 @@ export interface ClusterArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku: pulumi.Input<inputs.avs.SkuArgs>;
+    sku: pulumi.Input<inputs.commontypesv5.SkuArgs>;
     /**
      * Name of the vsan datastore associated with the cluster
      */

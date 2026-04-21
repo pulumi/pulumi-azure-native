@@ -83,7 +83,7 @@ export interface GetProjectCatalogImageDefinitionBuildDetailsResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.devcenter.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * The list of task groups executed during the image definition build.
      */

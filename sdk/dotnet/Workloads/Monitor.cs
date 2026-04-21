@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the SAP monitor errors.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.Workloads
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

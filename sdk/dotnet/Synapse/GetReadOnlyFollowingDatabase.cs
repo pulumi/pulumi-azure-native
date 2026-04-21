@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.Synapse
 
             Outputs.DatabaseStatisticsResponse statistics,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse systemData,
 
             string type)
         {

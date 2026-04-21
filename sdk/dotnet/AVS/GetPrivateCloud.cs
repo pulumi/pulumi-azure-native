@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
@@ -189,11 +189,11 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -239,7 +239,7 @@ namespace Pulumi.AzureNative.AVS
 
             string id,
 
-            Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
 
@@ -267,9 +267,9 @@ namespace Pulumi.AzureNative.AVS
 
             Outputs.CircuitResponse? secondaryCircuit,
 
-            Outputs.SkuResponse sku,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse sku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

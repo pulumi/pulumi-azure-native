@@ -44,7 +44,6 @@ __all__ = [
     'KnowledgeSourceUpdateFrequency',
     'LinkToDefaultDomain',
     'ManagedRuleEnabledState',
-    'ManagedServiceIdentityType',
     'MatchProcessingBehavior',
     'MatchVariable',
     'Operator',
@@ -493,17 +492,6 @@ class ManagedRuleEnabledState(_builtins.str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-@pulumi.type_token("azure-native:cdn:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:cdn:MatchProcessingBehavior")

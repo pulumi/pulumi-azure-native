@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Automanage
 
             Outputs.ConfigurationProfilePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

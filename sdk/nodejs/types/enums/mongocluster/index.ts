@@ -86,17 +86,6 @@ export const PreviewFeature = {
  */
 export type PreviewFeature = (typeof PreviewFeature)[keyof typeof PreviewFeature];
 
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
-
 export const PublicNetworkAccess = {
     /**
      * If set, mongo cluster can be accessed through private and public methods.

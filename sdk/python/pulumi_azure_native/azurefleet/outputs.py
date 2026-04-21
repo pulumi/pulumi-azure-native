@@ -36,10 +36,8 @@ __all__ = [
     'LinuxPatchSettingsResponse',
     'LinuxVMGuestPatchAutomaticByPlatformSettingsResponse',
     'LocationProfileResponse',
-    'ManagedServiceIdentityResponse',
     'OSImageNotificationProfileResponse',
     'PatchSettingsResponse',
-    'PlanResponse',
     'ProxyAgentSettingsResponse',
     'PublicIPAddressSkuResponse',
     'RegularPriorityProfileResponse',
@@ -51,10 +49,8 @@ __all__ = [
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
     'SubResourceResponse',
-    'SystemDataResponse',
     'TerminateNotificationProfileResponse',
     'UefiSettingsResponse',
-    'UserAssignedIdentityResponse',
     'VMAttributeMinMaxDoubleResponse',
     'VMAttributeMinMaxIntegerResponse',
     'VMAttributesResponse',
@@ -1524,84 +1520,6 @@ class LocationProfileResponse(dict):
 
 
 @pulumi.output_type
-class ManagedServiceIdentityResponse(dict):
-    """
-    Managed service identity (system assigned and/or user assigned identities)
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedServiceIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-
-        :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
 class OSImageNotificationProfileResponse(dict):
     """
     Specifies OS Image Scheduled Event related configurations.
@@ -1775,92 +1693,6 @@ class PatchSettingsResponse(dict):
         WindowsConfiguration.enableAutomaticUpdates must be true
         """
         return pulumi.get(self, "patch_mode")
-
-
-@pulumi.output_type
-class PlanResponse(dict):
-    """
-    Plan for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "promotionCode":
-            suggest = "promotion_code"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlanResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlanResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlanResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 product: _builtins.str,
-                 publisher: _builtins.str,
-                 promotion_code: Optional[_builtins.str] = None,
-                 version: Optional[_builtins.str] = None):
-        """
-        Plan for the resource.
-
-        :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        :param _builtins.str version: The version of the desired product/artifact.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        A user defined name of the 3rd Party Artifact that is being procured.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def product(self) -> _builtins.str:
-        """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        """
-        return pulumi.get(self, "product")
-
-    @_builtins.property
-    @pulumi.getter
-    def publisher(self) -> _builtins.str:
-        """
-        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        """
-        return pulumi.get(self, "publisher")
-
-    @_builtins.property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[_builtins.str]:
-        """
-        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        """
-        return pulumi.get(self, "promotion_code")
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[_builtins.str]:
-        """
-        The version of the desired product/artifact.
-        """
-        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -2564,117 +2396,6 @@ class SubResourceResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[_builtins.str] = None,
-                 created_by: Optional[_builtins.str] = None,
-                 created_by_type: Optional[_builtins.str] = None,
-                 last_modified_at: Optional[_builtins.str] = None,
-                 last_modified_by: Optional[_builtins.str] = None,
-                 last_modified_by_type: Optional[_builtins.str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-
-        :param _builtins.str created_at: The timestamp of resource creation (UTC).
-        :param _builtins.str created_by: The identity that created the resource.
-        :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
-        :param _builtins.str last_modified_by: The identity that last modified the resource.
-        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @_builtins.property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[_builtins.str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[_builtins.str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
 class TerminateNotificationProfileResponse(dict):
     """
     Specifies Terminate Scheduled Event related configurations.
@@ -2792,59 +2513,6 @@ class UefiSettingsResponse(dict):
         api-version: 2020-12-01.
         """
         return pulumi.get(self, "v_tpm_enabled")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponse(dict):
-    """
-    User assigned identity properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        User assigned identity properties
-
-        :param _builtins.str client_id: The client ID of the assigned identity.
-        :param _builtins.str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

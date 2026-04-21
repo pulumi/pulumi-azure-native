@@ -86,7 +86,7 @@ export interface GetRestorePointResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.compute.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * Gets the creation time of the restore point.
      */

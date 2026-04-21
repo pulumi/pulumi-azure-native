@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
         /// <summary>
         /// The error details
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse? Error;
         /// <summary>
         /// The provisioned state of the resource
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
 
         [OutputConstructor]
         private CacheNodeOldResponseResponse(
-            Outputs.ErrorDetailResponse? error,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse? error,
 
             string provisioningState,
 

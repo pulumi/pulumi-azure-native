@@ -13,9 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._enums import *
-from ._inputs import *
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 
@@ -25,14 +24,14 @@ class PrivateEndpointConnectionArgs:
                  mongo_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['_commontypesv5.PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input['_commontypesv5.PrivateEndpointConnectionPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,14 +78,14 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['_commontypesv5.PrivateEndpointConnectionPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['_commontypesv5.PrivateEndpointConnectionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -98,7 +97,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['_commontypesv5.PrivateEndpointConnectionPropertiesArgs', '_commontypesv5.PrivateEndpointConnectionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -113,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
-        :param pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[Union['_commontypesv5.PrivateEndpointConnectionPropertiesArgs', '_commontypesv5.PrivateEndpointConnectionPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -147,7 +146,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['_commontypesv5.PrivateEndpointConnectionPropertiesArgs', '_commontypesv5.PrivateEndpointConnectionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -219,7 +218,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionPropertiesResponse']:
+    def properties(self) -> pulumi.Output['_commontypesv5.outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
         The resource-specific properties for this resource.
         """
@@ -227,7 +226,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

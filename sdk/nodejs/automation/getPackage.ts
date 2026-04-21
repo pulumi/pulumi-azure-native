@@ -50,7 +50,7 @@ export interface GetPackageResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly allOf: outputs.automation.SystemDataResponse;
+    readonly allOf: outputs.commontypesv5.SystemDataResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -90,7 +90,7 @@ export interface GetPackageResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.automation.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

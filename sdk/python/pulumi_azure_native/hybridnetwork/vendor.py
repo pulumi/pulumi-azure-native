@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2 as _commontypesv2
 
 __all__ = ['VendorArgs', 'Vendor']
 
@@ -170,7 +171,7 @@ class Vendor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv2.outputs.SystemDataResponse']:
         """
         The system meta data relating to this resource.
         """

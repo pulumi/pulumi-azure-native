@@ -126,7 +126,7 @@ export interface GetVirtualMachineTemplateResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Gets or sets the Resource tags.
      */

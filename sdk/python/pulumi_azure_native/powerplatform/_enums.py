@@ -9,7 +9,6 @@ from enum import Enum
 __all__ = [
     'EnterprisePolicyKind',
     'HealthStatus',
-    'PrivateEndpointServiceConnectionStatus',
     'ResourceIdentityType',
     'State',
 ]
@@ -36,16 +35,6 @@ class HealthStatus(_builtins.str, Enum):
     HEALTHY = "Healthy"
     WARNING = "Warning"
     UNHEALTHY = "Unhealthy"
-
-
-@pulumi.type_token("azure-native:powerplatform:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:powerplatform:ResourceIdentityType")

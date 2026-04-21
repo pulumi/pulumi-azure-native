@@ -103,7 +103,7 @@ export interface GetMySQLServerResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.mysqldiscovery.SystemDataResponse;
+    readonly systemData: outputs.commontypesv4.SystemDataResponse;
     /**
      * Resource tags
      */

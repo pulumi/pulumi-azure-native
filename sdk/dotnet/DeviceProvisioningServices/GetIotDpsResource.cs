@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// The managed identities for a provisioning service.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
 
             string? subscriptionid,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

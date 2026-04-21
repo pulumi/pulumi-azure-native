@@ -277,7 +277,7 @@ class CloudService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponseV1']]:
+    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
         """
         The system meta data relating to this resource.
         """

@@ -46,7 +46,7 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.azurestackhci.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -62,7 +62,7 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -124,7 +124,7 @@ export interface DevicePoolArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

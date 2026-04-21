@@ -36,7 +36,6 @@ __all__ = [
     'ExtendedLocationType',
     'FilterType',
     'KafkaAuthMethod',
-    'ManagedServiceIdentityType',
     'MqttAuthMethod',
     'MqttRetainType',
     'OperationType',
@@ -569,17 +568,6 @@ class KafkaAuthMethod(_builtins.str, Enum):
     """
     Anonymous Option
     """
-
-
-@pulumi.type_token("azure-native:iotoperations:ManagedServiceIdentityType")
-class ManagedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:iotoperations:MqttAuthMethod")

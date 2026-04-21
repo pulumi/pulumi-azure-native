@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// Error that is relayed from the script execution.
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.ErrorResponseResponse? Error;
         /// <summary>
         /// Time the deployment script resource will expire.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             string endTime,
 
-            Outputs.ErrorResponseResponse? error,
+            Pulumi.AzureNative.Commontypesv1.Outputs.ErrorResponseResponse? error,
 
             string expirationTime,
 

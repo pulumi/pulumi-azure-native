@@ -17,18 +17,15 @@ __all__ = [
     'PackageTimestamped',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
-    'ResourceIdentityType',
     'SSOSecretType',
     'ScalingHostPoolType',
     'SessionHandlingOperation',
     'SessionHostComponentUpdateType',
     'SessionHostLoadBalancingAlgorithm',
     'SetStartVMOnConnect',
-    'SkuTier',
     'StartupBehavior',
     'StopHostsWhen',
 ]
@@ -142,16 +139,6 @@ class PreferredAppGroupType(_builtins.str, Enum):
     RAIL_APPLICATIONS = "RailApplications"
 
 
-@pulumi.type_token("azure-native:desktopvirtualization:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
 @pulumi.type_token("azure-native:desktopvirtualization:PublicNetworkAccess")
 class PublicNetworkAccess(_builtins.str, Enum):
     """
@@ -178,14 +165,6 @@ class RemoteApplicationType(_builtins.str, Enum):
     """
     IN_BUILT = "InBuilt"
     MSIX_APPLICATION = "MsixApplication"
-
-
-@pulumi.type_token("azure-native:desktopvirtualization:ResourceIdentityType")
-class ResourceIdentityType(_builtins.str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:desktopvirtualization:SSOSecretType")
@@ -250,17 +229,6 @@ class SetStartVMOnConnect(_builtins.str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
-
-
-@pulumi.type_token("azure-native:desktopvirtualization:SkuTier")
-class SkuTier(_builtins.str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 @pulumi.type_token("azure-native:desktopvirtualization:StartupBehavior")

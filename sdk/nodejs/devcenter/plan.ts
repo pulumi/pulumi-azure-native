@@ -60,11 +60,11 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The SKU for DevCenters created using this definition.
      */
-    declare public readonly sku: pulumi.Output<outputs.devcenter.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv5.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -134,7 +134,7 @@ export interface PlanArgs {
     /**
      * The SKU for DevCenters created using this definition.
      */
-    sku?: pulumi.Input<inputs.devcenter.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv5.SkuArgs>;
     /**
      * Resource tags.
      */

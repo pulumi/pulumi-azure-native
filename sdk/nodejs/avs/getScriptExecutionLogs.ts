@@ -107,7 +107,7 @@ export interface GetScriptExecutionLogsResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.avs.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Time limit for execution
      */

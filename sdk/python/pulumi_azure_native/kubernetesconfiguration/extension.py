@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv2
+from .. import commontypesv2 as _commontypesv2
 from ._enums import *
 from ._inputs import *
 
@@ -32,8 +34,8 @@ class ExtensionArgs:
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extension_name: Optional[pulumi.Input[_builtins.str]] = None,
                  extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv2.IdentityArgs']] = None,
+                 plan: Optional[pulumi.Input['_commontypesv2.PlanArgs']] = None,
                  release_train: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input['ScopeArgs']] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]] = None,
@@ -51,8 +53,8 @@ class ExtensionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] extension_name: Name of the Extension.
         :param pulumi.Input[_builtins.str] extension_type: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-        :param pulumi.Input['IdentityArgs'] identity: Identity of the Extension resource
-        :param pulumi.Input['PlanArgs'] plan: The plan information.
+        :param pulumi.Input['_commontypesv2.IdentityArgs'] identity: Identity of the Extension resource
+        :param pulumi.Input['_commontypesv2.PlanArgs'] plan: The plan information.
         :param pulumi.Input[_builtins.str] release_train: ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         :param pulumi.Input['ScopeArgs'] scope: Scope at which the extension is installed.
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]] statuses: Status from this extension.
@@ -213,26 +215,26 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv2.IdentityArgs']]:
         """
         Identity of the Extension resource
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv2.IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['_commontypesv2.PlanArgs']]:
         """
         The plan information.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['_commontypesv2.PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -299,8 +301,8 @@ class Extension(pulumi.CustomResource):
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extension_name: Optional[pulumi.Input[_builtins.str]] = None,
                  extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv2.PlanArgs', '_commontypesv2.PlanArgsDict']]] = None,
                  release_train: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
@@ -326,8 +328,8 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] extension_name: Name of the Extension.
         :param pulumi.Input[_builtins.str] extension_type: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity of the Extension resource
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: The plan information.
+        :param pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']] identity: Identity of the Extension resource
+        :param pulumi.Input[Union['_commontypesv2.PlanArgs', '_commontypesv2.PlanArgsDict']] plan: The plan information.
         :param pulumi.Input[_builtins.str] release_train: ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']] scope: Scope at which the extension is installed.
@@ -372,8 +374,8 @@ class Extension(pulumi.CustomResource):
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extension_name: Optional[pulumi.Input[_builtins.str]] = None,
                  extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv2.PlanArgs', '_commontypesv2.PlanArgsDict']]] = None,
                  release_train: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
@@ -531,7 +533,7 @@ class Extension(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="errorInfo")
-    def error_info(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
+    def error_info(self) -> pulumi.Output['_commontypesv2.outputs.ErrorDetailResponse']:
         """
         Error information from the Agent - e.g. errors during installation.
         """
@@ -547,7 +549,7 @@ class Extension(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv2.outputs.IdentityResponse']]:
         """
         Identity of the Extension resource
         """
@@ -579,7 +581,7 @@ class Extension(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['_commontypesv2.outputs.PlanResponse']]:
         """
         The plan information.
         """
@@ -619,7 +621,7 @@ class Extension(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv2.outputs.SystemDataResponse']:
         """
         Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         """

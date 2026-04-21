@@ -75,7 +75,7 @@ export interface GetCIAMTenantResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.azureactivedirectory.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource Tags
      */

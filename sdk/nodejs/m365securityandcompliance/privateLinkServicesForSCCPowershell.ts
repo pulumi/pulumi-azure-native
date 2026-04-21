@@ -70,7 +70,7 @@ export class PrivateLinkServicesForSCCPowershell extends pulumi.CustomResource {
     /**
      * Required property for system data
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.m365securityandcompliance.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The resource tags.
      */

@@ -13,9 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv6
+from .. import commontypesv6 as _commontypesv6
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['FreeServiceArgs', 'FreeService']
 
@@ -25,13 +25,13 @@ class FreeServiceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 plan: Optional[pulumi.Input['_commontypesv6.PlanArgs']] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv6.SkuArgs']] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -42,13 +42,13 @@ class FreeServiceArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
         :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['_commontypesv6.PlanArgs'] plan: Plan for the resource.
         :param pulumi.Input[_builtins.str] product_code: This is the catalog UPN for the product.
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input['_commontypesv6.SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] start_at: Date and time when the free services become active
         :param pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']] status: Current status of the free services
         :param pulumi.Input[_builtins.str] system_id: This is the globally unique identifier of the free services which will not change for its lifetime.
@@ -120,14 +120,14 @@ class FreeServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -168,14 +168,14 @@ class FreeServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['_commontypesv6.PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['_commontypesv6.PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -192,14 +192,14 @@ class FreeServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv6.SkuArgs']]:
         """
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv6.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -259,14 +259,14 @@ class FreeService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -282,14 +282,14 @@ class FreeService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
         :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']] plan: Plan for the resource.
         :param pulumi.Input[_builtins.str] product_code: This is the catalog UPN for the product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] start_at: Date and time when the free services become active
         :param pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']] status: Current status of the free services
         :param pulumi.Input[_builtins.str] system_id: This is the globally unique identifier of the free services which will not change for its lifetime.
@@ -324,14 +324,14 @@ class FreeService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
                  system_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -467,7 +467,7 @@ class FreeService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -507,7 +507,7 @@ class FreeService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['_commontypesv6.outputs.PlanResponse']]:
         """
         Plan for the resource.
         """
@@ -531,7 +531,7 @@ class FreeService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv6.outputs.SkuResponse']]:
         """
         The resource model definition representing SKU
         """
@@ -555,7 +555,7 @@ class FreeService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

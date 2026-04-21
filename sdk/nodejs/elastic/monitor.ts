@@ -68,7 +68,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The system metadata relating to this resource
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.elastic.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * The tags of the monitor resource.
      */

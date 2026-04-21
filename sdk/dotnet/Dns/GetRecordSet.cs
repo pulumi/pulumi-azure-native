@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.Dns
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// A reference to an azure resource from where the dns resource value is taken.
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.Dns
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             Outputs.SubResourceResponse? targetResource,
 

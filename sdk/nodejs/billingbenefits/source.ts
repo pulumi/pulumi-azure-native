@@ -56,7 +56,7 @@ export class Source extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
     /**
      * The billing period of the impact for the resource. Format YYYYMM
      */
@@ -80,11 +80,11 @@ export class Source extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv6.PlanResponse | undefined>;
     /**
      * The resource model definition representing SKU
      */
-    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv6.SkuResponse | undefined>;
     /**
      * The uri of the resource impacted which lead to the grant of the credit.
      */
@@ -96,7 +96,7 @@ export class Source extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -182,7 +182,7 @@ export interface SourceArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
     /**
      * The billing period of the impact for the resource. Format YYYYMM
      */
@@ -202,7 +202,7 @@ export interface SourceArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv6.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -210,7 +210,7 @@ export interface SourceArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv6.SkuArgs>;
     /**
      * Name of the credit source
      */

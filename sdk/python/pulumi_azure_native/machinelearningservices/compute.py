@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -25,10 +27,10 @@ class ComputeArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  compute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv3.SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Compute resource.
@@ -36,10 +38,10 @@ class ComputeArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']] properties: The resource-specific properties for this resource.
-        :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
+        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -95,14 +97,14 @@ class ComputeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -131,14 +133,14 @@ class ComputeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv3.SkuArgs']]:
         """
         The sku of the workspace.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv3.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -161,11 +163,11 @@ class Compute(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union[Union['AKSArgs', 'AKSArgsDict'], Union['AmlComputeArgs', 'AmlComputeArgsDict'], Union['ComputeInstanceArgs', 'ComputeInstanceArgsDict'], Union['DataFactoryArgs', 'DataFactoryArgsDict'], Union['DataLakeAnalyticsArgs', 'DataLakeAnalyticsArgsDict'], Union['DatabricksArgs', 'DatabricksArgsDict'], Union['HDInsightArgs', 'HDInsightArgsDict'], Union['KubernetesArgs', 'KubernetesArgsDict'], Union['SynapseSparkArgs', 'SynapseSparkArgsDict'], Union['VirtualMachineArgs', 'VirtualMachineArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -180,11 +182,11 @@ class Compute(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union[Union['AKSArgs', 'AKSArgsDict'], Union['AmlComputeArgs', 'AmlComputeArgsDict'], Union['ComputeInstanceArgs', 'ComputeInstanceArgsDict'], Union['DataFactoryArgs', 'DataFactoryArgsDict'], Union['DataLakeAnalyticsArgs', 'DataLakeAnalyticsArgsDict'], Union['DatabricksArgs', 'DatabricksArgsDict'], Union['HDInsightArgs', 'HDInsightArgsDict'], Union['KubernetesArgs', 'KubernetesArgsDict'], Union['SynapseSparkArgs', 'SynapseSparkArgsDict'], Union['VirtualMachineArgs', 'VirtualMachineArgsDict']]] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
+        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
@@ -218,11 +220,11 @@ class Compute(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union[Union['AKSArgs', 'AKSArgsDict'], Union['AmlComputeArgs', 'AmlComputeArgsDict'], Union['ComputeInstanceArgs', 'ComputeInstanceArgsDict'], Union['DataFactoryArgs', 'DataFactoryArgsDict'], Union['DataLakeAnalyticsArgs', 'DataLakeAnalyticsArgsDict'], Union['DatabricksArgs', 'DatabricksArgsDict'], Union['HDInsightArgs', 'HDInsightArgsDict'], Union['KubernetesArgs', 'KubernetesArgsDict'], Union['SynapseSparkArgs', 'SynapseSparkArgsDict'], Union['VirtualMachineArgs', 'VirtualMachineArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -295,7 +297,7 @@ class Compute(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -327,7 +329,7 @@ class Compute(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SkuResponse']]:
         """
         The sku of the workspace.
         """
@@ -335,7 +337,7 @@ class Compute(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

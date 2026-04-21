@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -234,7 +234,7 @@ namespace Pulumi.AzureNative.Batch
 
             string? publicNetworkAccess,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

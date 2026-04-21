@@ -7,20 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccessType',
     'TpmAttestationAuthenticationType',
 ]
-
-
-@pulumi.type_token("azure-native:attestation:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:attestation:PublicNetworkAccessType")

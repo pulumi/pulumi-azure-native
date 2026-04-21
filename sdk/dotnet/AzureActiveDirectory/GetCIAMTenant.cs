@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource Tags
         /// </summary>
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             Outputs.CIAMResourceSKUResponse sku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

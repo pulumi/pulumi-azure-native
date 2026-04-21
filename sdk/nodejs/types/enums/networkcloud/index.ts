@@ -209,18 +209,6 @@ export const ManagedServiceIdentitySelectorType = {
  */
 export type ManagedServiceIdentitySelectorType = (typeof ManagedServiceIdentitySelectorType)[keyof typeof ManagedServiceIdentitySelectorType];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const OsDiskCreateOption = {
     /**
      * Utilize the local storage of the host machine.

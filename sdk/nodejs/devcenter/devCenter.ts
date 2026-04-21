@@ -60,7 +60,7 @@ export class DevCenter extends pulumi.CustomResource {
     /**
      * Managed identity properties
      */
-    declare public readonly identity: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv4.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -80,7 +80,7 @@ export class DevCenter extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -158,7 +158,7 @@ export interface DevCenterArgs {
     /**
      * Managed identity properties
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

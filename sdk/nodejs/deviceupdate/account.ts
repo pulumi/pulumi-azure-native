@@ -54,7 +54,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The type of identity used for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.deviceupdate.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -86,7 +86,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceupdate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -164,7 +164,7 @@ export interface AccountArgs {
     /**
      * The type of identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.deviceupdate.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

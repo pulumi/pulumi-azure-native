@@ -92,7 +92,7 @@ export interface GetIoTRoleResult {
     /**
      * Metadata pertaining to creation and last modification of Role
      */
-    readonly systemData: outputs.databoxedge.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

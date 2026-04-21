@@ -93,7 +93,7 @@ export interface GetOuContainerResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.aad.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags
      */

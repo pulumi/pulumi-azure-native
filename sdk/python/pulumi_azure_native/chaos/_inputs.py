@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -435,7 +436,7 @@ class ExperimentIdentityArgsDict(TypedDict):
     """
     The identity of the experiment resource.
     """
-    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
@@ -447,12 +448,12 @@ class ExperimentIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ExperimentIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
+                 type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The identity of the experiment resource.
 
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
@@ -461,14 +462,14 @@ class ExperimentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property

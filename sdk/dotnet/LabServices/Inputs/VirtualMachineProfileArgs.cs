@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.LabServices.Inputs
         /// The SKU for the lab. Defines the type of virtual machines used in the lab.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Commontypesv2.Inputs.SkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
         /// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.

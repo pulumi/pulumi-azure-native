@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// Additional error information.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorAdditionalInfoResponse> AdditionalInfo;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.ErrorAdditionalInfoResponse> AdditionalInfo;
         /// <summary>
         /// The error code.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
         [OutputConstructor]
         private DeploymentStacksDiagnosticResponse(
-            ImmutableArray<Outputs.ErrorAdditionalInfoResponse> additionalInfo,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.ErrorAdditionalInfoResponse> additionalInfo,
 
             string code,
 

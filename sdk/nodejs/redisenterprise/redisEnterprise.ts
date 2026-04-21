@@ -60,7 +60,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.redisenterprise.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv4.ManagedServiceIdentityResponse | undefined>;
     /**
      * Distinguishes the kind of cluster. Read-only.
      */
@@ -80,7 +80,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
     /**
      * List of private endpoint connections associated with the specified Redis Enterprise cluster
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.redisenterprise.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv2.PrivateEndpointConnectionResponse[]>;
     /**
      * Current provisioning status of the cluster
      */
@@ -197,7 +197,7 @@ export interface RedisEnterpriseArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.redisenterprise.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

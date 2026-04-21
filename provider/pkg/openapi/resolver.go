@@ -7,6 +7,8 @@ import (
 	"net/url"
 	"reflect"
 	"regexp"
+	"strconv"
+	"strings"
 
 	"github.com/go-openapi/jsonreference"
 	"github.com/go-openapi/spec"
@@ -62,6 +64,30 @@ type Response struct {
 type Schema struct {
 	*ReferenceContext
 	*spec.Schema
+}
+
+// CommonTypesVersion checks whether this context's URL points to a common-types file (e.g.
+// "common-types/resource-management/v6/types.json") and, if so, returns the disambiguating
+// module name (e.g. "commontypesv6"). This is needed to correctly namespace types defined by
+// local $refs inside a common-types file (e.g. "#/definitions/ErrorDetail"), where the $ref URL
+// itself carries no path information.
+func (ctx *ReferenceContext) CommonTypesVersion() (string, bool) {
+	if ctx.url == nil || ctx.url.Path == "" {
+		return "", false
+	}
+	parts := strings.Split(strings.ReplaceAll(ctx.url.Path, "\\", "/"), "/")
+	for i, part := range parts {
+		if part == "common-types" && i+2 < len(parts) {
+			v := parts[i+2]
+			if strings.HasPrefix(v, "v") {
+				if _, err := strconv.Atoi(v[1:]); err == nil {
+					result := "commontypes" + strings.ToLower(v[:1]) + v[1:]
+					return result, true
+				}
+			}
+		}
+	}
+	return "", false
 }
 
 // ResolveParameter resolves a given swagger parameter. If needed, it navigates to the source of the parameter reference

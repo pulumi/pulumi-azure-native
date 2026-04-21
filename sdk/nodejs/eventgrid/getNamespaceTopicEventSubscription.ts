@@ -82,7 +82,7 @@ export interface GetNamespaceTopicEventSubscriptionResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Type of the resource.
      */

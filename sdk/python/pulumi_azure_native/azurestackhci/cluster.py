@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +26,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
+                 type: pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']],
                  aad_application_object_id: Optional[pulumi.Input[_builtins.str]] = None,
                  aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  aad_service_principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,7 +42,7 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[_builtins.str] aad_application_object_id: Object id of cluster AAD identity.
         :param pulumi.Input[_builtins.str] aad_client_id: App id of cluster AAD identity.
         :param pulumi.Input[_builtins.str] aad_service_principal_object_id: Id of cluster identity service principal.
@@ -91,14 +94,14 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']]:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -251,7 +254,7 @@ class Cluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -275,7 +278,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']] software_assurance_properties: Software Assurance properties of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         ...
@@ -318,7 +321,7 @@ class Cluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'commontypesv4.ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -625,7 +628,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -665,7 +668,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]]:
+    def user_assigned_identities(self) -> pulumi.Output[Optional[Mapping[str, '_commontypesv4.outputs.UserAssignedIdentityResponse']]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """

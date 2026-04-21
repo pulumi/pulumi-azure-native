@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tenant ID of the administrator.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string? sid,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string? tenantId,
 

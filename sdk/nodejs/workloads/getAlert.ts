@@ -55,7 +55,7 @@ export interface GetAlertResult {
     /**
      * Defines the alert instance errors.
      */
-    readonly errors: outputs.workloads.ErrorDetailResponse;
+    readonly errors: outputs.commontypesv5.ErrorDetailResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -79,7 +79,7 @@ export interface GetAlertResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.workloads.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Name of the alert template from which it was created.
      */

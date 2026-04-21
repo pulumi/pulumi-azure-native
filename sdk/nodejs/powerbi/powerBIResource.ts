@@ -56,7 +56,7 @@ export class PowerBIResource extends pulumi.CustomResource {
     /**
      * The system metadata relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerbi.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * Specifies the tags of the resource.
      */

@@ -73,7 +73,7 @@ export interface GetSkusNestedResourceTypeThirdResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.providerhub.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

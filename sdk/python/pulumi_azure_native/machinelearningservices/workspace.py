@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -36,7 +38,7 @@ class WorkspaceArgs:
                  friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
                  hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']] = None,
                  image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -48,7 +50,7 @@ class WorkspaceArgs:
                  serverless_compute_settings: Optional[pulumi.Input['ServerlessComputeSettingsArgs']] = None,
                  service_managed_resources_settings: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['_commontypesv3.SkuArgs']] = None,
                  storage_account: Optional[pulumi.Input[_builtins.str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -67,7 +69,7 @@ class WorkspaceArgs:
         :param pulumi.Input['FeatureStoreSettingsArgs'] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[_builtins.str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[_builtins.bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] image_build_compute: The compute name for image build
         :param pulumi.Input[_builtins.str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input['ManagedNetworkSettingsArgs'] managed_network: Managed Network settings for a machine learning workspace.
@@ -77,7 +79,7 @@ class WorkspaceArgs:
         :param pulumi.Input['ServerlessComputeSettingsArgs'] serverless_compute_settings: Settings for serverless compute in a workspace
         :param pulumi.Input['ServiceManagedResourcesSettingsArgs'] service_managed_resources_settings: The service managed resource settings.
         :param pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]] shared_private_link_resources: The list of shared private link resources in this workspace.
-        :param pulumi.Input['SkuArgs'] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
+        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         :param pulumi.Input[_builtins.str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace.
         :param pulumi.Input[_builtins.bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
@@ -305,14 +307,14 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -443,14 +445,14 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['_commontypesv3.SkuArgs']]:
         """
         Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['_commontypesv3.SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -542,7 +544,7 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
                  hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -555,7 +557,7 @@ class Workspace(pulumi.CustomResource):
                  serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
                  service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[_builtins.str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -581,7 +583,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[_builtins.str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[_builtins.bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] image_build_compute: The compute name for image build
         :param pulumi.Input[_builtins.str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']] managed_network: Managed Network settings for a machine learning workspace.
@@ -592,7 +594,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']] serverless_compute_settings: Settings for serverless compute in a workspace
         :param pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']] service_managed_resources_settings: The service managed resource settings.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
+        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         :param pulumi.Input[_builtins.str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace.
         :param pulumi.Input[_builtins.bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
@@ -641,7 +643,7 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
                  hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.ManagedServiceIdentityArgs', '_commontypesv3.ManagedServiceIdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -654,7 +656,7 @@ class Workspace(pulumi.CustomResource):
                  serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
                  service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[_builtins.str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -887,7 +889,7 @@ class Workspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -1033,7 +1035,7 @@ class Workspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SkuResponse']]:
         """
         Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
@@ -1057,7 +1059,7 @@ class Workspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

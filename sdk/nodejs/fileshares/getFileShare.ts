@@ -60,7 +60,7 @@ export interface GetFileShareResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.fileshares.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

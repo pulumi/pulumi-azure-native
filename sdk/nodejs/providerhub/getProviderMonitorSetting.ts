@@ -55,7 +55,7 @@ export interface GetProviderMonitorSettingResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.providerhub.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

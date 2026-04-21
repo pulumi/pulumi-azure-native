@@ -88,7 +88,7 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * Kind of the scheduled action.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.costmanagement.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

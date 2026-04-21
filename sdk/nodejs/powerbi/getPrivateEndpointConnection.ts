@@ -64,7 +64,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.powerbi.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Specifies the type of the resource.
      */

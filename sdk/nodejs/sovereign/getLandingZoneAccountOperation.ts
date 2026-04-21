@@ -46,7 +46,7 @@ export interface GetLandingZoneAccountOperationResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.sovereign.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -62,7 +62,7 @@ export interface GetLandingZoneAccountOperationResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.sovereign.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource tags.
      */

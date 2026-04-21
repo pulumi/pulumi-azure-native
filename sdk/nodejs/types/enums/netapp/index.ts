@@ -432,18 +432,6 @@ export const LdapState = {
  */
 export type LdapState = (typeof LdapState)[keyof typeof LdapState];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const NetworkFeatures = {
     /**
      * Basic network features.

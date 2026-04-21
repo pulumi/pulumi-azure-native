@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         /// </summary>
         public readonly string? Size;
         /// <summary>

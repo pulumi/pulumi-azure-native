@@ -1,0 +1,1461 @@
+
+[TestManagedClusterGen - 1]
+{
+ "aliases": [
+  {
+   "type": "azure-native:containerservice/v20200201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20200301:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20200401:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20200601:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20200701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20200901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20201101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20201201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210301:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210501:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210801:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20210901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20211001:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20211101preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220202preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220301:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220302preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220401:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220402preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220502preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220601:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220602preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220702preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220802preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220803preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20220902preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20221002preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20221101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20221102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230202preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230301:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230302preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230401:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230402preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230501:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230502preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230601:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230602preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230702preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230801:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230802preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20230902preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20231001:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20231002preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20231101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20231102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240202preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240302preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240402preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240501:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240502preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240602preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240702preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240801:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20240902preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20241001:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20241002preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250101:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250102preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250201:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250202preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250301:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250302preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250401:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250402preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250501:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250502preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250602preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250701:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250702preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250801:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250802preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250901:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20250902preview:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20251001:ManagedCluster"
+  },
+  {
+   "type": "azure-native:containerservice/v20251002preview:ManagedCluster"
+  }
+ ],
+ "description": "Managed cluster.\n\nUses Azure REST API version 2025-10-01.",
+ "inputProperties": {
+  "aadProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAADProfile",
+   "description": "The Azure Active Directory configuration.",
+   "type": "object"
+  },
+  "addonProfiles": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAddonProfile",
+    "type": "object"
+   },
+   "description": "The profile of managed cluster add-on.",
+   "type": "object"
+  },
+  "agentPoolProfiles": {
+   "description": "The agent pool properties.",
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAgentPoolProfile",
+    "type": "object"
+   },
+   "type": "array"
+  },
+  "aiToolchainOperatorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAIToolchainOperatorProfile",
+   "description": "AI toolchain operator settings that apply to the whole cluster.",
+   "type": "object"
+  },
+  "apiServerAccessProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAPIServerAccessProfile",
+   "description": "The access profile for managed cluster API server.",
+   "type": "object"
+  },
+  "autoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPropertiesAutoScalerProfile",
+   "description": "Parameters to be applied to the cluster-autoscaler when enabled",
+   "type": "object"
+  },
+  "autoUpgradeProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAutoUpgradeProfile",
+   "description": "The auto upgrade configuration.",
+   "type": "object"
+  },
+  "azureMonitorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAzureMonitorProfile",
+   "description": "Azure Monitor addon profiles for monitoring the managed cluster.",
+   "type": "object"
+  },
+  "bootstrapProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterBootstrapProfile",
+   "description": "Profile of the cluster bootstrap configuration.",
+   "type": "object"
+  },
+  "disableLocalAccounts": {
+   "description": "If local accounts should be disabled on the Managed Cluster. If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).",
+   "type": "boolean"
+  },
+  "diskEncryptionSetID": {
+   "description": "The Resource ID of the disk encryption set to use for enabling encryption at rest. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "dnsPrefix": {
+   "description": "The DNS prefix of the Managed Cluster. This cannot be updated once the Managed Cluster has been created.",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "enableRBAC": {
+   "description": "Whether to enable Kubernetes Role-Based Access Control.",
+   "type": "boolean"
+  },
+  "extendedLocation": {
+   "$ref": "#/types/azure-native:containerservice:ExtendedLocation",
+   "description": "The extended location of the Virtual Machine.",
+   "type": "object"
+  },
+  "fqdnSubdomain": {
+   "description": "The FQDN subdomain of the private cluster with custom private dns zone. This cannot be updated once the Managed Cluster has been created.",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "httpProxyConfig": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterHTTPProxyConfig",
+   "description": "Configurations for provisioning the cluster with HTTP proxy servers.",
+   "type": "object"
+  },
+  "identity": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIdentity",
+   "description": "The identity of the managed cluster, if configured.",
+   "type": "object"
+  },
+  "identityProfile": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:UserAssignedIdentity",
+    "type": "object"
+   },
+   "description": "The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is \"kubeletidentity\", with value of \"resourceId\": \"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}\".",
+   "type": "object"
+  },
+  "ingressProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIngressProfile",
+   "description": "Ingress profile for the managed cluster.",
+   "type": "object"
+  },
+  "kind": {
+   "description": "This is primarily used to expose different UI experiences in the portal for different kinds",
+   "type": "string"
+  },
+  "kubernetesVersion": {
+   "description": "The version of Kubernetes specified by the user. Both patch version \u003cmajor.minor.patch\u003e (e.g. 1.20.13) and \u003cmajor.minor\u003e (e.g. 1.20) are supported. When \u003cmajor.minor\u003e is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same \u003cmajor.minor\u003e once it has been created (e.g. 1.14.x -\u003e 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -\u003e 1.15.x or 1.15.x -\u003e 1.16.x are allowed, however 1.14.x -\u003e 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.",
+   "type": "string"
+  },
+  "linuxProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceLinuxProfile",
+   "description": "The profile for Linux VMs in the Managed Cluster.",
+   "type": "object",
+   "willReplaceOnChanges": true
+  },
+  "location": {
+   "description": "The geo-location where the resource lives",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "metricsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterMetricsProfile",
+   "description": "Optional cluster metrics configuration.",
+   "type": "object"
+  },
+  "networkProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceNetworkProfile",
+   "description": "The network configuration profile.",
+   "type": "object",
+   "willReplaceOnChanges": true
+  },
+  "nodeProvisioningProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeProvisioningProfile",
+   "description": "Node provisioning settings that apply to the whole cluster.",
+   "type": "object"
+  },
+  "nodeResourceGroup": {
+   "description": "The name of the resource group containing agent pool nodes.",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "nodeResourceGroupProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeResourceGroupProfile",
+   "description": "Profile of the node resource group configuration.",
+   "type": "object"
+  },
+  "oidcIssuerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterOIDCIssuerProfile",
+   "description": "The OIDC issuer profile of the Managed Cluster.",
+   "type": "object"
+  },
+  "podIdentityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPodIdentityProfile",
+   "description": "The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.",
+   "type": "object"
+  },
+  "privateLinkResources": {
+   "description": "Private link resources associated with the cluster.",
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:PrivateLinkResource",
+    "type": "object"
+   },
+   "type": "array"
+  },
+  "publicNetworkAccess": {
+   "description": "PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS",
+   "oneOf": [
+    {
+     "type": "string"
+    },
+    {
+     "$ref": "#/types/azure-native:containerservice:PublicNetworkAccess"
+    }
+   ]
+  },
+  "resourceGroupName": {
+   "description": "The name of the resource group. The name is case insensitive.",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "resourceName": {
+   "description": "The name of the managed cluster resource.",
+   "type": "string",
+   "willReplaceOnChanges": true
+  },
+  "securityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSecurityProfile",
+   "description": "Security profile for the managed cluster.",
+   "type": "object"
+  },
+  "serviceMeshProfile": {
+   "$ref": "#/types/azure-native:containerservice:ServiceMeshProfile",
+   "description": "Service mesh profile for a managed cluster.",
+   "type": "object"
+  },
+  "servicePrincipalProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterServicePrincipalProfile",
+   "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
+   "type": "object"
+  },
+  "sku": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSKU",
+   "description": "The managed cluster SKU.",
+   "type": "object"
+  },
+  "storageProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterStorageProfile",
+   "description": "Storage profile for the managed cluster.",
+   "type": "object"
+  },
+  "supportPlan": {
+   "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.",
+   "oneOf": [
+    {
+     "type": "string"
+    },
+    {
+     "$ref": "#/types/azure-native:containerservice:KubernetesSupportPlan"
+    }
+   ]
+  },
+  "tags": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "Resource tags.",
+   "type": "object"
+  },
+  "upgradeSettings": {
+   "$ref": "#/types/azure-native:containerservice:ClusterUpgradeSettings",
+   "description": "Settings for upgrading a cluster.",
+   "type": "object"
+  },
+  "windowsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWindowsProfile",
+   "description": "The profile for Windows VMs in the Managed Cluster.",
+   "type": "object",
+   "willReplaceOnChanges": true
+  },
+  "workloadAutoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWorkloadAutoScalerProfile",
+   "description": "Workload Auto-scaler profile for the managed cluster.",
+   "type": "object"
+  }
+ },
+ "properties": {
+  "aadProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAADProfileResponse",
+   "description": "The Azure Active Directory configuration.",
+   "type": "object"
+  },
+  "addonProfiles": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAddonProfileResponse",
+    "type": "object"
+   },
+   "description": "The profile of managed cluster add-on.",
+   "type": "object"
+  },
+  "agentPoolProfiles": {
+   "description": "The agent pool properties.",
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAgentPoolProfileResponse",
+    "type": "object"
+   },
+   "type": "array"
+  },
+  "aiToolchainOperatorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAIToolchainOperatorProfileResponse",
+   "description": "AI toolchain operator settings that apply to the whole cluster.",
+   "type": "object"
+  },
+  "apiServerAccessProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAPIServerAccessProfileResponse",
+   "description": "The access profile for managed cluster API server.",
+   "type": "object"
+  },
+  "autoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPropertiesAutoScalerProfileResponse",
+   "description": "Parameters to be applied to the cluster-autoscaler when enabled",
+   "type": "object"
+  },
+  "autoUpgradeProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAutoUpgradeProfileResponse",
+   "description": "The auto upgrade configuration.",
+   "type": "object"
+  },
+  "azureApiVersion": {
+   "description": "The Azure API version of the resource.",
+   "type": "string"
+  },
+  "azureMonitorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAzureMonitorProfileResponse",
+   "description": "Azure Monitor addon profiles for monitoring the managed cluster.",
+   "type": "object"
+  },
+  "azurePortalFQDN": {
+   "description": "The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.",
+   "type": "string"
+  },
+  "bootstrapProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterBootstrapProfileResponse",
+   "description": "Profile of the cluster bootstrap configuration.",
+   "type": "object"
+  },
+  "currentKubernetesVersion": {
+   "description": "The version of Kubernetes the Managed Cluster is running. If kubernetesVersion was a fully specified version \u003cmajor.minor.patch\u003e, this field will be exactly equal to it. If kubernetesVersion was \u003cmajor.minor\u003e, this field will contain the full \u003cmajor.minor.patch\u003e version being used.",
+   "type": "string"
+  },
+  "disableLocalAccounts": {
+   "description": "If local accounts should be disabled on the Managed Cluster. If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).",
+   "type": "boolean"
+  },
+  "diskEncryptionSetID": {
+   "description": "The Resource ID of the disk encryption set to use for enabling encryption at rest. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'",
+   "type": "string"
+  },
+  "dnsPrefix": {
+   "description": "The DNS prefix of the Managed Cluster. This cannot be updated once the Managed Cluster has been created.",
+   "type": "string"
+  },
+  "eTag": {
+   "description": "If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
+   "type": "string"
+  },
+  "enableRBAC": {
+   "description": "Whether to enable Kubernetes Role-Based Access Control.",
+   "type": "boolean"
+  },
+  "extendedLocation": {
+   "$ref": "#/types/azure-native:containerservice:ExtendedLocationResponse",
+   "description": "The extended location of the Virtual Machine.",
+   "type": "object"
+  },
+  "fqdn": {
+   "description": "The FQDN of the master pool.",
+   "type": "string"
+  },
+  "fqdnSubdomain": {
+   "description": "The FQDN subdomain of the private cluster with custom private dns zone. This cannot be updated once the Managed Cluster has been created.",
+   "type": "string"
+  },
+  "httpProxyConfig": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterHTTPProxyConfigResponse",
+   "description": "Configurations for provisioning the cluster with HTTP proxy servers.",
+   "type": "object"
+  },
+  "identity": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIdentityResponse",
+   "description": "The identity of the managed cluster, if configured.",
+   "type": "object"
+  },
+  "identityProfile": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:UserAssignedIdentityResponse",
+    "type": "object"
+   },
+   "description": "The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is \"kubeletidentity\", with value of \"resourceId\": \"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}\".",
+   "type": "object"
+  },
+  "ingressProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIngressProfileResponse",
+   "description": "Ingress profile for the managed cluster.",
+   "type": "object"
+  },
+  "kind": {
+   "description": "This is primarily used to expose different UI experiences in the portal for different kinds",
+   "type": "string"
+  },
+  "kubernetesVersion": {
+   "description": "The version of Kubernetes specified by the user. Both patch version \u003cmajor.minor.patch\u003e (e.g. 1.20.13) and \u003cmajor.minor\u003e (e.g. 1.20) are supported. When \u003cmajor.minor\u003e is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same \u003cmajor.minor\u003e once it has been created (e.g. 1.14.x -\u003e 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -\u003e 1.15.x or 1.15.x -\u003e 1.16.x are allowed, however 1.14.x -\u003e 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.",
+   "type": "string"
+  },
+  "linuxProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceLinuxProfileResponse",
+   "description": "The profile for Linux VMs in the Managed Cluster.",
+   "type": "object"
+  },
+  "location": {
+   "description": "The geo-location where the resource lives",
+   "type": "string"
+  },
+  "maxAgentPools": {
+   "description": "The max number of agent pools for the managed cluster.",
+   "type": "integer"
+  },
+  "metricsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterMetricsProfileResponse",
+   "description": "Optional cluster metrics configuration.",
+   "type": "object"
+  },
+  "name": {
+   "description": "The name of the resource",
+   "type": "string"
+  },
+  "networkProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceNetworkProfileResponse",
+   "description": "The network configuration profile.",
+   "type": "object"
+  },
+  "nodeProvisioningProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeProvisioningProfileResponse",
+   "description": "Node provisioning settings that apply to the whole cluster.",
+   "type": "object"
+  },
+  "nodeResourceGroup": {
+   "description": "The name of the resource group containing agent pool nodes.",
+   "type": "string"
+  },
+  "nodeResourceGroupProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeResourceGroupProfileResponse",
+   "description": "Profile of the node resource group configuration.",
+   "type": "object"
+  },
+  "oidcIssuerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterOIDCIssuerProfileResponse",
+   "description": "The OIDC issuer profile of the Managed Cluster.",
+   "type": "object"
+  },
+  "podIdentityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPodIdentityProfileResponse",
+   "description": "The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.",
+   "type": "object"
+  },
+  "powerState": {
+   "$ref": "#/types/azure-native:containerservice:PowerStateResponse",
+   "description": "The Power State of the cluster.",
+   "type": "object"
+  },
+  "privateFQDN": {
+   "description": "The FQDN of private cluster.",
+   "type": "string"
+  },
+  "privateLinkResources": {
+   "description": "Private link resources associated with the cluster.",
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:PrivateLinkResourceResponse",
+    "type": "object"
+   },
+   "type": "array"
+  },
+  "provisioningState": {
+   "description": "The current provisioning state.",
+   "type": "string"
+  },
+  "publicNetworkAccess": {
+   "description": "PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS",
+   "type": "string"
+  },
+  "resourceUID": {
+   "description": "The resourceUID uniquely identifies ManagedClusters that reuse ARM ResourceIds (i.e: create, delete, create sequence)",
+   "type": "string"
+  },
+  "securityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSecurityProfileResponse",
+   "description": "Security profile for the managed cluster.",
+   "type": "object"
+  },
+  "serviceMeshProfile": {
+   "$ref": "#/types/azure-native:containerservice:ServiceMeshProfileResponse",
+   "description": "Service mesh profile for a managed cluster.",
+   "type": "object"
+  },
+  "servicePrincipalProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterServicePrincipalProfileResponse",
+   "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
+   "type": "object"
+  },
+  "sku": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSKUResponse",
+   "description": "The managed cluster SKU.",
+   "type": "object"
+  },
+  "status": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterStatusResponse",
+   "description": "Contains read-only information about the Managed Cluster.",
+   "type": "object"
+  },
+  "storageProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterStorageProfileResponse",
+   "description": "Storage profile for the managed cluster.",
+   "type": "object"
+  },
+  "supportPlan": {
+   "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.",
+   "type": "string"
+  },
+  "systemData": {
+   "$ref": "#/types/azure-native:commontypesv6:SystemDataResponse",
+   "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+   "type": "object"
+  },
+  "tags": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "Resource tags.",
+   "type": "object"
+  },
+  "type": {
+   "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+   "type": "string"
+  },
+  "upgradeSettings": {
+   "$ref": "#/types/azure-native:containerservice:ClusterUpgradeSettingsResponse",
+   "description": "Settings for upgrading a cluster.",
+   "type": "object"
+  },
+  "windowsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWindowsProfileResponse",
+   "description": "The profile for Windows VMs in the Managed Cluster.",
+   "type": "object"
+  },
+  "workloadAutoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWorkloadAutoScalerProfileResponse",
+   "description": "Workload Auto-scaler profile for the managed cluster.",
+   "type": "object"
+  }
+ },
+ "required": [
+  "azureApiVersion",
+  "azurePortalFQDN",
+  "currentKubernetesVersion",
+  "eTag",
+  "fqdn",
+  "location",
+  "maxAgentPools",
+  "name",
+  "powerState",
+  "privateFQDN",
+  "provisioningState",
+  "resourceUID",
+  "systemData",
+  "type"
+ ],
+ "requiredInputs": [
+  "resourceGroupName"
+ ],
+ "type": "object"
+}
+---
+
+[TestManagedClusterGen - 2]
+{
+ "PUT": [
+  {
+   "location": "path",
+   "name": "subscriptionId",
+   "required": true,
+   "value": {
+    "type": "string"
+   }
+  },
+  {
+   "location": "path",
+   "name": "resourceGroupName",
+   "required": true,
+   "value": {
+    "maxLength": 90,
+    "minLength": 1,
+    "type": "string"
+   }
+  },
+  {
+   "location": "path",
+   "name": "resourceName",
+   "required": true,
+   "value": {
+    "autoname": "random",
+    "maxLength": 63,
+    "minLength": 1,
+    "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+    "type": "string"
+   }
+  },
+  {
+   "body": {
+    "properties": {
+     "aadProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterAADProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "addonProfiles": {
+      "additionalProperties": {
+       "$ref": "#/types/azure-native:containerservice:ManagedClusterAddonProfile",
+       "type": "object"
+      },
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "agentPoolProfiles": {
+      "containers": [
+       "properties"
+      ],
+      "items": {
+       "$ref": "#/types/azure-native:containerservice:ManagedClusterAgentPoolProfile",
+       "type": "object"
+      },
+      "type": "array"
+     },
+     "aiToolchainOperatorProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterAIToolchainOperatorProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "apiServerAccessProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterAPIServerAccessProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "autoScalerProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterPropertiesAutoScalerProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "autoUpgradeProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterAutoUpgradeProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "azureMonitorProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterAzureMonitorProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "bootstrapProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterBootstrapProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "disableLocalAccounts": {
+      "containers": [
+       "properties"
+      ],
+      "type": "boolean"
+     },
+     "diskEncryptionSetID": {
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "string"
+     },
+     "dnsPrefix": {
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "string"
+     },
+     "enableRBAC": {
+      "containers": [
+       "properties"
+      ],
+      "type": "boolean"
+     },
+     "extendedLocation": {
+      "$ref": "#/types/azure-native:containerservice:ExtendedLocation",
+      "type": "object"
+     },
+     "fqdnSubdomain": {
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "string"
+     },
+     "httpProxyConfig": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterHTTPProxyConfig",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "identity": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterIdentity",
+      "type": "object"
+     },
+     "identityProfile": {
+      "additionalProperties": {
+       "$ref": "#/types/azure-native:containerservice:UserAssignedIdentity",
+       "type": "object"
+      },
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "ingressProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterIngressProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "kubernetesVersion": {
+      "containers": [
+       "properties"
+      ],
+      "type": "string"
+     },
+     "linuxProfile": {
+      "$ref": "#/types/azure-native:containerservice:ContainerServiceLinuxProfile",
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "object"
+     },
+     "location": {
+      "forceNew": true,
+      "type": "string"
+     },
+     "metricsProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterMetricsProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "networkProfile": {
+      "$ref": "#/types/azure-native:containerservice:ContainerServiceNetworkProfile",
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "object"
+     },
+     "nodeProvisioningProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeProvisioningProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "nodeResourceGroup": {
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "string"
+     },
+     "nodeResourceGroupProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeResourceGroupProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "oidcIssuerProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterOIDCIssuerProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "podIdentityProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterPodIdentityProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "privateLinkResources": {
+      "containers": [
+       "properties"
+      ],
+      "items": {
+       "$ref": "#/types/azure-native:containerservice:PrivateLinkResource",
+       "type": "object"
+      },
+      "type": "array"
+     },
+     "publicNetworkAccess": {
+      "containers": [
+       "properties"
+      ],
+      "type": "string"
+     },
+     "securityProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterSecurityProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "serviceMeshProfile": {
+      "$ref": "#/types/azure-native:containerservice:ServiceMeshProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "servicePrincipalProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterServicePrincipalProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "sku": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterSKU",
+      "type": "object"
+     },
+     "storageProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterStorageProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "supportPlan": {
+      "containers": [
+       "properties"
+      ],
+      "type": "string"
+     },
+     "tags": {
+      "additionalProperties": {
+       "type": "string"
+      },
+      "type": "object"
+     },
+     "upgradeSettings": {
+      "$ref": "#/types/azure-native:containerservice:ClusterUpgradeSettings",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     },
+     "windowsProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterWindowsProfile",
+      "containers": [
+       "properties"
+      ],
+      "forceNew": true,
+      "type": "object"
+     },
+     "workloadAutoScalerProfile": {
+      "$ref": "#/types/azure-native:containerservice:ManagedClusterWorkloadAutoScalerProfile",
+      "containers": [
+       "properties"
+      ],
+      "type": "object"
+     }
+    },
+    "required": [
+     "location"
+    ]
+   },
+   "location": "body",
+   "name": "parameters",
+   "required": true,
+   "value": {}
+  }
+ ],
+ "apiVersion": "2025-10-01",
+ "defaultBody": null,
+ "deleteAsyncStyle": "azure-async-operation",
+ "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
+ "putAsyncStyle": "azure-async-operation",
+ "response": {
+  "aadProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAADProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "addonProfiles": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAddonProfileResponse",
+    "type": "object"
+   },
+   "containers": [
+    "properties"
+   ]
+  },
+  "agentPoolProfiles": {
+   "containers": [
+    "properties"
+   ],
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:ManagedClusterAgentPoolProfileResponse",
+    "type": "object"
+   }
+  },
+  "aiToolchainOperatorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAIToolchainOperatorProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "apiServerAccessProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAPIServerAccessProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "autoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPropertiesAutoScalerProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "autoUpgradeProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAutoUpgradeProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "azureMonitorProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterAzureMonitorProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "azurePortalFQDN": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "bootstrapProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterBootstrapProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "currentKubernetesVersion": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "disableLocalAccounts": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "diskEncryptionSetID": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "dnsPrefix": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "eTag": {},
+  "enableRBAC": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "extendedLocation": {
+   "$ref": "#/types/azure-native:containerservice:ExtendedLocationResponse"
+  },
+  "fqdn": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "fqdnSubdomain": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "httpProxyConfig": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterHTTPProxyConfigResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "id": {},
+  "identity": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIdentityResponse"
+  },
+  "identityProfile": {
+   "additionalProperties": {
+    "$ref": "#/types/azure-native:containerservice:UserAssignedIdentityResponse",
+    "type": "object"
+   },
+   "containers": [
+    "properties"
+   ]
+  },
+  "ingressProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterIngressProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "kind": {},
+  "kubernetesVersion": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "linuxProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceLinuxProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "location": {},
+  "maxAgentPools": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "metricsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterMetricsProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "name": {},
+  "networkProfile": {
+   "$ref": "#/types/azure-native:containerservice:ContainerServiceNetworkProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "nodeProvisioningProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeProvisioningProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "nodeResourceGroup": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "nodeResourceGroupProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeResourceGroupProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "oidcIssuerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterOIDCIssuerProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "podIdentityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterPodIdentityProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "powerState": {
+   "$ref": "#/types/azure-native:containerservice:PowerStateResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "privateFQDN": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "privateLinkResources": {
+   "containers": [
+    "properties"
+   ],
+   "items": {
+    "$ref": "#/types/azure-native:containerservice:PrivateLinkResourceResponse",
+    "type": "object"
+   }
+  },
+  "provisioningState": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "publicNetworkAccess": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "resourceUID": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "securityProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSecurityProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "serviceMeshProfile": {
+   "$ref": "#/types/azure-native:containerservice:ServiceMeshProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "servicePrincipalProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterServicePrincipalProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "sku": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterSKUResponse"
+  },
+  "status": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterStatusResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "storageProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterStorageProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "supportPlan": {
+   "containers": [
+    "properties"
+   ]
+  },
+  "systemData": {
+   "$ref": "#/types/azure-native:commontypesv6:SystemDataResponse"
+  },
+  "tags": {
+   "additionalProperties": {
+    "type": "string"
+   }
+  },
+  "type": {},
+  "upgradeSettings": {
+   "$ref": "#/types/azure-native:containerservice:ClusterUpgradeSettingsResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "windowsProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWindowsProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  },
+  "workloadAutoScalerProfile": {
+   "$ref": "#/types/azure-native:containerservice:ManagedClusterWorkloadAutoScalerProfileResponse",
+   "containers": [
+    "properties"
+   ]
+  }
+ }
+}
+---

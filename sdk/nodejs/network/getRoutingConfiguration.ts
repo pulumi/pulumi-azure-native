@@ -71,7 +71,7 @@ export interface GetRoutingConfigurationResult {
     /**
      * The system metadata related to this resource.
      */
-    readonly systemData: outputs.network.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * Resource type.
      */

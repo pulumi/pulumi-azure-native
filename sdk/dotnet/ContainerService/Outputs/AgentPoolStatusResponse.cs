@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse ProvisioningError;
+        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse ProvisioningError;
 
         [OutputConstructor]
-        private AgentPoolStatusResponse(Outputs.ErrorDetailResponse provisioningError)
+        private AgentPoolStatusResponse(Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse provisioningError)
         {
             ProvisioningError = provisioningError;
         }

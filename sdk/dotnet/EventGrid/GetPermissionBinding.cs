@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The system metadata relating to the Event Grid resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The name of the Topic Space resource that the permission is bound to.
         /// The Topic space needs to be a resource under the same namespace the permission binding is a part of.
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             string? topicSpaceName,
 

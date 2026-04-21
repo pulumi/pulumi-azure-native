@@ -68,7 +68,7 @@ export interface ListServiceFabricApplicableSchedulesResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.devtestlab.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * The tags of the resource.
      */

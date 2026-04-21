@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetGrafanaResult',
@@ -77,7 +78,7 @@ class GetGrafanaResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
         """
         The managed identity of the grafana resource.
         """
@@ -117,7 +118,7 @@ class GetGrafanaResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
         """
         The system meta data relating to this grafana resource.
         """

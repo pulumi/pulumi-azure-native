@@ -65,7 +65,7 @@ export interface GetApplicationResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.hdinsight.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The tags for the application.
      */

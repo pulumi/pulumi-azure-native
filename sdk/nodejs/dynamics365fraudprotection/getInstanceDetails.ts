@@ -62,7 +62,7 @@ export interface GetInstanceDetailsResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.dynamics365fraudprotection.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

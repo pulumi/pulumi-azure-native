@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// SystemData of ScheduledQueryRule.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -254,7 +254,7 @@ namespace Pulumi.AzureNative.Monitor
 
             bool? skipQueryValidation,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerStorage.Outputs
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The name of the key vault key.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ContainerStorage.Outputs
 
         [OutputConstructor]
         private EncryptionResponse(
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? identity,
 
             string keyName,
 

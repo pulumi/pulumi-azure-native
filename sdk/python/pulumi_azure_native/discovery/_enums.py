@@ -9,7 +9,6 @@ from enum import Enum
 __all__ = [
     'CustomerManagedKeys',
     'NetworkEgressType',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ScaleSetPriority',
     'StorageStoreType',
@@ -48,16 +47,6 @@ class NetworkEgressType(_builtins.str, Enum):
     """
     No default outbound
     """
-
-
-@pulumi.type_token("azure-native:discovery:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:discovery:PublicNetworkAccess")

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Maps.Outputs
         /// <summary>
         /// All encryption configuration for a resource.
         /// </summary>
-        public readonly Outputs.EncryptionResponse? Encryption;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Maps.Outputs
 
             bool? disableLocalAuth,
 
-            Outputs.EncryptionResponse? encryption,
+            Pulumi.AzureNative.Commontypesv5.Outputs.EncryptionResponse? encryption,
 
             ImmutableArray<Outputs.LinkedResourceResponse> linkedResources,
 

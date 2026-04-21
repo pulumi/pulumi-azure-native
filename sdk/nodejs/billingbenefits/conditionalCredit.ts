@@ -72,7 +72,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -92,7 +92,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.commontypesv6.PlanResponse | undefined>;
     /**
      * Product code for the conditional credit
      */
@@ -108,7 +108,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
     /**
      * The resource model definition representing SKU
      */
-    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv6.SkuResponse | undefined>;
     /**
      * Start date of the conditional credit
      */
@@ -120,7 +120,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -229,7 +229,7 @@ export interface ConditionalCreditArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -245,7 +245,7 @@ export interface ConditionalCreditArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
+    plan?: pulumi.Input<inputs.commontypesv6.PlanArgs>;
     /**
      * Product code for the conditional credit
      */
@@ -261,7 +261,7 @@ export interface ConditionalCreditArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv6.SkuArgs>;
     /**
      * Start date of the conditional credit
      */

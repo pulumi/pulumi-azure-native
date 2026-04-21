@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetDevBoxDefinitionResult',
@@ -167,7 +169,7 @@ class GetDevBoxDefinitionResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> '_commontypesv3.outputs.SkuResponse':
         """
         The SKU for Dev Boxes created using this definition.
         """
@@ -175,7 +177,7 @@ class GetDevBoxDefinitionResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -56,7 +56,7 @@ export interface GetApplicationBusinessProcessDevelopmentArtifactResult {
     /**
      * The system data of the business process development artifact.
      */
-    readonly systemData: outputs.integrationspaces.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
 }
 /**
  * The get business process development artifact action.

@@ -85,7 +85,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * Metadata pertaining to creation and last modification of StorageAccountCredential
      */
-    readonly systemData: outputs.databoxedge.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

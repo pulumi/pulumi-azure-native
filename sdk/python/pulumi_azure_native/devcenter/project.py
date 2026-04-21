@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +30,7 @@ class ProjectArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -40,7 +43,7 @@ class ProjectArgs:
         :param pulumi.Input[_builtins.str] description: Description of the project.
         :param pulumi.Input[_builtins.str] dev_center_id: Resource Id of an associated DevCenter
         :param pulumi.Input[_builtins.str] display_name: The display name of the project.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
+        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
@@ -128,14 +131,14 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
         """
         Managed identity properties
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -197,7 +200,7 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -218,7 +221,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the project.
         :param pulumi.Input[_builtins.str] dev_center_id: Resource Id of an associated DevCenter
         :param pulumi.Input[_builtins.str] display_name: The display name of the project.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
+        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
@@ -258,7 +261,7 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -381,7 +384,7 @@ class Project(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identity properties
         """
@@ -421,7 +424,7 @@ class Project(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

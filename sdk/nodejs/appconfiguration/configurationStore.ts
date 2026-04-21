@@ -104,7 +104,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * Resource system metadata.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * Resource tags.
      */

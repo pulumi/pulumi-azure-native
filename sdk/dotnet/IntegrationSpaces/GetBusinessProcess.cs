@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The table name of the business process.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string? tableName,
 

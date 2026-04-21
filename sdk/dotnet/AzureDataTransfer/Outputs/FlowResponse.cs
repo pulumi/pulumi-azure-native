@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// <summary>
         /// Details of the resource plan.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.PlanResponse? Plan;
         /// <summary>
         /// Properties of flow
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -57,17 +57,17 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         private FlowResponse(
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Pulumi.AzureNative.Commontypesv5.Outputs.PlanResponse? plan,
 
             Outputs.FlowPropertiesResponseV1? properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

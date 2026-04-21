@@ -69,7 +69,7 @@ export class PermissionBinding extends pulumi.CustomResource {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * The name of the Topic Space resource that the permission is bound to.
      * The Topic space needs to be a resource under the same namespace the permission binding is a part of.

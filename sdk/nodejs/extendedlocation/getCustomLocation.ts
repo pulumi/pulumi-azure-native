@@ -88,7 +88,7 @@ export interface GetCustomLocationResult {
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    readonly systemData: outputs.extendedlocation.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -80,7 +80,7 @@ export interface GetBusinessProcessResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.integrationspaces.SystemDataResponse;
+    readonly systemData: outputs.commontypesv3.SystemDataResponse;
     /**
      * The table name of the business process.
      */

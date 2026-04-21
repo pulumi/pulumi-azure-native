@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetAccountResult',
@@ -108,7 +109,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
         """
         The type of identity used for the resource.
         """
@@ -172,7 +173,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

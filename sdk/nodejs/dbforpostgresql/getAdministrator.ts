@@ -69,7 +69,7 @@ export interface GetAdministratorResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Identifier of the tenant in which the Microsoft Entra principal exists.
      */

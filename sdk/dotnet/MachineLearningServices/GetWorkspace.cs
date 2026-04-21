@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The compute name for image build
         /// </summary>
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? Sku;
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
@@ -217,7 +217,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The auth mode used for accessing the system datastores of the workspace.
         /// </summary>
@@ -276,7 +276,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
 
             string? imageBuildCompute,
 
@@ -314,13 +314,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> sharedPrivateLinkResources,
 
-            Outputs.SkuResponse? sku,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? sku,
 
             string? storageAccount,
 
             bool storageHnsEnabled,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             string? systemDatastoresAuthMode,
 

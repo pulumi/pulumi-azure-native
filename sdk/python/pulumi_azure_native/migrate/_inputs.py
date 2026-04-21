@@ -10218,19 +10218,19 @@ class PrivateEndpointConnectionPropertiesArgs:
 
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
-    A collection of information about the state of the connection between service consumer and provider.
+    Private endpoint connection state.
     """
     actions_required: NotRequired[pulumi.Input[_builtins.str]]
     """
-    A message indicating if changes on the service provider require any updates on the consumer.
+    Action required.
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The reason for approval/rejection of the connection.
+    Description of the object.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus', 'Status']]]
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
     """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    Private link connection state.
     """
 
 @pulumi.input_type
@@ -10238,13 +10238,13 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus', 'Status']]] = None):
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None):
         """
-        A collection of information about the state of the connection between service consumer and provider.
+        Private endpoint connection state.
 
-        :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus', 'Status']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[_builtins.str] actions_required: Action required.
+        :param pulumi.Input[_builtins.str] description: Description of the object.
+        :param pulumi.Input[Union[_builtins.str, 'Status']] status: Private link connection state.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -10257,7 +10257,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A message indicating if changes on the service provider require any updates on the consumer.
+        Action required.
         """
         return pulumi.get(self, "actions_required")
 
@@ -10269,7 +10269,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The reason for approval/rejection of the connection.
+        Description of the object.
         """
         return pulumi.get(self, "description")
 
@@ -10279,14 +10279,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus', 'Status']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
         """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        Private link connection state.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus', 'Status']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
 

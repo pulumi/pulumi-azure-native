@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         /// </summary>
         [Input("size")]
         public Input<string>? Size { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNative.BillingBenefits.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv6.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

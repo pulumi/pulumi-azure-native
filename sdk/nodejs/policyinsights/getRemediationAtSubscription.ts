@@ -99,7 +99,7 @@ export interface GetRemediationAtSubscriptionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.policyinsights.SystemDataResponse;
+    readonly systemData: outputs.commontypesv1.SystemDataResponse;
     /**
      * The type of the remediation.
      */

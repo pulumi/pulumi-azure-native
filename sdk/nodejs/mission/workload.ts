@@ -52,7 +52,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * Managed On Behalf Of Configuration.
      */
-    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
+    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.commontypesv5.ManagedOnBehalfOfConfigurationResponse>;
     /**
      * The name of the resource
      */
@@ -68,7 +68,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */

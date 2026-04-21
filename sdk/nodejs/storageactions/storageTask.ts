@@ -62,7 +62,7 @@ export class StorageTask extends pulumi.CustomResource {
     /**
      * The managed service identity of the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.storageactions.ManagedServiceIdentityResponse>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse>;
     /**
      * The geo-location where the resource lives
      */
@@ -78,7 +78,7 @@ export class StorageTask extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storageactions.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -174,7 +174,7 @@ export interface StorageTaskArgs {
     /**
      * The managed service identity of the resource.
      */
-    identity: pulumi.Input<inputs.storageactions.ManagedServiceIdentityArgs>;
+    identity: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

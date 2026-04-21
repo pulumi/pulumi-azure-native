@@ -52,6 +52,41 @@ func extractNumericSuffix(s string) (int, string) {
 	return 0, s
 }
 
+// commonTypesVersion extracts a disambiguating suffix from a common-types $ref URL.
+// Given a path like "../../common-types/resource-management/v5/managedidentity.json",
+// it returns "commontypesv5". Returns "" if the path does not match the pattern.
+func commonTypesVersion(schema *spec.Schema) (string, bool) {
+	url := schema.SchemaProps.Ref.GetURL()
+	if url == nil || url.Path == "" {
+		return "", false
+	}
+
+	// Normalize separators and split into segments.
+	parts := strings.Split(strings.ReplaceAll(url.Path, "\\", "/"), "/")
+	for i, part := range parts {
+		if part == "common-types" && i+2 < len(parts) {
+			// parts[i+1] is e.g. "resource-management", parts[i+2] is e.g. "v5"
+			v := parts[i+2]
+			if strings.HasPrefix(v, "v") {
+				if _, err := strconv.Atoi(v[1:]); err == nil {
+					result := "commontypes" + strings.ToLower(v[:1]) + v[1:]
+					return result, true
+				}
+			}
+		}
+	}
+	return "", false
+}
+
+func moduleVersion(mod string) string {
+	verIndex := strings.LastIndex(mod, "/")
+	if verIndex == -1 {
+		return ""
+	}
+
+	return mod[verIndex+1:]
+}
+
 // tokenModuleVersion extracts the version part of the module
 // from a type token of the form "azure-native:module/{version}:type".
 func tokenModuleVersion(token string) string {
@@ -61,12 +96,7 @@ func tokenModuleVersion(token string) string {
 	}
 
 	mod := parts[1]
-	verIndex := strings.LastIndex(mod, "/")
-	if verIndex == -1 {
-		return ""
-	}
-
-	return mod[verIndex+1:]
+	return moduleVersion(mod)
 }
 
 func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
@@ -186,10 +216,10 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		ptr := schema.Ref.GetPointer()
 		var tok string
 		if ptr != nil && !ptr.IsEmpty() {
-			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
+			tok = m.typeName(resolvedSchema.ReferenceContext, schema, isOutput)
 		} else {
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
-			tok = m.typeName(context, isOutput) + m.inlineTypeName(context, propertyName)
+			tok = m.typeName(context, schema, isOutput) + m.inlineTypeName(context, propertyName)
 		}
 
 		// If an object type is referenced, add its definition to the type map.
@@ -439,7 +469,20 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	}
 	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
-	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
+	// Use the commontypesv{N} module if the enum is defined inside a common-types file.
+	// Local $refs like "#/definitions/SkuTier" have no path in the schema URL, so we
+	// fall back to context.CommonTypesVersion() which checks the resolved file URL.
+	// Without this, enums defined in common-types get placed in the calling service's
+	// module (e.g. machinelearningservices:SkuTier), making each service encounter of
+	// a shared type like Sku look structurally different and triggering spurious
+	// SkuV1/SkuV2/... variants via disambiguateTypeToken.
+	module := string(m.module)
+	if commonTypeModule, ok := commonTypesVersion(schema); ok {
+		module = commonTypeModule
+	} else if commonTypeModule, ok := context.CommonTypesVersion(); ok {
+		module = commonTypeModule
+	}
+	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, module, enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
@@ -681,12 +724,23 @@ func (m *moduleGenerator) typeNameOverride(typeName string) string {
 	return typeName
 }
 
-func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool) string {
+func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, schema *spec.Schema, isOutput bool) string {
 	suffix := ""
 	if isOutput {
 		suffix = "Response"
 	}
 	standardName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
 	referenceName := m.typeNameOverride(standardName)
+	if commonTypeModule, ok := commonTypesVersion(schema); ok {
+		return fmt.Sprintf("azure-native:%s:%s%s", commonTypeModule, referenceName, suffix)
+	}
+	// Also check if the resolved context lives inside a common-types file. This handles local
+	// $refs within common-types (e.g. "#/definitions/ErrorDetail" inside
+	// "common-types/resource-management/v6/types.json"), where the $ref URL has an empty path
+	// and commonTypesVersion(schema) returns false. Without this, inner types get placed in the
+	// calling module's namespace, causing spurious V1/V2/... duplicates in the schema.
+	if commonTypeModule, ok := ctx.CommonTypesVersion(); ok {
+		return fmt.Sprintf("azure-native:%s:%s%s", commonTypeModule, referenceName, suffix)
+	}
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }

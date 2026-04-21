@@ -19,7 +19,6 @@ __all__ = [
     'SchemaType',
     'StreamDestinationTarget',
     'SupportedKeyType',
-    'SystemAssignedServiceIdentityType',
     'TopicRetainType',
 ]
 
@@ -222,15 +221,6 @@ class SupportedKeyType(_builtins.str, Enum):
     """
     Indicates the ECC key type.
     """
-
-
-@pulumi.type_token("azure-native:deviceregistry:SystemAssignedServiceIdentityType")
-class SystemAssignedServiceIdentityType(_builtins.str, Enum):
-    """
-    Type of managed service identity (either system assigned, or none).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:deviceregistry:TopicRetainType")

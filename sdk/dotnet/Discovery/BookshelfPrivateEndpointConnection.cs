@@ -33,13 +33,13 @@ namespace Pulumi.AzureNative.Discovery
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Discovery
         /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

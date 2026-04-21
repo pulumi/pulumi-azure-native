@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             Outputs.HybridComputePrivateLinkScopePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.MySQLDiscovery
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 
             string? supportStatus,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

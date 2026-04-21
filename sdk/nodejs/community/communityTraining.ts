@@ -82,11 +82,11 @@ export class CommunityTraining extends pulumi.CustomResource {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    declare public readonly sku: pulumi.Output<outputs.community.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.community.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -219,7 +219,7 @@ export interface CommunityTrainingArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.community.SkuArgs>;
+    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
     /**
      * Resource tags.
      */

@@ -80,7 +80,7 @@ export class FluidRelayServer extends pulumi.CustomResource {
     /**
      * System meta data for this resource, including creation and modification information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.fluidrelay.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
     /**
      * Resource tags.
      */

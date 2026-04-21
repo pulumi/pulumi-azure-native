@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetWorkspaceResult',
@@ -271,7 +272,7 @@ class GetWorkspaceResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
         """
         The managed service identities assigned to this resource.
         """
@@ -417,7 +418,7 @@ class GetWorkspaceResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['_commontypesv3.outputs.SkuResponse']:
         """
         Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
@@ -441,7 +442,7 @@ class GetWorkspaceResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

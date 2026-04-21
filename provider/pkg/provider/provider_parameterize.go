@@ -189,7 +189,13 @@ func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiV
 func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
 	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
 	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
-	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
+	newSchema := bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
+
+	// update common types refs as well
+	oldCommonRefPrefix := `"$ref":"#/types/azure-native:commontypes`
+	newCommonRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:commontypes`, newPackageName)
+	newSchemaWithModifiedCommonTypes := bytes.ReplaceAll(newSchema, []byte(oldCommonRefPrefix), []byte(newCommonRefPrefix))
+	return newSchemaWithModifiedCommonTypes
 }
 
 // updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
@@ -289,6 +295,23 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	metadataResources := map[string]resources.AzureAPIResource{}
 	metadataInvokes := map[string]resources.AzureAPIInvoke{}
 
+	// Include common types into the parameterized schema
+	commonTypes := map[string]string{}
+	for typeToken := range schema.Types {
+		moduleName, version, name, err := resources.ParseToken(typeToken)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
+		}
+
+		if strings.HasPrefix(moduleName, "commontypes") {
+			if version != "" && version != targetApiVersion {
+				continue
+			}
+
+			commonTypes[typeToken] = name
+		}
+	}
+
 	for typeTok, typeName := range typeNames {
 		newTok := makeToken(typeName)
 		newSchema.Types[newTok] = schema.Types[typeTok]
@@ -301,6 +324,25 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 			logging.Warningf("type %s not found in metadata", typeName)
 		} else {
 			metadataTypes[newTok] = *apiType
+		}
+	}
+
+	for typeTok, typeName := range commonTypes {
+		// common types are not versioned, hence why we don't use the version
+		moduleName, _, name, err := resources.ParseToken(typeTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
+		}
+		newToken := fmt.Sprintf("%s:%s:%s", newPackageName, moduleName, name)
+		newSchema.Types[newToken] = schema.Types[typeTok]
+		apiType, ok, err := p.lookupType(typeTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", typeName, err)
+		}
+		if !ok {
+			logging.Warningf("type %s not found in metadata", typeName)
+		} else {
+			metadataTypes[newToken] = *apiType
 		}
 	}
 
@@ -352,6 +394,7 @@ func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion str
 		if err != nil {
 			return nil, err
 		}
+
 		if !strings.EqualFold(moduleName, targetModule) || version != targetApiVersion {
 			continue
 		}

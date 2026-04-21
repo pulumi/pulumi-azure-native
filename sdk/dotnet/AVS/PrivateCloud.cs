@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.AVS
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// vCenter Single Sign On Identity Sources
@@ -162,13 +162,13 @@ namespace Pulumi.AzureNative.AVS
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -301,7 +301,7 @@ namespace Pulumi.AzureNative.AVS
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         [Input("identitySources")]
         private InputList<Inputs.IdentitySourceArgs>? _identitySources;
@@ -363,7 +363,7 @@ namespace Pulumi.AzureNative.AVS
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

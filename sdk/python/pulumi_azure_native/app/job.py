@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5
+from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class JobArgs:
                  configuration: Optional[pulumi.Input['JobConfigurationArgs']] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
                  job_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -39,7 +41,7 @@ class JobArgs:
         :param pulumi.Input['JobConfigurationArgs'] configuration: Container Apps Job configuration properties.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
+        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] job_name: Job Name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -116,14 +118,14 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
         """
         Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -196,7 +198,7 @@ class Job(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  job_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -217,7 +219,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']] configuration: Container Apps Job configuration properties.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
+        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] job_name: Job Name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -257,7 +259,7 @@ class Job(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
                  job_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -377,7 +379,7 @@ class Job(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         """
@@ -425,7 +427,7 @@ class Job(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

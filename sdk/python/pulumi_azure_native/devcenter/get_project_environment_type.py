@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4 as _commontypesv4
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetProjectEnvironmentTypeResult',
@@ -124,7 +126,7 @@ class GetProjectEnvironmentTypeResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']:
         """
         Managed identity properties
         """
@@ -164,7 +166,7 @@ class GetProjectEnvironmentTypeResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

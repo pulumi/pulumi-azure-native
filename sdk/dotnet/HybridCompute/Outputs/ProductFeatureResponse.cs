@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// The errors that were encountered during the feature enrollment or disenrollment.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse Error;
+        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Product feature name.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
             string enrollmentDate,
 
-            Outputs.ErrorDetailResponse error,
+            Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse error,
 
             string? name,
 

@@ -589,39 +589,6 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
-    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
-    {
-        private readonly string _value;
-
-        private SkuTier(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SkuTier Free { get; } = new SkuTier("Free");
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
-        public static SkuTier Standard { get; } = new SkuTier("Standard");
-        public static SkuTier Premium { get; } = new SkuTier("Premium");
-
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
-
-        public static explicit operator string(SkuTier value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Protect LDAP communication using SSL certificate (LDAPS)
     /// </summary>
     [EnumType]
@@ -651,37 +618,6 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SslEnum other && Equals(other);
         public bool Equals(SslEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of managed service identity (either system assigned, or none).
-    /// </summary>
-    [EnumType]
-    public readonly struct SystemAssignedServiceIdentityType : IEquatable<SystemAssignedServiceIdentityType>
-    {
-        private readonly string _value;
-
-        private SystemAssignedServiceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SystemAssignedServiceIdentityType None { get; } = new SystemAssignedServiceIdentityType("None");
-        public static SystemAssignedServiceIdentityType SystemAssigned { get; } = new SystemAssignedServiceIdentityType("SystemAssigned");
-
-        public static bool operator ==(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(SystemAssignedServiceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SystemAssignedServiceIdentityType other && Equals(other);
-        public bool Equals(SystemAssignedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

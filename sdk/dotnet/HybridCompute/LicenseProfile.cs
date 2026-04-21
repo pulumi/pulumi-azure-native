@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The errors that were encountered during the feature enrollment or disenrollment.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the eligibility state of Esu.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

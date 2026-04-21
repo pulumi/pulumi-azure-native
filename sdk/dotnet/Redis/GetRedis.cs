@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// List of the Redis instances associated with the cache
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// List of private endpoint connection associated with the specified redis cache
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Redis instance provisioning status.
         /// </summary>
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Redis
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.RedisInstanceDetailsResponse> instances,
 
@@ -244,7 +244,7 @@ namespace Pulumi.AzureNative.Redis
 
             int port,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -268,7 +268,7 @@ namespace Pulumi.AzureNative.Redis
 
             string? subnetId,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

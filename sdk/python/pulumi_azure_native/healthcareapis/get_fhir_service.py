@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv1 as _commontypesv1
 
 __all__ = [
     'GetFhirServiceResult',
@@ -217,7 +218,7 @@ class GetFhirServiceResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv1.outputs.PrivateEndpointConnectionResponse']:
         """
         The list of private endpoint connections that are set up for this resource.
         """

@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the monitor resource.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Elastic
 
             Outputs.ResourceSkuResponse? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

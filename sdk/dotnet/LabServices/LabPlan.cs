@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.LabServices
         /// Managed Identity Information
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Base Url of the lms instance this lab plan can link lab rosters against.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.LabServices
         /// Metadata pertaining to creation and last modification of the lab plan.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.LabServices
         /// Managed Identity Information
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv2.Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.

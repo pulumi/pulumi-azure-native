@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
+        /// The type of identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>

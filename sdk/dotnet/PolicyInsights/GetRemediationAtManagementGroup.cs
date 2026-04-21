@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the remediation.
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string statusMessage,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse systemData,
 
             string type)
         {

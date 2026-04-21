@@ -20,7 +20,6 @@ __all__ = [
     'InfrastructureEncryption',
     'ManagedServiceIdentityType',
     'MinimalTlsVersionEnum',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccessEnum',
     'ReplicationRole',
     'ServerSkuTier',
@@ -151,16 +150,6 @@ class MinimalTlsVersionEnum(_builtins.str, Enum):
     TLS1_1 = "TLS1_1"
     TLS1_2 = "TLS1_2"
     TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
-
-
-@pulumi.type_token("azure-native:dbformysql:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:dbformysql:PublicNetworkAccessEnum")

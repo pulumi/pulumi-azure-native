@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv4
+from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class DataManagerForAgricultureResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv4.IdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  sensor_integration: Optional[pulumi.Input['SensorIntegrationArgs']] = None,
@@ -34,7 +36,7 @@ class DataManagerForAgricultureResourceArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
-        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input['_commontypesv4.IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
         :param pulumi.Input['SensorIntegrationArgs'] sensor_integration: Sensor integration request model.
@@ -80,14 +82,14 @@ class DataManagerForAgricultureResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv4.IdentityArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv4.IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -146,7 +148,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.IdentityArgs', '_commontypesv4.IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -162,7 +164,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Union['_commontypesv4.IdentityArgs', '_commontypesv4.IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -197,7 +199,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv4.IdentityArgs', '_commontypesv4.IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -276,7 +278,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.IdentityResponse']]:
         """
         Identity for the resource.
         """
@@ -308,7 +310,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv4.outputs.PrivateEndpointConnectionResponse']]:
         """
         Private endpoints.
         """
@@ -340,7 +342,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv4.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

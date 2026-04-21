@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             Outputs.SearchResultsResponse? searchResults,
 
-            Outputs.SystemDataResponse systemData,
+            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
 
             int? totalRetentionInDays,
 

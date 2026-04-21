@@ -88,7 +88,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Details about the error state.
      */
-    declare public /*out*/ readonly errorDetails: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse[]>;
+    declare public /*out*/ readonly errorDetails: pulumi.Output<outputs.commontypesv3.ErrorDetailResponse[]>;
     /**
      * Machine Extensions information (deprecated field)
      */
@@ -96,7 +96,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.commontypesv3.IdentityResponse | undefined>;
     /**
      * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
      */
@@ -116,7 +116,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    declare public readonly locationData: pulumi.Output<outputs.hybridcompute.LocationDataResponse | undefined>;
+    declare public readonly locationData: pulumi.Output<outputs.commontypesv3.LocationDataResponse | undefined>;
     /**
      * Specifies the hybrid machine FQDN.
      */
@@ -184,7 +184,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -331,7 +331,7 @@ export interface MachineArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs>;
+    identity?: pulumi.Input<inputs.commontypesv3.IdentityArgs>;
     /**
      * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
      */
@@ -347,7 +347,7 @@ export interface MachineArgs {
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    locationData?: pulumi.Input<inputs.hybridcompute.LocationDataArgs>;
+    locationData?: pulumi.Input<inputs.commontypesv3.LocationDataArgs>;
     /**
      * The name of the hybrid machine.
      */

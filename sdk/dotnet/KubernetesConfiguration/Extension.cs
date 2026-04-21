@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Error information from the Agent - e.g. errors during installation.
         /// </summary>
         [Output("errorInfo")]
-        public Output<Outputs.ErrorDetailResponse> ErrorInfo { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.ErrorDetailResponse> ErrorInfo { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Identity of the Extension resource
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Flag to note if this extension is a system extension
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// The plan information.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Status of installation of this extension.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -274,13 +274,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Identity of the Extension resource
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv2.Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The plan information.
         /// </summary>
         [Input("plan")]
-        public Input<Inputs.PlanArgs>? Plan { get; set; }
+        public Input<Pulumi.AzureNative.Commontypesv2.Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.

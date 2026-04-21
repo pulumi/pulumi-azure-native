@@ -14,6 +14,9 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv3
+from .. import commontypesv3 as _commontypesv3
+from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +28,7 @@ class AppArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AppSkuInfoArgs'],
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['_commontypesv3.SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rule_sets: Optional[pulumi.Input['NetworkRuleSetsArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -39,7 +42,7 @@ class AppArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input['AppSkuInfoArgs'] sku: A valid instance SKU.
         :param pulumi.Input[_builtins.str] display_name: The display name of the application.
-        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identities for the IoT Central application.
+        :param pulumi.Input['_commontypesv3.SystemAssignedServiceIdentityArgs'] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkRuleSetsArgs'] network_rule_sets: Network Rule Set Properties of this IoT Central application.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
@@ -107,14 +110,14 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['_commontypesv3.SystemAssignedServiceIdentityArgs']]:
         """
         The managed identities for the IoT Central application.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['_commontypesv3.SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -209,7 +212,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.SystemAssignedServiceIdentityArgs', '_commontypesv3.SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -231,7 +234,7 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name of the application.
-        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed identities for the IoT Central application.
+        :param pulumi.Input[Union['_commontypesv3.SystemAssignedServiceIdentityArgs', '_commontypesv3.SystemAssignedServiceIdentityArgsDict']] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']] network_rule_sets: Network Rule Set Properties of this IoT Central application.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
@@ -272,7 +275,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['_commontypesv3.SystemAssignedServiceIdentityArgs', '_commontypesv3.SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -383,7 +386,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SystemAssignedServiceIdentityResponse']]:
         """
         The managed identities for the IoT Central application.
         """
@@ -415,7 +418,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv4.outputs.PrivateEndpointConnectionResponse']]:
         """
         Private endpoint connections created on this IoT Central application.
         """
@@ -463,7 +466,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

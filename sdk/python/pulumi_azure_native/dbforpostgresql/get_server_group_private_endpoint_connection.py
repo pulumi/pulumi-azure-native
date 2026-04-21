@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetServerGroupPrivateEndpointConnectionResult',
@@ -90,7 +90,7 @@ class GetServerGroupPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> Optional['_commontypesv4.outputs.PrivateEndpointResponse']:
         """
         The private endpoint resource.
         """
@@ -98,7 +98,7 @@ class GetServerGroupPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> '_commontypesv4.outputs.PrivateLinkServiceConnectionStateResponse':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -114,7 +114,7 @@ class GetServerGroupPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv4.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

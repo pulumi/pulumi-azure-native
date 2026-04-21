@@ -61,7 +61,7 @@ export interface GetTagRuleResult {
     /**
      * The system metadata relating to this resource
      */
-    readonly systemData: outputs.elastic.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * The type of the rule set.
      */

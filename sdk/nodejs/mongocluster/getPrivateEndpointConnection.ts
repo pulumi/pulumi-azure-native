@@ -57,11 +57,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource-specific properties for this resource.
      */
-    readonly properties: outputs.mongocluster.PrivateEndpointConnectionPropertiesResponse;
+    readonly properties: outputs.commontypesv5.PrivateEndpointConnectionPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.mongocluster.SystemDataResponse;
+    readonly systemData: outputs.commontypesv5.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

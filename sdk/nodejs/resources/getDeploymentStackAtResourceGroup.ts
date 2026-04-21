@@ -84,7 +84,7 @@ export interface GetDeploymentStackAtResourceGroupResult {
     /**
      * The error detail.
      */
-    readonly error: outputs.resources.ErrorDetailResponse;
+    readonly error: outputs.commontypesv6.ErrorDetailResponse;
     /**
      * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
@@ -124,7 +124,7 @@ export interface GetDeploymentStackAtResourceGroupResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.resources.SystemDataResponse;
+    readonly systemData: outputs.commontypesv6.SystemDataResponse;
     /**
      * Resource tags.
      */

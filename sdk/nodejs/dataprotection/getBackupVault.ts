@@ -68,7 +68,7 @@ export interface GetBackupVaultResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.dataprotection.SystemDataResponse;
+    readonly systemData: outputs.commontypesv4.SystemDataResponse;
     /**
      * Resource tags.
      */

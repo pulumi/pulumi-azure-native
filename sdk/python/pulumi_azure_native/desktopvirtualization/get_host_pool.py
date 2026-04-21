@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetHostPoolResult',
@@ -230,7 +231,7 @@ class GetHostPoolResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
+    def identity(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
         return pulumi.get(self, "identity")
 
     @_builtins.property
@@ -299,7 +300,7 @@ class GetHostPoolResult:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
+    def plan(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
         return pulumi.get(self, "plan")
 
     @_builtins.property
@@ -312,7 +313,7 @@ class GetHostPoolResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connection associated with the specified resource
         """
@@ -344,7 +345,7 @@ class GetHostPoolResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
+    def sku(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponseSku']:
         return pulumi.get(self, "sku")
 
     @_builtins.property
@@ -389,7 +390,7 @@ class GetHostPoolResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

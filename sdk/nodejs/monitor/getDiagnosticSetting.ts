@@ -82,7 +82,7 @@ export interface GetDiagnosticSettingResult {
     /**
      * The system metadata related to this resource.
      */
-    readonly systemData: outputs.monitor.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

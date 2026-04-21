@@ -62,7 +62,7 @@ export interface GetManagementLockByScopeResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.authorization.SystemDataResponse;
+    readonly systemData: outputs.commontypesv2.SystemDataResponse;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */

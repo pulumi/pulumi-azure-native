@@ -13,9 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._enums import *
-from ._inputs import *
+from .. import commontypesv5 as _commontypesv5
+from .. import commontypesv6
+from .. import commontypesv6 as _commontypesv6
 
 __all__ = ['FluidRelayPrivateEndpointConnectionArgs', 'FluidRelayPrivateEndpointConnection']
 
@@ -23,14 +23,14 @@ __all__ = ['FluidRelayPrivateEndpointConnectionArgs', 'FluidRelayPrivateEndpoint
 class FluidRelayPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  fluid_relay_server_name: pulumi.Input[_builtins.str],
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 private_link_service_connection_state: pulumi.Input['_commontypesv6.PrivateLinkServiceConnectionStateArgs'],
                  resource_group: pulumi.Input[_builtins.str],
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FluidRelayPrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] fluid_relay_server_name: The Fluid Relay server resource name.
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input['_commontypesv6.PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group: The resource group containing the resource.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
@@ -54,14 +54,14 @@ class FluidRelayPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+    def private_link_service_connection_state(self) -> pulumi.Input['_commontypesv6.PrivateLinkServiceConnectionStateArgs']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+    def private_link_service_connection_state(self, value: pulumi.Input['_commontypesv6.PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
@@ -97,7 +97,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv6.PrivateLinkServiceConnectionStateArgs', '_commontypesv6.PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -110,7 +110,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fluid_relay_server_name: The Fluid Relay server resource name.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
-        :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Union['_commontypesv6.PrivateLinkServiceConnectionStateArgs', '_commontypesv6.PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group: The resource group containing the resource.
         """
         ...
@@ -142,7 +142,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv6.PrivateLinkServiceConnectionStateArgs', '_commontypesv6.PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -230,7 +230,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['_commontypesv6.outputs.PrivateEndpointResponse']]:
         """
         The private endpoint resource.
         """
@@ -238,7 +238,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output['_commontypesv6.outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -254,7 +254,7 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
