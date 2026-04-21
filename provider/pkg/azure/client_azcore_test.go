@@ -857,6 +857,17 @@ func TestNewResponseError(t *testing.T) {
 		assert.Equal(t, `Status=409 Message="{"foo": "bar"}"`, err.Error())
 	})
 
+	t.Run("with details", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 409,
+			Body:       io.NopCloser(strings.NewReader(`{"error": {"message": "Foo already exists", "details": [{"message": "Detail 1", "code": "Code1"}, {"message": "Detail 2", "code": "Code2"}]}}`)),
+			Header:     http.Header{"X-Ms-Error-Code": []string{"Conflict"}},
+		}
+		err := newResponseError(resp)
+		require.Error(t, err)
+		assert.Equal(t, `Status=409 Code="Conflict" Message="Foo already exists" Details=[Message="Detail 1" Code="Code1"; Message="Detail 2" Code="Code2"]`, err.Error())
+	})
+
 	t.Run("404 with valid error code is recognized by IsNotFound", func(t *testing.T) {
 		resp := &http.Response{
 			StatusCode: 404,
