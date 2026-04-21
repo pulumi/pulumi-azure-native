@@ -586,9 +586,27 @@ func newResponseError(resp *http.Response) error {
 	}
 
 	errMsg := string(body)
+	var details []PulumiAzcoreErrorDetail
 	if e, ok := util.GetInnerMap(payload, "error"); ok {
 		if msg, ok := e["message"]; ok {
 			errMsg = msg.(string)
+		}
+
+		if detailsRaw, ok := e["details"]; ok {
+			if detailsArr, ok := detailsRaw.([]any); ok {
+				for _, detailRaw := range detailsArr {
+					if detailMap, ok := detailRaw.(map[string]any); ok {
+						detail := PulumiAzcoreErrorDetail{}
+						if msg, ok := detailMap["message"]; ok {
+							detail.Message = msg.(string)
+						}
+						if code, ok := detailMap["code"]; ok {
+							detail.Code = code.(string)
+						}
+						details = append(details, detail)
+					}
+				}
+			}
 		}
 	}
 
@@ -596,7 +614,13 @@ func newResponseError(resp *http.Response) error {
 		StatusCode: resp.StatusCode,
 		ErrorCode:  azcoreErr.ErrorCode,
 		Message:    errMsg,
+		Details:    details,
 	}
+}
+
+type PulumiAzcoreErrorDetail struct {
+	Message string
+	Code    string
 }
 
 // We use this error type instead of azcore.ResponseError because the latter has a very verbose error message (#3778).
@@ -604,11 +628,30 @@ type PulumiAzcoreResponseError struct {
 	StatusCode int
 	ErrorCode  string
 	Message    string
+	Details    []PulumiAzcoreErrorDetail
 }
 
 func (e *PulumiAzcoreResponseError) Error() string {
-	if e.ErrorCode == "" {
-		return fmt.Sprintf(`Status=%d Message="%s"`, e.StatusCode, e.Message)
+	messageParts := []string{fmt.Sprintf("Status=%d", e.StatusCode)}
+
+	if e.ErrorCode != "" {
+		messageParts = append(messageParts, fmt.Sprintf(`Code="%s"`, e.ErrorCode))
 	}
-	return fmt.Sprintf(`Status=%d Code="%s" Message="%s"`, e.StatusCode, e.ErrorCode, e.Message)
+
+	if e.Message != "" {
+		messageParts = append(messageParts, fmt.Sprintf(`Message="%s"`, e.Message))
+	}
+
+	if len(e.Details) > 0 {
+		details := []string{}
+		for _, detail := range e.Details {
+			formatted := fmt.Sprintf(`Message="%s" Code="%s"`, detail.Message, detail.Code)
+			details = append(details, formatted)
+		}
+
+		formatted := fmt.Sprintf("Details=[%s]", strings.Join(details, "; "))
+		messageParts = append(messageParts, formatted)
+	}
+
+	return strings.Join(messageParts, " ")
 }
