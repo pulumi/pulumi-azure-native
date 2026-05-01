@@ -75,6 +75,15 @@ func TestRequiredContainers(t *testing.T) {
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
+func TestWebAppSiteExtensions(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "site-extension")
+	defer func() {
+		pt.Destroy(t)
+	}()
+	pt.Up(t)
+}
+
 func TestSubResources(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "subresources")
