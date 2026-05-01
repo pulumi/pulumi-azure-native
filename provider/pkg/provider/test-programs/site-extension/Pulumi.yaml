@@ -1,0 +1,44 @@
+name: webApp-site-extensions
+runtime: yaml
+description: Tests if we are able to add site extensions to a webApp
+
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+
+  asp-webbapp-w-java:
+    type: azure-native:web:AppServicePlan
+    properties:
+      name: asp-webbapp-w-java-dev
+      resourceGroupName: ${resourceGroup.name}
+      location: ${resourceGroup.location}
+      kind: app
+      sku:
+        name: S1
+        tier: Standard
+        size: S1
+        family: S
+        capacity: 1
+
+  demo-webapp-w-java:
+    type: azure-native:web:WebApp
+    properties:
+      name: demo-webapp-w-java-dev
+      resourceGroupName: ${resourceGroup.name}
+      location: ${asp-webbapp-w-java.location}
+      serverFarmId: ${asp-webbapp-w-java.id}
+      siteConfig:
+        appSettings:
+          - name: VAR
+            value: test
+        javaVersion: "11"
+        javaContainer: JAVA
+        javaContainerVersion: SE
+        alwaysOn: true
+
+  dynatrace-siteExtension:
+    type: azure-native:web:WebAppSiteExtension
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      name: ${demo-webapp-w-java.name}
+      siteExtensionId: Dynatrace

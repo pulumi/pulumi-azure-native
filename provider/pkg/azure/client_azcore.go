@@ -151,13 +151,19 @@ func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
 	}
 }
 
+func isContentTypeJSON(method string) bool {
+	return method == http.MethodPost ||
+		method == http.MethodPut ||
+		method == http.MethodPatch
+}
+
 func (c *azCoreClient) initRequest(ctx context.Context, method, id string, queryParams map[string]any) (*policy.Request, error) {
 	req, err := runtime.NewRequest(ctx, method, runtime.JoinPaths(c.host, id))
 	if err != nil {
 		return nil, err
 	}
 
-	c.setHeaders(req, method == http.MethodPost || method == http.MethodPut || method == http.MethodPatch)
+	c.setHeaders(req, isContentTypeJSON(method))
 
 	urlValues := MapToValues(queryParams)
 	// URL-unescape each value before encoding the URL (which encodes all values). Presumably, this
@@ -288,11 +294,16 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, err
 	}
 
-	if bodyProps != nil {
-		err = runtime.MarshalAsJSON(req, bodyProps)
-		if err != nil {
-			return nil, false, err
-		}
+	if bodyProps == nil && isContentTypeJSON(method) {
+		// populate body with empty payload {}
+		// when we are dealing with POST/PUT/PATCH
+		// otherwise we get 400 Bad Request
+		bodyProps = map[string]any{}
+	}
+
+	err = runtime.MarshalAsJSON(req, bodyProps)
+	if err != nil {
+		return nil, false, err
 	}
 
 	if serializationMutex != nil {
