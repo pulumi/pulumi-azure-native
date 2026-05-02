@@ -12,6 +12,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -182,6 +183,13 @@ func keyVaultClient(t *testing.T) *armkeyvault.VaultsClient {
 	tokenCred := azureCredentials(t)
 	sub := os.Getenv("ARM_SUBSCRIPTION_ID")
 	client, err := armkeyvault.NewVaultsClient(sub, tokenCred, nil)
+	require.NoError(t, err)
+	return client
+}
+
+func tagsClient(t *testing.T) *armresources.TagsClient {
+	sub := os.Getenv("ARM_SUBSCRIPTION_ID")
+	client, err := armresources.NewTagsClient(sub, azureCredentials(t), nil)
 	require.NoError(t, err)
 	return client
 }
@@ -713,6 +721,9 @@ func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
 				},
 			},
 		},
+		"outputs": map[string]any{
+			"rg": "${resourcegroup.id}",
+		},
 		"plugins": plugins,
 	}
 
@@ -740,6 +751,33 @@ func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
 
 	upResult = test.Up(t)
 	assert.Empty(t, upResult.StdErr, "second up should not have any errors")
+
+	// Retrieve the resource group ID from the stack output and verify that both TagAtScope
+	// resources' tags are present on the scope via the Azure API.
+	rgID, ok := upResult.Outputs["rg"]
+	require.True(t, ok, "rg output should be present")
+	rgIDStr, ok := rgID.Value.(string)
+	require.True(t, ok, "rg output should be a string")
+
+	ctx := context.Background()
+	tagsResp, err := tagsClient(t).GetAtScope(ctx, rgIDStr, nil)
+	require.NoError(t, err, "getting tags at scope should not error")
+
+	actualTags := map[string]string{}
+	if tagsResp.Properties != nil {
+		for k, v := range tagsResp.Properties.Tags {
+			if v != nil {
+				actualTags[k] = *v
+			}
+		}
+	}
+	t.Logf("Tags on scope: %v", actualTags)
+
+	// Tags from the "tags" resource.
+	assert.Equal(t, "test", actualTags["environment"])
+	assert.Equal(t, "pulumi", actualTags["managedBy"])
+	// Tags from the "tagsV2" resource.
+	assert.Equal(t, "tag", actualTags["another"])
 
 	// A subsequent preview should show no changes, confirming the operation is idempotent.
 	preview := test.Preview(t)
