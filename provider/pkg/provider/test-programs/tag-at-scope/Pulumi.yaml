@@ -1,0 +1,16 @@
+name: tag-at-scope
+runtime: yaml
+description: Deploys a resource group and applies tags to it using TagAtScope.
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+  tags:
+    type: azure-native:resources:TagAtScope
+    properties:
+      scope: ${resourceGroup.id}
+      properties:
+        tags:
+          environment: dev
+          managedBy: pulumi
+outputs:
+  resourceGroupName: ${resourceGroup.name}

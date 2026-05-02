@@ -84,6 +84,16 @@ func TestWebAppSiteExtensions(t *testing.T) {
 	pt.Up(t)
 }
 
+func TestTagAtScope(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "tag-at-scope")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	pt.Up(t)
+}
+
 func TestSubResources(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "subresources")
