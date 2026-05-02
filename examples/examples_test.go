@@ -700,6 +700,18 @@ func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
 			"resourcegroup": map[string]any{
 				"type": "azure-native:resources:ResourceGroup",
 			},
+			"tags": map[string]any{
+				"type": "azure-native:resources:TagAtScope",
+				"properties": map[string]any{
+					"scope": "${resourcegroup.id}",
+					"properties": map[string]any{
+						"tags": map[string]any{
+							"environment": "test",
+							"managedBy":   "pulumi",
+						},
+					},
+				},
+			},
 		},
 		"plugins": plugins,
 	}
@@ -712,14 +724,13 @@ func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
 	defer test.Destroy(t)
 
 	// Add a TagAtScope resource on the second deploy.
-	program["resources"].(map[string]any)["tags"] = map[string]any{
+	program["resources"].(map[string]any)["tagsV2"] = map[string]any{
 		"type": "azure-native:resources:TagAtScope",
 		"properties": map[string]any{
 			"scope": "${resourcegroup.id}",
 			"properties": map[string]any{
 				"tags": map[string]any{
-					"environment": "test",
-					"managedBy":   "pulumi",
+					"another": "tag",
 				},
 			},
 		},
@@ -734,6 +745,6 @@ func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
 	preview := test.Preview(t)
 	t.Logf("Preview STDOUT: \n%s", preview.StdOut)
 	assert.Equal(t, map[apitype.OpType]int{
-		apitype.OpSame: 3, // stack + resourcegroup + tags
+		apitype.OpSame: 4, // stack + resourcegroup + tags + tagsV2
 	}, preview.ChangeSummary)
 }

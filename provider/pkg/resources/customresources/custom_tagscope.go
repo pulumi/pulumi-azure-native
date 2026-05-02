@@ -64,6 +64,12 @@ func tagAtScope(
 		path: tagAtScopePath,
 		tok:  tagAtScopeTok,
 
+		CanCreate: func(ctx context.Context, id string) error {
+			// we should always be able to `Create` since we are using
+			// Merge-based updates on a default resource
+			return nil
+		},
+
 		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
 			return patch(ctx, id, "Merge", inputs)
 		},
