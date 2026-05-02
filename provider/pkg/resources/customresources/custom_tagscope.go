@@ -51,6 +51,10 @@ func tagAtScope(
 		if err != nil {
 			return nil, err
 		}
+		if body == nil {
+			// make sure body is non-nil so that populating it later doesn't panic
+			body = map[string]any{}
+		}
 		body["operation"] = operation
 		queryParams := map[string]any{"api-version": client.ApiVersion()}
 		resp, _, err := azureClient.Patch(ctx, id, body, queryParams, asyncStyle)
