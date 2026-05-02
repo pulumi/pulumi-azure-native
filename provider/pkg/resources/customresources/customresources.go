@@ -246,6 +246,11 @@ func BuildCustomResources(
 		return nil, err
 	}
 
+	customTagAtScope, err := tagAtScope(lookupResource, crudClientFactory, azureClient)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -259,6 +264,7 @@ func BuildCustomResources(
 		pimRoleManagementPolicy,
 		pimRoleEligibilitySchedule,
 		customRoleAssignment,
+		customTagAtScope,
 	}
 
 	resources = append(resources, keyVaultSecret(cloud, tokenCred))

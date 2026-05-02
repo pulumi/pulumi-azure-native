@@ -675,3 +675,65 @@ func TestManagedClusterHasPopulatedKubeletIdentity_YAML(t *testing.T) {
 	nonEmpty("objectId")
 	nonEmpty("resourceId")
 }
+
+// TestTagAtScopeAddedOnSecondDeploy_YAML verifies that a TagAtScope resource can be added
+// to a resource group after it has already been created, using the PATCH/Merge path.
+func TestTagAtScopeAddedOnSecondDeploy_YAML(t *testing.T) {
+	skipIfNotYamlInCI(t)
+	proj := tempProject(t)
+	azureBinaryDir := azureNativeBinaryDir(t)
+	test := createTest(t, proj.dir)
+
+	plugins := map[string]any{
+		"providers": []interface{}{
+			map[string]any{
+				"name": "azure-native",
+				"path": azureBinaryDir,
+			},
+		},
+	}
+
+	program := map[string]any{
+		"name":    proj.name,
+		"runtime": "yaml",
+		"resources": map[string]any{
+			"resourcegroup": map[string]any{
+				"type": "azure-native:resources:ResourceGroup",
+			},
+		},
+		"plugins": plugins,
+	}
+
+	// Deploy only the resource group.
+	updatePulumiYAML(t, test.WorkingDir(), program)
+
+	upResult := test.Up(t)
+	assert.Empty(t, upResult.StdErr, "first up should not have any errors")
+	defer test.Destroy(t)
+
+	// Add a TagAtScope resource on the second deploy.
+	program["resources"].(map[string]any)["tags"] = map[string]any{
+		"type": "azure-native:resources:TagAtScope",
+		"properties": map[string]any{
+			"scope": "${resourcegroup.id}",
+			"properties": map[string]any{
+				"tags": map[string]any{
+					"environment": "test",
+					"managedBy":   "pulumi",
+				},
+			},
+		},
+	}
+
+	updatePulumiYAML(t, test.WorkingDir(), program)
+
+	upResult = test.Up(t)
+	assert.Empty(t, upResult.StdErr, "second up should not have any errors")
+
+	// A subsequent preview should show no changes, confirming the operation is idempotent.
+	preview := test.Preview(t)
+	t.Logf("Preview STDOUT: \n%s", preview.StdOut)
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpSame: 3, // stack + resourcegroup + tags
+	}, preview.ChangeSummary)
+}
