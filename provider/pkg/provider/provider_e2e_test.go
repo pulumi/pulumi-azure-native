@@ -127,6 +127,15 @@ func TestParallelSubnetCreation(t *testing.T) {
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
+func TestGenericResourceCreatingCongitiveServicesAccount(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "generic-resource-cognitive-services")
+	upResult := pt.Up(t)
+	t.Logf("std out:\n%s\n", upResult.StdOut)
+	errorMsg := "Failed to read resource after Create. Please report this issue."
+	assert.NotContainsf(t, upResult.StdOut, errorMsg, "Expected not to see error message '%s' in stderr", errorMsg)
+}
+
 func TestAutonaming(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "autonaming", opttest.Env("PULUMI_EXPERIMENTAL", "1"))

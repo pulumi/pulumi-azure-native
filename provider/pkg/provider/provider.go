@@ -1047,8 +1047,15 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
+		inputsForRead := resource.PropertyMap{}
+		if res.ApiVersionIsUserInput {
+			if apiVersion, ok := inputs["apiVersion"]; ok {
+				inputsForRead["apiVersion"] = apiVersion
+			}
+		}
+
 		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient,
-			reader(customRes, crudClient, nil /* previousInputs, none for Create */))
+			reader(customRes, crudClient, inputsForRead))
 		if err != nil {
 			return nil, err
 		}

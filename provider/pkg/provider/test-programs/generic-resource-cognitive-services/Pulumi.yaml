@@ -1,0 +1,37 @@
+name: generic-resource-congitive-services
+description: Example testing creation of a generic resource for AI Foundry (CognitiveServices/AIServices)
+runtime: yaml
+
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+
+  random:
+    type: random:RandomString
+    properties:
+      length: 4
+      upper: false
+      special: false
+
+  ai-foundry:
+    type: azure-native:resources:Resource
+    properties:
+      resourceProviderNamespace: Microsoft.CognitiveServices
+      resourceType: accounts
+      apiVersion: 2025-07-01-preview
+      parentResourcePath: ""
+      location: ${resourceGroup.location}
+      resourceGroupName: ${resourceGroup.name}
+      kind: AIServices
+      sku:
+        name: S0
+      identity:
+        type: SystemAssigned
+      properties:
+        disableLocalAuth: true
+        allowProjectManagement: true
+        customSubDomainName: ai-foundry-${random.result}
+        publicNetworkAccess: Disabled
+        networkAcls:
+          defaultAction: Deny
+          bypass: AzureServices
