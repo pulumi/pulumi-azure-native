@@ -138,6 +138,13 @@ func shouldRetryConflict(resp *http.Response) bool {
 			if responseErr.ErrorCode == "StorageAccountOperationInProgress" {
 				return true
 			}
+
+			// Handle deletion conflicts for resources of type cognitiveservices:ProjectConnection
+			// where deleting multiple connections at the same time can cause conflicts.
+			// see pulumi/pulumi-azure-native#4693
+			if responseErr.ErrorCode == "TransientError" {
+				return true
+			}
 		}
 	}
 	return false
