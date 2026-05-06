@@ -149,6 +149,19 @@ func TestAutonaming(t *testing.T) {
 	assert.Contains(t, saname, "autonamingsa") // project + name + random suffix, no dashes
 }
 
+// Tests that we are able to delete the program that has
+// a NetworkRuleSet for the service bus namespace
+// which in case for Pulumi and Azure, means reverting the resource
+// to its default state {"defaultAction": "Allow"} when deleting
+// since it is a Singleton resource
+func TestServiceBusNetworkRuleset(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "servicebus-network-ruleset")
+	pt.Preview(t)
+	pt.Up(t)
+	pt.Destroy(t)
+}
+
 func TestTagging(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "tagging")

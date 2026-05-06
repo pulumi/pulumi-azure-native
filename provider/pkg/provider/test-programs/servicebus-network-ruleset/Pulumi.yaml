@@ -1,0 +1,30 @@
+name: network-ruleset-e2e-test
+runtime: yaml
+description: Example of deploying then destroying a service bus which has a namespace network rule set
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+
+  serviceBusNamespace:
+    type: azure-native:servicebus:Namespace
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      sku:
+        name: Standard
+        tier: Standard
+
+  asbQueue:
+    type: azure-native:servicebus:Queue
+    properties:
+      enablePartitioning: true
+      namespaceName: ${serviceBusNamespace.name}
+      resourceGroupName: ${resourceGroup.name}
+      maxDeliveryCount: 10
+      requiresSession: true
+
+  networkRuleSet:
+    type: azure-native:servicebus:NamespaceNetworkRuleSet
+    properties:
+      defaultAction: Allow
+      namespaceName: ${serviceBusNamespace.name}
+      resourceGroupName: ${resourceGroup.name}
