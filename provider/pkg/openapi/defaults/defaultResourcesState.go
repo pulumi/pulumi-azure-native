@@ -66,8 +66,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"state": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkRuleSets/default": {
-		"defaultAction":       "Deny",
-		"publicNetworkAccess": "Disabled",
+		"defaultAction": "Allow",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures": {
 		"currentBillingFeatures": []string{"Basic"},
@@ -84,7 +83,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		},
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default": {
-		"defaultAction": "Deny",
+		"defaultAction": "Allow",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/advisors/{advisorName}": {
 		"autoExecuteStatus": "Default",

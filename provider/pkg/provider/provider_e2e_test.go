@@ -127,6 +127,15 @@ func TestParallelSubnetCreation(t *testing.T) {
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
+func TestGenericResourceCreatingCongitiveServicesAccount(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "generic-resource-cognitive-services")
+	upResult := pt.Up(t)
+	t.Logf("std out:\n%s\n", upResult.StdOut)
+	errorMsg := "Failed to read resource after Create. Please report this issue."
+	assert.NotContainsf(t, upResult.StdOut, errorMsg, "Expected not to see error message '%s' in stderr", errorMsg)
+}
+
 func TestAutonaming(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "autonaming", opttest.Env("PULUMI_EXPERIMENTAL", "1"))
@@ -138,6 +147,19 @@ func TestAutonaming(t *testing.T) {
 	saname, ok := up.Outputs["saname"].Value.(string)
 	assert.True(t, ok)
 	assert.Contains(t, saname, "autonamingsa") // project + name + random suffix, no dashes
+}
+
+// Tests that we are able to delete the program that has
+// a NetworkRuleSet for the service bus namespace
+// which in case for Pulumi and Azure, means reverting the resource
+// to its default state {"defaultAction": "Allow"} when deleting
+// since it is a Singleton resource
+func TestServiceBusNetworkRuleset(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "servicebus-network-ruleset")
+	pt.Preview(t)
+	pt.Up(t)
+	pt.Destroy(t)
 }
 
 func TestTagging(t *testing.T) {
