@@ -121,13 +121,15 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		prevLogToStderr := logging.LogToStderr
 		prevVerbose := logging.Verbose
 		prevLogFlow := logging.LogFlow
-		logging.InitLogging(true, 9, true)
 		defer func() {
 			logging.InitLogging(prevLogToStderr, prevVerbose, prevLogFlow)
 		}()
 
 		var actual map[string]any
 		stderr := captureStderr(func() {
+			// InitLogging must run inside captureStderr because the pulumi
+			// SDK's slog handler binds to os.Stderr at init time.
+			logging.InitLogging(true, 9, true)
 			actual = convert(testCaseArgs{
 				props: map[string]resources.AzureAPIProperty{
 					"propA": {
