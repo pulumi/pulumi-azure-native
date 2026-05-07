@@ -332,8 +332,20 @@ jobs:
           ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
           ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE_PASSWORD }}
         run: |
-          set -euo pipefail
-          cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
+          set -uo pipefail
+          # Diagnostic: -v shows which test is running. Background `top` captures
+          # process state every 30s so we can see what's happening when the
+          # runner dies with exit 143.
+          ( while true; do
+              echo "=== DIAG $(date -Is) ==="
+              free -h || true
+              df -h / || true
+              ps -eo pid,pcpu,pmem,etime,comm --sort=-pmem | head -20 || true
+              sleep 30
+            done ) &
+          DIAG_PID=$!
+          trap "kill $DIAG_PID 2>/dev/null || true" EXIT
+          cd provider && go test -v -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
