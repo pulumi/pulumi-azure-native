@@ -332,15 +332,7 @@ jobs:
           ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
           ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE_PASSWORD }}
         run: |
-          set -uo pipefail
-          ( while true; do
-              echo "=== DIAG $(date -Is) ==="
-              free -h || true
-              ps -eo pid,pcpu,pmem,etime,comm --sort=-pmem | head -15 || true
-              sleep 30
-            done ) &
-          DIAG_PID=$!
-          trap "kill $DIAG_PID 2>/dev/null || true" EXIT
+          set -euo pipefail
           cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 8 ./... 2>&1 | tee /tmp/gotest.log
 
       - name: Upload coverage reports to Codecov
