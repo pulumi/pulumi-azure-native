@@ -423,6 +423,73 @@ func TestInvokeListSubscriptionsDefaultApiVersion(t *testing.T) {
 	assert.Equal(t, "2022-12-01", mockClient.GetApiVersions[0])
 }
 
+// Regression test for https://github.com/pulumi/pulumi-azure-native/issues/4701:
+// query parameters supplied as invoke arguments must be forwarded to the GET request.
+func TestInvokeForwardsGetQueryParams(t *testing.T) {
+	mockClient := &az.MockAzureClient{
+		GetResponse: map[string]any{},
+	}
+
+	conv := convert.NewSdkShapeConverterFull(map[string]resources.AzureAPIType{})
+	invoke := resources.AzureAPIInvoke{
+		APIVersion: "2023-04-01",
+		Path:       "/providers/Microsoft.Management/managementGroups/{groupId}",
+		GetParameters: []resources.AzureAPIParameter{
+			{
+				Name:     "groupId",
+				Location: "path",
+				Value:    &resources.AzureAPIProperty{Type: "string"},
+			},
+			{
+				Name:     "$expand",
+				Location: "query",
+				Value:    &resources.AzureAPIProperty{Type: "string", SdkName: "expand"},
+			},
+			{
+				Name:     "$recurse",
+				Location: "query",
+				Value:    &resources.AzureAPIProperty{Type: "boolean", SdkName: "recurse"},
+			},
+		},
+		Response: map[string]resources.AzureAPIProperty{},
+	}
+	tok := "azure-native:management:getManagementGroup"
+	resourceMap := &resources.APIMetadata{
+		Types:     resources.GoMap[resources.AzureAPIType]{},
+		Resources: resources.GoMap[resources.AzureAPIResource]{},
+		Invokes:   resources.GoMap[resources.AzureAPIInvoke]{tok: invoke},
+	}
+
+	p := azureNativeProvider{
+		azureClient: mockClient,
+		converter:   &conv,
+		resourceMap: resourceMap,
+	}
+
+	args, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(map[string]interface{}{
+			"groupId": "tenant-123",
+			"expand":  "children",
+			"recurse": true,
+		}),
+		plugin.MarshalOptions{KeepUnknowns: true, SkipNulls: true},
+	)
+	require.NoError(t, err)
+
+	_, err = p.Invoke(context.Background(), &rpc.InvokeRequest{
+		Tok:  tok,
+		Args: args,
+	})
+	require.NoError(t, err)
+
+	require.Len(t, mockClient.GetIds, 1)
+	assert.Equal(t, "/providers/Microsoft.Management/managementGroups/tenant-123", mockClient.GetIds[0])
+	require.Len(t, mockClient.GetQueryParams, 1)
+	// api-version is added by azCoreClient.Get itself, so we only assert the user-supplied params reach it.
+	assert.Equal(t, "children", mockClient.GetQueryParams[0]["$expand"])
+	assert.Equal(t, true, mockClient.GetQueryParams[0]["$recurse"])
+}
+
 func TestReader(t *testing.T) {
 	t.Run("custom Read", func(t *testing.T) {
 		var customReads []string
