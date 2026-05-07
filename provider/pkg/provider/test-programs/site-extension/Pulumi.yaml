@@ -9,7 +9,6 @@ resources:
   asp-webbapp-w-java:
     type: azure-native:web:AppServicePlan
     properties:
-      name: asp-webbapp-w-java-dev
       resourceGroupName: ${resourceGroup.name}
       location: ${resourceGroup.location}
       kind: app
@@ -23,7 +22,6 @@ resources:
   demo-webapp-w-java:
     type: azure-native:web:WebApp
     properties:
-      name: demo-webapp-w-java-dev
       resourceGroupName: ${resourceGroup.name}
       location: ${asp-webbapp-w-java.location}
       serverFarmId: ${asp-webbapp-w-java.id}
