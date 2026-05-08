@@ -382,7 +382,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 
 		var response any
 		if res.GetParameters != nil {
-			response, err = k.azureClient.Get(ctx, id, res.APIVersion, nil)
+			response, err = k.azureClient.Get(ctx, id, res.APIVersion, query)
 		} else if res.PostParameters != nil {
 			if body == nil {
 				body = map[string]interface{}{}
