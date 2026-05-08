@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetClusterResult',
@@ -142,7 +141,7 @@ class GetClusterResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Resource's identity.
         """

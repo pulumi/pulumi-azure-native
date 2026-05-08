@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// Contains error details if status is Failed/Canceled.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse? Error;
+        public readonly Outputs.ErrorDetailResponse? Error;
         /// <summary>
         /// The status URL of the asynchronous operation.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DependencyMap
         private GetMapDependencyViewForAllMachinesResult(
             string? endTime,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse? error,
+            Outputs.ErrorDetailResponse? error,
 
             string? id,
 

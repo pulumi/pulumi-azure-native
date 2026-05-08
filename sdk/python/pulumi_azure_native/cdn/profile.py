@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv6
-from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +24,7 @@ class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  log_scrubbing: Optional[pulumi.Input['ProfileLogScrubbingArgs']] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -37,7 +35,7 @@ class ProfileArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
-        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ProfileLogScrubbingArgs'] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[_builtins.int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -85,14 +83,14 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -162,7 +160,7 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -181,7 +179,7 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[_builtins.int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -219,7 +217,7 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -324,7 +322,7 @@ class Profile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -396,7 +394,7 @@ class Profile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

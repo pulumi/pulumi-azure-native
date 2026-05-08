@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.TestBase
         /// The identity of the testBaseAccount.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.TestBase
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.TestBase
         /// The identity of the testBaseAccount.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

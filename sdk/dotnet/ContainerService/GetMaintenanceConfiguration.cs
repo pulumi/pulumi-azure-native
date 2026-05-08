@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             ImmutableArray<Outputs.TimeSpanResponse> notAllowedTime,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableArray<Outputs.TimeInWeekResponse> timeInWeek,
 

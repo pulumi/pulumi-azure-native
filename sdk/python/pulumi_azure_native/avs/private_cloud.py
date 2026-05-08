@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,12 +25,12 @@ class PrivateCloudArgs:
                  management_cluster: pulumi.Input['ManagementClusterArgs'],
                  network_block: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sku: pulumi.Input['_commontypesv5.SkuArgs'],
+                 sku: pulumi.Input['SkuArgs'],
                  availability: Optional[pulumi.Input['AvailabilityPropertiesArgs']] = None,
                  dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
                  internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -49,7 +47,7 @@ class PrivateCloudArgs:
                well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
                A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['_commontypesv5.SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input['AvailabilityPropertiesArgs'] availability: Properties describing how the cloud is distributed across availability zones
         :param pulumi.Input[Union[_builtins.str, 'DnsZoneType']] dns_zone_type: The type of DNS zone to use.
         :param pulumi.Input['EncryptionArgs'] encryption: Customer managed key encryption, can be enabled or disabled
@@ -57,7 +55,7 @@ class PrivateCloudArgs:
                unique and non-overlapping across VNet in your subscription, on-premise, and
                this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
                (A.B.C.D/X).
-        :param pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[_builtins.str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,14 +138,14 @@ class PrivateCloudArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['_commontypesv5.SkuArgs']:
+    def sku(self) -> pulumi.Input['SkuArgs']:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['_commontypesv5.SkuArgs']):
+    def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -203,14 +201,14 @@ class PrivateCloudArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -320,7 +318,7 @@ class PrivateCloud(pulumi.CustomResource):
                  dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
                  internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -329,7 +327,7 @@ class PrivateCloud(pulumi.CustomResource):
                  nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -351,7 +349,7 @@ class PrivateCloud(pulumi.CustomResource):
                unique and non-overlapping across VNet in your subscription, on-premise, and
                this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
                (A.B.C.D/X).
-        :param pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[_builtins.str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -362,7 +360,7 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         :param pulumi.Input[_builtins.str] virtual_network_id: Azure resource ID of the virtual network
@@ -400,7 +398,7 @@ class PrivateCloud(pulumi.CustomResource):
                  dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
                  internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -409,7 +407,7 @@ class PrivateCloud(pulumi.CustomResource):
                  nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv5.SkuArgs', '_commontypesv5.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -589,7 +587,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.SystemAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -705,7 +703,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output['_commontypesv5.outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
@@ -713,7 +711,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -78,7 +78,7 @@ export interface GetCapacityDetailsResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.powerbidedicated.SystemDataResponse;
     /**
      * Resource tags.
      */

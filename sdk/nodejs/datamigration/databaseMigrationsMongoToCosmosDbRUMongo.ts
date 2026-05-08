@@ -101,7 +101,7 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
     /**
      * Target Cosmos DB Mongo connection details.
      */

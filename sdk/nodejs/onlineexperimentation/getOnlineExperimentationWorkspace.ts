@@ -48,7 +48,7 @@ export interface GetOnlineExperimentationWorkspaceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.onlineexperimentation.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,7 +68,7 @@ export interface GetOnlineExperimentationWorkspaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv6.SystemDataResponse;
+    readonly systemData: outputs.onlineexperimentation.SystemDataResponse;
     /**
      * Resource tags.
      */

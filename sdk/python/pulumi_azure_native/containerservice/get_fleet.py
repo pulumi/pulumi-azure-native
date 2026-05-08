@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
-from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetFleetResult',
@@ -98,7 +96,7 @@ class GetFleetResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Managed identity.
         """
@@ -130,7 +128,7 @@ class GetFleetResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

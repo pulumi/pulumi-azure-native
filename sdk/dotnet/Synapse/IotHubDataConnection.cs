@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Synapse
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The table where the data should be ingested. Optionally the table information can be added to each message.

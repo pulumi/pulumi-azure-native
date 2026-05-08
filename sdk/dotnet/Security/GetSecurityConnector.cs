@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// A list of key value pairs that describe the resource.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Security
 
             ImmutableArray<object> offerings,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

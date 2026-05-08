@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 
 __all__ = [
@@ -205,6 +204,7 @@ __all__ = [
     'SubResourceWithColocationStatusResponse',
     'SupportedCapabilitiesResponse',
     'SystemDataResponse',
+    'SystemDataResponseV1',
     'TargetRegionResponse',
     'TerminateNotificationProfileResponse',
     'UefiKeyResponse',
@@ -9515,7 +9515,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: 'outputs.PrivateEndpointResponse',
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
-                 system_data: '_commontypesv3.outputs.SystemDataResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str):
         """
         The Private Endpoint Connection resource.
@@ -9525,7 +9525,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param '_commontypesv3.SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
@@ -9578,7 +9578,7 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -10468,7 +10468,7 @@ class RestorePointResponse(dict):
                  instance_view: 'outputs.RestorePointInstanceViewResponse',
                  name: _builtins.str,
                  provisioning_state: _builtins.str,
-                 system_data: '_commontypesv3.outputs.SystemDataResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  consistency_mode: Optional[_builtins.str] = None,
                  exclude_disks: Optional[Sequence['outputs.ApiEntityReferenceResponse']] = None,
@@ -10482,7 +10482,7 @@ class RestorePointResponse(dict):
         :param 'RestorePointInstanceViewResponse' instance_view: The restore point instance view.
         :param _builtins.str name: The name of the resource
         :param _builtins.str provisioning_state: Gets the provisioning state of the restore point.
-        :param '_commontypesv3.SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.str consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         :param Sequence['ApiEntityReferenceResponse'] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
@@ -10541,7 +10541,7 @@ class RestorePointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -12577,6 +12577,117 @@ class SupportedCapabilitiesResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class SystemDataResponseV1(dict):
+    """
     The system meta data relating to this resource.
     """
     @staticmethod
@@ -12588,14 +12699,14 @@ class SystemDataResponse(dict):
             suggest = "last_modified_at"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponseV1. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
+        SystemDataResponseV1.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
+        SystemDataResponseV1.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -13976,7 +14087,7 @@ class VirtualMachineExtensionResponse(dict):
                  location: _builtins.str,
                  name: _builtins.str,
                  provisioning_state: _builtins.str,
-                 system_data: '_commontypesv3.outputs.SystemDataResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  auto_upgrade_minor_version: Optional[_builtins.bool] = None,
                  enable_automatic_upgrade: Optional[_builtins.bool] = None,
@@ -13997,7 +14108,7 @@ class VirtualMachineExtensionResponse(dict):
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
         :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
-        :param '_commontypesv3.SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param _builtins.bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
@@ -14077,7 +14188,7 @@ class VirtualMachineExtensionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

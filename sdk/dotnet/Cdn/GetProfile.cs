@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string kind,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Cdn
 
             Outputs.SkuResponse sku,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

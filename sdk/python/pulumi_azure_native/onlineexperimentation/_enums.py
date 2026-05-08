@@ -8,7 +8,9 @@ from enum import Enum
 
 __all__ = [
     'KeyEncryptionKeyIdentityType',
+    'ManagedServiceIdentityType',
     'OnlineExperimentationWorkspaceSkuName',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -25,6 +27,17 @@ class KeyEncryptionKeyIdentityType(_builtins.str, Enum):
     """
     User assigned identity
     """
+
+
+@pulumi.type_token("azure-native:onlineexperimentation:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:onlineexperimentation:OnlineExperimentationWorkspaceSkuName")
@@ -48,3 +61,13 @@ class OnlineExperimentationWorkspaceSkuName(_builtins.str, Enum):
     """
     The Developer service sku name.
     """
+
+
+@pulumi.type_token("azure-native:onlineexperimentation:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"

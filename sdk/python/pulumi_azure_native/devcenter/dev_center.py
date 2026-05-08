@@ -14,9 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv4
-from .. import commontypesv4 as _commontypesv4
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +26,7 @@ class DevCenterArgs:
                  dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  project_catalog_settings: Optional[pulumi.Input['DevCenterProjectCatalogSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -40,7 +37,7 @@ class DevCenterArgs:
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] display_name: The display name of the devcenter.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
-        :param pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs'] identity: Managed identity properties
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['DevCenterProjectCatalogSettingsArgs'] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -111,14 +108,14 @@ class DevCenterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed identity properties
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv4.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -167,7 +164,7 @@ class DevCenter(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -186,7 +183,7 @@ class DevCenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] display_name: The display name of the devcenter.
         :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
-        :param pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']] identity: Managed identity properties
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -224,7 +221,7 @@ class DevCenter(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv4.ManagedServiceIdentityArgs', '_commontypesv4.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -326,7 +323,7 @@ class DevCenter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         Managed identity properties
         """
@@ -366,7 +363,7 @@ class DevCenter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

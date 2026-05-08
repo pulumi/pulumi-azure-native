@@ -132,7 +132,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The system metadata relating to this resource
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databricks.SystemDataResponse>;
     /**
      * Resource tags.
      */

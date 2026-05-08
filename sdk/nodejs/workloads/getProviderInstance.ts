@@ -49,7 +49,7 @@ export interface GetProviderInstanceResult {
     /**
      * Defines the provider instance errors.
      */
-    readonly errors: outputs.commontypesv5.ErrorDetailResponse;
+    readonly errors: outputs.workloads.ErrorDetailResponse;
     /**
      * Resource health details
      */
@@ -73,7 +73,7 @@ export interface GetProviderInstanceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.workloads.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv4 as _commontypesv4
 from ._enums import *
 
 __all__ = [
@@ -59,6 +58,8 @@ __all__ = [
     'DailyScheduleArgsDict',
     'DateSpanArgs',
     'DateSpanArgsDict',
+    'DelegatedResourceArgs',
+    'DelegatedResourceArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
     'FleetHubProfileArgs',
@@ -211,6 +212,8 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileArgsDict',
     'ManagedNamespacePropertiesArgs',
     'ManagedNamespacePropertiesArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'ManualScaleProfileArgs',
     'ManualScaleProfileArgsDict',
     'MeshMembershipPropertiesArgs',
@@ -1733,6 +1736,100 @@ class DateSpanArgs:
     @start.setter
     def start(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "start", value)
+
+
+class DelegatedResourceArgsDict(TypedDict):
+    """
+    Delegated resource properties - internal use only.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source resource location - internal use only.
+    """
+    referral_resource: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The delegation id of the referral delegation (optional) - internal use only.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM resource id of the delegated resource - internal use only.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant id of the delegated resource - internal use only.
+    """
+
+@pulumi.input_type
+class DelegatedResourceArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 referral_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Delegated resource properties - internal use only.
+
+        :param pulumi.Input[_builtins.str] location: The source resource location - internal use only.
+        :param pulumi.Input[_builtins.str] referral_resource: The delegation id of the referral delegation (optional) - internal use only.
+        :param pulumi.Input[_builtins.str] resource_id: The ARM resource id of the delegated resource - internal use only.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the delegated resource - internal use only.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if referral_resource is not None:
+            pulumi.set(__self__, "referral_resource", referral_resource)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source resource location - internal use only.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referralResource")
+    def referral_resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The delegation id of the referral delegation (optional) - internal use only.
+        """
+        return pulumi.get(self, "referral_resource")
+
+    @referral_resource.setter
+    def referral_resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "referral_resource", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARM resource id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The tenant id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class ExtendedLocationArgsDict(TypedDict):
@@ -5550,7 +5647,7 @@ class ManagedClusterIdentityArgsDict(TypedDict):
     """
     Identity for the managed cluster.
     """
-    delegated_resources: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['_commontypesv4.DelegatedResourceArgsDict']]]]
+    delegated_resources: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgsDict']]]]
     """
     The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
     """
@@ -5566,13 +5663,13 @@ class ManagedClusterIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
-                 delegated_resources: Optional[pulumi.Input[Mapping[str, pulumi.Input['_commontypesv4.DelegatedResourceArgs']]]] = None,
+                 delegated_resources: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]] = None,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the managed cluster.
 
-        :param pulumi.Input[Mapping[str, pulumi.Input['_commontypesv4.DelegatedResourceArgs']]] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -5585,14 +5682,14 @@ class ManagedClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedResources")
-    def delegated_resources(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['_commontypesv4.DelegatedResourceArgs']]]]:
+    def delegated_resources(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]:
         """
         The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         """
         return pulumi.get(self, "delegated_resources")
 
     @delegated_resources.setter
-    def delegated_resources(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['_commontypesv4.DelegatedResourceArgs']]]]):
+    def delegated_resources(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]):
         pulumi.set(self, "delegated_resources", value)
 
     @_builtins.property
@@ -8052,6 +8149,59 @@ class ManagedNamespacePropertiesArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
+
+
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+
+        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 class ManualScaleProfileArgsDict(TypedDict):

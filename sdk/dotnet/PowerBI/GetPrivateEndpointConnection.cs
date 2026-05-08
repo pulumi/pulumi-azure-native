@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.PowerBI
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Specifies the type of the resource.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.PowerBI
 
             string? provisioningState,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

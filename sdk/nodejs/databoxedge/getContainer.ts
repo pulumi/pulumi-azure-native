@@ -78,7 +78,7 @@ export interface GetContainerResult {
     /**
      * Metadata pertaining to creation and last modification of Container
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

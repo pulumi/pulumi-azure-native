@@ -64,7 +64,7 @@ export class ManagedNamespace extends pulumi.CustomResource {
     /**
      * The system metadata relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerservice.SystemDataResponse>;
     /**
      * The tags to be persisted on the managed cluster namespace.
      */

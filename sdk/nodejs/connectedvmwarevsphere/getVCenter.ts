@@ -96,7 +96,7 @@ export interface GetVCenterResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
     /**
      * Gets or sets the Resource tags.
      */

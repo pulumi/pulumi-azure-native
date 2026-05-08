@@ -14,9 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv1 as _commontypesv1
-from .. import commontypesv3
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -510,7 +507,7 @@ class Workbook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv1.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Metadata pertaining to creation and last modification of the resource.
         """

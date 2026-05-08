@@ -48,7 +48,7 @@ export class HealthModel extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cloudhealth.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export class HealthModel extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cloudhealth.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -126,7 +126,7 @@ export interface HealthModelArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.cloudhealth.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

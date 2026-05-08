@@ -52,11 +52,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The resource of private end point.
      */
-    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commontypesv3.PrivateEndpointResponse | undefined>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.kubernetesconfiguration.PrivateEndpointResponse | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commontypesv3.PrivateLinkServiceConnectionStateResponse>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.kubernetesconfiguration.PrivateLinkServiceConnectionStateResponse>;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -64,7 +64,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -127,7 +127,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv3.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.kubernetesconfiguration.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

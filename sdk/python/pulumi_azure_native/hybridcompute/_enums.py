@@ -21,6 +21,7 @@ __all__ = [
     'PatchModeTypes',
     'ProgramYear',
     'PublicNetworkAccessType',
+    'ResourceIdentityType',
     'StatusLevelTypes',
 ]
 
@@ -169,6 +170,14 @@ class PublicNetworkAccessType(_builtins.str, Enum):
     """
     Azure Arc agent communication with Azure Arc services over public (internet) is enforced by Network Security Perimeter (NSP)
     """
+
+
+@pulumi.type_token("azure-native:hybridcompute:ResourceIdentityType")
+class ResourceIdentityType(_builtins.str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:hybridcompute:StatusLevelTypes")

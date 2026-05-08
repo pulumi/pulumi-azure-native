@@ -61,11 +61,11 @@ export interface GetServerGroupPrivateEndpointConnectionResult {
     /**
      * The private endpoint resource.
      */
-    readonly privateEndpoint?: outputs.commontypesv4.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.dbforpostgresql.PrivateEndpointResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.dbforpostgresql.PrivateLinkServiceConnectionStateResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -73,7 +73,7 @@ export interface GetServerGroupPrivateEndpointConnectionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv4.SystemDataResponse;
+    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -54,7 +54,7 @@ export class Alert extends pulumi.CustomResource {
     /**
      * Defines the alert instance errors.
      */
-    declare public /*out*/ readonly errors: pulumi.Output<outputs.commontypesv5.ErrorDetailResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
     /**
      * The name of the resource
      */
@@ -74,7 +74,7 @@ export class Alert extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Name of the alert template from which it was created.
      */

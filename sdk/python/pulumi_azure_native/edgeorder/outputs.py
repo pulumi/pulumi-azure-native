@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -35,6 +34,8 @@ __all__ = [
     'DimensionsResponse',
     'DisplayInfoResponse',
     'EncryptionPreferencesResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'FilterablePropertyResponse',
     'ForwardShippingDetailsResponse',
     'GroupedChildConfigurationsResponse',
@@ -59,10 +60,12 @@ __all__ = [
     'SiteDetailsResponse',
     'SpecificationResponse',
     'StageDetailsResponse',
+    'SystemDataResponse',
     'TermCommitmentInformationResponse',
     'TermCommitmentPreferencesResponse',
     'TermTypeDetailsResponse',
     'TransportPreferencesResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -1458,6 +1461,124 @@ class EncryptionPreferencesResponse(dict):
 
 
 @pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: _builtins.str):
+        """
+        The resource management error additional info.
+
+        :param Any info: The additional info.
+        :param _builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        The error detail.
+
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class FilterablePropertyResponse(dict):
     """
     Different types of filters supported and its values.
@@ -1918,7 +2039,7 @@ class OrderItemDetailsResponse(dict):
                  cancellation_status: _builtins.str,
                  current_stage: 'outputs.StageDetailsResponse',
                  deletion_status: _builtins.str,
-                 error: '_commontypesv5.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  forward_shipping_details: 'outputs.ForwardShippingDetailsResponse',
                  management_rp_details_list: Sequence['outputs.ResourceProviderDetailsResponse'],
                  order_item_stage_history: Sequence['outputs.StageDetailsResponse'],
@@ -1938,7 +2059,7 @@ class OrderItemDetailsResponse(dict):
         :param _builtins.str cancellation_status: Describes whether the order item is cancellable or not.
         :param 'StageDetailsResponse' current_stage: Current Order item Status.
         :param _builtins.str deletion_status: Describes whether the order item is deletable or not.
-        :param '_commontypesv5.ErrorDetailResponse' error: Top level error for the job.
+        :param 'ErrorDetailResponse' error: Top level error for the job.
         :param 'ForwardShippingDetailsResponse' forward_shipping_details: Forward Package Shipping details.
         :param Sequence['ResourceProviderDetailsResponse'] management_rp_details_list: List of parent RP details supported for configuration.
         :param Sequence['StageDetailsResponse'] order_item_stage_history: Order item status history.
@@ -2008,7 +2129,7 @@ class OrderItemDetailsResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv5.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         Top level error for the job.
         """
@@ -3034,14 +3155,14 @@ class ResourceIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Msi identity details of the resource
 
         :param _builtins.str principal_id: Service Principal Id backing the Msi
         :param _builtins.str tenant_id: Home Tenant Id
         :param _builtins.str type: Identity type
-        :param Mapping[str, '_commontypesv5.UserAssignedIdentityResponse'] user_assigned_identities: User Assigned Identities
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User Assigned Identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -3078,7 +3199,7 @@ class ResourceIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         User Assigned Identities
         """
@@ -3533,6 +3654,117 @@ class StageDetailsResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class TermCommitmentInformationResponse(dict):
     """
     Term Commitment Information.
@@ -3726,5 +3958,58 @@ class TransportPreferencesResponse(dict):
         Indicates Shipment Logistics type that the customer preferred.
         """
         return pulumi.get(self, "preferred_shipment_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        User assigned identity properties
+
+        :param _builtins.str client_id: The client ID of the assigned identity.
+        :param _builtins.str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

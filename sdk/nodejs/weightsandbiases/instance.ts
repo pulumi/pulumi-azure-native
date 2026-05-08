@@ -48,7 +48,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.weightsandbiases.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.weightsandbiases.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -122,7 +122,7 @@ export interface InstanceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.weightsandbiases.ManagedServiceIdentityArgs>;
     /**
      * Name of the Instance resource
      */

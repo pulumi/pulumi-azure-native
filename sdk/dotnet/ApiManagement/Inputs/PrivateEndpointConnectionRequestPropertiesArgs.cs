@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
-        public Input<Pulumi.AzureNative.Commontypesv2.Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         public PrivateEndpointConnectionRequestPropertiesArgs()
         {

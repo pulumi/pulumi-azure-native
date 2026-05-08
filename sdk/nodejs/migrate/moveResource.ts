@@ -56,7 +56,7 @@ export class MoveResource extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * The type of the resource.
      */

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource name

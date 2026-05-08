@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetPrivateLinkScopeResult',
@@ -96,7 +95,7 @@ class GetPrivateLinkScopeResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         The system meta data relating to this resource.
         """

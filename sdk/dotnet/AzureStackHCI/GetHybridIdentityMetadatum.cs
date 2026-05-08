@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.IdentityResponse Identity;
+        public readonly Outputs.IdentityResponse Identity;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.IdentityResponse identity,
+            Outputs.IdentityResponse identity,
 
             string name,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? resourceUid,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

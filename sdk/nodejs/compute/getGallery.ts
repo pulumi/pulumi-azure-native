@@ -94,7 +94,7 @@ export interface GetGalleryResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.compute.SystemDataResponse;
     /**
      * Resource tags.
      */

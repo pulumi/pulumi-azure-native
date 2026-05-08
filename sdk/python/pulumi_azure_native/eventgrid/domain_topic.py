@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5 as _commontypesv5
+from . import outputs
 
 __all__ = ['DomainTopicArgs', 'DomainTopic']
 
@@ -206,7 +206,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         The system metadata relating to the Event Grid resource.
         """

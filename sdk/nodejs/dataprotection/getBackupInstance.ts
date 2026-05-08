@@ -61,7 +61,7 @@ export interface GetBackupInstanceResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv4.SystemDataResponse;
+    readonly systemData: outputs.dataprotection.SystemDataResponse;
     /**
      * Proxy Resource tags.
      */

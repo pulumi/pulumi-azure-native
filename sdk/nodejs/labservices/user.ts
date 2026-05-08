@@ -84,7 +84,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.labservices.SystemDataResponse>;
     /**
      * How long the user has used their virtual machines in this lab.
      */

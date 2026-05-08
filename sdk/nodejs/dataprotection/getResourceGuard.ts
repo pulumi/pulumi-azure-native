@@ -59,7 +59,7 @@ export interface GetResourceGuardResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv4.SystemDataResponse;
+    readonly systemData: outputs.dataprotection.SystemDataResponse;
     /**
      * Resource tags.
      */

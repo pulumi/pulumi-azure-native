@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -161,6 +160,8 @@ __all__ = [
     'LogicAppReceiverArgsDict',
     'ManagedIdentityAuthenticationSettingPropertiesArgs',
     'ManagedIdentityAuthenticationSettingPropertiesArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'ManagementGroupLogSettingsArgs',
     'ManagementGroupLogSettingsArgsDict',
     'MetricAlertActionArgs',
@@ -199,6 +200,8 @@ __all__ = [
     'PlatformTelemetryDataSourceArgsDict',
     'PredictiveAutoscalePolicyArgs',
     'PredictiveAutoscalePolicyArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ProcessorArgs',
     'ProcessorArgsDict',
     'PrometheusForwarderDataSourceArgs',
@@ -2582,7 +2585,7 @@ class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
     """
     Managed service identity of the resource.
     """
-    type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
@@ -2594,12 +2597,12 @@ class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class DataCollectionEndpointResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']],
+                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
 
-        :param pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
@@ -2608,14 +2611,14 @@ class DataCollectionEndpointResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -3025,7 +3028,7 @@ class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
     """
     Managed service identity of the resource.
     """
-    type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
@@ -3037,12 +3040,12 @@ class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class DataCollectionRuleResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']],
+                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
 
-        :param pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
@@ -3051,14 +3054,14 @@ class DataCollectionRuleResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'commontypesv5.ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -6364,6 +6367,59 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+
+        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
 class ManagementGroupLogSettingsArgsDict(TypedDict):
     """
     Part of Management Group diagnostic setting. Specifies the settings for a particular log.
@@ -8019,6 +8075,80 @@ class PredictiveAutoscalePolicyArgs:
     @scale_look_ahead_time.setter
     def scale_look_ahead_time(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scale_look_ahead_time", value)
+
+
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+
+        :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 class ProcessorArgsDict(TypedDict):

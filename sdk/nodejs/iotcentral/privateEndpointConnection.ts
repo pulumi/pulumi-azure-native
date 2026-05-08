@@ -54,11 +54,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The private endpoint resource.
      */
-    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.commontypesv4.PrivateEndpointResponse | undefined>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.iotcentral.PrivateEndpointResponse | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.iotcentral.PrivateLinkServiceConnectionStateResponse>;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -66,7 +66,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv4.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotcentral.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -131,7 +131,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv4.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.iotcentral.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */

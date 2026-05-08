@@ -26,6 +26,7 @@ __all__ = [
     'LinuxVMGuestPatchAutomaticByPlatformRebootSetting',
     'LinuxVMGuestPatchMode',
     'LocalStorageDiskType',
+    'ManagedServiceIdentityType',
     'Mode',
     'NetworkApiVersion',
     'NetworkInterfaceAuxiliaryMode',
@@ -407,6 +408,17 @@ class LocalStorageDiskType(_builtins.str, Enum):
     """
     SDD DiskType.
     """
+
+
+@pulumi.type_token("azure-native:azurefleet:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:azurefleet:Mode")

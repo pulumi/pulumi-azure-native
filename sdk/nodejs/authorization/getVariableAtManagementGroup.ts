@@ -56,7 +56,7 @@ export interface GetVariableAtManagementGroupResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The type of the resource (Microsoft.Authorization/variables).
      */

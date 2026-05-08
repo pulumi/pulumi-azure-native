@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// *Same as workspace location.
@@ -65,13 +65,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Output("sku")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// *Same as workspace location.
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Input("sku")]
-        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

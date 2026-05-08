@@ -13,6 +13,18 @@ export const DomainManagement = {
  */
 export type DomainManagement = (typeof DomainManagement)[keyof typeof DomainManagement];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const UserEngagementTracking = {
     Disabled: "Disabled",
     Enabled: "Enabled",

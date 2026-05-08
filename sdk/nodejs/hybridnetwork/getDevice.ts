@@ -70,7 +70,7 @@ export interface GetDeviceResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

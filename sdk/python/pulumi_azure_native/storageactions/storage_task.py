@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +25,7 @@ class StorageTaskArgs:
                  action: pulumi.Input['StorageTaskActionArgs'],
                  description: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[_builtins.bool],
-                 identity: pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'],
+                 identity: pulumi.Input['ManagedServiceIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_task_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -38,7 +36,7 @@ class StorageTaskArgs:
         :param pulumi.Input['StorageTaskActionArgs'] action: The storage task action that is executed
         :param pulumi.Input[_builtins.str] description: Text that describes the purpose of the storage task
         :param pulumi.Input[_builtins.bool] enabled: Storage Task is enabled when set to true and disabled when set to false
-        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identity of the resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identity of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
@@ -94,14 +92,14 @@ class StorageTaskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']:
+    def identity(self) -> pulumi.Input['ManagedServiceIdentityArgs']:
         """
         The managed service identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']):
+    def identity(self, value: pulumi.Input['ManagedServiceIdentityArgs']):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -162,7 +160,7 @@ class StorageTask(pulumi.CustomResource):
                  action: Optional[pulumi.Input[Union['StorageTaskActionArgs', 'StorageTaskActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_task_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -179,7 +177,7 @@ class StorageTask(pulumi.CustomResource):
         :param pulumi.Input[Union['StorageTaskActionArgs', 'StorageTaskActionArgsDict']] action: The storage task action that is executed
         :param pulumi.Input[_builtins.str] description: Text that describes the purpose of the storage task
         :param pulumi.Input[_builtins.bool] enabled: Storage Task is enabled when set to true and disabled when set to false
-        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identity of the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
@@ -215,7 +213,7 @@ class StorageTask(pulumi.CustomResource):
                  action: Optional[pulumi.Input[Union['StorageTaskActionArgs', 'StorageTaskActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_task_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -335,7 +333,7 @@ class StorageTask(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['_commontypesv5.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> pulumi.Output['outputs.ManagedServiceIdentityResponse']:
         """
         The managed service identity of the resource.
         """
@@ -367,7 +365,7 @@ class StorageTask(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

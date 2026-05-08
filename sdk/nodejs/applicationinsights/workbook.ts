@@ -96,7 +96,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv1.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.applicationinsights.SystemDataResponse>;
     /**
      * Resource tags.
      */

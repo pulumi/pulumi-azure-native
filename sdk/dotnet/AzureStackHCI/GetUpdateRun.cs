@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Timestamp of the update run was started.
         /// </summary>
@@ -222,7 +222,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             ImmutableArray<Outputs.StepResponse> steps,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? timeStarted,
 

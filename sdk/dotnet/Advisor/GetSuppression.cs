@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The duration for which the suppression is valid.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Advisor
 
             string? suppressionId,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? ttl,
 

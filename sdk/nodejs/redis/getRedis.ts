@@ -64,7 +64,7 @@ export interface GetRedisResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.redis.ManagedServiceIdentityResponse;
     /**
      * List of the Redis instances associated with the cache
      */
@@ -92,7 +92,7 @@ export interface GetRedisResult {
     /**
      * List of private endpoint connection associated with the specified redis cache
      */
-    readonly privateEndpointConnections: outputs.commontypesv4.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.redis.PrivateEndpointConnectionResponse[];
     /**
      * Redis instance provisioning status.
      */
@@ -140,7 +140,7 @@ export interface GetRedisResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv4.SystemDataResponse;
+    readonly systemData: outputs.redis.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -59,11 +59,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The private endpoint resource.
      */
-    readonly privateEndpoint?: outputs.commontypesv6.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.fileshares.PrivateEndpointResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.commontypesv6.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.fileshares.PrivateLinkServiceConnectionStateResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.fileshares.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

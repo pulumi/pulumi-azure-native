@@ -84,7 +84,7 @@ export interface GetApiGatewayResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.apimanagement.SystemDataResponse;
     /**
      * Resource tags.
      */

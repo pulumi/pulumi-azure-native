@@ -12,6 +12,7 @@ __all__ = [
     'Capability',
     'CatalogTier',
     'Direction',
+    'ManagedServiceIdentityType',
     'Polarization',
     'Protocol',
 ]
@@ -77,6 +78,17 @@ class Direction(_builtins.str, Enum):
     """
     UPLINK = "Uplink"
     DOWNLINK = "Downlink"
+
+
+@pulumi.type_token("azure-native:orbital:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:orbital:Polarization")

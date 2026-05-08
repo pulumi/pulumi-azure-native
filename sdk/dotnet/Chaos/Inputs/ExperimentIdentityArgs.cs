@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Commontypesv5.ManagedServiceIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Chaos.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputList<string>? _userAssignedIdentities;

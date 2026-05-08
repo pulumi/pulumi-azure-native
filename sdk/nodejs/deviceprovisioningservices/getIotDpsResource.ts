@@ -52,7 +52,7 @@ export interface GetIotDpsResourceResult {
     /**
      * The managed identities for a provisioning service.
      */
-    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.deviceprovisioningservices.ManagedServiceIdentityResponse;
     /**
      * The resource location.
      */
@@ -80,7 +80,7 @@ export interface GetIotDpsResourceResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.deviceprovisioningservices.SystemDataResponse;
     /**
      * The resource tags.
      */

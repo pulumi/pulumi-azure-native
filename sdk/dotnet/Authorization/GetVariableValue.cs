@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/variables/values).
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string name,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type,
 

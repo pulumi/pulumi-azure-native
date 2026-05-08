@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetBatchEndpointResult',
@@ -81,7 +80,7 @@ class GetBatchEndpointResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -121,7 +120,7 @@ class GetBatchEndpointResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['_commontypesv3.outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Sku details required for ARM contract for Autoscaling.
         """
@@ -129,7 +128,7 @@ class GetBatchEndpointResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

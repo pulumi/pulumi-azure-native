@@ -56,7 +56,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv5.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.deviceregistry.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -80,7 +80,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -166,7 +166,7 @@ export interface SchemaRegistryArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv5.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.deviceregistry.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

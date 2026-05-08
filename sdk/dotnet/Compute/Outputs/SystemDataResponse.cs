@@ -11,28 +11,56 @@ namespace Pulumi.AzureNative.Compute.Outputs
 {
 
     /// <summary>
-    /// The system meta data relating to this resource.
+    /// Metadata pertaining to creation and last modification of the resource.
     /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {
         /// <summary>
-        /// Specifies the time in UTC at which the Cloud Service (extended support) resource was created. &lt;br /&gt;Minimum api-version: 2022-04-04.
+        /// The timestamp of resource creation (UTC).
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
-        /// Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. &lt;br /&gt;Minimum api-version: 2022-04-04.
+        /// The identity that created the resource.
         /// </summary>
-        public readonly string LastModifiedAt;
+        public readonly string? CreatedBy;
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        public readonly string? CreatedByType;
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        public readonly string? LastModifiedAt;
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedByType;
 
         [OutputConstructor]
         private SystemDataResponse(
-            string createdAt,
+            string? createdAt,
 
-            string lastModifiedAt)
+            string? createdBy,
+
+            string? createdByType,
+
+            string? lastModifiedAt,
+
+            string? lastModifiedBy,
+
+            string? lastModifiedByType)
         {
             CreatedAt = createdAt;
+            CreatedBy = createdBy;
+            CreatedByType = createdByType;
             LastModifiedAt = lastModifiedAt;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedByType = lastModifiedByType;
         }
     }
 }

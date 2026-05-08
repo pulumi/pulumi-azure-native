@@ -56,7 +56,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.videoindexer.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -76,7 +76,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.videoindexer.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -159,7 +159,7 @@ export interface AccountArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.videoindexer.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

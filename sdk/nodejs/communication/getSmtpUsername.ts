@@ -61,7 +61,7 @@ export interface GetSmtpUsernameResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.communication.SystemDataResponse;
     /**
      * The tenant of the linked Entra Application.
      */

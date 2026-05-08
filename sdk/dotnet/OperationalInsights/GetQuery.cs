@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tags associated with the query.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated? related,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, ImmutableArray<string>>? tags,
 

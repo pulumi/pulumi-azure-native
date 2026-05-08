@@ -70,7 +70,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
     /**
      * Required property for system data
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.m365securityandcompliance.SystemDataResponse>;
     /**
      * The resource tags.
      */

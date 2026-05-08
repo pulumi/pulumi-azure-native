@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv2 as _commontypesv2
-from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetRedisEnterpriseResult',
@@ -130,7 +128,7 @@ class GetRedisEnterpriseResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The identity of the resource.
         """
@@ -170,7 +168,7 @@ class GetRedisEnterpriseResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['_commontypesv2.outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections associated with the specified Redis Enterprise cluster
         """

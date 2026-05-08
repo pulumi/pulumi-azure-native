@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// The system data.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets or sets the Resource tags.
         /// </summary>
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             object? settings,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

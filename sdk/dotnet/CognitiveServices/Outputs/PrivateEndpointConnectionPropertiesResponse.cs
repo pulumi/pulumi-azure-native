@@ -23,11 +23,11 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         private PrivateEndpointConnectionPropertiesResponse(
             ImmutableArray<string> groupIds,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState)
         {

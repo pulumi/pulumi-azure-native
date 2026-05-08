@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> HostPoolArmPath { get; private set; } = null!;
 
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> ObjectId { get; private set; } = null!;
 
         [Output("plan")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Boolean representing whether the applicationGroup is show in the feed.
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<bool?> ShowInFeed { get; private set; } = null!;
 
         [Output("sku")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string> HostPoolArmPath { get; set; } = null!;
 
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -263,7 +263,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string>? ManagedBy { get; set; }
 
         [Input("plan")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+        public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<bool>? ShowInFeed { get; set; }
 
         [Input("sku")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
+        public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -59,7 +59,7 @@ export interface GetPartnerConfigurationResult {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
      * Tags of the resource.
      */

@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -241,7 +241,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string? sku,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -96,7 +96,7 @@ export interface GetServerResult {
     /**
      * PrivateEndpointConnections related properties of a server.
      */
-    readonly privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.dbformysql.PrivateEndpointConnectionResponse[];
     /**
      * The maximum number of replicas that a primary server can have.
      */
@@ -124,7 +124,7 @@ export interface GetServerResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
      * Resource tags.
      */

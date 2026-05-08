@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string provisioningState,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             Outputs.AFDDomainHttpsParametersResponse? tlsSettings,
 

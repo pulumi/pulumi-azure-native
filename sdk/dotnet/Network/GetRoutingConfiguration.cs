@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

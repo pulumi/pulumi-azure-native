@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -63,7 +62,7 @@ class GetMapDependencyViewForAllMachinesResult:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['_commontypesv3.outputs.ErrorDetailResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         Contains error details if status is Failed/Canceled.
         """

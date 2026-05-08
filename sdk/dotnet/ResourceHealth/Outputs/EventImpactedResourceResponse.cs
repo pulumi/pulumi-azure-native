@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ResourceHealth.Outputs
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Impacted resource region name.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.ResourceHealth.Outputs
 
             string name,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string targetRegion,
 

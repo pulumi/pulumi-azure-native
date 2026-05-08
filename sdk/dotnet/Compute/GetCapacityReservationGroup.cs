@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ResourceSharingProfileResponse? sharingProfile,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

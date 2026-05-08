@@ -76,7 +76,7 @@ export class Credit extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -96,7 +96,7 @@ export class Credit extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.commontypesv6.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
     /**
      * Credit breakdown item representing a milestone, line-item, or no-charge service
      */
@@ -120,7 +120,7 @@ export class Credit extends pulumi.CustomResource {
     /**
      * The resource model definition representing SKU
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv6.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
     /**
      * Start DateTime.
      */
@@ -132,7 +132,7 @@ export class Credit extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
     /**
      * System identifier
      */
@@ -250,7 +250,7 @@ export interface CreditArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -266,7 +266,7 @@ export interface CreditArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.commontypesv6.PlanArgs>;
+    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
     /**
      * Credit breakdown item representing a milestone, line-item, or no-charge service
      */
@@ -286,7 +286,7 @@ export interface CreditArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.commontypesv6.SkuArgs>;
+    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
     /**
      * Start DateTime.
      */

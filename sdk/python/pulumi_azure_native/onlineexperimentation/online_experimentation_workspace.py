@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv6
-from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +23,7 @@ __all__ = ['OnlineExperimentationWorkspaceArgs', 'OnlineExperimentationWorkspace
 class OnlineExperimentationWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs']] = None,
                  sku: Optional[pulumi.Input['OnlineExperimentationWorkspaceSkuArgs']] = None,
@@ -35,7 +33,7 @@ class OnlineExperimentationWorkspaceArgs:
         The set of arguments for constructing a OnlineExperimentationWorkspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input['OnlineExperimentationWorkspaceSkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
@@ -70,14 +68,14 @@ class OnlineExperimentationWorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -147,7 +145,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -165,7 +163,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -202,7 +200,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -276,7 +274,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -316,7 +314,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

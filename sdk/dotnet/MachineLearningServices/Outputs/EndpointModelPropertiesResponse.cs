@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableArray<Outputs.EndpointModelSkuPropertiesResponse> skus,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? version)
         {

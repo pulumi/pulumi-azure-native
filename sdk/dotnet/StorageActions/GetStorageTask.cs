@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// <summary>
         /// The managed service identity of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.StorageActions
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse identity,
+            Outputs.ManagedServiceIdentityResponse identity,
 
             string location,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.StorageActions
 
             string provisioningState,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

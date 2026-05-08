@@ -66,7 +66,7 @@ export class FreeService extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -86,7 +86,7 @@ export class FreeService extends pulumi.CustomResource {
     /**
      * Plan for the resource.
      */
-    declare public readonly plan: pulumi.Output<outputs.commontypesv6.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
     /**
      * This is the catalog UPN for the product.
      */
@@ -98,7 +98,7 @@ export class FreeService extends pulumi.CustomResource {
     /**
      * The resource model definition representing SKU
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv6.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
     /**
      * Date and time when the free services become active
      */
@@ -110,7 +110,7 @@ export class FreeService extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
     /**
      * This is the globally unique identifier of the free services which will not change for its lifetime.
      */
@@ -206,7 +206,7 @@ export interface FreeServiceArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -222,7 +222,7 @@ export interface FreeServiceArgs {
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.commontypesv6.PlanArgs>;
+    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
     /**
      * This is the catalog UPN for the product.
      */
@@ -234,7 +234,7 @@ export interface FreeServiceArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.commontypesv6.SkuArgs>;
+    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
     /**
      * Date and time when the free services become active
      */

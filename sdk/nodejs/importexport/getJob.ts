@@ -62,7 +62,7 @@ export interface GetJobResult {
     /**
      * SystemData of ImportExport Jobs.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.importexport.SystemDataResponse;
     /**
      * Specifies the tags that are assigned to the job.
      */

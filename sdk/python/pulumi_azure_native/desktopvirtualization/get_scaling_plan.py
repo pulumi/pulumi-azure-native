@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetScalingPlanResult',
@@ -159,7 +158,7 @@ class GetScalingPlanResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
+    def identity(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
         return pulumi.get(self, "identity")
 
     @_builtins.property
@@ -204,7 +203,7 @@ class GetScalingPlanResult:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
+    def plan(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
         return pulumi.get(self, "plan")
 
     @_builtins.property
@@ -217,12 +216,12 @@ class GetScalingPlanResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['_commontypesv5.outputs.ResourceModelWithAllowedPropertySetResponseSku']:
+    def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
         return pulumi.get(self, "sku")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

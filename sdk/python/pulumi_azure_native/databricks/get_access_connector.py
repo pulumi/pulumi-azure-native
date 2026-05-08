@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetAccessConnectorResult',
@@ -75,7 +74,7 @@ class GetAccessConnectorResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -107,7 +106,7 @@ class GetAccessConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         The system metadata relating to this resource
         """

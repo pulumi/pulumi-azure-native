@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Management
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000

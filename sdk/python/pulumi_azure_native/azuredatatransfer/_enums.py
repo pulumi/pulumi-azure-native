@@ -18,6 +18,7 @@ __all__ = [
     'FlowStatus',
     'FlowType',
     'ListApprovedSchemasDirection',
+    'ManagedServiceIdentityType',
     'MatchType',
     'SchemaDirection',
     'SchemaStatus',
@@ -181,6 +182,17 @@ class ListApprovedSchemasDirection(_builtins.str, Enum):
     """
     SEND = "Send"
     RECEIVE = "Receive"
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:azuredatatransfer:MatchType")

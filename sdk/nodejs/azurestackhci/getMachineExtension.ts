@@ -87,7 +87,7 @@ export interface GetMachineExtensionResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.azurestackhci.SystemDataResponse;
     /**
      * The Resource tags.
      */

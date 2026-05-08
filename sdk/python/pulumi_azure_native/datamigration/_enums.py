@@ -10,6 +10,7 @@ __all__ = [
     'AuthType',
     'AuthenticationType',
     'BackupMode',
+    'ManagedServiceIdentityType',
     'MongoDbReplication',
     'MongoDbShardKeyOrder',
     'MySqlTargetPlatformType',
@@ -58,6 +59,17 @@ class BackupMode(_builtins.str, Enum):
     """
     CREATE_BACKUP = "CreateBackup"
     EXISTING_BACKUP = "ExistingBackup"
+
+
+@pulumi.type_token("azure-native:datamigration:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:datamigration:MongoDbReplication")

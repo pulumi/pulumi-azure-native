@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AzureDiskSkuName',
     'ElasticSanSkuName',
+    'ManagedServiceIdentityType',
     'ReclaimPolicy',
     'Zone',
 ]
@@ -62,6 +63,17 @@ class ElasticSanSkuName(_builtins.str, Enum):
     """
     Premium_ZRS SKU
     """
+
+
+@pulumi.type_token("azure-native:containerstorage:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 @pulumi.type_token("azure-native:containerstorage:ReclaimPolicy")

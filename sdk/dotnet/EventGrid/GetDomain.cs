@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The system metadata relating to the Event Grid resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tags of the resource.
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? publicNetworkAccess,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

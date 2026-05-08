@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.PrivateDns
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.PrivateDns
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             double? ttl,
 

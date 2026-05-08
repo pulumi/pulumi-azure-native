@@ -28,14 +28,20 @@ __all__ = [
     'GitRepositoryDefinitionArgsDict',
     'HelmOperatorPropertiesArgs',
     'HelmOperatorPropertiesArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
     'KubernetesConfigurationPrivateLinkScopePropertiesArgs',
     'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict',
     'KustomizationDefinitionArgs',
     'KustomizationDefinitionArgsDict',
     'ManagedIdentityDefinitionArgs',
     'ManagedIdentityDefinitionArgsDict',
+    'PlanArgs',
+    'PlanArgsDict',
     'PostBuildDefinitionArgs',
     'PostBuildDefinitionArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RepositoryRefDefinitionArgs',
     'RepositoryRefDefinitionArgsDict',
     'ScopeClusterArgs',
@@ -790,6 +796,40 @@ class HelmOperatorPropertiesArgs:
         pulumi.set(self, "chart_version", value)
 
 
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        Identity for the resource.
+
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+
 class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
     """
     Properties that define a Azure Arc PrivateLinkScope resource.
@@ -1083,6 +1123,117 @@ class ManagedIdentityDefinitionArgs:
         pulumi.set(self, "client_id", value)
 
 
+class PlanArgsDict(TypedDict):
+    """
+    Plan for the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A user defined name of the 3rd Party Artifact that is being procured.
+    """
+    product: pulumi.Input[_builtins.str]
+    """
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the desired product/artifact.
+    """
+
+@pulumi.input_type
+class PlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 product: pulumi.Input[_builtins.str],
+                 publisher: pulumi.Input[_builtins.str],
+                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Plan for the resource.
+
+        :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[_builtins.str]:
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "product", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[_builtins.str]:
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "publisher", value)
+
+    @_builtins.property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "promotion_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the desired product/artifact.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
 class PostBuildDefinitionArgsDict(TypedDict):
     """
     The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
@@ -1135,6 +1286,80 @@ class PostBuildDefinitionArgs:
     @substitute_from.setter
     def substitute_from(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]):
         pulumi.set(self, "substitute_from", value)
+
+
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+
+        :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 class RepositoryRefDefinitionArgsDict(TypedDict):

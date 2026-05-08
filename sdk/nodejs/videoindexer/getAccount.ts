@@ -56,7 +56,7 @@ export interface GetAccountResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.videoindexer.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -76,7 +76,7 @@ export interface GetAccountResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.videoindexer.SystemDataResponse;
     /**
      * Resource tags.
      */

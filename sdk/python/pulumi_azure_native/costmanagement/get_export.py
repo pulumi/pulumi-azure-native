@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetExportResult',
@@ -122,7 +121,7 @@ class GetExportResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv5.outputs.SystemAssignedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
         """
         The managed identity associated with Export
         """

@@ -70,7 +70,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
     /**
      * Required property for system data
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityandcompliance.SystemDataResponse>;
     /**
      * The resource tags.
      */

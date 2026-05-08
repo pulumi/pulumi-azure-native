@@ -51,7 +51,7 @@ export interface GetBulkActionResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.computebulkactions.ManagedServiceIdentityResponse;
     /**
      * The name of the resource
      */
@@ -59,7 +59,7 @@ export interface GetBulkActionResult {
     /**
      * Details of the resource plan.
      */
-    readonly plan?: outputs.commontypesv6.PlanResponse;
+    readonly plan?: outputs.computebulkactions.PlanResponse;
     /**
      * The resource-specific properties for this resource.
      */
@@ -67,7 +67,7 @@ export interface GetBulkActionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv6.SystemDataResponse;
+    readonly systemData: outputs.computebulkactions.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -72,7 +72,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * List of private endpoint connections
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.commontypesv4.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
@@ -84,7 +84,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**
      * Resource tags.
      */

@@ -140,7 +140,7 @@ export interface GetDeviceResult {
     /**
      * DataBoxEdge Resource
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

@@ -52,7 +52,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.keyvault.ManagedServiceIdentityResponse | undefined>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
@@ -149,7 +149,7 @@ export interface MHSMPrivateEndpointConnectionArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.keyvault.ManagedServiceIdentityArgs>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */

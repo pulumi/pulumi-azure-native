@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv2
-from .. import commontypesv2 as _commontypesv2
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +27,7 @@ class LabPlanArgs:
                  default_auto_shutdown_profile: Optional[pulumi.Input['AutoShutdownProfileArgs']] = None,
                  default_connection_profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
                  default_network_profile: Optional[pulumi.Input['LabPlanNetworkProfileArgs']] = None,
-                 identity: Optional[pulumi.Input['_commontypesv2.IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -44,7 +42,7 @@ class LabPlanArgs:
         :param pulumi.Input['AutoShutdownProfileArgs'] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['ConnectionProfileArgs'] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['LabPlanNetworkProfileArgs'] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-        :param pulumi.Input['_commontypesv2.IdentityArgs'] identity: Managed Identity Information
+        :param pulumi.Input['IdentityArgs'] identity: Managed Identity Information
         :param pulumi.Input[_builtins.str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[_builtins.str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -138,14 +136,14 @@ class LabPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv2.IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
         Managed Identity Information
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv2.IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -231,7 +229,7 @@ class LabPlan(pulumi.CustomResource):
                  default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
                  default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -254,7 +252,7 @@ class LabPlan(pulumi.CustomResource):
         :param pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-        :param pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']] identity: Managed Identity Information
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Managed Identity Information
         :param pulumi.Input[_builtins.str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[_builtins.str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -296,7 +294,7 @@ class LabPlan(pulumi.CustomResource):
                  default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
                  default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv2.IdentityArgs', '_commontypesv2.IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -417,7 +415,7 @@ class LabPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv2.outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         Managed Identity Information
         """
@@ -481,7 +479,7 @@ class LabPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv2.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Metadata pertaining to creation and last modification of the lab plan.
         """

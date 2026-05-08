@@ -92,7 +92,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
      * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */

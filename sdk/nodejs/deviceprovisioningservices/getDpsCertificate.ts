@@ -65,7 +65,7 @@ export interface GetDpsCertificateResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.deviceprovisioningservices.SystemDataResponse;
     /**
      * The resource type.
      */

@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
 
             Outputs.CertificatePropertiesResponse properties,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

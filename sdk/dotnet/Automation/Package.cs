@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Automation
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("allOf")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> AllOf { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> AllOf { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Automation
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Automation
         /// The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         /// </summary>
         [Input("allOf")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.TrackedResourceArgs>? AllOf { get; set; }
+        public Input<Inputs.TrackedResourceArgs>? AllOf { get; set; }
 
         /// <summary>
         /// The name of the automation account.

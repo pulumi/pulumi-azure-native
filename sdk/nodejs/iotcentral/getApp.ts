@@ -56,7 +56,7 @@ export interface GetAppResult {
     /**
      * The managed identities for the IoT Central application.
      */
-    readonly identity?: outputs.commontypesv3.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.iotcentral.SystemAssignedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -72,7 +72,7 @@ export interface GetAppResult {
     /**
      * Private endpoint connections created on this IoT Central application.
      */
-    readonly privateEndpointConnections: outputs.commontypesv4.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.iotcentral.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state of the application.
      */
@@ -96,7 +96,7 @@ export interface GetAppResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.iotcentral.SystemDataResponse;
     /**
      * Resource tags.
      */

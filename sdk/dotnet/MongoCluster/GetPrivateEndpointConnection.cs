@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -132,9 +132,9 @@ namespace Pulumi.AzureNative.MongoCluster
 
             string name,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

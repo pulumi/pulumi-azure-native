@@ -91,7 +91,7 @@ export class AzureLargeInstance extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurelargeinstance.SystemDataResponse>;
     /**
      * Resource tags.
      */

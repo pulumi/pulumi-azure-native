@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The identity of the testBaseAccount.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.TestBase
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
 
             string location,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.TestBase
 
             Outputs.TestBaseAccountSKUResponse sku,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -92,7 +92,7 @@ export interface GetManagedEnvironmentResult {
     /**
      * Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.app.ManagedServiceIdentityResponse;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
      */
@@ -152,7 +152,7 @@ export interface GetManagedEnvironmentResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.app.SystemDataResponse;
     /**
      * Resource tags.
      */

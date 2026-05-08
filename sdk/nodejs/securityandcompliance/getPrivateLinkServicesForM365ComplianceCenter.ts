@@ -70,7 +70,7 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterResult {
     /**
      * Required property for system data
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.securityandcompliance.SystemDataResponse;
     /**
      * The resource tags.
      */

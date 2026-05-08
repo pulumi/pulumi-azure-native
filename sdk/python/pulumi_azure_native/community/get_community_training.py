@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetCommunityTrainingResult',
@@ -168,7 +167,7 @@ class GetCommunityTrainingResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['_commontypesv3.outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
@@ -176,7 +175,7 @@ class GetCommunityTrainingResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetMonitorResult',
@@ -113,7 +112,7 @@ class GetMonitorResult:
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> '_commontypesv5.outputs.ErrorDetailResponse':
+    def errors(self) -> 'outputs.ErrorDetailResponse':
         """
         Defines the SAP monitor errors.
         """
@@ -129,7 +128,7 @@ class GetMonitorResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The managed service identities assigned to this resource.
         """
@@ -209,7 +208,7 @@ class GetMonitorResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

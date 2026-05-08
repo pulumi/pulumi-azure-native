@@ -75,7 +75,7 @@ export interface GetPolicyDefinitionResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */

@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Metadata pertaining to creation and last modification of Container
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             Outputs.RefreshDetailsResponse refreshDetails,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

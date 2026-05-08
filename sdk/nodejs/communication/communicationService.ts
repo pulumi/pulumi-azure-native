@@ -56,7 +56,7 @@ export class CommunicationService extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv5.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.communication.ManagedServiceIdentityResponse | undefined>;
     /**
      * The immutable resource Id of the communication service.
      */
@@ -84,7 +84,7 @@ export class CommunicationService extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -169,7 +169,7 @@ export interface CommunicationServiceArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv5.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.communication.ManagedServiceIdentityArgs>;
     /**
      * List of email Domain resource Ids.
      */

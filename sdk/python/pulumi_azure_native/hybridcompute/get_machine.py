@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 
 __all__ = [
     'GetMachineResult',
@@ -243,7 +242,7 @@ class GetMachineResult:
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['_commontypesv3.outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         Details about the error state.
         """
@@ -267,7 +266,7 @@ class GetMachineResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv3.outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         Identity for the resource.
         """
@@ -307,7 +306,7 @@ class GetMachineResult:
 
     @_builtins.property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional['_commontypesv3.outputs.LocationDataResponse']:
+    def location_data(self) -> Optional['outputs.LocationDataResponse']:
         """
         Metadata pertaining to the geographic location of the resource.
         """
@@ -443,7 +442,7 @@ class GetMachineResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

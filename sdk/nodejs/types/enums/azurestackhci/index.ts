@@ -414,6 +414,18 @@ export const LoadBalancerRuleTransportProtocol = {
  */
 export type LoadBalancerRuleTransportProtocol = (typeof LoadBalancerRuleTransportProtocol)[keyof typeof LoadBalancerRuleTransportProtocol];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const NetworkTypeEnum = {
     NAT: "NAT",
     Transparent: "Transparent",
@@ -604,6 +616,15 @@ export const RemoteSupportType = {
  * Remote support type.
  */
 export type RemoteSupportType = (typeof RemoteSupportType)[keyof typeof RemoteSupportType];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SdnIntegrationIntent = {
     /**

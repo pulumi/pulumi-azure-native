@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Configuration for throughput pool in the fleetspace.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.CosmosDB
 
             string? serviceTier,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             Outputs.FleetspacePropertiesResponseThroughputPoolConfiguration? throughputPoolConfiguration,
 

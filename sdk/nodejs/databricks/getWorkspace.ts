@@ -132,7 +132,7 @@ export interface GetWorkspaceResult {
     /**
      * The system metadata relating to this resource
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.databricks.SystemDataResponse;
     /**
      * Resource tags.
      */

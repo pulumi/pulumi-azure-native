@@ -16,6 +16,9 @@ export const getCommunityTrainingOutput: typeof import("./getCommunityTraining")
 utilities.lazyLoad(exports, ["getCommunityTraining","getCommunityTrainingOutput"], () => require("./getCommunityTraining"));
 
 
+// Export enums:
+export * from "../types/enums/community";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

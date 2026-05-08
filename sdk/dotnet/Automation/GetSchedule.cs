@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets or sets the time zone of the schedule.
         /// </summary>
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.Automation
 
             double startTimeOffsetMinutes,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? timeZone,
 

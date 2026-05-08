@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// <summary>
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public readonly ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private DataCollectionRuleResourceResponseIdentity(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 
             string type,
 
-            ImmutableDictionary<string, Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

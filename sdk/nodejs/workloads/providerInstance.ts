@@ -48,7 +48,7 @@ export class ProviderInstance extends pulumi.CustomResource {
     /**
      * Defines the provider instance errors.
      */
-    declare public /*out*/ readonly errors: pulumi.Output<outputs.commontypesv5.ErrorDetailResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
     /**
      * Resource health details
      */
@@ -68,7 +68,7 @@ export class ProviderInstance extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv6
-from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -27,13 +25,13 @@ class SourceArgs:
                  credit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  credit: Optional[pulumi.Input['CommitmentArgs']] = None,
-                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  impacted_billing_period: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['_commontypesv6.PlanArgs']] = None,
-                 sku: Optional[pulumi.Input['_commontypesv6.SkuArgs']] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'CreditStatus']]] = None,
@@ -44,13 +42,13 @@ class SourceArgs:
         :param pulumi.Input[_builtins.str] credit_name: Name of the credit
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CommitmentArgs'] credit: Commitment towards the benefit.
-        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] impacted_billing_period: The billing period of the impact for the resource. Format YYYYMM
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input['_commontypesv6.PlanArgs'] plan: Plan for the resource.
-        :param pulumi.Input['_commontypesv6.SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] source_name: Name of the credit source
         :param pulumi.Input[_builtins.str] source_resource_id: The uri of the resource impacted which lead to the grant of the credit.
         :param pulumi.Input[Union[_builtins.str, 'CreditStatus']] status: Status of the credit
@@ -121,14 +119,14 @@ class SourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -181,26 +179,26 @@ class SourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['_commontypesv6.PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['_commontypesv6.PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['_commontypesv6.SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['_commontypesv6.SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -260,14 +258,14 @@ class Source(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credit: Optional[pulumi.Input[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
                  credit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  impacted_billing_period: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'CreditStatus']]] = None,
@@ -285,14 +283,14 @@ class Source(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CommitmentArgs', 'CommitmentArgsDict']] credit: Commitment towards the benefit.
         :param pulumi.Input[_builtins.str] credit_name: Name of the credit
-        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] impacted_billing_period: The billing period of the impact for the resource. Format YYYYMM
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] source_name: Name of the credit source
         :param pulumi.Input[_builtins.str] source_resource_id: The uri of the resource impacted which lead to the grant of the credit.
         :param pulumi.Input[Union[_builtins.str, 'CreditStatus']] status: Status of the credit
@@ -329,14 +327,14 @@ class Source(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credit: Optional[pulumi.Input[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
                  credit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  impacted_billing_period: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv6.SkuArgs', '_commontypesv6.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[Union[_builtins.str, 'CreditStatus']]] = None,
@@ -441,7 +439,7 @@ class Source(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -489,7 +487,7 @@ class Source(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['_commontypesv6.outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         Plan for the resource.
         """
@@ -497,7 +495,7 @@ class Source(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['_commontypesv6.outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The resource model definition representing SKU
         """
@@ -521,7 +519,7 @@ class Source(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

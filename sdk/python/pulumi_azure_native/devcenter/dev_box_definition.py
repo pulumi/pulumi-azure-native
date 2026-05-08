@@ -14,9 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3
-from .. import commontypesv3 as _commontypesv3
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +25,7 @@ class DevBoxDefinitionArgs:
                  dev_center_name: pulumi.Input[_builtins.str],
                  image_reference: pulumi.Input['ImageReferenceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sku: pulumi.Input['_commontypesv3.SkuArgs'],
+                 sku: pulumi.Input['SkuArgs'],
                  dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  hibernate_support: Optional[pulumi.Input[Union[_builtins.str, 'HibernateSupport']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -40,7 +37,7 @@ class DevBoxDefinitionArgs:
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Image reference information.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: The SKU for Dev Boxes created using this definition.
+        :param pulumi.Input['SkuArgs'] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[_builtins.str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[Union[_builtins.str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -100,14 +97,14 @@ class DevBoxDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['_commontypesv3.SkuArgs']:
+    def sku(self) -> pulumi.Input['SkuArgs']:
         """
         The SKU for Dev Boxes created using this definition.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['_commontypesv3.SkuArgs']):
+    def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -184,7 +181,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  os_storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -204,7 +201,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: The SKU for Dev Boxes created using this definition.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -243,7 +240,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  os_storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -403,7 +400,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output['_commontypesv3.outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The SKU for Dev Boxes created using this definition.
         """
@@ -411,7 +408,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +27,7 @@ class VirtualMachineInstanceArgs:
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']] = None,
                  http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  network_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']] = None,
                  os_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']] = None,
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -43,7 +41,7 @@ class VirtualMachineInstanceArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs'] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
-        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs'] network_profile: NetworkProfile - describes the network configuration the virtual machine instance
         :param pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs'] os_profile: OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[_builtins.str] resource_uid: Unique identifier defined by ARC to identify the guest of the VM.
@@ -136,14 +134,14 @@ class VirtualMachineInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -217,7 +215,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -239,7 +237,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         :param pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']] http_proxy_config: HTTP Proxy configuration for the VM.
-        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']] network_profile: NetworkProfile - describes the network configuration the virtual machine instance
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']] os_profile: OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[_builtins.str] resource_uid: Unique identifier defined by ARC to identify the guest of the VM.
@@ -280,7 +278,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -415,7 +413,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -495,7 +493,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Education
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Total budget
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.Education
 
             string status,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             Outputs.AmountResponse totalBudget,
 

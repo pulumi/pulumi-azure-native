@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource Tags

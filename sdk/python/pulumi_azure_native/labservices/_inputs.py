@@ -13,8 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv2
-from .. import commontypesv2 as _commontypesv2
 from ._enums import *
 
 __all__ = [
@@ -24,6 +22,8 @@ __all__ = [
     'ConnectionProfileArgsDict',
     'CredentialsArgs',
     'CredentialsArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
     'ImageReferenceArgs',
     'ImageReferenceArgsDict',
     'LabNetworkProfileArgs',
@@ -36,6 +36,8 @@ __all__ = [
     'RosterProfileArgsDict',
     'SecurityProfileArgs',
     'SecurityProfileArgsDict',
+    'SkuArgs',
+    'SkuArgsDict',
     'SupportInfoArgs',
     'SupportInfoArgsDict',
     'VirtualMachineAdditionalCapabilitiesArgs',
@@ -337,6 +339,40 @@ class CredentialsArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "password", value)
+
+
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        Identity for the resource.
+
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 class ImageReferenceArgsDict(TypedDict):
@@ -801,6 +837,119 @@ class SecurityProfileArgs:
         pulumi.set(self, "open_access", value)
 
 
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Ex - P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 size: Optional[pulumi.Input[_builtins.str]] = None,
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
+        """
+        The resource model definition representing SKU
+
+        :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "capacity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "family", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "size", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+        pulumi.set(self, "tier", value)
+
+
 class SupportInfoArgsDict(TypedDict):
     """
     Support contact information and instructions.
@@ -947,7 +1096,7 @@ class VirtualMachineProfileArgsDict(TypedDict):
     """
     The image configuration for lab virtual machines.
     """
-    sku: pulumi.Input['_commontypesv2.SkuArgsDict']
+    sku: pulumi.Input['SkuArgsDict']
     """
     The SKU for the lab. Defines the type of virtual machines used in the lab.
     """
@@ -974,7 +1123,7 @@ class VirtualMachineProfileArgs:
                  admin_user: pulumi.Input['CredentialsArgs'],
                  create_option: pulumi.Input['CreateOption'],
                  image_reference: pulumi.Input['ImageReferenceArgs'],
-                 sku: pulumi.Input['_commontypesv2.SkuArgs'],
+                 sku: pulumi.Input['SkuArgs'],
                  usage_quota: pulumi.Input[_builtins.str],
                  additional_capabilities: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']] = None,
                  non_admin_user: Optional[pulumi.Input['CredentialsArgs']] = None,
@@ -985,7 +1134,7 @@ class VirtualMachineProfileArgs:
         :param pulumi.Input['CredentialsArgs'] admin_user: Credentials for the admin user on the VM.
         :param pulumi.Input['CreateOption'] create_option: Indicates what lab virtual machines are created from.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: The image configuration for lab virtual machines.
-        :param pulumi.Input['_commontypesv2.SkuArgs'] sku: The SKU for the lab. Defines the type of virtual machines used in the lab.
+        :param pulumi.Input['SkuArgs'] sku: The SKU for the lab. Defines the type of virtual machines used in the lab.
         :param pulumi.Input[_builtins.str] usage_quota: The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
         :param pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: Additional VM capabilities.
         :param pulumi.Input['CredentialsArgs'] non_admin_user: Credentials for the non-admin user on the VM, if one exists.
@@ -1043,14 +1192,14 @@ class VirtualMachineProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['_commontypesv2.SkuArgs']:
+    def sku(self) -> pulumi.Input['SkuArgs']:
         """
         The SKU for the lab. Defines the type of virtual machines used in the lab.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['_commontypesv2.SkuArgs']):
+    def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
 
     @_builtins.property

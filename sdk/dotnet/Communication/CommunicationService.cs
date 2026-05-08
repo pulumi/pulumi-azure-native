@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Communication
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The immutable resource Id of the communication service.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Communication
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Communication
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         [Input("linkedDomains")]
         private InputList<string>? _linkedDomains;

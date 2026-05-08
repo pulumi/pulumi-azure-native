@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.LabServices
         /// Metadata pertaining to creation and last modification of the schedule.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The IANA timezone id for the schedule.

@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv1 as _commontypesv1
 
 __all__ = ['WorkspaceArgs', 'Workspace']
 

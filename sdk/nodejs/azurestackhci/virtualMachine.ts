@@ -58,7 +58,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.azurestackhci.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -94,7 +94,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -182,7 +182,7 @@ export interface VirtualMachineArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv3.IdentityArgs>;
+    identity?: pulumi.Input<inputs.azurestackhci.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

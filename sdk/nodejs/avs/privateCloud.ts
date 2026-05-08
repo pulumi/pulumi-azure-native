@@ -79,7 +79,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv5.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.avs.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -139,11 +139,11 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv5.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.avs.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -289,7 +289,7 @@ export interface PrivateCloudArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv5.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.avs.SystemAssignedServiceIdentityArgs>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -327,7 +327,7 @@ export interface PrivateCloudArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku: pulumi.Input<inputs.commontypesv5.SkuArgs>;
+    sku: pulumi.Input<inputs.avs.SkuArgs>;
     /**
      * Resource tags.
      */

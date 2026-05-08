@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
 
             string provisioningState,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

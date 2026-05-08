@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv4 as _commontypesv4
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -23,10 +21,14 @@ __all__ = [
     'CatalogConflictErrorResponse',
     'CatalogErrorDetailsResponse',
     'CatalogSyncErrorResponse',
+    'CustomerManagedKeyEncryptionResponse',
+    'CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity',
     'DevCenterProjectCatalogSettingsResponse',
     'DevCenterSkuResponse',
     'EncryptionResponse',
     'EnvironmentRoleResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'GitCatalogResponse',
     'HealthStatusDetailResponse',
     'ImageCreationErrorDetailsResponse',
@@ -35,13 +37,17 @@ __all__ = [
     'ImageDefinitionBuildTaskResponseParameters',
     'ImageReferenceResponse',
     'ImageValidationErrorDetailsResponse',
+    'ManagedServiceIdentityResponse',
     'PlanMemberSyncStatusResponse',
     'ProjectCatalogSettingsResponse',
     'ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment',
     'ProjectNetworkSettingsResponse',
     'ResourcePolicyResponse',
+    'SkuResponse',
     'StopOnDisconnectConfigurationResponse',
     'SyncStatsResponse',
+    'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'UserRoleAssignmentResponse',
 ]
 
@@ -181,6 +187,130 @@ class CatalogSyncErrorResponse(dict):
         The path of the file the error is associated with.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class CustomerManagedKeyEncryptionResponse(dict):
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyEncryptionKeyIdentity":
+            suggest = "key_encryption_key_identity"
+        elif key == "keyEncryptionKeyUrl":
+            suggest = "key_encryption_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerManagedKeyEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerManagedKeyEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerManagedKeyEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional['outputs.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity'] = None,
+                 key_encryption_key_url: Optional[_builtins.str] = None):
+        """
+        All Customer-managed key encryption properties for the resource.
+
+        :param 'CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param _builtins.str key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional['outputs.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity']:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[_builtins.str]:
+        """
+        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+
+@pulumi.output_type
+class CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity(dict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delegatedIdentityClientId":
+            suggest = "delegated_identity_client_id"
+        elif key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delegated_identity_client_id: Optional[_builtins.str] = None,
+                 identity_type: Optional[_builtins.str] = None,
+                 user_assigned_identity_resource_id: Optional[_builtins.str] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
+        :param _builtins.str delegated_identity_client_id: delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+        :param _builtins.str identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
+        :param _builtins.str user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+        """
+        if delegated_identity_client_id is not None:
+            pulumi.set(__self__, "delegated_identity_client_id", delegated_identity_client_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="delegatedIdentityClientId")
+    def delegated_identity_client_id(self) -> Optional[_builtins.str]:
+        """
+        delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+        """
+        return pulumi.get(self, "delegated_identity_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[_builtins.str]:
+        """
+        Values can be systemAssignedIdentity or userAssignedIdentity
+        """
+        return pulumi.get(self, "identity_type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[_builtins.str]:
+        """
+        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
 
 
 @pulumi.output_type
@@ -348,16 +478,16 @@ class EncryptionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional['_commontypesv4.outputs.CustomerManagedKeyEncryptionResponse'] = None):
+                 customer_managed_key_encryption: Optional['outputs.CustomerManagedKeyEncryptionResponse'] = None):
         """
-        :param '_commontypesv4.CustomerManagedKeyEncryptionResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
+        :param 'CustomerManagedKeyEncryptionResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:
             pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional['_commontypesv4.outputs.CustomerManagedKeyEncryptionResponse']:
+    def customer_managed_key_encryption(self) -> Optional['outputs.CustomerManagedKeyEncryptionResponse']:
         """
         All Customer-managed key encryption properties for the resource.
         """
@@ -413,6 +543,124 @@ class EnvironmentRoleResponse(dict):
         The common name of the Role Assignment. This is a descriptive name such as 'AcrPush'.
         """
         return pulumi.get(self, "role_name")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: _builtins.str):
+        """
+        The resource management error additional info.
+
+        :param Any info: The additional info.
+        :param _builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        The error detail.
+
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -840,6 +1088,84 @@ class ImageValidationErrorDetailsResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+
+        :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class PlanMemberSyncStatusResponse(dict):
     """
     The sync status of the plan member.
@@ -868,13 +1194,13 @@ class PlanMemberSyncStatusResponse(dict):
     def __init__(__self__, *,
                  last_sync_time: _builtins.str,
                  sync_state: _builtins.str,
-                 last_sync_error: Optional['_commontypesv5.outputs.ErrorDetailResponse'] = None):
+                 last_sync_error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         The sync status of the plan member.
 
         :param _builtins.str last_sync_time: When the plan member was last synced.
         :param _builtins.str sync_state: The synchronization state of the plan member.
-        :param '_commontypesv5.ErrorDetailResponse' last_sync_error: Error response describing why the sync failed.
+        :param 'ErrorDetailResponse' last_sync_error: Error response describing why the sync failed.
         """
         pulumi.set(__self__, "last_sync_time", last_sync_time)
         pulumi.set(__self__, "sync_state", sync_state)
@@ -899,7 +1225,7 @@ class PlanMemberSyncStatusResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="lastSyncError")
-    def last_sync_error(self) -> Optional['_commontypesv5.outputs.ErrorDetailResponse']:
+    def last_sync_error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         Error response describing why the sync failed.
         """
@@ -1028,6 +1354,77 @@ class ResourcePolicyResponse(dict):
         Resources that are included and shared as a part of a project policy.
         """
         return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The resource model definition representing SKU
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 capacity: Optional[_builtins.int] = None,
+                 family: Optional[_builtins.str] = None,
+                 size: Optional[_builtins.str] = None,
+                 tier: Optional[_builtins.str] = None):
+        """
+        The resource model definition representing SKU
+
+        :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
+        :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the SKU. E.g. P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[_builtins.int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter
+    def family(self) -> Optional[_builtins.str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[_builtins.str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[_builtins.str]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1192,6 +1589,170 @@ class SyncStatsResponse(dict):
         Indicates catalog item types that were synced.
         """
         return pulumi.get(self, "synced_catalog_item_types")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        User assigned identity properties
+
+        :param _builtins.str client_id: The client ID of the assigned identity.
+        :param _builtins.str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

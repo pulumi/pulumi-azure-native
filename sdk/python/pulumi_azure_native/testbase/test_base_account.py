@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +24,7 @@ class TestBaseAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['TestBaseAccountSKUArgs'],
-                 identity: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  restore: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -36,7 +34,7 @@ class TestBaseAccountArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['TestBaseAccountSKUArgs'] sku: The SKU of the Test Base Account.
-        :param pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs'] identity: The identity of the testBaseAccount.
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The identity of the testBaseAccount.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] restore: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -81,14 +79,14 @@ class TestBaseAccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
         """
         The identity of the testBaseAccount.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -146,7 +144,7 @@ class TestBaseAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -164,7 +162,7 @@ class TestBaseAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']] identity: The identity of the testBaseAccount.
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The identity of the testBaseAccount.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] restore: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
@@ -201,7 +199,7 @@ class TestBaseAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -288,7 +286,7 @@ class TestBaseAccount(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.SystemAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
         """
         The identity of the testBaseAccount.
         """
@@ -328,7 +326,7 @@ class TestBaseAccount(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

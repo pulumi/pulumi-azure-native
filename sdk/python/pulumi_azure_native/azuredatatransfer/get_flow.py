@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
-from .. import commontypesv5 as _commontypesv5
 
 __all__ = [
     'GetFlowResult',
@@ -79,7 +77,7 @@ class GetFlowResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv3.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The managed identity of the flow resource, if configured.
         """
@@ -103,7 +101,7 @@ class GetFlowResult:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional['_commontypesv5.outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanResponse']:
         """
         Plan for the resource.
         """
@@ -119,7 +117,7 @@ class GetFlowResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

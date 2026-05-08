@@ -24,13 +24,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// The identity which will be leveraged by the monitoring jobs.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
 
         [OutputConstructor]
         private ManagedComputeIdentityResponse(
             string computeIdentityType,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity)
+            Outputs.ManagedServiceIdentityResponse? identity)
         {
             ComputeIdentityType = computeIdentityType;
             Identity = identity;

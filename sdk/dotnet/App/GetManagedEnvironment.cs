@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.AzureNative.App
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? infrastructureResourceGroup,
 
@@ -282,7 +282,7 @@ namespace Pulumi.AzureNative.App
 
             string staticIp,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

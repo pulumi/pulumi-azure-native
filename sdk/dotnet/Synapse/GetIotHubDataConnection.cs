@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The table where the data should be ingested. Optionally the table information can be added to each message.
         /// </summary>
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string sharedAccessPolicyName,
 
-            Pulumi.AzureNative.Commontypesv1.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? tableName,
 

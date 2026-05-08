@@ -26,6 +26,7 @@ __all__ = [
     'ManagedPERequirement',
     'ManagedPEStatus',
     'NetworkRuleAction',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'RaiActionType',
     'RaiPolicyContentSource',
@@ -420,6 +421,16 @@ class NetworkRuleAction(_builtins.str, Enum):
     """
     ALLOW = "Allow"
     DENY = "Deny"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:cognitiveservices:PublicNetworkAccess")

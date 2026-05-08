@@ -9,7 +9,9 @@ from enum import Enum
 __all__ = [
     'AppSku',
     'NetworkAction',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'SystemAssignedServiceIdentityType',
 ]
 
 
@@ -32,6 +34,16 @@ class NetworkAction(_builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:iotcentral:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
 @pulumi.type_token("azure-native:iotcentral:PublicNetworkAccess")
 class PublicNetworkAccess(_builtins.str, Enum):
     """
@@ -39,3 +51,12 @@ class PublicNetworkAccess(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:iotcentral:SystemAssignedServiceIdentityType")
+class SystemAssignedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"

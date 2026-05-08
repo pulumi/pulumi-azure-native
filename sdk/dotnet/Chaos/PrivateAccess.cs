@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Chaos
         /// A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Pulumi.AzureNative.Commontypesv6.Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Most recent provisioning state for the given privateAccess resource.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Chaos
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

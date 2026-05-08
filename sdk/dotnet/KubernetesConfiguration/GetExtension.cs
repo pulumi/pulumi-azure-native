@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Error information from the Agent - e.g. errors during installation.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.ErrorDetailResponse ErrorInfo;
+        public readonly Outputs.ErrorDetailResponse ErrorInfo;
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Identity of the Extension resource
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Flag to note if this extension is a system extension
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Status of installation of this extension.
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -228,13 +228,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             ImmutableDictionary<string, string> customLocationSettings,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.ErrorDetailResponse errorInfo,
+            Outputs.ErrorDetailResponse errorInfo,
 
             string? extensionType,
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.IdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             bool isSystemExtension,
 
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string packageUri,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.PlanResponse? plan,
+            Outputs.PlanResponse? plan,
 
             string provisioningState,
 
@@ -252,7 +252,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             ImmutableArray<Outputs.ExtensionStatusResponse> statuses,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type,
 

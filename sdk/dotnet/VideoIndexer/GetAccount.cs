@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.VideoIndexer
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.VideoIndexer
 
             Outputs.StorageServicesForPutRequestResponse? storageServices,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

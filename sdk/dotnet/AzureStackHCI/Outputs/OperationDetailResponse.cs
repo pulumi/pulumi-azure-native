@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// error details.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// operation id.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         private OperationDetailResponse(
             string description,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse error,
+            Outputs.ErrorDetailResponse error,
 
             string id,
 

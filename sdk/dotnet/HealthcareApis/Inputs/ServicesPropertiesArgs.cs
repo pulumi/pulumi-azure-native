@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         public Input<Inputs.ServiceImportConfigurationInfoArgs>? ImportConfiguration { get; set; }
 
         [Input("privateEndpointConnections")]
-        private InputList<Pulumi.AzureNative.Commontypesv1.Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
 
         /// <summary>
         /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
-        public InputList<Pulumi.AzureNative.Commontypesv1.Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
         {
-            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Pulumi.AzureNative.Commontypesv1.Inputs.PrivateEndpointConnectionArgs>());
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
 

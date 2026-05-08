@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
-from .. import commontypesv4 as _commontypesv4
 
 __all__ = [
     'GetCommunicationsGatewayResult',
@@ -218,7 +216,7 @@ class GetCommunicationsGatewayResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv4.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The managed service identities assigned to this resource.
         """
@@ -282,7 +280,7 @@ class GetCommunicationsGatewayResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['_commontypesv3.outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
@@ -298,7 +296,7 @@ class GetCommunicationsGatewayResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

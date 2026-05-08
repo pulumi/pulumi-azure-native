@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Plan for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Product code for the conditional credit
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Start date of the conditional credit
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string name,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.PlanResponse? plan,
+            Outputs.PlanResponse? plan,
 
             string? productCode,
 
@@ -216,13 +216,13 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             string? resourceId,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SkuResponse? sku,
+            Outputs.SkuResponse? sku,
 
             string? startAt,
 
             string? status,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

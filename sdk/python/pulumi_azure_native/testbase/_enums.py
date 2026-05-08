@@ -22,6 +22,7 @@ __all__ = [
     'IntuneExtractStatus',
     'PackageStudioTabs',
     'RequestTypes',
+    'SystemAssignedServiceIdentityType',
     'TestType',
     'Tier',
 ]
@@ -207,6 +208,15 @@ class PackageStudioTabs(_builtins.str, Enum):
 @pulumi.type_token("azure-native:testbase:RequestTypes")
 class RequestTypes(_builtins.str, Enum):
     PRE_RELEASE_ACCESS = "PreReleaseAccess"
+
+
+@pulumi.type_token("azure-native:testbase:SystemAssignedServiceIdentityType")
+class SystemAssignedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:testbase:TestType")

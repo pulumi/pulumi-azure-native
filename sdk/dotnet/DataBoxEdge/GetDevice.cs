@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// DataBoxEdge Resource
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         /// </summary>
@@ -256,7 +256,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             Outputs.SkuResponse? sku,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

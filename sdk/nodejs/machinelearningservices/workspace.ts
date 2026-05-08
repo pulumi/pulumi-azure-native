@@ -85,7 +85,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * The compute name for image build
      */
@@ -155,7 +155,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
@@ -167,7 +167,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * The auth mode used for accessing the system datastores of the workspace.
      */
@@ -351,7 +351,7 @@ export interface WorkspaceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * The compute name for image build
      */
@@ -397,7 +397,7 @@ export interface WorkspaceArgs {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

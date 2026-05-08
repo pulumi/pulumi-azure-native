@@ -15,6 +15,7 @@ __all__ = [
     'DynamicThresholdDirection',
     'DynamicThresholdModel',
     'EntityImpact',
+    'ManagedServiceIdentityType',
     'MetricAggregationType',
     'RefreshInterval',
     'SignalKind',
@@ -149,6 +150,17 @@ class EntityImpact(_builtins.str, Enum):
     """
     Suppressed impact
     """
+
+
+@pulumi.type_token("azure-native:cloudhealth:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:cloudhealth:MetricAggregationType")

@@ -15,10 +15,11 @@ export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * overwrite default enum for type to reflect experiment's support of only one identity
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
