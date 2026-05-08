@@ -32,8 +32,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.7.0
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.105.0
-	github.com/pulumi/pulumi-java v1.26.0
-	github.com/pulumi/pulumi-yaml v1.33.0
+	github.com/pulumi/pulumi-java v1.26.1
+	github.com/pulumi/pulumi-yaml v1.33.1
 	github.com/pulumi/pulumi/pkg/v3 v3.236.0
 	github.com/pulumi/pulumi/sdk/v3 v3.236.0
 	github.com/schollz/progressbar/v3 v3.5.0
