@@ -58,7 +58,7 @@ export interface GetAccountResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.powerplatform.SystemDataResponse;
     /**
      * The internally assigned unique identifier of the resource.
      */

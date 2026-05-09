@@ -57,11 +57,11 @@ export interface GetPrivateEndpointConnectionByNameResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.commontypesv2.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.apimanagement.PrivateEndpointResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.apimanagement.PrivateLinkServiceConnectionStateResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

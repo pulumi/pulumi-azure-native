@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Incoming Traffic Policy
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// List of private endpoint connection associated with the specified storage sync service
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// StorageSyncService Provisioning State
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? incomingTrafficPolicy,
 
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             string storageSyncServiceUid,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

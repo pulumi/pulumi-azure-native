@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The system data.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The Resource tags.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             object? settings,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv1 as _commontypesv1
-from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 
 __all__ = [
@@ -53,6 +51,9 @@ __all__ = [
     'DeploymentStacksWhatIfResultPropertiesResponseV1',
     'DeploymentStacksWhatIfResultPropertiesResponseV2',
     'EnvironmentVariableResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
+    'ErrorResponseResponse',
     'ExtendedLocationResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
@@ -73,6 +74,7 @@ __all__ = [
     'ScriptStatusResponse',
     'SkuResponse',
     'StorageAccountConfigurationResponse',
+    'SystemDataResponse',
     'TagsResponse',
     'TemplateLinkResponse',
     'TemplateSpecVersionInfoResponse',
@@ -1280,7 +1282,7 @@ class DeploymentPropertiesExtendedResponse(dict):
                  debug_setting: 'outputs.DebugSettingResponse',
                  dependencies: Sequence['outputs.DependencyResponse'],
                  duration: _builtins.str,
-                 error: '_commontypesv1.outputs.ErrorResponseResponse',
+                 error: 'outputs.ErrorResponseResponse',
                  mode: _builtins.str,
                  on_error_deployment: 'outputs.OnErrorDeploymentExtendedResponse',
                  output_resources: Sequence['outputs.ResourceReferenceResponse'],
@@ -1300,7 +1302,7 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
         :param Sequence['DependencyResponse'] dependencies: The list of deployment dependencies.
         :param _builtins.str duration: The duration of the template deployment.
-        :param '_commontypesv1.ErrorResponseResponse' error: The deployment error.
+        :param 'ErrorResponseResponse' error: The deployment error.
         :param _builtins.str mode: The deployment mode. Possible values are Incremental and Complete.
         :param 'OnErrorDeploymentExtendedResponse' on_error_deployment: The deployment on error behavior.
         :param Sequence['ResourceReferenceResponse'] output_resources: Array of provisioned resources.
@@ -1366,7 +1368,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv1.outputs.ErrorResponseResponse':
+    def error(self) -> 'outputs.ErrorResponseResponse':
         """
         The deployment error.
         """
@@ -1536,7 +1538,7 @@ class DeploymentStacksDiagnosticResponse(dict):
                  code: _builtins.str,
                  level: _builtins.str,
                  message: _builtins.str,
-                 additional_info: Optional[Sequence['_commontypesv6.outputs.ErrorAdditionalInfoResponse']] = None,
+                 additional_info: Optional[Sequence['outputs.ErrorAdditionalInfoResponse']] = None,
                  target: Optional[_builtins.str] = None):
         """
         The error additional info
@@ -1544,7 +1546,7 @@ class DeploymentStacksDiagnosticResponse(dict):
         :param _builtins.str code: The error code.
         :param _builtins.str level: Denotes the additional response level.
         :param _builtins.str message: The error message.
-        :param Sequence['_commontypesv6.ErrorAdditionalInfoResponse'] additional_info: Additional error information.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: Additional error information.
         :param _builtins.str target: The error target.
         """
         pulumi.set(__self__, "code", code)
@@ -1581,7 +1583,7 @@ class DeploymentStacksDiagnosticResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[Sequence['_commontypesv6.outputs.ErrorAdditionalInfoResponse']]:
+    def additional_info(self) -> Optional[Sequence['outputs.ErrorAdditionalInfoResponse']]:
         """
         Additional error information.
         """
@@ -2250,7 +2252,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
                  deployment_stack_last_modified: _builtins.str,
                  deployment_stack_resource_id: _builtins.str,
                  diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
-                 error: '_commontypesv6.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  provisioning_state: _builtins.str,
                  retention_interval: _builtins.str,
                  debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
@@ -2269,7 +2271,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
         :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
         :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
-        :param '_commontypesv6.ErrorDetailResponse' error: The error detail.
+        :param 'ErrorDetailResponse' error: The error detail.
         :param _builtins.str provisioning_state: State of the deployment stack.
         :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
         :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
@@ -2360,7 +2362,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """
@@ -2481,7 +2483,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV1(dict):
                  deployment_stack_last_modified: _builtins.str,
                  deployment_stack_resource_id: _builtins.str,
                  diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
-                 error: '_commontypesv6.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  provisioning_state: _builtins.str,
                  retention_interval: _builtins.str,
                  debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
@@ -2500,7 +2502,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV1(dict):
         :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
         :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
         :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
-        :param '_commontypesv6.ErrorDetailResponse' error: The error detail.
+        :param 'ErrorDetailResponse' error: The error detail.
         :param _builtins.str provisioning_state: State of the deployment stack.
         :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
         :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
@@ -2591,7 +2593,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """
@@ -2712,7 +2714,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV2(dict):
                  deployment_stack_last_modified: _builtins.str,
                  deployment_stack_resource_id: _builtins.str,
                  diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
-                 error: '_commontypesv6.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  provisioning_state: _builtins.str,
                  retention_interval: _builtins.str,
                  debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
@@ -2731,7 +2733,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV2(dict):
         :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
         :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
         :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
-        :param '_commontypesv6.ErrorDetailResponse' error: The error detail.
+        :param 'ErrorDetailResponse' error: The error detail.
         :param _builtins.str provisioning_state: State of the deployment stack.
         :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
         :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
@@ -2822,7 +2824,7 @@ class DeploymentStacksWhatIfResultPropertiesResponseV2(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """
@@ -2955,6 +2957,208 @@ class EnvironmentVariableResponse(dict):
         The value of the environment variable.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: _builtins.str):
+        """
+        The resource management error additional info.
+
+        :param Any info: The additional info.
+        :param _builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        The error detail.
+
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ErrorResponseResponse(dict):
+    """
+    Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorResponseResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorResponseResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorResponseResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -3950,12 +4154,12 @@ class ResourceReferenceExtendedResponse(dict):
     The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
     """
     def __init__(__self__, *,
-                 error: '_commontypesv6.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  id: _builtins.str):
         """
         The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
 
-        :param '_commontypesv6.ErrorDetailResponse' error: The error detail.
+        :param 'ErrorDetailResponse' error: The error detail.
         :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         """
         pulumi.set(__self__, "error", error)
@@ -3963,7 +4167,7 @@ class ResourceReferenceExtendedResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv6.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """
@@ -4037,7 +4241,7 @@ class ScriptStatusResponse(dict):
                  expiration_time: _builtins.str,
                  start_time: _builtins.str,
                  storage_account_id: _builtins.str,
-                 error: Optional['_commontypesv1.outputs.ErrorResponseResponse'] = None):
+                 error: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Generic object modeling results of script execution.
 
@@ -4046,7 +4250,7 @@ class ScriptStatusResponse(dict):
         :param _builtins.str expiration_time: Time the deployment script resource will expire.
         :param _builtins.str start_time: Start time of the script execution.
         :param _builtins.str storage_account_id: Storage account resource Id.
-        :param '_commontypesv1.ErrorResponseResponse' error: Error that is relayed from the script execution.
+        :param 'ErrorResponseResponse' error: Error that is relayed from the script execution.
         """
         pulumi.set(__self__, "container_instance_id", container_instance_id)
         pulumi.set(__self__, "end_time", end_time)
@@ -4098,7 +4302,7 @@ class ScriptStatusResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['_commontypesv1.outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.ErrorResponseResponse']:
         """
         Error that is relayed from the script execution.
         """
@@ -4242,6 +4446,117 @@ class StorageAccountConfigurationResponse(dict):
         The storage account name.
         """
         return pulumi.get(self, "storage_account_name")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

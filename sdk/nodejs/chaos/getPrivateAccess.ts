@@ -56,7 +56,7 @@ export interface GetPrivateAccessResult {
     /**
      * A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
      */
-    readonly privateEndpointConnections: outputs.commontypesv6.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.chaos.PrivateEndpointConnectionResponse[];
     /**
      * Most recent provisioning state for the given privateAccess resource.
      */
@@ -68,7 +68,7 @@ export interface GetPrivateAccessResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.chaos.SystemDataResponse;
     /**
      * Resource tags.
      */

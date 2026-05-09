@@ -773,7 +773,7 @@
    "type": "string"
   },
   "systemData": {
-   "$ref": "#/types/azure-native:commontypesv6:SystemDataResponse",
+   "$ref": "#/types/azure-native:containerservice:SystemDataResponse",
    "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
    "type": "object"
   },
@@ -1430,7 +1430,7 @@
    ]
   },
   "systemData": {
-   "$ref": "#/types/azure-native:commontypesv6:SystemDataResponse"
+   "$ref": "#/types/azure-native:containerservice:SystemDataResponse"
   },
   "tags": {
    "additionalProperties": {

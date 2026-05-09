@@ -74,6 +74,18 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const PublicNetworkAccessType = {
     /**
      * Enables connectivity to Application Insights through public DNS.

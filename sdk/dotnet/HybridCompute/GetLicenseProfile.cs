@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The errors that were encountered during the feature enrollment or disenrollment.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Indicates the eligibility state of Esu.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string enrollmentDate,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse error,
+            Outputs.ErrorDetailResponse error,
 
             string esuEligibility,
 
@@ -234,7 +234,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string? subscriptionStatus,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

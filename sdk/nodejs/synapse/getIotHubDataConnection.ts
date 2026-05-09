@@ -102,7 +102,7 @@ export interface GetIotHubDataConnectionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv1.SystemDataResponse;
+    readonly systemData: outputs.synapse.SystemDataResponse;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */

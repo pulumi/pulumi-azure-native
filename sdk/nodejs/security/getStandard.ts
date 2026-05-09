@@ -86,7 +86,7 @@ export interface GetStandardResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.security.SystemDataResponse;
     /**
      * A list of key value pairs that describe the resource.
      */

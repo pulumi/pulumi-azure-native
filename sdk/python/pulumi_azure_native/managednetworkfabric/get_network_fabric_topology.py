@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5 as _commontypesv5
+from . import outputs
 
 __all__ = [
     'GetNetworkFabricTopologyResult',
@@ -48,7 +48,7 @@ class GetNetworkFabricTopologyResult:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['_commontypesv5.outputs.ErrorDetailResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         The error object.
         """

@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse AllOf;
+        public readonly Outputs.SystemDataResponse AllOf;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetPackageResult(
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse allOf,
+            Outputs.SystemDataResponse allOf,
 
             string azureApiVersion,
 
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Automation
 
             double? sizeInBytes,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

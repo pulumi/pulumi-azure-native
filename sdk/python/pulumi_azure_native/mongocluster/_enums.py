@@ -12,6 +12,7 @@ __all__ = [
     'HighAvailabilityMode',
     'IdentityProviderType',
     'PreviewFeature',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'UserRole',
 ]
@@ -94,6 +95,16 @@ class PreviewFeature(_builtins.str, Enum):
     """
     Enables geo replicas preview feature. The feature must be set at create-time on new cluster to enable linking a geo-replica cluster to it.
     """
+
+
+@pulumi.type_token("azure-native:mongocluster:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:mongocluster:PublicNetworkAccess")

@@ -56,7 +56,7 @@ export interface GetCommunicationServiceResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.communication.ManagedServiceIdentityResponse;
     /**
      * The immutable resource Id of the communication service.
      */
@@ -84,7 +84,7 @@ export interface GetCommunicationServiceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.communication.SystemDataResponse;
     /**
      * Resource tags.
      */

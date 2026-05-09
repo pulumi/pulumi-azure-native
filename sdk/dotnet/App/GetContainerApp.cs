@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.App
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNative.App
 
             string runningStatus,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

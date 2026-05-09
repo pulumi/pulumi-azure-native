@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The managed identity of the publisher, if configured.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             Outputs.PublisherPropertiesFormatResponse properties,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

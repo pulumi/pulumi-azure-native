@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string scope,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

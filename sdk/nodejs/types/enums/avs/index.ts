@@ -247,6 +247,18 @@ export const ScriptExecutionParameterType = {
  */
 export type ScriptExecutionParameterType = (typeof ScriptExecutionParameterType)[keyof typeof ScriptExecutionParameterType];
 
+export const SkuTier = {
+    Free: "Free",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
 export const SslEnum = {
     /**
      * is enabled
@@ -262,3 +274,13 @@ export const SslEnum = {
  * Protect LDAP communication using SSL certificate (LDAPS)
  */
 export type SslEnum = (typeof SslEnum)[keyof typeof SslEnum];
+
+export const SystemAssignedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (either system assigned, or none).
+ */
+export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];

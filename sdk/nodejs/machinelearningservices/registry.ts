@@ -52,7 +52,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * IntellectualPropertyPublisher for the registry
      */
@@ -97,11 +97,11 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -181,7 +181,7 @@ export interface RegistryArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * IntellectualPropertyPublisher for the registry
      */
@@ -230,7 +230,7 @@ export interface RegistryArgs {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * Resource tags.
      */

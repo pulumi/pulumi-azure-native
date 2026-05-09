@@ -69,7 +69,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
     /**
      * The system metadata related to this resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.monitor.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

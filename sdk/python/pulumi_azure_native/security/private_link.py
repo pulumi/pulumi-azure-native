@@ -13,8 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5 as _commontypesv5
-from .. import commontypesv6 as _commontypesv6
+from . import outputs
 
 __all__ = ['PrivateLinkArgs', 'PrivateLink']
 
@@ -232,7 +231,7 @@ class PrivateLink(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['_commontypesv6.outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connections associated with this private link. Each connection represents a private endpoint from a customer's virtual network.
         """
@@ -240,7 +239,7 @@ class PrivateLink(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResources")
-    def private_link_resources(self) -> pulumi.Output[Sequence['_commontypesv6.outputs.PrivateLinkResourceResponse']]:
+    def private_link_resources(self) -> pulumi.Output[Sequence['outputs.PrivateLinkResourceResponse']]:
         """
         List of private link resources available for connection. For Defender services, this typically includes the 'containers' group with 'api' and regional data endpoints.
         """
@@ -256,7 +255,7 @@ class PrivateLink(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

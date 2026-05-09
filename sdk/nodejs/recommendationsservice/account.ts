@@ -48,7 +48,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The identity used for the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.recommendationsservice.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.recommendationsservice.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -126,7 +126,7 @@ export interface AccountArgs {
     /**
      * The identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.recommendationsservice.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

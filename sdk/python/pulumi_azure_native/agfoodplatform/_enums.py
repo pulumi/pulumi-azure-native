@@ -8,7 +8,9 @@ from enum import Enum
 
 __all__ = [
     'AuthCredentialsKind',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'ResourceIdentityType',
 ]
 
 
@@ -21,6 +23,16 @@ class AuthCredentialsKind(_builtins.str, Enum):
     API_KEY_AUTH_CREDENTIALS = "ApiKeyAuthCredentials"
 
 
+@pulumi.type_token("azure-native:agfoodplatform:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
 @pulumi.type_token("azure-native:agfoodplatform:PublicNetworkAccess")
 class PublicNetworkAccess(_builtins.str, Enum):
     """
@@ -28,3 +40,11 @@ class PublicNetworkAccess(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:agfoodplatform:ResourceIdentityType")
+class ResourceIdentityType(_builtins.str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"

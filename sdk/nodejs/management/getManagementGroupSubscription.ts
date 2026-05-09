@@ -59,7 +59,7 @@ export interface GetManagementGroupSubscriptionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.management.SystemDataResponse;
     /**
      * The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
      */

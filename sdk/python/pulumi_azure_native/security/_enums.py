@@ -37,6 +37,7 @@ __all__ = [
     'Operator',
     'OrganizationMembershipType',
     'PricingTier',
+    'PrivateEndpointServiceConnectionStatus',
     'PropertyType',
     'Protocol',
     'RecommendationConfigStatus',
@@ -504,6 +505,16 @@ class PricingTier(_builtins.str, Enum):
     """
     Get the standard Microsoft Defender for Cloud experience with advanced security features
     """
+
+
+@pulumi.type_token("azure-native:security:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:security:PropertyType")

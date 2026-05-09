@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DataProtection
 
             Outputs.ResourceGuardProxyBaseResponse properties,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

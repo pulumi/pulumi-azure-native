@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed identity of the grafana resource.
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the grafana resource lives
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The system meta data relating to this grafana resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tags for grafana resource.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed identity of the grafana resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the grafana resource lives

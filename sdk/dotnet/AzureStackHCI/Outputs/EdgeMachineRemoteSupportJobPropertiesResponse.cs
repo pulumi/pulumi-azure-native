@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// error details.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Remote support expiration timestamp.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string endTimeUtc,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse error,
+            Outputs.ErrorDetailResponse error,
 
             string expirationTimestamp,
 

@@ -13,7 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5 as _commontypesv5
+from . import outputs
 
 __all__ = [
     'GetCloudHsmClusterPrivateEndpointConnectionResult',
@@ -101,7 +101,7 @@ class GetCloudHsmClusterPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['_commontypesv5.outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
         The private endpoint resource.
         """
@@ -109,7 +109,7 @@ class GetCloudHsmClusterPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> '_commontypesv5.outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -125,7 +125,7 @@ class GetCloudHsmClusterPrivateEndpointConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv5.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

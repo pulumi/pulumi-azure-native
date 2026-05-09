@@ -89,7 +89,7 @@ export interface GetReadWriteDatabaseResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv1.SystemDataResponse;
+    readonly systemData: outputs.synapse.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

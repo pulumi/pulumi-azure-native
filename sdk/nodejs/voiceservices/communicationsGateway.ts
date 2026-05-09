@@ -92,7 +92,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv4.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.voiceservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * Whether an integrated Mobile Control Point is in use.
      */
@@ -124,7 +124,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    declare public readonly sku: pulumi.Output<outputs.commontypesv3.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.voiceservices.SkuResponse | undefined>;
     /**
      * The current status of the deployment.
      */
@@ -132,7 +132,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.voiceservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -281,7 +281,7 @@ export interface CommunicationsGatewayArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.voiceservices.ManagedServiceIdentityArgs>;
     /**
      * Whether an integrated Mobile Control Point is in use.
      */
@@ -309,7 +309,7 @@ export interface CommunicationsGatewayArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.commontypesv3.SkuArgs>;
+    sku?: pulumi.Input<inputs.voiceservices.SkuArgs>;
     /**
      * Resource tags.
      */

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -29,11 +27,11 @@ class MachineArgs:
                  client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
                  expand: Optional[pulumi.Input[_builtins.str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
-                 identity: Optional[pulumi.Input['_commontypesv3.IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
                  license_profile: Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input['_commontypesv3.LocationDataArgs']] = None,
+                 location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
                  machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                  mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
                  os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
@@ -51,11 +49,11 @@ class MachineArgs:
         :param pulumi.Input[_builtins.str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[_builtins.str] expand: Expands referenced resources.
         :param pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]] extensions: Machine Extensions information (deprecated field)
-        :param pulumi.Input['_commontypesv3.IdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ArcKindEnum']] kind: Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
         :param pulumi.Input['LicenseProfileMachineInstanceViewArgs'] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['_commontypesv3.LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input['LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[_builtins.str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[_builtins.str] mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings for the hybrid machine.
@@ -166,14 +164,14 @@ class MachineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv3.IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv3.IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -214,14 +212,14 @@ class MachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional[pulumi.Input['_commontypesv3.LocationDataArgs']]:
+    def location_data(self) -> Optional[pulumi.Input['LocationDataArgs']]:
         """
         Metadata pertaining to the geographic location of the resource.
         """
         return pulumi.get(self, "location_data")
 
     @location_data.setter
-    def location_data(self, value: Optional[pulumi.Input['_commontypesv3.LocationDataArgs']]):
+    def location_data(self, value: Optional[pulumi.Input['LocationDataArgs']]):
         pulumi.set(self, "location_data", value)
 
     @_builtins.property
@@ -343,11 +341,11 @@ class Machine(pulumi.CustomResource):
                  client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
                  expand: Optional[pulumi.Input[_builtins.str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
                  license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['_commontypesv3.LocationDataArgs', '_commontypesv3.LocationDataArgsDict']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                  mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
@@ -373,11 +371,11 @@ class Machine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[_builtins.str] expand: Expands referenced resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]] extensions: Machine Extensions information (deprecated field)
-        :param pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ArcKindEnum']] kind: Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
         :param pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['_commontypesv3.LocationDataArgs', '_commontypesv3.LocationDataArgsDict']] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[_builtins.str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[_builtins.str] mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
         :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings for the hybrid machine.
@@ -422,11 +420,11 @@ class Machine(pulumi.CustomResource):
                  client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
                  expand: Optional[pulumi.Input[_builtins.str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv3.IdentityArgs', '_commontypesv3.IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
                  license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['_commontypesv3.LocationDataArgs', '_commontypesv3.LocationDataArgsDict']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                  mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
@@ -647,7 +645,7 @@ class Machine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> pulumi.Output[Sequence['_commontypesv3.outputs.ErrorDetailResponse']]:
+    def error_details(self) -> pulumi.Output[Sequence['outputs.ErrorDetailResponse']]:
         """
         Details about the error state.
         """
@@ -663,7 +661,7 @@ class Machine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv3.outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         Identity for the resource.
         """
@@ -703,7 +701,7 @@ class Machine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> pulumi.Output[Optional['_commontypesv3.outputs.LocationDataResponse']]:
+    def location_data(self) -> pulumi.Output[Optional['outputs.LocationDataResponse']]:
         """
         Metadata pertaining to the geographic location of the resource.
         """
@@ -839,7 +837,7 @@ class Machine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

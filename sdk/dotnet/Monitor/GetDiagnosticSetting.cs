@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string? storageAccountId,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type,
 

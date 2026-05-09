@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.IdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             string location,
 
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             Outputs.VirtualMachinePropertiesResponseStorageProfile? storageProfile,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

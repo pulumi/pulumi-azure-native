@@ -46,7 +46,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    declare public /*out*/ readonly identity: pulumi.Output<outputs.commontypesv3.IdentityResponse>;
+    declare public /*out*/ readonly identity: pulumi.Output<outputs.azurestackhci.IdentityResponse>;
     /**
      * The name of the resource
      */
@@ -66,7 +66,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

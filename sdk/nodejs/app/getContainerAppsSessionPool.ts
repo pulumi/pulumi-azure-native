@@ -64,7 +64,7 @@ export interface GetContainerAppsSessionPoolResult {
     /**
      * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.app.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -108,7 +108,7 @@ export interface GetContainerAppsSessionPoolResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.app.SystemDataResponse;
     /**
      * Resource tags.
      */

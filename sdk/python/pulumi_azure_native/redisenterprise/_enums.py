@@ -14,6 +14,8 @@ __all__ = [
     'DeferUpgradeSetting',
     'EvictionPolicy',
     'HighAvailability',
+    'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
     'Protocol',
     'RdbFrequency',
     'SkuName',
@@ -98,6 +100,27 @@ class HighAvailability(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:redisenterprise:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+@pulumi.type_token("azure-native:redisenterprise:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:redisenterprise:Protocol")

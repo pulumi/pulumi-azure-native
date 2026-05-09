@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 from ._inputs import *
 
 __all__ = ['PackageArgs', 'Package']
@@ -26,7 +25,7 @@ class PackageArgs:
                  content_link: pulumi.Input['ContentLinkArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  runtime_environment_name: pulumi.Input[_builtins.str],
-                 all_of: Optional[pulumi.Input['_commontypesv5.TrackedResourceArgs']] = None,
+                 all_of: Optional[pulumi.Input['TrackedResourceArgs']] = None,
                  package_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
@@ -35,7 +34,7 @@ class PackageArgs:
         :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the package content link.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
-        :param pulumi.Input['_commontypesv5.TrackedResourceArgs'] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+        :param pulumi.Input['TrackedResourceArgs'] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         :param pulumi.Input[_builtins.str] package_name: The name of Package.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -97,14 +96,14 @@ class PackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input['_commontypesv5.TrackedResourceArgs']]:
+    def all_of(self) -> Optional[pulumi.Input['TrackedResourceArgs']]:
         """
         The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input['_commontypesv5.TrackedResourceArgs']]):
+    def all_of(self, value: Optional[pulumi.Input['TrackedResourceArgs']]):
         pulumi.set(self, "all_of", value)
 
     @_builtins.property
@@ -126,7 +125,7 @@ class Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: Optional[pulumi.Input[Union['_commontypesv5.TrackedResourceArgs', '_commontypesv5.TrackedResourceArgsDict']]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  package_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -143,7 +142,7 @@ class Package(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['_commontypesv5.TrackedResourceArgs', '_commontypesv5.TrackedResourceArgsDict']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+        :param pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the package content link.
         :param pulumi.Input[_builtins.str] package_name: The name of Package.
@@ -179,7 +178,7 @@ class Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: Optional[pulumi.Input[Union['_commontypesv5.TrackedResourceArgs', '_commontypesv5.TrackedResourceArgsDict']]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  package_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -260,7 +259,7 @@ class Package(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def all_of(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -332,7 +331,7 @@ class Package(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

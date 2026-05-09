@@ -79,7 +79,7 @@ export interface GetSapInstanceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.workloads.SystemDataResponse;
     /**
      * This is the SID of SAP System. Keeping this not equal to ID as different landscapes can have repeated System SID IDs.
      */

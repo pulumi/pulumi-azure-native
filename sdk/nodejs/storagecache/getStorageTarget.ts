@@ -89,7 +89,7 @@ export interface GetStorageTargetResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.storagecache.SystemDataResponse;
     /**
      * Type of the Storage Target.
      */

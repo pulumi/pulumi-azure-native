@@ -67,7 +67,7 @@ export interface GetPrivateEndpointConnectionsForMIPPolicySyncResult {
     /**
      * Required property for system data
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.securityandcompliance.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

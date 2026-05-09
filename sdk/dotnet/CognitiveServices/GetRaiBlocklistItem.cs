@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.RaiBlocklistItemPropertiesResponse properties,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

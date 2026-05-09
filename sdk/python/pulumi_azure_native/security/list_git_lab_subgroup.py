@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv2 as _commontypesv2
 
 __all__ = [
     'ListGitLabSubgroupResult',

@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -55,9 +55,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
             Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

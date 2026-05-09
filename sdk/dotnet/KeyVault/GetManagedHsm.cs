@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.KeyVault
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 

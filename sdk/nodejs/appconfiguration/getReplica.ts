@@ -69,7 +69,7 @@ export interface GetReplicaResult {
     /**
      * Resource system metadata.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.appconfiguration.SystemDataResponse;
     /**
      * The type of the resource.
      */

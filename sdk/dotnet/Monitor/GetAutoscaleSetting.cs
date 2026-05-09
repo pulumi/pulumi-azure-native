@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The system metadata related to the response.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Monitor
 
             Outputs.AutoscaleSettingResponse properties,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

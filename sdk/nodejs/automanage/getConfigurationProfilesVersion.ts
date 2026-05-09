@@ -65,7 +65,7 @@ export interface GetConfigurationProfilesVersionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.automanage.SystemDataResponse;
     /**
      * Resource tags.
      */

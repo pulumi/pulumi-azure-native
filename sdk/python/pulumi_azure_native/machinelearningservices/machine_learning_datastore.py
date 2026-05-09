@@ -821,7 +821,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponseV2']]:
         """
         The identity of the resource.
         """
@@ -853,7 +853,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponseV2']]:
         """
         The sku of the workspace.
         """

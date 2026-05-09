@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -30,7 +28,7 @@ class ExportArgs:
                  e_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  export_name: Optional[pulumi.Input[_builtins.str]] = None,
                  format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  schedule: Optional[pulumi.Input['ExportScheduleArgs']] = None):
@@ -43,7 +41,7 @@ class ExportArgs:
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[_builtins.str] export_name: Export Name.
         :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs'] identity: The managed identity associated with Export
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identity associated with Export
         :param pulumi.Input[_builtins.str] location: The location of the Export's managed identity. Only required when utilizing managed identity.
         :param pulumi.Input[_builtins.bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param pulumi.Input['ExportScheduleArgs'] schedule: Has schedule information for the export.
@@ -140,14 +138,14 @@ class ExportArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
         """
         The managed identity associated with Export
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -198,7 +196,7 @@ class Export(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  export_name: Optional[pulumi.Input[_builtins.str]] = None,
                  format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
@@ -219,7 +217,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[_builtins.str] export_name: Export Name.
         :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']] identity: The managed identity associated with Export
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed identity associated with Export
         :param pulumi.Input[_builtins.str] location: The location of the Export's managed identity. Only required when utilizing managed identity.
         :param pulumi.Input[_builtins.bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']] schedule: Has schedule information for the export.
@@ -259,7 +257,7 @@ class Export(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  export_name: Optional[pulumi.Input[_builtins.str]] = None,
                  format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.SystemAssignedServiceIdentityArgs', '_commontypesv5.SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
@@ -375,7 +373,7 @@ class Export(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.SystemAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
         """
         The managed identity associated with Export
         """

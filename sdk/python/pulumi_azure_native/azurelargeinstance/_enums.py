@@ -10,6 +10,7 @@ __all__ = [
     'AzureLargeInstanceHardwareTypeNamesEnum',
     'AzureLargeInstancePowerStateEnum',
     'AzureLargeInstanceSizeNamesEnum',
+    'ManagedServiceIdentityType',
 ]
 
 
@@ -248,3 +249,14 @@ class AzureLargeInstanceSizeNamesEnum(_builtins.str, Enum):
     """
     20 sockets, 960 CPU threads, 480 CPU cores, 20 TB total memory, 20 TB DRAM, 46 TB storage, HPEMc990x hardware type
     """
+
+
+@pulumi.type_token("azure-native:azurelargeinstance:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// The errors that were encountered during the hotpatch capability enrollment or disenrollment.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Indicates the current status of the hotpatch being enabled or disabled.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
         [OutputConstructor]
         private PatchSettingsResponseStatus(
-            Pulumi.AzureNative.Commontypesv3.Outputs.ErrorDetailResponse error,
+            Outputs.ErrorDetailResponse error,
 
             string? hotpatchEnablementStatus)
         {

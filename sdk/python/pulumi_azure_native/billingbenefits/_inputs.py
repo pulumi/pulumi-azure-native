@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv6
 from ._enums import *
 
 __all__ = [
@@ -2178,7 +2177,7 @@ class PlanArgsDict(TypedDict):
     """
     product: pulumi.Input[_builtins.str]
     """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
     """
     publisher: pulumi.Input[_builtins.str]
     """
@@ -2205,7 +2204,7 @@ class PlanArgs:
         Plan for the resource.
 
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -2234,7 +2233,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         """
         return pulumi.get(self, "product")
 
@@ -2547,9 +2546,9 @@ class SkuArgsDict(TypedDict):
     """
     size: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
     """
-    tier: NotRequired[pulumi.Input['commontypesv6.SkuTier']]
+    tier: NotRequired[pulumi.Input['SkuTier']]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -2561,15 +2560,15 @@ class SkuArgs:
                  capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  family: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['commontypesv6.SkuTier']] = None):
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-        :param pulumi.Input['commontypesv6.SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -2621,7 +2620,7 @@ class SkuArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         """
         return pulumi.get(self, "size")
 
@@ -2631,14 +2630,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['commontypesv6.SkuTier']]:
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['commontypesv6.SkuTier']]):
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

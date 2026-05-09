@@ -54,7 +54,7 @@ export class VendorSkuPreview extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * The type of the resource.
      */

@@ -68,7 +68,7 @@ export interface GetClusterResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.hdinsight.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             Outputs.DatabaseMigrationPropertiesSqlVmResponse properties,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

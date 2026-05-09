@@ -14,8 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3
-from .. import commontypesv3 as _commontypesv3
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CommunityTrainingArgs', 'CommunityTraining']
@@ -33,7 +32,7 @@ class CommunityTrainingArgs:
                  zone_redundancy_enabled: pulumi.Input[_builtins.bool],
                  community_training_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['_commontypesv3.SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityTraining resource.
@@ -48,7 +47,7 @@ class CommunityTrainingArgs:
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: To indicate whether the Community Training instance has Zone Redundancy enabled
         :param pulumi.Input[_builtins.str] community_training_name: The name of the Community Training Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['_commontypesv3.SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "disaster_recovery_enabled", disaster_recovery_enabled)
@@ -190,14 +189,14 @@ class CommunityTrainingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['_commontypesv3.SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['_commontypesv3.SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
@@ -228,7 +227,7 @@ class CommunityTraining(pulumi.CustomResource):
                  portal_owner_email_address: Optional[pulumi.Input[_builtins.str]] = None,
                  portal_owner_organization_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -249,7 +248,7 @@ class CommunityTraining(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] portal_owner_email_address: The email address of the portal owner. Will be used as the primary contact
         :param pulumi.Input[_builtins.str] portal_owner_organization_name: The organization name of the portal owner
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: To indicate whether the Community Training instance has Zone Redundancy enabled
         """
@@ -289,7 +288,7 @@ class CommunityTraining(pulumi.CustomResource):
                  portal_owner_email_address: Optional[pulumi.Input[_builtins.str]] = None,
                  portal_owner_organization_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['_commontypesv3.SkuArgs', '_commontypesv3.SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -457,7 +456,7 @@ class CommunityTraining(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['_commontypesv3.outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
@@ -465,7 +464,7 @@ class CommunityTraining(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

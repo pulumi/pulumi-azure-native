@@ -12,6 +12,8 @@ __all__ = [
     'InitialDownloadPolicy',
     'InitialUploadPolicy',
     'LocalCacheMode',
+    'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -59,3 +61,24 @@ class LocalCacheMode(_builtins.str, Enum):
     """
     DOWNLOAD_NEW_AND_MODIFIED_FILES = "DownloadNewAndModifiedFiles"
     UPDATE_LOCALLY_CACHED_FILES = "UpdateLocallyCachedFiles"
+
+
+@pulumi.type_token("azure-native:storagesync:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+@pulumi.type_token("azure-native:storagesync:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"

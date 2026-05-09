@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ManagedClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("delegatedResources")]
-        private InputMap<Pulumi.AzureNative.Commontypesv4.Inputs.DelegatedResourceArgs>? _delegatedResources;
+        private InputMap<Inputs.DelegatedResourceArgs>? _delegatedResources;
 
         /// <summary>
         /// The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         /// </summary>
-        public InputMap<Pulumi.AzureNative.Commontypesv4.Inputs.DelegatedResourceArgs> DelegatedResources
+        public InputMap<Inputs.DelegatedResourceArgs> DelegatedResources
         {
-            get => _delegatedResources ?? (_delegatedResources = new InputMap<Pulumi.AzureNative.Commontypesv4.Inputs.DelegatedResourceArgs>());
+            get => _delegatedResources ?? (_delegatedResources = new InputMap<Inputs.DelegatedResourceArgs>());
             set => _delegatedResources = value;
         }
 

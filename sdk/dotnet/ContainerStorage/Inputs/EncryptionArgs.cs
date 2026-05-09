@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerStorage.Inputs
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv4.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The name of the key vault key.

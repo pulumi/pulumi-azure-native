@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv6 as _commontypesv6
 
 __all__ = [
     'GetSourceResult',
@@ -115,7 +114,7 @@ class GetSourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
@@ -163,7 +162,7 @@ class GetSourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional['_commontypesv6.outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanResponse']:
         """
         Plan for the resource.
         """
@@ -171,7 +170,7 @@ class GetSourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['_commontypesv6.outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The resource model definition representing SKU
         """
@@ -195,7 +194,7 @@ class GetSourceResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv6.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

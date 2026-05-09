@@ -56,11 +56,11 @@ export interface GetPrivateLinkResult {
     /**
      * List of private endpoint connections associated with this private link. Each connection represents a private endpoint from a customer's virtual network.
      */
-    readonly privateEndpointConnections: outputs.commontypesv6.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.security.PrivateEndpointConnectionResponse[];
     /**
      * List of private link resources available for connection. For Defender services, this typically includes the 'containers' group with 'api' and regional data endpoints.
      */
-    readonly privateLinkResources: outputs.commontypesv6.PrivateLinkResourceResponse[];
+    readonly privateLinkResources: outputs.security.PrivateLinkResourceResponse[];
     /**
      * The current provisioning state of the private link resource. Indicates whether the resource is being created, updated, deleted, or has completed successfully.
      */
@@ -68,7 +68,7 @@ export interface GetPrivateLinkResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv6.SystemDataResponse;
+    readonly systemData: outputs.security.SystemDataResponse;
     /**
      * Resource tags.
      */

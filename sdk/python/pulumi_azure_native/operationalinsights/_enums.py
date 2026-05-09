@@ -15,6 +15,7 @@ __all__ = [
     'IdentityType',
     'LinkedServiceEntityStatus',
     'MachineGroupType',
+    'ManagedServiceIdentityType',
     'PublicNetworkAccessType',
     'RuleTypeEnum',
     'TablePlanEnum',
@@ -149,6 +150,17 @@ class MachineGroupType(_builtins.str, Enum):
     AZURE_SF = "azure-sf"
     AZURE_VMSS = "azure-vmss"
     USER_STATIC = "user-static"
+
+
+@pulumi.type_token("azure-native:operationalinsights:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:operationalinsights:PublicNetworkAccessType")

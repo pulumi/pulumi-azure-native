@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.LabServices.Outputs
         /// <summary>
         /// The SKU for the lab. Defines the type of virtual machines used in the lab.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.LabServices.Outputs
 
             string osType,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SkuResponse sku,
+            Outputs.SkuResponse sku,
 
             string usageQuota,
 

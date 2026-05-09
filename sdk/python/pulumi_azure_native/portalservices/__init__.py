@@ -8,3 +8,4 @@ import typing
 # Export this package's modules as members:
 from .copilot_setting import *
 from .get_copilot_setting import *
+from . import outputs

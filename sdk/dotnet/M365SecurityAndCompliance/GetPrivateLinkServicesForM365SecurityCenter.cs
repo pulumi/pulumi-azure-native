@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// <summary>
         /// Required property for system data
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
 
             Outputs.ServicesPropertiesResponse properties,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

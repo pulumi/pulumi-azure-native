@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'FirewallCreationOptions',
     'ManagedIdentityResourceType',
+    'ManagedServiceIdentityType',
     'ResourceCreationOptions',
     'ResourceType',
 ]
@@ -46,6 +47,17 @@ class ManagedIdentityResourceType(_builtins.str, Enum):
     """
     User assigned managed identity.
     """
+
+
+@pulumi.type_token("azure-native:sovereign:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:sovereign:ResourceCreationOptions")

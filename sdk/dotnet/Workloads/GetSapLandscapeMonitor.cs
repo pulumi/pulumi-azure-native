@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string provisioningState,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableArray<Outputs.SapLandscapeMonitorMetricThresholdsResponse> topMetricsThresholds,
 

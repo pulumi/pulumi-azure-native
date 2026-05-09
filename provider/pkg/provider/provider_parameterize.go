@@ -295,23 +295,6 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	metadataResources := map[string]resources.AzureAPIResource{}
 	metadataInvokes := map[string]resources.AzureAPIInvoke{}
 
-	// Include common types into the parameterized schema
-	commonTypes := map[string]string{}
-	for typeToken := range schema.Types {
-		moduleName, version, name, err := resources.ParseToken(typeToken)
-		if err != nil {
-			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
-		}
-
-		if strings.HasPrefix(moduleName, "commontypes") {
-			if version != "" && version != targetApiVersion {
-				continue
-			}
-
-			commonTypes[typeToken] = name
-		}
-	}
-
 	for typeTok, typeName := range typeNames {
 		newTok := makeToken(typeName)
 		newSchema.Types[newTok] = schema.Types[typeTok]
@@ -324,25 +307,6 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 			logging.Warningf("type %s not found in metadata", typeName)
 		} else {
 			metadataTypes[newTok] = *apiType
-		}
-	}
-
-	for typeTok, typeName := range commonTypes {
-		// common types are not versioned, hence why we don't use the version
-		moduleName, _, name, err := resources.ParseToken(typeTok)
-		if err != nil {
-			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
-		}
-		newToken := fmt.Sprintf("%s:%s:%s", newPackageName, moduleName, name)
-		newSchema.Types[newToken] = schema.Types[typeTok]
-		apiType, ok, err := p.lookupType(typeTok)
-		if err != nil {
-			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", typeName, err)
-		}
-		if !ok {
-			logging.Warningf("type %s not found in metadata", typeName)
-		} else {
-			metadataTypes[newToken] = *apiType
 		}
 	}
 

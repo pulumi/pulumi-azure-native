@@ -96,7 +96,7 @@ export class TopicEventSubscription extends pulumi.CustomResource {
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv5.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Name of the topic of the event subscription.
      */

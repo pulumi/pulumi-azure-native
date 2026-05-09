@@ -124,7 +124,7 @@ export interface GetVirtualMachineTemplateResult {
     /**
      * The system data.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.scvmm.SystemDataResponse;
     /**
      * Resource tags
      */

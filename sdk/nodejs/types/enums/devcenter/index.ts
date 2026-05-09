@@ -71,6 +71,17 @@ export const HibernateSupport = {
  */
 export type HibernateSupport = (typeof HibernateSupport)[keyof typeof HibernateSupport];
 
+export const IdentityType = {
+    SystemAssignedIdentity: "systemAssignedIdentity",
+    UserAssignedIdentity: "userAssignedIdentity",
+    DelegatedResourceIdentity: "delegatedResourceIdentity",
+} as const;
+
+/**
+ * Values can be systemAssignedIdentity or userAssignedIdentity
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const LicenseType = {
     Windows_Client: "Windows_Client",
 } as const;
@@ -89,6 +100,18 @@ export const LocalAdminStatus = {
  * Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
  */
 export type LocalAdminStatus = (typeof LocalAdminStatus)[keyof typeof LocalAdminStatus];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PlanMemberType = {
     User: "User",
@@ -137,6 +160,18 @@ export const SingleSignOnStatus = {
  * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
  */
 export type SingleSignOnStatus = (typeof SingleSignOnStatus)[keyof typeof SingleSignOnStatus];
+
+export const SkuTier = {
+    Free: "Free",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StopOnDisconnectEnableStatus = {
     Enabled: "Enabled",

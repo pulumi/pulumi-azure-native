@@ -48,7 +48,7 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * The managed identity of the publisher, if configured.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv3.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.hybridnetwork.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv3.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -122,7 +122,7 @@ export interface PublisherArgs {
     /**
      * The managed identity of the publisher, if configured.
      */
-    identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridnetwork.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// List of private endpoint connections associated with the attestation provider.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -146,13 +146,13 @@ namespace Pulumi.AzureNative.Attestation
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv3.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? publicNetworkAccess,
 
             string? status,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

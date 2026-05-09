@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +25,7 @@ class AzureLargeStorageInstanceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_properties: Optional[pulumi.Input['StoragePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -37,7 +35,7 @@ class AzureLargeStorageInstanceArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_unique_identifier: Specifies the AzureLargeStorageInstance unique ID.
-        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StoragePropertiesArgs'] storage_properties: Specifies the storage properties for the AzureLargeStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -94,14 +92,14 @@ class AzureLargeStorageInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -149,7 +147,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
@@ -166,7 +164,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_unique_identifier: Specifies the AzureLargeStorageInstance unique ID.
-        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']] storage_properties: Specifies the storage properties for the AzureLargeStorage instance.
@@ -202,7 +200,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
@@ -282,7 +280,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -314,7 +312,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

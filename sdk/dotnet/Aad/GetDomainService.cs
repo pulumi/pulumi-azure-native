@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNative.Aad
 
             string? syncScope,
 
-            Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -140,7 +140,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * DataBoxEdge Resource
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

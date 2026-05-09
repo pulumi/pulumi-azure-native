@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Whether an integrated Mobile Control Point is in use.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The current status of the deployment.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.VoiceServices
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             bool? integratedMcpEnabled,
 
@@ -240,11 +240,11 @@ namespace Pulumi.AzureNative.VoiceServices
 
             ImmutableArray<Outputs.ServiceRegionPropertiesResponse> serviceLocations,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? sku,
+            Outputs.SkuResponse? sku,
 
             string status,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

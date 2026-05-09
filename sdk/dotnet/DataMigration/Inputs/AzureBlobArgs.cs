@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// Identity details for authentication using a Managed Identity.
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv6.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource Id of the storage account where backups are stored.

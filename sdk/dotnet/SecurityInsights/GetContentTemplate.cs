@@ -223,7 +223,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// the tactics the resource covers
         /// </summary>
@@ -299,7 +299,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.MetadataSupportResponse? support,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableArray<string> threatAnalysisTactics,
 

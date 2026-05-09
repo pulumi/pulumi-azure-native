@@ -56,7 +56,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.commontypesv6.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cdn.ManagedServiceIdentityResponse | undefined>;
     /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
@@ -92,7 +92,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv6.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -167,7 +167,7 @@ export interface ProfileArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.cdn.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

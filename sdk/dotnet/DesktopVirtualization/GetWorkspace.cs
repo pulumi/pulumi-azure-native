@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -136,20 +136,20 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// ObjectId of Workspace. (internal use)
         /// </summary>
         public readonly string ObjectId;
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// List of private endpoint connection associated with the specified resource
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         /// </summary>
         public readonly string? PublicNetworkAccess;
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
 
             string? kind,
 
@@ -187,15 +187,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string objectId,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? publicNetworkAccess,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
+            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// The resource of private end point.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.

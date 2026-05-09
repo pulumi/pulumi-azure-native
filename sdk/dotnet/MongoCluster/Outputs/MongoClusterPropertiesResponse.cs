@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.MongoCluster.Outputs
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the mongo cluster.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.MongoCluster.Outputs
 
             ImmutableArray<string> previewFeatures,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

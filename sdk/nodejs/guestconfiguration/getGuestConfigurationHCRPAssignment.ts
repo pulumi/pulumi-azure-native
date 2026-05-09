@@ -65,7 +65,7 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.guestconfiguration.SystemDataResponse;
     /**
      * The type of the resource.
      */

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +27,7 @@ class ContainerAppArgs:
                  container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
@@ -46,7 +44,7 @@ class ContainerAppArgs:
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
-        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -146,14 +144,14 @@ class ContainerAppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -263,7 +261,7 @@ class ContainerApp(pulumi.CustomResource):
                  container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
@@ -288,7 +286,7 @@ class ContainerApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
-        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -332,7 +330,7 @@ class ContainerApp(pulumi.CustomResource):
                  container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
@@ -489,7 +487,7 @@ class ContainerApp(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
@@ -593,7 +591,7 @@ class ContainerApp(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

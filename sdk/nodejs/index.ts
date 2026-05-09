@@ -57,12 +57,6 @@ import * as cloudhealth from "./cloudhealth";
 import * as cloudngfw from "./cloudngfw";
 import * as codesigning from "./codesigning";
 import * as cognitiveservices from "./cognitiveservices";
-import * as commontypesv1 from "./commontypesv1";
-import * as commontypesv2 from "./commontypesv2";
-import * as commontypesv3 from "./commontypesv3";
-import * as commontypesv4 from "./commontypesv4";
-import * as commontypesv5 from "./commontypesv5";
-import * as commontypesv6 from "./commontypesv6";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
@@ -320,12 +314,6 @@ export {
     cloudngfw,
     codesigning,
     cognitiveservices,
-    commontypesv1,
-    commontypesv2,
-    commontypesv3,
-    commontypesv4,
-    commontypesv5,
-    commontypesv6,
     communication,
     community,
     compute,

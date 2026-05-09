@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Resource's identity.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             bool? isAvailabilityZonesEnabled,
 

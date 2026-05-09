@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The error detail.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.Resources
 
             string duration,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.ErrorDetailResponse error,
+            Outputs.ErrorDetailResponse error,
 
             ImmutableArray<Outputs.ResourceReferenceExtendedResponse> failedResources,
 
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.Resources
 
             ImmutableArray<Outputs.ManagedResourceReferenceResponse> resources,
 
-            Pulumi.AzureNative.Commontypesv6.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Managed identity.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string provisioningState,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

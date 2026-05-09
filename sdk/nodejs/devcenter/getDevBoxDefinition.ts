@@ -89,11 +89,11 @@ export interface GetDevBoxDefinitionResult {
     /**
      * The SKU for Dev Boxes created using this definition.
      */
-    readonly sku: outputs.commontypesv3.SkuResponse;
+    readonly sku: outputs.devcenter.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.devcenter.SystemDataResponse;
     /**
      * Resource tags.
      */

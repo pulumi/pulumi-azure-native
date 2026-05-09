@@ -60,7 +60,7 @@ export interface GetDevCenterResult {
     /**
      * Managed identity properties
      */
-    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.devcenter.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -80,7 +80,7 @@ export interface GetDevCenterResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.devcenter.SystemDataResponse;
     /**
      * Resource tags.
      */

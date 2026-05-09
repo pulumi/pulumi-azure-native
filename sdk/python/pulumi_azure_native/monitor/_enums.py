@@ -45,6 +45,7 @@ __all__ = [
     'KnownSyslogDataSourceLogLevels',
     'KnownSyslogDataSourceStreams',
     'KnownWindowsEventLogDataSourceStreams',
+    'ManagedServiceIdentityType',
     'MetricAggregationType',
     'MetricStatisticType',
     'Odatatype',
@@ -52,6 +53,7 @@ __all__ = [
     'Operator',
     'PipelineType',
     'PredictiveAutoscalePolicyScaleMode',
+    'PrivateEndpointServiceConnectionStatus',
     'ProcessorType',
     'PublicNetworkAccess',
     'ReceiverType',
@@ -528,6 +530,17 @@ class KnownWindowsEventLogDataSourceStreams(_builtins.str, Enum):
     MICROSOFT_EVENT = "Microsoft-Event"
 
 
+@pulumi.type_token("azure-native:monitor:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 @pulumi.type_token("azure-native:monitor:MetricAggregationType")
 class MetricAggregationType(_builtins.str, Enum):
     """
@@ -602,6 +615,16 @@ class PredictiveAutoscalePolicyScaleMode(_builtins.str, Enum):
     DISABLED = "Disabled"
     FORECAST_ONLY = "ForecastOnly"
     ENABLED = "Enabled"
+
+
+@pulumi.type_token("azure-native:monitor:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:monitor:ProcessorType")

@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'DayOfWeek',
+    'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ReplicationRole',
     'SkuFamily',
@@ -38,6 +40,27 @@ class DayOfWeek(_builtins.str, Enum):
     """
     As a convenience, 'Weekend' is also accepted and means the same as specifying Saturday and Sunday.
     """
+
+
+@pulumi.type_token("azure-native:redis:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+@pulumi.type_token("azure-native:redis:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:redis:PublicNetworkAccess")

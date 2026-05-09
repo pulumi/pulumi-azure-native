@@ -48,7 +48,7 @@ export interface GetInstanceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.weightsandbiases.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export interface GetInstanceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.weightsandbiases.SystemDataResponse;
     /**
      * Resource tags.
      */

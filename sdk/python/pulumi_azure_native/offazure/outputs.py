@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 
 __all__ = [
@@ -301,7 +300,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: _builtins.str,
                  private_endpoint: 'outputs.ResourceIdResponse',
                  provisioning_state: _builtins.str,
-                 system_data: '_commontypesv3.outputs.SystemDataResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
@@ -312,7 +311,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param _builtins.str name: The name of the resource
         :param 'ResourceIdResponse' private_endpoint: private endpoints
         :param _builtins.str provisioning_state: provisioning state enum
-        :param '_commontypesv3.SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: private endpoints connection state
         """
@@ -368,7 +367,7 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> '_commontypesv3.outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -1060,7 +1059,7 @@ class SystemDataResponse(dict):
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The type of identity that last modified the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -1105,7 +1104,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[_builtins.str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 

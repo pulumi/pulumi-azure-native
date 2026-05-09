@@ -16,6 +16,7 @@ __all__ = [
     'IotIdentityResolutionType',
     'Kind',
     'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ServiceManagedIdentityType',
     'SmartDataActions',
@@ -100,6 +101,16 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
+
+
+@pulumi.type_token("azure-native:healthcareapis:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:healthcareapis:PublicNetworkAccess")

@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Fully qualified resource ID of the target Sentinel workspace joining the given Sentinel workspace manager
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string name,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             string targetWorkspaceResourceId,
 

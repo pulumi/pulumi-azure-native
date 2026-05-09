@@ -169,6 +169,18 @@ export const ListApprovedSchemasDirection = {
  */
 export type ListApprovedSchemasDirection = (typeof ListApprovedSchemasDirection)[keyof typeof ListApprovedSchemasDirection];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const MatchType = {
     /**
      * The option to pattern match substrings within all text content. For example, "hello world" would be found in "chello worlds".

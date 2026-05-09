@@ -169,7 +169,7 @@ export interface GetWebAppAssessmentV2OperationResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.migrate.SystemDataResponse;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.

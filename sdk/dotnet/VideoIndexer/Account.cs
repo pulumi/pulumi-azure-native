@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

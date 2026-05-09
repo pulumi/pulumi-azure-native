@@ -81,7 +81,7 @@ export interface GetHostPoolResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    readonly identity?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseIdentity;
+    readonly identity?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -114,7 +114,7 @@ export interface GetHostPoolResult {
      * PersonalDesktopAssignment type for HostPool.
      */
     readonly personalDesktopAssignmentType?: string;
-    readonly plan?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponsePlan;
+    readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -122,7 +122,7 @@ export interface GetHostPoolResult {
     /**
      * List of private endpoint connection associated with the specified resource
      */
-    readonly privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.desktopvirtualization.PrivateEndpointConnectionResponse[];
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
@@ -135,7 +135,7 @@ export interface GetHostPoolResult {
      * The ring number of HostPool.
      */
     readonly ring?: number;
-    readonly sku?: outputs.commontypesv5.ResourceModelWithAllowedPropertySetResponseSku;
+    readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
@@ -159,7 +159,7 @@ export interface GetHostPoolResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv5.SystemDataResponse;
+    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
      * Resource tags.
      */

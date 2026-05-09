@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// List of private endpoint connections
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -162,13 +162,13 @@ namespace Pulumi.AzureNative.Monitor
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 from ._inputs import *
 
@@ -34,7 +32,7 @@ class ActionGroupInitArgs:
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]]] = None,
-                 identity: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -56,7 +54,7 @@ class ActionGroupInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]] azure_function_receivers: The list of azure function receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]] email_receivers: The list of email receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]] event_hub_receivers: The list of event hub receivers that are part of this action group.
-        :param pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -226,14 +224,14 @@ class ActionGroupInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv5.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -348,7 +346,7 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]]] = None,
                  group_short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -378,7 +376,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]] event_hub_receivers: The list of event hub receivers that are part of this action group.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
-        :param pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -427,7 +425,7 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]]] = None,
                  group_short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv5.ManagedServiceIdentityArgs', '_commontypesv5.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -596,7 +594,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv5.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """

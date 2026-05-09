@@ -105,7 +105,7 @@ export interface GetFhirServiceResult {
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    readonly privateEndpointConnections: outputs.commontypesv1.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.healthcareapis.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state.
      */

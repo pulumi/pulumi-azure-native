@@ -48,7 +48,7 @@ export interface GetAccountResult {
     /**
      * The identity used for the resource.
      */
-    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.recommendationsservice.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +64,7 @@ export interface GetAccountResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.recommendationsservice.SystemDataResponse;
     /**
      * Resource tags.
      */

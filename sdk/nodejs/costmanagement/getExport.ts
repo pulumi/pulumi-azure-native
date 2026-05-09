@@ -69,7 +69,7 @@ export interface GetExportResult {
     /**
      * The managed identity associated with Export
      */
-    readonly identity?: outputs.commontypesv5.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.costmanagement.SystemAssignedServiceIdentityResponse;
     /**
      * The location of the Export's managed identity. Only required when utilizing managed identity.
      */

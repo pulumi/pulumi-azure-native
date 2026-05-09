@@ -13,8 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['CloudHsmClusterPrivateEndpointConnectionArgs', 'CloudHsmClusterPrivateEndpointConnection']
 
@@ -22,14 +23,14 @@ __all__ = ['CloudHsmClusterPrivateEndpointConnectionArgs', 'CloudHsmClusterPriva
 class CloudHsmClusterPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  cloud_hsm_cluster_name: pulumi.Input[_builtins.str],
-                 private_link_service_connection_state: pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs'],
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudHsmClusterPrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
-        :param pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
         """
@@ -53,14 +54,14 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs']:
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs']):
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
@@ -96,7 +97,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_hsm_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -111,7 +112,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         :param pulumi.Input[_builtins.str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
-        :param pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -145,7 +146,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_hsm_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -243,7 +244,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['_commontypesv5.outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
         The private endpoint resource.
         """
@@ -251,7 +252,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['_commontypesv5.outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -267,7 +268,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// IntellectualPropertyPublisher for the registry
         /// </summary>
@@ -147,11 +147,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? intellectualPropertyPublisher,
 
@@ -191,9 +191,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse? sku,
+            Outputs.SkuResponse? sku,
 
-            Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

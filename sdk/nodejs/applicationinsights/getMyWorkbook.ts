@@ -88,7 +88,7 @@ export interface GetMyWorkbookResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.applicationinsights.SystemDataResponse;
     /**
      * Resource tags
      */

@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Uri of the Data Manager For Agriculture instance.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Private endpoints.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Data Manager For Agriculture instance provisioning state.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.IdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             string instanceUri,
 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             string name,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv4.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             Outputs.SensorIntegrationResponse? sensorIntegration,
 
-            Pulumi.AzureNative.Commontypesv4.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

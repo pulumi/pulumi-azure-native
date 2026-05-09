@@ -92,7 +92,7 @@ export interface GetCommunicationsGatewayResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.voiceservices.ManagedServiceIdentityResponse;
     /**
      * Whether an integrated Mobile Control Point is in use.
      */
@@ -124,7 +124,7 @@ export interface GetCommunicationsGatewayResult {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    readonly sku?: outputs.commontypesv3.SkuResponse;
+    readonly sku?: outputs.voiceservices.SkuResponse;
     /**
      * The current status of the deployment.
      */
@@ -132,7 +132,7 @@ export interface GetCommunicationsGatewayResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.voiceservices.SystemDataResponse;
     /**
      * Resource tags.
      */

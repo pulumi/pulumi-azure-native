@@ -81,13 +81,13 @@ namespace Pulumi.AzureNative.Community
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv3.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.Community
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku")]
-        public Input<Pulumi.AzureNative.Commontypesv3.Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

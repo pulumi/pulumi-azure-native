@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv3 as _commontypesv3
 from ._enums import *
 from ._inputs import *
 
@@ -408,7 +407,7 @@ class LicenseProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> pulumi.Output['_commontypesv3.outputs.ErrorDetailResponse']:
+    def error(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
         """
         The errors that were encountered during the feature enrollment or disenrollment.
         """
@@ -504,7 +503,7 @@ class LicenseProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv3.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

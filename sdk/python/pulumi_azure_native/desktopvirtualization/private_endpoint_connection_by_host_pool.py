@@ -13,8 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from .. import commontypesv5
-from .. import commontypesv5 as _commontypesv5
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['PrivateEndpointConnectionByHostPoolArgs', 'PrivateEndpointConnectionByHostPool']
 
@@ -22,14 +23,14 @@ __all__ = ['PrivateEndpointConnectionByHostPoolArgs', 'PrivateEndpointConnection
 class PrivateEndpointConnectionByHostPoolArgs:
     def __init__(__self__, *,
                  host_pool_name: pulumi.Input[_builtins.str],
-                 private_link_service_connection_state: pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs'],
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionByHostPool resource.
 
         :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
-        :param pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
@@ -53,14 +54,14 @@ class PrivateEndpointConnectionByHostPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs']:
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['_commontypesv5.PrivateLinkServiceConnectionStateArgs']):
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
@@ -96,7 +97,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -111,7 +112,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
-        :param pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -145,7 +146,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['_commontypesv5.PrivateLinkServiceConnectionStateArgs', '_commontypesv5.PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,7 +234,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['_commontypesv5.outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
         The private endpoint resource.
         """
@@ -241,7 +242,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['_commontypesv5.outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -257,7 +258,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv5.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

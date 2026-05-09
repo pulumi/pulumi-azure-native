@@ -14,8 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv6
-from .. import commontypesv6 as _commontypesv6
 from ._enums import *
 from ._inputs import *
 
@@ -26,9 +24,9 @@ class BulkActionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['_commontypesv6.PlanArgs']] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
                  properties: Optional[pulumi.Input['LaunchBulkInstancesOperationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -37,9 +35,9 @@ class BulkActionArgs:
 
         :param pulumi.Input[_builtins.str] location: The location name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] name: The name of the LaunchBulkInstancesOperation.
-        :param pulumi.Input['_commontypesv6.PlanArgs'] plan: Details of the resource plan.
+        :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input['LaunchBulkInstancesOperationPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Zones in which the LaunchBulkInstancesOperation is available
@@ -85,14 +83,14 @@ class BulkActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['_commontypesv6.ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -109,14 +107,14 @@ class BulkActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['_commontypesv6.PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
         Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['_commontypesv6.PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
@@ -162,10 +160,10 @@ class BulkAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['LaunchBulkInstancesOperationPropertiesArgs', 'LaunchBulkInstancesOperationPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -179,10 +177,10 @@ class BulkAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The location name.
         :param pulumi.Input[_builtins.str] name: The name of the LaunchBulkInstancesOperation.
-        :param pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']] plan: Details of the resource plan.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Details of the resource plan.
         :param pulumi.Input[Union['LaunchBulkInstancesOperationPropertiesArgs', 'LaunchBulkInstancesOperationPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -215,10 +213,10 @@ class BulkAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['_commontypesv6.ManagedServiceIdentityArgs', '_commontypesv6.ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['_commontypesv6.PlanArgs', '_commontypesv6.PlanArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['LaunchBulkInstancesOperationPropertiesArgs', 'LaunchBulkInstancesOperationPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -292,7 +290,7 @@ class BulkAction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['_commontypesv6.outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """
@@ -308,7 +306,7 @@ class BulkAction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['_commontypesv6.outputs.PlanResponse']]:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         Details of the resource plan.
         """
@@ -324,7 +322,7 @@ class BulkAction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['_commontypesv6.outputs.SystemDataResponse']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

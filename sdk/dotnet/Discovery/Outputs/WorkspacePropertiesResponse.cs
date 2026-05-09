@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Private Endpoint Subnet ID for private endpoint connections.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.Discovery.Outputs
 
             string managedResourceGroup,
 
-            ImmutableArray<Pulumi.AzureNative.Commontypesv5.Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? privateEndpointSubnetId,
 

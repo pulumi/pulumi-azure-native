@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// If not specified the default agentpool identity will be used.
         /// This does not affect provisioned nodes.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse? IdentityProfile;
+        public readonly Outputs.UserAssignedIdentityResponse? IdentityProfile;
         /// <summary>
         /// The provisioning state of the node customization.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableArray<Outputs.NodeCustomizationScriptResponse> customizationScripts,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.UserAssignedIdentityResponse? identityProfile,
+            Outputs.UserAssignedIdentityResponse? identityProfile,
 
             string provisioningState,
 

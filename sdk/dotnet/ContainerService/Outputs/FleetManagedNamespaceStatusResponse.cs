@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The last operation error of the fleet managed namespace
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse LastOperationError;
+        public readonly Outputs.ErrorDetailResponse LastOperationError;
         /// <summary>
         /// The last operation ID for the fleet managed namespace
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private FleetManagedNamespaceStatusResponse(
-            Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse lastOperationError,
+            Outputs.ErrorDetailResponse lastOperationError,
 
             string lastOperationId)
         {

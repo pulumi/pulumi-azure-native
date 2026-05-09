@@ -72,7 +72,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * List of private endpoint connections
      */
-    readonly privateEndpointConnections: outputs.commontypesv4.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
@@ -84,7 +84,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.monitor.SystemDataResponse;
     /**
      * Resource tags.
      */

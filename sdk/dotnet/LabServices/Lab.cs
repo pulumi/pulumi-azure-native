@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.LabServices
         /// Metadata pertaining to creation and last modification of the lab.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv2.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

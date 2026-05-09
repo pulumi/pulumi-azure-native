@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// Managed On Behalf Of Configuration.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ManagedOnBehalfOfConfigurationResponse ManagedOnBehalfOfConfiguration;
+        public readonly Outputs.ManagedOnBehalfOfConfigurationResponse ManagedOnBehalfOfConfiguration;
         /// <summary>
         /// Managed resource group name.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -192,13 +192,13 @@ namespace Pulumi.AzureNative.Mission
 
             string id,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
             Outputs.MaintenanceModeConfigurationModelResponse? maintenanceModeConfiguration,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.ManagedOnBehalfOfConfigurationResponse managedOnBehalfOfConfiguration,
+            Outputs.ManagedOnBehalfOfConfigurationResponse managedOnBehalfOfConfiguration,
 
             string managedResourceGroupName,
 
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.Mission
 
             ImmutableArray<string> resourceCollection,
 
-            Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

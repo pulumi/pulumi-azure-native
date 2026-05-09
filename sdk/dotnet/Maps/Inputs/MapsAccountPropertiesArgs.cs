@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Maps.Inputs
         /// All encryption configuration for a resource.
         /// </summary>
         [Input("encryption")]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.EncryptionArgs>? Encryption { get; set; }
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         [Input("linkedResources")]
         private InputList<Inputs.LinkedResourceArgs>? _linkedResources;

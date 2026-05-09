@@ -29,6 +29,7 @@ __all__ = [
     'PostgreSqlFlexibleServerHighAvailabilityMode',
     'PostgresMajorVersion',
     'PrincipalType',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccessEnum',
     'ReadReplicaPromoteMode',
     'ReadReplicaPromoteOption',
@@ -267,6 +268,16 @@ class PrincipalType(_builtins.str, Enum):
     USER = "user"
     SERVICE_PRINCIPAL = "servicePrincipal"
     GROUP = "group"
+
+
+@pulumi.type_token("azure-native:dbforpostgresql:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:PublicNetworkAccessEnum")

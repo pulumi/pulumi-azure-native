@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -29,6 +28,8 @@ __all__ = [
     'CacheNodePropertyResponse',
     'CustomerEntityResponse',
     'CustomerPropertyResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'MccCacheNodeAutoUpdateHistoryPropertiesResponse',
     'MccCacheNodeAutoUpdateInfoResponse',
     'MccCacheNodeIssueHistoryPropertiesResponse',
@@ -36,6 +37,7 @@ __all__ = [
     'MccCacheNodeTlsCertificateResponse',
     'MccIssueResponse',
     'ProxyUrlConfigurationResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -1893,7 +1895,7 @@ class CacheNodeOldResponseResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: _builtins.str,
                  status: _builtins.str,
-                 error: Optional['_commontypesv5.outputs.ErrorDetailResponse'] = None,
+                 error: Optional['outputs.ErrorDetailResponse'] = None,
                  status_code: Optional[_builtins.str] = None,
                  status_details: Optional[_builtins.str] = None,
                  status_text: Optional[_builtins.str] = None):
@@ -1902,7 +1904,7 @@ class CacheNodeOldResponseResponse(dict):
 
         :param _builtins.str provisioning_state: The provisioned state of the resource
         :param _builtins.str status: status of the HTTP error code
-        :param '_commontypesv5.ErrorDetailResponse' error: The error details
+        :param 'ErrorDetailResponse' error: The error details
         :param _builtins.str status_code: statusCode used to get code details of Mcc response object
         :param _builtins.str status_details: statusDetails used to get inner details of Mcc response object
         :param _builtins.str status_text: statusText used to get status details in string format of Mcc response object
@@ -1936,7 +1938,7 @@ class CacheNodeOldResponseResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['_commontypesv5.outputs.ErrorDetailResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         The error details
         """
@@ -2004,7 +2006,7 @@ class CacheNodePropertyResponse(dict):
                  status: _builtins.str,
                  additional_cache_node_properties: Optional['outputs.AdditionalCacheNodePropertiesResponse'] = None,
                  cache_node: Optional['outputs.CacheNodeEntityResponse'] = None,
-                 error: Optional['_commontypesv5.outputs.ErrorDetailResponse'] = None,
+                 error: Optional['outputs.ErrorDetailResponse'] = None,
                  status_code: Optional[_builtins.str] = None,
                  status_details: Optional[_builtins.str] = None,
                  status_text: Optional[_builtins.str] = None):
@@ -2015,7 +2017,7 @@ class CacheNodePropertyResponse(dict):
         :param _builtins.str status: HTTP error status code.
         :param 'AdditionalCacheNodePropertiesResponse' additional_cache_node_properties: Mcc cache node resource additional properties.
         :param 'CacheNodeEntityResponse' cache_node: Mcc cache node resource (cache node entity).
-        :param '_commontypesv5.ErrorDetailResponse' error: Mcc response error details.
+        :param 'ErrorDetailResponse' error: Mcc response error details.
         :param _builtins.str status_code: Mcc response status code.
         :param _builtins.str status_details: Mcc response status details for retrieving response inner details.
         :param _builtins.str status_text: Mcc response status text as string for retrieving status details.
@@ -2069,7 +2071,7 @@ class CacheNodePropertyResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['_commontypesv5.outputs.ErrorDetailResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         Mcc response error details.
         """
@@ -2391,7 +2393,7 @@ class CustomerPropertyResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 error: '_commontypesv5.outputs.ErrorDetailResponse',
+                 error: 'outputs.ErrorDetailResponse',
                  provisioning_state: _builtins.str,
                  status: _builtins.str,
                  status_code: _builtins.str,
@@ -2402,7 +2404,7 @@ class CustomerPropertyResponse(dict):
         """
         Model representing customer for connectedCache resource
 
-        :param '_commontypesv5.ErrorDetailResponse' error: Mcc response error details.
+        :param 'ErrorDetailResponse' error: Mcc response error details.
         :param _builtins.str provisioning_state: The provisioned state of the resource
         :param _builtins.str status: HTTP error status code.
         :param _builtins.str status_code: Mcc response status code.
@@ -2424,7 +2426,7 @@ class CustomerPropertyResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> '_commontypesv5.outputs.ErrorDetailResponse':
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         Mcc response error details.
         """
@@ -2485,6 +2487,124 @@ class CustomerPropertyResponse(dict):
         Mcc customer resource (customer entity).
         """
         return pulumi.get(self, "customer")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: _builtins.str):
+        """
+        The resource management error additional info.
+
+        :param Any info: The additional info.
+        :param _builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        The error detail.
+
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -3030,5 +3150,116 @@ class ProxyUrlConfigurationResponse(dict):
         Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
         """
         return pulumi.get(self, "proxy_url")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 

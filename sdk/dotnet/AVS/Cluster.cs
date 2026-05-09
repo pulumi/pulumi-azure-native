@@ -59,13 +59,13 @@ namespace Pulumi.AzureNative.AVS
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Pulumi.AzureNative.Commontypesv5.Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.AVS
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Pulumi.AzureNative.Commontypesv5.Inputs.SkuArgs> Sku { get; set; } = null!;
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
         /// Name of the vsan datastore associated with the cluster

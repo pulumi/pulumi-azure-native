@@ -70,7 +70,7 @@ export interface GetPrivateLinkServicesForEDMUploadResult {
     /**
      * Required property for system data
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.m365securityandcompliance.SystemDataResponse;
     /**
      * The resource tags.
      */

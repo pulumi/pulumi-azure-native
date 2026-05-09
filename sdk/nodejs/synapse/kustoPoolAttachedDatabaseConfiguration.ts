@@ -74,7 +74,7 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv1.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.synapse.SystemDataResponse>;
     /**
      * Table level sharing specifications
      */

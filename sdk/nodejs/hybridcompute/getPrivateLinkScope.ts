@@ -60,7 +60,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * Resource tags
      */

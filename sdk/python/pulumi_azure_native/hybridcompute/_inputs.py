@@ -20,6 +20,8 @@ __all__ = [
     'AgentUpgradeArgsDict',
     'HybridComputePrivateLinkScopePropertiesArgs',
     'HybridComputePrivateLinkScopePropertiesArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
     'LicenseDetailsArgs',
     'LicenseDetailsArgsDict',
     'LicenseProfileMachineInstanceViewEsuPropertiesArgs',
@@ -28,6 +30,8 @@ __all__ = [
     'LicenseProfileMachineInstanceViewArgsDict',
     'LicenseArgs',
     'LicenseArgsDict',
+    'LocationDataArgs',
+    'LocationDataArgsDict',
     'MachineExtensionInstanceViewStatusArgs',
     'MachineExtensionInstanceViewStatusArgsDict',
     'MachineExtensionInstanceViewArgs',
@@ -168,6 +172,40 @@ class HybridComputePrivateLinkScopePropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
+
+
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        Identity for the resource.
+
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 class LicenseDetailsArgsDict(TypedDict):
@@ -583,6 +621,99 @@ class LicenseArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class LocationDataArgsDict(TypedDict):
+    """
+    Metadata pertaining to the geographic location of the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A canonical name for the geographic or physical location.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city or locality where the resource is located.
+    """
+    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country or region where the resource is located
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The district, state, or province where the resource is located.
+    """
+
+@pulumi.input_type
+class LocationDataArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 city: Optional[pulumi.Input[_builtins.str]] = None,
+                 country_or_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 district: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Metadata pertaining to the geographic location of the resource.
+
+        :param pulumi.Input[_builtins.str] name: A canonical name for the geographic or physical location.
+        :param pulumi.Input[_builtins.str] city: The city or locality where the resource is located.
+        :param pulumi.Input[_builtins.str] country_or_region: The country or region where the resource is located
+        :param pulumi.Input[_builtins.str] district: The district, state, or province where the resource is located.
+        """
+        pulumi.set(__self__, "name", name)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A canonical name for the geographic or physical location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The city or locality where the resource is located.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "city", value)
+
+    @_builtins.property
+    @pulumi.getter(name="countryOrRegion")
+    def country_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The country or region where the resource is located
+        """
+        return pulumi.get(self, "country_or_region")
+
+    @country_or_region.setter
+    def country_or_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "country_or_region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The district, state, or province where the resource is located.
+        """
+        return pulumi.get(self, "district")
+
+    @district.setter
+    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "district", value)
 
 
 class MachineExtensionInstanceViewStatusArgsDict(TypedDict):

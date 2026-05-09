@@ -14,6 +14,7 @@ __all__ = [
     'ItemScope',
     'ItemType',
     'Kind',
+    'ManagedServiceIdentityType',
     'PublicNetworkAccessType',
     'RequestSource',
     'WebTestKind',
@@ -84,6 +85,17 @@ class Kind(_builtins.str, Enum):
     """
     USER = "user"
     SHARED = "shared"
+
+
+@pulumi.type_token("azure-native:applicationinsights:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:applicationinsights:PublicNetworkAccessType")

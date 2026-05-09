@@ -75,7 +75,7 @@ export class IoTAddon extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of Addon
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */

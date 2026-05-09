@@ -80,7 +80,7 @@ export interface GetFluidRelayServerResult {
     /**
      * System meta data for this resource, including creation and modification information.
      */
-    readonly systemData: outputs.commontypesv2.SystemDataResponse;
+    readonly systemData: outputs.fluidrelay.SystemDataResponse;
     /**
      * Resource tags.
      */

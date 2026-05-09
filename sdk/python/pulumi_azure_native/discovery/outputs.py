@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import commontypesv5 as _commontypesv5
 from ._enums import *
 
 __all__ = [
@@ -25,14 +24,21 @@ __all__ = [
     'ChatModelDeploymentPropertiesResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
+    'MoboBrokerResourceResponse',
     'NodePoolPropertiesResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'ProjectPropertiesResponse',
     'ProjectSettingsResponse',
     'StorageAssetPropertiesResponse',
     'StorageContainerPropertiesResponse',
     'SupercomputerIdentitiesResponse',
     'SupercomputerPropertiesResponse',
+    'SystemDataResponse',
     'ToolPropertiesResponse',
+    'UserAssignedIdentityResponse',
     'WithMoboBrokerResourcesResponse',
     'WorkspacePropertiesResponse',
 ]
@@ -271,7 +277,7 @@ class BookshelfPropertiesResponse(dict):
                  bookshelf_uri: _builtins.str,
                  managed_on_behalf_of_configuration: 'outputs.WithMoboBrokerResourcesResponse',
                  managed_resource_group: _builtins.str,
-                 private_endpoint_connections: Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: _builtins.str,
                  customer_managed_keys: Optional[_builtins.str] = None,
                  key_vault_properties: Optional['outputs.BookshelfKeyVaultPropertiesResponse'] = None,
@@ -279,14 +285,14 @@ class BookshelfPropertiesResponse(dict):
                  private_endpoint_subnet_id: Optional[_builtins.str] = None,
                  public_network_access: Optional[_builtins.str] = None,
                  search_subnet_id: Optional[_builtins.str] = None,
-                 workload_identities: Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']] = None):
+                 workload_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Bookshelf properties
 
         :param _builtins.str bookshelf_uri: The bookshelf data plane API URI
         :param 'WithMoboBrokerResourcesResponse' managed_on_behalf_of_configuration: Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
         :param _builtins.str managed_resource_group: The resource group for resources managed on behalf of customer.
-        :param Sequence['_commontypesv5.PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str customer_managed_keys: Whether or not to use a customer managed key when encrypting data at rest
         :param 'BookshelfKeyVaultPropertiesResponse' key_vault_properties: The key to use for encrypting data at rest when customer managed keys are enabled. Required if Customer Managed Keys is enabled.
@@ -294,7 +300,7 @@ class BookshelfPropertiesResponse(dict):
         :param _builtins.str private_endpoint_subnet_id: Private Endpoint Subnet ID for private endpoint connections.
         :param _builtins.str public_network_access: Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
         :param _builtins.str search_subnet_id: Search Subnet ID for search resources.
-        :param Mapping[str, '_commontypesv5.UserAssignedIdentityResponse'] workload_identities: User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] workload_identities: User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
         """
         pulumi.set(__self__, "bookshelf_uri", bookshelf_uri)
         pulumi.set(__self__, "managed_on_behalf_of_configuration", managed_on_behalf_of_configuration)
@@ -342,7 +348,7 @@ class BookshelfPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections.
         """
@@ -406,7 +412,7 @@ class BookshelfPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentities")
-    def workload_identities(self) -> Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']]:
+    def workload_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
         """
@@ -611,6 +617,30 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MoboBrokerResourceResponse(dict):
+    """
+    Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+
+        :param _builtins.str id: Resource identifier of a Managed-On-Behalf-Of broker resource
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Resource identifier of a Managed-On-Behalf-Of broker resource
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class NodePoolPropertiesResponse(dict):
     """
     NodePool properties
@@ -719,6 +749,300 @@ class NodePoolPropertiesResponse(dict):
         The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of the private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[_builtins.str],
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: _builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        Properties of the private endpoint connection.
+
+        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[_builtins.str],
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+
+        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        The private endpoint resource.
+
+        :param _builtins.str id: The ARM identifier for private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ARM identifier for private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+
+        :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param _builtins.str description: The reason for approval/rejection of the connection.
+        :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[_builtins.str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -986,7 +1310,7 @@ class SupercomputerIdentitiesResponse(dict):
     def __init__(__self__, *,
                  cluster_identity: 'outputs.IdentityResponse',
                  kubelet_identity: 'outputs.IdentityResponse',
-                 workload_identities: Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']] = None):
+                 workload_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Dictionary of identity properties for the Supercomputer.
 
@@ -994,7 +1318,7 @@ class SupercomputerIdentitiesResponse(dict):
         :param 'IdentityResponse' kubelet_identity: Kubelet identity ID used by the supercomputer.
                      This identity is used by the supercomputer at node level to access Azure resources.
                      This identity must have ManagedIdentityOperator role on the clusterIdentity.
-        :param Mapping[str, '_commontypesv5.UserAssignedIdentityResponse'] workload_identities: User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] workload_identities: User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
         """
         pulumi.set(__self__, "cluster_identity", cluster_identity)
         pulumi.set(__self__, "kubelet_identity", kubelet_identity)
@@ -1021,7 +1345,7 @@ class SupercomputerIdentitiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentities")
-    def workload_identities(self) -> Optional[Mapping[str, '_commontypesv5.outputs.UserAssignedIdentityResponse']]:
+    def workload_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
         """
@@ -1213,6 +1537,117 @@ class SupercomputerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class ToolPropertiesResponse(dict):
     """
     Discovery Tool list item properties
@@ -1291,6 +1726,59 @@ class ToolPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        User assigned identity properties
+
+        :param _builtins.str client_id: The client ID of the assigned identity.
+        :param _builtins.str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class WithMoboBrokerResourcesResponse(dict):
     """
     For tracking mobo resources
@@ -1313,17 +1801,17 @@ class WithMoboBrokerResourcesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mobo_broker_resources: Sequence['_commontypesv5.outputs.MoboBrokerResourceResponse']):
+                 mobo_broker_resources: Sequence['outputs.MoboBrokerResourceResponse']):
         """
         For tracking mobo resources
 
-        :param Sequence['_commontypesv5.MoboBrokerResourceResponse'] mobo_broker_resources: Managed-On-Behalf-Of broker resources
+        :param Sequence['MoboBrokerResourceResponse'] mobo_broker_resources: Managed-On-Behalf-Of broker resources
         """
         pulumi.set(__self__, "mobo_broker_resources", mobo_broker_resources)
 
     @_builtins.property
     @pulumi.getter(name="moboBrokerResources")
-    def mobo_broker_resources(self) -> Sequence['_commontypesv5.outputs.MoboBrokerResourceResponse']:
+    def mobo_broker_resources(self) -> Sequence['outputs.MoboBrokerResourceResponse']:
         """
         Managed-On-Behalf-Of broker resources
         """
@@ -1383,7 +1871,7 @@ class WorkspacePropertiesResponse(dict):
     def __init__(__self__, *,
                  managed_on_behalf_of_configuration: 'outputs.WithMoboBrokerResourcesResponse',
                  managed_resource_group: _builtins.str,
-                 private_endpoint_connections: Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: _builtins.str,
                  workspace_api_uri: _builtins.str,
                  workspace_identity: 'outputs.IdentityResponse',
@@ -1401,7 +1889,7 @@ class WorkspacePropertiesResponse(dict):
 
         :param 'WithMoboBrokerResourcesResponse' managed_on_behalf_of_configuration: Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
         :param _builtins.str managed_resource_group: The resource group for resources managed on behalf of customer.
-        :param Sequence['_commontypesv5.PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str workspace_api_uri: workspace API endpoint Uri.
         :param 'IdentityResponse' workspace_identity: Identity IDs used for leveraging Workspace resources.
@@ -1457,7 +1945,7 @@ class WorkspacePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['_commontypesv5.outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections.
         """

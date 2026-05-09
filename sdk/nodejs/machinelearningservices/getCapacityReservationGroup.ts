@@ -47,7 +47,7 @@ export interface GetCapacityReservationGroupResult {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -63,11 +63,11 @@ export interface GetCapacityReservationGroupResult {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    readonly sku?: outputs.commontypesv3.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.SkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv3.SystemDataResponse;
+    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
      * Resource tags.
      */

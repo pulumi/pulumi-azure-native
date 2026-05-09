@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
         /// <summary>
         /// Error response describing why the sync failed.
         /// </summary>
-        public readonly Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse? LastSyncError;
+        public readonly Outputs.ErrorDetailResponse? LastSyncError;
         /// <summary>
         /// When the plan member was last synced.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
 
         [OutputConstructor]
         private PlanMemberSyncStatusResponse(
-            Pulumi.AzureNative.Commontypesv5.Outputs.ErrorDetailResponse? lastSyncError,
+            Outputs.ErrorDetailResponse? lastSyncError,
 
             string lastSyncTime,
 

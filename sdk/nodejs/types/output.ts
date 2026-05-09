@@ -377,6 +377,36 @@ export namespace aad {
         settings?: outputs.aad.ForestTrustResponse[];
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace aadiam {
@@ -410,6 +440,39 @@ export namespace aadiam {
          * A value indicating whether the retention policy is enabled.
          */
         enabled: boolean;
+    }
+
+}
+
+export namespace advisor {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -451,6 +514,74 @@ export namespace agfoodplatform {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.agfoodplatform.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.agfoodplatform.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
+     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+     */
+    export interface ErrorResponseResponse {
+        /**
+         * The error object.
+         */
+        error?: outputs.agfoodplatform.ErrorDetailResponse;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity. The value must be an UUID.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource. The value must be an UUID.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+    }
+
+    /**
      * Properties of the key vault.
      */
     export interface KeyVaultPropertiesResponse {
@@ -488,6 +619,72 @@ export namespace agfoodplatform {
     }
 
     /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.agfoodplatform.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.agfoodplatform.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.agfoodplatform.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Sensor integration request model.
      */
     export interface SensorIntegrationResponse {
@@ -498,7 +695,7 @@ export namespace agfoodplatform {
         /**
          * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
          */
-        provisioningInfo?: outputs.commontypesv4.ErrorResponseResponse;
+        provisioningInfo?: outputs.agfoodplatform.ErrorResponseResponse;
         /**
          * Sensor integration instance provisioning state.
          */
@@ -541,6 +738,36 @@ export namespace agfoodplatform {
          * SaaS application Term Id.
          */
         termId: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -713,6 +940,28 @@ export namespace agricultureplatform {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.agricultureplatform.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Marketplace offer details of Agri solution.
      */
     export interface MarketPlaceOfferDetailsResponse {
@@ -735,6 +984,32 @@ export namespace agricultureplatform {
          * Example: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
          */
         id: string;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
     }
 
     /**
@@ -765,6 +1040,50 @@ export namespace agricultureplatform {
          * Saas subscription name.
          */
         saasSubscriptionName?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -1489,6 +1808,36 @@ export namespace alertsmanagement {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Optional throttling information for the alert rule.
      */
     export interface ThrottlingInformationResponse {
@@ -1741,6 +2090,28 @@ export namespace apicenter {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.apicenter.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Assignment metadata
      */
     export interface MetadataAssignmentResponse {
@@ -1773,6 +2144,36 @@ export namespace apicenter {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Terms of service for the API.
      */
     export interface TermsOfServiceResponse {
@@ -1780,6 +2181,20 @@ export namespace apicenter {
          * URL pointing to the terms of service.
          */
         url: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -2719,6 +3134,34 @@ export namespace apimanagement {
     }
 
     /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Remote Private Endpoint Connection resource.
      */
     export interface RemotePrivateEndpointConnectionWrapperResponse {
@@ -2741,7 +3184,7 @@ export namespace apimanagement {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.apimanagement.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -2885,6 +3328,36 @@ export namespace apimanagement {
          * Subscription key query string parameter name.
          */
         query?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -5537,6 +6010,28 @@ export namespace app {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.app.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Configuration of Open Telemetry metrics
      */
     export interface MetricsConfigurationResponse {
@@ -5788,7 +6283,7 @@ export namespace app {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.app.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -6509,6 +7004,36 @@ export namespace app {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Defines parameters for tcp connection pooling
      */
     export interface TcpConnectionPoolResponse {
@@ -6699,6 +7224,20 @@ export namespace app {
          * The configuration settings of the app registration for the Twitter provider.
          */
         registration?: outputs.app.TwitterRegistrationResponse;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -7019,6 +7558,36 @@ export namespace appcomplianceautomation {
         subscriptionId?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace appconfiguration {
@@ -7178,6 +7747,36 @@ export namespace appconfiguration {
          * The SKU name of the configuration store.
          */
         name: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -7362,6 +7961,50 @@ export namespace applicationinsights {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
      */
     export interface WebTestGeolocationResponse {
@@ -7474,7 +8117,7 @@ export namespace applicationinsights {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv3.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.applicationinsights.UserAssignedIdentityResponse};
     }
 
     /**
@@ -10600,6 +11243,98 @@ export namespace appplatform {
 }
 
 export namespace attestation {
+    /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.attestation.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.attestation.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.attestation.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace authorization {
@@ -11275,7 +12010,7 @@ export namespace authorization {
         /**
          * The system metadata relating to this resource.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.authorization.SystemDataResponse;
         /**
          * The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
          */
@@ -11366,7 +12101,7 @@ export namespace authorization {
         /**
          * The system metadata relating to this resource.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.authorization.SystemDataResponse;
         /**
          * The type of the resource (Microsoft.Authorization/policySetDefinitions/versions).
          */
@@ -11784,6 +12519,36 @@ export namespace authorization {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The detail of a user.
      */
     export interface UserSetResponse {
@@ -11852,6 +12617,36 @@ export namespace automanage {
          * configuration dictionary of the configuration profile.
          */
         configuration?: any;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -12254,7 +13049,7 @@ export namespace automation {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.automation.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -12469,6 +13264,36 @@ export namespace automation {
          * Pre task properties.
          */
         preTask?: outputs.automation.TaskPropertiesResponse;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -12986,6 +13811,80 @@ export namespace avs {
          * The value for the passed parameter
          */
         value?: string;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -34533,6 +35432,36 @@ export namespace awsconnector {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Definition of TCPFlagField
      */
     export interface TCPFlagFieldResponse {
@@ -35604,6 +36533,36 @@ export namespace azureactivedirectory {
          * The display name of the Azure AD for customers tenant.
          */
         displayName: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -37518,6 +38477,36 @@ export namespace azurearcdata {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The target readiness for migration for this database.
      */
     export interface TargetReadinessResponse {
@@ -38131,7 +39120,7 @@ export namespace azuredatatransfer {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commontypesv5.ManagedServiceIdentityResponse;
+        identity?: outputs.azuredatatransfer.ManagedServiceIdentityResponse;
         /**
          * The geo-location where the resource lives
          */
@@ -38143,7 +39132,7 @@ export namespace azuredatatransfer {
         /**
          * Details of the resource plan.
          */
-        plan?: outputs.commontypesv5.PlanResponse;
+        plan?: outputs.azuredatatransfer.PlanResponse;
         /**
          * Properties of flow
          */
@@ -38151,7 +39140,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.azuredatatransfer.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38188,6 +39177,28 @@ export namespace azuredatatransfer {
          * ID of the connection.
          */
         id?: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.azuredatatransfer.UserAssignedIdentityResponse};
     }
 
     /**
@@ -38345,7 +39356,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.azuredatatransfer.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38479,7 +39490,7 @@ export namespace azuredatatransfer {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.azuredatatransfer.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -38517,7 +39528,7 @@ export namespace azuredatatransfer {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.azuredatatransfer.SystemDataResponse;
         /**
          * Connection type inside pipeline
          */
@@ -38566,6 +39577,32 @@ export namespace azuredatatransfer {
          * Subscribers of this resource
          */
         subscribers?: outputs.azuredatatransfer.SubscriberResponse[];
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanResponse {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
     }
 
     /**
@@ -38650,6 +39687,36 @@ export namespace azuredatatransfer {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
      */
     export interface TextMatchResponse {
@@ -38685,6 +39752,20 @@ export namespace azuredatatransfer {
          * A list of text patterns to block, each with matching rules and case sensitivity options.
          */
         deny?: outputs.azuredatatransfer.TextMatchResponse[];
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -39150,6 +40231,28 @@ export namespace azurefleet {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.azurefleet.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Specifies OS Image Scheduled Event related configurations.
      */
     export interface OSImageNotificationProfileResponse {
@@ -39203,6 +40306,32 @@ export namespace azurefleet {
          * WindowsConfiguration.enableAutomaticUpdates must be true
          */
         patchMode?: string;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanResponse {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
     }
 
     /**
@@ -39420,6 +40549,36 @@ export namespace azurefleet {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Specifies Terminate Scheduled Event related configurations.
      */
     export interface TerminateNotificationProfileResponse {
@@ -39451,6 +40610,20 @@ export namespace azurefleet {
          * api-version: 2020-12-01.
          */
         vTpmEnabled?: boolean;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -40472,6 +41645,28 @@ export namespace azurelargeinstance {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.azurelargeinstance.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Specifies the network settings for the Azure Large Instance disks.
      */
     export interface NetworkProfileResponse {
@@ -40570,6 +41765,83 @@ export namespace azurelargeinstance {
         workloadType?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+}
+
+export namespace azureplaywrightservice {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace azuresphere {
@@ -40604,7 +41876,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.azuresphere.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40650,7 +41922,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.azuresphere.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40742,7 +42014,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.azuresphere.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40796,7 +42068,7 @@ export namespace azuresphere {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.azuresphere.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -40805,6 +42077,36 @@ export namespace azuresphere {
          * Location the image
          */
         uri: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -41002,6 +42304,36 @@ export namespace azurestack {
          * The type of the Virtual Machine Extension.
          */
         vmExtensionType?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -41548,7 +42880,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.azurestackhci.ErrorDetailResponse;
         /**
          * Unique, immutable job id.
          */
@@ -41685,7 +43017,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.azurestackhci.ErrorDetailResponse;
         /**
          * From date for log collection.
          */
@@ -41938,7 +43270,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.azurestackhci.ErrorDetailResponse;
         /**
          * Remote support expiration timestamp.
          */
@@ -42061,9 +43393,49 @@ export namespace azurestackhci {
     }
 
     /**
-     * details of validation failure
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
      */
     export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.azurestackhci.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.azurestackhci.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
+     * details of validation failure
+     */
+    export interface ErrorDetailResponseV1 {
         /**
          * Exception details while installing extension.
          */
@@ -42159,7 +43531,7 @@ export namespace azurestackhci {
         /**
          * Error details while installing Arc extension.
          */
-        errorDetails: outputs.azurestackhci.ErrorDetailResponse[];
+        errorDetails: outputs.azurestackhci.ErrorDetailResponseV1[];
         /**
          * Arc extension name installed on edge device.
          */
@@ -42340,7 +43712,7 @@ export namespace azurestackhci {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commontypesv5.ErrorDetailResponse[];
+        errorDetails: outputs.azurestackhci.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -42366,7 +43738,7 @@ export namespace azurestackhci {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commontypesv3.ErrorDetailResponse[];
+        errorDetails: outputs.azurestackhci.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -42977,6 +44349,24 @@ export namespace azurestackhci {
          * Start of the IP address pool
          */
         start?: string;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
     }
 
     /**
@@ -43716,6 +45106,28 @@ export namespace azurestackhci {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The download status of the gallery image
      */
     export interface MarketplaceGalleryImageStatusDownloadStatusResponse {
@@ -44095,7 +45507,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.azurestackhci.ErrorDetailResponse;
         /**
          * operation id.
          */
@@ -44389,7 +45801,7 @@ export namespace azurestackhci {
         /**
          * error details.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.azurestackhci.ErrorDetailResponse;
         /**
          * Unique, immutable job id.
          */
@@ -45315,6 +46727,36 @@ export namespace azurestackhci {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Device configuration.
      */
     export interface TargetDeviceConfigurationResponse {
@@ -45374,6 +46816,20 @@ export namespace azurestackhci {
          * Version of the prerequisite.
          */
         version?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -46535,6 +47991,36 @@ export namespace baremetalinfrastructure {
         workloadType?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace batch {
@@ -47351,7 +48837,7 @@ export namespace batch {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.batch.SystemDataResponse;
         /**
          * The tags of the resource.
          */
@@ -47608,6 +49094,36 @@ export namespace batch {
             ...val,
             maxTaskRetryCount: (val.maxTaskRetryCount) ?? 0,
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -48529,6 +50045,36 @@ export namespace billing {
         type?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace billingbenefits {
@@ -49069,7 +50615,7 @@ export namespace billingbenefits {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.billingbenefits.UserAssignedIdentityResponse};
     }
 
     /**
@@ -49096,7 +50642,7 @@ export namespace billingbenefits {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
          */
         product: string;
         /**
@@ -49186,13 +50732,57 @@ export namespace billingbenefits {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
          */
         size?: string;
         /**
          * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
          */
         tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -50447,7 +52037,7 @@ export namespace botservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.botservice.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -50634,7 +52224,7 @@ export namespace botservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.botservice.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -51237,6 +52827,36 @@ export namespace botservice {
             ...val,
             location: (val.location) ?? "global",
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -53050,6 +54670,28 @@ export namespace cdn {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.cdn.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Define match conditions
      */
     export interface MatchConditionResponse {
@@ -53794,19 +55436,19 @@ export namespace cdn {
     }
 
     /**
-     * Read only system data
+     * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
         /**
-         * The timestamp of resource creation (UTC)
+         * The timestamp of resource creation (UTC).
          */
         createdAt?: string;
         /**
-         * An identifier for the identity that created the resource
+         * The identity that created the resource.
          */
         createdBy?: string;
         /**
-         * The type of identity that created the resource
+         * The type of identity that created the resource.
          */
         createdByType?: string;
         /**
@@ -53814,11 +55456,11 @@ export namespace cdn {
          */
         lastModifiedAt?: string;
         /**
-         * An identifier for the identity that last modified the resource
+         * The identity that last modified the resource.
          */
         lastModifiedBy?: string;
         /**
-         * The type of identity that last modified the resource
+         * The type of identity that last modified the resource.
          */
         lastModifiedByType?: string;
     }
@@ -54116,6 +55758,20 @@ export namespace cdn {
          * Parameter name
          */
         paramName: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -54551,7 +56207,7 @@ export namespace chaos {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.chaos.UserAssignedIdentityResponse};
     }
 
     /**
@@ -54611,6 +56267,72 @@ export namespace chaos {
          * Expected value is 'List'.
          */
         type: "List";
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.chaos.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.chaos.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.chaos.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -54702,6 +56424,36 @@ export namespace chaos {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Model that represents a reference to a Target in the selector.
      */
     export interface TargetReferenceResponse {
@@ -54713,6 +56465,20 @@ export namespace chaos {
          * Enum of the Target reference type.
          */
         type: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -55138,6 +56904,28 @@ export namespace cloudhealth {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.cloudhealth.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Settings for automatically discovering entities for the health model.
      */
     export interface ModelDiscoverySettingsResponse {
@@ -55381,6 +57169,36 @@ export namespace cloudhealth {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Threshold-based evaluation rule for a signal definition
      */
     export interface ThresholdRuleResponse {
@@ -55392,6 +57210,20 @@ export namespace cloudhealth {
          * Threshold value
          */
         threshold: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -55978,6 +57810,36 @@ export namespace cloudngfw {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Tag
      */
     export interface TagInfoResponse {
@@ -56104,6 +57966,36 @@ export namespace codesigning {
          * Thumbprint of the certificate.
          */
         thumbprint?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -56437,7 +58329,7 @@ export namespace cognitiveservices {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.cognitiveservices.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -57582,11 +59474,11 @@ export namespace cognitiveservices {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commontypesv2.PrivateEndpointResponse;
+        privateEndpoint?: outputs.cognitiveservices.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.cognitiveservices.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -57620,11 +59512,39 @@ export namespace cognitiveservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.cognitiveservices.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     export interface ProjectCapabilityHostResponse {
@@ -58149,6 +60069,36 @@ export namespace cognitiveservices {
         tier?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
     export interface ThrottlingRuleResponse {
         count?: number;
         dynamicThrottlingEnabled?: boolean;
@@ -58299,1541 +60249,6 @@ export namespace cognitiveservices {
 
 }
 
-export namespace commontypesv1 {
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
-     */
-    export interface ErrorResponseResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv1.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv1.ErrorResponseResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The resource of private end point.
-         */
-        privateEndpoint?: outputs.commontypesv1.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv1.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The Private Endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for Private Endpoint
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-}
-
-export namespace commontypesv2 {
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * The error detail.
-     */
-    export interface ErrorDetailResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv2.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv2.ErrorDetailResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponse {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanResponse {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: string;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: string;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: string;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: string;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: string;
-    }
-
-    /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The resource of private end point.
-         */
-        privateEndpoint?: outputs.commontypesv2.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv2.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The Private Endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for Private Endpoint
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuResponse {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-}
-
-export namespace commontypesv3 {
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * The error detail.
-     */
-    export interface ErrorDetailResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv3.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv3.ErrorDetailResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
-     */
-    export interface ErrorResponseResponse {
-        /**
-         * The error object.
-         */
-        error?: outputs.commontypesv3.ErrorDetailResponse;
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponse {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    /**
-     * Metadata pertaining to the geographic location of the resource.
-     */
-    export interface LocationDataResponse {
-        /**
-         * The city or locality where the resource is located.
-         */
-        city?: string;
-        /**
-         * The country or region where the resource is located
-         */
-        countryOrRegion?: string;
-        /**
-         * The district, state, or province where the resource is located.
-         */
-        district?: string;
-        /**
-         * A canonical name for the geographic or physical location.
-         */
-        name: string;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: string;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv3.UserAssignedIdentityResponse};
-    }
-
-    /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The resource of private end point.
-         */
-        privateEndpoint?: outputs.commontypesv3.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv3.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.commontypesv3.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The Private Endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for Private Endpoint
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuResponse {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * Managed service identity (either system assigned, or none)
-     */
-    export interface SystemAssignedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (either system assigned, or none).
-         */
-        type: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * User assigned identity properties
-     */
-    export interface UserAssignedIdentityResponse {
-        /**
-         * The client ID of the assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the assigned identity.
-         */
-        principalId: string;
-    }
-
-}
-
-export namespace commontypesv4 {
-    /**
-     * All Customer-managed key encryption properties for the resource.
-     */
-    export interface CustomerManagedKeyEncryptionResponse {
-        /**
-         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-         */
-        keyEncryptionKeyIdentity?: outputs.commontypesv4.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity;
-        /**
-         * key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-         */
-        keyEncryptionKeyUrl?: string;
-    }
-
-    /**
-     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-     */
-    export interface CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity {
-        /**
-         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
-         */
-        delegatedIdentityClientId?: string;
-        /**
-         * Values can be systemAssignedIdentity or userAssignedIdentity
-         */
-        identityType?: string;
-        /**
-         * user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
-         */
-        userAssignedIdentityResourceId?: string;
-    }
-
-    /**
-     * Delegated resource properties - internal use only.
-     */
-    export interface DelegatedResourceResponse {
-        /**
-         * The source resource location - internal use only.
-         */
-        location?: string;
-        /**
-         * The delegation id of the referral delegation (optional) - internal use only.
-         */
-        referralResource?: string;
-        /**
-         * The ARM resource id of the delegated resource - internal use only.
-         */
-        resourceId?: string;
-        /**
-         * The tenant id of the delegated resource - internal use only.
-         */
-        tenantId?: string;
-    }
-
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * The error detail.
-     */
-    export interface ErrorDetailResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv4.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv4.ErrorDetailResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
-     */
-    export interface ErrorResponseResponse {
-        /**
-         * The error object.
-         */
-        error?: outputs.commontypesv4.ErrorDetailResponse;
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponse {
-        /**
-         * The principal ID of resource identity. The value must be an UUID.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource. The value must be an UUID.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: string;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
-    }
-
-    /**
-     * The private endpoint connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * The group ids for the private endpoint resource.
-         */
-        groupIds: string[];
-        /**
-         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The private endpoint resource.
-         */
-        privateEndpoint?: outputs.commontypesv4.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.commontypesv4.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The private endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for private endpoint.
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * User assigned identity properties
-     */
-    export interface UserAssignedIdentityResponse {
-        /**
-         * The client ID of the assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the assigned identity.
-         */
-        principalId: string;
-    }
-
-}
-
-export namespace commontypesv5 {
-    /**
-     * All encryption configuration for a resource.
-     */
-    export interface EncryptionResponse {
-        /**
-         * All Customer-managed key encryption properties for the resource.
-         */
-        customerManagedKeyEncryption?: outputs.commontypesv5.EncryptionResponseCustomerManagedKeyEncryption;
-        /**
-         * (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-         */
-        infrastructureEncryption?: string;
-    }
-
-    /**
-     * All Customer-managed key encryption properties for the resource.
-     */
-    export interface EncryptionResponseCustomerManagedKeyEncryption {
-        /**
-         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-         */
-        keyEncryptionKeyIdentity?: outputs.commontypesv5.EncryptionResponseKeyEncryptionKeyIdentity;
-        /**
-         * key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-         */
-        keyEncryptionKeyUrl?: string;
-    }
-
-    /**
-     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-     */
-    export interface EncryptionResponseKeyEncryptionKeyIdentity {
-        /**
-         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
-         */
-        delegatedIdentityClientId?: string;
-        /**
-         * application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
-         */
-        federatedClientId?: string;
-        /**
-         * The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
-         */
-        identityType?: string;
-        /**
-         * User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
-         */
-        userAssignedIdentityResourceId?: string;
-    }
-
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * The error detail.
-     */
-    export interface ErrorDetailResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv5.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv5.ErrorDetailResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
-     */
-    export interface ManagedOnBehalfOfConfigurationResponse {
-        /**
-         * Managed-On-Behalf-Of broker resources
-         */
-        moboBrokerResources?: outputs.commontypesv5.MoboBrokerResourceResponse[];
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: string;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
-    }
-
-    /**
-     * Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
-     */
-    export interface MoboBrokerResourceResponse {
-        /**
-         * Resource identifier of a Managed-On-Behalf-Of broker resource
-         */
-        id?: string;
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanResponse {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: string;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: string;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: string;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: string;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: string;
-    }
-
-    /**
-     * Properties of the private endpoint connection.
-     */
-    export interface PrivateEndpointConnectionPropertiesResponse {
-        /**
-         * The group ids for the private endpoint resource.
-         */
-        groupIds: string[];
-        /**
-         * The private endpoint resource.
-         */
-        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-    }
-
-    /**
-     * The private endpoint connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * The group ids for the private endpoint resource.
-         */
-        groupIds: string[];
-        /**
-         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The private endpoint resource.
-         */
-        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.commontypesv5.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The private endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for private endpoint.
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetResponseIdentity {
-        /**
-         * The principal ID of resource identity. The value must be an UUID.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource. The value must be an UUID.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetResponsePlan {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: string;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: string;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: string;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: string;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: string;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetResponseSku {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuResponse {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * Managed service identity (either system assigned, or none)
-     */
-    export interface SystemAssignedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (either system assigned, or none).
-         */
-        type: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * User assigned identity properties
-     */
-    export interface UserAssignedIdentityResponse {
-        /**
-         * The client ID of the assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the assigned identity.
-         */
-        principalId: string;
-    }
-
-}
-
-export namespace commontypesv6 {
-    /**
-     * The resource management error additional info.
-     */
-    export interface ErrorAdditionalInfoResponse {
-        /**
-         * The additional info.
-         */
-        info: any;
-        /**
-         * The additional info type.
-         */
-        type: string;
-    }
-
-    /**
-     * The error detail.
-     */
-    export interface ErrorDetailResponse {
-        /**
-         * The error additional info.
-         */
-        additionalInfo: outputs.commontypesv6.ErrorAdditionalInfoResponse[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error details.
-         */
-        details: outputs.commontypesv6.ErrorDetailResponse[];
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityResponse {
-        /**
-         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-         */
-        tenantId: string;
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: string;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanResponse {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: string;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: string;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: string;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: string;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: string;
-    }
-
-    /**
-     * Properties of the private endpoint connection.
-     */
-    export interface PrivateEndpointConnectionPropertiesResponse {
-        /**
-         * The group ids for the private endpoint resource.
-         */
-        groupIds: string[];
-        /**
-         * The private endpoint resource.
-         */
-        privateEndpoint?: outputs.commontypesv6.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv6.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-    }
-
-    /**
-     * The private endpoint connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * The group ids for the private endpoint resource.
-         */
-        groupIds: string[];
-        /**
-         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The private endpoint resource.
-         */
-        privateEndpoint?: outputs.commontypesv6.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.commontypesv6.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.commontypesv5.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The private endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for private endpoint.
-         */
-        id: string;
-    }
-
-    /**
-     * A private link resource.
-     */
-    export interface PrivateLinkResourceResponse {
-        /**
-         * The private link resource group id.
-         */
-        groupId: string;
-        /**
-         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The private link resource required member names.
-         */
-        requiredMembers: string[];
-        /**
-         * The private link resource private link DNS zone name.
-         */
-        requiredZoneNames?: string[];
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.commontypesv5.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuResponse {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * User assigned identity properties
-     */
-    export interface UserAssignedIdentityResponse {
-        /**
-         * The client ID of the assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the assigned identity.
-         */
-        principalId: string;
-    }
-
-}
-
 export namespace communication {
     /**
      * A class that represents a VerificationStatus record.
@@ -59910,6 +60325,72 @@ export namespace communication {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.communication.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * A class that represents a VerificationStatus record.
      */
     export interface VerificationStatusRecordResponse {
@@ -59975,6 +60456,62 @@ export namespace community {
             ...val,
             teamsEnabled: (val.teamsEnabled) ?? false,
         };
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -62647,7 +63184,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.compute.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -62950,7 +63487,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.compute.SystemDataResponse;
         /**
          * Gets the creation time of the restore point.
          */
@@ -63526,9 +64063,39 @@ export namespace compute {
     }
 
     /**
-     * The system meta data relating to this resource.
+     * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * The system meta data relating to this resource.
+     */
+    export interface SystemDataResponseV1 {
         /**
          * Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
          */
@@ -63962,7 +64529,7 @@ export namespace compute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.compute.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -65513,6 +66080,28 @@ export namespace computebulkactions {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.computebulkactions.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Describes a network interface reference properties.
      */
     export interface NetworkInterfaceReferencePropertiesResponse {
@@ -65688,6 +66277,32 @@ export namespace computebulkactions {
          * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
          */
         patchMode?: string;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanResponse {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
     }
 
     /**
@@ -65899,6 +66514,36 @@ export namespace computebulkactions {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Profile properties for the Terminate Scheduled event.
      */
     export interface TerminateNotificationProfileResponse {
@@ -65924,6 +66569,20 @@ export namespace computebulkactions {
          * Specifies whether vTPM should be enabled on the virtual machine. Minimum compute api-version: 2020-12-01.
          */
         vTpmEnabled?: boolean;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -66628,6 +67287,36 @@ export namespace computelimit {
         value: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace computeschedule {
@@ -66769,6 +67458,36 @@ export namespace computeschedule {
          * The timezone the scheduled time is specified on
          */
         timeZone: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -66927,6 +67646,36 @@ export namespace confidentialledger {
          */
         encryptionkey?: string;
         tags?: outputs.confidentialledger.CertificateTagsResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -67912,6 +68661,36 @@ export namespace confluent {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Metadata of the data record
      */
     export interface TopicMetadataEntityResponse {
@@ -68557,7 +69336,7 @@ export namespace connectedcache {
         /**
          * The error details
          */
-        error?: outputs.commontypesv5.ErrorDetailResponse;
+        error?: outputs.connectedcache.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68595,7 +69374,7 @@ export namespace connectedcache {
         /**
          * Mcc response error details.
          */
-        error?: outputs.commontypesv5.ErrorDetailResponse;
+        error?: outputs.connectedcache.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68707,7 +69486,7 @@ export namespace connectedcache {
         /**
          * Mcc response error details.
          */
-        error: outputs.commontypesv5.ErrorDetailResponse;
+        error: outputs.connectedcache.ErrorDetailResponse;
         /**
          * The provisioned state of the resource
          */
@@ -68728,6 +69507,46 @@ export namespace connectedcache {
          * Mcc response status text as string for retrieving status details.
          */
         statusText: string;
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.connectedcache.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.connectedcache.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -68932,9 +69751,79 @@ export namespace connectedcache {
         proxyUrl?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace connectedvmwarevsphere {
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.connectedvmwarevsphere.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.connectedvmwarevsphere.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
     /**
      * The extended location.
      */
@@ -68964,7 +69853,7 @@ export namespace connectedvmwarevsphere {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commontypesv3.ErrorDetailResponse[];
+        errorDetails: outputs.connectedvmwarevsphere.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -69473,6 +70362,36 @@ export namespace connectedvmwarevsphere {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Specifies the security settings like secure boot used while creating the virtual machine.
      */
     export interface UefiSettingsResponse {
@@ -69750,6 +70669,36 @@ export namespace consumption {
             ...val,
             thresholdType: (val.thresholdType) ?? "Actual",
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -70986,6 +71935,36 @@ export namespace containerinstance {
      */
     export interface StorageProfileResponse {
         fileShares?: outputs.containerinstance.FileShareResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -73363,7 +74342,7 @@ export namespace containerservice {
         /**
          * The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
          */
-        provisioningError: outputs.commontypesv6.ErrorDetailResponse;
+        provisioningError: outputs.containerservice.ErrorDetailResponse;
     }
 
     /**
@@ -73638,6 +74617,68 @@ export namespace containerservice {
     }
 
     /**
+     * Delegated resource properties - internal use only.
+     */
+    export interface DelegatedResourceResponse {
+        /**
+         * The source resource location - internal use only.
+         */
+        location?: string;
+        /**
+         * The delegation id of the referral delegation (optional) - internal use only.
+         */
+        referralResource?: string;
+        /**
+         * The ARM resource id of the delegated resource - internal use only.
+         */
+        resourceId?: string;
+        /**
+         * The tenant id of the delegated resource - internal use only.
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.containerservice.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.containerservice.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * The complex type of the extended location.
      */
     export interface ExtendedLocationResponse {
@@ -73736,7 +74777,7 @@ export namespace containerservice {
         /**
          * The last operation error of the fleet managed namespace
          */
-        lastOperationError: outputs.commontypesv5.ErrorDetailResponse;
+        lastOperationError: outputs.containerservice.ErrorDetailResponse;
         /**
          * The last operation ID for the fleet managed namespace
          */
@@ -74713,7 +75754,7 @@ export namespace containerservice {
         /**
          * The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
          */
-        delegatedResources?: {[key: string]: outputs.commontypesv4.DelegatedResourceResponse};
+        delegatedResources?: {[key: string]: outputs.containerservice.DelegatedResourceResponse};
         /**
          * The principal id of the system assigned identity which is used by master components.
          */
@@ -75319,7 +76360,7 @@ export namespace containerservice {
         /**
          * The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
          */
-        provisioningError: outputs.commontypesv6.ErrorDetailResponse;
+        provisioningError: outputs.containerservice.ErrorDetailResponse;
     }
 
     /**
@@ -75510,6 +76551,28 @@ export namespace containerservice {
          * The labels for the fleet managed namespace.
          */
         labels?: {[key: string]: string};
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.containerservice.UserAssignedIdentityResponse};
     }
 
     /**
@@ -75769,7 +76832,7 @@ export namespace containerservice {
          * If not specified the default agentpool identity will be used.
          * This does not affect provisioned nodes.
          */
-        identityProfile?: outputs.commontypesv5.UserAssignedIdentityResponse;
+        identityProfile?: outputs.containerservice.UserAssignedIdentityResponse;
         /**
          * The provisioning state of the node customization.
          */
@@ -76290,6 +77353,36 @@ export namespace containerservice {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Time in a week.
      */
     export interface TimeInWeekResponse {
@@ -76431,7 +77524,7 @@ export namespace containerservice {
         /**
          * The error details when a failure is encountered.
          */
-        error: outputs.commontypesv3.ErrorDetailResponse;
+        error: outputs.containerservice.ErrorDetailResponse;
         /**
          * The time the operation or group was started.
          */
@@ -76457,9 +77550,23 @@ export namespace containerservice {
     }
 
     /**
-     * Details about a user assigned identity.
+     * User assigned identity properties
      */
     export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
+     * Details about a user assigned identity.
+     */
+    export interface UserAssignedIdentityResponseV1 {
         /**
          * The client ID of the user assigned identity.
          */
@@ -76654,7 +77761,7 @@ export namespace containerstorage {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commontypesv4.ManagedServiceIdentityResponse;
+        identity?: outputs.containerstorage.ManagedServiceIdentityResponse;
         /**
          * The name of the key vault key.
          */
@@ -76686,6 +77793,28 @@ export namespace containerstorage {
             ...val,
             replicas: (val.replicas) ?? 3,
         };
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.containerstorage.UserAssignedIdentityResponse};
     }
 
     /**
@@ -76768,6 +77897,50 @@ export namespace containerstorage {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * Properties of the volume
      */
     export interface VolumeTypeResponse {
@@ -76800,6 +77973,36 @@ export namespace contoso {
          * The status of the last operation.
          */
         provisioningState: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -77615,6 +78818,46 @@ export namespace cosmosdb {
         databaseName?: string;
     }
 
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.cosmosdb.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.cosmosdb.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
     export interface ExcludedPathResponse {
         /**
          * The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
@@ -77752,7 +78995,7 @@ export namespace cosmosdb {
         /**
          * Error related to resource provisioning.
          */
-        provisionError?: outputs.commontypesv6.ErrorDetailResponse;
+        provisionError?: outputs.cosmosdb.ErrorDetailResponse;
         /**
          * The status of the resource at the time the operation was called.
          */
@@ -78944,6 +80187,36 @@ export namespace cosmosdb {
          * A system generated property that denotes the last updated timestamp of the resource.
          */
         ts: number;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     export interface TableGetPropertiesResponseOptions {
@@ -80177,6 +81450,54 @@ export namespace costmanagement {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The properties of the tag inheritance setting.
      */
     export interface TagInheritancePropertiesResponse {
@@ -81081,6 +82402,28 @@ export namespace dashboard {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.dashboard.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The Private Endpoint Connection resource.
      */
     export interface PrivateEndpointConnectionResponse {
@@ -81099,11 +82442,11 @@ export namespace dashboard {
         /**
          * The resource of private end point.
          */
-        privateEndpoint?: outputs.commontypesv3.PrivateEndpointResponse;
+        privateEndpoint?: outputs.dashboard.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commontypesv3.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.dashboard.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -81111,11 +82454,39 @@ export namespace dashboard {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.dashboard.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     export interface ResourceSkuResponse {
@@ -81192,6 +82563,50 @@ export namespace dashboard {
          * Set to false to disable external snapshot publish endpoint
          */
         externalEnabled?: boolean;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -81448,6 +82863,36 @@ export namespace databasefleetmanager {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Transparent Data Encryption properties.
      */
     export interface TransparentDataEncryptionResponse {
@@ -81500,6 +82945,28 @@ export namespace databasewatcher {
          * The type of a Kusto offering.
          */
         kustoOfferingType: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.databasewatcher.UserAssignedIdentityResponse};
     }
 
     /**
@@ -81689,6 +83156,50 @@ export namespace databasewatcher {
             ...val,
             connectionTcpPort: (val.connectionTcpPort) ?? 1433,
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -84499,6 +86010,36 @@ export namespace databoxedge {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Tracking courier information.
      */
     export interface TrackingInfoResponse {
@@ -84774,6 +86315,28 @@ export namespace databricks {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.databricks.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The properties of a private endpoint connection
      */
     export interface PrivateEndpointConnectionPropertiesResponse {
@@ -84857,6 +86420,50 @@ export namespace databricks {
          * The SKU tier.
          */
         tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -85420,6 +87027,36 @@ export namespace datadog {
          * List of subscriptions and the state of the monitoring.
          */
         monitoredSubscriptionList?: outputs.datadog.MonitoredSubscriptionResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -113586,7 +115223,7 @@ export namespace datamigration {
         /**
          * Identity details for authentication using a Managed Identity.
          */
-        identity?: outputs.commontypesv6.ManagedServiceIdentityResponse;
+        identity?: outputs.datamigration.ManagedServiceIdentityResponse;
         /**
          * Resource Id of the storage account where backups are stored.
          */
@@ -115956,6 +117593,28 @@ export namespace datamigration {
             ...val,
             input: (val.input ? outputs.datamigration.getUserTablesSqlTaskInputResponseProvideDefaults(val.input) : undefined),
         };
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.datamigration.UserAssignedIdentityResponse};
     }
 
     /**
@@ -120444,6 +122103,20 @@ export namespace datamigration {
     }
 
     /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
      */
     export interface ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse {
@@ -121413,7 +123086,7 @@ export namespace dataprotection {
         /**
          * Gets or sets the user assigned identities.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.dataprotection.UserAssignedIdentityResponse};
     }
 
     /**
@@ -121859,6 +123532,36 @@ export namespace dataprotection {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Tagging criteria
      */
     export interface TaggingCriteriaResponse {
@@ -121892,6 +123595,20 @@ export namespace dataprotection {
          * Info of target datastore
          */
         dataStore: outputs.dataprotection.DataStoreInfoBaseResponse;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -123336,6 +125053,36 @@ export namespace datareplication {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * VMware DRA model custom properties.
      */
     export interface VMwareDraModelCustomPropertiesResponse {
@@ -124423,11 +126170,77 @@ export namespace dbformysql {
         publicNetworkAccess?: string;
     }
 
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.dbformysql.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.dbformysql.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.dbformysql.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
     export interface PrivateEndpointPropertyResponse {
         /**
          * Resource id of the private endpoint.
          */
         id?: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -124587,6 +126400,36 @@ export namespace dbformysql {
             logOnDisk: (val.logOnDisk) ?? "Disabled",
             storageRedundancy: (val.storageRedundancy) ?? "LocalRedundancy",
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -124869,7 +126712,7 @@ export namespace dbforpostgresql {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv4.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserAssignedIdentityResponseV1};
     }
 
     /**
@@ -124957,11 +126800,77 @@ export namespace dbforpostgresql {
         publicNetworkAccess?: string;
     }
 
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.dbforpostgresql.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.dbforpostgresql.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.dbforpostgresql.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
     export interface PrivateEndpointPropertyResponse {
         /**
          * Resource id of the private endpoint.
          */
         id?: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -125143,11 +127052,11 @@ export namespace dbforpostgresql {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState?: outputs.commontypesv4.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState?: outputs.dbforpostgresql.PrivateLinkServiceConnectionStateResponse;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv4.SystemDataResponse;
+        systemData: outputs.dbforpostgresql.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -125247,6 +127156,36 @@ export namespace dbforpostgresql {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Identities associated with a server.
      */
     export interface UserAssignedIdentityResponse {
@@ -125266,6 +127205,20 @@ export namespace dbforpostgresql {
          * Map of user assigned managed identities.
          */
         userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserIdentityResponse};
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponseV1 {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -125382,6 +127335,46 @@ export namespace delegatednetwork {
 
 export namespace dependencymap {
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.dependencymap.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.dependencymap.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * Model representing properties returned upon successful completion of the export dependencies asynchronous operation.
      */
     export interface GetDependencyViewForAllMachinesResultPropertiesResponse {
@@ -125408,6 +127401,36 @@ export namespace dependencymap {
          * Expected value is 'OffAzure'.
          */
         sourceType: "OffAzure";
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -125598,6 +127621,72 @@ export namespace desktopvirtualization {
     }
 
     /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.desktopvirtualization.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.desktopvirtualization.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.desktopvirtualization.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Represents a RegistrationInfo definition.
      */
     export interface RegistrationInfoResponse {
@@ -125627,6 +127716,67 @@ export namespace desktopvirtualization {
          * The registration token base64 encoded string.
          */
         token?: string;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetResponseIdentity {
+        /**
+         * The principal ID of resource identity. The value must be an UUID.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource. The value must be an UUID.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetResponsePlan {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetResponseSku {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
     }
 
     /**
@@ -125758,6 +127908,36 @@ export namespace desktopvirtualization {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The time for a scaling action to occur.
      */
     export interface TimeResponse {
@@ -125831,6 +128011,38 @@ export namespace devcenter {
     }
 
     /**
+     * All Customer-managed key encryption properties for the resource.
+     */
+    export interface CustomerManagedKeyEncryptionResponse {
+        /**
+         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+         */
+        keyEncryptionKeyIdentity?: outputs.devcenter.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity;
+        /**
+         * key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+         */
+        keyEncryptionKeyUrl?: string;
+    }
+
+    /**
+     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+     */
+    export interface CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity {
+        /**
+         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+         */
+        delegatedIdentityClientId?: string;
+        /**
+         * Values can be systemAssignedIdentity or userAssignedIdentity
+         */
+        identityType?: string;
+        /**
+         * user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+         */
+        userAssignedIdentityResourceId?: string;
+    }
+
+    /**
      * Project catalog settings for project catalogs under a project associated to this dev center.
      */
     export interface DevCenterProjectCatalogSettingsResponse {
@@ -125882,7 +128094,7 @@ export namespace devcenter {
         /**
          * All Customer-managed key encryption properties for the resource.
          */
-        customerManagedKeyEncryption?: outputs.commontypesv4.CustomerManagedKeyEncryptionResponse;
+        customerManagedKeyEncryption?: outputs.devcenter.CustomerManagedKeyEncryptionResponse;
     }
 
     /**
@@ -125897,6 +128109,46 @@ export namespace devcenter {
          * The common name of the Role Assignment. This is a descriptive name such as 'AcrPush'.
          */
         roleName: string;
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.devcenter.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.devcenter.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -126047,13 +128299,35 @@ export namespace devcenter {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.devcenter.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The sync status of the plan member.
      */
     export interface PlanMemberSyncStatusResponse {
         /**
          * Error response describing why the sync failed.
          */
-        lastSyncError?: outputs.commontypesv5.ErrorDetailResponse;
+        lastSyncError?: outputs.devcenter.ErrorDetailResponse;
         /**
          * When the plan member was last synced.
          */
@@ -126109,6 +128383,32 @@ export namespace devcenter {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
      * Stop on disconnect configuration settings for Dev Boxes created in this pool.
      */
     export interface StopOnDisconnectConfigurationResponse {
@@ -126154,6 +128454,50 @@ export namespace devcenter {
          * Count of catalog items that had validation errors during synchronization.
          */
         validationErrors: number;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -126339,6 +128683,36 @@ export namespace devhub {
         stageName?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
     export interface WorkflowRunResponse {
         /**
          * The timestamp of the last workflow run.
@@ -126521,6 +128895,28 @@ export namespace deviceprovisioningservices {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.deviceprovisioningservices.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The properties of a private endpoint connection
      */
     export interface PrivateEndpointConnectionPropertiesResponse {
@@ -126553,7 +128949,7 @@ export namespace deviceprovisioningservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.deviceprovisioningservices.SystemDataResponse;
         /**
          * The resource type.
          */
@@ -126608,6 +129004,50 @@ export namespace deviceprovisioningservices {
          * Secondary SAS key value.
          */
         secondaryKey?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -128057,6 +130497,54 @@ export namespace deviceregistry {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Object that describes the topic information.
      */
     export interface TopicResponse {
@@ -128232,6 +130720,28 @@ export namespace deviceupdate {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.deviceupdate.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The Private Endpoint Connection resource.
      */
     export interface PrivateEndpointConnectionResponse {
@@ -128262,7 +130772,7 @@ export namespace deviceupdate {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.deviceupdate.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -128389,6 +130899,50 @@ export namespace deviceupdate {
         vnetTrafficTag?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
 }
 
 export namespace devopsinfrastructure {
@@ -128503,6 +131057,28 @@ export namespace devopsinfrastructure {
          * The GitHub organization URL in which the pool should be created.
          */
         url: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.devopsinfrastructure.UserAssignedIdentityResponse};
     }
 
     /**
@@ -128680,6 +131256,50 @@ export namespace devopsinfrastructure {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * The agents will run on Virtual Machine Scale Sets.
      */
     export interface VmssFabricProfileResponse {
@@ -128779,7 +131399,7 @@ export namespace devtestlab {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.devtestlab.SystemDataResponse;
         /**
          * The tags of the resource.
          */
@@ -129590,7 +132210,7 @@ export namespace devtestlab {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.devtestlab.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -129697,6 +132317,36 @@ export namespace devtestlab {
          * Backend ports that virtual machines on this subnet are allowed to expose
          */
         allowedPorts?: outputs.devtestlab.PortResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -130233,7 +132883,7 @@ export namespace discovery {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.discovery.PrivateEndpointConnectionResponse[];
         /**
          * Private Endpoint Subnet ID for private endpoint connections.
          */
@@ -130253,7 +132903,7 @@ export namespace discovery {
         /**
          * User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
          */
-        workloadIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        workloadIdentities?: {[key: string]: outputs.discovery.UserAssignedIdentityResponse};
     }
 
     /**
@@ -130311,6 +132961,16 @@ export namespace discovery {
     }
 
     /**
+     * Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+     */
+    export interface MoboBrokerResourceResponse {
+        /**
+         * Resource identifier of a Managed-On-Behalf-Of broker resource
+         */
+        id?: string;
+    }
+
+    /**
      * NodePool properties
      */
     export interface NodePoolPropertiesResponse {
@@ -130348,6 +133008,94 @@ export namespace discovery {
             minNodeCount: (val.minNodeCount) ?? 0,
             scaleSetPriority: (val.scaleSetPriority) ?? "Regular",
         };
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.discovery.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.discovery.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.discovery.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.discovery.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.discovery.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -130431,7 +133179,7 @@ export namespace discovery {
         /**
          * User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
          */
-        workloadIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        workloadIdentities?: {[key: string]: outputs.discovery.UserAssignedIdentityResponse};
     }
 
     /**
@@ -130498,6 +133246,36 @@ export namespace discovery {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Discovery Tool list item properties
      */
     export interface ToolPropertiesResponse {
@@ -130520,13 +133298,27 @@ export namespace discovery {
     }
 
     /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * For tracking mobo resources
      */
     export interface WithMoboBrokerResourcesResponse {
         /**
          * Managed-On-Behalf-Of broker resources
          */
-        moboBrokerResources: outputs.commontypesv5.MoboBrokerResourceResponse[];
+        moboBrokerResources: outputs.discovery.MoboBrokerResourceResponse[];
     }
 
     /**
@@ -130560,7 +133352,7 @@ export namespace discovery {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.discovery.PrivateEndpointConnectionResponse[];
         /**
          * Private Endpoint Subnet ID for private endpoint connections.
          */
@@ -130871,6 +133663,36 @@ export namespace dns {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
      */
     export interface TlsaRecordResponse {
@@ -130954,6 +133776,36 @@ export namespace dnsresolver {
          * Resource ID.
          */
         id: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -131062,6 +133914,34 @@ export namespace domainregistration {
 
 export namespace durabletask {
     /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The properties of a retention policy
      */
     export interface RetentionPolicyDetailsResponse {
@@ -131130,6 +134010,36 @@ export namespace durabletask {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The properties of Task Hub
      */
     export interface TaskHubPropertiesResponse {
@@ -131154,6 +134064,69 @@ export namespace dynamics365fraudprotection {
          * An array of administrator user identities.
          */
         members?: string[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+}
+
+export namespace easm {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -131414,6 +134387,46 @@ export namespace edge {
             ...val,
             mode: (val.mode) ?? "stopOnAnyFailure",
         };
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.edge.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.edge.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -131753,7 +134766,7 @@ export namespace edge {
         /**
          * Error Details if any failure is there
          */
-        errorDetails: outputs.commontypesv5.ErrorDetailResponse;
+        errorDetails: outputs.edge.ErrorDetailResponse;
         /**
          * External validation id
          */
@@ -131871,6 +134884,36 @@ export namespace edge {
          * Status message
          */
         statusMessage?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -132515,6 +135558,46 @@ export namespace edgeorder {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.edgeorder.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.edgeorder.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * Different types of filters supported and its values.
      */
     export interface FilterablePropertyResponse {
@@ -132665,7 +135748,7 @@ export namespace edgeorder {
         /**
          * Top level error for the job.
          */
-        error: outputs.commontypesv5.ErrorDetailResponse;
+        error: outputs.edgeorder.ErrorDetailResponse;
         /**
          * Forward Package Shipping details.
          */
@@ -133062,7 +136145,7 @@ export namespace edgeorder {
         /**
          * User Assigned Identities
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.edgeorder.UserAssignedIdentityResponse};
     }
     /**
      * resourceIdentityResponseProvideDefaults sets the appropriate defaults for ResourceIdentityResponse
@@ -133203,6 +136286,36 @@ export namespace edgeorder {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Term Commitment Information.
      */
     export interface TermCommitmentInformationResponse {
@@ -133267,6 +136380,20 @@ export namespace edgeorder {
         preferredShipmentType: string;
     }
 
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
 }
 
 export namespace education {
@@ -133282,6 +136409,36 @@ export namespace education {
          * Amount value.
          */
         value?: number;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -133784,6 +136941,36 @@ export namespace elastic {
         provisioningState: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
     export interface UserApiKeyResponsePropertiesResponse {
         /**
          * The User Api Key Generated based on GenerateApiKey flag. This is applicable for non-Portal clients only.
@@ -133957,7 +137144,7 @@ export namespace elasticsan {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.elasticsan.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -134028,6 +137215,36 @@ export namespace elasticsan {
          * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         sourceId?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -135716,6 +138933,36 @@ export namespace eventgrid {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Properties of the Topic Spaces Configuration.
      */
     export interface TopicSpacesConfigurationResponse {
@@ -136265,6 +139512,36 @@ export namespace extendedlocation {
         matchLabels?: {[key: string]: string};
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace fabric {
@@ -136290,6 +139567,36 @@ export namespace fabric {
          * The name of the Azure pricing tier to which the SKU applies.
          */
         tier: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -136483,7 +139790,7 @@ export namespace fileshares {
         /**
          * The list of associated private endpoint connections.
          */
-        privateEndpointConnections: outputs.commontypesv6.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.fileshares.PrivateEndpointConnectionResponse[];
         /**
          * The file sharing protocol for this file share.
          */
@@ -136619,6 +139926,72 @@ export namespace fileshares {
     }
 
     /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.fileshares.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.fileshares.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.fileshares.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The set of properties for control public access.
      */
     export interface PublicAccessPropertiesResponse {
@@ -136626,6 +139999,36 @@ export namespace fileshares {
          * The allowed set of subnets when access is restricted.
          */
         allowedSubnets?: string[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -136718,6 +140121,64 @@ export namespace fluidrelay {
          * The principal id of user assigned identity.
          */
         principalId: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -137929,6 +141390,36 @@ export namespace guestconfiguration {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Information about the VM.
      */
     export interface VMInfoResponse {
@@ -138018,6 +141509,28 @@ export namespace hardwaresecuritymodules {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.hardwaresecuritymodules.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The network interface definition.
      */
     export interface NetworkInterfaceResponse {
@@ -138068,11 +141581,11 @@ export namespace hardwaresecuritymodules {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.hardwaresecuritymodules.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.hardwaresecuritymodules.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -138080,11 +141593,39 @@ export namespace hardwaresecuritymodules {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.hardwaresecuritymodules.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -138095,6 +141636,50 @@ export namespace hardwaresecuritymodules {
          * SKU of the dedicated HSM
          */
         name?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -138799,7 +142384,7 @@ export namespace hdinsight {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.hdinsight.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -139103,6 +142688,36 @@ export namespace hdinsight {
          * The list of storage accounts in the cluster.
          */
         storageaccounts?: outputs.hdinsight.StorageAccountResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -139520,6 +143135,64 @@ export namespace healthcareapis {
     }
 
     /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.healthcareapis.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.healthcareapis.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The settings for history tracking for FHIR resources.
      */
     export interface ResourceVersionPolicyConfigurationResponse {
@@ -139722,7 +143395,7 @@ export namespace healthcareapis {
         /**
          * The list of private endpoint connections that are set up for this resource.
          */
-        privateEndpointConnections?: outputs.commontypesv1.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections?: outputs.healthcareapis.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state.
          */
@@ -139848,7 +143521,7 @@ export namespace healthcareapis {
         /**
          * The list of private endpoint connections that are set up for this resource.
          */
-        privateEndpointConnections: outputs.commontypesv1.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.healthcareapis.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state.
          */
@@ -139869,7 +143542,7 @@ export namespace healthdataaiservices {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.healthdataaiservices.PrivateEndpointConnectionResponse[];
         /**
          * The status of the last operation.
          */
@@ -139884,6 +143557,160 @@ export namespace healthdataaiservices {
         serviceUrl: string;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.healthdataaiservices.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.healthdataaiservices.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.healthdataaiservices.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.healthdataaiservices.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.healthdataaiservices.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.healthdataaiservices.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
 }
 
 export namespace hybridcloud {
@@ -139895,6 +143722,36 @@ export namespace hybridcloud {
          * Resource ID.
          */
         id?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -139997,6 +143854,46 @@ export namespace hybridcompute {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.hybridcompute.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.hybridcompute.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * ESU key
      */
     export interface EsuKeyResponse {
@@ -140056,6 +143953,24 @@ export namespace hybridcompute {
          * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
          */
         publicNetworkAccess?: string;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
     }
 
     /**
@@ -140171,7 +144086,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the feature enrollment or disenrollment.
          */
-        error: outputs.commontypesv3.ErrorDetailResponse;
+        error: outputs.hybridcompute.ErrorDetailResponse;
         /**
          * Properties for the Machine ESU profile.
          */
@@ -140233,7 +144148,7 @@ export namespace hybridcompute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.hybridcompute.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -140246,6 +144161,28 @@ export namespace hybridcompute {
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * Metadata pertaining to the geographic location of the resource.
+     */
+    export interface LocationDataResponse {
+        /**
+         * The city or locality where the resource is located.
+         */
+        city?: string;
+        /**
+         * The country or region where the resource is located
+         */
+        countryOrRegion?: string;
+        /**
+         * The district, state, or province where the resource is located.
+         */
+        district?: string;
+        /**
+         * A canonical name for the geographic or physical location.
+         */
+        name: string;
     }
 
     /**
@@ -140365,7 +144302,7 @@ export namespace hybridcompute {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.hybridcompute.SystemDataResponse;
         /**
          * Resource tags.
          */
@@ -140525,7 +144462,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the hotpatch capability enrollment or disenrollment.
          */
-        error: outputs.commontypesv3.ErrorDetailResponse;
+        error: outputs.hybridcompute.ErrorDetailResponse;
         /**
          * Indicates the current status of the hotpatch being enabled or disabled.
          */
@@ -140627,7 +144564,7 @@ export namespace hybridcompute {
         /**
          * The errors that were encountered during the feature enrollment or disenrollment.
          */
-        error: outputs.commontypesv3.ErrorDetailResponse;
+        error: outputs.hybridcompute.ErrorDetailResponse;
         /**
          * Product feature name.
          */
@@ -140704,6 +144641,36 @@ export namespace hybridcompute {
         addressPrefix?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
     export interface VolumeLicenseDetailsResponse {
         /**
          * The invoice id for the volume license.
@@ -140743,6 +144710,36 @@ export namespace hybridconnectivity {
             ...val,
             isOrganizationalAccount: (val.isOrganizationalAccount) ?? false,
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -141652,6 +145649,36 @@ export namespace hybridcontainerservice {
          * The extended location type.
          */
         type?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -142744,6 +146771,28 @@ export namespace hybridnetwork {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.hybridnetwork.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Manifest artifact properties.
      */
     export interface ManifestArtifactFormatResponse {
@@ -143339,6 +147388,50 @@ export namespace hybridnetwork {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * Vhd artifact profile.
      */
     export interface VhdImageArtifactProfileResponse {
@@ -143602,6 +147695,36 @@ export namespace impact {
          * Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
          */
         azureResourceId?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -144076,6 +148199,36 @@ export namespace importexport {
         streetAddress2?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace integrationspaces {
@@ -144202,7 +148355,37 @@ export namespace integrationspaces {
         /**
          * The system data of the business process development artifact.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.integrationspaces.SystemDataResponse;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -144348,6 +148531,120 @@ export namespace iotcentral {
         };
     }
 
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.iotcentral.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.iotcentral.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.iotcentral.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace iotfirmwaredefense {
@@ -144363,6 +148660,36 @@ export namespace iotfirmwaredefense {
          * The error or status message
          */
         message?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -147688,6 +152015,28 @@ export namespace iotoperations {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.iotoperations.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Diagnostic Metrics properties
      */
     export interface MetricsResponse {
@@ -148053,6 +152402,36 @@ export namespace iotoperations {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
      */
     export interface TlsCertMethodResponse {
@@ -148134,6 +152513,20 @@ export namespace iotoperations {
             selfTracing: (val.selfTracing ? outputs.iotoperations.selfTracingResponseProvideDefaults(val.selfTracing) : undefined),
             spanChannelCapacity: (val.spanChannelCapacity) ?? 1000,
         };
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -148295,6 +152688,36 @@ export namespace iotoperationsdataprocessor {
          * ARM resource type.
          */
         type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -149739,6 +154162,36 @@ export namespace iotoperationsmq {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Internal knobs of Resource Limits for FE and BE
      */
     export interface TemporaryResourceLimitsConfigResponse {
@@ -149988,6 +154441,36 @@ export namespace iotoperationsorchestrator {
          * Policy type
          */
         type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -150380,6 +154863,28 @@ export namespace keyvault {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.keyvault.UserAssignedIdentityResponse};
+    }
+
+    /**
      * A set of rules governing the network accessibility of a vault.
      */
     export interface NetworkRuleSetResponse {
@@ -150615,6 +155120,20 @@ export namespace keyvault {
          * The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
          */
         timeBeforeExpiry?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -151030,6 +155549,46 @@ export namespace kubernetesconfiguration {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.kubernetesconfiguration.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.kubernetesconfiguration.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * Identity of the Extension resource in an AKS cluster
      */
     export interface ExtensionResponseAksAssignedIdentity {
@@ -151171,6 +155730,24 @@ export namespace kubernetesconfiguration {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+    }
+
+    /**
      * Properties that define a Azure Arc PrivateLinkScope resource.
      */
     export interface KubernetesConfigurationPrivateLinkScopePropertiesResponse {
@@ -151181,7 +155758,7 @@ export namespace kubernetesconfiguration {
         /**
          * The collection of associated Private Endpoint Connections.
          */
-        privateEndpointConnections: outputs.commontypesv3.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.kubernetesconfiguration.PrivateEndpointConnectionResponse[];
         /**
          * The Guid id of the private link scope.
          */
@@ -151341,6 +155918,32 @@ export namespace kubernetesconfiguration {
     }
 
     /**
+     * Plan for the resource.
+     */
+    export interface PlanResponse {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
+    }
+
+    /**
      * The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
      */
     export interface PostBuildDefinitionResponse {
@@ -151352,6 +155955,68 @@ export namespace kubernetesconfiguration {
          * Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
          */
         substituteFrom?: outputs.kubernetesconfiguration.SubstituteFromDefinitionResponse[];
+    }
+
+    /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.kubernetesconfiguration.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.kubernetesconfiguration.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.kubernetesconfiguration.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -151476,6 +156141,36 @@ export namespace kubernetesconfiguration {
         };
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace kubernetesruntime {
@@ -151584,6 +156279,36 @@ export namespace kubernetesruntime {
          * Server username
          */
         username?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -151867,7 +156592,7 @@ export namespace kusto {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.kusto.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -151910,6 +156635,36 @@ export namespace kusto {
          * The starting date and time of the suspension state.
          */
         suspensionStartDate?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -152080,6 +156835,24 @@ export namespace labservices {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+    }
+
+    /**
      * Image reference information. Used in the virtual machine profile.
      */
     export interface ImageReferenceResponse {
@@ -152222,6 +156995,32 @@ export namespace labservices {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
      * Support contact information and instructions.
      */
     export interface SupportInfoResponse {
@@ -152241,6 +157040,36 @@ export namespace labservices {
          * Support web address.
          */
         url?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -152293,7 +157122,7 @@ export namespace labservices {
         /**
          * The SKU for the lab. Defines the type of virtual machines used in the lab.
          */
-        sku: outputs.commontypesv2.SkuResponse;
+        sku: outputs.labservices.SkuResponse;
         /**
          * The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
          */
@@ -152343,6 +157172,72 @@ export namespace loadtestservice {
          * key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
          */
         keyUrl?: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.loadtestservice.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -154873,7 +159768,7 @@ export namespace m365securityandcompliance {
         /**
          * Required property for system data
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.m365securityandcompliance.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -155042,6 +159937,36 @@ export namespace m365securityandcompliance {
         type?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace machinelearning {
@@ -155137,7 +160062,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -155437,7 +160362,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered by various compute nodes during node setup.
          */
-        errors: outputs.commontypesv3.ErrorResponseResponse[];
+        errors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * Network is isolated or not
          */
@@ -155540,7 +160465,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -157698,7 +162623,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered on this ComputeInstance.
          */
-        errors: outputs.commontypesv3.ErrorResponseResponse[];
+        errors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
          */
@@ -157797,7 +162722,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158509,7 +163434,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158557,7 +163482,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -158697,7 +163622,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -159233,7 +164158,7 @@ export namespace machinelearningservices {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.machinelearningservices.SystemDataResponse;
         /**
          * Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
          */
@@ -159607,6 +164532,56 @@ export namespace machinelearningservices {
             isArchived: (val.isArchived) ?? false,
             osType: (val.osType) ?? "Linux",
         };
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.machinelearningservices.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.machinelearningservices.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
+     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+     */
+    export interface ErrorResponseResponse {
+        /**
+         * The error object.
+         */
+        error?: outputs.machinelearningservices.ErrorDetailResponse;
     }
 
     /**
@@ -160453,7 +165428,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -160508,7 +165483,51 @@ export namespace machinelearningservices {
         /**
          * The user assigned identities associated with the resource.
          */
-        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV1};
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponseV1 {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+        /**
+         * The user assigned identities associated with the resource.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV2};
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponseV2 {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+        /**
+         * The user assigned identities associated with the resource.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV3};
     }
 
     /**
@@ -162168,7 +167187,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -162737,7 +167756,7 @@ export namespace machinelearningservices {
         /**
          * The identity which will be leveraged by the monitoring jobs.
          */
-        identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
+        identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     }
 
     export interface ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse {
@@ -162985,6 +168004,28 @@ export namespace machinelearningservices {
          * List of assigned identities for the managed resource group
          */
         assignedIdentities?: outputs.machinelearningservices.ManagedResourceGroupAssignedIdentitiesResponse[];
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponse};
     }
 
     export interface MarketplacePlanResponse {
@@ -163728,7 +168769,7 @@ export namespace machinelearningservices {
         /**
          * Collection of errors encountered when doing os patching.
          */
-        osPatchingErrors?: outputs.commontypesv3.ErrorResponseResponse[];
+        osPatchingErrors?: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The os patching status.
          */
@@ -163944,7 +168985,7 @@ export namespace machinelearningservices {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: outputs.commontypesv3.ManagedServiceIdentityResponse;
+        identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
         /**
          * *Same as workspace location.
          */
@@ -163968,11 +169009,11 @@ export namespace machinelearningservices {
         /**
          * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
          */
-        sku?: outputs.commontypesv3.SkuResponse;
+        sku?: outputs.machinelearningservices.SkuResponse;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.machinelearningservices.SystemDataResponse;
         tags?: {[key: string]: string};
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -165092,9 +170133,49 @@ export namespace machinelearningservices {
     }
 
     /**
-     * Sku of the resource
+     * The resource model definition representing SKU
      */
     export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
+     * Sku of the resource
+     */
+    export interface SkuResponseV1 {
+        /**
+         * Name of the sku
+         */
+        name?: string;
+        /**
+         * Tier of the sku like Basic or Enterprise
+         */
+        tier?: string;
+    }
+
+    /**
+     * Sku of the resource
+     */
+    export interface SkuResponseV2 {
         /**
          * Name of the sku
          */
@@ -165657,7 +170738,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -165712,6 +170793,36 @@ export namespace machinelearningservices {
          * "Premium_ZRS"
          */
         storageAccountType?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -166445,9 +171556,59 @@ export namespace machinelearningservices {
     }
 
     /**
-     * User Assigned Identity
+     * User assigned identity properties
      */
     export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV1 {
+        /**
+         * The clientId(aka appId) of the user assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the user assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the user assigned identity.
+         */
+        tenantId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV2 {
+        /**
+         * The clientId(aka appId) of the user assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the user assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the user assigned identity.
+         */
+        tenantId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV3 {
         /**
          * The clientId(aka appId) of the user assigned identity.
          */
@@ -166587,7 +171748,7 @@ export namespace machinelearningservices {
         /**
          * Errors during provisioning
          */
-        provisioningErrors: outputs.commontypesv3.ErrorResponseResponse[];
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
         /**
          * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
          */
@@ -166949,6 +172110,36 @@ export namespace maintenance {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Tag filter information for the VM.
      */
     export interface TagSettingsPropertiesResponse {
@@ -166960,6 +172151,39 @@ export namespace maintenance {
          * Dictionary of tags with its list of values.
          */
         tags?: {[key: string]: string[]};
+    }
+
+}
+
+export namespace managedidentity {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -167436,6 +172660,46 @@ export namespace managednetworkfabric {
          * The IPv6 is not supported right now.
          */
         ipv6AddressSpaces?: string[];
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.managednetworkfabric.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.managednetworkfabric.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -168362,6 +173626,36 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Network and credentials configuration currently applied to terminal server.
      */
     export interface TerminalServerConfigurationResponse {
@@ -168702,6 +173996,36 @@ export namespace managedops {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Azure Update Manager service information.
      */
     export interface UpdateManagerInformationResponse {
@@ -168914,7 +174238,7 @@ export namespace managedservices {
         /**
          * The metadata for the registration definition resource.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.managedservices.SystemDataResponse;
         /**
          * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
          */
@@ -168961,6 +174285,36 @@ export namespace managedservices {
          * The name of the registration definition.
          */
         registrationDefinitionName?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -169187,7 +174541,7 @@ export namespace management {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.management.SystemDataResponse;
         /**
          * The serviceGroup tags.
          */
@@ -169196,6 +174550,36 @@ export namespace management {
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -169349,6 +174733,28 @@ export namespace manufacturingplatform {
          * The resource group name.
          */
         name: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.manufacturingplatform.UserAssignedIdentityResponse};
     }
 
     /**
@@ -169535,6 +174941,32 @@ export namespace manufacturingplatform {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
      * The properties related to Storage Resource
      */
     export interface StorageProfileResponse {
@@ -169542,6 +174974,50 @@ export namespace manufacturingplatform {
          * Resource Id of Storage Resource
          */
         id: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -169612,6 +175088,56 @@ export namespace maps {
     }
 
     /**
+     * All encryption configuration for a resource.
+     */
+    export interface EncryptionResponse {
+        /**
+         * All Customer-managed key encryption properties for the resource.
+         */
+        customerManagedKeyEncryption?: outputs.maps.EncryptionResponseCustomerManagedKeyEncryption;
+        /**
+         * (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+         */
+        infrastructureEncryption?: string;
+    }
+
+    /**
+     * All Customer-managed key encryption properties for the resource.
+     */
+    export interface EncryptionResponseCustomerManagedKeyEncryption {
+        /**
+         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+         */
+        keyEncryptionKeyIdentity?: outputs.maps.EncryptionResponseKeyEncryptionKeyIdentity;
+        /**
+         * key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+         */
+        keyEncryptionKeyUrl?: string;
+    }
+
+    /**
+     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+     */
+    export interface EncryptionResponseKeyEncryptionKeyIdentity {
+        /**
+         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+         */
+        delegatedIdentityClientId?: string;
+        /**
+         * application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
+         */
+        federatedClientId?: string;
+        /**
+         * The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
+         */
+        identityType?: string;
+        /**
+         * User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
+         */
+        userAssignedIdentityResourceId?: string;
+    }
+
+    /**
      * Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
      */
     export interface LinkedResourceResponse {
@@ -169623,6 +175149,28 @@ export namespace maps {
          * A provided name which uniquely identifies the linked resource.
          */
         uniqueName: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.maps.UserAssignedIdentityResponse};
     }
 
     /**
@@ -169640,7 +175188,7 @@ export namespace maps {
         /**
          * All encryption configuration for a resource.
          */
-        encryption?: outputs.commontypesv5.EncryptionResponse;
+        encryption?: outputs.maps.EncryptionResponse;
         /**
          * The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
          */
@@ -169689,6 +175237,34 @@ export namespace maps {
     }
 
     /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The SKU of the Maps Account.
      */
     export interface SkuResponse {
@@ -169700,6 +175276,50 @@ export namespace maps {
          * Gets the sku tier. This is based on the SKU name.
          */
         tier: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -173105,11 +178725,11 @@ export namespace migrate {
         /**
          * The private endpoint resource.
          */
-        privateEndpoint?: outputs.commontypesv5.PrivateEndpointResponse;
+        privateEndpoint?: outputs.migrate.PrivateEndpointResponse;
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: outputs.commontypesv5.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.migrate.PrivateLinkServiceConnectionStateResponse;
         /**
          * The provisioning state of the private endpoint connection resource.
          */
@@ -173117,7 +178737,7 @@ export namespace migrate {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.migrate.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -173178,6 +178798,16 @@ export namespace migrate {
          * Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
          */
         type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
     }
 
     /**
@@ -173988,7 +179618,7 @@ export namespace migrate {
          */
         createdByType?: string;
         /**
-         * The type of identity that last modified the resource.
+         * The timestamp of resource last modification (UTC)
          */
         lastModifiedAt?: string;
         /**
@@ -175038,6 +180668,38 @@ export namespace mission {
     }
 
     /**
+     * Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
+     */
+    export interface ManagedOnBehalfOfConfigurationResponse {
+        /**
+         * Managed-On-Behalf-Of broker resources
+         */
+        moboBrokerResources?: outputs.mission.MoboBrokerResourceResponse[];
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.mission.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Approver Metadata for approvals request.
      */
     export interface MandatoryApproverResponse {
@@ -175045,6 +180707,16 @@ export namespace mission {
          * EntraId of the approver
          */
         approverEntraId: string;
+    }
+
+    /**
+     * Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+     */
+    export interface MoboBrokerResourceResponse {
+        /**
+         * Resource identifier of a Managed-On-Behalf-Of broker resource
+         */
+        id?: string;
     }
 
     /**
@@ -175137,6 +180809,36 @@ export namespace mission {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * TransitOptionParams Properties
      */
     export interface TransitOptionParamsResponse {
@@ -175162,6 +180864,20 @@ export namespace mission {
          * Transit Option Type.
          */
         type?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -175321,7 +181037,7 @@ export namespace mongocluster {
         /**
          * List of private endpoint connections.
          */
-        privateEndpointConnections: outputs.commontypesv5.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.mongocluster.PrivateEndpointConnectionResponse[];
         /**
          * The provisioning state of the mongo cluster.
          */
@@ -175346,6 +181062,94 @@ export namespace mongocluster {
          * The storage properties of the mongo cluster.
          */
         storage?: outputs.mongocluster.StoragePropertiesResponse;
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.mongocluster.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.mongocluster.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.mongocluster.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.mongocluster.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.mongocluster.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -175384,6 +181188,36 @@ export namespace mongocluster {
          * The size of the data disk assigned to each server.
          */
         sizeGb?: number;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -176145,7 +181979,7 @@ export namespace monitor {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.monitor.UserAssignedIdentityResponse};
     }
 
     /**
@@ -176309,7 +182143,7 @@ export namespace monitor {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.monitor.UserAssignedIdentityResponse};
     }
 
     /**
@@ -176557,7 +182391,7 @@ export namespace monitor {
         /**
          * The system metadata related to this resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.monitor.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -177504,6 +183338,28 @@ export namespace monitor {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.monitor.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Part of Management Group diagnostic setting. Specifies the settings for a particular log.
      */
     export interface ManagementGroupLogSettingsResponse {
@@ -177929,6 +183785,84 @@ export namespace monitor {
         scaleMode: string;
     }
 
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.monitor.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.monitor.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.monitor.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponseV1 {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.monitor.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.monitor.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
     export interface PrivateLinkScopedResourceResponse {
         /**
          * The resourceId of the Azure Monitor Private Link Scope Scoped Resource through which this DCE is associated with a Azure Monitor Private Link Scope.
@@ -177938,6 +183872,24 @@ export namespace monitor {
          * The immutableId of the Azure Monitor Private Link Scope Resource to which the association is.
          */
         scopeId?: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -178713,6 +184665,36 @@ export namespace monitor {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Base exporter using TCP as transport protocol.
      */
     export interface TcpExporterResponse {
@@ -178785,6 +184767,20 @@ export namespace monitor {
             jsonArrayMapper: (val.jsonArrayMapper ? outputs.monitor.jsonArrayMapperResponseProvideDefaults(val.jsonArrayMapper) : undefined),
             readQueueLength: (val.readQueueLength) ?? 1000,
         };
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -179041,6 +185037,36 @@ export namespace mysqldiscovery {
          * The extended location type.
          */
         type?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -180310,6 +186336,28 @@ export namespace netapp {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.netapp.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Monthly Schedule properties
      */
     export interface MonthlyScheduleResponse {
@@ -180569,6 +186617,50 @@ export namespace netapp {
          * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
          */
         smbNonBrowsable?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -196403,6 +202495,28 @@ export namespace networkcloud {
         name?: string;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.networkcloud.UserAssignedIdentityResponse};
+    }
+
     export interface NetworkAttachmentResponse {
         /**
          * The resource ID of the associated network attached to the virtual machine.
@@ -196784,6 +202898,36 @@ export namespace networkcloud {
         value: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
     export interface TrunkedNetworkAttachmentConfigurationResponse {
         /**
          * The resource ID of the network that is being configured for attachment.
@@ -196802,6 +202946,20 @@ export namespace networkcloud {
             ...val,
             pluginType: (val.pluginType) ?? "SRIOV",
         };
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     export interface ValidationThresholdResponse {
@@ -196917,6 +203075,36 @@ export namespace networkfunction {
          * Resource ID.
          */
         id: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -197178,7 +203366,7 @@ export namespace notificationhubs {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.notificationhubs.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -197291,6 +203479,36 @@ export namespace notificationhubs {
          * Gets or sets the tier of particular sku
          */
         tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -197431,7 +203649,7 @@ export namespace offazure {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.offazure.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -197649,7 +203867,7 @@ export namespace offazure {
          */
         createdByType?: string;
         /**
-         * The type of identity that last modified the resource.
+         * The timestamp of resource last modification (UTC)
          */
         lastModifiedAt?: string;
         /**
@@ -197936,6 +204154,36 @@ export namespace offazurespringboot {
         provisioningState?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace onlineexperimentation {
@@ -197969,6 +204217,28 @@ export namespace onlineexperimentation {
          * User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
          */
         userAssignedIdentityResourceId?: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.onlineexperimentation.UserAssignedIdentityResponse};
     }
 
     /**
@@ -198020,6 +204290,56 @@ export namespace onlineexperimentation {
     }
 
     /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.onlineexperimentation.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.onlineexperimentation.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The encryption configuration for the online experimentation workspace resource.
      */
     export interface ResourceEncryptionConfigurationResponse {
@@ -198027,6 +204347,50 @@ export namespace onlineexperimentation {
          * All Customer-managed key encryption properties for the resource.
          */
         customerManagedKeyEncryption?: outputs.onlineexperimentation.CustomerManagedKeyEncryptionResponse;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -198058,6 +204422,36 @@ export namespace openenergyplatform {
         dataPartitionNames?: outputs.openenergyplatform.DataPartitionNamesResponse[];
         dnsName: string;
         provisioningState: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -198238,6 +204632,28 @@ export namespace operationalinsights {
          * Resource type qualifier.
          */
         type: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.operationalinsights.UserAssignedIdentityResponse};
     }
 
     /**
@@ -198437,6 +204853,36 @@ export namespace operationalinsights {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * A tag of a saved search.
      */
     export interface TagResponse {
@@ -198448,6 +204894,20 @@ export namespace operationalinsights {
          * The tag value.
          */
         value: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -198924,6 +205384,28 @@ export namespace orbital {
         name: string;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.orbital.UserAssignedIdentityResponse};
+    }
+
     export interface ResourceIdListResultResponseValue {
         /**
          * The Azure Resource ID.
@@ -198959,6 +205441,50 @@ export namespace orbital {
          * Polarization. e.g. (RHCP, LHCP).
          */
         polarization: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -199346,6 +205872,36 @@ export namespace policyinsights {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Scenario specific error details.
      */
     export interface TypedErrorInfoResponse {
@@ -199507,6 +206063,36 @@ export namespace portal {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Settings for terminal appearance.
      */
     export interface TerminalSettingsResponse {
@@ -199566,6 +206152,39 @@ export namespace portal {
 
 }
 
+export namespace portalservices {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+}
+
 export namespace powerbi {
     export interface AzureSkuResponse {
         /**
@@ -199620,7 +206239,7 @@ export namespace powerbi {
         /**
          * The system meta data relating to this resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.powerbi.SystemDataResponse;
         /**
          * Specifies the type of the resource.
          */
@@ -199632,6 +206251,36 @@ export namespace powerbi {
          * Specifies the id of private endpoint.
          */
         id?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -199681,6 +206330,36 @@ export namespace powerbidedicated {
          * An array of administrator user identities.
          */
         members?: string[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -199733,6 +206412,34 @@ export namespace powerplatform {
     }
 
     /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * The encryption settings for a configuration store.
      */
     export interface PropertiesResponseEncryption {
@@ -199774,6 +206481,36 @@ export namespace powerplatform {
          * Subnet name.
          */
         name?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -199911,6 +206648,36 @@ export namespace privatedns {
          * Resource ID.
          */
         id?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -200073,6 +206840,36 @@ export namespace programmableconnectivity {
          * Current state of the OperatorApiConnection resource.
          */
         state?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -200300,7 +207097,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv6.SystemDataResponse;
+        systemData: outputs.providerhub.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -200538,7 +207335,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv6.SystemDataResponse;
+        systemData: outputs.providerhub.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -202295,7 +209092,7 @@ export namespace providerhub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv6.SystemDataResponse;
+        systemData: outputs.providerhub.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -202508,6 +209305,36 @@ export namespace providerhub {
          * The swagger spec folder uri.
          */
         swaggerSpecFolderUri?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     export interface ThirdPartyExtensionResponse {
@@ -202814,7 +209641,7 @@ export namespace purview {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.purview.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -202850,6 +209677,36 @@ export namespace purview {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Uses client ID and Principal ID
      */
     export interface UserAssignedIdentityResponse {
@@ -202881,6 +209738,28 @@ export namespace quantum {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.quantum.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
      */
     export interface ProviderResponse {
@@ -202908,6 +209787,50 @@ export namespace quantum {
          * Id to track resource usage for the provider.
          */
         resourceUsageId?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
     /**
@@ -202963,6 +209886,36 @@ export namespace quota {
          * Provisioning state of the operation.
          */
         provisioningState: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -203039,6 +209992,28 @@ export namespace recommendationsservice {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.recommendationsservice.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The configuration to raw CDM data to be used as Modeling resource input.
      */
     export interface ModelingInputDataResponse {
@@ -203094,6 +210069,50 @@ export namespace recommendationsservice {
          * The URL where the ServiceEndpoint API is accessible at.
          */
         url: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -213776,6 +220795,36 @@ export namespace redhatopenshift {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * WorkerProfile represents a worker profile.
      */
     export interface WorkerProfileResponse {
@@ -213812,6 +220861,94 @@ export namespace redhatopenshift {
 }
 
 export namespace redis {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.redis.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.redis.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.redis.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.redis.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
     /**
      * Redis cache access keys.
      */
@@ -213984,6 +221121,50 @@ export namespace redis {
         name: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
 }
 
 export namespace redisenterprise {
@@ -214064,6 +221245,28 @@ export namespace redisenterprise {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.redisenterprise.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Specifies configuration of a redis module
      */
     export interface ModuleResponse {
@@ -214104,6 +221307,64 @@ export namespace redisenterprise {
     }
 
     /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.redisenterprise.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.redisenterprise.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Details of a Redis Enterprise cluster SKU.
      */
     export interface SkuDetailsResponse {
@@ -214129,6 +221390,50 @@ export namespace redisenterprise {
          * The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
          */
         name: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -214222,6 +221527,36 @@ export namespace relationships {
         targetTenant?: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace relay {
@@ -214270,7 +221605,7 @@ export namespace relay {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.relay.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -214299,6 +221634,36 @@ export namespace relay {
          * The tier of this SKU.
          */
         tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -214418,6 +221783,69 @@ export namespace resourceconnector {
         publicKey: string;
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+}
+
+export namespace resourcegraph {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
 }
 
 export namespace resourcehealth {
@@ -214440,7 +221868,7 @@ export namespace resourcehealth {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv3.SystemDataResponse;
+        systemData: outputs.resourcehealth.SystemDataResponse;
         /**
          * Impacted resource region name.
          */
@@ -214471,6 +221899,36 @@ export namespace resourcehealth {
          * Value of tuple.
          */
         value: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -214833,7 +222291,7 @@ export namespace resources {
         /**
          * The deployment error.
          */
-        error: outputs.commontypesv1.ErrorResponseResponse;
+        error: outputs.resources.ErrorResponseResponse;
         /**
          * The deployment mode. Possible values are Incremental and Complete.
          */
@@ -214901,7 +222359,7 @@ export namespace resources {
         /**
          * Additional error information.
          */
-        additionalInfo?: outputs.commontypesv6.ErrorAdditionalInfoResponse[];
+        additionalInfo?: outputs.resources.ErrorAdditionalInfoResponse[];
         /**
          * The error code.
          */
@@ -215161,7 +222619,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215231,7 +222689,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215301,7 +222759,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215340,6 +222798,72 @@ export namespace resources {
          * The value of the environment variable.
          */
         value?: string;
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.resources.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.resources.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
+     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+     */
+    export interface ErrorResponseResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.resources.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.resources.ErrorResponseResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -215642,7 +223166,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error: outputs.commontypesv6.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * The ARM Resource ID of a resource managed by the deployment stack.
          */
@@ -215674,7 +223198,7 @@ export namespace resources {
         /**
          * Error that is relayed from the script execution.
          */
-        error?: outputs.commontypesv1.ErrorResponseResponse;
+        error?: outputs.resources.ErrorResponseResponse;
         /**
          * Time the deployment script resource will expire.
          */
@@ -215731,6 +223255,36 @@ export namespace resources {
          * The storage account name.
          */
         storageAccountName?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -216721,6 +224275,36 @@ export namespace scom {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Azure Active Directory identity configuration for a resource.
      */
     export interface UserIdentityResponse {
@@ -216778,6 +224362,46 @@ export namespace scvmm {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.scvmm.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.scvmm.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
      * The extended location.
      */
     export interface ExtendedLocationResponse {
@@ -216806,7 +224430,7 @@ export namespace scvmm {
         /**
          * Details about the error state.
          */
-        errorDetails: outputs.commontypesv2.ErrorDetailResponse[];
+        errorDetails: outputs.scvmm.ErrorDetailResponse[];
         /**
          * The time of the last status change.
          */
@@ -217146,6 +224770,36 @@ export namespace scvmm {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Credentials to connect to VMMServer.
      */
     export interface VMMServerPropertiesResponseCredentials {
@@ -217305,7 +224959,7 @@ export namespace search {
         /**
          * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv6.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.search.UserAssignedIdentityResponse};
     }
 
     /**
@@ -217419,7 +225073,7 @@ export namespace search {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv6.SystemDataResponse;
+        systemData: outputs.search.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -217498,7 +225152,7 @@ export namespace search {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv6.SystemDataResponse;
+        systemData: outputs.search.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -217513,6 +225167,50 @@ export namespace search {
          * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
          */
         name?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -217588,6 +225286,36 @@ export namespace secretsynccontroller {
          * LastSuccessfulSyncTime represents the last time the secret was retrieved from the Provider and updated.
          */
         lastSuccessfulSyncTime: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -218051,7 +225779,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.security.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -219551,7 +227279,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.security.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -219628,7 +227356,7 @@ export namespace security {
         /**
          * Metadata pertaining to creation and last modification of the resource.
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.security.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -219737,6 +227465,24 @@ export namespace security {
          * The source value e.g. tag key like owner name or email address
          */
         value?: string;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
     }
 
     /**
@@ -219987,6 +227733,106 @@ export namespace security {
          * The assessment key
          */
         assessmentKey?: string;
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.security.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.security.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.security.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A private link resource.
+     */
+    export interface PrivateLinkResourceResponse {
+        /**
+         * The private link resource group id.
+         */
+        groupId: string;
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private link resource required member names.
+         */
+        requiredMembers: string[];
+        /**
+         * The private link resource private link DNS zone name.
+         */
+        requiredZoneNames?: string[];
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.security.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**
@@ -220258,6 +228104,36 @@ export namespace security {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Repository branch configuration for PR Annotations.
      */
     export interface TargetBranchConfigurationResponse {
@@ -220398,7 +228274,7 @@ export namespace securityandcompliance {
         /**
          * Required property for system data
          */
-        systemData: outputs.commontypesv2.SystemDataResponse;
+        systemData: outputs.securityandcompliance.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -220565,6 +228441,36 @@ export namespace securityandcompliance {
          * Type of identity being specified, currently SystemAssigned and None are allowed.
          */
         type?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -222685,6 +230591,36 @@ export namespace securityinsights {
          * The user name attribute key value.
          */
         userName: {[key: string]: string};
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -226167,6 +234103,36 @@ export namespace servicelinker {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * The authentication info when authType is user account
      */
     export interface UserAccountAuthInfoResponse {
@@ -226292,6 +234258,36 @@ export namespace servicenetworking {
          * Contains reference to a WAF-type security policy.
          */
         wafSecurityPolicy?: outputs.servicenetworking.WafSecurityPolicyResponse;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -226474,7 +234470,7 @@ export namespace signalrservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.signalrservice.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -226655,7 +234651,7 @@ export namespace signalrservice {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.signalrservice.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -226733,6 +234729,36 @@ export namespace signalrservice {
             ...val,
             clientCertEnabled: (val.clientCertEnabled) ?? false,
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -227183,6 +235209,36 @@ export namespace solutions {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
      */
     export interface UserAssignedResourceIdentityResponse {
@@ -227410,6 +235466,28 @@ export namespace sovereign {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.sovereign.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The properties of policy initiatives applied to the management group.
      */
     export interface ManagementGroupPropertiesResponse {
@@ -227462,6 +235540,36 @@ export namespace sovereign {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Key-value pairs that can be assigned to this resource.
      */
     export interface TagsResponse {
@@ -227473,6 +235581,20 @@ export namespace sovereign {
          * A tag value.
          */
         value?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -229083,6 +237205,36 @@ export namespace sqlvirtualmachine {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * SQL VM Troubleshooting additional properties.
      */
     export interface TroubleshootingAdditionalPropertiesResponse {
@@ -229282,6 +237434,36 @@ export namespace standbypool {
          * Specifies ARM resource id of the subnet.
          */
         id: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -230797,6 +238979,36 @@ export namespace storage {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Table Access Policy Properties Object.
      */
     export interface TableAccessPolicyResponse {
@@ -231005,6 +239217,28 @@ export namespace storageactions {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.storageactions.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The storage task action represents conditional statements and operations to be performed on target objects.
      */
     export interface StorageTaskActionResponse {
@@ -231038,6 +239272,50 @@ export namespace storageactions {
          * Key-value parameters for the operation.
          */
         parameters?: {[key: string]: string};
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -231871,6 +240149,36 @@ export namespace storagecache {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Properties pertaining to the UnknownTarget
      */
     export interface UnknownTargetResponse {
@@ -231949,6 +240257,36 @@ export namespace storagediscovery {
             ...val,
             sku: (val.sku) ?? "Standard",
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -232132,6 +240470,36 @@ export namespace storagemover {
          * The name of the SMB share being exported from the server.
          */
         shareName: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -232514,6 +240882,94 @@ export namespace storagesync {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.storagesync.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.storagesync.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.storagesync.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.storagesync.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Background data download activity object
      */
     export interface ServerEndpointBackgroundDataDownloadActivityResponse {
@@ -232819,6 +241275,50 @@ export namespace storagesync {
          * Upload Status
          */
         uploadStatus: outputs.storagesync.ServerEndpointSyncSessionStatusResponse;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -234219,6 +242719,36 @@ export namespace subscription {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Properties of subscription Response for Changed Target Directory.
      */
     export interface TargetDirectoryResultPropertiesResponse {
@@ -235572,6 +244102,36 @@ export namespace synapse {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Tables that will be included and excluded in the follower database
      */
     export interface TableLevelSharingPropertiesResponse {
@@ -235727,6 +244287,36 @@ export namespace syntex {
          * The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
          */
         spoTenantUrl: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -236223,6 +244813,54 @@ export namespace testbase {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Specifies current state of tabs.
      */
     export interface TabStateResponse {
@@ -236704,7 +245342,90 @@ export namespace trafficmanager {
 
 }
 
+export namespace verifiedid {
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+}
+
 export namespace videoindexer {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.videoindexer.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
     /**
      * The storage services details
      */
@@ -236717,6 +245438,50 @@ export namespace videoindexer {
          * The user assigned identity to be used to grant permissions
          */
         userAssignedIdentity?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -237423,6 +246188,36 @@ export namespace virtualmachineimages {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Describes the target region information.
      */
     export interface TargetRegionResponse {
@@ -237884,6 +246679,28 @@ export namespace voiceservices {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.voiceservices.UserAssignedIdentityResponse};
+    }
+
+    /**
      * The configuration used in this region as primary, and other regions as backup.
      */
     export interface PrimaryRegionPropertiesResponse {
@@ -237917,6 +246734,76 @@ export namespace voiceservices {
          * The configuration used in this region as primary, and other regions as backup.
          */
         primaryRegionProperties: outputs.voiceservices.PrimaryRegionPropertiesResponse;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: string;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: string;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -240884,7 +249771,7 @@ export namespace webpubsub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.webpubsub.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -241029,11 +249916,41 @@ export namespace webpubsub {
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.commontypesv5.SystemDataResponse;
+        systemData: outputs.webpubsub.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -241282,6 +250199,28 @@ export namespace weightsandbiases {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.weightsandbiases.UserAssignedIdentityResponse};
+    }
+
+    /**
      * Partner's specific Properties
      */
     export interface PartnerPropertiesResponse {
@@ -241293,6 +250232,50 @@ export namespace weightsandbiases {
          * The subdomain of the instance
          */
         subdomain: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
     }
 
 }
@@ -241318,6 +250301,36 @@ export namespace widget {
          * The status of the last operation.
          */
         provisioningState: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -242026,6 +251039,20 @@ export namespace workloads {
     }
 
     /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
      * Error definition.
      */
     export interface ErrorDefinitionResponse {
@@ -242107,6 +251134,32 @@ export namespace workloads {
          * Description of the recommendation.
          */
         recommendation: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.workloads.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.workloads.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
     }
 
     /**
@@ -242499,6 +251552,28 @@ export namespace workloads {
          * Managed resource group name
          */
         name?: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.workloads.UserAssignedIdentityResponse};
     }
 
     /**
@@ -242998,7 +252073,7 @@ export namespace workloads {
         /**
          * The identities assigned to this resource by the user.
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.workloads.UserAssignedIdentityResponse};
     }
 
     /**
@@ -243463,6 +252538,36 @@ export namespace workloads {
     }
 
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
      * Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
      */
     export interface ThreeTierConfigurationResponse {
@@ -243574,6 +252679,20 @@ export namespace workloads {
     }
 
     /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
      * User assigned managed identity details.
      */
     export interface UserAssignedManagedIdentityDetailsResponse {
@@ -243596,7 +252715,7 @@ export namespace workloads {
         /**
          * User assigned identities dictionary
          */
-        userAssignedIdentities?: {[key: string]: outputs.commontypesv5.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.workloads.UserAssignedIdentityResponse};
     }
 
     /**

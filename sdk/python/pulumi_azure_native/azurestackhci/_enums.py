@@ -33,6 +33,7 @@ __all__ = [
     'LoadBalancerProbeProtocol',
     'LoadBalancerRuleSessionPersistenceType',
     'LoadBalancerRuleTransportProtocol',
+    'ManagedServiceIdentityType',
     'NetworkTypeEnum',
     'OSOperationType',
     'OnboardingResourceType',
@@ -45,6 +46,7 @@ __all__ = [
     'PublicIPAddressType',
     'RemoteSupportAccessLevel',
     'RemoteSupportType',
+    'ResourceIdentityType',
     'SdnIntegrationIntent',
     'SecretType',
     'SecurityEncryptionType',
@@ -448,6 +450,17 @@ class LoadBalancerRuleTransportProtocol(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 @pulumi.type_token("azure-native:azurestackhci:NetworkTypeEnum")
 class NetworkTypeEnum(_builtins.str, Enum):
     """
@@ -625,6 +638,14 @@ class RemoteSupportType(_builtins.str, Enum):
     """
     Revoke previously enabled remote support for the cluster.
     """
+
+
+@pulumi.type_token("azure-native:azurestackhci:ResourceIdentityType")
+class ResourceIdentityType(_builtins.str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:azurestackhci:SdnIntegrationIntent")

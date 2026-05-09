@@ -96,7 +96,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the lab.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.commontypesv2.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.labservices.SystemDataResponse>;
     /**
      * Resource tags.
      */

@@ -140,7 +140,7 @@ export interface GetServiceResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.commontypesv6.SystemDataResponse;
+    readonly systemData: outputs.search.SystemDataResponse;
     /**
      * Resource tags.
      */

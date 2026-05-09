@@ -268,6 +268,9 @@ export namespace aadiam {
 
 }
 
+export namespace advisor {
+}
+
 export namespace agfoodplatform {
     /**
      * ApiKeyAuthCredentials class for ApiKey based Auth.
@@ -305,6 +308,16 @@ export namespace agfoodplatform {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.agfoodplatform.ResourceIdentityType>;
+    }
+
+    /**
      * Properties of the key vault.
      */
     export interface KeyVaultPropertiesArgs {
@@ -339,6 +352,24 @@ export namespace agfoodplatform {
          * Expected value is 'OAuthClientCredentials'.
          */
         kind: pulumi.Input<"OAuthClientCredentials">;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.agfoodplatform.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -454,6 +485,46 @@ export namespace agricultureplatform {
          * The installed solution value.
          */
         value: pulumi.Input<inputs.agricultureplatform.SolutionArgs>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.agricultureplatform.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.agricultureplatform.SkuTier>;
     }
 
     /**
@@ -1155,6 +1226,20 @@ export namespace apicenter {
          * identifier field.
          */
         url?: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.apicenter.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -2005,7 +2090,25 @@ export namespace apimanagement {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState?: pulumi.Input<inputs.commontypesv2.PrivateLinkServiceConnectionStateArgs>;
+        privateLinkServiceConnectionState?: pulumi.Input<inputs.apimanagement.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.apimanagement.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -2023,7 +2126,7 @@ export namespace apimanagement {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv2.PrivateLinkServiceConnectionStateArgs>;
+        privateLinkServiceConnectionState: pulumi.Input<inputs.apimanagement.PrivateLinkServiceConnectionStateArgs>;
         /**
          * Private Endpoint Connection Resource Type
          */
@@ -4570,6 +4673,20 @@ export namespace app {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.app.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Configuration of Open Telemetry metrics
      */
     export interface MetricsConfigurationArgs {
@@ -6119,7 +6236,7 @@ export namespace applicationinsights {
         /**
          * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
          */
-        type: pulumi.Input<string | enums.commontypesv3.ManagedServiceIdentityType>;
+        type: pulumi.Input<string | enums.applicationinsights.ManagedServiceIdentityType>;
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
@@ -8675,6 +8792,25 @@ export namespace attestation {
          */
         keys?: pulumi.Input<pulumi.Input<inputs.attestation.JsonWebKeyArgs>[]>;
     }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.attestation.PrivateEndpointServiceConnectionStatus>;
+    }
+
 }
 
 export namespace authorization {
@@ -9960,6 +10096,20 @@ export namespace automation {
     }
 
     /**
+     * The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+     */
+    export interface TrackedResourceArgs {
+        /**
+         * The geo-location where the resource lives
+         */
+        location: pulumi.Input<string>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
      * Update specific properties of the software update configuration.
      */
     export interface UpdateConfigurationArgs {
@@ -10315,6 +10465,42 @@ export namespace avs {
          * The value for the passed parameter
          */
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.avs.SkuTier>;
+    }
+
+    /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.avs.SystemAssignedServiceIdentityType>;
     }
 
     /**
@@ -33369,6 +33555,20 @@ export namespace azuredatatransfer {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.azuredatatransfer.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The option associated with messaging flows.
      */
     export interface MessagingOptionsArgs {
@@ -33430,6 +33630,32 @@ export namespace azuredatatransfer {
          * Subscribers of this resource
          */
         subscribers?: pulumi.Input<pulumi.Input<inputs.azuredatatransfer.SubscriberArgs>[]>;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanArgs {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: pulumi.Input<string>;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: pulumi.Input<string>;
     }
 
     /**
@@ -34007,6 +34233,20 @@ export namespace azurefleet {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.azurefleet.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Specifies OS Image Scheduled Event related configurations.
      */
     export interface OSImageNotificationProfileArgs {
@@ -34060,6 +34300,32 @@ export namespace azurefleet {
          * WindowsConfiguration.enableAutomaticUpdates must be true
          */
         patchMode?: pulumi.Input<string | enums.azurefleet.WindowsVMGuestPatchMode>;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanArgs {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: pulumi.Input<string>;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: pulumi.Input<string>;
     }
 
     /**
@@ -35344,6 +35610,20 @@ export namespace azurelargeinstance {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.azurelargeinstance.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Specifies the network settings for the Azure Large Instance disks.
      */
     export interface NetworkProfileArgs {
@@ -35438,6 +35718,9 @@ export namespace azurelargeinstance {
         workloadType?: pulumi.Input<string>;
     }
 
+}
+
+export namespace azureplaywrightservice {
 }
 
 export namespace azuresphere {
@@ -36282,6 +36565,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.azurestackhci.ResourceIdentityType>;
+    }
+
+    /**
      * The Azure Resource ID for a Gallery Image.
      */
     export interface ImageArmReferenceArgs {
@@ -36616,6 +36909,20 @@ export namespace azurestackhci {
          * The list of DNS servers IP addresses.
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.azurestackhci.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -40465,7 +40772,7 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
          */
         product: pulumi.Input<string>;
         /**
@@ -40555,13 +40862,13 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
          */
         size?: pulumi.Input<string>;
         /**
          * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
          */
-        tier?: pulumi.Input<enums.commontypesv6.SkuTier>;
+        tier?: pulumi.Input<enums.billingbenefits.SkuTier>;
     }
 
 }
@@ -43471,6 +43778,20 @@ export namespace cdn {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.cdn.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Define match conditions
      */
     export interface MatchConditionArgs {
@@ -44688,7 +45009,7 @@ export namespace chaos {
         /**
          * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
          */
-        type: pulumi.Input<string | enums.commontypesv5.ManagedServiceIdentityType>;
+        type: pulumi.Input<string | enums.chaos.ManagedServiceIdentityType>;
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
@@ -45172,6 +45493,20 @@ export namespace cloudhealth {
          * Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
          */
         managedIdentityName: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.cloudhealth.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -46982,7 +47317,25 @@ export namespace cognitiveservices {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv2.PrivateLinkServiceConnectionStateArgs>;
+        privateLinkServiceConnectionState: pulumi.Input<inputs.cognitiveservices.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.cognitiveservices.PrivateEndpointServiceConnectionStatus>;
     }
 
     export interface ProjectCapabilityHostArgs {
@@ -47496,644 +47849,21 @@ export namespace cognitiveservices {
 
 }
 
-export namespace commontypesv1 {
-    /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionArgs {
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv1.PrivateLinkServiceConnectionStateArgs>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv1.PrivateEndpointServiceConnectionStatus>;
-    }
-
-}
-
-export namespace commontypesv2 {
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.commontypesv2.ResourceIdentityType>;
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanArgs {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: pulumi.Input<string>;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: pulumi.Input<string>;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: pulumi.Input<string>;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv2.PrivateEndpointServiceConnectionStatus>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.commontypesv2.SkuTier>;
-    }
-
-}
-
-export namespace commontypesv3 {
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.commontypesv3.ResourceIdentityType>;
-    }
-
-    /**
-     * Metadata pertaining to the geographic location of the resource.
-     */
-    export interface LocationDataArgs {
-        /**
-         * The city or locality where the resource is located.
-         */
-        city?: pulumi.Input<string>;
-        /**
-         * The country or region where the resource is located
-         */
-        countryOrRegion?: pulumi.Input<string>;
-        /**
-         * The district, state, or province where the resource is located.
-         */
-        district?: pulumi.Input<string>;
-        /**
-         * A canonical name for the geographic or physical location.
-         */
-        name: pulumi.Input<string>;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: pulumi.Input<string | enums.commontypesv3.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv3.PrivateEndpointServiceConnectionStatus>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.commontypesv3.SkuTier>;
-    }
-
-    /**
-     * Managed service identity (either system assigned, or none)
-     */
-    export interface SystemAssignedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (either system assigned, or none).
-         */
-        type: pulumi.Input<string | enums.commontypesv3.SystemAssignedServiceIdentityType>;
-    }
-
-}
-
-export namespace commontypesv4 {
-    /**
-     * All Customer-managed key encryption properties for the resource.
-     */
-    export interface CustomerManagedKeyEncryptionArgs {
-        /**
-         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-         */
-        keyEncryptionKeyIdentity?: pulumi.Input<inputs.commontypesv4.CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs>;
-        /**
-         * key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-         */
-        keyEncryptionKeyUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-     */
-    export interface CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs {
-        /**
-         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
-         */
-        delegatedIdentityClientId?: pulumi.Input<string>;
-        /**
-         * Values can be systemAssignedIdentity or userAssignedIdentity
-         */
-        identityType?: pulumi.Input<string | enums.commontypesv4.IdentityType>;
-        /**
-         * user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
-         */
-        userAssignedIdentityResourceId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Delegated resource properties - internal use only.
-     */
-    export interface DelegatedResourceArgs {
-        /**
-         * The source resource location - internal use only.
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * The delegation id of the referral delegation (optional) - internal use only.
-         */
-        referralResource?: pulumi.Input<string>;
-        /**
-         * The ARM resource id of the delegated resource - internal use only.
-         */
-        resourceId?: pulumi.Input<string>;
-        /**
-         * The tenant id of the delegated resource - internal use only.
-         */
-        tenantId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.commontypesv4.ResourceIdentityType>;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: pulumi.Input<string | enums.commontypesv4.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv4.PrivateEndpointServiceConnectionStatus>;
-    }
-
-}
-
-export namespace commontypesv5 {
-    /**
-     * All encryption configuration for a resource.
-     */
-    export interface EncryptionArgs {
-        /**
-         * All Customer-managed key encryption properties for the resource.
-         */
-        customerManagedKeyEncryption?: pulumi.Input<inputs.commontypesv5.EncryptionCustomerManagedKeyEncryptionArgs>;
-        /**
-         * (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-         */
-        infrastructureEncryption?: pulumi.Input<string | enums.commontypesv5.InfrastructureEncryption>;
-    }
-
-    /**
-     * All Customer-managed key encryption properties for the resource.
-     */
-    export interface EncryptionCustomerManagedKeyEncryptionArgs {
-        /**
-         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-         */
-        keyEncryptionKeyIdentity?: pulumi.Input<inputs.commontypesv5.EncryptionKeyEncryptionKeyIdentityArgs>;
-        /**
-         * key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-         */
-        keyEncryptionKeyUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-     */
-    export interface EncryptionKeyEncryptionKeyIdentityArgs {
-        /**
-         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
-         */
-        delegatedIdentityClientId?: pulumi.Input<string>;
-        /**
-         * application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
-         */
-        federatedClientId?: pulumi.Input<string>;
-        /**
-         * The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
-         */
-        identityType?: pulumi.Input<string>;
-        /**
-         * User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
-         */
-        userAssignedIdentityResourceId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: pulumi.Input<string | enums.commontypesv5.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanArgs {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: pulumi.Input<string>;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: pulumi.Input<string>;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: pulumi.Input<string>;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties of the private endpoint connection.
-     */
-    export interface PrivateEndpointConnectionPropertiesArgs {
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv5.PrivateLinkServiceConnectionStateArgs>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv5.PrivateEndpointServiceConnectionStatus>;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetIdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.commontypesv5.ResourceIdentityType>;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetPlanArgs {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: pulumi.Input<string>;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: pulumi.Input<string>;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: pulumi.Input<string>;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    export interface ResourceModelWithAllowedPropertySetSkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.commontypesv5.SkuTier>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.commontypesv5.SkuTier>;
-    }
-
-    /**
-     * Managed service identity (either system assigned, or none)
-     */
-    export interface SystemAssignedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (either system assigned, or none).
-         */
-        type: pulumi.Input<string | enums.commontypesv5.SystemAssignedServiceIdentityType>;
-    }
-
-    /**
-     * The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
-     */
-    export interface TrackedResourceArgs {
-        /**
-         * The geo-location where the resource lives
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    }
-
-}
-
-export namespace commontypesv6 {
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: pulumi.Input<string | enums.commontypesv6.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Plan for the resource.
-     */
-    export interface PlanArgs {
-        /**
-         * A user defined name of the 3rd Party Artifact that is being procured.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-         */
-        product: pulumi.Input<string>;
-        /**
-         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-         */
-        promotionCode?: pulumi.Input<string>;
-        /**
-         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-         */
-        publisher: pulumi.Input<string>;
-        /**
-         * The version of the desired product/artifact.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties of the private endpoint connection.
-     */
-    export interface PrivateEndpointConnectionPropertiesArgs {
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: pulumi.Input<inputs.commontypesv6.PrivateLinkServiceConnectionStateArgs>;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.commontypesv6.PrivateEndpointServiceConnectionStatus>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. E.g. P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.commontypesv6.SkuTier>;
-    }
-
-}
-
 export namespace communication {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.communication.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }
 
 export namespace community {
@@ -48186,6 +47916,32 @@ export namespace community {
             ...val,
             teamsEnabled: (val.teamsEnabled) ?? false,
         };
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.community.SkuTier>;
     }
 
 }
@@ -52432,6 +52188,20 @@ export namespace computebulkactions {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.computebulkactions.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Describes a network interface reference.
      */
     export interface NetworkInterfaceReferenceArgs {
@@ -52607,6 +52377,32 @@ export namespace computebulkactions {
          * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
          */
         patchMode?: pulumi.Input<string | enums.computebulkactions.WindowsVMGuestPatchMode>;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanArgs {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: pulumi.Input<string>;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: pulumi.Input<string>;
     }
 
     /**
@@ -58068,6 +57864,28 @@ export namespace containerservice {
     }
 
     /**
+     * Delegated resource properties - internal use only.
+     */
+    export interface DelegatedResourceArgs {
+        /**
+         * The source resource location - internal use only.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The delegation id of the referral delegation (optional) - internal use only.
+         */
+        referralResource?: pulumi.Input<string>;
+        /**
+         * The ARM resource id of the delegated resource - internal use only.
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * The tenant id of the delegated resource - internal use only.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    /**
      * The complex type of the extended location.
      */
     export interface ExtendedLocationArgs {
@@ -59011,7 +58829,7 @@ export namespace containerservice {
         /**
          * The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
          */
-        delegatedResources?: pulumi.Input<{[key: string]: pulumi.Input<inputs.commontypesv4.DelegatedResourceArgs>}>;
+        delegatedResources?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.DelegatedResourceArgs>}>;
         /**
          * The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
          */
@@ -59697,6 +59515,20 @@ export namespace containerservice {
          * The labels for the fleet managed namespace.
          */
         labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.containerservice.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -60540,7 +60372,7 @@ export namespace containerstorage {
         /**
          * The managed service identities assigned to this resource.
          */
-        identity?: pulumi.Input<inputs.commontypesv4.ManagedServiceIdentityArgs>;
+        identity?: pulumi.Input<inputs.containerstorage.ManagedServiceIdentityArgs>;
         /**
          * The name of the key vault key.
          */
@@ -60572,6 +60404,20 @@ export namespace containerstorage {
             ...val,
             replicas: (val.replicas) ?? 3,
         };
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.containerstorage.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -63104,6 +62950,16 @@ export namespace costmanagement {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.costmanagement.SystemAssignedServiceIdentityType>;
+    }
+
+    /**
      * The properties of the tag inheritance setting.
      */
     export interface TagInheritancePropertiesArgs {
@@ -63791,6 +63647,38 @@ export namespace dashboard {
         };
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.dashboard.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.dashboard.PrivateEndpointServiceConnectionStatus>;
+    }
+
     export interface ResourceSkuArgs {
         name: pulumi.Input<string>;
     }
@@ -64121,6 +64009,20 @@ export namespace databasewatcher {
          * The type of a Kusto offering.
          */
         kustoOfferingType: pulumi.Input<string | enums.databasewatcher.KustoOfferingType>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.databasewatcher.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -65843,6 +65745,20 @@ export namespace databricks {
          * The version of KeyVault key.
          */
         keyVersion: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.databricks.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -93677,7 +93593,7 @@ export namespace datamigration {
         /**
          * Identity details for authentication using a Managed Identity.
          */
-        identity?: pulumi.Input<inputs.commontypesv6.ManagedServiceIdentityArgs>;
+        identity?: pulumi.Input<inputs.datamigration.ManagedServiceIdentityArgs>;
         /**
          * Resource Id of the storage account where backups are stored.
          */
@@ -94818,6 +94734,20 @@ export namespace datamigration {
             ...val,
             input: (val.input ? pulumi.output(val.input).apply(inputs.datamigration.getUserTablesSqlTaskInputArgsProvideDefaults) : undefined),
         };
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.datamigration.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -98776,6 +98706,24 @@ export namespace dbformysql {
     }
 
     /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.dbformysql.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * Azure Active Directory identity configuration for a resource.
      */
     export interface ResourceIdentityArgs {
@@ -99263,6 +99211,24 @@ export namespace dbforpostgresql {
     }
 
     /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.dbforpostgresql.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * Replica properties of a server.
      */
     export interface ReplicaArgs {
@@ -99718,6 +99684,7 @@ export namespace dependencymap {
          */
         processNames: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace desktopvirtualization {
@@ -99902,6 +99869,24 @@ export namespace desktopvirtualization {
     }
 
     /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.desktopvirtualization.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * Represents a RegistrationInfo definition.
      */
     export interface RegistrationInfoArgs {
@@ -99917,6 +99902,59 @@ export namespace desktopvirtualization {
          * The registration token base64 encoded string.
          */
         token?: pulumi.Input<string>;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetIdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.desktopvirtualization.ResourceIdentityType>;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetPlanArgs {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: pulumi.Input<string>;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface ResourceModelWithAllowedPropertySetSkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.desktopvirtualization.SkuTier>;
     }
 
     /**
@@ -100029,6 +100067,38 @@ export namespace desktopvirtualization {
 
 export namespace devcenter {
     /**
+     * All Customer-managed key encryption properties for the resource.
+     */
+    export interface CustomerManagedKeyEncryptionArgs {
+        /**
+         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+         */
+        keyEncryptionKeyIdentity?: pulumi.Input<inputs.devcenter.CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs>;
+        /**
+         * key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+         */
+        keyEncryptionKeyUrl?: pulumi.Input<string>;
+    }
+
+    /**
+     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+     */
+    export interface CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs {
+        /**
+         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+         */
+        delegatedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Values can be systemAssignedIdentity or userAssignedIdentity
+         */
+        identityType?: pulumi.Input<string | enums.devcenter.IdentityType>;
+        /**
+         * user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+         */
+        userAssignedIdentityResourceId?: pulumi.Input<string>;
+    }
+
+    /**
      * Project catalog settings for project catalogs under a project associated to this dev center.
      */
     export interface DevCenterProjectCatalogSettingsArgs {
@@ -100042,7 +100112,7 @@ export namespace devcenter {
         /**
          * All Customer-managed key encryption properties for the resource.
          */
-        customerManagedKeyEncryption?: pulumi.Input<inputs.commontypesv4.CustomerManagedKeyEncryptionArgs>;
+        customerManagedKeyEncryption?: pulumi.Input<inputs.devcenter.CustomerManagedKeyEncryptionArgs>;
     }
 
     /**
@@ -100078,6 +100148,20 @@ export namespace devcenter {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.devcenter.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Settings to be used when associating a project with a catalog.
      */
     export interface ProjectCatalogSettingsArgs {
@@ -100109,6 +100193,32 @@ export namespace devcenter {
          * Resources that are included and shared as a part of a project policy.
          */
         resources?: pulumi.Input<string>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.devcenter.SkuTier>;
     }
 
     /**
@@ -100419,6 +100529,20 @@ export namespace deviceprovisioningservices {
          * Target for requests captured by this rule.
          */
         target?: pulumi.Input<enums.deviceprovisioningservices.IpFilterTargetType>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.deviceprovisioningservices.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -101580,6 +101704,16 @@ export namespace deviceregistry {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.deviceregistry.SystemAssignedServiceIdentityType>;
+    }
+
+    /**
      * Object that describes the topic information.
      */
     export interface TopicArgs {
@@ -101697,6 +101831,20 @@ export namespace deviceupdate {
          * IoTHub resource ID
          */
         resourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.deviceupdate.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -101919,6 +102067,20 @@ export namespace devopsinfrastructure {
          * The list of GitHub organizations/repositories the pool should be present in.
          */
         organizations: pulumi.Input<pulumi.Input<inputs.devopsinfrastructure.GitHubOrganizationArgs>[]>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.devopsinfrastructure.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -103335,6 +103497,34 @@ export namespace discovery {
     }
 
     /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesArgs {
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.discovery.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.discovery.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * Project properties
      */
     export interface ProjectPropertiesArgs {
@@ -103952,6 +104142,24 @@ export namespace domainregistration {
 
 export namespace durabletask {
     /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.durabletask.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * The properties of a retention policy
      */
     export interface RetentionPolicyDetailsArgs {
@@ -104016,6 +104224,9 @@ export namespace dynamics365fraudprotection {
         members?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+}
+
+export namespace easm {
 }
 
 export namespace edge {
@@ -107489,6 +107700,7 @@ export namespace extendedlocation {
          */
         matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
+
 }
 
 export namespace fabric {
@@ -107637,6 +107849,24 @@ export namespace fileshares {
     }
 
     /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.fileshares.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * The set of properties for control public access.
      */
     export interface PublicAccessPropertiesArgs {
@@ -107699,6 +107929,24 @@ export namespace fluidrelay {
          * The list of user identities associated with the resource.
          */
         userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.fluidrelay.PrivateEndpointServiceConnectionStatus>;
     }
 
 }
@@ -108545,6 +108793,20 @@ export namespace hardwaresecuritymodules {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.hardwaresecuritymodules.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The network interface definition.
      */
     export interface NetworkInterfaceArgs {
@@ -108566,6 +108828,24 @@ export namespace hardwaresecuritymodules {
          * Specifies the identifier of the subnet.
          */
         subnet?: pulumi.Input<inputs.hardwaresecuritymodules.ApiEntityReferenceArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.hardwaresecuritymodules.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -109704,6 +109984,34 @@ export namespace healthcareapis {
     }
 
     /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionArgs {
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.healthcareapis.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.healthcareapis.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * The settings for history tracking for FHIR resources.
      */
     export interface ResourceVersionPolicyConfigurationArgs {
@@ -109898,7 +110206,7 @@ export namespace healthcareapis {
         /**
          * The list of private endpoint connections that are set up for this resource.
          */
-        privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.commontypesv1.PrivateEndpointConnectionArgs>[]>;
+        privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.healthcareapis.PrivateEndpointConnectionArgs>[]>;
         /**
          * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
          */
@@ -109974,6 +110282,48 @@ export namespace healthdataaiservices {
         publicNetworkAccess?: pulumi.Input<enums.healthdataaiservices.PublicNetworkAccess>;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.healthdataaiservices.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesArgs {
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.healthdataaiservices.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.healthdataaiservices.PrivateEndpointServiceConnectionStatus>;
+    }
+
 }
 
 export namespace hybridcloud {
@@ -110016,6 +110366,16 @@ export namespace hybridcompute {
          * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
          */
         publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.PublicNetworkAccessType>;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.hybridcompute.ResourceIdentityType>;
     }
 
     /**
@@ -110112,6 +110472,28 @@ export namespace hybridcompute {
          * Describes the license assignment state (Assigned or NotAssigned).
          */
         licenseAssignmentState?: pulumi.Input<string | enums.hybridcompute.LicenseAssignmentState>;
+    }
+
+    /**
+     * Metadata pertaining to the geographic location of the resource.
+     */
+    export interface LocationDataArgs {
+        /**
+         * The city or locality where the resource is located.
+         */
+        city?: pulumi.Input<string>;
+        /**
+         * The country or region where the resource is located
+         */
+        countryOrRegion?: pulumi.Input<string>;
+        /**
+         * The district, state, or province where the resource is located.
+         */
+        district?: pulumi.Input<string>;
+        /**
+         * A canonical name for the geographic or physical location.
+         */
+        name: pulumi.Input<string>;
     }
 
     /**
@@ -112046,6 +112428,20 @@ export namespace hybridnetwork {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.hybridnetwork.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Manifest artifact properties.
      */
     export interface ManifestArtifactFormatArgs {
@@ -113369,6 +113765,34 @@ export namespace iotcentral {
             applyToDevices: (val.applyToDevices) ?? false,
             applyToIoTCentral: (val.applyToIoTCentral) ?? false,
         };
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.iotcentral.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.iotcentral.SystemAssignedServiceIdentityType>;
     }
 
 }
@@ -116504,6 +116928,20 @@ export namespace iotoperations {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.iotoperations.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Diagnostic Metrics properties
      */
     export interface MetricsArgs {
@@ -119091,6 +119529,20 @@ export namespace keyvault {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.keyvault.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * A set of rules governing the network accessibility of a vault.
      */
     export interface NetworkRuleSetArgs {
@@ -119606,6 +120058,16 @@ export namespace kubernetesconfiguration {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.kubernetesconfiguration.ResourceIdentityType>;
+    }
+
+    /**
      * Properties that define a Azure Arc PrivateLinkScope resource.
      */
     export interface KubernetesConfigurationPrivateLinkScopePropertiesArgs {
@@ -119686,6 +120148,32 @@ export namespace kubernetesconfiguration {
     }
 
     /**
+     * Plan for the resource.
+     */
+    export interface PlanArgs {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: pulumi.Input<string>;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    /**
      * The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
      */
     export interface PostBuildDefinitionArgs {
@@ -119697,6 +120185,24 @@ export namespace kubernetesconfiguration {
          * Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
          */
         substituteFrom?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.SubstituteFromDefinitionArgs>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.kubernetesconfiguration.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -120252,6 +120758,16 @@ export namespace labservices {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<enums.labservices.ResourceIdentityType>;
+    }
+
+    /**
      * Image reference information. Used in the virtual machine profile.
      */
     export interface ImageReferenceArgs {
@@ -120364,6 +120880,32 @@ export namespace labservices {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.labservices.SkuTier>;
+    }
+
+    /**
      * Support contact information and instructions.
      */
     export interface SupportInfoArgs {
@@ -120431,7 +120973,7 @@ export namespace labservices {
         /**
          * The SKU for the lab. Defines the type of virtual machines used in the lab.
          */
-        sku: pulumi.Input<inputs.commontypesv2.SkuArgs>;
+        sku: pulumi.Input<inputs.labservices.SkuArgs>;
         /**
          * The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
          */
@@ -120481,6 +121023,20 @@ export namespace loadtestservice {
          * Managed identity type to use for accessing encryption key Url.
          */
         type?: pulumi.Input<string | enums.loadtestservice.Type>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.loadtestservice.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
 }
@@ -128717,7 +129273,7 @@ export namespace machinelearningservices {
         /**
          * The identity which will be leveraged by the monitoring jobs.
          */
-        identity?: pulumi.Input<inputs.commontypesv3.ManagedServiceIdentityArgs>;
+        identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     }
 
     /**
@@ -128944,6 +129500,20 @@ export namespace machinelearningservices {
          * List of assigned identities for the managed resource group
          */
         assignedIdentities?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.ManagedResourceGroupAssignedIdentitiesArgs>[]>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.machinelearningservices.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MarketplaceSubscriptionPropertiesArgs {
@@ -130782,6 +131352,32 @@ export namespace machinelearningservices {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.machinelearningservices.SkuTier>;
+    }
+
+    /**
      * Spark job definition.
      */
     export interface SparkJobArgs {
@@ -132412,6 +133008,9 @@ export namespace maintenance {
         tags?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     }
 
+}
+
+export namespace managedidentity {
 }
 
 export namespace managednetwork {
@@ -134105,6 +134704,20 @@ export namespace manufacturingplatform {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.manufacturingplatform.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Details of the ManufacturingPlatform MdsResource.
      */
     export interface MdsResourcePropertiesArgs {
@@ -134206,6 +134819,32 @@ export namespace manufacturingplatform {
     }
 
     /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. E.g. P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.manufacturingplatform.SkuTier>;
+    }
+
+    /**
      * The properties related to User Managed OpenAI Resource
      */
     export interface UserManagedOpenAIProfileArgs {
@@ -134265,6 +134904,56 @@ export namespace maps {
     }
 
     /**
+     * All encryption configuration for a resource.
+     */
+    export interface EncryptionArgs {
+        /**
+         * All Customer-managed key encryption properties for the resource.
+         */
+        customerManagedKeyEncryption?: pulumi.Input<inputs.maps.EncryptionCustomerManagedKeyEncryptionArgs>;
+        /**
+         * (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+         */
+        infrastructureEncryption?: pulumi.Input<string | enums.maps.InfrastructureEncryption>;
+    }
+
+    /**
+     * All Customer-managed key encryption properties for the resource.
+     */
+    export interface EncryptionCustomerManagedKeyEncryptionArgs {
+        /**
+         * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+         */
+        keyEncryptionKeyIdentity?: pulumi.Input<inputs.maps.EncryptionKeyEncryptionKeyIdentityArgs>;
+        /**
+         * key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+         */
+        keyEncryptionKeyUrl?: pulumi.Input<string>;
+    }
+
+    /**
+     * All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+     */
+    export interface EncryptionKeyEncryptionKeyIdentityArgs {
+        /**
+         * delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+         */
+        delegatedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
+         */
+        federatedClientId?: pulumi.Input<string>;
+        /**
+         * The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
+         */
+        identityType?: pulumi.Input<string>;
+        /**
+         * User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
+         */
+        userAssignedIdentityResourceId?: pulumi.Input<string>;
+    }
+
+    /**
      * Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
      */
     export interface LinkedResourceArgs {
@@ -134276,6 +134965,20 @@ export namespace maps {
          * A provided name which uniquely identifies the linked resource.
          */
         uniqueName: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.maps.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -134293,7 +134996,7 @@ export namespace maps {
         /**
          * All encryption configuration for a resource.
          */
-        encryption?: pulumi.Input<inputs.commontypesv5.EncryptionArgs>;
+        encryption?: pulumi.Input<inputs.maps.EncryptionArgs>;
         /**
          * The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
          */
@@ -134321,6 +135024,24 @@ export namespace maps {
          * The location name.
          */
         locationName: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.maps.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -136635,21 +137356,21 @@ export namespace migrate {
     }
 
     /**
-     * Private endpoint connection state.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
     export interface PrivateLinkServiceConnectionStateArgs {
         /**
-         * Action required.
+         * A message indicating if changes on the service provider require any updates on the consumer.
          */
         actionsRequired?: pulumi.Input<string>;
         /**
-         * Description of the object.
+         * The reason for approval/rejection of the connection.
          */
         description?: pulumi.Input<string>;
         /**
-         * Private link connection state.
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
          */
-        status?: pulumi.Input<string | enums.migrate.Status>;
+        status?: pulumi.Input<string | enums.migrate.PrivateEndpointServiceConnectionStatus | enums.migrate.Status>;
     }
 
     /**
@@ -137987,6 +138708,20 @@ export namespace mission {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.mission.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Approver Metadata for approvals request.
      */
     export interface MandatoryApproverArgs {
@@ -138267,6 +139002,34 @@ export namespace mongocluster {
          * Resource ID to locate the source cluster to restore
          */
         sourceResourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesArgs {
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.mongocluster.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.mongocluster.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -138955,7 +139718,7 @@ export namespace monitor {
         /**
          * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
          */
-        type: pulumi.Input<string | enums.commontypesv5.ManagedServiceIdentityType>;
+        type: pulumi.Input<string | enums.monitor.ManagedServiceIdentityType>;
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
@@ -139054,7 +139817,7 @@ export namespace monitor {
         /**
          * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
          */
-        type: pulumi.Input<string | enums.commontypesv5.ManagedServiceIdentityType>;
+        type: pulumi.Input<string | enums.monitor.ManagedServiceIdentityType>;
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
@@ -139951,6 +140714,20 @@ export namespace monitor {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.monitor.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Part of Management Group diagnostic setting. Specifies the settings for a particular log.
      */
     export interface ManagementGroupLogSettingsArgs {
@@ -140352,6 +141129,24 @@ export namespace monitor {
          * the predictive autoscale mode
          */
         scaleMode: pulumi.Input<enums.monitor.PredictiveAutoscalePolicyScaleMode>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.monitor.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -142179,6 +142974,20 @@ export namespace netapp {
          * This specifies the user DN, which overrides the base DN for user lookups.
          */
         userDN?: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.netapp.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -150556,6 +151365,20 @@ export namespace networkcloud {
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.networkcloud.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface NetworkAttachmentArgs {
         /**
          * The resource ID of the associated network attached to the virtual machine.
@@ -151727,6 +152550,20 @@ export namespace onlineexperimentation {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.onlineexperimentation.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The properties of an online experimentation workspace.
      */
     export interface OnlineExperimentationWorkspacePropertiesArgs {
@@ -151756,6 +152593,34 @@ export namespace onlineexperimentation {
          * The name of the SKU. Ex - F0, P0. It is typically a letter+number code
          */
         name: pulumi.Input<string | enums.onlineexperimentation.OnlineExperimentationWorkspaceSkuName>;
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesArgs {
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.onlineexperimentation.PrivateLinkServiceConnectionStateArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.onlineexperimentation.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -151893,6 +152758,20 @@ export namespace operationalinsights {
          * Expected value is 'ref:machinewithhints'.
          */
         kind: pulumi.Input<"ref:machinewithhints">;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.operationalinsights.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -152380,6 +153259,20 @@ export namespace orbital {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.orbital.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * List of authorized spacecraft links per ground station and the expiration date of the authorization.
      */
     export interface SpacecraftLinkArgs {
@@ -152803,6 +153696,9 @@ export namespace portal {
 
 }
 
+export namespace portalservices {
+}
+
 export namespace powerbi {
     export interface AzureSkuArgs {
         /**
@@ -152943,6 +153839,24 @@ export namespace powerplatform {
          * Identity of the secret that includes name and version.
          */
         key?: pulumi.Input<inputs.powerplatform.KeyPropertiesArgs>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.powerplatform.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -155736,6 +156650,20 @@ export namespace purview {
 
 export namespace quantum {
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.quantum.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
      */
     export interface ProviderArgs {
@@ -155860,6 +156788,20 @@ export namespace recommendationsservice {
          * AAD principal type.
          */
         principalType?: pulumi.Input<string | enums.recommendationsservice.PrincipalType>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.recommendationsservice.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -161913,6 +162855,38 @@ export namespace redhatopenshift {
 
 export namespace redis {
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.redis.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.redis.PrivateEndpointServiceConnectionStatus>;
+    }
+
+    /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
     export interface RedisCommonPropertiesRedisConfigurationArgs {
@@ -162094,6 +163068,20 @@ export namespace redisenterprise {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.redisenterprise.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Specifies configuration of a redis module
      */
     export interface ModuleArgs {
@@ -162127,6 +163115,24 @@ export namespace redisenterprise {
          * Sets the frequency at which a snapshot of the database is created.
          */
         rdbFrequency?: pulumi.Input<string | enums.redisenterprise.RdbFrequency>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.redisenterprise.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -162256,6 +163262,9 @@ export namespace resourceconnector {
         type?: pulumi.Input<string | enums.resourceconnector.ResourceIdentityType>;
     }
 
+}
+
+export namespace resourcegraph {
 }
 
 export namespace resourcehealth {
@@ -165935,6 +166944,24 @@ export namespace security {
          * The assessment key
          */
         assessmentKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.security.PrivateEndpointServiceConnectionStatus>;
     }
 
     /**
@@ -171842,6 +172869,20 @@ export namespace sovereign {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.sovereign.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The properties of policy initiatives applied to the management group.
      */
     export interface ManagementGroupPropertiesArgs {
@@ -174363,6 +175404,20 @@ export namespace storageactions {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.storageactions.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The storage task action represents conditional statements and operations to be performed on target objects.
      */
     export interface StorageTaskActionArgs {
@@ -175258,6 +176313,38 @@ export namespace storagepool {
 }
 
 export namespace storagesync {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.storagesync.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.storagesync.PrivateEndpointServiceConnectionStatus>;
+    }
+
 }
 
 export namespace streamanalytics {
@@ -177705,6 +178792,16 @@ export namespace testbase {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.testbase.SystemAssignedServiceIdentityType>;
+    }
+
+    /**
      * Specifies current state of tabs.
      */
     export interface TabStateArgs {
@@ -178082,7 +179179,42 @@ export namespace trafficmanager {
 
 }
 
+export namespace verifiedid {
+}
+
 export namespace videoindexer {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.videoindexer.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.videoindexer.PrivateEndpointServiceConnectionStatus>;
+    }
+
     /**
      * The storage services details
      */
@@ -179038,6 +180170,20 @@ export namespace voiceservices {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.voiceservices.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The configuration used in this region as primary, and other regions as backup.
      */
     export interface PrimaryRegionPropertiesArgs {
@@ -179071,6 +180217,32 @@ export namespace voiceservices {
          * The configuration used in this region as primary, and other regions as backup.
          */
         primaryRegionProperties: pulumi.Input<inputs.voiceservices.PrimaryRegionPropertiesArgs>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuArgs {
+        /**
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
+         */
+        family?: pulumi.Input<string>;
+        /**
+         * The name of the SKU. Ex - P3. It is typically a letter+number code
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+         */
+        tier?: pulumi.Input<enums.voiceservices.SkuTier>;
     }
 
 }
@@ -182520,6 +183692,20 @@ export namespace weightsandbiases {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.weightsandbiases.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Partner's specific Properties
      */
     export interface PartnerPropertiesArgs {
@@ -183376,6 +184562,20 @@ export namespace workloads {
          * Managed resource group name
          */
         name?: pulumi.Input<string>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.workloads.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
