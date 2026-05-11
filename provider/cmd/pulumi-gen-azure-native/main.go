@@ -153,7 +153,7 @@ func main() {
 
 	case "docs":
 		buildSchemaArgs.ExcludeExplicitVersions = true
-		buildSchemaArgs.ExampleLanguages = []string{"nodejs", "dotnet", "python", "go", "java", "yaml"}
+		buildSchemaArgs.ExampleLanguages = []string{"nodejs", "dotnet", "python", "go", "java", "yaml", "hcl"}
 		buildSchemaResult, err := versioning.BuildSchema(buildSchemaArgs)
 		if err != nil {
 			panic(err)

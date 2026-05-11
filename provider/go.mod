@@ -30,6 +30,7 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go v1.81.0
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
+	github.com/pulumi-labs/pulumi-hcl v0.2.1-0.20260509154040-780b07cf961c
 	github.com/pulumi/providertest v0.7.0
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.106.1
 	github.com/pulumi/pulumi-java v1.26.1
@@ -37,7 +38,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.237.0
 	github.com/pulumi/pulumi/sdk/v3 v3.237.0
 	github.com/schollz/progressbar/v3 v3.5.0
-	github.com/segmentio/encoding v0.3.5
+	github.com/segmentio/encoding v0.3.6
 	github.com/stretchr/testify v1.11.1
 	github.com/zclconf/go-cty v1.17.0
 	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792
@@ -77,6 +78,7 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.0 // indirect
 	github.com/golang/glog v1.2.5 // indirect
+	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.29.0 // indirect
 	github.com/iwdgo/sigintwindows v0.2.2 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -108,7 +110,7 @@ require (
 	github.com/pulumi/esc v0.23.0 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
-	github.com/spf13/afero v1.9.5 // indirect
+	github.com/spf13/afero v1.11.0 // indirect
 	github.com/std-uritemplate/std-uritemplate/go/v2 v2.0.3 // indirect
 	github.com/tidwall/gjson v1.17.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
@@ -154,7 +156,7 @@ require (
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/iancoleman/strcase v0.2.0 // indirect
+	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
