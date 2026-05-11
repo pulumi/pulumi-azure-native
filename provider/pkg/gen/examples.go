@@ -298,7 +298,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		case "java":
 			files, err = recoverableProgramGen(programBody, program, java.GenerateProgram)
 		case "hcl":
-			files, err = recoverableProgramGen(programBody, program, hclgen.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, GeneratePatchedHCLProgram)
 		default:
 			continue
 		}
@@ -489,6 +489,27 @@ $ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }}
 	res.Description += b.String()
 	pkgSpec.Resources[resourceName] = res
 	return nil
+}
+
+// GeneratePatchedHCLProgram generates an HCL program from the given PCL program, then strips
+// the `version = "..."` attribute from `required_providers` entries. The pulumi-hcl codegen
+// embeds the build-time provider version (e.g. "3.19.0-alpha.1778502113+88c0d08") into every
+// example, which makes the docs schema non-deterministic across builds. The build-time
+// version is not meaningful in registry docs, so we drop it. Tracking an upstream fix in
+// pulumi-labs/pulumi-hcl to make this configurable.
+func GeneratePatchedHCLProgram(program *hcl2.Program) (map[string][]byte, hcl.Diagnostics, error) {
+	prog, diags, err := hclgen.GenerateProgram(program)
+	if err != nil {
+		return nil, diags, err
+	}
+	// Match the `version = "..."` line that follows a `source = "..."` line inside a
+	// required_providers entry. The (?s) flag lets `.` match newlines inside the lookahead.
+	matchRequiredProviderVersion := regexp.MustCompile(
+		`(?m)(^[ \t]+source[ \t]*=[ \t]*"[^"]+"\r?\n)[ \t]+version[ \t]*=[ \t]*"[^"]*"\r?\n`)
+	for k, v := range prog {
+		prog[k] = matchRequiredProviderVersion.ReplaceAll(v, []byte(`${1}`))
+	}
+	return prog, diags, nil
 }
 
 // GeneratePatchedGoProgram generates a Go program from the given HCL2 program, but patches the
