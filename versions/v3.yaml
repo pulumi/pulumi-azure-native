@@ -13293,33 +13293,33 @@ VoiceServices:
         RpNamespace: Microsoft.VoiceServices
 Web:
     AppServiceEnvironment:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServiceEnvironments.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}
         RpNamespace: Microsoft.Web
     AppServiceEnvironmentAseCustomDnsSuffixConfiguration:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServiceEnvironments.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/configurations/customdnssuffix
         RpNamespace: Microsoft.Web
     AppServiceEnvironmentPrivateEndpointConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServiceEnvironments.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Web
     AppServicePlan:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServicePlans.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}
         RpNamespace: Microsoft.Web
     AppServicePlanRouteForVnet:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServicePlans.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}
         RpNamespace: Microsoft.Web
     Certificate:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/Certificates.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/certificates/{name}
         RpNamespace: Microsoft.Web
     Connection:
@@ -13338,88 +13338,88 @@ Web:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}
         RpNamespace: Microsoft.Web
     KubeEnvironment:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/KubeEnvironments.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/kubeEnvironments/{name}
         RpNamespace: Microsoft.Web
     SiteCertificate:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/SiteCertificates.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/certificates/{certificateName}
         RpNamespace: Microsoft.Web
     SiteCertificateSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/SiteCertificates.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/certificates/{certificateName}
         RpNamespace: Microsoft.Web
     StaticSite:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}
         RpNamespace: Microsoft.Web
     StaticSiteBuildDatabaseConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/databaseConnections/{databaseConnectionName}
         RpNamespace: Microsoft.Web
     StaticSiteCustomDomain:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/customDomains/{domainName}
         RpNamespace: Microsoft.Web
     StaticSiteDatabaseConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/databaseConnections/{databaseConnectionName}
         RpNamespace: Microsoft.Web
     StaticSiteLinkedBackend:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/linkedBackends/{linkedBackendName}
         RpNamespace: Microsoft.Web
     StaticSiteLinkedBackendForBuild:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/linkedBackends/{linkedBackendName}
         RpNamespace: Microsoft.Web
     StaticSitePrivateEndpointConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Web
     StaticSiteUserProvidedFunctionAppForStaticSite:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/userProvidedFunctionApps/{functionAppName}
         RpNamespace: Microsoft.Web
     StaticSiteUserProvidedFunctionAppForStaticSiteBuild:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/userProvidedFunctionApps/{functionAppName}
         RpNamespace: Microsoft.Web
     WebApp:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}
         RpNamespace: Microsoft.Web
     WebAppApplicationSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/appsettings
         RpNamespace: Microsoft.Web
     WebAppApplicationSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/appsettings
         RpNamespace: Microsoft.Web
     WebAppAuthSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettings
         RpNamespace: Microsoft.Web
     WebAppAuthSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettings
         RpNamespace: Microsoft.Web
     WebAppAuthSettingsV2:
@@ -13433,258 +13433,258 @@ Web:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2
         RpNamespace: Microsoft.Web
     WebAppAuthSettingsV2WithoutSecrets:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettingsV2
         RpNamespace: Microsoft.Web
     WebAppAuthSettingsV2WithoutSecretsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2
         RpNamespace: Microsoft.Web
     WebAppAzureStorageAccounts:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/azurestorageaccounts
         RpNamespace: Microsoft.Web
     WebAppAzureStorageAccountsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/azurestorageaccounts
         RpNamespace: Microsoft.Web
     WebAppBackupConfiguration:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup
         RpNamespace: Microsoft.Web
     WebAppBackupConfigurationSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/backup
         RpNamespace: Microsoft.Web
     WebAppConnectionStrings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings
         RpNamespace: Microsoft.Web
     WebAppConnectionStringsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/connectionstrings
         RpNamespace: Microsoft.Web
     WebAppDeployment:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/deployments/{id}
         RpNamespace: Microsoft.Web
     WebAppDeploymentSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/deployments/{id}
         RpNamespace: Microsoft.Web
     WebAppDiagnosticLogsConfiguration:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/logs
         RpNamespace: Microsoft.Web
     WebAppDiagnosticLogsConfigurationSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/logs
         RpNamespace: Microsoft.Web
     WebAppDomainOwnershipIdentifier:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName}
         RpNamespace: Microsoft.Web
     WebAppDomainOwnershipIdentifierSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName}
         RpNamespace: Microsoft.Web
     WebAppFtpAllowed:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/ftp
         RpNamespace: Microsoft.Web
     WebAppFtpAllowedSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/basicPublishingCredentialsPolicies/ftp
         RpNamespace: Microsoft.Web
     WebAppFunction:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName}
         RpNamespace: Microsoft.Web
     WebAppHostNameBinding:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostNameBindings/{hostName}
         RpNamespace: Microsoft.Web
     WebAppHostNameBindingSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hostNameBindings/{hostName}
         RpNamespace: Microsoft.Web
     WebAppHybridConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}
         RpNamespace: Microsoft.Web
     WebAppHybridConnectionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}
         RpNamespace: Microsoft.Web
     WebAppInstanceFunctionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName}
         RpNamespace: Microsoft.Web
     WebAppMetadata:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/metadata
         RpNamespace: Microsoft.Web
     WebAppMetadataSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/metadata
         RpNamespace: Microsoft.Web
     WebAppPremierAddOn:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/premieraddons/{premierAddOnName}
         RpNamespace: Microsoft.Web
     WebAppPremierAddOnSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/premieraddons/{premierAddOnName}
         RpNamespace: Microsoft.Web
     WebAppPrivateEndpointConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Web
     WebAppPrivateEndpointConnectionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Web
     WebAppPublicCertificate:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/publicCertificates/{publicCertificateName}
         RpNamespace: Microsoft.Web
     WebAppPublicCertificateSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/publicCertificates/{publicCertificateName}
         RpNamespace: Microsoft.Web
     WebAppRelayServiceConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridconnection/{entityName}
         RpNamespace: Microsoft.Web
     WebAppRelayServiceConnectionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridconnection/{entityName}
         RpNamespace: Microsoft.Web
     WebAppScmAllowed:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/scm
         RpNamespace: Microsoft.Web
     WebAppScmAllowedSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/basicPublishingCredentialsPolicies/scm
         RpNamespace: Microsoft.Web
     WebAppSiteContainer:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sitecontainers/{containerName}
         RpNamespace: Microsoft.Web
     WebAppSiteContainerSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/sitecontainers/{containerName}
         RpNamespace: Microsoft.Web
     WebAppSiteExtension:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/siteextensions/{siteExtensionId}
         RpNamespace: Microsoft.Web
     WebAppSiteExtensionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/siteextensions/{siteExtensionId}
         RpNamespace: Microsoft.Web
     WebAppSitePushSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/pushsettings
         RpNamespace: Microsoft.Web
     WebAppSitePushSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/pushsettings
         RpNamespace: Microsoft.Web
     WebAppSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}
         RpNamespace: Microsoft.Web
     WebAppSlotConfigurationNames:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/slotConfigNames
         RpNamespace: Microsoft.Web
     WebAppSourceControl:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web
         RpNamespace: Microsoft.Web
     WebAppSourceControlSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/sourcecontrols/web
         RpNamespace: Microsoft.Web
     WebAppSwiftVirtualNetworkConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkConfig/virtualNetwork
         RpNamespace: Microsoft.Web
     WebAppSwiftVirtualNetworkConnectionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/networkConfig/virtualNetwork
         RpNamespace: Microsoft.Web
     WebAppVnetConnection:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/virtualNetworkConnections/{vnetName}
         RpNamespace: Microsoft.Web
     WebAppVnetConnectionSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/virtualNetworkConnections/{vnetName}
         RpNamespace: Microsoft.Web
     getAppServicePlanServerFarmRdpPassword:
-        ApiVersion: "2025-03-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-03-01/openapi.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/getrdppassword
         RpNamespace: Microsoft.Web
     listAppServicePlanHybridConnectionKeys:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServicePlans.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys
         RpNamespace: Microsoft.Web
     listAppServicePlanServerFarmInstanceDetails:
-        ApiVersion: "2025-03-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-03-01/openapi.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/listinstances
         RpNamespace: Microsoft.Web
     listConnectionConsentLinks:
@@ -13703,133 +13703,133 @@ Web:
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/listWsdlInterfaces
         RpNamespace: Microsoft.Web
     listSiteIdentifiersAssignedToHostName:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/ResourceProvider.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Web/listSitesAssignedToHostName
         RpNamespace: Microsoft.Web
     listStaticSiteAppSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listAppSettings
         RpNamespace: Microsoft.Web
     listStaticSiteBuildAppSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/listAppSettings
         RpNamespace: Microsoft.Web
     listStaticSiteBuildFunctionAppSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/listFunctionAppSettings
         RpNamespace: Microsoft.Web
     listStaticSiteConfiguredRoles:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listConfiguredRoles
         RpNamespace: Microsoft.Web
     listStaticSiteFunctionAppSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listFunctionAppSettings
         RpNamespace: Microsoft.Web
     listStaticSiteSecrets:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listSecrets
         RpNamespace: Microsoft.Web
     listStaticSiteUsers:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/StaticSites.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/authproviders/{authprovider}/listUsers
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Web/staticSites/{name}/authproviders/{authprovider}/listUsers
         RpNamespace: Microsoft.Web
     listWebAppApplicationSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/appsettings/list
         RpNamespace: Microsoft.Web
     listWebAppApplicationSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/appsettings/list
         RpNamespace: Microsoft.Web
     listWebAppAuthSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettings/list
         RpNamespace: Microsoft.Web
     listWebAppAuthSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettings/list
         RpNamespace: Microsoft.Web
     listWebAppAzureStorageAccounts:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/azurestorageaccounts/list
         RpNamespace: Microsoft.Web
     listWebAppAzureStorageAccountsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/azurestorageaccounts/list
         RpNamespace: Microsoft.Web
     listWebAppBackupConfiguration:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup/list
         RpNamespace: Microsoft.Web
     listWebAppBackupConfigurationSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/backup/list
         RpNamespace: Microsoft.Web
     listWebAppBackupStatusSecrets:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}/list
         RpNamespace: Microsoft.Web
     listWebAppBackupStatusSecretsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/backups/{backupId}/list
         RpNamespace: Microsoft.Web
     listWebAppConnectionStrings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings/list
         RpNamespace: Microsoft.Web
     listWebAppConnectionStringsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/connectionstrings/list
         RpNamespace: Microsoft.Web
     listWebAppFunctionKeys:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName}/listkeys
         RpNamespace: Microsoft.Web
     listWebAppFunctionKeysSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName}/listkeys
         RpNamespace: Microsoft.Web
     listWebAppFunctionSecrets:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName}/listsecrets
         RpNamespace: Microsoft.Web
     listWebAppFunctionSecretsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName}/listsecrets
         RpNamespace: Microsoft.Web
     listWebAppHostKeys:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/host/default/listkeys
         RpNamespace: Microsoft.Web
     listWebAppHostKeysSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/host/default/listkeys
         RpNamespace: Microsoft.Web
     listWebAppHybridConnectionKeys:
@@ -13843,88 +13843,88 @@ Web:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys
         RpNamespace: Microsoft.Web
     listWebAppMetadata:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/metadata/list
         RpNamespace: Microsoft.Web
     listWebAppMetadataSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/metadata/list
         RpNamespace: Microsoft.Web
     listWebAppPublishingCredentials:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/publishingcredentials/list
         RpNamespace: Microsoft.Web
     listWebAppPublishingCredentialsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/publishingcredentials/list
         RpNamespace: Microsoft.Web
     listWebAppSiteBackups:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listbackups
         RpNamespace: Microsoft.Web
     listWebAppSiteBackupsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listbackups
         RpNamespace: Microsoft.Web
     listWebAppSitePushSettings:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/pushsettings/list
         RpNamespace: Microsoft.Web
     listWebAppSitePushSettingsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/pushsettings/list
         RpNamespace: Microsoft.Web
     listWebAppSyncFunctionTriggers:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listsyncfunctiontriggerstatus
         RpNamespace: Microsoft.Web
     listWebAppSyncFunctionTriggersSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listsyncfunctiontriggerstatus
         RpNamespace: Microsoft.Web
     listWebAppSyncStatus:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/host/default/listsyncstatus
         RpNamespace: Microsoft.Web
     listWebAppSyncStatusSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/host/default/listsyncstatus
         RpNamespace: Microsoft.Web
     listWebAppWorkflowsConnections:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listWorkflowsConnections
         RpNamespace: Microsoft.Web
     listWebAppWorkflowsConnectionsSlot:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listWorkflowsConnections
         RpNamespace: Microsoft.Web
     listWorkflowRunActionExpressionTraces:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostruntime/runtime/webhooks/workflow/api/management/workflows/{workflowName}/runs/{runName}/actions/{actionName}/listExpressionTraces
         RpNamespace: Microsoft.Web
     listWorkflowRunActionRepetitionExpressionTraces:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostruntime/runtime/webhooks/workflow/api/management/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/listExpressionTraces
         RpNamespace: Microsoft.Web
     listWorkflowTriggerCallbackUrl:
-        ApiVersion: "2024-11-01"
-        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/WebApps.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostruntime/runtime/webhooks/workflow/api/management/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl
         RpNamespace: Microsoft.Web
 WebPubSub:
