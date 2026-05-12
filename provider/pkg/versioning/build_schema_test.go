@@ -74,7 +74,7 @@ func generateResourceExamples(namespace, versionFilter, resourceToken string) (s
 			VersionsFilter:  versionFilter,
 		},
 		ExcludeExplicitVersions: true,
-		ExampleLanguages:        []string{"nodejs", "dotnet", "python", "go", "java", "yaml"},
+		ExampleLanguages:        []string{"nodejs", "dotnet", "python", "go", "java", "yaml", "hcl"},
 		Version:                 "2.0.0",
 	})
 

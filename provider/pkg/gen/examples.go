@@ -21,6 +21,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
+	hclgen "github.com/pulumi-labs/pulumi-hcl/pkg/codegen"
 	dotnet "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
@@ -296,6 +297,10 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 			files, err = recoverableProgramGen(programBody, program, yaml.GenerateProgram)
 		case "java":
 			files, err = recoverableProgramGen(programBody, program, java.GenerateProgram)
+		case "hcl":
+			files, err = recoverableProgramGen(programBody, program, func(p *hcl2.Program) (map[string][]byte, hcl.Diagnostics, error) {
+				return hclgen.GenerateProgram(p, hclgen.SkipRequiredProvidersVersion())
+			})
 		default:
 			continue
 		}
