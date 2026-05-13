@@ -530,6 +530,16 @@
    "type": "object"
   }
  },
+ "listInputs": {
+  "description": "Gets a list of managed clusters in the specified subscription.",
+  "properties": {
+   "subscriptionId": {
+    "description": "The ID of the target subscription. The value must be an UUID.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
  "properties": {
   "aadProfile": {
    "$ref": "#/types/azure-native:containerservice:ManagedClusterAADProfileResponse",
@@ -1164,6 +1174,19 @@
  "apiVersion": "2025-10-01",
  "defaultBody": null,
  "deleteAsyncStyle": "azure-async-operation",
+ "isListable": true,
+ "listMethod": "GET",
+ "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters",
+ "listParameters": [
+  {
+   "location": "path",
+   "name": "subscriptionId",
+   "required": true,
+   "value": {
+    "type": "string"
+   }
+  }
+ ],
  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
  "putAsyncStyle": "azure-async-operation",
  "response": {

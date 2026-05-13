@@ -52,4 +52,6 @@ func TestManagedClusterGen(t *testing.T) {
 	assert.Contains(t, userManagedIdentity.Properties, "resourceId", "UserAssignedIdentityResponse should contain resourceId property")
 	assert.Contains(t, userManagedIdentity.Properties, "clientId", "UserAssignedIdentityResponse should contain clientId property")
 	assert.Contains(t, userManagedIdentity.Properties, "objectId", "UserAssignedIdentityResponse should contain objectId property")
+
+	assert.NotEmpty(t, managedClusterResource.ListInputs, "ManagedCluster is listable and should have ListInputs")
 }

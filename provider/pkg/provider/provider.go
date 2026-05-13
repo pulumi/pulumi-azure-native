@@ -18,6 +18,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/segmentio/encoding/json"
+	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
@@ -466,6 +467,38 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 	}
 
 	return outputs
+}
+
+// `ListResponse` is the streamed response type returned by [](pulumirpc.ResourceProvider.List).
+// It must follow one of the following orders.
+// Either it returns a single [](pulumirpc.ListResponse.Computed)
+// or it should return one or more [](pulumirpc.ListResponse.Result)
+// items followed optionally by a [](pulumirpc.ListResponse.Continuation).
+
+func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStreamingServer[rpc.ListResponse]) error {
+	token := req.GetToken()
+	resourceAPI, found, err := k.LookupResource(token)
+	if err != nil {
+		return fmt.Errorf("looking up resource for token %s: %w", token, err)
+	}
+
+	if !found {
+		return fmt.Errorf("resource not found for token %s", token)
+	}
+
+	if resourceAPI.Path == "" {
+		return fmt.Errorf("resource API for token %s does not have a path defined", token)
+	}
+
+	err = stream.Send(&rpc.ListResponse{
+		Response: &rpc.ListResponse_Computed_{},
+	})
+
+	if err != nil {
+		return fmt.Errorf("sending list response for token %s: %w", token, err)
+	}
+
+	return nil
 }
 
 // Check validates that the given property bag is valid for a resource of the given type and returns

@@ -137,6 +137,15 @@ type AzureAPIResource struct {
 	RequiredContainers [][]string `json:"requiredContainers,omitempty"`
 	// Default values to be used when the property is removed or in importing. Must be top-level properties.
 	DefaultProperties map[string]interface{} `json:"defaultProperties,omitempty"`
+	// Returns whether the resource supports listing resources.
+	// This is based on the presence of a List operation in the spec.
+	IsListable bool `json:"isListable,omitempty"`
+	// ListParameters are the parameters for the List operation if the resource is listable. This is used to populate the List function on the resource's collection in the SDK.
+	ListParameters []AzureAPIParameter `json:"listParameters,omitempty"`
+	// The HTTP path to calling the list operation for this resource type.
+	ListOperationPath string `json:"listOperationPath,omitempty"`
+	// The HTTP method to call to list resources, e.g. GET or POST.
+	ListMethod string `json:"listMethod,omitempty"`
 }
 
 type ResourceLookupFunc func(resourceType string) (AzureAPIResource, bool, error)
