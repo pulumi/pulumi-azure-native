@@ -255,6 +255,8 @@ type ListOperationSpec struct {
 	Path string
 	// The HTTP method of the list operation, e.g. GET or POST
 	Method string
+	// The property name in the List response object that contains the link to the next page of results, if any (e.g. "nextLink")
+	NextLinkName string
 }
 
 // ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
@@ -645,12 +647,26 @@ func findListOperation(path string, pathItem spec.PathItem) *ListOperationSpec {
 	}
 
 	// make sure the operation has `x-ms-pageable` extension, otherwise it's not a list operation
+	// pageable operations have an extension of the shape
+	// { "x-ms-pageable": { "nextLinkName": "nextLink" | null } }
+	// where the nextLinkName property is optional and defaults to "nextLink" if not specified.
+	// the nextLinkName property specifies the name of the property in the response that contains the URL for the next page of results, if any.
 	if operation != nil {
-		if _, ok := operation.VendorExtensible.Extensions["x-ms-pageable"]; ok {
+		extensions := operation.VendorExtensible.Extensions
+		if pageable, ok := extensions["x-ms-pageable"]; ok {
+			nextLinkName := "nextLink"
+			if pageableMap, ok := pageable.(map[string]interface{}); ok {
+				// the default nextLinkName is "nextLink", but it can be overridden in the extension, so check for that.
+				if nextLink, ok := pageableMap["nextLinkName"].(string); ok {
+					nextLinkName = nextLink
+				}
+			}
+
 			return &ListOperationSpec{
-				Operation: operation,
-				Path:      path,
-				Method:    method,
+				Operation:    operation,
+				Path:         path,
+				Method:       method,
+				NextLinkName: nextLinkName,
 			}
 		}
 	}

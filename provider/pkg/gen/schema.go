@@ -1259,11 +1259,13 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	if listRequestData != nil {
 		// Embed List-related metadata into the resource metadata
-		// This is used later during calls of List(...) at the provider level
-		r.IsListable = true
-		r.ListParameters = listRequestData.parameters
-		r.ListMethod = resource.listOperation.Method
-		r.ListOperationPath = resource.listOperation.Path
+		// This is used later during calls of List(...) at the provider interface level
+		r.ListMetadata = &resources.AzureAPIListMetadata{
+			Parameters:    listRequestData.parameters,
+			Method:        resource.listOperation.Method,
+			OperationPath: resource.listOperation.Path,
+			NextLinkName:  resource.listOperation.NextLinkName,
+		}
 	}
 
 	g.metadata.Resources[resourceTok] = r

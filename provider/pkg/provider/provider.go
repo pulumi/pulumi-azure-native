@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"math"
+	"net/url"
 	"os"
 	"reflect"
 	"regexp"
@@ -469,33 +470,175 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 	return outputs
 }
 
-// `ListResponse` is the streamed response type returned by [](pulumirpc.ResourceProvider.List).
-// It must follow one of the following orders.
-// Either it returns a single [](pulumirpc.ListResponse.Computed)
-// or it should return one or more [](pulumirpc.ListResponse.Result)
-// items followed optionally by a [](pulumirpc.ListResponse.Continuation).
+func hasParameter(name string, params []resources.AzureAPIParameter) bool {
+	for _, param := range params {
+		if param.Name == name {
+			return true
+		}
+	}
+	return false
+}
+
+// given an object response such as { "value": [ { ... }, { ... } ] }
+// returns the array of elements from "value"
+// assumes there is _one_ key in the response which is the array of objects returned
+func extractObjectElementsFromListResponse(response map[string]any) ([]map[string]any, error) {
+	// find the first element in the response that is an array
+	// extract items in that array that are objects
+	var result []map[string]any
+	for key, value := range response {
+		if elements, ok := value.([]any); ok {
+			for _, element := range elements {
+				if elementMap, ok := element.(map[string]any); ok {
+					result = append(result, elementMap)
+				} else {
+					return nil, fmt.Errorf("unexpected element type in list response array for key %s: expected object, got %T", key, element)
+				}
+			}
+		}
+	}
+
+	return result, nil
+}
+
+func valueOrEmpty(key string, element map[string]any) string {
+	if value, ok := element[key]; ok {
+		if str, ok := value.(string); ok {
+			return str
+		}
+	}
+	return ""
+}
+
+func valueOrError(key string, element map[string]any) (string, error) {
+	if value, ok := element[key]; ok {
+		if str, ok := value.(string); ok {
+			return str, nil
+		}
+	}
+	return "", fmt.Errorf("missing or invalid value for key %s", key)
+}
 
 func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStreamingServer[rpc.ListResponse]) error {
 	token := req.GetToken()
+	if token == "" {
+		return fmt.Errorf("missing required token for List")
+	}
+
 	resourceAPI, found, err := k.LookupResource(token)
 	if err != nil {
 		return fmt.Errorf("looking up resource for token %s: %w", token, err)
 	}
 
 	if !found {
-		return fmt.Errorf("resource not found for token %s", token)
+		return fmt.Errorf("resource metadata not found for token %s", token)
 	}
 
-	if resourceAPI.Path == "" {
-		return fmt.Errorf("resource API for token %s does not have a path defined", token)
+	if resourceAPI.ListMetadata == nil {
+		// TODO: consider returning an empty list instead
+		return fmt.Errorf("resource for token %s is not listable", token)
 	}
 
-	err = stream.Send(&rpc.ListResponse{
-		Response: &rpc.ListResponse_Computed_{},
+	inputs, err := plugin.UnmarshalProperties(req.Query, plugin.MarshalOptions{
+		Label:          "",
+		SkipNulls:      true,
+		RejectUnknowns: true,
+		RejectAssets:   true,
+		PropagateNil:   false,
 	})
 
 	if err != nil {
-		return fmt.Errorf("sending list response for token %s: %w", token, err)
+		return fmt.Errorf("unmarshalling list query for token %s: %w", token, err)
+	}
+
+	// if list parameters require a subscriptionId and it's not provided,
+	// attempt to derive it from the provider's configured subscriptionId
+	subscriptionID := resource.PropertyKey("subscriptionId")
+	if hasParameter(string(subscriptionID), resourceAPI.ListMetadata.Parameters) {
+		if _, alreadyProvided := inputs[subscriptionID]; !alreadyProvided {
+			if k.subscriptionID != "" {
+				// use the one from the provider configuration if available
+				inputs[subscriptionID] = resource.NewStringProperty(k.subscriptionID)
+			} else {
+				// as a fallback, attempt to derive it from the client config
+				clientConfig, err := k.getClientConfig(k.context)
+				if err != nil {
+					return fmt.Errorf("deriving subscriptionId for list operation for token %s: %w", token, err)
+				}
+
+				inputs[subscriptionID] = resource.NewStringProperty(clientConfig.SubscriptionID)
+			}
+		}
+	}
+
+	// Setup API call
+	id, query, err := crud.PrepareAzureRESTIdAndQuery(
+		resourceAPI.ListMetadata.OperationPath,
+		resourceAPI.ListMetadata.Parameters,
+		inputs.Mappable(),
+		map[string]interface{}{
+			"api-version": resourceAPI.APIVersion,
+		},
+	)
+
+	if err != nil {
+		return fmt.Errorf("preparing ARM REST request for list operation for token %s: %w", token, err)
+	}
+
+	var response map[string]any
+	// When attempting to list resources, we check if we have a "nextLink" already in the request
+	// if that is populated, then we use it to retrieve the next page of results, otherwise we make the initial list request using the provided parameters
+	if nextLink := req.GetContinuationToken(); nextLink != "" {
+		// nextLink here is an absolute URL, parse and strip the host part
+		nextLinkURL, err := url.Parse(nextLink)
+		if err != nil {
+			return fmt.Errorf("parsing nextLink URL for token %s: %w", token, err)
+		}
+
+		// no need to pass an API version or query parameters when following the nextLink,
+		// as it is a fully formed URL provided by Azure
+		response, err = k.azureClient.Get(k.context, nextLinkURL.RequestURI(), "", nil)
+		if err != nil {
+			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
+		}
+	} else if resourceAPI.ListMetadata.Method == "GET" {
+		response, err = k.azureClient.Get(k.context, id, resourceAPI.APIVersion, query)
+		if err != nil {
+			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
+		}
+	} else if resourceAPI.ListMetadata.Method == "POST" {
+		responseValue, err := k.azureClient.Post(k.context, id, inputs.Mappable(), query)
+		if err != nil {
+			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
+		}
+		if responseAsMap, ok := responseValue.(map[string]any); ok {
+			response = responseAsMap
+		} else {
+			return fmt.Errorf("unexpected response type for list operation for token %s: expected object, got %T", token, responseValue)
+		}
+	} else {
+		return fmt.Errorf("unsupported HTTP method %s for list operation for token %s", resourceAPI.ListMetadata.Method, token)
+	}
+
+	elements, err := extractObjectElementsFromListResponse(response)
+	if err != nil {
+		return fmt.Errorf("extracting elements from the List response for token %s: %w", token, err)
+	}
+
+	for _, element := range elements {
+		id, err := valueOrError("id", element)
+		if err != nil {
+			return fmt.Errorf("extracting id from element for token %s: %w", token, err)
+		}
+		name := valueOrEmpty("name", element)
+		stream.Send(&rpc.ListResponse{
+			Response: &rpc.ListResponse_Result_{
+				Result: &rpc.ListResponse_Result{
+					Id:   id,
+					Name: name,
+				},
+			},
+		})
 	}
 
 	return nil
