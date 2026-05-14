@@ -23,11 +23,11 @@ class PermissionBindingArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 client_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[Union[_builtins.str, 'PermissionType']]] = None,
-                 permission_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[Union[_builtins.str, 'PermissionType']]] = None,
+                 permission_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PermissionBinding resource.
 
@@ -80,7 +80,7 @@ class PermissionBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientGroupName")
-    def client_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the client group resource that the permission is bound to.
         The client group needs to be a resource under the same namespace the permission binding is a part of.
@@ -88,48 +88,48 @@ class PermissionBindingArgs:
         return pulumi.get(self, "client_group_name")
 
     @client_group_name.setter
-    def client_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the Permission Binding resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PermissionType']]]:
+    def permission(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PermissionType']]]:
         """
         The allowed permission.
         """
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PermissionType']]]):
+    def permission(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PermissionType']]]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionBindingName")
-    def permission_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission binding name.
         """
         return pulumi.get(self, "permission_binding_name")
 
     @permission_binding_name.setter
-    def permission_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission_binding_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicSpaceName")
-    def topic_space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Topic Space resource that the permission is bound to.
         The Topic space needs to be a resource under the same namespace the permission binding is a part of.
@@ -137,7 +137,7 @@ class PermissionBindingArgs:
         return pulumi.get(self, "topic_space_name")
 
     @topic_space_name.setter
-    def topic_space_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_space_name", value)
 
 
@@ -147,13 +147,13 @@ class PermissionBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[Union[_builtins.str, 'PermissionType']]] = None,
-                 permission_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[Union[_builtins.str, 'PermissionType']]] = None,
+                 permission_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Permission binding resource.
@@ -204,13 +204,13 @@ class PermissionBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[Union[_builtins.str, 'PermissionType']]] = None,
-                 permission_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[Union[_builtins.str, 'PermissionType']]] = None,
+                 permission_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

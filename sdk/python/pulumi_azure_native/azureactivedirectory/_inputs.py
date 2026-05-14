@@ -28,11 +28,11 @@ class B2CResourceSKUArgsDict(TypedDict):
     """
     SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUName']]]]
     """
     The name of the SKU for the tenant.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUTier']]]]
     """
     The tier of the tenant.
     """
@@ -40,8 +40,8 @@ class B2CResourceSKUArgsDict(TypedDict):
 @pulumi.input_type
 class B2CResourceSKUArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUName']]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUTier']]] = None):
         """
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 
@@ -55,26 +55,26 @@ class B2CResourceSKUArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUName']]]:
         """
         The name of the SKU for the tenant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUName']]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUTier']]]:
         """
         The tier of the tenant.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'B2CResourceSKUTier']]]):
         pulumi.set(self, "tier", value)
 
 

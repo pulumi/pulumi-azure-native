@@ -27,10 +27,10 @@ class DnsSecurityRuleArgs:
                  dns_resolver_policy_name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dns_security_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_security_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dns_security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_security_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DnsSecurityRule resource.
 
@@ -120,50 +120,50 @@ class DnsSecurityRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsSecurityRuleName")
-    def dns_security_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_security_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS security rule.
         """
         return pulumi.get(self, "dns_security_rule_name")
 
     @dns_security_rule_name.setter
-    def dns_security_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_security_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_security_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSecurityRuleState")
-    def dns_security_rule_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DnsSecurityRuleState']]]:
+    def dns_security_rule_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DnsSecurityRuleState']]]:
         """
         The state of DNS security rule.
         """
         return pulumi.get(self, "dns_security_rule_state")
 
     @dns_security_rule_state.setter
-    def dns_security_rule_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DnsSecurityRuleState']]]):
+    def dns_security_rule_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DnsSecurityRuleState']]]):
         pulumi.set(self, "dns_security_rule_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -173,15 +173,15 @@ class DnsSecurityRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['DnsSecurityRuleActionArgs', 'DnsSecurityRuleActionArgsDict']]] = None,
-                 dns_resolver_domain_lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 dns_resolver_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_security_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_security_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 action: pulumi.Input[Optional[Union['DnsSecurityRuleActionArgs', 'DnsSecurityRuleActionArgsDict']]] = None,
+                 dns_resolver_domain_lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_security_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Describes a DNS security rule.
@@ -232,15 +232,15 @@ class DnsSecurityRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['DnsSecurityRuleActionArgs', 'DnsSecurityRuleActionArgsDict']]] = None,
-                 dns_resolver_domain_lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 dns_resolver_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_security_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_security_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 action: pulumi.Input[Optional[Union['DnsSecurityRuleActionArgs', 'DnsSecurityRuleActionArgsDict']]] = None,
+                 dns_resolver_domain_lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_security_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'DnsSecurityRuleState']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

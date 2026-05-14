@@ -73,9 +73,9 @@ def list_kusto_pool_language_extensions(kusto_pool_name: Optional[_builtins.str]
 
     return AwaitableListKustoPoolLanguageExtensionsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_kusto_pool_language_extensions_output(kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_kusto_pool_language_extensions_output(kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKustoPoolLanguageExtensionsResult]:
     """
     Returns a list of language extensions that can run within KQL queries.

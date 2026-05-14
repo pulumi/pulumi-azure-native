@@ -293,8 +293,8 @@ def get_network_tap_rule(network_tap_rule_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tap_rules_url=pulumi.get(__ret__, 'tap_rules_url'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_tap_rule_output(network_tap_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
     """
     Get Network Tap Rule resource details.

@@ -112,12 +112,12 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[_builtins.str] = None
         total_charges=pulumi.get(__ret__, 'total_charges'),
         total_used_billable_hours=pulumi.get(__ret__, 'total_used_billable_hours'),
         total_used_free_hours=pulumi.get(__ret__, 'total_used_free_hours'))
-def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[_builtins.str]] = None,
-                                         page_index: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                         page_size: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         start_time_stamp: Optional[pulumi.Input[_builtins.str]] = None,
-                                         test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_hub_service_usage_output(end_time_stamp: pulumi.Input[Optional[_builtins.str]] = None,
+                                         page_index: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                         page_size: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         start_time_stamp: pulumi.Input[Optional[_builtins.str]] = None,
+                                         test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
     """
     Uses Azure REST API version 2023-11-01-preview.

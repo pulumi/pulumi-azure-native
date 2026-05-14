@@ -129,10 +129,10 @@ def get_content_item(content_item_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_content_item_output(content_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            content_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_content_item_output(content_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            content_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            service_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentItemResult]:
     """
     Returns the developer portal's content item specified by its identifier.

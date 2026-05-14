@@ -23,8 +23,8 @@ class ContainerRegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ContainerRegistryPropertiesArgs']] = None):
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ContainerRegistryPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ContainerRegistry resource.
 
@@ -66,26 +66,26 @@ class ContainerRegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryName")
-    def container_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container registry.
         """
         return pulumi.get(self, "container_registry_name")
 
     @container_registry_name.setter
-    def container_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ContainerRegistryPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ContainerRegistryPropertiesArgs']]:
         """
         Properties of the container registry resource payload.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ContainerRegistryPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ContainerRegistryPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class ContainerRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ContainerRegistryPropertiesArgs', 'ContainerRegistryPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ContainerRegistryPropertiesArgs', 'ContainerRegistryPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Container registry resource payload.
@@ -144,10 +144,10 @@ class ContainerRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ContainerRegistryPropertiesArgs', 'ContainerRegistryPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ContainerRegistryPropertiesArgs', 'ContainerRegistryPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

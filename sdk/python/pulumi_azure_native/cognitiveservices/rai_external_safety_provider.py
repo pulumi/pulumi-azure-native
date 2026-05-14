@@ -21,9 +21,9 @@ __all__ = ['RaiExternalSafetyProviderArgs', 'RaiExternalSafetyProvider']
 @pulumi.input_type
 class RaiExternalSafetyProviderArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs']] = None,
-                 safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: pulumi.Input[Optional['RaiExternalSafetyProviderSchemaPropertiesArgs']] = None,
+                 safety_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiExternalSafetyProvider resource.
 
@@ -40,38 +40,38 @@ class RaiExternalSafetyProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['RaiExternalSafetyProviderSchemaPropertiesArgs']]:
         """
         Properties of Cognitive Services Rai External Safety provider.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['RaiExternalSafetyProviderSchemaPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="safetyProviderName")
-    def safety_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def safety_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Rai External Safety Provider associated with the Cognitive Services Account
         """
         return pulumi.get(self, "safety_provider_name")
 
     @safety_provider_name.setter
-    def safety_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def safety_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "safety_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,9 +81,9 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
-                 safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
+                 safety_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cognitive Services Rai External Safety provider Schema.
@@ -124,9 +124,9 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
-                 safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
+                 safety_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

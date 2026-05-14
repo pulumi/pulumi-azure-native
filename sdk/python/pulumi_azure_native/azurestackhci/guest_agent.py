@@ -23,8 +23,8 @@ __all__ = ['GuestAgentArgs', 'GuestAgent']
 class GuestAgentArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None):
+                 credentials: pulumi.Input[Optional['GuestCredentialArgs']] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a GuestAgent resource.
 
@@ -52,26 +52,26 @@ class GuestAgentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['GuestCredentialArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['GuestCredentialArgs']]:
         """
         Username / Password Credentials to provision guest agent.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['GuestCredentialArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['GuestCredentialArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]]:
         """
         The guest agent provisioning action.
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]]):
         pulumi.set(self, "provisioning_action", value)
 
 
@@ -81,9 +81,9 @@ class GuestAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the GuestAgent.
@@ -128,9 +128,9 @@ class GuestAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

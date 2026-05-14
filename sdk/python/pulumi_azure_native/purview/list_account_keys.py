@@ -84,8 +84,8 @@ def list_account_keys(account_name: Optional[_builtins.str] = None,
     return AwaitableListAccountKeysResult(
         atlas_kafka_primary_endpoint=pulumi.get(__ret__, 'atlas_kafka_primary_endpoint'),
         atlas_kafka_secondary_endpoint=pulumi.get(__ret__, 'atlas_kafka_secondary_endpoint'))
-def list_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_account_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     List the authorization keys associated with this account.

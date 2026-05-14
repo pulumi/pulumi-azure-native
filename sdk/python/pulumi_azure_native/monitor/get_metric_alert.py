@@ -306,8 +306,8 @@ def get_metric_alert(resource_group_name: Optional[_builtins.str] = None,
         target_resource_type=pulumi.get(__ret__, 'target_resource_type'),
         type=pulumi.get(__ret__, 'type'),
         window_size=pulumi.get(__ret__, 'window_size'))
-def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metric_alert_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricAlertResult]:
     """
     Retrieve an alert rule definition.

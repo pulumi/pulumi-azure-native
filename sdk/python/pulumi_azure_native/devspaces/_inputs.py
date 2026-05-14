@@ -28,7 +28,7 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU for Azure Dev Spaces Controller.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]]
     """
     The tier of the SKU for Azure Dev Spaces Controller.
     """
@@ -37,7 +37,7 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']],
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]] = None):
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]] = None):
         """
         Model representing SKU for Azure Dev Spaces Controller.
 
@@ -62,14 +62,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]:
         """
         The tier of the SKU for Azure Dev Spaces Controller.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

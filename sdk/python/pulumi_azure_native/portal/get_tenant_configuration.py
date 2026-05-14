@@ -134,7 +134,7 @@ def get_tenant_configuration(configuration_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tenant_configuration_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantConfigurationResult]:
     """
     Gets the tenant configuration.

@@ -182,10 +182,10 @@ def get_user_rule_collection(configuration_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_rule_collection_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_rule_collection_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserRuleCollectionResult]:
     """
     Gets a network manager security user configuration rule collection.

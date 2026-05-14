@@ -426,9 +426,9 @@ def get_watchlist(resource_group_name: Optional[_builtins.str] = None,
         watchlist_alias=pulumi.get(__ret__, 'watchlist_alias'),
         watchlist_id=pulumi.get(__ret__, 'watchlist_id'),
         watchlist_type=pulumi.get(__ret__, 'watchlist_type'))
-def get_watchlist_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         watchlist_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_watchlist_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatchlistResult]:
     """
     Get a watchlist, without its watchlist items.

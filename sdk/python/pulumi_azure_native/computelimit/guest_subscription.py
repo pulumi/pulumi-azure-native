@@ -21,7 +21,7 @@ __all__ = ['GuestSubscriptionArgs', 'GuestSubscription']
 class GuestSubscriptionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GuestSubscription resource.
 
@@ -46,14 +46,14 @@ class GuestSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="guestSubscriptionId")
-    def guest_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guest_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the GuestSubscription
         """
         return pulumi.get(self, "guest_subscription_id")
 
     @guest_subscription_id.setter
-    def guest_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guest_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guest_subscription_id", value)
 
 
@@ -63,8 +63,8 @@ class GuestSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Guest subscription that consumes shared compute limits.
@@ -104,8 +104,8 @@ class GuestSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

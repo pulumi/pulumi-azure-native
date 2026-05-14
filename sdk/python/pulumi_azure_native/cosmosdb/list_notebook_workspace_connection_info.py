@@ -87,9 +87,9 @@ def list_notebook_workspace_connection_info(account_name: Optional[_builtins.str
     return AwaitableListNotebookWorkspaceConnectionInfoResult(
         auth_token=pulumi.get(__ret__, 'auth_token'),
         notebook_server_endpoint=pulumi.get(__ret__, 'notebook_server_endpoint'))
-def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_notebook_workspace_connection_info_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNotebookWorkspaceConnectionInfoResult]:
     """
     Retrieves the connection info for the notebook workspace

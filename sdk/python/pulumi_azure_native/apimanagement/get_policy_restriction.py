@@ -139,9 +139,9 @@ def get_policy_restriction(policy_restriction_id: Optional[_builtins.str] = None
         require_base=pulumi.get(__ret__, 'require_base'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_restriction_output(policy_restriction_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_restriction_output(policy_restriction_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyRestrictionResult]:
     """
     Get the policy restriction of the Api Management service.

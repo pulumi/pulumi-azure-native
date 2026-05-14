@@ -67,7 +67,7 @@ def list_diagnostic_settings_category(resource_uri: Optional[_builtins.str] = No
 
     return AwaitableListDiagnosticSettingsCategoryResult(
         value=pulumi.get(__ret__, 'value'))
-def list_diagnostic_settings_category_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_diagnostic_settings_category_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
     """
     Lists the diagnostic settings categories for the specified resource.

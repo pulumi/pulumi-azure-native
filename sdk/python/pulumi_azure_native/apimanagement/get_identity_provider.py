@@ -243,9 +243,9 @@ def get_identity_provider(identity_provider_name: Optional[_builtins.str] = None
         signin_tenant=pulumi.get(__ret__, 'signin_tenant'),
         signup_policy_name=pulumi.get(__ret__, 'signup_policy_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_provider_output(identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.

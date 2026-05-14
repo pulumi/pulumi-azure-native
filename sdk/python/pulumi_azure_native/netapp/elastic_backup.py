@@ -25,8 +25,8 @@ class ElasticBackupArgs:
                  account_name: pulumi.Input[_builtins.str],
                  backup_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ElasticBackupPropertiesArgs']] = None):
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ElasticBackupPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ElasticBackup resource.
 
@@ -82,26 +82,26 @@ class ElasticBackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupName")
-    def backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ElasticBackup
         """
         return pulumi.get(self, "backup_name")
 
     @backup_name.setter
-    def backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ElasticBackupPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ElasticBackupPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ElasticBackupPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ElasticBackupPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class ElasticBackup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ElasticBackupPropertiesArgs', 'ElasticBackupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ElasticBackupPropertiesArgs', 'ElasticBackupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         NetApp Elastic Backup under an elastic Backup Vault
@@ -162,11 +162,11 @@ class ElasticBackup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ElasticBackupPropertiesArgs', 'ElasticBackupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ElasticBackupPropertiesArgs', 'ElasticBackupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

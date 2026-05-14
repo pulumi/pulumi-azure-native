@@ -85,8 +85,8 @@ def list_list_pending_flow(connection_name: Optional[_builtins.str] = None,
     return AwaitableListListPendingFlowResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_list_pending_flow_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_list_pending_flow_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListPendingFlowResult]:
     """
     Lists all pending flows for a connection.

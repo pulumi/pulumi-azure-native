@@ -24,8 +24,8 @@ class CassandraDataCenterArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DataCenterResourcePropertiesArgs']] = None):
+                 data_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DataCenterResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a CassandraDataCenter resource.
 
@@ -67,26 +67,26 @@ class CassandraDataCenterArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCenterName")
-    def data_center_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_center_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data center name in a managed Cassandra cluster.
         """
         return pulumi.get(self, "data_center_name")
 
     @data_center_name.setter
-    def data_center_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_center_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_center_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DataCenterResourcePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DataCenterResourcePropertiesArgs']]:
         """
         Properties of a managed Cassandra data center.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DataCenterResourcePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DataCenterResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class CassandraDataCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataCenterResourcePropertiesArgs', 'DataCenterResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataCenterResourcePropertiesArgs', 'DataCenterResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A managed Cassandra data center.
@@ -145,10 +145,10 @@ class CassandraDataCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataCenterResourcePropertiesArgs', 'DataCenterResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataCenterResourcePropertiesArgs', 'DataCenterResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -173,9 +173,9 @@ def get_graph_resource_graph(account_name: Optional[_builtins.str] = None,
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_resource_graph_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResourceGraphResult]:
     """
     Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.

@@ -243,9 +243,9 @@ def get_web_app_deployment(id: Optional[_builtins.str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_deployment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_deployment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
     """
     Description for Get a deployment by its ID for an app, or a deployment slot.

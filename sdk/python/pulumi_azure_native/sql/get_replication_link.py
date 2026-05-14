@@ -272,10 +272,10 @@ def get_replication_link(database_name: Optional[_builtins.str] = None,
         role=pulumi.get(__ret__, 'role'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_link_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_link_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationLinkResult]:
     """
     Gets a replication link.

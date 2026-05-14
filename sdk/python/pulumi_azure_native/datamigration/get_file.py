@@ -156,10 +156,10 @@ def get_file(file_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_file_output(file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_output(file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileResult]:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.

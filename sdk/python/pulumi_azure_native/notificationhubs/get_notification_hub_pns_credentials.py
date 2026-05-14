@@ -258,9 +258,9 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[_builtins.str]
         type=pulumi.get(__ret__, 'type'),
         wns_credential=pulumi.get(__ret__, 'wns_credential'),
         xiaomi_credential=pulumi.get(__ret__, 'xiaomi_credential'))
-def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                notification_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_notification_hub_pns_credentials_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                notification_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
     Lists the PNS Credentials associated with a notification hub.

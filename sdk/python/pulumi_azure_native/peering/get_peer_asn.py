@@ -173,7 +173,7 @@ def get_peer_asn(peer_asn_name: Optional[_builtins.str] = None,
         peer_name=pulumi.get(__ret__, 'peer_name'),
         type=pulumi.get(__ret__, 'type'),
         validation_state=pulumi.get(__ret__, 'validation_state'))
-def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_peer_asn_output(peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeerAsnResult]:
     """
     Gets the peer ASN with the specified name under the given subscription.

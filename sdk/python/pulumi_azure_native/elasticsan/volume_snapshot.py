@@ -25,7 +25,7 @@ class VolumeSnapshotArgs:
                  elastic_san_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_group_name: pulumi.Input[_builtins.str],
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeSnapshot resource.
 
@@ -92,14 +92,14 @@ class VolumeSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the volume snapshot within the given volume group.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
 
@@ -109,11 +109,11 @@ class VolumeSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
-                 elastic_san_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 creation_data: pulumi.Input[Optional[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
+                 elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Response for Volume Snapshot request.
@@ -160,11 +160,11 @@ class VolumeSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
-                 elastic_san_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 creation_data: pulumi.Input[Optional[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
+                 elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

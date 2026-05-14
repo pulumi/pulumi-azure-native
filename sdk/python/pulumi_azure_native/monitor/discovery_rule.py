@@ -25,8 +25,8 @@ class DiscoveryRuleArgs:
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 discovery_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]] = None):
+                 discovery_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a DiscoveryRule resource.
 
@@ -82,26 +82,26 @@ class DiscoveryRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveryRuleName")
-    def discovery_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the discovery rule. Must be unique within a health model.
         """
         return pulumi.get(self, "discovery_rule_name")
 
     @discovery_rule_name.setter
-    def discovery_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class DiscoveryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict'], Union['ResourceGraphQueryDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict'], Union['ResourceGraphQueryDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A discovery rule which automatically finds entities and relationships in a health model based on an Azure Resource Graph query
@@ -158,11 +158,11 @@ class DiscoveryRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict'], Union['ResourceGraphQueryDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict'], Union['ResourceGraphQueryDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -145,11 +145,11 @@ def get_product_policy(format: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_product_policy_output(format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_policy_output(format: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductPolicyResult]:
     """
     Get the policy configuration at the Product level.

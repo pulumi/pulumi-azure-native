@@ -221,10 +221,10 @@ def get_database_advisor(advisor_name: Optional[_builtins.str] = None,
         recommendations_status=pulumi.get(__ret__, 'recommendations_status'),
         recommended_actions=pulumi.get(__ret__, 'recommended_actions'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_advisor_output(advisor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_advisor_output(advisor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
     """
     Gets a database advisor.

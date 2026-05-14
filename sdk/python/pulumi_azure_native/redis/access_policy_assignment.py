@@ -25,7 +25,7 @@ class AccessPolicyAssignmentArgs:
                  object_id: pulumi.Input[_builtins.str],
                  object_id_alias: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
 
@@ -106,14 +106,14 @@ class AccessPolicyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyAssignmentName")
-    def access_policy_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy assignment.
         """
         return pulumi.get(self, "access_policy_assignment_name")
 
     @access_policy_assignment_name.setter
-    def access_policy_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_assignment_name", value)
 
 
@@ -123,12 +123,12 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Response to an operation on access policy assignment
@@ -176,12 +176,12 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

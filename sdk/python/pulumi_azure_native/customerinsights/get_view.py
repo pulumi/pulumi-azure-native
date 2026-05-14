@@ -205,10 +205,10 @@ def get_view(hub_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'),
         view_name=pulumi.get(__ret__, 'view_name'))
-def get_view_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    view_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    view_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets a view in the hub.

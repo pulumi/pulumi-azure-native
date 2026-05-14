@@ -23,8 +23,8 @@ class StaticMemberArgs:
                  network_group_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_member_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_member_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticMember resource.
 
@@ -80,26 +80,26 @@ class StaticMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="staticMemberName")
-    def static_member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the static member.
         """
         return pulumi.get(self, "static_member_name")
 
     @static_member_name.setter
-    def static_member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_member_name", value)
 
 
@@ -109,11 +109,11 @@ class StaticMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_member_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         StaticMember Item.
@@ -160,11 +160,11 @@ class StaticMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_member_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

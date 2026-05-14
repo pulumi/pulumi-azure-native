@@ -152,9 +152,9 @@ def get_access_policy(access_policy_name: Optional[_builtins.str] = None,
         principal_object_id=pulumi.get(__ret__, 'principal_object_id'),
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'))
-def get_access_policy_output(access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_policy_output(access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Gets the access policy with the specified name in the specified environment.

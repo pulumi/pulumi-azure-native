@@ -74,8 +74,8 @@ def get_billing_hub_service_free_hour_balance(resource_group_name: Optional[_bui
     return AwaitableGetBillingHubServiceFreeHourBalanceResult(
         increment_entries=pulumi.get(__ret__, 'increment_entries'),
         total_remaining_free_hours=pulumi.get(__ret__, 'total_remaining_free_hours'))
-def get_billing_hub_service_free_hour_balance_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_hub_service_free_hour_balance_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceFreeHourBalanceResult]:
     """
     Uses Azure REST API version 2023-11-01-preview.

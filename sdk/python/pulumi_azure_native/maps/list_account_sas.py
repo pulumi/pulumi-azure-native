@@ -94,14 +94,14 @@ def list_account_sas(account_name: Optional[_builtins.str] = None,
 
     return AwaitableListAccountSasResult(
         account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
-def list_account_sas_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                            max_rate_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            regions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            signing_key: Optional[pulumi.Input[Union[_builtins.str, 'SigningKey']]] = None,
-                            start: Optional[pulumi.Input[_builtins.str]] = None,
+def list_account_sas_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                            max_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            signing_key: pulumi.Input[Optional[Union[_builtins.str, 'SigningKey']]] = None,
+                            start: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountSasResult]:
     """
     Create and list an account shared access signature token. Use this SAS token for authentication to Azure Maps REST APIs through various Azure Maps SDKs. As prerequisite to create a SAS Token.

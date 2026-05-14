@@ -303,8 +303,8 @@ def get_cluster_manager(cluster_manager_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_manager_output(cluster_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterManagerResult]:
     """
     Get the properties of the provided cluster manager.

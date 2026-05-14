@@ -254,8 +254,8 @@ def get_availability_set(availability_set_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_scale_set_migration_info=pulumi.get(__ret__, 'virtual_machine_scale_set_migration_info'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
-def get_availability_set_output(availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_availability_set_output(availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Retrieves information about an availability set.

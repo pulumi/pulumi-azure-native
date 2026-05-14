@@ -231,9 +231,9 @@ def get_virtual_network_link(private_zone_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         virtual_network_link_state=pulumi.get(__ret__, 'virtual_network_link_state'))
-def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_link_output(private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkLinkResult]:
     """
     Gets a virtual network link to the specified Private DNS zone.

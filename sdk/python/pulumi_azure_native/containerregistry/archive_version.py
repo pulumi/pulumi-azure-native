@@ -24,7 +24,7 @@ class ArchiveVersionArgs:
                  package_type: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 archive_version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 archive_version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ArchiveVersion resource.
 
@@ -91,14 +91,14 @@ class ArchiveVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveVersionName")
-    def archive_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the archive version resource.
         """
         return pulumi.get(self, "archive_version_name")
 
     @archive_version_name.setter
-    def archive_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_version_name", value)
 
 
@@ -108,11 +108,11 @@ class ArchiveVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 archive_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 archive_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents an export pipeline for a container registry.
@@ -159,11 +159,11 @@ class ArchiveVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 archive_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 archive_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

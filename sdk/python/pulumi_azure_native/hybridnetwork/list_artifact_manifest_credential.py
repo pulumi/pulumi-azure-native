@@ -77,10 +77,10 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[_builtins
 
     return AwaitableListArtifactManifestCredentialResult(
         credential_type=pulumi.get(__ret__, 'credential_type'))
-def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_artifact_manifest_credential_output(artifact_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactManifestCredentialResult]:
     """
     List credential for publishing artifacts defined in artifact manifest.

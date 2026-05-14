@@ -139,9 +139,9 @@ def get_domain_ownership_identifier(domain_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         ownership_id=pulumi.get(__ret__, 'ownership_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_ownership_identifier_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainOwnershipIdentifierResult]:
     """
     Description for Get ownership identifier for domain

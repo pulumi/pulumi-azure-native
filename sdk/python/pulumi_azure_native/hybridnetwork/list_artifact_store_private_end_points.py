@@ -86,9 +86,9 @@ def list_artifact_store_private_end_points(artifact_store_name: Optional[_builti
     return AwaitableListArtifactStorePrivateEndPointsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_artifact_store_private_end_points_output(artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_artifact_store_private_end_points_output(artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactStorePrivateEndPointsResult]:
     """
     List manual private endpoints on artifact stores

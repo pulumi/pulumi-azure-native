@@ -192,9 +192,9 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[_bu
         system_data=pulumi.get(__ret__, 'system_data'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    start_stop_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_start_stop_managed_instance_schedule_output(managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    start_stop_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
     """
     Gets the managed instance's Start/Stop schedule.

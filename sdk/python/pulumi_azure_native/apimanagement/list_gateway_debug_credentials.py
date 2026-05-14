@@ -84,12 +84,12 @@ def list_gateway_debug_credentials(api_id: Optional[_builtins.str] = None,
 
     return AwaitableListGatewayDebugCredentialsResult(
         token=pulumi.get(__ret__, 'token'))
-def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          credentials_expire_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          purposes: Optional[pulumi.Input[Sequence[Union[_builtins.str, 'GatewayListDebugCredentialsContractPurpose']]]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_gateway_debug_credentials_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          credentials_expire_after: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          purposes: pulumi.Input[Optional[Sequence[Union[_builtins.str, 'GatewayListDebugCredentialsContractPurpose']]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGatewayDebugCredentialsResult]:
     """
     Create new debug credentials for gateway.

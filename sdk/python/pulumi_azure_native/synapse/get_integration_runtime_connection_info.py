@@ -139,9 +139,9 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[_
         public_key=pulumi.get(__ret__, 'public_key'),
         service_token=pulumi.get(__ret__, 'service_token'),
         version=pulumi.get(__ret__, 'version'))
-def get_integration_runtime_connection_info_output(integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_runtime_connection_info_output(integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
     Get connection info for an integration runtime

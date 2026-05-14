@@ -244,9 +244,9 @@ def get_export(expand: Optional[_builtins.str] = None,
         run_history=pulumi.get(__ret__, 'run_history'),
         schedule=pulumi.get(__ret__, 'schedule'),
         type=pulumi.get(__ret__, 'type'))
-def get_export_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_export_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The operation to get the export for the defined scope by export name.

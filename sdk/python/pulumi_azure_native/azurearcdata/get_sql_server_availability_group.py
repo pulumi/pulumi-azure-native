@@ -166,9 +166,9 @@ def get_sql_server_availability_group(availability_group_name: Optional[_builtin
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_server_availability_group_output(availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             sql_server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_server_availability_group_output(availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             sql_server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerAvailabilityGroupResult]:
     """
     Retrieves an Arc Sql Server availability group.

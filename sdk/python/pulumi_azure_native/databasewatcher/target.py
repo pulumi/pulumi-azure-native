@@ -24,8 +24,8 @@ class TargetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  watcher_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
@@ -67,26 +67,26 @@ class TargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target resource name.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
 
@@ -96,10 +96,10 @@ class Target(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -145,10 +145,10 @@ class Target(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

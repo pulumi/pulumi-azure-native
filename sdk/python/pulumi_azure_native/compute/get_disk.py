@@ -631,8 +631,8 @@ def get_disk(disk_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_disk_output(disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_disk_output(disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskResult]:
     """
     Gets information about a disk.

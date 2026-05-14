@@ -88,9 +88,9 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[_builtins
     return AwaitableListDnsResolverByVirtualNetworkResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                                virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_dns_resolver_by_virtual_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                                virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverByVirtualNetworkResult]:
     """
     Lists DNS resolver resource IDs linked to a virtual network.

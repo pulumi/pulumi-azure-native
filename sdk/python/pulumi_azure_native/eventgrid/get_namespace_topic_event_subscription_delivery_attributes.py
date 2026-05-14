@@ -78,10 +78,10 @@ def get_namespace_topic_event_subscription_delivery_attributes(event_subscriptio
 
     return AwaitableGetNamespaceTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_namespace_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                      namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                      topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_topic_event_subscription_delivery_attributes_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                      namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                      topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription of a namespace topic.

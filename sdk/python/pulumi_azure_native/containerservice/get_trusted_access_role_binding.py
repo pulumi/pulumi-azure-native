@@ -166,9 +166,9 @@ def get_trusted_access_role_binding(resource_group_name: Optional[_builtins.str]
         source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_trusted_access_role_binding_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           trusted_access_role_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trusted_access_role_binding_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           trusted_access_role_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedAccessRoleBindingResult]:
     """
     Defines binding between a resource and role

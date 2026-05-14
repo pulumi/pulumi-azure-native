@@ -205,9 +205,9 @@ def get_plan_member(member_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'))
-def get_plan_member_output(member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_plan_member_output(member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanMemberResult]:
     """
     Gets a devcenter plan member.

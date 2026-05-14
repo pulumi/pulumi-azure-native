@@ -198,11 +198,11 @@ def get_dev_center_catalog_image_definition_build_details(build_name: Optional[_
         system_data=pulumi.get(__ret__, 'system_data'),
         task_groups=pulumi.get(__ret__, 'task_groups'),
         type=pulumi.get(__ret__, 'type'))
-def get_dev_center_catalog_image_definition_build_details_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dev_center_catalog_image_definition_build_details_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevCenterCatalogImageDefinitionBuildDetailsResult]:
     """
     Gets Build details

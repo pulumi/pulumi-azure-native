@@ -21,10 +21,10 @@ __all__ = ['PartnerRegistrationArgs', 'PartnerRegistration']
 class PartnerRegistrationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerRegistration resource.
 
@@ -59,19 +59,19 @@ class PartnerRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationImmutableId")
-    def partner_registration_immutable_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_immutable_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The immutableId of the corresponding partner registration.
         Note: This property is marked for deprecation and is not supported in any future GA API version
@@ -79,31 +79,31 @@ class PartnerRegistrationArgs:
         return pulumi.get(self, "partner_registration_immutable_id")
 
     @partner_registration_immutable_id.setter
-    def partner_registration_immutable_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_immutable_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_immutable_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationName")
-    def partner_registration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the partner registration.
         """
         return pulumi.get(self, "partner_registration_name")
 
     @partner_registration_name.setter
-    def partner_registration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class PartnerRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Information about a partner registration.
@@ -165,11 +165,11 @@ class PartnerRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

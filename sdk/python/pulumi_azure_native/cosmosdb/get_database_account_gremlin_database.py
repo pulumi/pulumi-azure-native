@@ -178,9 +178,9 @@ def get_database_account_gremlin_database(account_name: Optional[_builtins.str] 
         tags=pulumi.get(__ret__, 'tags'),
         ts=pulumi.get(__ret__, 'ts'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_account_gremlin_database_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_gremlin_database_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountGremlinDatabaseResult]:
     """
     Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.

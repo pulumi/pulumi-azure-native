@@ -192,9 +192,9 @@ def get_encryption_scope(account_name: Optional[_builtins.str] = None,
         source=pulumi.get(__ret__, 'source'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_encryption_scope_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                encryption_scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_encryption_scope_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                encryption_scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionScopeResult]:
     """
     Returns the properties for the specified encryption scope.

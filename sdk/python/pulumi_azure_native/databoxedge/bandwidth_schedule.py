@@ -27,7 +27,7 @@ class BandwidthScheduleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  start: pulumi.Input[_builtins.str],
                  stop: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BandwidthSchedule resource.
 
@@ -122,14 +122,14 @@ class BandwidthScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bandwidth schedule name which needs to be added/updated.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -139,13 +139,13 @@ class BandwidthSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_in_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop: Optional[pulumi.Input[_builtins.str]] = None,
+                 days: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_in_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The bandwidth schedule details.
@@ -194,13 +194,13 @@ class BandwidthSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_in_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop: Optional[pulumi.Input[_builtins.str]] = None,
+                 days: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_in_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

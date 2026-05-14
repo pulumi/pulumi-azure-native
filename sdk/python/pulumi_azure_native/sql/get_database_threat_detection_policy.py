@@ -231,10 +231,10 @@ def get_database_threat_detection_policy(database_name: Optional[_builtins.str] 
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'),
         use_server_default=pulumi.get(__ret__, 'use_server_default'))
-def get_database_threat_detection_policy_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_threat_detection_policy_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
     """
     Gets a database's threat detection policy.

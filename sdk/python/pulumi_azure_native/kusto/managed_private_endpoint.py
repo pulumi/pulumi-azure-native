@@ -24,9 +24,9 @@ class ManagedPrivateEndpointArgs:
                  group_id: pulumi.Input[_builtins.str],
                  private_link_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
 
@@ -99,38 +99,38 @@ class ManagedPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedPrivateEndpointName")
-    def managed_private_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the managed private endpoint.
         """
         return pulumi.get(self, "managed_private_endpoint_name")
 
     @managed_private_endpoint_name.setter
-    def managed_private_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
-    def private_link_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the resource to which the managed private endpoint is created.
         """
         return pulumi.get(self, "private_link_resource_region")
 
     @private_link_resource_region.setter
-    def private_link_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user request message.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
 
@@ -140,13 +140,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing a managed private endpoint.
@@ -195,13 +195,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

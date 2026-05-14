@@ -25,7 +25,7 @@ class BlobInventoryPolicyArgs:
                  account_name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input['BlobInventoryPolicySchemaArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 blob_inventory_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_inventory_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BlobInventoryPolicy resource.
 
@@ -78,14 +78,14 @@ class BlobInventoryPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobInventoryPolicyName")
-    def blob_inventory_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_inventory_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage account blob inventory policy. It should always be 'default'
         """
         return pulumi.get(self, "blob_inventory_policy_name")
 
     @blob_inventory_policy_name.setter
-    def blob_inventory_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_inventory_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_inventory_policy_name", value)
 
 
@@ -95,10 +95,10 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_inventory_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_inventory_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The storage account blob inventory policy.
@@ -144,10 +144,10 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_inventory_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_inventory_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

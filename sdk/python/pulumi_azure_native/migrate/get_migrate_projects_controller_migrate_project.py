@@ -163,8 +163,8 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_migrate_projects_controller_migrate_project_output(migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_migrate_projects_controller_migrate_project_output(migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateProjectsControllerMigrateProjectResult]:
     """
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.

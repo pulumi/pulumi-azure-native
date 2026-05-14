@@ -127,9 +127,9 @@ def get_cassandra_data_center(cluster_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     data_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cassandra_data_center_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     data_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
     """
     Get the properties of a managed Cassandra data center.

@@ -257,9 +257,9 @@ def get_share(device_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_access_rights=pulumi.get(__ret__, 'user_access_rights'))
-def get_share_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_share_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Represents a share on the  Data Box Edge/Gateway device.

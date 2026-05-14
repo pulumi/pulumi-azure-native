@@ -26,7 +26,7 @@ class ReachabilityAnalysisIntentArgs:
                  properties: pulumi.Input['ReachabilityAnalysisIntentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 reachability_analysis_intent_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 reachability_analysis_intent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReachabilityAnalysisIntent resource.
 
@@ -93,14 +93,14 @@ class ReachabilityAnalysisIntentArgs:
 
     @_builtins.property
     @pulumi.getter(name="reachabilityAnalysisIntentName")
-    def reachability_analysis_intent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reachability_analysis_intent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reachability Analysis Intent name.
         """
         return pulumi.get(self, "reachability_analysis_intent_name")
 
     @reachability_analysis_intent_name.setter
-    def reachability_analysis_intent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reachability_analysis_intent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reachability_analysis_intent_name", value)
 
 
@@ -110,11 +110,11 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReachabilityAnalysisIntentPropertiesArgs', 'ReachabilityAnalysisIntentPropertiesArgsDict']]] = None,
-                 reachability_analysis_intent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReachabilityAnalysisIntentPropertiesArgs', 'ReachabilityAnalysisIntentPropertiesArgsDict']]] = None,
+                 reachability_analysis_intent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration information or intent on which to do the analysis on.
@@ -161,11 +161,11 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReachabilityAnalysisIntentPropertiesArgs', 'ReachabilityAnalysisIntentPropertiesArgsDict']]] = None,
-                 reachability_analysis_intent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReachabilityAnalysisIntentPropertiesArgs', 'ReachabilityAnalysisIntentPropertiesArgsDict']]] = None,
+                 reachability_analysis_intent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

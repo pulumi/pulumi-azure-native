@@ -192,9 +192,9 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[_builtins.str] = N
         public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
         subnet=pulumi.get(__ret__, 'subnet'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_hub_ip_configuration_output(ip_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
     """
     Retrieves the details of a Virtual Hub Ip configuration.

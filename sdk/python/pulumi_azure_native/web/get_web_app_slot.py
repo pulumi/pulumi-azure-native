@@ -889,9 +889,9 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         usage_state=pulumi.get(__ret__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
-def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            slot: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            slot: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSlotResult]:
     """
     Description for Gets the details of a web, mobile, or API app.

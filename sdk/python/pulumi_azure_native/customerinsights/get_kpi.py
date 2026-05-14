@@ -359,9 +359,9 @@ def get_kpi(hub_name: Optional[_builtins.str] = None,
         thres_holds=pulumi.get(__ret__, 'thres_holds'),
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
-def get_kpi_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   kpi_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kpi_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKpiResult]:
     """
     Gets a KPI in the hub.

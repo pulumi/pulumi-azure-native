@@ -200,8 +200,8 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[_builtins
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
-def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_traffic_collector_output(azure_traffic_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureTrafficCollectorResult]:
     """
     Gets the specified Azure Traffic Collector in a specified resource group

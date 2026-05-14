@@ -69,7 +69,7 @@ def list_azure_data_transfer_flow_profiles(pipeline: Optional[_builtins.str] = N
 
     return AwaitableListAzureDataTransferFlowProfilesResult(
         value=pulumi.get(__ret__, 'value'))
-def list_azure_data_transfer_flow_profiles_output(pipeline: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_azure_data_transfer_flow_profiles_output(pipeline: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAzureDataTransferFlowProfilesResult]:
     """
     Retrieves a list of FlowProfile resources associated with a specified pipeline.

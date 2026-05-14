@@ -22,7 +22,7 @@ class SyncGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncGroup resource.
 
@@ -61,14 +61,14 @@ class SyncGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="syncGroupName")
-    def sync_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Sync Group resource.
         """
         return pulumi.get(self, "sync_group_name")
 
     @sync_group_name.setter
-    def sync_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_group_name", value)
 
 
@@ -78,9 +78,9 @@ class SyncGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Sync Group object.
@@ -125,9 +125,9 @@ class SyncGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

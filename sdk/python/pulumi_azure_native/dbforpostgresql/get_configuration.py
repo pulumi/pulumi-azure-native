@@ -270,9 +270,9 @@ def get_configuration(configuration_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'),
         value=pulumi.get(__ret__, 'value'))
-def get_configuration_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             server_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Gets information about a specific configuration (also known as server parameter) of a server.

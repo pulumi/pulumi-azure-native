@@ -23,10 +23,10 @@ class CertificateObjectGlobalRulestackArgs:
     def __init__(__self__, *,
                  certificate_self_signed: pulumi.Input[Union[_builtins.str, 'BooleanEnum']],
                  global_rulestack_name: pulumi.Input[_builtins.str],
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signer_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signer_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateObjectGlobalRulestack resource.
 
@@ -74,50 +74,50 @@ class CertificateObjectGlobalRulestackArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditComment")
-    def audit_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         comment for this object
         """
         return pulumi.get(self, "audit_comment")
 
     @audit_comment.setter
-    def audit_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_comment", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSignerResourceId")
-    def certificate_signer_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_signer_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of certificate signer, to be populated only when certificateSelfSigned is false
         """
         return pulumi.get(self, "certificate_signer_resource_id")
 
     @certificate_signer_resource_id.setter
-    def certificate_signer_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_signer_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_signer_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         user description for this object
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         certificate name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -127,12 +127,12 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_self_signed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 certificate_signer_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_self_signed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 certificate_signer_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         GlobalRulestack Certificate Object
@@ -180,12 +180,12 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_self_signed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 certificate_signer_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_self_signed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 certificate_signer_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

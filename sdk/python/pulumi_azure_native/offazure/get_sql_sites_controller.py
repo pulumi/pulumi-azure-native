@@ -181,9 +181,9 @@ def get_sql_sites_controller(resource_group_name: Optional[_builtins.str] = None
         site_appliance_properties_collection=pulumi.get(__ret__, 'site_appliance_properties_collection'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_sites_controller_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    sql_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_sites_controller_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    sql_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlSitesControllerResult]:
     """
     Method to get a site.

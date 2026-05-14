@@ -97,8 +97,8 @@ def get_cluster_gateway_settings(cluster_name: Optional[_builtins.str] = None,
         is_credential_enabled=pulumi.get(__ret__, 'is_credential_enabled'),
         password=pulumi.get(__ret__, 'password'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_gateway_settings_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
     """
     Gets the gateway settings for the specified cluster.

@@ -23,7 +23,7 @@ class TagProductLinkArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  tag_id: pulumi.Input[_builtins.str],
-                 product_link_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 product_link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagProductLink resource.
 
@@ -90,14 +90,14 @@ class TagProductLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="productLinkId")
-    def product_link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag-product link identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "product_link_id")
 
     @product_link_id.setter
-    def product_link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_link_id", value)
 
 
@@ -107,11 +107,11 @@ class TagProductLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Tag-product link details.
@@ -158,11 +158,11 @@ class TagProductLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

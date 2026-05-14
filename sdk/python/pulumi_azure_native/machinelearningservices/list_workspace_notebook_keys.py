@@ -81,8 +81,8 @@ def list_workspace_notebook_keys(resource_group_name: Optional[_builtins.str] = 
     return AwaitableListWorkspaceNotebookKeysResult(
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
-def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_notebook_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
     """
     Lists keys of Azure Machine Learning Workspaces notebook.

@@ -152,9 +152,9 @@ def get_content_type(content_type_id: Optional[_builtins.str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_content_type_output(content_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_content_type_output(content_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            service_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentTypeResult]:
     """
     Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.

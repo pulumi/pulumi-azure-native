@@ -254,8 +254,8 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[_builtins.str] = No
         threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
         threat_intel_whitelist=pulumi.get(__ret__, 'threat_intel_whitelist'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_draft_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyDraftResult]:
     """
     Get a draft Firewall Policy.

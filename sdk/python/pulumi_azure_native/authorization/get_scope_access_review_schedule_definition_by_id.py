@@ -421,8 +421,8 @@ def get_scope_access_review_schedule_definition_by_id(schedule_definition_id: Op
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
-def get_scope_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scope_access_review_schedule_definition_by_id_output(schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             scope: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAccessReviewScheduleDefinitionByIdResult]:
     """
     Get single access review definition

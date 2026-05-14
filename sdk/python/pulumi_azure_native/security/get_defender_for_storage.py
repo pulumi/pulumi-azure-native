@@ -124,8 +124,8 @@ def get_defender_for_storage(resource_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_defender_for_storage_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_defender_for_storage_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefenderForStorageResult]:
     """
     Gets the Defender for Storage settings for the specified storage account.

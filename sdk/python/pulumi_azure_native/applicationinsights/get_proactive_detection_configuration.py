@@ -140,9 +140,9 @@ def get_proactive_detection_configuration(configuration_id: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_proactive_detection_configuration_output(configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
     Get the ProactiveDetection configuration for this configuration id.

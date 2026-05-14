@@ -124,9 +124,9 @@ def get_component_linked_storage_account(resource_group_name: Optional[_builtins
         linked_storage_account=pulumi.get(__ret__, 'linked_storage_account'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_component_linked_storage_account_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                storage_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_component_linked_storage_account_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentLinkedStorageAccountResult]:
     """
     Returns the current linked storage settings for an Application Insights component.

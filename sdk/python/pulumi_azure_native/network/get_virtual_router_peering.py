@@ -165,9 +165,9 @@ def get_virtual_router_peering(peering_name: Optional[_builtins.str] = None,
         peer_ip=pulumi.get(__ret__, 'peer_ip'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_router_peering_output(peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      virtual_router_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_router_peering_output(peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      virtual_router_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRouterPeeringResult]:
     """
     Gets the specified Virtual Router Peering.

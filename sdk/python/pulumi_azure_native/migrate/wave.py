@@ -23,8 +23,8 @@ class WaveArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['WavePropertiesArgs']] = None,
-                 wave_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['WavePropertiesArgs']] = None,
+                 wave_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Wave resource.
 
@@ -66,26 +66,26 @@ class WaveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['WavePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['WavePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['WavePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['WavePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="waveName")
-    def wave_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wave_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Migration Wave Resource
         """
         return pulumi.get(self, "wave_name")
 
     @wave_name.setter
-    def wave_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wave_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wave_name", value)
 
 
@@ -95,10 +95,10 @@ class Wave(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WavePropertiesArgs', 'WavePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 wave_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WavePropertiesArgs', 'WavePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 wave_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Migration Wave resource.
@@ -144,10 +144,10 @@ class Wave(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WavePropertiesArgs', 'WavePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 wave_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WavePropertiesArgs', 'WavePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 wave_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

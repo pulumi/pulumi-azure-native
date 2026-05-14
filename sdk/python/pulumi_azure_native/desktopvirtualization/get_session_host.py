@@ -411,9 +411,9 @@ def get_session_host(host_pool_name: Optional[_builtins.str] = None,
         update_error_message=pulumi.get(__ret__, 'update_error_message'),
         update_state=pulumi.get(__ret__, 'update_state'),
         virtual_machine_id=pulumi.get(__ret__, 'virtual_machine_id'))
-def get_session_host_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            session_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_session_host_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            session_host_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionHostResult]:
     """
     Get a session host.

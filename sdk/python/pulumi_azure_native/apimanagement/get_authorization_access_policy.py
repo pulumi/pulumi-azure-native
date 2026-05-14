@@ -158,11 +158,11 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[_bu
         object_id=pulumi.get(__ret__, 'object_id'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorization_access_policy_output(authorization_access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_access_policy_output(authorization_access_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
     """
     Gets the details of the authorization access policy specified by its identifier.

@@ -135,8 +135,8 @@ def get_guest_subscription(guest_subscription_id: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_subscription_output(guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  location: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_subscription_output(guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  location: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestSubscriptionResult]:
     """
     Gets the properties of a guest subscription.

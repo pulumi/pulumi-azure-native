@@ -85,8 +85,8 @@ def list_registry_credentials(registry_name: Optional[_builtins.str] = None,
     return AwaitableListRegistryCredentialsResult(
         passwords=pulumi.get(__ret__, 'passwords'),
         username=pulumi.get(__ret__, 'username'))
-def list_registry_credentials_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_registry_credentials_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
     Lists the login credentials for the specified container registry.

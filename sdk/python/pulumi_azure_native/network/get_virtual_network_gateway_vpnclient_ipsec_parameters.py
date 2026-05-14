@@ -162,8 +162,8 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
         pfs_group=pulumi.get(__ret__, 'pfs_group'),
         sa_data_size_kilobytes=pulumi.get(__ret__, 'sa_data_size_kilobytes'),
         sa_life_time_seconds=pulumi.get(__ret__, 'sa_life_time_seconds'))
-def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                  virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
     """
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.

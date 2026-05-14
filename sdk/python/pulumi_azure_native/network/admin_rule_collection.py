@@ -25,8 +25,8 @@ class AdminRuleCollectionArgs:
                  configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdminRuleCollection resource.
 
@@ -96,26 +96,26 @@ class AdminRuleCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the admin rule collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionName")
-    def rule_collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network manager security Configuration rule collection.
         """
         return pulumi.get(self, "rule_collection_name")
 
     @rule_collection_name.setter
-    def rule_collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_collection_name", value)
 
 
@@ -125,12 +125,12 @@ class AdminRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the admin rule collection.
@@ -178,12 +178,12 @@ class AdminRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

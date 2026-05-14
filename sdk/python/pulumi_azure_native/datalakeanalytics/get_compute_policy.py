@@ -163,9 +163,9 @@ def get_compute_policy(account_name: Optional[_builtins.str] = None,
         object_id=pulumi.get(__ret__, 'object_id'),
         object_type=pulumi.get(__ret__, 'object_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_compute_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              compute_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputePolicyResult]:
     """
     Gets the specified Data Lake Analytics compute policy.

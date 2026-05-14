@@ -314,11 +314,11 @@ def get_default_admin_rule(configuration_name: Optional[_builtins.str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_default_admin_rule_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultAdminRuleResult]:
     """
     Gets a network manager security configuration admin rule.

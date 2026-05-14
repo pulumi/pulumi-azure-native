@@ -89,10 +89,10 @@ def list_session_host_single_registration_tokens(expiration_time_in_utc: Optiona
     return AwaitableListSessionHostSingleRegistrationTokensResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_session_host_single_registration_tokens_output(expiration_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        session_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_session_host_single_registration_tokens_output(expiration_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        session_host_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSessionHostSingleRegistrationTokensResult]:
     """
     Operation to list the scoped RegistrationTokens associated with the SessionHost.

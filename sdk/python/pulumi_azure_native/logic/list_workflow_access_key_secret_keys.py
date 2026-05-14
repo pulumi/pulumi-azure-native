@@ -82,9 +82,9 @@ def list_workflow_access_key_secret_keys(access_key_name: Optional[_builtins.str
     return AwaitableListWorkflowAccessKeySecretKeysResult(
         primary_secret_key=pulumi.get(__ret__, 'primary_secret_key'),
         secondary_secret_key=pulumi.get(__ret__, 'secondary_secret_key'))
-def list_workflow_access_key_secret_keys_output(access_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workflow_access_key_secret_keys_output(access_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowAccessKeySecretKeysResult]:
     """
     Lists secret keys.

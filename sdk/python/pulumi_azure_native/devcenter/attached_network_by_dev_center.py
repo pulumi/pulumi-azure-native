@@ -23,7 +23,7 @@ class AttachedNetworkByDevCenterArgs:
                  dev_center_name: pulumi.Input[_builtins.str],
                  network_connection_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 attached_network_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attached_network_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AttachedNetworkByDevCenter resource.
 
@@ -76,14 +76,14 @@ class AttachedNetworkByDevCenterArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachedNetworkConnectionName")
-    def attached_network_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attached_network_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attached NetworkConnection.
         """
         return pulumi.get(self, "attached_network_connection_name")
 
     @attached_network_connection_name.setter
-    def attached_network_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attached_network_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attached_network_connection_name", value)
 
 
@@ -93,10 +93,10 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents an attached NetworkConnection.
@@ -142,10 +142,10 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

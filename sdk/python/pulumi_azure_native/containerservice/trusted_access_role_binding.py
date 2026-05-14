@@ -24,7 +24,7 @@ class TrustedAccessRoleBindingArgs:
                  resource_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 trusted_access_role_binding_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 trusted_access_role_binding_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustedAccessRoleBinding resource.
 
@@ -91,14 +91,14 @@ class TrustedAccessRoleBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedAccessRoleBindingName")
-    def trusted_access_role_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_access_role_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of trusted access role binding.
         """
         return pulumi.get(self, "trusted_access_role_binding_name")
 
     @trusted_access_role_binding_name.setter
-    def trusted_access_role_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_access_role_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_access_role_binding_name", value)
 
 
@@ -108,11 +108,11 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_access_role_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_access_role_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines binding between a resource and role
@@ -159,11 +159,11 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_access_role_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_access_role_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

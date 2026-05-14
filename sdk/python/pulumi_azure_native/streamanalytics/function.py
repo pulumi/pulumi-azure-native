@@ -23,9 +23,9 @@ class FunctionInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Function resource.
 
@@ -70,38 +70,38 @@ class FunctionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function.
         """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
         """
         The properties that are associated with a function.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
@@ -162,11 +162,11 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

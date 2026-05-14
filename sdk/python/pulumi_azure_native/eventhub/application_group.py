@@ -25,9 +25,9 @@ class ApplicationGroupArgs:
                  client_app_group_identifier: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]] = None):
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationGroup resource.
 
@@ -86,38 +86,38 @@ class ApplicationGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationGroupName")
-    def application_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Group name 
         """
         return pulumi.get(self, "application_group_name")
 
     @application_group_name.setter
-    def application_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]]:
         """
         List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]]):
         pulumi.set(self, "policies", value)
 
 
@@ -127,12 +127,12 @@ class ApplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_app_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_app_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Application Group object
@@ -180,12 +180,12 @@ class ApplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_app_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_app_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

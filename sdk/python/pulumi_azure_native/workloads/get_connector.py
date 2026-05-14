@@ -213,8 +213,8 @@ def get_connector(connector_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_output(connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Gets a connector resource

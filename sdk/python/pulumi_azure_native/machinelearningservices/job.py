@@ -25,7 +25,7 @@ class JobArgs:
                  properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Job resource.
 
@@ -78,14 +78,14 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name and identifier for the Job. This is case-sensitive.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -95,10 +95,10 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
@@ -144,10 +144,10 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

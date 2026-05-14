@@ -24,11 +24,11 @@ class PrincipalsArgsDict(TypedDict):
     """
     User principals.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Object Id for the user
     """
-    upn: NotRequired[pulumi.Input[_builtins.str]]
+    upn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UPN of the user.
     """
@@ -36,8 +36,8 @@ class PrincipalsArgsDict(TypedDict):
 @pulumi.input_type
 class PrincipalsArgs:
     def __init__(__self__, *,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 upn: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 upn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User principals.
 
@@ -51,26 +51,26 @@ class PrincipalsArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object Id for the user
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def upn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UPN of the user.
         """
         return pulumi.get(self, "upn")
 
     @upn.setter
-    def upn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upn", value)
 
 

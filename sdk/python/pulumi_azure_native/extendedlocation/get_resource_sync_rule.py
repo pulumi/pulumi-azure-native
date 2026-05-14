@@ -205,9 +205,9 @@ def get_resource_sync_rule(child_resource_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_resource_group=pulumi.get(__ret__, 'target_resource_group'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_sync_rule_output(child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
     """
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.

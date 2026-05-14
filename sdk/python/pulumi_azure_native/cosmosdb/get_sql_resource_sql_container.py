@@ -163,10 +163,10 @@ def get_sql_resource_sql_container(account_name: Optional[_builtins.str] = None,
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_resource_sql_container_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlContainerResult]:
     """
     Gets the SQL container under an existing Azure Cosmos DB database account.

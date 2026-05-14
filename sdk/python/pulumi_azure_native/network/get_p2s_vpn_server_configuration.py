@@ -127,9 +127,9 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
     """
     Retrieves the details of a P2SVpnServerConfiguration.

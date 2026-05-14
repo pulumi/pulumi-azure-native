@@ -26,13 +26,13 @@ class HuntArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 attack_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 attack_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hunt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypothesis_status: Optional[pulumi.Input[Union[_builtins.str, 'HypothesisStatus']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner: Optional[pulumi.Input['HuntOwnerArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None):
+                 attack_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 attack_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hunt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypothesis_status: pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner: pulumi.Input[Optional['HuntOwnerArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None):
         """
         The set of arguments for constructing a Hunt resource.
 
@@ -121,86 +121,86 @@ class HuntArgs:
 
     @_builtins.property
     @pulumi.getter(name="attackTactics")
-    def attack_tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
+    def attack_tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
         """
         A list of mitre attack tactics the hunt is associated with
         """
         return pulumi.get(self, "attack_tactics")
 
     @attack_tactics.setter
-    def attack_tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
+    def attack_tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
         pulumi.set(self, "attack_tactics", value)
 
     @_builtins.property
     @pulumi.getter(name="attackTechniques")
-    def attack_techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def attack_techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of a mitre attack techniques the hunt is associated with
         """
         return pulumi.get(self, "attack_techniques")
 
     @attack_techniques.setter
-    def attack_techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def attack_techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attack_techniques", value)
 
     @_builtins.property
     @pulumi.getter(name="huntId")
-    def hunt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hunt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hunt id (GUID)
         """
         return pulumi.get(self, "hunt_id")
 
     @hunt_id.setter
-    def hunt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hunt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hunt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hypothesisStatus")
-    def hypothesis_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HypothesisStatus']]]:
+    def hypothesis_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]]:
         """
         The hypothesis status of the hunt.
         """
         return pulumi.get(self, "hypothesis_status")
 
     @hypothesis_status.setter
-    def hypothesis_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HypothesisStatus']]]):
+    def hypothesis_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]]):
         pulumi.set(self, "hypothesis_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels relevant to this hunt 
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input['HuntOwnerArgs']]:
+    def owner(self) -> pulumi.Input[Optional['HuntOwnerArgs']]:
         """
         Describes a user that the hunt is assigned to
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input['HuntOwnerArgs']]):
+    def owner(self, value: pulumi.Input[Optional['HuntOwnerArgs']]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Status']]]:
         """
         The status of the hunt.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
 
@@ -210,17 +210,17 @@ class Hunt(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attack_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 attack_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hunt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypothesis_status: Optional[pulumi.Input[Union[_builtins.str, 'HypothesisStatus']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner: Optional[pulumi.Input[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attack_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 attack_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hunt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypothesis_status: pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner: pulumi.Input[Optional[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Hunt in Azure Security Insights.
@@ -273,17 +273,17 @@ class Hunt(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attack_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 attack_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hunt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypothesis_status: Optional[pulumi.Input[Union[_builtins.str, 'HypothesisStatus']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner: Optional[pulumi.Input[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attack_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 attack_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hunt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypothesis_status: pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner: pulumi.Input[Optional[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

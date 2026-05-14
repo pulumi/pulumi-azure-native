@@ -166,9 +166,9 @@ def get_suppression(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         ttl=pulumi.get(__ret__, 'ttl'),
         type=pulumi.get(__ret__, 'type'))
-def get_suppression_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           recommendation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_suppression_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           recommendation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionResult]:
     """
     Obtains the details of a suppression.

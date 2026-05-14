@@ -244,9 +244,9 @@ def get_query(id: Optional[_builtins.str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
-def get_query_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                     query_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_query_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                     query_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.

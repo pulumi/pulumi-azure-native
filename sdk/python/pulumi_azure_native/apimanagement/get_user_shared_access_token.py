@@ -81,11 +81,11 @@ def get_user_shared_access_token(expiry: Optional[_builtins.str] = None,
 
     return AwaitableGetUserSharedAccessTokenResult(
         value=pulumi.get(__ret__, 'value'))
-def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                                        key_type: Optional[pulumi.Input['KeyType']] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_shared_access_token_output(expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                                        key_type: pulumi.Input[Optional['KeyType']] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        user_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
     Gets the Shared Access Authorization Token for the User.

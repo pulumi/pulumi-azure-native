@@ -88,9 +88,9 @@ def list_remediation_deployments_at_resource_group(remediation_name: Optional[_b
     return AwaitableListRemediationDeploymentsAtResourceGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_remediation_deployments_at_resource_group_output(remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_remediation_deployments_at_resource_group_output(remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceGroupResult]:
     """
     Gets all deployments for a remediation at resource group scope.

@@ -799,10 +799,10 @@ def get_avs_assessments_operation(assessment_name: Optional[_builtins.str] = Non
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         vcpu_oversubscription=pulumi.get(__ret__, 'vcpu_oversubscription'))
-def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_avs_assessments_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvsAssessmentsOperationResult]:
     """
     Get a AvsAssessment

@@ -23,7 +23,7 @@ class ClientApplicationProductLinkArgs:
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 client_application_product_link_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_application_product_link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientApplicationProductLink resource.
 
@@ -90,14 +90,14 @@ class ClientApplicationProductLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientApplicationProductLinkId")
-    def client_application_product_link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_application_product_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Application Product Link identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "client_application_product_link_id")
 
     @client_application_product_link_id.setter
-    def client_application_product_link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_application_product_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_application_product_link_id", value)
 
 
@@ -107,11 +107,11 @@ class ClientApplicationProductLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_application_product_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_application_product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies Client Application - Product link assignment
@@ -158,11 +158,11 @@ class ClientApplicationProductLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_application_product_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_application_product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -85,8 +85,8 @@ def list_connected_partner_resource(monitor_name: Optional[_builtins.str] = None
     return AwaitableListConnectedPartnerResourceResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_connected_partner_resource_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_connected_partner_resource_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedPartnerResourceResult]:
     """
      List of all active elastic deployments.

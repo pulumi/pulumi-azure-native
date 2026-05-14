@@ -309,9 +309,9 @@ def get_kusto_pool(kusto_pool_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'),
         workspace_uid=pulumi.get(__ret__, 'workspace_uid'))
-def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kusto_pool_output(kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolResult]:
     """
     Gets a Kusto pool.

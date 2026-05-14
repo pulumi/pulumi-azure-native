@@ -71,8 +71,8 @@ def list_delegation_setting_secrets(resource_group_name: Optional[_builtins.str]
 
     return AwaitableListDelegationSettingSecretsResult(
         validation_key=pulumi.get(__ret__, 'validation_key'))
-def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_delegation_setting_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
     """
     Gets the secret validation key of the DelegationSettings.

@@ -22,10 +22,10 @@ __all__ = ['RestorePointCollectionArgs', 'RestorePointCollection']
 class RestorePointCollectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['RestorePointCollectionSourcePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['RestorePointCollectionSourcePropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
 
@@ -59,50 +59,50 @@ class RestorePointCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointCollectionName")
-    def restore_point_collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the restore point collection.
         """
         return pulumi.get(self, "restore_point_collection_name")
 
     @restore_point_collection_name.setter
-    def restore_point_collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_collection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RestorePointCollectionSourcePropertiesArgs']]:
+    def source(self) -> pulumi.Input[Optional['RestorePointCollectionSourcePropertiesArgs']]:
         """
         The properties of the source resource that this restore point collection is created from.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RestorePointCollectionSourcePropertiesArgs']]):
+    def source(self, value: pulumi.Input[Optional['RestorePointCollectionSourcePropertiesArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,11 +112,11 @@ class RestorePointCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Create or update Restore Point collection parameters.
@@ -163,11 +163,11 @@ class RestorePointCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

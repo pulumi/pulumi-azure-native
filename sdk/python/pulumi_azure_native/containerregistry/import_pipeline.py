@@ -25,11 +25,11 @@ class ImportPipelineArgs:
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ImportPipelineSourcePropertiesArgs'],
-                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 import_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
-                 trigger: Optional[pulumi.Input['PipelineTriggerPropertiesArgs']] = None):
+                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
+                 trigger: pulumi.Input[Optional['PipelineTriggerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ImportPipeline resource.
 
@@ -94,62 +94,62 @@ class ImportPipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         """
         The identity of the import pipeline.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="importPipelineName")
-    def import_pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the import pipeline.
         """
         return pulumi.get(self, "import_pipeline_name")
 
     @import_pipeline_name.setter
-    def import_pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the import pipeline.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]:
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]:
         """
         The list of all options configured for the pipeline.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]):
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['PipelineTriggerPropertiesArgs']]:
+    def trigger(self) -> pulumi.Input[Optional['PipelineTriggerPropertiesArgs']]:
         """
         The properties that describe the trigger of the import pipeline.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['PipelineTriggerPropertiesArgs']]):
+    def trigger(self, value: pulumi.Input[Optional['PipelineTriggerPropertiesArgs']]):
         pulumi.set(self, "trigger", value)
 
 
@@ -159,14 +159,14 @@ class ImportPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 import_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ImportPipelineSourcePropertiesArgs', 'ImportPipelineSourcePropertiesArgsDict']]] = None,
-                 trigger: Optional[pulumi.Input[Union['PipelineTriggerPropertiesArgs', 'PipelineTriggerPropertiesArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ImportPipelineSourcePropertiesArgs', 'ImportPipelineSourcePropertiesArgsDict']]] = None,
+                 trigger: pulumi.Input[Optional[Union['PipelineTriggerPropertiesArgs', 'PipelineTriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         An object that represents an import pipeline for a container registry.
@@ -216,14 +216,14 @@ class ImportPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 import_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ImportPipelineSourcePropertiesArgs', 'ImportPipelineSourcePropertiesArgsDict']]] = None,
-                 trigger: Optional[pulumi.Input[Union['PipelineTriggerPropertiesArgs', 'PipelineTriggerPropertiesArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ImportPipelineSourcePropertiesArgs', 'ImportPipelineSourcePropertiesArgsDict']]] = None,
+                 trigger: pulumi.Input[Optional[Union['PipelineTriggerPropertiesArgs', 'PipelineTriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -205,9 +205,9 @@ def get_import_pipeline(import_pipeline_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         trigger=pulumi.get(__ret__, 'trigger'),
         type=pulumi.get(__ret__, 'type'))
-def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_import_pipeline_output(import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportPipelineResult]:
     """
     Gets the properties of the import pipeline.

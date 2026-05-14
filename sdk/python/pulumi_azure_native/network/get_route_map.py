@@ -179,9 +179,9 @@ def get_route_map(resource_group_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_route_map_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         route_map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_map_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteMapResult]:
     """
     Retrieves the details of a RouteMap.

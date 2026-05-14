@@ -165,9 +165,9 @@ def get_network_security_perimeter_profile(network_security_perimeter_name: Opti
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_security_perimeter_profile_output(network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_security_perimeter_profile_output(network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterProfileResult]:
     """
     Gets the specified NSP profile.

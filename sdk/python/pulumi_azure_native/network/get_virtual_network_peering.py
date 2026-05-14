@@ -387,9 +387,9 @@ def get_virtual_network_peering(resource_group_name: Optional[_builtins.str] = N
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         type=pulumi.get(__ret__, 'type'),
         use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
-def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       virtual_network_peering_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_peering_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       virtual_network_peering_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
     """
     Gets the specified virtual network peering.

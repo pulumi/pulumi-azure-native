@@ -153,9 +153,9 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Returns details of the workspace.

@@ -85,8 +85,8 @@ def get_project_inherited_settings(project_name: Optional[_builtins.str] = None,
     return AwaitableGetProjectInheritedSettingsResult(
         network_settings=pulumi.get(__ret__, 'network_settings'),
         project_catalog_settings=pulumi.get(__ret__, 'project_catalog_settings'))
-def get_project_inherited_settings_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_inherited_settings_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectInheritedSettingsResult]:
     """
     Gets applicable inherited settings for this project.

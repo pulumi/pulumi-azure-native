@@ -156,10 +156,10 @@ def get_queue_authorization_rule(authorization_rule_name: Optional[_builtins.str
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_authorization_rule_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
     Gets an authorization rule for a queue by rule name.

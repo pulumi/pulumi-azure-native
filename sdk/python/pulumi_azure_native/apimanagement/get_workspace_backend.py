@@ -257,10 +257,10 @@ def get_workspace_backend(backend_id: Optional[_builtins.str] = None,
         tls=pulumi.get(__ret__, 'tls'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
-def get_workspace_backend_output(backend_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_backend_output(backend_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceBackendResult]:
     """
     Gets the details of the backend specified by its identifier.

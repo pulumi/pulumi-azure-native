@@ -23,10 +23,10 @@ class WebAppPublicCertificateSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate_location: Optional[pulumi.Input['PublicCertificateLocation']] = None,
-                 public_certificate_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate_location: pulumi.Input[Optional['PublicCertificateLocation']] = None,
+                 public_certificate_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppPublicCertificateSlot resource.
 
@@ -88,50 +88,50 @@ class WebAppPublicCertificateSlotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public Certificate byte array
         """
         return pulumi.get(self, "blob")
 
     @blob.setter
-    def blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertificateLocation")
-    def public_certificate_location(self) -> Optional[pulumi.Input['PublicCertificateLocation']]:
+    def public_certificate_location(self) -> pulumi.Input[Optional['PublicCertificateLocation']]:
         """
         Public Certificate Location
         """
         return pulumi.get(self, "public_certificate_location")
 
     @public_certificate_location.setter
-    def public_certificate_location(self, value: Optional[pulumi.Input['PublicCertificateLocation']]):
+    def public_certificate_location(self, value: pulumi.Input[Optional['PublicCertificateLocation']]):
         pulumi.set(self, "public_certificate_location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertificateName")
-    def public_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public certificate name.
         """
         return pulumi.get(self, "public_certificate_name")
 
     @public_certificate_name.setter
-    def public_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_certificate_name", value)
 
 
@@ -141,13 +141,13 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate_location: Optional[pulumi.Input['PublicCertificateLocation']] = None,
-                 public_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate_location: pulumi.Input[Optional['PublicCertificateLocation']] = None,
+                 public_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Public certificate object
@@ -196,13 +196,13 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate_location: Optional[pulumi.Input['PublicCertificateLocation']] = None,
-                 public_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate_location: pulumi.Input[Optional['PublicCertificateLocation']] = None,
+                 public_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

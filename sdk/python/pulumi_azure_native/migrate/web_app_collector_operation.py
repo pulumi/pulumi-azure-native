@@ -23,9 +23,9 @@ class WebAppCollectorOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_properties: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']] = None,
-                 collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
+                 collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCollectorOperation resource.
 
@@ -70,38 +70,38 @@ class WebAppCollectorOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentProperties")
-    def agent_properties(self) -> Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]:
+    def agent_properties(self) -> pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]:
         """
         Gets or sets the collector agent properties.
         """
         return pulumi.get(self, "agent_properties")
 
     @agent_properties.setter
-    def agent_properties(self, value: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]):
+    def agent_properties(self, value: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]):
         pulumi.set(self, "agent_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="collectorName")
-    def collector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Web app collector ARM name.
         """
         return pulumi.get(self, "collector_name")
 
     @collector_name.setter
-    def collector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
-    def discovery_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the discovery site id.
         """
         return pulumi.get(self, "discovery_site_id")
 
     @discovery_site_id.setter
-    def discovery_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
 
 
@@ -111,11 +111,11 @@ class WebAppCollectorOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The web app collector REST object.
@@ -162,11 +162,11 @@ class WebAppCollectorOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

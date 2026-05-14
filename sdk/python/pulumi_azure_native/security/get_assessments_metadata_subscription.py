@@ -242,7 +242,7 @@ def get_assessments_metadata_subscription(assessment_metadata_name: Optional[_bu
         threats=pulumi.get(__ret__, 'threats'),
         type=pulumi.get(__ret__, 'type'),
         user_impact=pulumi.get(__ret__, 'user_impact'))
-def get_assessments_metadata_subscription_output(assessment_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessments_metadata_subscription_output(assessment_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentsMetadataSubscriptionResult]:
     """
     Get metadata information on an assessment type in a specific subscription

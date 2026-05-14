@@ -126,9 +126,9 @@ def list_static_site_build_app_settings(environment_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_static_site_build_app_settings_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_static_site_build_app_settings_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStaticSiteBuildAppSettingsResult]:
     """
     Description for Gets the application settings of a static site build.

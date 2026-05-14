@@ -436,8 +436,8 @@ def get_scheduled_query_rule(resource_group_name: Optional[_builtins.str] = None
         target_resource_types=pulumi.get(__ret__, 'target_resource_types'),
         type=pulumi.get(__ret__, 'type'),
         window_size=pulumi.get(__ret__, 'window_size'))
-def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduled_query_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
     Retrieve an scheduled query rule definition.

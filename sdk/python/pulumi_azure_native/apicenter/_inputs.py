@@ -46,7 +46,7 @@ class AzureApiManagementSourceArgsDict(TypedDict):
     """
     API Management service resource ID.
     """
-    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    msi_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the managed identity that has access to the API Management instance.
     """
@@ -55,7 +55,7 @@ class AzureApiManagementSourceArgsDict(TypedDict):
 class AzureApiManagementSourceArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 msi_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 msi_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API source configuration for Azure API Management.
 
@@ -80,14 +80,14 @@ class AzureApiManagementSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="msiResourceId")
-    def msi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msi_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the managed identity that has access to the API Management instance.
         """
         return pulumi.get(self, "msi_resource_id")
 
     @msi_resource_id.setter
-    def msi_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msi_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msi_resource_id", value)
 
 
@@ -95,15 +95,15 @@ class ContactArgsDict(TypedDict):
     """
     Contact information
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email address of the contact.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the contact.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL for the contact.
     """
@@ -111,9 +111,9 @@ class ContactArgsDict(TypedDict):
 @pulumi.input_type
 class ContactArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contact information
 
@@ -130,38 +130,38 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the contact.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the contact.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL for the contact.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -169,7 +169,7 @@ class DeploymentServerArgsDict(TypedDict):
     """
     Server
     """
-    runtime_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    runtime_uri: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Base runtime URLs for this deployment.
     """
@@ -177,7 +177,7 @@ class DeploymentServerArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentServerArgs:
     def __init__(__self__, *,
-                 runtime_uri: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 runtime_uri: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Server
 
@@ -188,14 +188,14 @@ class DeploymentServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="runtimeUri")
-    def runtime_uri(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def runtime_uri(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Base runtime URLs for this deployment.
         """
         return pulumi.get(self, "runtime_uri")
 
     @runtime_uri.setter
-    def runtime_uri(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def runtime_uri(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "runtime_uri", value)
 
 
@@ -203,11 +203,11 @@ class EnvironmentServerArgsDict(TypedDict):
     """
     Server information of the environment.
     """
-    management_portal_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    management_portal_uri: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The location of the management portal
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'EnvironmentServerType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentServerType']]]]
     """
     Type of the server that represents the environment.
     """
@@ -215,8 +215,8 @@ class EnvironmentServerArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentServerArgs:
     def __init__(__self__, *,
-                 management_portal_uri: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentServerType']]] = None):
+                 management_portal_uri: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentServerType']]] = None):
         """
         Server information of the environment.
 
@@ -230,26 +230,26 @@ class EnvironmentServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementPortalUri")
-    def management_portal_uri(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def management_portal_uri(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The location of the management portal
         """
         return pulumi.get(self, "management_portal_uri")
 
     @management_portal_uri.setter
-    def management_portal_uri(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def management_portal_uri(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "management_portal_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentServerType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentServerType']]]:
         """
         Type of the server that represents the environment.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentServerType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentServerType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -261,11 +261,11 @@ class ExternalDocumentationArgsDict(TypedDict):
     """
     URL pointing to the documentation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the documentation.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Title of the documentation.
     """
@@ -274,8 +274,8 @@ class ExternalDocumentationArgsDict(TypedDict):
 class ExternalDocumentationArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Additional, external documentation for the API.
 
@@ -303,26 +303,26 @@ class ExternalDocumentationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the documentation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the documentation.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -330,16 +330,16 @@ class LicenseArgsDict(TypedDict):
     """
     The license information for the API.
     """
-    identifier: NotRequired[pulumi.Input[_builtins.str]]
+    identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SPDX license information for the API. The identifier field is mutually
     exclusive of the URL field.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the license.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL pointing to the license details. The URL field is mutually exclusive of the
     identifier field.
@@ -348,9 +348,9 @@ class LicenseArgsDict(TypedDict):
 @pulumi.input_type
 class LicenseArgs:
     def __init__(__self__, *,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The license information for the API.
 
@@ -369,7 +369,7 @@ class LicenseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SPDX license information for the API. The identifier field is mutually
         exclusive of the URL field.
@@ -377,24 +377,24 @@ class LicenseArgs:
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the license.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL pointing to the license details. The URL field is mutually exclusive of the
         identifier field.
@@ -402,7 +402,7 @@ class LicenseArgs:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -414,7 +414,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -423,7 +423,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -448,14 +448,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -463,15 +463,15 @@ class MetadataAssignmentArgsDict(TypedDict):
     """
     Assignment metadata
     """
-    deprecated: NotRequired[pulumi.Input[_builtins.bool]]
+    deprecated: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Deprecated assignment
     """
-    entity: NotRequired[pulumi.Input[Union[_builtins.str, 'MetadataAssignmentEntity']]]
+    entity: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MetadataAssignmentEntity']]]]
     """
     The entities this metadata schema component gets applied to.
     """
-    required: NotRequired[pulumi.Input[_builtins.bool]]
+    required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Required assignment
     """
@@ -479,9 +479,9 @@ class MetadataAssignmentArgsDict(TypedDict):
 @pulumi.input_type
 class MetadataAssignmentArgs:
     def __init__(__self__, *,
-                 deprecated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity: Optional[pulumi.Input[Union[_builtins.str, 'MetadataAssignmentEntity']]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity: pulumi.Input[Optional[Union[_builtins.str, 'MetadataAssignmentEntity']]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Assignment metadata
 
@@ -498,38 +498,38 @@ class MetadataAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def deprecated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deprecated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Deprecated assignment
         """
         return pulumi.get(self, "deprecated")
 
     @deprecated.setter
-    def deprecated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deprecated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deprecated", value)
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MetadataAssignmentEntity']]]:
+    def entity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MetadataAssignmentEntity']]]:
         """
         The entities this metadata schema component gets applied to.
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MetadataAssignmentEntity']]]):
+    def entity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MetadataAssignmentEntity']]]):
         pulumi.set(self, "entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Required assignment
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
 
@@ -537,11 +537,11 @@ class OnboardingArgsDict(TypedDict):
     """
     Onboarding information
     """
-    developer_portal_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    developer_portal_uri: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The location of the development portal
     """
-    instructions: NotRequired[pulumi.Input[_builtins.str]]
+    instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Onboarding guide.
     """
@@ -549,8 +549,8 @@ class OnboardingArgsDict(TypedDict):
 @pulumi.input_type
 class OnboardingArgs:
     def __init__(__self__, *,
-                 developer_portal_uri: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None):
+                 developer_portal_uri: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Onboarding information
 
@@ -564,26 +564,26 @@ class OnboardingArgs:
 
     @_builtins.property
     @pulumi.getter(name="developerPortalUri")
-    def developer_portal_uri(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def developer_portal_uri(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The location of the development portal
         """
         return pulumi.get(self, "developer_portal_uri")
 
     @developer_portal_uri.setter
-    def developer_portal_uri(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def developer_portal_uri(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "developer_portal_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Onboarding guide.
         """
         return pulumi.get(self, "instructions")
 
     @instructions.setter
-    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
 
 

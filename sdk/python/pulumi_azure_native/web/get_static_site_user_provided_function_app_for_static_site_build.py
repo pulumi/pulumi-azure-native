@@ -168,10 +168,10 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_site_user_provided_function_app_for_static_site_build_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                            function_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                            name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_site_user_provided_function_app_for_static_site_build_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                            function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                            name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site build

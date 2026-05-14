@@ -257,9 +257,9 @@ def get_project_catalog(catalog_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_project_catalog_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_catalog_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCatalogResult]:
     """
     Gets an associated project catalog.

@@ -166,9 +166,9 @@ def get_managed_certificate(environment_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_certificate_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   managed_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_certificate_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   managed_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedCertificateResult]:
     """
     Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment

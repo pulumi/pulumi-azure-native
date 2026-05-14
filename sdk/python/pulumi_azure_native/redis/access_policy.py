@@ -23,7 +23,7 @@ class AccessPolicyArgs:
                  cache_name: pulumi.Input[_builtins.str],
                  permissions: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
 
@@ -76,14 +76,14 @@ class AccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy that is being added to the Redis cache.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
 
@@ -93,10 +93,10 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Response to get/put access policy.
@@ -142,10 +142,10 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

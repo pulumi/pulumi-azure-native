@@ -129,10 +129,10 @@ def get_tag_operation_link(operation_link_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         operation_id=pulumi.get(__ret__, 'operation_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_tag_operation_link_output(operation_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_operation_link_output(operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagOperationLinkResult]:
     """
     Gets the operation link for the tag.

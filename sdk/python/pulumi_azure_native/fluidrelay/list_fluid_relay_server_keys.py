@@ -84,8 +84,8 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[_builtins.str
     return AwaitableListFluidRelayServerKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def list_fluid_relay_server_keys_output(fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFluidRelayServerKeysResult]:
     """
     The set of available keys for this server.

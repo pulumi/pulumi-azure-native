@@ -182,10 +182,10 @@ def get_authorization(authorization_id: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorization_output(authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_output(authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
     Gets the details of the authorization specified by its identifier.

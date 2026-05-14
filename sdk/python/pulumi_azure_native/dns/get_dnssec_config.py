@@ -161,8 +161,8 @@ def get_dnssec_config(resource_group_name: Optional[_builtins.str] = None,
         signing_keys=pulumi.get(__ret__, 'signing_keys'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dnssec_config_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dnssec_config_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnssecConfigResult]:
     """
     Gets the DNSSEC configuration.

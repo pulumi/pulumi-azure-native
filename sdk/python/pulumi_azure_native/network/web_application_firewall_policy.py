@@ -24,12 +24,12 @@ class WebApplicationFirewallPolicyArgs:
     def __init__(__self__, *,
                  managed_rules: pulumi.Input['ManagedRulesDefinitionArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input['PolicySettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional['PolicySettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebApplicationFirewallPolicy resource.
 
@@ -83,74 +83,74 @@ class WebApplicationFirewallPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]]:
+    def custom_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]]:
         """
         The custom rules inside the policy.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]]):
+    def custom_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional[pulumi.Input['PolicySettingsArgs']]:
+    def policy_settings(self) -> pulumi.Input[Optional['PolicySettingsArgs']]:
         """
         The PolicySettings for policy.
         """
         return pulumi.get(self, "policy_settings")
 
     @policy_settings.setter
-    def policy_settings(self, value: Optional[pulumi.Input['PolicySettingsArgs']]):
+    def policy_settings(self, value: pulumi.Input[Optional['PolicySettingsArgs']]):
         pulumi.set(self, "policy_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,14 +160,14 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['ManagedRulesDefinitionArgs', 'ManagedRulesDefinitionArgsDict']]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['ManagedRulesDefinitionArgs', 'ManagedRulesDefinitionArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Defines web application firewall policy.
@@ -217,14 +217,14 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['ManagedRulesDefinitionArgs', 'ManagedRulesDefinitionArgsDict']]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['ManagedRulesDefinitionArgs', 'ManagedRulesDefinitionArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

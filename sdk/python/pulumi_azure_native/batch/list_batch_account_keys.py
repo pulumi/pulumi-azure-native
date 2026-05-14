@@ -97,8 +97,8 @@ def list_batch_account_keys(account_name: Optional[_builtins.str] = None,
         account_name=pulumi.get(__ret__, 'account_name'),
         primary=pulumi.get(__ret__, 'primary'),
         secondary=pulumi.get(__ret__, 'secondary'))
-def list_batch_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_batch_account_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.

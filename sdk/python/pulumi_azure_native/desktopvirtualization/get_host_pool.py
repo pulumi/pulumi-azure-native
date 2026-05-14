@@ -531,8 +531,8 @@ def get_host_pool(host_pool_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         validation_environment=pulumi.get(__ret__, 'validation_environment'),
         vm_template=pulumi.get(__ret__, 'vm_template'))
-def get_host_pool_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_host_pool_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Get a host pool.

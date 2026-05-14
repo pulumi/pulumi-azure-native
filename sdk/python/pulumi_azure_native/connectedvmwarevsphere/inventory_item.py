@@ -24,11 +24,11 @@ class InventoryItemArgs:
                  inventory_type: pulumi.Input[Union[_builtins.str, 'InventoryType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vcenter_name: pulumi.Input[_builtins.str],
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_ref_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InventoryItem resource.
 
@@ -93,62 +93,62 @@ class InventoryItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inventory_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the inventoryItem.
         """
         return pulumi.get(self, "inventory_item_name")
 
     @inventory_item_name.setter
-    def inventory_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inventory_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceId")
-    def managed_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the tracked resource id corresponding to the inventory resource.
         """
         return pulumi.get(self, "managed_resource_id")
 
     @managed_resource_id.setter
-    def managed_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="moName")
-    def mo_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mo_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the vCenter Managed Object name for the inventory item.
         """
         return pulumi.get(self, "mo_name")
 
     @mo_name.setter
-    def mo_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mo_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mo_name", value)
 
     @_builtins.property
     @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mo_ref_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
         """
         return pulumi.get(self, "mo_ref_id")
 
     @mo_ref_id.setter
-    def mo_ref_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mo_ref_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mo_ref_id", value)
 
 
@@ -158,14 +158,14 @@ class InventoryItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[_builtins.str, 'InventoryType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcenter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inventory_type: pulumi.Input[Optional[Union[_builtins.str, 'InventoryType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_ref_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcenter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the inventory item.
@@ -215,14 +215,14 @@ class InventoryItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[_builtins.str, 'InventoryType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcenter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inventory_type: pulumi.Input[Optional[Union[_builtins.str, 'InventoryType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mo_ref_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcenter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

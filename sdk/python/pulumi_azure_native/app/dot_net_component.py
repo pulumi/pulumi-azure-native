@@ -24,10 +24,10 @@ class DotNetComponentArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 component_type: Optional[pulumi.Input[Union[_builtins.str, 'DotNetComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]] = None):
+                 component_type: pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_binds: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]] = None):
         """
         The set of arguments for constructing a DotNetComponent resource.
 
@@ -75,50 +75,50 @@ class DotNetComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DotNetComponentType']]]:
+    def component_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]]:
         """
         Type of the .NET Component.
         """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DotNetComponentType']]]):
+    def component_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]]:
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]]:
         """
         List of .NET Components configuration properties
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]]):
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the .NET Component.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]]:
+    def service_binds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]]:
         """
         List of .NET Components that are bound to the .NET component
         """
         return pulumi.get(self, "service_binds")
 
     @service_binds.setter
-    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]]):
+    def service_binds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]]):
         pulumi.set(self, "service_binds", value)
 
 
@@ -128,12 +128,12 @@ class DotNetComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[Union[_builtins.str, 'DotNetComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
+                 component_type: pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_binds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         """
         .NET Component.
@@ -181,12 +181,12 @@ class DotNetComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[Union[_builtins.str, 'DotNetComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
+                 component_type: pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_binds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

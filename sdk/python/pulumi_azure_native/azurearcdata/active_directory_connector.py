@@ -25,7 +25,7 @@ class ActiveDirectoryConnectorArgs:
                  data_controller_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ActiveDirectoryConnectorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 active_directory_connector_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_connector_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActiveDirectoryConnector resource.
 
@@ -78,14 +78,14 @@ class ActiveDirectoryConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConnectorName")
-    def active_directory_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Active Directory connector instance
         """
         return pulumi.get(self, "active_directory_connector_name")
 
     @active_directory_connector_name.setter
-    def active_directory_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_connector_name", value)
 
 
@@ -95,10 +95,10 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ActiveDirectoryConnectorPropertiesArgs', 'ActiveDirectoryConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ActiveDirectoryConnectorPropertiesArgs', 'ActiveDirectoryConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Active directory connector resource
@@ -144,10 +144,10 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ActiveDirectoryConnectorPropertiesArgs', 'ActiveDirectoryConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ActiveDirectoryConnectorPropertiesArgs', 'ActiveDirectoryConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

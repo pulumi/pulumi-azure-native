@@ -93,10 +93,10 @@ def list_products_and_configuration_product_families(customer_subscription_detai
     return AwaitableListProductsAndConfigurationProductFamiliesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_products_and_configuration_product_families_output(customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
-                                                            expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                            filterable_properties: Optional[pulumi.Input[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
-                                                            skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_products_and_configuration_product_families_output(customer_subscription_details: pulumi.Input[Optional[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
+                                                            expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                            filterable_properties: pulumi.Input[Optional[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
+                                                            skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationProductFamiliesResult]:
     """
     List product families for the given subscription.

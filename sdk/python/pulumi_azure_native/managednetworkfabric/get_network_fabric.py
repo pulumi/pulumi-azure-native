@@ -384,8 +384,8 @@ def get_network_fabric(network_fabric_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         terminal_server_configuration=pulumi.get(__ret__, 'terminal_server_configuration'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_fabric_output(network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricResult]:
     """
     Get Network Fabric resource details.

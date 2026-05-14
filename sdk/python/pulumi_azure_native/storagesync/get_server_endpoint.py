@@ -403,10 +403,10 @@ def get_server_endpoint(resource_group_name: Optional[_builtins.str] = None,
         tier_files_older_than_days=pulumi.get(__ret__, 'tier_files_older_than_days'),
         type=pulumi.get(__ret__, 'type'),
         volume_free_space_percent=pulumi.get(__ret__, 'volume_free_space_percent'))
-def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               server_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_endpoint_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
     Get a ServerEndpoint.

@@ -24,8 +24,8 @@ class EdgeMachineJobArgs:
     def __init__(__self__, *,
                  edge_machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]] = None):
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a EdgeMachineJob resource.
 
@@ -67,26 +67,26 @@ class EdgeMachineJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobsName")
-    def jobs_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jobs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of EdgeMachineJob
         """
         return pulumi.get(self, "jobs_name")
 
     @jobs_name.setter
-    def jobs_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jobs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jobs_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class EdgeMachineJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['DownloadOsJobPropertiesArgs', 'DownloadOsJobPropertiesArgsDict'], Union['EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgsDict'], Union['EdgeMachineRemoteSupportJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgsDict'], Union['ProvisionOsJobPropertiesArgs', 'ProvisionOsJobPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['DownloadOsJobPropertiesArgs', 'DownloadOsJobPropertiesArgsDict'], Union['EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgsDict'], Union['EdgeMachineRemoteSupportJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgsDict'], Union['ProvisionOsJobPropertiesArgs', 'ProvisionOsJobPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Cluster Jobs resource
@@ -145,10 +145,10 @@ class EdgeMachineJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['DownloadOsJobPropertiesArgs', 'DownloadOsJobPropertiesArgsDict'], Union['EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgsDict'], Union['EdgeMachineRemoteSupportJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgsDict'], Union['ProvisionOsJobPropertiesArgs', 'ProvisionOsJobPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['DownloadOsJobPropertiesArgs', 'DownloadOsJobPropertiesArgsDict'], Union['EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgsDict'], Union['EdgeMachineRemoteSupportJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgsDict'], Union['ProvisionOsJobPropertiesArgs', 'ProvisionOsJobPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

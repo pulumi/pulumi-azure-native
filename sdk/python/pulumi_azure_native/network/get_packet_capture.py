@@ -257,9 +257,9 @@ def get_packet_capture(network_watcher_name: Optional[_builtins.str] = None,
         target_type=pulumi.get(__ret__, 'target_type'),
         time_limit_in_seconds=pulumi.get(__ret__, 'time_limit_in_seconds'),
         total_bytes_per_session=pulumi.get(__ret__, 'total_bytes_per_session'))
-def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              packet_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_packet_capture_output(network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """
     Gets a packet capture session by name.

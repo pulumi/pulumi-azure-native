@@ -158,7 +158,7 @@ def get_setting(setting_name: Optional[_builtins.str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         start_on=pulumi.get(__ret__, 'start_on'),
         type=pulumi.get(__ret__, 'type'))
-def get_setting_output(setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_setting_output(setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSettingResult]:
     """
     Retrieves the current value for a specific setting.

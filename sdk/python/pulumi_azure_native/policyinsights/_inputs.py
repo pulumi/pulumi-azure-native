@@ -28,11 +28,11 @@ class AttestationEvidenceArgsDict(TypedDict):
     """
     A piece of evidence supporting the compliance state set in the attestation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for this piece of evidence.
     """
-    source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    source_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI location of the evidence.
     """
@@ -40,8 +40,8 @@ class AttestationEvidenceArgsDict(TypedDict):
 @pulumi.input_type
 class AttestationEvidenceArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A piece of evidence supporting the compliance state set in the attestation.
 
@@ -55,26 +55,26 @@ class AttestationEvidenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this piece of evidence.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI location of the evidence.
         """
         return pulumi.get(self, "source_uri")
 
     @source_uri.setter
-    def source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_uri", value)
 
 
@@ -82,11 +82,11 @@ class RemediationFiltersArgsDict(TypedDict):
     """
     The filters that will be applied to determine which resources to remediate.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resource locations that will be remediated.
     """
-    resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
     """
@@ -94,8 +94,8 @@ class RemediationFiltersArgsDict(TypedDict):
 @pulumi.input_type
 class RemediationFiltersArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
 
@@ -109,26 +109,26 @@ class RemediationFiltersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource locations that will be remediated.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
         """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
-    def resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_ids", value)
 
 
@@ -136,7 +136,7 @@ class RemediationPropertiesFailureThresholdArgsDict(TypedDict):
     """
     The remediation failure threshold settings
     """
-    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
     """
@@ -144,7 +144,7 @@ class RemediationPropertiesFailureThresholdArgsDict(TypedDict):
 @pulumi.input_type
 class RemediationPropertiesFailureThresholdArgs:
     def __init__(__self__, *,
-                 percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The remediation failure threshold settings
 
@@ -155,14 +155,14 @@ class RemediationPropertiesFailureThresholdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "percentage")
 
     @percentage.setter
-    def percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percentage", value)
 
 

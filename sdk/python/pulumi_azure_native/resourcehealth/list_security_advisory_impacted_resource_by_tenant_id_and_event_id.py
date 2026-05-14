@@ -85,8 +85,8 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
     return AwaitableListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(event_tracking_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                              filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(event_tracking_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                              filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult]:
     """
     Lists impacted resources in the tenant by an event (Security Advisory).

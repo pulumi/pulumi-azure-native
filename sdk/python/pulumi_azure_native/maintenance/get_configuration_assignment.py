@@ -185,11 +185,11 @@ def get_configuration_assignment(configuration_assignment_name: Optional[_builti
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_assignment_output(configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_assignment_output(configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
     Get configuration assignment for resource..

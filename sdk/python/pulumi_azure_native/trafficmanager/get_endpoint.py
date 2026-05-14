@@ -299,10 +299,10 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
-def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                        profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                        profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets a Traffic Manager endpoint.

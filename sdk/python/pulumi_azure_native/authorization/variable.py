@@ -22,7 +22,7 @@ __all__ = ['VariableArgs', 'Variable']
 class VariableArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]],
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Variable resource.
 
@@ -47,14 +47,14 @@ class VariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable to operate on.
         """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
-    def variable_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_name", value)
 
 
@@ -64,8 +64,8 @@ class Variable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The variable.
@@ -109,8 +109,8 @@ class Variable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

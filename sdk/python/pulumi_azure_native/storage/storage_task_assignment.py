@@ -25,7 +25,7 @@ class StorageTaskAssignmentArgs:
                  account_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['StorageTaskAssignmentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_task_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_task_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageTaskAssignment resource.
 
@@ -78,14 +78,14 @@ class StorageTaskAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageTaskAssignmentName")
-    def storage_task_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_task_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         """
         return pulumi.get(self, "storage_task_assignment_name")
 
     @storage_task_assignment_name.setter
-    def storage_task_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_task_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_task_assignment_name", value)
 
 
@@ -95,10 +95,10 @@ class StorageTaskAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['StorageTaskAssignmentPropertiesArgs', 'StorageTaskAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_task_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StorageTaskAssignmentPropertiesArgs', 'StorageTaskAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_task_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The storage task assignment.
@@ -144,10 +144,10 @@ class StorageTaskAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['StorageTaskAssignmentPropertiesArgs', 'StorageTaskAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_task_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StorageTaskAssignmentPropertiesArgs', 'StorageTaskAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_task_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,7 +25,7 @@ class EventHubAuthorizationRuleArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]],
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHubAuthorizationRule resource.
 
@@ -92,14 +92,14 @@ class EventHubAuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization rule name.
         """
         return pulumi.get(self, "authorization_rule_name")
 
     @authorization_rule_name.setter
-    def authorization_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_rule_name", value)
 
 
@@ -109,11 +109,11 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
@@ -160,11 +160,11 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

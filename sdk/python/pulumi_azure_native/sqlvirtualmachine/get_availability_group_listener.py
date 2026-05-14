@@ -221,10 +221,10 @@ def get_availability_group_listener(availability_group_listener_name: Optional[_
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_availability_group_listener_output(availability_group_listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           sql_virtual_machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_availability_group_listener_output(availability_group_listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           sql_virtual_machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
     """
     Gets an availability group listener.

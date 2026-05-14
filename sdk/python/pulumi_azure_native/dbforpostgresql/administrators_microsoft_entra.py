@@ -23,10 +23,10 @@ class AdministratorsMicrosoftEntraArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdministratorsMicrosoftEntra resource.
 
@@ -74,50 +74,50 @@ class AdministratorsMicrosoftEntraArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object identifier of the Microsoft Entra principal.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Microsoft Entra principal.
         """
         return pulumi.get(self, "principal_name")
 
     @principal_name.setter
-    def principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]:
+    def principal_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]:
         """
         Type of Microsoft Entra principal to which the server administrator is associated.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]):
+    def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -127,12 +127,12 @@ class AdministratorsMicrosoftEntra(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Server administrator associated to a Microsoft Entra principal.
@@ -180,12 +180,12 @@ class AdministratorsMicrosoftEntra(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

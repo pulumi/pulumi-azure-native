@@ -192,9 +192,9 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[_builtins
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       mongo_user_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mongo_db_resource_mongo_user_definition_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       mongo_user_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoDBResourceMongoUserDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.

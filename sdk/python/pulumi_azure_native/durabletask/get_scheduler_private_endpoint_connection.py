@@ -177,9 +177,9 @@ def get_scheduler_private_endpoint_connection(private_endpoint_connection_name: 
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_scheduler_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduler_private_endpoint_connection_output(private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulerPrivateEndpointConnectionResult]:
     """
     Get a private endpoint connection for the durable task scheduler

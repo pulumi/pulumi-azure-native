@@ -23,8 +23,8 @@ class KeyGroupArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 key_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+                 key_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_references: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
         """
         The set of arguments for constructing a KeyGroup resource.
 
@@ -66,26 +66,26 @@ class KeyGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyGroupName")
-    def key_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the KeyGroup under the profile.
         """
         return pulumi.get(self, "key_group_name")
 
     @key_group_name.setter
-    def key_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyReferences")
-    def key_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+    def key_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         Names of UrlSigningKey type secret objects
         """
         return pulumi.get(self, "key_references")
 
     @key_references.setter
-    def key_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+    def key_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "key_references", value)
 
 
@@ -95,10 +95,10 @@ class KeyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Contains a list of references of UrlSigningKey type secret objects.
@@ -144,10 +144,10 @@ class KeyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

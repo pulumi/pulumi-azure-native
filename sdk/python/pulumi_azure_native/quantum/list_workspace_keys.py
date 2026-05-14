@@ -124,8 +124,8 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
     Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.

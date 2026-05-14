@@ -25,7 +25,7 @@ class CredentialArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Credential resource.
 
@@ -92,14 +92,14 @@ class CredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialName")
-    def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credential resource name.
         """
         return pulumi.get(self, "credential_name")
 
     @credential_name.setter
-    def credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_name", value)
 
 
@@ -109,11 +109,11 @@ class Credential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_type: Optional[pulumi.Input[Union[_builtins.str, 'CredentialType']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_type: pulumi.Input[Optional[Union[_builtins.str, 'CredentialType']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The test base credential resource.
@@ -156,11 +156,11 @@ class Credential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_type: Optional[pulumi.Input[Union[_builtins.str, 'CredentialType']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_type: pulumi.Input[Optional[Union[_builtins.str, 'CredentialType']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

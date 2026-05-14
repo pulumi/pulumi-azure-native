@@ -24,12 +24,12 @@ class RestorePointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  restore_point_collection_name: pulumi.Input[_builtins.str],
-                 consistency_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
-                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]] = None,
-                 restore_point_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_metadata: Optional[pulumi.Input['RestorePointSourceMetadataArgs']] = None,
-                 source_restore_point: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
-                 time_created: Optional[pulumi.Input[_builtins.str]] = None):
+                 consistency_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
+                 exclude_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]] = None,
+                 restore_point_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_metadata: pulumi.Input[Optional['RestorePointSourceMetadataArgs']] = None,
+                 source_restore_point: pulumi.Input[Optional['ApiEntityReferenceArgs']] = None,
+                 time_created: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
 
@@ -83,74 +83,74 @@ class RestorePointArgs:
 
     @_builtins.property
     @pulumi.getter(name="consistencyMode")
-    def consistency_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConsistencyModeTypes']]]:
+    def consistency_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConsistencyModeTypes']]]:
         """
         ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         """
         return pulumi.get(self, "consistency_mode")
 
     @consistency_mode.setter
-    def consistency_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConsistencyModeTypes']]]):
+    def consistency_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConsistencyModeTypes']]]):
         pulumi.set(self, "consistency_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeDisks")
-    def exclude_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]]:
+    def exclude_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]]:
         """
         List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         """
         return pulumi.get(self, "exclude_disks")
 
     @exclude_disks.setter
-    def exclude_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]]):
+    def exclude_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]]):
         pulumi.set(self, "exclude_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointName")
-    def restore_point_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the restore point.
         """
         return pulumi.get(self, "restore_point_name")
 
     @restore_point_name.setter
-    def restore_point_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMetadata")
-    def source_metadata(self) -> Optional[pulumi.Input['RestorePointSourceMetadataArgs']]:
+    def source_metadata(self) -> pulumi.Input[Optional['RestorePointSourceMetadataArgs']]:
         """
         Gets the details of the VM captured at the time of the restore point creation.
         """
         return pulumi.get(self, "source_metadata")
 
     @source_metadata.setter
-    def source_metadata(self, value: Optional[pulumi.Input['RestorePointSourceMetadataArgs']]):
+    def source_metadata(self, value: pulumi.Input[Optional['RestorePointSourceMetadataArgs']]):
         pulumi.set(self, "source_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRestorePoint")
-    def source_restore_point(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+    def source_restore_point(self) -> pulumi.Input[Optional['ApiEntityReferenceArgs']]:
         """
         Resource Id of the source restore point from which a copy needs to be created.
         """
         return pulumi.get(self, "source_restore_point")
 
     @source_restore_point.setter
-    def source_restore_point(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
+    def source_restore_point(self, value: pulumi.Input[Optional['ApiEntityReferenceArgs']]):
         pulumi.set(self, "source_restore_point", value)
 
     @_builtins.property
     @pulumi.getter(name="timeCreated")
-    def time_created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the creation time of the restore point.
         """
         return pulumi.get(self, "time_created")
 
     @time_created.setter
-    def time_created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_created", value)
 
 
@@ -160,14 +160,14 @@ class RestorePoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consistency_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
-                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_metadata: Optional[pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
-                 source_restore_point: Optional[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
-                 time_created: Optional[pulumi.Input[_builtins.str]] = None,
+                 consistency_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
+                 exclude_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_metadata: pulumi.Input[Optional[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
+                 source_restore_point: pulumi.Input[Optional[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
+                 time_created: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Restore Point details.
@@ -217,14 +217,14 @@ class RestorePoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consistency_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
-                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_metadata: Optional[pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
-                 source_restore_point: Optional[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
-                 time_created: Optional[pulumi.Input[_builtins.str]] = None,
+                 consistency_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConsistencyModeTypes']]] = None,
+                 exclude_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_metadata: pulumi.Input[Optional[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
+                 source_restore_point: pulumi.Input[Optional[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
+                 time_created: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

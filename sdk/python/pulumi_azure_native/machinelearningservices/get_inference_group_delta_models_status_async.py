@@ -136,12 +136,12 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
         expected_instance_count=pulumi.get(__ret__, 'expected_instance_count'),
         revision_id=pulumi.get(__ret__, 'revision_id'),
         target_base_model=pulumi.get(__ret__, 'target_base_model'))
-def get_inference_group_delta_models_status_async_output(delta_models: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                                         group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         target_base_model: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inference_group_delta_models_status_async_output(delta_models: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                                         group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         target_base_model: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupDeltaModelsStatusAsyncResult]:
     """
     Contract returning to user the delta models.

@@ -273,10 +273,10 @@ def get_backup(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_existing_snapshot=pulumi.get(__ret__, 'use_existing_snapshot'),
         volume_resource_id=pulumi.get(__ret__, 'volume_resource_id'))
-def get_backup_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupResult]:
     """
     Get the specified Backup under Backup Vault.

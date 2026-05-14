@@ -322,9 +322,9 @@ def get_machine_run_command(machine_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
         type=pulumi.get(__ret__, 'type'))
-def get_machine_run_command_output(machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   run_command_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_machine_run_command_output(machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   run_command_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineRunCommandResult]:
     """
     The operation to get a run command.

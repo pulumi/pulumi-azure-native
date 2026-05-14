@@ -216,9 +216,9 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[_builtins
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         extension_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_extension_output(data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get installed extension details by extension id.

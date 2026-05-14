@@ -195,10 +195,10 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[_built
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_link_service_private_endpoint_connection_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                                pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_link_service_private_endpoint_connection_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.

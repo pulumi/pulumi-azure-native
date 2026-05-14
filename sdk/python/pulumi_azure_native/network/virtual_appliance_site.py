@@ -23,11 +23,11 @@ class VirtualApplianceSiteArgs:
     def __init__(__self__, *,
                  network_virtual_appliance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input['Office365PolicyPropertiesArgs']] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional['Office365PolicyPropertiesArgs']] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualApplianceSite resource.
 
@@ -78,62 +78,62 @@ class VirtualApplianceSiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address Prefix.
         """
         return pulumi.get(self, "address_prefix")
 
     @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the virtual appliance site.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional[pulumi.Input['Office365PolicyPropertiesArgs']]:
+    def o365_policy(self) -> pulumi.Input[Optional['Office365PolicyPropertiesArgs']]:
         """
         Office 365 Policy.
         """
         return pulumi.get(self, "o365_policy")
 
     @o365_policy.setter
-    def o365_policy(self, value: Optional[pulumi.Input['Office365PolicyPropertiesArgs']]):
+    def o365_policy(self, value: pulumi.Input[Optional['Office365PolicyPropertiesArgs']]):
         pulumi.set(self, "o365_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the site.
         """
         return pulumi.get(self, "site_name")
 
     @site_name.setter
-    def site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_name", value)
 
 
@@ -143,13 +143,13 @@ class VirtualApplianceSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input[Union['Office365PolicyPropertiesArgs', 'Office365PolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional[Union['Office365PolicyPropertiesArgs', 'Office365PolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Virtual Appliance Site resource.
@@ -198,13 +198,13 @@ class VirtualApplianceSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input[Union['Office365PolicyPropertiesArgs', 'Office365PolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional[Union['Office365PolicyPropertiesArgs', 'Office365PolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

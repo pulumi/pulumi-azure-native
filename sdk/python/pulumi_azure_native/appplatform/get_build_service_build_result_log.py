@@ -80,11 +80,11 @@ def get_build_service_build_result_log(build_name: Optional[_builtins.str] = Non
 
     return AwaitableGetBuildServiceBuildResultLogResult(
         blob_url=pulumi.get(__ret__, 'blob_url'))
-def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              build_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_build_service_build_result_log_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              build_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildServiceBuildResultLogResult]:
     """
     Get a KPack build result log download URL.

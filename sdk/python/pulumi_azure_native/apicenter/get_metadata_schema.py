@@ -153,9 +153,9 @@ def get_metadata_schema(metadata_schema_name: Optional[_builtins.str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metadata_schema_output(metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSchemaResult]:
     """
     Returns details of the metadata schema.

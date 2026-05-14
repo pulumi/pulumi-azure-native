@@ -111,8 +111,8 @@ def get_account_change_key_vault_information(account_name: Optional[_builtins.st
         key_vault_private_endpoints=pulumi.get(__ret__, 'key_vault_private_endpoints'),
         key_vault_resource_id=pulumi.get(__ret__, 'key_vault_resource_id'),
         key_vault_uri=pulumi.get(__ret__, 'key_vault_uri'))
-def get_account_change_key_vault_information_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_change_key_vault_information_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountChangeKeyVaultInformationResult]:
     """
     Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.

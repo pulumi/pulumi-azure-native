@@ -194,10 +194,10 @@ def get_synapse_workspace_sql_pool_table_data_set_mapping(account_name: Optional
         synapse_workspace_sql_pool_table_resource_id=pulumi.get(__ret__, 'synapse_workspace_sql_pool_table_resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_synapse_workspace_sql_pool_table_data_set_mapping_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_synapse_workspace_sql_pool_table_data_set_mapping_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription

@@ -22,8 +22,8 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']] = None):
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['PutAliasRequestPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
 
@@ -37,26 +37,26 @@ class AliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasName")
-    def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
-    def alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['PutAliasRequestPropertiesArgs']]:
         """
         Put alias request properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['PutAliasRequestPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -66,8 +66,8 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PutAliasRequestPropertiesArgs', 'PutAliasRequestPropertiesArgsDict']]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PutAliasRequestPropertiesArgs', 'PutAliasRequestPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Subscription Information with the alias.
@@ -111,8 +111,8 @@ class Alias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PutAliasRequestPropertiesArgs', 'PutAliasRequestPropertiesArgsDict']]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PutAliasRequestPropertiesArgs', 'PutAliasRequestPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

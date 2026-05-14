@@ -169,10 +169,10 @@ def get_artifact_manifest(artifact_manifest_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_artifact_manifest_output(artifact_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_artifact_manifest_output(artifact_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArtifactManifestResult]:
     """
     Gets information about a artifact manifest resource.

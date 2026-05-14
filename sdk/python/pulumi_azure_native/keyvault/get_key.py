@@ -254,9 +254,9 @@ def get_key(key_name: Optional[_builtins.str] = None,
         rotation_policy=pulumi.get(__ret__, 'rotation_policy'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets the current version of the specified key from the specified key vault.

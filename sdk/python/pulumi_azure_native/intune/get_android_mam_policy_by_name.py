@@ -337,9 +337,9 @@ def get_android_mam_policy_by_name(host_name: Optional[_builtins.str] = None,
         screen_capture=pulumi.get(__ret__, 'screen_capture'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          select: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_android_mam_policy_by_name_output(host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          select: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
     """
     Returns AndroidMAMPolicy with given name.

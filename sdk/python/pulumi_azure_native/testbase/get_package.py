@@ -374,9 +374,9 @@ def get_package(package_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         validation_results=pulumi.get(__ret__, 'validation_results'),
         version=pulumi.get(__ret__, 'version'))
-def get_package_output(package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_package_output(package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Gets a Test Base Package.

@@ -24,7 +24,7 @@ class VariableValueAtManagementGroupArgs:
                  management_group_id: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]],
                  variable_name: pulumi.Input[_builtins.str],
-                 variable_value_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 variable_value_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableValueAtManagementGroup resource.
 
@@ -77,14 +77,14 @@ class VariableValueAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="variableValueName")
-    def variable_value_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_value_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable value to operate on.
         """
         return pulumi.get(self, "variable_value_name")
 
     @variable_value_name.setter
-    def variable_value_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_value_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_value_name", value)
 
 
@@ -94,10 +94,10 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_value_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The variable value.
@@ -143,10 +143,10 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_value_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

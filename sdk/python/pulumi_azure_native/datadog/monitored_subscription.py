@@ -24,8 +24,8 @@ class MonitoredSubscriptionInitArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['SubscriptionListArgs']] = None):
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['SubscriptionListArgs']] = None):
         """
         The set of arguments for constructing a MonitoredSubscription resource.
 
@@ -67,26 +67,26 @@ class MonitoredSubscriptionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration name. Only 'default' value is supported.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SubscriptionListArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SubscriptionListArgs']]:
         """
         The request to update subscriptions needed to be monitored by the Datadog monitor resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SubscriptionListArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SubscriptionListArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class MonitoredSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SubscriptionListArgs', 'SubscriptionListArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SubscriptionListArgs', 'SubscriptionListArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The request to update subscriptions needed to be monitored by the Datadog monitor resource.
@@ -145,10 +145,10 @@ class MonitoredSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SubscriptionListArgs', 'SubscriptionListArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SubscriptionListArgs', 'SubscriptionListArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

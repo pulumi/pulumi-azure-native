@@ -26,12 +26,12 @@ class AssetEndpointProfileArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_address: pulumi.Input[_builtins.str],
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
-                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional['AuthenticationArgs']] = None,
+                 discovered_asset_endpoint_profile_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssetEndpointProfile resource.
 
@@ -113,74 +113,74 @@ class AssetEndpointProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
     @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="assetEndpointProfileName")
-    def asset_endpoint_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asset_endpoint_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset Endpoint Profile name parameter.
         """
         return pulumi.get(self, "asset_endpoint_profile_name")
 
     @asset_endpoint_profile_name.setter
-    def asset_endpoint_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asset_endpoint_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asset_endpoint_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['AuthenticationArgs']]:
         """
         Defines the client authentication mechanism to the server.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['AuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveredAssetEndpointProfileRef")
-    def discovered_asset_endpoint_profile_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovered_asset_endpoint_profile_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
         """
         return pulumi.get(self, "discovered_asset_endpoint_profile_ref")
 
     @discovered_asset_endpoint_profile_ref.setter
-    def discovered_asset_endpoint_profile_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovered_asset_endpoint_profile_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovered_asset_endpoint_profile_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -190,16 +190,16 @@ class AssetEndpointProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
-                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
+                 discovered_asset_endpoint_profile_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Asset Endpoint Profile definition.
@@ -251,16 +251,16 @@ class AssetEndpointProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
-                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
+                 discovered_asset_endpoint_profile_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

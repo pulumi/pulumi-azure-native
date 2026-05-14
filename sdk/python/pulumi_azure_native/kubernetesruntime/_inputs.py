@@ -155,15 +155,15 @@ class NfsStorageClassTypePropertiesArgsDict(TypedDict):
     Type of a storage class
     Expected value is 'NFS'.
     """
-    mount_permissions: NotRequired[pulumi.Input[_builtins.str]]
+    mount_permissions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount
     """
-    on_delete: NotRequired[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]
+    on_delete: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]]
     """
     The action to take when a NFS volume is deleted. Default is Delete
     """
-    sub_dir: NotRequired[pulumi.Input[_builtins.str]]
+    sub_dir: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sub directory under share. If the sub directory doesn't exist, driver will create it
     """
@@ -174,9 +174,9 @@ class NfsStorageClassTypePropertiesArgs:
                  server: pulumi.Input[_builtins.str],
                  share: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 mount_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_delete: Optional[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]] = None,
-                 sub_dir: Optional[pulumi.Input[_builtins.str]] = None):
+                 mount_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_delete: pulumi.Input[Optional[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]] = None,
+                 sub_dir: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of NFS StorageClass
 
@@ -237,38 +237,38 @@ class NfsStorageClassTypePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="mountPermissions")
-    def mount_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mount_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount
         """
         return pulumi.get(self, "mount_permissions")
 
     @mount_permissions.setter
-    def mount_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mount_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mount_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="onDelete")
-    def on_delete(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]:
+    def on_delete(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]:
         """
         The action to take when a NFS volume is deleted. Default is Delete
         """
         return pulumi.get(self, "on_delete")
 
     @on_delete.setter
-    def on_delete(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]):
+    def on_delete(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]):
         pulumi.set(self, "on_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="subDir")
-    def sub_dir(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_dir(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sub directory under share. If the sub directory doesn't exist, driver will create it
         """
         return pulumi.get(self, "sub_dir")
 
     @sub_dir.setter
-    def sub_dir(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_dir(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_dir", value)
 
 
@@ -340,19 +340,19 @@ class SmbStorageClassTypePropertiesArgsDict(TypedDict):
     Type of a storage class
     Expected value is 'SMB'.
     """
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Server domain
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Server password
     """
-    sub_dir: NotRequired[pulumi.Input[_builtins.str]]
+    sub_dir: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sub directory under share. If the sub directory doesn't exist, driver will create it
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Server username
     """
@@ -362,10 +362,10 @@ class SmbStorageClassTypePropertiesArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_dir: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_dir: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of SMB StorageClass
 
@@ -415,50 +415,50 @@ class SmbStorageClassTypePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server domain
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server password
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="subDir")
-    def sub_dir(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_dir(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sub directory under share. If the sub directory doesn't exist, driver will create it
         """
         return pulumi.get(self, "sub_dir")
 
     @sub_dir.setter
-    def sub_dir(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_dir(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_dir", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server username
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 

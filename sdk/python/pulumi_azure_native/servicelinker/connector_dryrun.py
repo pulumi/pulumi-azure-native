@@ -24,9 +24,9 @@ class ConnectorDryrunArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorDryrun resource.
 
@@ -71,38 +71,38 @@ class ConnectorDryrunArgs:
 
     @_builtins.property
     @pulumi.getter(name="dryrunName")
-    def dryrun_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dryrun_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of dryrun.
         """
         return pulumi.get(self, "dryrun_name")
 
     @dryrun_name.setter
-    def dryrun_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dryrun_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']]:
         """
         The parameters of the dryrun
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target subscription.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -112,11 +112,11 @@ class ConnectorDryrun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         a dryrun job resource
@@ -163,11 +163,11 @@ class ConnectorDryrun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

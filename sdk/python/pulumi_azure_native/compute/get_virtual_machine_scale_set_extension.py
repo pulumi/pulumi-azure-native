@@ -260,10 +260,10 @@ def get_virtual_machine_scale_set_extension(expand: Optional[_builtins.str] = No
         suppress_failures=pulumi.get(__ret__, 'suppress_failures'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   vmss_extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_scale_set_extension_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   vmss_extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetExtensionResult]:
     """
     The operation to get the extension.

@@ -153,9 +153,9 @@ def get_customer_event(customer_event_name: Optional[_builtins.str] = None,
         receivers=pulumi.get(__ret__, 'receivers'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_customer_event_output(customer_event_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_customer_event_output(customer_event_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerEventResult]:
     """
     Gets a Test Base CustomerEvent.

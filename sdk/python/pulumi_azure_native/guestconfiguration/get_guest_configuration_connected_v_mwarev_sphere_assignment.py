@@ -153,9 +153,9 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment(guest_configura
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                        vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                        vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestConfigurationConnectedVMwarevSphereAssignmentResult]:
     """
     Get information about a guest configuration assignment

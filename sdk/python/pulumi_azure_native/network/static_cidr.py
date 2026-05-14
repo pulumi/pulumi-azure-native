@@ -24,8 +24,8 @@ class StaticCidrArgs:
                  network_manager_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['StaticCidrPropertiesArgs']] = None,
-                 static_cidr_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['StaticCidrPropertiesArgs']] = None,
+                 static_cidr_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticCidr resource.
 
@@ -81,26 +81,26 @@ class StaticCidrArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['StaticCidrPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['StaticCidrPropertiesArgs']]:
         """
         Properties of static CIDR resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['StaticCidrPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['StaticCidrPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="staticCidrName")
-    def static_cidr_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_cidr_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static Cidr allocation name.
         """
         return pulumi.get(self, "static_cidr_name")
 
     @static_cidr_name.setter
-    def static_cidr_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_cidr_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_cidr_name", value)
 
 
@@ -110,11 +110,11 @@ class StaticCidr(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['StaticCidrPropertiesArgs', 'StaticCidrPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_cidr_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StaticCidrPropertiesArgs', 'StaticCidrPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_cidr_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Instance of StaticCidr resource.
@@ -161,11 +161,11 @@ class StaticCidr(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['StaticCidrPropertiesArgs', 'StaticCidrPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_cidr_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StaticCidrPropertiesArgs', 'StaticCidrPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_cidr_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

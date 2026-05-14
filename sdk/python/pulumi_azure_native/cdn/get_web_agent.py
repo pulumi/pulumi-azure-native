@@ -213,8 +213,8 @@ def get_web_agent(resource_group_name: Optional[_builtins.str] = None,
         system_prompt=pulumi.get(__ret__, 'system_prompt'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_agent_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_agent_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAgentResult]:
     """
     Gets a web agent with the specified name within a resource group.

@@ -283,9 +283,9 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[_
         tunnel_interfaces=pulumi.get(__ret__, 'tunnel_interfaces'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_backend_address_pool_output(backend_address_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
     """
     Gets load balancer backend address pool.

@@ -147,7 +147,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_at_tenant_scope_output(deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_at_tenant_scope_output(deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtTenantScopeResult]:
     """
     Gets a deployment.

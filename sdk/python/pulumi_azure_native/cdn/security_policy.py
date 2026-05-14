@@ -23,8 +23,8 @@ class SecurityPolicyArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityPolicy resource.
 
@@ -66,26 +66,26 @@ class SecurityPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']]:
         """
         object which contains security policy parameters
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the security policy under the profile.
         """
         return pulumi.get(self, "security_policy_name")
 
     @security_policy_name.setter
-    def security_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy_name", value)
 
 
@@ -95,10 +95,10 @@ class SecurityPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameters: Optional[pulumi.Input[Union['SecurityPolicyWebApplicationFirewallParametersArgs', 'SecurityPolicyWebApplicationFirewallParametersArgsDict']]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['SecurityPolicyWebApplicationFirewallParametersArgs', 'SecurityPolicyWebApplicationFirewallParametersArgsDict']]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         SecurityPolicy association for AzureFrontDoor profile
@@ -144,10 +144,10 @@ class SecurityPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameters: Optional[pulumi.Input[Union['SecurityPolicyWebApplicationFirewallParametersArgs', 'SecurityPolicyWebApplicationFirewallParametersArgsDict']]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['SecurityPolicyWebApplicationFirewallParametersArgs', 'SecurityPolicyWebApplicationFirewallParametersArgsDict']]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

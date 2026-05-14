@@ -103,14 +103,14 @@ def list_featureset_version_materialization_jobs(feature_window_end: Optional[_b
     return AwaitableListFeaturesetVersionMaterializationJobsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_featureset_version_materialization_jobs_output(feature_window_end: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        feature_window_start: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        filters: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        skip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        version: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_featureset_version_materialization_jobs_output(feature_window_end: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        feature_window_start: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        filters: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        skip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        version: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeaturesetVersionMaterializationJobsResult]:
     """
     A paginated list of FeaturesetJob entities.

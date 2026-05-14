@@ -127,9 +127,9 @@ def get_virtual_network_gateway_routes_information(attempt_refresh: Optional[_bu
         next_eligible_compute_time=pulumi.get(__ret__, 'next_eligible_compute_time'),
         route_set_version=pulumi.get(__ret__, 'route_set_version'),
         route_sets=pulumi.get(__ret__, 'route_sets'))
-def get_virtual_network_gateway_routes_information_output(attempt_refresh: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_routes_information_output(attempt_refresh: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayRoutesInformationResult]:
     """
     This operation retrieves the route set information for an Express Route Gateway based on their resiliency

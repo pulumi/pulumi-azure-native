@@ -23,7 +23,7 @@ class DFPInstanceAdministratorsArgsDict(TypedDict):
     """
     An array of administrator user identities
     """
-    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of administrator user identities.
     """
@@ -31,7 +31,7 @@ class DFPInstanceAdministratorsArgsDict(TypedDict):
 @pulumi.input_type
 class DFPInstanceAdministratorsArgs:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of administrator user identities
 
@@ -42,14 +42,14 @@ class DFPInstanceAdministratorsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
 

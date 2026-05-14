@@ -268,9 +268,9 @@ def get_kafka_connector(kafka_connector_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_kafka_connector_output(kafka_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kafka_connector_output(kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConnectorResult]:
     """
     Get a KafkaConnectorResource

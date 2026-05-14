@@ -173,7 +173,7 @@ def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant=pulumi.get(__ret__, 'tenant'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_group_subscription_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
     """
     Retrieves details about given subscription which is associated with the management group.
