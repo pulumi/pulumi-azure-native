@@ -133,5 +133,5 @@ export interface GetCloudConnectorOutputArgs {
     /**
      * May be used to expand the collectionInfo property. By default, collectionInfo is not included.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
 }

@@ -162,7 +162,7 @@ export interface HybridRunbookWorkerArgs {
     /**
      * The hybrid runbook worker id
      */
-    hybridRunbookWorkerId?: pulumi.Input<string>;
+    hybridRunbookWorkerId?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */
@@ -170,5 +170,5 @@ export interface HybridRunbookWorkerArgs {
     /**
      * Azure Resource Manager Id for a virtual machine.
      */
-    vmResourceId?: pulumi.Input<string>;
+    vmResourceId?: pulumi.Input<string | undefined>;
 }

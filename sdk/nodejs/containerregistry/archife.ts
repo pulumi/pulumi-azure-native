@@ -130,11 +130,11 @@ export interface ArchifeArgs {
     /**
      * The name of the archive resource.
      */
-    archiveName?: pulumi.Input<string>;
+    archiveName?: pulumi.Input<string | undefined>;
     /**
      * The package source of the archive.
      */
-    packageSource?: pulumi.Input<inputs.containerregistry.ArchivePackageSourcePropertiesArgs>;
+    packageSource?: pulumi.Input<inputs.containerregistry.ArchivePackageSourcePropertiesArgs | undefined>;
     /**
      * The type of the package resource.
      */
@@ -142,12 +142,12 @@ export interface ArchifeArgs {
     /**
      * The published version of the archive.
      */
-    publishedVersion?: pulumi.Input<string>;
+    publishedVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */
     registryName: pulumi.Input<string>;
-    repositoryEndpointPrefix?: pulumi.Input<string>;
+    repositoryEndpointPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

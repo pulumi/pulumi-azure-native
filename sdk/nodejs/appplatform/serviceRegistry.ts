@@ -116,5 +116,5 @@ export interface ServiceRegistryArgs {
     /**
      * The name of Service Registry.
      */
-    serviceRegistryName?: pulumi.Input<string>;
+    serviceRegistryName?: pulumi.Input<string | undefined>;
 }

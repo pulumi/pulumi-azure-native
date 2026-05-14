@@ -114,11 +114,11 @@ export interface IdentityBindingArgs {
     /**
      * The name of the identity binding.
      */
-    identityBindingName?: pulumi.Input<string>;
+    identityBindingName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.containerservice.IdentityBindingPropertiesArgs>;
+    properties?: pulumi.Input<inputs.containerservice.IdentityBindingPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

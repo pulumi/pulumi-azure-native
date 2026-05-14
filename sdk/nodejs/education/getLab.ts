@@ -137,7 +137,7 @@ export interface GetLabOutputArgs {
     /**
      * May be used to include budget information.
      */
-    includeBudget?: pulumi.Input<boolean>;
+    includeBudget?: pulumi.Input<boolean | undefined>;
     /**
      * The ID that uniquely identifies an invoice section.
      */

@@ -139,15 +139,15 @@ export interface JobAgentArgs {
     /**
      * The identity of the job agent.
      */
-    identity?: pulumi.Input<inputs.sql.JobAgentIdentityArgs>;
+    identity?: pulumi.Input<inputs.sql.JobAgentIdentityArgs | undefined>;
     /**
      * The name of the job agent to be created or updated.
      */
-    jobAgentName?: pulumi.Input<string>;
+    jobAgentName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -159,9 +159,9 @@ export interface JobAgentArgs {
     /**
      * The name and tier of the SKU.
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

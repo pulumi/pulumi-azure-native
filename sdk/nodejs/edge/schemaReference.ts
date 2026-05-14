@@ -110,7 +110,7 @@ export interface SchemaReferenceArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SchemaReferencePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SchemaReferencePropertiesArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -118,5 +118,5 @@ export interface SchemaReferenceArgs {
     /**
      * The name of the SchemaReference
      */
-    schemaReferenceName?: pulumi.Input<string>;
+    schemaReferenceName?: pulumi.Input<string | undefined>;
 }

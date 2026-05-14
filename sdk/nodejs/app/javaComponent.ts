@@ -111,11 +111,11 @@ export interface JavaComponentArgs {
     /**
      * Name of the Java Component.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Java Component resource specific properties
      */
-    properties?: pulumi.Input<inputs.app.NacosComponentArgs | inputs.app.SpringBootAdminComponentArgs | inputs.app.SpringCloudConfigComponentArgs | inputs.app.SpringCloudEurekaComponentArgs | inputs.app.SpringCloudGatewayComponentArgs>;
+    properties?: pulumi.Input<inputs.app.NacosComponentArgs | inputs.app.SpringBootAdminComponentArgs | inputs.app.SpringCloudConfigComponentArgs | inputs.app.SpringCloudEurekaComponentArgs | inputs.app.SpringCloudGatewayComponentArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

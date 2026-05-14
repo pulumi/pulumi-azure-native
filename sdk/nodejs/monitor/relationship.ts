@@ -118,11 +118,11 @@ export interface RelationshipArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.RelationshipPropertiesArgs>;
+    properties?: pulumi.Input<inputs.monitor.RelationshipPropertiesArgs | undefined>;
     /**
      * Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
      */
-    relationshipName?: pulumi.Input<string>;
+    relationshipName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

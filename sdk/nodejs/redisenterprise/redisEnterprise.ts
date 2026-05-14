@@ -185,27 +185,27 @@ export interface RedisEnterpriseArgs {
     /**
      * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Encryption-at-rest configuration for the cluster.
      */
-    encryption?: pulumi.Input<inputs.redisenterprise.ClusterPropertiesEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.redisenterprise.ClusterPropertiesEncryptionArgs | undefined>;
     /**
      * Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
      */
-    highAvailability?: pulumi.Input<string | enums.redisenterprise.HighAvailability>;
+    highAvailability?: pulumi.Input<string | enums.redisenterprise.HighAvailability | undefined>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.redisenterprise.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.redisenterprise.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
      */
-    minimumTlsVersion?: pulumi.Input<string | enums.redisenterprise.TlsVersion>;
+    minimumTlsVersion?: pulumi.Input<string | enums.redisenterprise.TlsVersion | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -217,9 +217,9 @@ export interface RedisEnterpriseArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Availability Zones where this cluster will be deployed.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

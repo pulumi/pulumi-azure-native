@@ -175,11 +175,11 @@ export interface WebhookArgs {
     /**
      * Gets or sets the expiry time.
      */
-    expiryTime?: pulumi.Input<string>;
+    expiryTime?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the value of the enabled flag of webhook.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets the name of the webhook.
      */
@@ -187,7 +187,7 @@ export interface WebhookArgs {
     /**
      * Gets or sets the parameters of the job.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of an Azure Resource group.
      */
@@ -195,17 +195,17 @@ export interface WebhookArgs {
     /**
      * Gets or sets the name of the hybrid worker group the webhook job will run on.
      */
-    runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the runbook.
      */
-    runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs>;
+    runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs | undefined>;
     /**
      * Gets or sets the uri.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * The webhook name.
      */
-    webhookName?: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string | undefined>;
 }

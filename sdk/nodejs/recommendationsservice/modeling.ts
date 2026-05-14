@@ -124,15 +124,15 @@ export interface ModelingArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Modeling resource.
      */
-    modelingName?: pulumi.Input<string>;
+    modelingName?: pulumi.Input<string | undefined>;
     /**
      * Modeling resource properties.
      */
-    properties?: pulumi.Input<inputs.recommendationsservice.ModelingResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.recommendationsservice.ModelingResourcePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface ModelingArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

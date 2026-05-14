@@ -168,11 +168,11 @@ export interface ConnectedEnvironmentsDaprComponentArgs {
     /**
      * Name of the Dapr Component.
      */
-    componentName?: pulumi.Input<string>;
+    componentName?: pulumi.Input<string | undefined>;
     /**
      * Component type
      */
-    componentType?: pulumi.Input<string>;
+    componentType?: pulumi.Input<string | undefined>;
     /**
      * Name of the connected environment.
      */
@@ -180,15 +180,15 @@ export interface ConnectedEnvironmentsDaprComponentArgs {
     /**
      * Boolean describing if the component errors are ignores
      */
-    ignoreErrors?: pulumi.Input<boolean>;
+    ignoreErrors?: pulumi.Input<boolean | undefined>;
     /**
      * Initialization timeout
      */
-    initTimeout?: pulumi.Input<string>;
+    initTimeout?: pulumi.Input<string | undefined>;
     /**
      * Component metadata
      */
-    metadata?: pulumi.Input<pulumi.Input<inputs.app.DaprMetadataArgs>[]>;
+    metadata?: pulumi.Input<pulumi.Input<inputs.app.DaprMetadataArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -196,21 +196,21 @@ export interface ConnectedEnvironmentsDaprComponentArgs {
     /**
      * Names of container apps that can use this Dapr component
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of a Dapr component to retrieve component secrets from
      */
-    secretStoreComponent?: pulumi.Input<string>;
+    secretStoreComponent?: pulumi.Input<string | undefined>;
     /**
      * Collection of secrets used by a Dapr component
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.app.SecretArgs>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.app.SecretArgs>[] | undefined>;
     /**
      * List of container app services that are bound to the Dapr component
      */
-    serviceComponentBind?: pulumi.Input<pulumi.Input<inputs.app.DaprComponentServiceBindingArgs>[]>;
+    serviceComponentBind?: pulumi.Input<pulumi.Input<inputs.app.DaprComponentServiceBindingArgs>[] | undefined>;
     /**
      * Component version
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

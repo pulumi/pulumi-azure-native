@@ -120,7 +120,7 @@ export interface ReplicationProtectedItemArgs {
     /**
      * Enable protection input properties.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.EnableProtectionInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.EnableProtectionInputPropertiesArgs | undefined>;
     /**
      * Protection container name.
      */
@@ -128,7 +128,7 @@ export interface ReplicationProtectedItemArgs {
     /**
      * A name for the replication protected item.
      */
-    replicatedProtectedItemName?: pulumi.Input<string>;
+    replicatedProtectedItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

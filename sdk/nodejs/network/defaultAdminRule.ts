@@ -200,7 +200,7 @@ export interface DefaultAdminRuleArgs {
     /**
      * Default rule flag.
      */
-    flag?: pulumi.Input<string>;
+    flag?: pulumi.Input<string | undefined>;
     /**
      * Whether the rule is custom or default.
      * Expected value is 'Default'.
@@ -221,5 +221,5 @@ export interface DefaultAdminRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

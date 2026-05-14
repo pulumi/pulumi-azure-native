@@ -135,5 +135,5 @@ export interface FleetUpdateStrategyArgs {
     /**
      * The name of the UpdateStrategy resource.
      */
-    updateStrategyName?: pulumi.Input<string>;
+    updateStrategyName?: pulumi.Input<string | undefined>;
 }

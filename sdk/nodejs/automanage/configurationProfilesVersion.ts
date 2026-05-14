@@ -124,11 +124,11 @@ export interface ConfigurationProfilesVersionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of the configuration profile.
      */
-    properties?: pulumi.Input<inputs.automanage.ConfigurationProfilePropertiesArgs>;
+    properties?: pulumi.Input<inputs.automanage.ConfigurationProfilePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,9 +136,9 @@ export interface ConfigurationProfilesVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The configuration profile version name.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
 }

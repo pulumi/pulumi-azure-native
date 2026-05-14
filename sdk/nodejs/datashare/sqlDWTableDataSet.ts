@@ -160,7 +160,7 @@ export interface SqlDWTableDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * DataWarehouse name of the source data set
      */

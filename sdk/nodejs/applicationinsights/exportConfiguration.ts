@@ -195,43 +195,43 @@ export interface ExportConfigurationArgs {
     /**
      * The name of destination storage account.
      */
-    destinationAccountId?: pulumi.Input<string>;
+    destinationAccountId?: pulumi.Input<string | undefined>;
     /**
      * The SAS URL for the destination storage container. It must grant write permission.
      */
-    destinationAddress?: pulumi.Input<string>;
+    destinationAddress?: pulumi.Input<string | undefined>;
     /**
      * The location ID of the destination storage container.
      */
-    destinationStorageLocationId?: pulumi.Input<string>;
+    destinationStorageLocationId?: pulumi.Input<string | undefined>;
     /**
      * The subscription ID of the destination storage container.
      */
-    destinationStorageSubscriptionId?: pulumi.Input<string>;
+    destinationStorageSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Continuous Export destination type. This has to be 'Blob'.
      */
-    destinationType?: pulumi.Input<string>;
+    destinationType?: pulumi.Input<string | undefined>;
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    exportId?: pulumi.Input<string>;
+    exportId?: pulumi.Input<string | undefined>;
     /**
      * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
      */
-    isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string | undefined>;
     /**
      * Deprecated
      */
-    notificationQueueEnabled?: pulumi.Input<string>;
+    notificationQueueEnabled?: pulumi.Input<string | undefined>;
     /**
      * Deprecated
      */
-    notificationQueueUri?: pulumi.Input<string>;
+    notificationQueueUri?: pulumi.Input<string | undefined>;
     /**
      * The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
      */
-    recordTypes?: pulumi.Input<string>;
+    recordTypes?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

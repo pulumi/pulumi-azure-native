@@ -110,7 +110,7 @@ export interface MigrateAgentArgs {
     /**
      * MigrateAgent name.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * ModernizeProject name.
      */
@@ -118,7 +118,7 @@ export interface MigrateAgentArgs {
     /**
      * MigrateAgent model properties.
      */
-    properties?: pulumi.Input<inputs.migrate.MigrateAgentModelPropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.MigrateAgentModelPropertiesArgs | undefined>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -126,9 +126,9 @@ export interface MigrateAgentArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

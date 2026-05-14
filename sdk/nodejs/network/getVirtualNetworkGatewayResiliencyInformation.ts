@@ -91,7 +91,7 @@ export interface GetVirtualNetworkGatewayResiliencyInformationOutputArgs {
     /**
      * Attempt to recalculate the Resiliency Information for the gateway
      */
-    attemptRefresh?: pulumi.Input<boolean>;
+    attemptRefresh?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group.
      */

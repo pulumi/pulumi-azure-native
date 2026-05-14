@@ -133,13 +133,13 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["enabledFilteringCriteria"] = args?.enabledFilteringCriteria;
             resourceInputs["flowAnalyticsConfiguration"] = args?.flowAnalyticsConfiguration;
             resourceInputs["flowLogName"] = args?.flowLogName;
-            resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["format"] = args ? pulumi.output(args.format).apply(v => v === undefined ? undefined : inputs.network.flowLogFormatParametersArgsProvideDefaults(v)) : undefined;
             resourceInputs["id"] = args?.id;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["networkWatcherName"] = args?.networkWatcherName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["retentionPolicy"] = args ? (args.retentionPolicy ? pulumi.output(args.retentionPolicy).apply(inputs.network.retentionPolicyParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["retentionPolicy"] = args ? pulumi.output(args.retentionPolicy).apply(v => v === undefined ? undefined : inputs.network.retentionPolicyParametersArgsProvideDefaults(v)) : undefined;
             resourceInputs["storageId"] = args?.storageId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targetResourceId"] = args?.targetResourceId;
@@ -181,35 +181,35 @@ export interface FlowLogArgs {
     /**
      * Flag to enable/disable flow logging.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
      */
-    enabledFilteringCriteria?: pulumi.Input<string>;
+    enabledFilteringCriteria?: pulumi.Input<string | undefined>;
     /**
      * Parameters that define the configuration of traffic analytics.
      */
-    flowAnalyticsConfiguration?: pulumi.Input<inputs.network.TrafficAnalyticsPropertiesArgs>;
+    flowAnalyticsConfiguration?: pulumi.Input<inputs.network.TrafficAnalyticsPropertiesArgs | undefined>;
     /**
      * The name of the flow log.
      */
-    flowLogName?: pulumi.Input<string>;
+    flowLogName?: pulumi.Input<string | undefined>;
     /**
      * Parameters that define the flow log format.
      */
-    format?: pulumi.Input<inputs.network.FlowLogFormatParametersArgs>;
+    format?: pulumi.Input<inputs.network.FlowLogFormatParametersArgs | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * FlowLog resource Managed Identity
      */
-    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network watcher.
      */
@@ -221,7 +221,7 @@ export interface FlowLogArgs {
     /**
      * Parameters that define the retention policy for flow log.
      */
-    retentionPolicy?: pulumi.Input<inputs.network.RetentionPolicyParametersArgs>;
+    retentionPolicy?: pulumi.Input<inputs.network.RetentionPolicyParametersArgs | undefined>;
     /**
      * ID of the storage account which is used to store the flow log.
      */
@@ -229,7 +229,7 @@ export interface FlowLogArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of network security group to which flow log will be applied.
      */

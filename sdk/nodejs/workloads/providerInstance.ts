@@ -130,11 +130,11 @@ export interface ProviderInstanceArgs {
     /**
      * Name of the provider instance.
      */
-    providerInstanceName?: pulumi.Input<string>;
+    providerInstanceName?: pulumi.Input<string | undefined>;
     /**
      * Defines the provider specific properties.
      */
-    providerSettings?: pulumi.Input<inputs.workloads.Db2ProviderInstancePropertiesArgs | inputs.workloads.HanaDbProviderInstancePropertiesArgs | inputs.workloads.MsSqlServerProviderInstancePropertiesArgs | inputs.workloads.OracleProviderInstancePropertiesArgs | inputs.workloads.PrometheusHaClusterProviderInstancePropertiesArgs | inputs.workloads.PrometheusOsProviderInstancePropertiesArgs | inputs.workloads.SapNetWeaverProviderInstancePropertiesArgs>;
+    providerSettings?: pulumi.Input<inputs.workloads.Db2ProviderInstancePropertiesArgs | inputs.workloads.HanaDbProviderInstancePropertiesArgs | inputs.workloads.MsSqlServerProviderInstancePropertiesArgs | inputs.workloads.OracleProviderInstancePropertiesArgs | inputs.workloads.PrometheusHaClusterProviderInstancePropertiesArgs | inputs.workloads.PrometheusOsProviderInstancePropertiesArgs | inputs.workloads.SapNetWeaverProviderInstancePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

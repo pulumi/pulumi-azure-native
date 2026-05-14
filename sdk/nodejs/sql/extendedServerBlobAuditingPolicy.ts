@@ -306,11 +306,11 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * 
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
-    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether audit events are sent to Azure Monitor. 
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
@@ -324,7 +324,7 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    isAzureMonitorTargetEnabled?: pulumi.Input<boolean>;
+    isAzureMonitorTargetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true
@@ -337,24 +337,24 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    isDevopsAuditEnabled?: pulumi.Input<boolean>;
+    isDevopsAuditEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether Managed Identity is used to access blob storage
      */
-    isManagedIdentityInUse?: pulumi.Input<boolean>;
+    isManagedIdentityInUse?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
-    isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
+    isStorageSecondaryKeyInUse?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    predicateExpression?: pulumi.Input<string>;
+    predicateExpression?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
      * The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
      */
-    queueDelayMs?: pulumi.Input<number>;
+    queueDelayMs?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -362,7 +362,7 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
     /**
      * Specifies the number of days to keep in the audit logs in the storage account.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the server.
      */
@@ -379,13 +379,13 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * 2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
      * For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

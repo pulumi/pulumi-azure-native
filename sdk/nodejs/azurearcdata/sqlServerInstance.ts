@@ -116,11 +116,11 @@ export interface SqlServerInstanceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * null
      */
-    properties?: pulumi.Input<inputs.azurearcdata.SqlServerInstancePropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurearcdata.SqlServerInstancePropertiesArgs | undefined>;
     /**
      * The name of the Azure resource group
      */
@@ -128,9 +128,9 @@ export interface SqlServerInstanceArgs {
     /**
      * Name of SQL Server Instance
      */
-    sqlServerInstanceName?: pulumi.Input<string>;
+    sqlServerInstanceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

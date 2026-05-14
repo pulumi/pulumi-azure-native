@@ -118,17 +118,17 @@ export interface ManagementGroupArgs {
     /**
      * The details of a management group used during creation.
      */
-    details?: pulumi.Input<inputs.management.CreateManagementGroupDetailsArgs>;
+    details?: pulumi.Input<inputs.management.CreateManagementGroupDetailsArgs | undefined>;
     /**
      * The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Management Group ID.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

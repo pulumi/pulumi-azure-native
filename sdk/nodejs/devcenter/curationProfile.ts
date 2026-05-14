@@ -120,7 +120,7 @@ export interface CurationProfileArgs {
     /**
      * The name of the curation profile.
      */
-    curationProfileName?: pulumi.Input<string>;
+    curationProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter.
      */
@@ -132,9 +132,9 @@ export interface CurationProfileArgs {
     /**
      * Resource policies that are a part of this curation profile.
      */
-    resourcePolicies?: pulumi.Input<pulumi.Input<inputs.devcenter.ResourcePolicyArgs>[]>;
+    resourcePolicies?: pulumi.Input<pulumi.Input<inputs.devcenter.ResourcePolicyArgs>[] | undefined>;
     /**
      * Resources that have access to the shared resources that are a part of this curation profile.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

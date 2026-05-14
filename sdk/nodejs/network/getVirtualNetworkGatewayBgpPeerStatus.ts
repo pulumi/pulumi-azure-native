@@ -67,7 +67,7 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusOutputArgs {
     /**
      * The IP address of the peer to retrieve the status of.
      */
-    peer?: pulumi.Input<string>;
+    peer?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

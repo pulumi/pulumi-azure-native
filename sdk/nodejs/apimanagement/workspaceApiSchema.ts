@@ -138,7 +138,7 @@ export interface WorkspaceApiSchemaArgs {
     /**
      * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
      */
-    components?: any;
+    components?: any | undefined;
     /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml` </br> - `OData Schema` use `application/vnd.ms-azure-apim.odata.schema` </br> - `gRPC Schema` use `text/protobuf`.
      */
@@ -146,7 +146,7 @@ export interface WorkspaceApiSchemaArgs {
     /**
      * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
-    definitions?: any;
+    definitions?: any | undefined;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,7 +154,7 @@ export interface WorkspaceApiSchemaArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management service.
      */
@@ -162,7 +162,7 @@ export interface WorkspaceApiSchemaArgs {
     /**
      * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

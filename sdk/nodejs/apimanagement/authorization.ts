@@ -130,7 +130,7 @@ export interface AuthorizationArgs {
     /**
      * Identifier of the authorization.
      */
-    authorizationId?: pulumi.Input<string>;
+    authorizationId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the authorization provider.
      */
@@ -138,19 +138,19 @@ export interface AuthorizationArgs {
     /**
      * Authorization type options
      */
-    authorizationType?: pulumi.Input<string | enums.apimanagement.AuthorizationType>;
+    authorizationType?: pulumi.Input<string | enums.apimanagement.AuthorizationType | undefined>;
     /**
      * Authorization error details.
      */
-    error?: pulumi.Input<inputs.apimanagement.AuthorizationErrorArgs>;
+    error?: pulumi.Input<inputs.apimanagement.AuthorizationErrorArgs | undefined>;
     /**
      * OAuth2 grant type options
      */
-    oAuth2GrantType?: pulumi.Input<string | enums.apimanagement.OAuth2GrantType>;
+    oAuth2GrantType?: pulumi.Input<string | enums.apimanagement.OAuth2GrantType | undefined>;
     /**
      * Authorization parameters
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -162,5 +162,5 @@ export interface AuthorizationArgs {
     /**
      * Status of the Authorization
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

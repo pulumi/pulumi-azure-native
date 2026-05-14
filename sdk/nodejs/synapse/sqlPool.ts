@@ -170,7 +170,7 @@ export interface SqlPoolArgs {
     /**
      * Collation mode
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of sql pool creation.
      *
@@ -182,23 +182,23 @@ export interface SqlPoolArgs {
      *
      * Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
      */
-    createMode?: pulumi.Input<string | enums.synapse.CreateMode>;
+    createMode?: pulumi.Input<string | enums.synapse.CreateMode | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum size in bytes
      */
-    maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number | undefined>;
     /**
      * Resource state
      */
-    provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string | undefined>;
     /**
      * Backup database to restore from
      */
-    recoverableDatabaseId?: pulumi.Input<string>;
+    recoverableDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -206,31 +206,31 @@ export interface SqlPoolArgs {
     /**
      * Snapshot time to restore
      */
-    restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string | undefined>;
     /**
      * SQL pool SKU
      */
-    sku?: pulumi.Input<inputs.synapse.SkuArgs>;
+    sku?: pulumi.Input<inputs.synapse.SkuArgs | undefined>;
     /**
      * Specifies the time that the sql pool was deleted
      */
-    sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string | undefined>;
     /**
      * Source database to create from
      */
-    sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * SQL pool name
      */
-    sqlPoolName?: pulumi.Input<string>;
+    sqlPoolName?: pulumi.Input<string | undefined>;
     /**
      * The storage account type used to store backups for this sql pool.
      */
-    storageAccountType?: pulumi.Input<string | enums.synapse.StorageAccountType>;
+    storageAccountType?: pulumi.Input<string | enums.synapse.StorageAccountType | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the workspace.
      */

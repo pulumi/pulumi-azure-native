@@ -147,19 +147,19 @@ export interface VirtualRouterArgs {
     /**
      * The Gateway on which VirtualRouter is hosted.
      */
-    hostedGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
+    hostedGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The Subnet on which VirtualRouter is hosted.
      */
-    hostedSubnet?: pulumi.Input<inputs.network.SubResourceArgs>;
+    hostedSubnet?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -167,17 +167,17 @@ export interface VirtualRouterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VirtualRouter ASN.
      */
-    virtualRouterAsn?: pulumi.Input<number>;
+    virtualRouterAsn?: pulumi.Input<number | undefined>;
     /**
      * VirtualRouter IPs.
      */
-    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Virtual Router.
      */
-    virtualRouterName?: pulumi.Input<string>;
+    virtualRouterName?: pulumi.Input<string | undefined>;
 }

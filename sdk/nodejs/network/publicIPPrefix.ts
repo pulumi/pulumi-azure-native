@@ -189,39 +189,39 @@ export interface PublicIPPrefixArgs {
     /**
      * The customIpPrefix that this prefix is associated with.
      */
-    customIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs>;
+    customIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The extended location of the public ip address.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The list of tags associated with the public IP prefix.
      */
-    ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[]>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[] | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * NatGateway of Public IP Prefix.
      */
-    natGateway?: pulumi.Input<inputs.network.NatGatewayArgs>;
+    natGateway?: pulumi.Input<inputs.network.NatGatewayArgs | undefined>;
     /**
      * The Length of the Public IP Prefix.
      */
-    prefixLength?: pulumi.Input<number>;
+    prefixLength?: pulumi.Input<number | undefined>;
     /**
      * The public IP address version.
      */
-    publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion>;
+    publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion | undefined>;
     /**
      * The name of the public IP prefix.
      */
-    publicIpPrefixName?: pulumi.Input<string>;
+    publicIpPrefixName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -229,13 +229,13 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP prefix SKU.
      */
-    sku?: pulumi.Input<inputs.network.PublicIPPrefixSkuArgs>;
+    sku?: pulumi.Input<inputs.network.PublicIPPrefixSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

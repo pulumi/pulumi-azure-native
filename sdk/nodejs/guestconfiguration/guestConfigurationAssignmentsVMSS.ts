@@ -113,15 +113,15 @@ export interface GuestConfigurationAssignmentsVMSSArgs {
     /**
      * Region where the VM is located.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The guest configuration assignment name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Properties of the Guest configuration assignment.
      */
-    properties?: pulumi.Input<inputs.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

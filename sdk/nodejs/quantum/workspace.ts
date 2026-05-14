@@ -122,15 +122,15 @@ export interface WorkspaceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.quantum.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.quantum.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the properties. Define quantum workspace's specific properties.
      */
-    properties?: pulumi.Input<inputs.quantum.WorkspaceResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.quantum.WorkspaceResourcePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,9 +138,9 @@ export interface WorkspaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the quantum workspace resource.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

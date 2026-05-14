@@ -136,7 +136,7 @@ export interface CertificateObjectGlobalRulestackArgs {
     /**
      * comment for this object
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * use certificate self signed
      */
@@ -144,11 +144,11 @@ export interface CertificateObjectGlobalRulestackArgs {
     /**
      * Resource Id of certificate signer, to be populated only when certificateSelfSigned is false
      */
-    certificateSignerResourceId?: pulumi.Input<string>;
+    certificateSignerResourceId?: pulumi.Input<string | undefined>;
     /**
      * user description for this object
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * GlobalRulestack resource name
      */
@@ -156,5 +156,5 @@ export interface CertificateObjectGlobalRulestackArgs {
     /**
      * certificate name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

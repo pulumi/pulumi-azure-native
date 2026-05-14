@@ -130,5 +130,5 @@ export interface RegistryDataVersionArgs {
     /**
      * Version identifier.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

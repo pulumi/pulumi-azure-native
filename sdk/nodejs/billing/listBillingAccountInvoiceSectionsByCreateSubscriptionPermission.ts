@@ -69,5 +69,5 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
     /**
      * The filter query option allows clients to filter a collection of resources that are addressed by a request URL.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
 }

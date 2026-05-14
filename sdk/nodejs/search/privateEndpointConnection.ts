@@ -80,7 +80,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'searchServiceName'");
             }
             resourceInputs["privateEndpointConnectionName"] = args?.privateEndpointConnectionName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.search.privateEndpointConnectionPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.search.privateEndpointConnectionPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["searchServiceName"] = args?.searchServiceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -108,11 +108,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Describes the properties of an existing private endpoint connection to the Azure AI Search service.
      */
-    properties?: pulumi.Input<inputs.search.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.search.PrivateEndpointConnectionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

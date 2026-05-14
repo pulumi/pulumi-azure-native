@@ -150,11 +150,11 @@ export interface PolicyDefinitionVersionAtManagementGroupArgs {
     /**
      * The policy definition description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the policy definition.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the management group. The name is case insensitive.
      */
@@ -162,15 +162,15 @@ export interface PolicyDefinitionVersionAtManagementGroupArgs {
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any;
+    metadata?: any | undefined;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>} | undefined>;
     /**
      * The name of the policy definition.
      */
@@ -178,17 +178,17 @@ export interface PolicyDefinitionVersionAtManagementGroupArgs {
     /**
      * The policy definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion?: pulumi.Input<string>;
+    policyDefinitionVersion?: pulumi.Input<string | undefined>;
     /**
      * The policy rule.
      */
-    policyRule?: any;
+    policyRule?: any | undefined;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.PolicyType | undefined>;
     /**
      * The policy definition version in #.#.# format.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

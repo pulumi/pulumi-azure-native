@@ -157,35 +157,35 @@ export interface MachineLearningDatastoreArgs {
     /**
      * Account Key of storage account.
      */
-    accountKey?: pulumi.Input<string>;
+    accountKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the storage account.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The resource group the ADLS store belongs to. Defaults to selected resource group.
      */
-    adlsResourceGroup?: pulumi.Input<string>;
+    adlsResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subscription the ADLS store belongs to. Defaults to selected subscription.
      */
-    adlsSubscriptionId?: pulumi.Input<string>;
+    adlsSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Authority url used to authenticate the user.
      */
-    authorityUrl?: pulumi.Input<string>;
+    authorityUrl?: pulumi.Input<string | undefined>;
     /**
      * The service principal's client/application ID.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The service principal's secret.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The name of the azure blob container.
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Specifies datastore type.
      */
@@ -193,47 +193,47 @@ export interface MachineLearningDatastoreArgs {
     /**
      * The database name.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The Datastore name.
      */
-    datastoreName?: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * The description of the datastore.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the server.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * This sets the ssl value of the server. Defaults to true if not set.
      */
-    enforceSSL?: pulumi.Input<boolean>;
+    enforceSSL?: pulumi.Input<boolean | undefined>;
     /**
      * The file system name of the ADLS Gen2.
      */
-    fileSystem?: pulumi.Input<string>;
+    fileSystem?: pulumi.Input<string | undefined>;
     /**
      * Include datastore secret in response.
      */
-    includeSecret?: pulumi.Input<boolean>;
+    includeSecret?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the datastore.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port number.
      */
-    port?: pulumi.Input<string>;
+    port?: pulumi.Input<string | undefined>;
     /**
      * The protocol to be used
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -241,47 +241,47 @@ export interface MachineLearningDatastoreArgs {
     /**
      * Determines what operations will be performed.
      */
-    resourceUrl?: pulumi.Input<string>;
+    resourceUrl?: pulumi.Input<string | undefined>;
     /**
      * Sas Token of storage account.
      */
-    sasToken?: pulumi.Input<string>;
+    sasToken?: pulumi.Input<string | undefined>;
     /**
      * The SQL/MySQL/PostgreSQL server name
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The name of the file share.
      */
-    shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string | undefined>;
     /**
      * Skip validation that ensures data can be loaded from the dataset before registration.
      */
-    skipValidation?: pulumi.Input<boolean>;
+    skipValidation?: pulumi.Input<boolean | undefined>;
     /**
      * The resource group of the storage account. Defaults to selected resource group
      */
-    storageAccountResourceGroup?: pulumi.Input<string>;
+    storageAccountResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The subscription ID of the storage account. Defaults to selected subscription
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The ADLS store name.
      */
-    storeName?: pulumi.Input<string>;
+    storeName?: pulumi.Input<string | undefined>;
     /**
      * The service principal Tenant ID.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The user ID.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * The username of the database user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning workspace.
      */
@@ -289,5 +289,5 @@ export interface MachineLearningDatastoreArgs {
     /**
      * If set to true, datastore support data access authenticated with Workspace MSI.
      */
-    workspaceSystemAssignedIdentity?: pulumi.Input<boolean>;
+    workspaceSystemAssignedIdentity?: pulumi.Input<boolean | undefined>;
 }

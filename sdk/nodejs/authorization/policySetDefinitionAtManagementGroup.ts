@@ -155,11 +155,11 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the policy set definition.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the management group.
      */
@@ -167,15 +167,15 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any;
+    metadata?: any | undefined;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>} | undefined>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionGroupArgs>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionGroupArgs>[] | undefined>;
     /**
      * An array of policy definition references.
      */
@@ -183,17 +183,17 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy set definition to create.
      */
-    policySetDefinitionName?: pulumi.Input<string>;
+    policySetDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.PolicyType | undefined>;
     /**
      * The policy set definition version in #.#.# format.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * A list of available versions for this policy set definition.
      */
-    versions?: pulumi.Input<pulumi.Input<string>[]>;
+    versions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

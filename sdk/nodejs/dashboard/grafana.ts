@@ -94,7 +94,7 @@ export class Grafana extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.dashboard.managedGrafanaPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.dashboard.managedGrafanaPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -128,15 +128,15 @@ export interface GrafanaArgs {
     /**
      * The managed identity of the grafana resource.
      */
-    identity?: pulumi.Input<inputs.dashboard.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.dashboard.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the grafana resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties specific to the grafana resource.
      */
-    properties?: pulumi.Input<inputs.dashboard.ManagedGrafanaPropertiesArgs>;
+    properties?: pulumi.Input<inputs.dashboard.ManagedGrafanaPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,13 +144,13 @@ export interface GrafanaArgs {
     /**
      * The Sku of the grafana resource.
      */
-    sku?: pulumi.Input<inputs.dashboard.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.dashboard.ResourceSkuArgs | undefined>;
     /**
      * The tags for grafana resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The workspace name of Azure Managed Grafana.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

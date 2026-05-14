@@ -122,15 +122,15 @@ export interface SpringbootsiteArgs {
     /**
      * The extended location definition.
      */
-    extendedLocation?: pulumi.Input<inputs.offazurespringboot.SpringbootsitesModelExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.offazurespringboot.SpringbootsitesModelExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The springbootsites resource definition.
      */
-    properties?: pulumi.Input<inputs.offazurespringboot.SpringbootsitesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.offazurespringboot.SpringbootsitesPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,9 +138,9 @@ export interface SpringbootsiteArgs {
     /**
      * The springbootsites name.
      */
-    springbootsitesName?: pulumi.Input<string>;
+    springbootsitesName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

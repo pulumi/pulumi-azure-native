@@ -174,7 +174,7 @@ export interface DevBoxDefinitionArgs {
     /**
      * The name of the Dev Box definition.
      */
-    devBoxDefinitionName?: pulumi.Input<string>;
+    devBoxDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter.
      */
@@ -182,7 +182,7 @@ export interface DevBoxDefinitionArgs {
     /**
      * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
      */
-    hibernateSupport?: pulumi.Input<string | enums.devcenter.HibernateSupport>;
+    hibernateSupport?: pulumi.Input<string | enums.devcenter.HibernateSupport | undefined>;
     /**
      * Image reference information.
      */
@@ -190,11 +190,11 @@ export interface DevBoxDefinitionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    osStorageType?: pulumi.Input<string>;
+    osStorageType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -206,5 +206,5 @@ export interface DevBoxDefinitionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

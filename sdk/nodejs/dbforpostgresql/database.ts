@@ -114,15 +114,15 @@ export interface DatabaseArgs {
     /**
      * Character set of the database.
      */
-    charset?: pulumi.Input<string>;
+    charset?: pulumi.Input<string | undefined>;
     /**
      * Collation of the database.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

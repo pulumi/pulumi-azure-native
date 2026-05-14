@@ -144,23 +144,23 @@ export interface WorkloadNetworkDnsZoneArgs {
     /**
      * Display name of the DNS Zone.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * DNS Server IP array of the DNS Zone.
      */
-    dnsServerIps?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServerIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of DNS Services using the DNS zone.
      */
-    dnsServices?: pulumi.Input<number>;
+    dnsServices?: pulumi.Input<number | undefined>;
     /**
      * ID of the DNS zone.
      */
-    dnsZoneId?: pulumi.Input<string>;
+    dnsZoneId?: pulumi.Input<string | undefined>;
     /**
      * Domain names of the DNS Zone.
      */
-    domain?: pulumi.Input<pulumi.Input<string>[]>;
+    domain?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the private cloud
      */
@@ -172,9 +172,9 @@ export interface WorkloadNetworkDnsZoneArgs {
     /**
      * NSX revision number.
      */
-    revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number | undefined>;
     /**
      * Source IP of the DNS Zone.
      */
-    sourceIp?: pulumi.Input<string>;
+    sourceIp?: pulumi.Input<string | undefined>;
 }

@@ -210,43 +210,43 @@ export interface NamespaceDeviceArgs {
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
-    attributes?: any;
+    attributes?: any | undefined;
     /**
      * The name of the device.
      */
-    deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided.
      */
-    discoveredDeviceRef?: pulumi.Input<string>;
+    discoveredDeviceRef?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the resource is enabled or not.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Property bag containing the device's unassigned and assigned endpoints.
      */
-    endpoints?: pulumi.Input<inputs.deviceregistry.MessagingEndpointsArgs>;
+    endpoints?: pulumi.Input<inputs.deviceregistry.MessagingEndpointsArgs | undefined>;
     /**
      * The extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.deviceregistry.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.deviceregistry.ExtendedLocationArgs | undefined>;
     /**
      * The Device ID provided by the customer.
      */
-    externalDeviceId?: pulumi.Input<string>;
+    externalDeviceId?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Device manufacturer.
      */
-    manufacturer?: pulumi.Input<string>;
+    manufacturer?: pulumi.Input<string | undefined>;
     /**
      * Device model.
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * The name of the namespace.
      */
@@ -254,11 +254,11 @@ export interface NamespaceDeviceArgs {
     /**
      * Device operating system.
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * Device operating system version.
      */
-    operatingSystemVersion?: pulumi.Input<string>;
+    operatingSystemVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -266,5 +266,5 @@ export interface NamespaceDeviceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

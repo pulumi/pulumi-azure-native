@@ -191,11 +191,11 @@ export interface IotHubDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    dataFormat?: pulumi.Input<string | enums.kusto.IotHubDataFormat>;
+    dataFormat?: pulumi.Input<string | enums.kusto.IotHubDataFormat | undefined>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -203,11 +203,11 @@ export interface IotHubDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed
      */
-    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting | undefined>;
     /**
      * System properties of the iot hub
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource ID of the Iot hub to be used to create a data connection.
      */
@@ -220,11 +220,11 @@ export interface IotHubDataConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -232,7 +232,7 @@ export interface IotHubDataConnectionArgs {
     /**
      * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the share access policy
      */
@@ -240,5 +240,5 @@ export interface IotHubDataConnectionArgs {
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

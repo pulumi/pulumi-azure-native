@@ -136,19 +136,19 @@ export interface ApplicationArgs {
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string.
      */
-    allowUpdates?: pulumi.Input<boolean>;
+    allowUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the application. This must be unique within the account.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
-    defaultVersion?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string | undefined>;
     /**
      * The display name for the application.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -156,5 +156,5 @@ export interface ApplicationArgs {
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

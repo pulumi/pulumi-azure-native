@@ -122,7 +122,7 @@ export interface SecretArgs {
     /**
      * object which contains secret parameters
      */
-    parameters?: pulumi.Input<inputs.cdn.AzureFirstPartyManagedCertificateParametersArgs | inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs>;
+    parameters?: pulumi.Input<inputs.cdn.AzureFirstPartyManagedCertificateParametersArgs | inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -134,5 +134,5 @@ export interface SecretArgs {
     /**
      * Name of the Secret under the profile.
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
 }

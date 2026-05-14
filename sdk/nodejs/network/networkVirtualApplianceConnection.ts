@@ -97,15 +97,15 @@ export interface NetworkVirtualApplianceConnectionArgs {
     /**
      * The name of the NVA connection.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Virtual Appliance.
      */
@@ -113,7 +113,7 @@ export interface NetworkVirtualApplianceConnectionArgs {
     /**
      * Properties of the express route connection.
      */
-    properties?: pulumi.Input<inputs.network.NetworkVirtualApplianceConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.NetworkVirtualApplianceConnectionPropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */

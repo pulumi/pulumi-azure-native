@@ -196,56 +196,56 @@ export interface AgentPoolArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The underlying cloud infra provider properties.
      */
-    cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs>;
+    cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs | undefined>;
     /**
      * Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
      */
-    count?: pulumi.Input<number>;
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolExtendedLocationArgs>;
+    count?: pulumi.Input<number | undefined>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolExtendedLocationArgs | undefined>;
     /**
      * The resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of nodes for auto-scaling
      */
-    maxCount?: pulumi.Input<number>;
+    maxCount?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of pods that can run on a node.
      */
-    maxPods?: pulumi.Input<number>;
+    maxPods?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of nodes for auto-scaling
      */
-    minCount?: pulumi.Input<number>;
+    minCount?: pulumi.Input<number | undefined>;
     /**
      * Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
      */
-    mode?: pulumi.Input<string | enums.hybridcontainerservice.Mode>;
+    mode?: pulumi.Input<string | enums.hybridcontainerservice.Mode | undefined>;
     /**
      * The version of node image
      */
-    nodeImageVersion?: pulumi.Input<string>;
+    nodeImageVersion?: pulumi.Input<string | undefined>;
     /**
      * NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
      */
-    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeTaints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
      */
-    osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType>;
+    osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -257,13 +257,13 @@ export interface AgentPoolArgs {
     /**
      * HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
      */
-    status?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolProvisioningStatusStatusArgs>;
+    status?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolProvisioningStatusStatusArgs | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VmSize - The size of the agent pool VMs.
      */
-    vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string | undefined>;
 }

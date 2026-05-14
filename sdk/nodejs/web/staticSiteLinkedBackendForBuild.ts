@@ -126,7 +126,7 @@ export interface StaticSiteLinkedBackendForBuildArgs {
     /**
      * The resource id of the backend linked to the static site
      */
-    backendResourceId?: pulumi.Input<string>;
+    backendResourceId?: pulumi.Input<string | undefined>;
     /**
      * The stage site identifier
      */
@@ -134,11 +134,11 @@ export interface StaticSiteLinkedBackendForBuildArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the backend to link to the static site
      */
-    linkedBackendName?: pulumi.Input<string>;
+    linkedBackendName?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site
      */
@@ -146,7 +146,7 @@ export interface StaticSiteLinkedBackendForBuildArgs {
     /**
      * The region of the backend linked to the static site
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

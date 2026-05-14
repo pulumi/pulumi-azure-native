@@ -123,7 +123,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Network mapping name.
      */
-    networkMappingName?: pulumi.Input<string>;
+    networkMappingName?: pulumi.Input<string | undefined>;
     /**
      * Primary network name.
      */

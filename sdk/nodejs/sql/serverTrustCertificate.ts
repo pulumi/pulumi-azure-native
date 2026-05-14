@@ -110,7 +110,7 @@ export interface ServerTrustCertificateArgs {
     /**
      * Name of of the certificate to upload.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */
@@ -118,7 +118,7 @@ export interface ServerTrustCertificateArgs {
     /**
      * The certificate public blob
      */
-    publicBlob?: pulumi.Input<string>;
+    publicBlob?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

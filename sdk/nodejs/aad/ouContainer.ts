@@ -171,7 +171,7 @@ export interface OuContainerArgs {
     /**
      * The account name
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the domain service.
      */
@@ -179,11 +179,11 @@ export interface OuContainerArgs {
     /**
      * The name of the OuContainer.
      */
-    ouContainerName?: pulumi.Input<string>;
+    ouContainerName?: pulumi.Input<string | undefined>;
     /**
      * The account password
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -191,5 +191,5 @@ export interface OuContainerArgs {
     /**
      * The account spn
      */
-    spn?: pulumi.Input<string>;
+    spn?: pulumi.Input<string | undefined>;
 }

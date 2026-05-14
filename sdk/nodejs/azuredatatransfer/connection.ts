@@ -116,15 +116,15 @@ export interface ConnectionArgs {
     /**
      * The name for the connection that is to be requested.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of connection
      */
-    properties?: pulumi.Input<inputs.azuredatatransfer.ConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azuredatatransfer.ConnectionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface ConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

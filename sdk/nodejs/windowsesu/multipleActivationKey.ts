@@ -147,27 +147,27 @@ export interface MultipleActivationKeyArgs {
     /**
      * Agreement number under which the key is requested.
      */
-    agreementNumber?: pulumi.Input<string>;
+    agreementNumber?: pulumi.Input<string | undefined>;
     /**
      * Number of activations/servers using the MAK key.
      */
-    installedServerNumber?: pulumi.Input<number>;
+    installedServerNumber?: pulumi.Input<number | undefined>;
     /**
      * <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
      */
-    isEligible?: pulumi.Input<boolean>;
+    isEligible?: pulumi.Input<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the MAK key.
      */
-    multipleActivationKeyName?: pulumi.Input<string>;
+    multipleActivationKeyName?: pulumi.Input<string | undefined>;
     /**
      * Type of OS for which the key is requested.
      */
-    osType?: pulumi.Input<string | enums.windowsesu.OsType>;
+    osType?: pulumi.Input<string | enums.windowsesu.OsType | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -175,9 +175,9 @@ export interface MultipleActivationKeyArgs {
     /**
      * Type of support
      */
-    supportType?: pulumi.Input<string | enums.windowsesu.SupportType>;
+    supportType?: pulumi.Input<string | enums.windowsesu.SupportType | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

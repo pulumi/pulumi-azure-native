@@ -114,7 +114,7 @@ export interface VirtualNetworkRuleArgs {
     /**
      * Create firewall rule before the virtual network has vnet service endpoint enabled.
      */
-    ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+    ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -126,7 +126,7 @@ export interface VirtualNetworkRuleArgs {
     /**
      * The name of the virtual network rule.
      */
-    virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource id of the virtual network subnet.
      */

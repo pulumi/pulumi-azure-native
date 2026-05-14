@@ -158,11 +158,11 @@ export interface DeviceArgs {
     /**
      * Device ID
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId?: pulumi.Input<string | undefined>;
     /**
      * Device name
      */
-    deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * Name of product.
      */

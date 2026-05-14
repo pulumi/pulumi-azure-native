@@ -120,7 +120,7 @@ export interface ConnectedEnvironmentsCertificateArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Connected Environment.
      */
@@ -128,11 +128,11 @@ export interface ConnectedEnvironmentsCertificateArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Certificate resource specific properties
      */
-    properties?: pulumi.Input<inputs.app.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.app.CertificatePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface ConnectedEnvironmentsCertificateArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

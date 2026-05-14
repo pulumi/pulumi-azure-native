@@ -224,75 +224,75 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
      */
-    allowForwardedTraffic?: pulumi.Input<boolean>;
+    allowForwardedTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * If gateway links can be used in remote virtual networking to link to this virtual network.
      */
-    allowGatewayTransit?: pulumi.Input<boolean>;
+    allowGatewayTransit?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
      */
-    allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+    allowVirtualNetworkAccess?: pulumi.Input<boolean | undefined>;
     /**
      * If we need to verify the provisioning state of the remote gateway.
      */
-    doNotVerifyRemoteGateways?: pulumi.Input<boolean>;
+    doNotVerifyRemoteGateways?: pulumi.Input<boolean | undefined>;
     /**
      * Whether only Ipv6 address space is peered for subnet peering.
      */
-    enableOnlyIPv6Peering?: pulumi.Input<boolean>;
+    enableOnlyIPv6Peering?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The local address space of the local virtual network that is peered.
      */
-    localAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    localAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
     /**
      * List of local subnet names that are subnet peered with remote virtual network.
      */
-    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The current local address space of the local virtual network that is peered.
      */
-    localVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    localVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether complete virtual network address space is peered.
      */
-    peerCompleteVnets?: pulumi.Input<boolean>;
+    peerCompleteVnets?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the virtual network peering.
      */
-    peeringState?: pulumi.Input<string | enums.network.VirtualNetworkPeeringState>;
+    peeringState?: pulumi.Input<string | enums.network.VirtualNetworkPeeringState | undefined>;
     /**
      * The peering sync status of the virtual network peering.
      */
-    peeringSyncLevel?: pulumi.Input<string | enums.network.VirtualNetworkPeeringLevel>;
+    peeringSyncLevel?: pulumi.Input<string | enums.network.VirtualNetworkPeeringLevel | undefined>;
     /**
      * The reference to the address space peered with the remote virtual network.
      */
-    remoteAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    remoteAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
     /**
      * The reference to the remote virtual network's Bgp Communities.
      */
-    remoteBgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs>;
+    remoteBgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs | undefined>;
     /**
      * List of remote subnet names from remote virtual network that are subnet peered.
      */
-    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
-    remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
+    remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The reference to the current address space of the remote virtual network.
      */
-    remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -300,15 +300,15 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
      */
-    syncRemoteAddressSpace?: pulumi.Input<string>;
+    syncRemoteAddressSpace?: pulumi.Input<string | undefined>;
     /**
      * Resource type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */
-    useRemoteGateways?: pulumi.Input<boolean>;
+    useRemoteGateways?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the virtual network.
      */
@@ -316,5 +316,5 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * The name of the peering.
      */
-    virtualNetworkPeeringName?: pulumi.Input<string>;
+    virtualNetworkPeeringName?: pulumi.Input<string | undefined>;
 }

@@ -114,11 +114,11 @@ export interface DpsCertificateArgs {
     /**
      * The name of the certificate create or update.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * properties of a certificate
      */
-    properties?: pulumi.Input<inputs.deviceprovisioningservices.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.deviceprovisioningservices.CertificatePropertiesArgs | undefined>;
     /**
      * The name of the provisioning service.
      */

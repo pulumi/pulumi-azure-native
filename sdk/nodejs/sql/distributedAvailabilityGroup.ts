@@ -161,23 +161,23 @@ export interface DistributedAvailabilityGroupArgs {
     /**
      * Databases in the distributed availability group
      */
-    databases?: pulumi.Input<pulumi.Input<inputs.sql.DistributedAvailabilityGroupDatabaseArgs>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.sql.DistributedAvailabilityGroupDatabaseArgs>[] | undefined>;
     /**
      * The distributed availability group name.
      */
-    distributedAvailabilityGroupName?: pulumi.Input<string>;
+    distributedAvailabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
      */
-    failoverMode?: pulumi.Input<string | enums.sql.FailoverModeType>;
+    failoverMode?: pulumi.Input<string | enums.sql.FailoverModeType | undefined>;
     /**
      * Managed instance side availability group name
      */
-    instanceAvailabilityGroupName?: pulumi.Input<string>;
+    instanceAvailabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Managed instance side link role
      */
-    instanceLinkRole?: pulumi.Input<string | enums.sql.LinkRole>;
+    instanceLinkRole?: pulumi.Input<string | enums.sql.LinkRole | undefined>;
     /**
      * The name of the managed instance.
      */
@@ -185,15 +185,15 @@ export interface DistributedAvailabilityGroupArgs {
     /**
      * SQL server side availability group name
      */
-    partnerAvailabilityGroupName?: pulumi.Input<string>;
+    partnerAvailabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * SQL server side endpoint - IP or DNS resolvable name
      */
-    partnerEndpoint?: pulumi.Input<string>;
+    partnerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Replication mode of the link
      */
-    replicationMode?: pulumi.Input<string | enums.sql.ReplicationModeType>;
+    replicationMode?: pulumi.Input<string | enums.sql.ReplicationModeType | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -201,5 +201,5 @@ export interface DistributedAvailabilityGroupArgs {
     /**
      * Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
      */
-    seedingMode?: pulumi.Input<string | enums.sql.SeedingModeType>;
+    seedingMode?: pulumi.Input<string | enums.sql.SeedingModeType | undefined>;
 }

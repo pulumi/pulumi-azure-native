@@ -125,7 +125,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=webHookUrl)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */

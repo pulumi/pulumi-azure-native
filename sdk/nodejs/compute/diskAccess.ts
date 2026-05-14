@@ -134,15 +134,15 @@ export interface DiskAccessArgs {
     /**
      * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
-    diskAccessName?: pulumi.Input<string>;
+    diskAccessName?: pulumi.Input<string | undefined>;
     /**
      * The extended location where the disk access will be created. Extended location cannot be changed.
      */
-    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,5 +150,5 @@ export interface DiskAccessArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

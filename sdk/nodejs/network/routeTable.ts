@@ -141,15 +141,15 @@ export interface RouteTableArgs {
     /**
      * Whether to disable the routes learned by BGP on that route table. True means disable.
      */
-    disableBgpRoutePropagation?: pulumi.Input<boolean>;
+    disableBgpRoutePropagation?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -157,14 +157,14 @@ export interface RouteTableArgs {
     /**
      * The name of the route table.
      */
-    routeTableName?: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string | undefined>;
     /**
      * Collection of routes contained within a route table.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteArgs>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

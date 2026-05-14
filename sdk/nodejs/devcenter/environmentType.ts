@@ -124,11 +124,11 @@ export interface EnvironmentTypeArgs {
     /**
      * The display name of the environment type.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string>;
+    environmentTypeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface EnvironmentTypeArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -158,19 +158,19 @@ export interface L2IsolationDomainArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Name of the L2 Isolation Domain.
      */
-    l2IsolationDomainName?: pulumi.Input<string>;
+    l2IsolationDomainName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum transmission unit. Default value is 1500.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * ARM Resource ID of the Network Fabric.
      */
@@ -182,7 +182,7 @@ export interface L2IsolationDomainArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Vlan Identifier of the Network Fabric. Example: 501.
      */

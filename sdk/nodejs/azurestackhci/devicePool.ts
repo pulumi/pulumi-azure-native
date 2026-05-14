@@ -120,19 +120,19 @@ export interface DevicePoolArgs {
     /**
      * The name of the DevicePool
      */
-    devicePoolName?: pulumi.Input<string>;
+    devicePoolName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.DevicePoolPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurestackhci.DevicePoolPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface DevicePoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

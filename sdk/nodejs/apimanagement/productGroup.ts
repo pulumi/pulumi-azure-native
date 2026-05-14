@@ -121,7 +121,7 @@ export interface ProductGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

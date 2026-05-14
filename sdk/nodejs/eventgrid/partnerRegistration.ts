@@ -123,16 +123,16 @@ export interface PartnerRegistrationArgs {
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The immutableId of the corresponding partner registration.
      * Note: This property is marked for deprecation and is not supported in any future GA API version
      */
-    partnerRegistrationImmutableId?: pulumi.Input<string>;
+    partnerRegistrationImmutableId?: pulumi.Input<string | undefined>;
     /**
      * Name of the partner registration.
      */
-    partnerRegistrationName?: pulumi.Input<string>;
+    partnerRegistrationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -140,5 +140,5 @@ export interface PartnerRegistrationArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

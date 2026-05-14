@@ -143,11 +143,11 @@ export interface IpPrefixArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Name of the IP Prefix.
      */
-    ipPrefixName?: pulumi.Input<string>;
+    ipPrefixName?: pulumi.Input<string | undefined>;
     /**
      * The list of IP Prefix Rules.
      */
@@ -155,7 +155,7 @@ export interface IpPrefixArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,5 +163,5 @@ export interface IpPrefixArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

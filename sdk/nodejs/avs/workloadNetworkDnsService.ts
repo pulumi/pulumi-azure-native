@@ -150,27 +150,27 @@ export interface WorkloadNetworkDnsServiceArgs {
     /**
      * Default DNS zone of the DNS Service.
      */
-    defaultDnsZone?: pulumi.Input<string>;
+    defaultDnsZone?: pulumi.Input<string | undefined>;
     /**
      * Display name of the DNS Service.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * ID of the DNS service.
      */
-    dnsServiceId?: pulumi.Input<string>;
+    dnsServiceId?: pulumi.Input<string | undefined>;
     /**
      * DNS service IP of the DNS Service.
      */
-    dnsServiceIp?: pulumi.Input<string>;
+    dnsServiceIp?: pulumi.Input<string | undefined>;
     /**
      * FQDN zones of the DNS Service.
      */
-    fqdnZones?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdnZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * DNS Service log level.
      */
-    logLevel?: pulumi.Input<string | enums.avs.DnsServiceLogLevelEnum>;
+    logLevel?: pulumi.Input<string | enums.avs.DnsServiceLogLevelEnum | undefined>;
     /**
      * Name of the private cloud
      */
@@ -182,5 +182,5 @@ export interface WorkloadNetworkDnsServiceArgs {
     /**
      * NSX revision number.
      */
-    revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number | undefined>;
 }

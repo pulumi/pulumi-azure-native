@@ -117,7 +117,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the firewall rule to create or update.
      */
-    firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group.
      */

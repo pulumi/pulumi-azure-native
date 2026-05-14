@@ -181,43 +181,43 @@ export interface AssessmentProjectsOperationArgs {
     /**
      * Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
      */
-    assessmentSolutionId?: pulumi.Input<string>;
+    assessmentSolutionId?: pulumi.Input<string | undefined>;
     /**
      * The ARM id of the storage account used for interactions when public access is
      * disabled.
      */
-    customerStorageAccountArmId?: pulumi.Input<string>;
+    customerStorageAccountArmId?: pulumi.Input<string | undefined>;
     /**
      * The ARM id of service map workspace created by customer.
      */
-    customerWorkspaceId?: pulumi.Input<string>;
+    customerWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Location of service map workspace created by customer.
      */
-    customerWorkspaceLocation?: pulumi.Input<string>;
+    customerWorkspaceLocation?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Assessment project status.
      */
-    projectStatus?: pulumi.Input<string | enums.migrate.ProjectStatus>;
+    projectStatus?: pulumi.Input<string | enums.migrate.ProjectStatus | undefined>;
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
     /**
      * This value can be set to 'enabled' to avoid breaking changes on existing
      * customer resources and templates. If set to 'disabled', traffic over public
      * interface is not allowed, and private endpoint connections would be the
      * exclusive access method.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -225,5 +225,5 @@ export interface AssessmentProjectsOperationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

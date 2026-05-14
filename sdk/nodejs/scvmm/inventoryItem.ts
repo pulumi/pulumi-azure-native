@@ -140,7 +140,7 @@ export interface InventoryItemArgs {
     /**
      * Name of the inventoryItem.
      */
-    inventoryItemName?: pulumi.Input<string>;
+    inventoryItemName?: pulumi.Input<string | undefined>;
     /**
      * They inventory type.
      */
@@ -148,7 +148,7 @@ export interface InventoryItemArgs {
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

@@ -125,7 +125,7 @@ export interface GetGalleryOutputArgs {
     /**
      * The expand query option to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -137,5 +137,5 @@ export interface GetGalleryOutputArgs {
     /**
      * The select expression to apply on the operation.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
 }

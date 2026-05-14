@@ -106,7 +106,7 @@ export interface ServiceArgs {
     /**
      * Properties in ServiceResourceCreateUpdateParameters.
      */
-    properties?: pulumi.Input<inputs.cosmosdb.DataTransferServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.cosmosdb.DataTransferServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs | inputs.cosmosdb.SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -114,5 +114,5 @@ export interface ServiceArgs {
     /**
      * Cosmos DB service name.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
 }

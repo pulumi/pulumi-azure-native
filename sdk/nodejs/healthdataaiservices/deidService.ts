@@ -120,19 +120,19 @@ export interface DeidServiceArgs {
     /**
      * The name of the deid service
      */
-    deidServiceName?: pulumi.Input<string>;
+    deidServiceName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.healthdataaiservices.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.healthdataaiservices.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.healthdataaiservices.DeidServicePropertiesArgs>;
+    properties?: pulumi.Input<inputs.healthdataaiservices.DeidServicePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface DeidServiceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

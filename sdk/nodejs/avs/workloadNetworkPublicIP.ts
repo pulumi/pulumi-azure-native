@@ -126,11 +126,11 @@ export interface WorkloadNetworkPublicIPArgs {
     /**
      * Display name of the Public IP Block.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Number of Public IPs requested.
      */
-    numberOfPublicIPs?: pulumi.Input<number>;
+    numberOfPublicIPs?: pulumi.Input<number | undefined>;
     /**
      * Name of the private cloud
      */
@@ -138,7 +138,7 @@ export interface WorkloadNetworkPublicIPArgs {
     /**
      * ID of the DNS zone.
      */
-    publicIPId?: pulumi.Input<string>;
+    publicIPId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

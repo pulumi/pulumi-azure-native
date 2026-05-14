@@ -121,7 +121,7 @@ export interface RedisFirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * lowest IP address included in the range
      */

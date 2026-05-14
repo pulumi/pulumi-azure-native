@@ -53,5 +53,5 @@ export interface ListProviderActionInUseStorageAccountsOutputArgs {
     /**
      * List of subscription ids to be query. If the list is null or empty, the API will query all the subscriptions of the user.
      */
-    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

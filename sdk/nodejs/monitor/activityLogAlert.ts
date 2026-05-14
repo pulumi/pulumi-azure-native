@@ -147,7 +147,7 @@ export interface ActivityLogAlertArgs {
     /**
      * The name of the Activity Log Alert rule.
      */
-    activityLogAlertName?: pulumi.Input<string>;
+    activityLogAlertName?: pulumi.Input<string | undefined>;
     /**
      * The condition that will cause this alert to activate.
      */
@@ -155,15 +155,15 @@ export interface ActivityLogAlertArgs {
     /**
      * A description of this Activity Log Alert rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -175,5 +175,5 @@ export interface ActivityLogAlertArgs {
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

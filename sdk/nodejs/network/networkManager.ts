@@ -150,23 +150,23 @@ export interface NetworkManagerArgs {
     /**
      * A description of the network manager.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
-    networkManagerName?: pulumi.Input<string>;
+    networkManagerName?: pulumi.Input<string | undefined>;
     /**
      * Scope Access.
      */
-    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[] | undefined>;
     /**
      * Scope of Network Manager.
      */
@@ -178,5 +178,5 @@ export interface NetworkManagerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

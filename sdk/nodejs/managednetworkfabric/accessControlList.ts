@@ -173,15 +173,15 @@ export interface AccessControlListArgs {
     /**
      * Name of the Access Control List.
      */
-    accessControlListName?: pulumi.Input<string>;
+    accessControlListName?: pulumi.Input<string | undefined>;
     /**
      * Access Control List file URL.
      */
-    aclsUrl?: pulumi.Input<string>;
+    aclsUrl?: pulumi.Input<string | undefined>;
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Input method to configure Access Control List.
      */
@@ -189,19 +189,19 @@ export interface AccessControlListArgs {
     /**
      * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
      */
-    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
+    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes | undefined>;
     /**
      * List of dynamic match configurations.
      */
-    dynamicMatchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.CommonDynamicMatchConfigurationArgs>[]>;
+    dynamicMatchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.CommonDynamicMatchConfigurationArgs>[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * List of match configurations.
      */
-    matchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.AccessControlListMatchConfigurationArgs>[]>;
+    matchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.AccessControlListMatchConfigurationArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,5 +209,5 @@ export interface AccessControlListArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

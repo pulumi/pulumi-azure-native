@@ -170,11 +170,11 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    apiServerEndpoint?: pulumi.Input<string>;
+    apiServerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * RootCA certificate of kubernetes cluster base64 encoded
      */
-    clusterRootCA?: pulumi.Input<string>;
+    clusterRootCA?: pulumi.Input<string | undefined>;
     /**
      * Properties of the controller.
      */
@@ -182,7 +182,7 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * The identity of the orchestrator
      */
-    identity?: pulumi.Input<inputs.delegatednetwork.OrchestratorIdentityArgs>;
+    identity?: pulumi.Input<inputs.delegatednetwork.OrchestratorIdentityArgs | undefined>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
@@ -190,19 +190,19 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * AAD ID used with apiserver
      */
-    orchestratorAppId?: pulumi.Input<string>;
+    orchestratorAppId?: pulumi.Input<string | undefined>;
     /**
      * TenantID of server App ID
      */
-    orchestratorTenantId?: pulumi.Input<string>;
+    orchestratorTenantId?: pulumi.Input<string | undefined>;
     /**
      * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -210,9 +210,9 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

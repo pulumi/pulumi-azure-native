@@ -114,15 +114,15 @@ export interface DeploymentStacksWhatIfResultsAtResourceGroupArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: pulumi.Input<string>;
+    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.resources.DeploymentStacksWhatIfResultPropertiesArgs>;
+    properties?: pulumi.Input<inputs.resources.DeploymentStacksWhatIfResultPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface DeploymentStacksWhatIfResultsAtResourceGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

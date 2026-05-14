@@ -132,11 +132,11 @@ export interface RegistrationArgs {
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | enums.azurestack.Location>;
+    location?: pulumi.Input<string | enums.azurestack.Location | undefined>;
     /**
      * Name of the Azure Stack registration.
      */
-    registrationName?: pulumi.Input<string>;
+    registrationName?: pulumi.Input<string | undefined>;
     /**
      * The token identifying registered Azure Stack
      */

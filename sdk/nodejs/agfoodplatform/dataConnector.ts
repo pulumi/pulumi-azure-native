@@ -115,7 +115,7 @@ export interface DataConnectorArgs {
     /**
      * Connector name.
      */
-    dataConnectorName?: pulumi.Input<string>;
+    dataConnectorName?: pulumi.Input<string | undefined>;
     /**
      * DataManagerForAgriculture resource name.
      */

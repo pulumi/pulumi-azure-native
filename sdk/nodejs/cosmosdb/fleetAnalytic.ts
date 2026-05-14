@@ -120,7 +120,7 @@ export interface FleetAnalyticArgs {
     /**
      * Cosmos DB fleetAnalytics name.
      */
-    fleetAnalyticsName?: pulumi.Input<string>;
+    fleetAnalyticsName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
@@ -132,9 +132,9 @@ export interface FleetAnalyticArgs {
     /**
      * The type of the fleet analytics resource.
      */
-    storageLocationType?: pulumi.Input<string | enums.cosmosdb.StorageLocationType>;
+    storageLocationType?: pulumi.Input<string | enums.cosmosdb.StorageLocationType | undefined>;
     /**
      * The unique identifier of the fleet analytics resource.
      */
-    storageLocationUri?: pulumi.Input<string>;
+    storageLocationUri?: pulumi.Input<string | undefined>;
 }

@@ -111,7 +111,7 @@ export interface GetSecretOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=value)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */

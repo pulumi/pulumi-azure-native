@@ -111,7 +111,7 @@ export interface IotDpsResourcePrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The properties of a private endpoint connection
      */

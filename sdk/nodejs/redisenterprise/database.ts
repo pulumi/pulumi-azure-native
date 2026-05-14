@@ -174,11 +174,11 @@ export interface DatabaseArgs {
     /**
      * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
      */
-    accessKeysAuthentication?: pulumi.Input<string | enums.redisenterprise.AccessKeysAuthentication>;
+    accessKeysAuthentication?: pulumi.Input<string | enums.redisenterprise.AccessKeysAuthentication | undefined>;
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
-    clientProtocol?: pulumi.Input<string | enums.redisenterprise.Protocol>;
+    clientProtocol?: pulumi.Input<string | enums.redisenterprise.Protocol | undefined>;
     /**
      * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
@@ -186,35 +186,35 @@ export interface DatabaseArgs {
     /**
      * Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
      */
-    clusteringPolicy?: pulumi.Input<string | enums.redisenterprise.ClusteringPolicy>;
+    clusteringPolicy?: pulumi.Input<string | enums.redisenterprise.ClusteringPolicy | undefined>;
     /**
      * The name of the Redis Enterprise database.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
      */
-    deferUpgrade?: pulumi.Input<string | enums.redisenterprise.DeferUpgradeSetting>;
+    deferUpgrade?: pulumi.Input<string | enums.redisenterprise.DeferUpgradeSetting | undefined>;
     /**
      * Redis eviction policy - default is VolatileLRU
      */
-    evictionPolicy?: pulumi.Input<string | enums.redisenterprise.EvictionPolicy>;
+    evictionPolicy?: pulumi.Input<string | enums.redisenterprise.EvictionPolicy | undefined>;
     /**
      * Optional set of properties to configure geo replication for this database.
      */
-    geoReplication?: pulumi.Input<inputs.redisenterprise.DatabasePropertiesGeoReplicationArgs>;
+    geoReplication?: pulumi.Input<inputs.redisenterprise.DatabasePropertiesGeoReplicationArgs | undefined>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    modules?: pulumi.Input<pulumi.Input<inputs.redisenterprise.ModuleArgs>[]>;
+    modules?: pulumi.Input<pulumi.Input<inputs.redisenterprise.ModuleArgs>[] | undefined>;
     /**
      * Persistence settings
      */
-    persistence?: pulumi.Input<inputs.redisenterprise.PersistenceArgs>;
+    persistence?: pulumi.Input<inputs.redisenterprise.PersistenceArgs | undefined>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

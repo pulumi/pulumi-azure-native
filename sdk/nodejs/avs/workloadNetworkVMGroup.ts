@@ -132,11 +132,11 @@ export interface WorkloadNetworkVMGroupArgs {
     /**
      * Display name of the VM group.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Virtual machine members of this group.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the private cloud
      */
@@ -148,9 +148,9 @@ export interface WorkloadNetworkVMGroupArgs {
     /**
      * NSX revision number.
      */
-    revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number | undefined>;
     /**
      * ID of the VM group.
      */
-    vmGroupId?: pulumi.Input<string>;
+    vmGroupId?: pulumi.Input<string | undefined>;
 }

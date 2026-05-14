@@ -134,19 +134,19 @@ export interface CredentialSetArgs {
      * List of authentication credentials stored for an upstream.
      * Usually consists of a primary and an optional secondary credential.
      */
-    authCredentials?: pulumi.Input<pulumi.Input<inputs.containerregistry.AuthCredentialArgs>[]>;
+    authCredentials?: pulumi.Input<pulumi.Input<inputs.containerregistry.AuthCredentialArgs>[] | undefined>;
     /**
      * The name of the credential set.
      */
-    credentialSetName?: pulumi.Input<string>;
+    credentialSetName?: pulumi.Input<string | undefined>;
     /**
      * Identities associated with the resource. This is used to access the KeyVault secrets.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
     /**
      * The credentials are stored for this upstream or login server.
      */
-    loginServer?: pulumi.Input<string>;
+    loginServer?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */

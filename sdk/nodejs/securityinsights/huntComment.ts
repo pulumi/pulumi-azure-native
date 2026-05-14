@@ -121,7 +121,7 @@ export interface HuntCommentArgs {
     /**
      * The hunt comment id (GUID)
      */
-    huntCommentId?: pulumi.Input<string>;
+    huntCommentId?: pulumi.Input<string | undefined>;
     /**
      * The hunt id (GUID)
      */

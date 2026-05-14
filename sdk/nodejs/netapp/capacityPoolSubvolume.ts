@@ -138,11 +138,11 @@ export interface CapacityPoolSubvolumeArgs {
     /**
      * parent path to the subvolume
      */
-    parentPath?: pulumi.Input<string>;
+    parentPath?: pulumi.Input<string | undefined>;
     /**
      * Path to the subvolume
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The name of the capacity pool
      */
@@ -154,11 +154,11 @@ export interface CapacityPoolSubvolumeArgs {
     /**
      * Truncate subvolume to the provided size in bytes
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * The name of the subvolume.
      */
-    subvolumeName?: pulumi.Input<string>;
+    subvolumeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the volume
      */

@@ -112,7 +112,7 @@ export interface TagRuleArgs {
     /**
      * Properties of the monitoring tag rules.
      */
-    properties?: pulumi.Input<inputs.elastic.MonitoringTagRulesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.elastic.MonitoringTagRulesPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface TagRuleArgs {
     /**
      * Tag Rule Set resource name
      */
-    ruleSetName?: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string | undefined>;
 }

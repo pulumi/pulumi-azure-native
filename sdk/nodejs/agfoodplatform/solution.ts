@@ -116,7 +116,7 @@ export interface SolutionArgs {
     /**
      * Solution resource properties.
      */
-    properties?: pulumi.Input<inputs.agfoodplatform.SolutionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.agfoodplatform.SolutionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -124,5 +124,5 @@ export interface SolutionArgs {
     /**
      * SolutionId for Data Manager For Agriculture Resource.
      */
-    solutionId?: pulumi.Input<string>;
+    solutionId?: pulumi.Input<string | undefined>;
 }

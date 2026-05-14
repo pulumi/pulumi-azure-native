@@ -120,7 +120,7 @@ export interface VerifierWorkspaceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
@@ -128,7 +128,7 @@ export interface VerifierWorkspaceArgs {
     /**
      * Properties of Verifier Workspace resource.
      */
-    properties?: pulumi.Input<inputs.network.VerifierWorkspacePropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.VerifierWorkspacePropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -136,9 +136,9 @@ export interface VerifierWorkspaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Workspace name.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

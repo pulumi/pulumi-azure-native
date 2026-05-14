@@ -172,15 +172,15 @@ export interface ScheduledActionArgs {
     /**
      * Destination format of the view data. This is optional.
      */
-    fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs>;
+    fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs | undefined>;
     /**
      * Kind of the scheduled action.
      */
-    kind?: pulumi.Input<string | enums.costmanagement.ScheduledActionKind>;
+    kind?: pulumi.Input<string | enums.costmanagement.ScheduledActionKind | undefined>;
     /**
      * Scheduled action name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Notification properties based on scheduled action kind.
      */
@@ -188,7 +188,7 @@ export interface ScheduledActionArgs {
     /**
      * Email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    notificationEmail?: pulumi.Input<string>;
+    notificationEmail?: pulumi.Input<string | undefined>;
     /**
      * Schedule of the scheduled action.
      */
@@ -196,7 +196,7 @@ export interface ScheduledActionArgs {
     /**
      * For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Status of the scheduled action.
      */

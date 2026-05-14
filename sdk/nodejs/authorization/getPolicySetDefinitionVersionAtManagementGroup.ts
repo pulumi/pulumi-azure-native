@@ -121,7 +121,7 @@ export interface GetPolicySetDefinitionVersionAtManagementGroupOutputArgs {
     /**
      * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the management group. The name is case insensitive.
      */

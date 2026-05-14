@@ -128,15 +128,15 @@ export interface OnlineExperimentationWorkspaceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.onlineexperimentation.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.onlineexperimentation.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.onlineexperimentation.OnlineExperimentationWorkspacePropertiesArgs>;
+    properties?: pulumi.Input<inputs.onlineexperimentation.OnlineExperimentationWorkspacePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,13 +144,13 @@ export interface OnlineExperimentationWorkspaceArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.onlineexperimentation.OnlineExperimentationWorkspaceSkuArgs>;
+    sku?: pulumi.Input<inputs.onlineexperimentation.OnlineExperimentationWorkspaceSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the OnlineExperimentationWorkspace
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

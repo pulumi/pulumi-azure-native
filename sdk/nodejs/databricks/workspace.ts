@@ -177,13 +177,13 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["accessConnector"] = args?.accessConnector;
             resourceInputs["authorizations"] = args?.authorizations;
-            resourceInputs["defaultCatalog"] = args ? (args.defaultCatalog ? pulumi.output(args.defaultCatalog).apply(inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["defaultCatalog"] = args ? pulumi.output(args.defaultCatalog).apply(v => v === undefined ? undefined : inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["defaultStorageFirewall"] = args?.defaultStorageFirewall;
             resourceInputs["encryption"] = args?.encryption;
             resourceInputs["enhancedSecurityCompliance"] = args?.enhancedSecurityCompliance;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedResourceGroupId"] = args?.managedResourceGroupId;
-            resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.databricks.workspaceCustomParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["parameters"] = args ? pulumi.output(args.parameters).apply(v => v === undefined ? undefined : inputs.databricks.workspaceCustomParametersArgsProvideDefaults(v)) : undefined;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["requiredNsgRules"] = args?.requiredNsgRules;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -251,31 +251,31 @@ export interface WorkspaceArgs {
     /**
      * Access Connector Resource that is going to be associated with Databricks Workspace
      */
-    accessConnector?: pulumi.Input<inputs.databricks.WorkspacePropertiesAccessConnectorArgs>;
+    accessConnector?: pulumi.Input<inputs.databricks.WorkspacePropertiesAccessConnectorArgs | undefined>;
     /**
      * The workspace provider authorizations.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceProviderAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceProviderAuthorizationArgs>[] | undefined>;
     /**
      * Properties for Default Catalog configuration during workspace creation.
      */
-    defaultCatalog?: pulumi.Input<inputs.databricks.DefaultCatalogPropertiesArgs>;
+    defaultCatalog?: pulumi.Input<inputs.databricks.DefaultCatalogPropertiesArgs | undefined>;
     /**
      * Gets or Sets Default Storage Firewall configuration information
      */
-    defaultStorageFirewall?: pulumi.Input<string | enums.databricks.DefaultStorageFirewall>;
+    defaultStorageFirewall?: pulumi.Input<string | enums.databricks.DefaultStorageFirewall | undefined>;
     /**
      * Encryption properties for databricks workspace
      */
-    encryption?: pulumi.Input<inputs.databricks.WorkspacePropertiesEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.databricks.WorkspacePropertiesEncryptionArgs | undefined>;
     /**
      * Contains settings related to the Enhanced Security and Compliance Add-On.
      */
-    enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.EnhancedSecurityComplianceDefinitionArgs>;
+    enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.EnhancedSecurityComplianceDefinitionArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The managed resource group Id.
      */
@@ -283,15 +283,15 @@ export interface WorkspaceArgs {
     /**
      * The workspace's custom parameters.
      */
-    parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParametersArgs>;
+    parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParametersArgs | undefined>;
     /**
      * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.databricks.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.databricks.PublicNetworkAccess | undefined>;
     /**
      * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
      */
-    requiredNsgRules?: pulumi.Input<string | enums.databricks.RequiredNsgRules>;
+    requiredNsgRules?: pulumi.Input<string | enums.databricks.RequiredNsgRules | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -299,17 +299,17 @@ export interface WorkspaceArgs {
     /**
      * The SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.databricks.SkuArgs>;
+    sku?: pulumi.Input<inputs.databricks.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The blob URI where the UI definition file is located.
      */
-    uiDefinitionUri?: pulumi.Input<string>;
+    uiDefinitionUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

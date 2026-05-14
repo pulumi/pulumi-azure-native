@@ -232,7 +232,7 @@ export interface GatewayApiEntityTagArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
@@ -240,7 +240,7 @@ export interface GatewayApiEntityTagArgs {
     /**
      * Provisioning state.
      */
-    provisioningState?: pulumi.Input<enums.apimanagement.ProvisioningState>;
+    provisioningState?: pulumi.Input<enums.apimanagement.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

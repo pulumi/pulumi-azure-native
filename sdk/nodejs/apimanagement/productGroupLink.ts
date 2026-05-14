@@ -110,7 +110,7 @@ export interface ProductGroupLinkArgs {
     /**
      * Product-Group link identifier. Must be unique in the current API Management service instance.
      */
-    groupLinkId?: pulumi.Input<string>;
+    groupLinkId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

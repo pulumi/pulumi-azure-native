@@ -159,15 +159,15 @@ export interface PricingArgs {
     /**
      * If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
      */
-    enforce?: pulumi.Input<string | enums.security.Enforce>;
+    enforce?: pulumi.Input<string | enums.security.Enforce | undefined>;
     /**
      * Optional. List of extensions offered under a plan.
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.security.ExtensionArgs>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.security.ExtensionArgs>[] | undefined>;
     /**
      * name of the pricing configuration
      */
-    pricingName?: pulumi.Input<string>;
+    pricingName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
      */
@@ -179,5 +179,5 @@ export interface PricingArgs {
     /**
      * The sub-plan selected for a Standard pricing configuration, when more than one sub-plan is available. Each sub-plan enables a set of security features. When not specified, full plan is applied. For VirtualMachines plan, available sub plans are 'P1' & 'P2', where for resource level only 'P1' sub plan is supported.
      */
-    subPlan?: pulumi.Input<string>;
+    subPlan?: pulumi.Input<string | undefined>;
 }

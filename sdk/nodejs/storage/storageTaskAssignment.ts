@@ -117,5 +117,5 @@ export interface StorageTaskAssignmentArgs {
     /**
      * The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    storageTaskAssignmentName?: pulumi.Input<string>;
+    storageTaskAssignmentName?: pulumi.Input<string | undefined>;
 }

@@ -243,12 +243,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
             resourceInputs["networkFabricId"] = args?.networkFabricId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["runtimeProtectionConfiguration"] = args ? (args.runtimeProtectionConfiguration ? pulumi.output(args.runtimeProtectionConfiguration).apply(inputs.networkcloud.runtimeProtectionConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["secretArchive"] = args ? (args.secretArchive ? pulumi.output(args.secretArchive).apply(inputs.networkcloud.clusterSecretArchiveArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["runtimeProtectionConfiguration"] = args ? pulumi.output(args.runtimeProtectionConfiguration).apply(v => v === undefined ? undefined : inputs.networkcloud.runtimeProtectionConfigurationArgsProvideDefaults(v)) : undefined;
+            resourceInputs["secretArchive"] = args ? pulumi.output(args.secretArchive).apply(v => v === undefined ? undefined : inputs.networkcloud.clusterSecretArchiveArgsProvideDefaults(v)) : undefined;
             resourceInputs["secretArchiveSettings"] = args?.secretArchiveSettings;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["updateStrategy"] = args ? (args.updateStrategy ? pulumi.output(args.updateStrategy).apply(inputs.networkcloud.clusterUpdateStrategyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["vulnerabilityScanningSettings"] = args ? (args.vulnerabilityScanningSettings ? pulumi.output(args.vulnerabilityScanningSettings).apply(inputs.networkcloud.vulnerabilityScanningSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["updateStrategy"] = args ? pulumi.output(args.updateStrategy).apply(v => v === undefined ? undefined : inputs.networkcloud.clusterUpdateStrategyArgsProvideDefaults(v)) : undefined;
+            resourceInputs["vulnerabilityScanningSettings"] = args ? pulumi.output(args.vulnerabilityScanningSettings).apply(v => v === undefined ? undefined : inputs.networkcloud.vulnerabilityScanningSettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["availableUpgradeVersions"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterCapacity"] = undefined /*out*/;
@@ -326,23 +326,23 @@ export interface ClusterArgs {
     /**
      * The settings for the log analytics workspace used for output of logs from this cluster.
      */
-    analyticsOutputSettings?: pulumi.Input<inputs.networkcloud.AnalyticsOutputSettingsArgs>;
+    analyticsOutputSettings?: pulumi.Input<inputs.networkcloud.AnalyticsOutputSettingsArgs | undefined>;
     /**
      * Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
-    analyticsWorkspaceId?: pulumi.Input<string>;
+    analyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The customer-provided location information to identify where the cluster resides.
      */
-    clusterLocation?: pulumi.Input<string>;
+    clusterLocation?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The service principal to be used by the cluster during Arc Appliance installation.
      */
-    clusterServicePrincipal?: pulumi.Input<inputs.networkcloud.ServicePrincipalInformationArgs>;
+    clusterServicePrincipal?: pulumi.Input<inputs.networkcloud.ServicePrincipalInformationArgs | undefined>;
     /**
      * The type of rack configuration for the cluster.
      */
@@ -354,16 +354,16 @@ export interface ClusterArgs {
     /**
      * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
      */
-    commandOutputSettings?: pulumi.Input<inputs.networkcloud.CommandOutputSettingsArgs>;
+    commandOutputSettings?: pulumi.Input<inputs.networkcloud.CommandOutputSettingsArgs | undefined>;
     /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
-    computeDeploymentThreshold?: pulumi.Input<inputs.networkcloud.ValidationThresholdArgs>;
+    computeDeploymentThreshold?: pulumi.Input<inputs.networkcloud.ValidationThresholdArgs | undefined>;
     /**
      * The list of rack definitions for the compute racks in a multi-rack
      * cluster, or an empty list in a single-rack cluster.
      */
-    computeRackDefinitions?: pulumi.Input<pulumi.Input<inputs.networkcloud.RackDefinitionArgs>[]>;
+    computeRackDefinitions?: pulumi.Input<pulumi.Input<inputs.networkcloud.RackDefinitionArgs>[] | undefined>;
     /**
      * The extended location of the cluster manager associated with the cluster.
      */
@@ -371,15 +371,15 @@ export interface ClusterArgs {
     /**
      * The identity for the resource.
      */
-    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the managed resource group associated with the resource.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs | undefined>;
     /**
      * The resource ID of the Network Fabric associated with the cluster.
      */
@@ -391,25 +391,25 @@ export interface ClusterArgs {
     /**
      * The settings for cluster runtime protection.
      */
-    runtimeProtectionConfiguration?: pulumi.Input<inputs.networkcloud.RuntimeProtectionConfigurationArgs>;
+    runtimeProtectionConfiguration?: pulumi.Input<inputs.networkcloud.RuntimeProtectionConfigurationArgs | undefined>;
     /**
      * The configuration for use of a key vault to store secrets for later retrieval by the operator.
      */
-    secretArchive?: pulumi.Input<inputs.networkcloud.ClusterSecretArchiveArgs>;
+    secretArchive?: pulumi.Input<inputs.networkcloud.ClusterSecretArchiveArgs | undefined>;
     /**
      * The settings for the secret archive used to hold credentials for the cluster.
      */
-    secretArchiveSettings?: pulumi.Input<inputs.networkcloud.SecretArchiveSettingsArgs>;
+    secretArchiveSettings?: pulumi.Input<inputs.networkcloud.SecretArchiveSettingsArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The strategy for updating the cluster.
      */
-    updateStrategy?: pulumi.Input<inputs.networkcloud.ClusterUpdateStrategyArgs>;
+    updateStrategy?: pulumi.Input<inputs.networkcloud.ClusterUpdateStrategyArgs | undefined>;
     /**
      * The settings for how security vulnerability scanning is applied to the cluster.
      */
-    vulnerabilityScanningSettings?: pulumi.Input<inputs.networkcloud.VulnerabilityScanningSettingsArgs>;
+    vulnerabilityScanningSettings?: pulumi.Input<inputs.networkcloud.VulnerabilityScanningSettingsArgs | undefined>;
 }

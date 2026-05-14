@@ -148,7 +148,7 @@ export interface ApiIssueArgs {
     /**
      * Date and time when the issue was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Text describing the issue.
      */
@@ -156,7 +156,7 @@ export interface ApiIssueArgs {
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    issueId?: pulumi.Input<string>;
+    issueId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,7 +168,7 @@ export interface ApiIssueArgs {
     /**
      * Status of the issue.
      */
-    state?: pulumi.Input<string | enums.apimanagement.State>;
+    state?: pulumi.Input<string | enums.apimanagement.State | undefined>;
     /**
      * The issue title.
      */

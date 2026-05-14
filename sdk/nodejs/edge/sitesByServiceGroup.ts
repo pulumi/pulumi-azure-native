@@ -104,7 +104,7 @@ export interface SitesByServiceGroupArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs | undefined>;
     /**
      * The name of the service group
      */
@@ -112,5 +112,5 @@ export interface SitesByServiceGroupArgs {
     /**
      * The name of the Site
      */
-    siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

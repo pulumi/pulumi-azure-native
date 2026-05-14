@@ -144,19 +144,19 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog admin list.
      */
-    admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[]>;
+    admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[] | undefined>;
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    catalogName?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * Automatic unit adjustment enabled or not.
      */
-    enableAutomaticUnitAdjustment?: pulumi.Input<boolean>;
+    enableAutomaticUnitAdjustment?: pulumi.Input<boolean | undefined>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -164,21 +164,21 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog SKU.
      */
-    sku?: pulumi.Input<string | enums.datacatalog.SkuType>;
+    sku?: pulumi.Input<string | enums.datacatalog.SkuType | undefined>;
     /**
      * Azure data catalog provision status.
      */
-    successfullyProvisioned?: pulumi.Input<boolean>;
+    successfullyProvisioned?: pulumi.Input<boolean | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Azure data catalog units.
      */
-    units?: pulumi.Input<number>;
+    units?: pulumi.Input<number | undefined>;
     /**
      * Azure data catalog user list.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[] | undefined>;
 }

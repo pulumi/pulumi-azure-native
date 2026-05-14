@@ -217,35 +217,35 @@ export interface PreRuleArgs {
     /**
      * rule action
      */
-    actionType?: pulumi.Input<string | enums.cloudngfw.ActionEnum>;
+    actionType?: pulumi.Input<string | enums.cloudngfw.ActionEnum | undefined>;
     /**
      * array of rule applications
      */
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * rule comment
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * rule category
      */
-    category?: pulumi.Input<inputs.cloudngfw.CategoryArgs>;
+    category?: pulumi.Input<inputs.cloudngfw.CategoryArgs | undefined>;
     /**
      * enable or disable decryption
      */
-    decryptionRuleType?: pulumi.Input<string | enums.cloudngfw.DecryptionRuleTypeEnum>;
+    decryptionRuleType?: pulumi.Input<string | enums.cloudngfw.DecryptionRuleTypeEnum | undefined>;
     /**
      * rule description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * destination address
      */
-    destination?: pulumi.Input<inputs.cloudngfw.DestinationAddrArgs>;
+    destination?: pulumi.Input<inputs.cloudngfw.DestinationAddrArgs | undefined>;
     /**
      * enable or disable logging
      */
-    enableLogging?: pulumi.Input<string | enums.cloudngfw.StateEnum>;
+    enableLogging?: pulumi.Input<string | enums.cloudngfw.StateEnum | undefined>;
     /**
      * GlobalRulestack resource name
      */
@@ -253,27 +253,27 @@ export interface PreRuleArgs {
     /**
      * inbound Inspection Certificate
      */
-    inboundInspectionCertificate?: pulumi.Input<string>;
+    inboundInspectionCertificate?: pulumi.Input<string | undefined>;
     /**
      * cidr should not be 'any'
      */
-    negateDestination?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
+    negateDestination?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
     /**
      * cidr should not be 'any'
      */
-    negateSource?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
+    negateSource?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
     /**
      * Pre Rule priority
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * any, application-default, TCP:number, UDP:number
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * prot port list
      */
-    protocolPortList?: pulumi.Input<pulumi.Input<string>[]>;
+    protocolPortList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * rule name
      */
@@ -281,13 +281,13 @@ export interface PreRuleArgs {
     /**
      * state of this rule
      */
-    ruleState?: pulumi.Input<string | enums.cloudngfw.StateEnum>;
+    ruleState?: pulumi.Input<string | enums.cloudngfw.StateEnum | undefined>;
     /**
      * source address
      */
-    source?: pulumi.Input<inputs.cloudngfw.SourceAddrArgs>;
+    source?: pulumi.Input<inputs.cloudngfw.SourceAddrArgs | undefined>;
     /**
      * tag for rule
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudngfw.TagInfoArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.cloudngfw.TagInfoArgs>[] | undefined>;
 }

@@ -125,15 +125,15 @@ export interface ExperimentArgs {
     /**
      * String that represents a Experiment resource name.
      */
-    experimentName?: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string | undefined>;
     /**
      * The identity of the experiment resource.
      */
-    identity?: pulumi.Input<inputs.chaos.ExperimentIdentityArgs>;
+    identity?: pulumi.Input<inputs.chaos.ExperimentIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The properties of the experiment resource.
      */
@@ -145,5 +145,5 @@ export interface ExperimentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

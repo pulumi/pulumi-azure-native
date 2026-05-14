@@ -144,19 +144,19 @@ export interface DataManagerForAgricultureResourceArgs {
     /**
      * DataManagerForAgriculture resource name.
      */
-    dataManagerForAgricultureResourceName?: pulumi.Input<string>;
+    dataManagerForAgricultureResourceName?: pulumi.Input<string | undefined>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.agfoodplatform.IdentityArgs>;
+    identity?: pulumi.Input<inputs.agfoodplatform.IdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.agfoodplatform.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.agfoodplatform.PublicNetworkAccess | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,9 +164,9 @@ export interface DataManagerForAgricultureResourceArgs {
     /**
      * Sensor integration request model.
      */
-    sensorIntegration?: pulumi.Input<inputs.agfoodplatform.SensorIntegrationArgs>;
+    sensorIntegration?: pulumi.Input<inputs.agfoodplatform.SensorIntegrationArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

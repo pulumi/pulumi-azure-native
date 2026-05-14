@@ -132,11 +132,11 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * The name of server active directory administrator.
      */
-    administratorName?: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string | undefined>;
     /**
      * Type of the sever administrator.
      */
-    administratorType?: pulumi.Input<string | enums.sql.AdministratorType>;
+    administratorType?: pulumi.Input<string | enums.sql.AdministratorType | undefined>;
     /**
      * Login name of the server administrator.
      */
@@ -156,5 +156,5 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Tenant ID of the administrator.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

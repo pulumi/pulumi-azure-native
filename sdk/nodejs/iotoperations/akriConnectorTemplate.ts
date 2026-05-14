@@ -86,7 +86,7 @@ export class AkriConnectorTemplate extends pulumi.CustomResource {
             resourceInputs["akriConnectorTemplateName"] = args?.akriConnectorTemplateName;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.akriConnectorTemplatePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.iotoperations.akriConnectorTemplatePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -114,11 +114,11 @@ export interface AkriConnectorTemplateArgs {
     /**
      * Name of AkriConnectorTemplate resource.
      */
-    akriConnectorTemplateName?: pulumi.Input<string>;
+    akriConnectorTemplateName?: pulumi.Input<string | undefined>;
     /**
      * Edge location of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs | undefined>;
     /**
      * Name of instance.
      */
@@ -126,7 +126,7 @@ export interface AkriConnectorTemplateArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.AkriConnectorTemplatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.AkriConnectorTemplatePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

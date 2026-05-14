@@ -167,23 +167,23 @@ export interface ProfileArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.cdn.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.cdn.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
      */
-    logScrubbing?: pulumi.Input<inputs.cdn.ProfileLogScrubbingArgs>;
+    logScrubbing?: pulumi.Input<inputs.cdn.ProfileLogScrubbingArgs | undefined>;
     /**
      * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */
-    originResponseTimeoutSeconds?: pulumi.Input<number>;
+    originResponseTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -195,5 +195,5 @@ export interface ProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

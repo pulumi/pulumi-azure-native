@@ -222,7 +222,7 @@ export interface AutoExportJobArgs {
     /**
      * The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
      */
-    adminStatus?: pulumi.Input<string | enums.storagecache.AutoExportJobAdminStatus>;
+    adminStatus?: pulumi.Input<string | enums.storagecache.AutoExportJobAdminStatus | undefined>;
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
@@ -230,15 +230,15 @@ export interface AutoExportJobArgs {
     /**
      * Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoExportJobName?: pulumi.Input<string>;
+    autoExportJobName?: pulumi.Input<string | undefined>;
     /**
      * An array of blob paths/prefixes that get auto exported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths for now is 1.
      */
-    autoExportPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    autoExportPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -246,9 +246,9 @@ export interface AutoExportJobArgs {
     /**
      * The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
      */
-    state?: pulumi.Input<string | enums.storagecache.AutoExportStatusType>;
+    state?: pulumi.Input<string | enums.storagecache.AutoExportStatusType | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

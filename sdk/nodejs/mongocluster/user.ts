@@ -112,7 +112,7 @@ export interface UserArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.mongocluster.UserPropertiesArgs>;
+    properties?: pulumi.Input<inputs.mongocluster.UserPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface UserArgs {
     /**
      * The name of the mongo cluster user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

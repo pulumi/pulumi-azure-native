@@ -414,19 +414,19 @@ export interface NodeTypeArgs {
     /**
      * Additional managed data disks.
      */
-    additionalDataDisks?: pulumi.Input<pulumi.Input<inputs.servicefabric.VmssDataDiskArgs>[]>;
+    additionalDataDisks?: pulumi.Input<pulumi.Input<inputs.servicefabric.VmssDataDiskArgs>[] | undefined>;
     /**
      * Specifies the settings for any additional secondary network interfaces to attach to the node type.
      */
-    additionalNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.AdditionalNetworkInterfaceConfigurationArgs>[]>;
+    additionalNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.AdditionalNetworkInterfaceConfigurationArgs>[] | undefined>;
     /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
-    applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs>;
+    applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs | undefined>;
     /**
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
-    capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the cluster resource.
      */
@@ -434,59 +434,59 @@ export interface NodeTypeArgs {
     /**
      * Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
      */
-    computerNamePrefix?: pulumi.Input<string>;
+    computerNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
-    dataDiskLetter?: pulumi.Input<string>;
+    dataDiskLetter?: pulumi.Input<string | undefined>;
     /**
      * Disk size for the managed disk attached to the vms on the node type in GBs.
      */
-    dataDiskSizeGB?: pulumi.Input<number>;
+    dataDiskSizeGB?: pulumi.Input<number | undefined>;
     /**
      * Managed data disk type. Specifies the storage account type for the managed disk
      */
-    dataDiskType?: pulumi.Input<string | enums.servicefabric.DiskType>;
+    dataDiskType?: pulumi.Input<string | enums.servicefabric.DiskType | undefined>;
     /**
      * Specifies the resource id of the DSCP configuration to apply to the node type network interface.
      */
-    dscpConfigurationId?: pulumi.Input<string>;
+    dscpConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the network interface is accelerated networking-enabled.
      */
-    enableAcceleratedNetworking?: pulumi.Input<boolean>;
+    enableAcceleratedNetworking?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
      */
-    enableEncryptionAtHost?: pulumi.Input<boolean>;
+    enableEncryptionAtHost?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
      */
-    enableNodePublicIP?: pulumi.Input<boolean>;
+    enableNodePublicIP?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
      */
-    enableNodePublicIPv6?: pulumi.Input<boolean>;
+    enableNodePublicIPv6?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
      */
-    enableOverProvisioning?: pulumi.Input<boolean>;
+    enableOverProvisioning?: pulumi.Input<boolean | undefined>;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
-    ephemeralPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs>;
+    ephemeralPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs | undefined>;
     /**
      * Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
      */
-    evictionPolicy?: pulumi.Input<string | enums.servicefabric.EvictionPolicyType>;
+    evictionPolicy?: pulumi.Input<string | enums.servicefabric.EvictionPolicyType | undefined>;
     /**
      * Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
      */
-    frontendConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.FrontendConfigurationArgs>[]>;
+    frontendConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.FrontendConfigurationArgs>[] | undefined>;
     /**
      * Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.
      */
-    hostGroupId?: pulumi.Input<string>;
+    hostGroupId?: pulumi.Input<string | undefined>;
     /**
      * Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
      */
@@ -494,35 +494,35 @@ export interface NodeTypeArgs {
     /**
      * Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
      */
-    isSpotVM?: pulumi.Input<boolean>;
+    isSpotVM?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if the node type can only host Stateless workloads.
      */
-    isStateless?: pulumi.Input<boolean>;
+    isStateless?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scale set associated with the node type can be composed of multiple placement groups.
      */
-    multiplePlacementGroups?: pulumi.Input<boolean>;
+    multiplePlacementGroups?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
      */
-    natConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeNatConfigArgs>[]>;
+    natConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeNatConfigArgs>[] | undefined>;
     /**
      * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
      */
-    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
+    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[] | undefined>;
     /**
      * The name of the node type.
      */
-    nodeTypeName?: pulumi.Input<string>;
+    nodeTypeName?: pulumi.Input<string | undefined>;
     /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */
-    placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group.
      */
@@ -530,71 +530,71 @@ export interface NodeTypeArgs {
     /**
      * Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
      */
-    secureBootEnabled?: pulumi.Input<boolean>;
+    secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
      */
-    securityType?: pulumi.Input<string | enums.servicefabric.SecurityType>;
+    securityType?: pulumi.Input<string | enums.servicefabric.SecurityType | undefined>;
     /**
      * Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
      */
-    serviceArtifactReferenceId?: pulumi.Input<string>;
+    serviceArtifactReferenceId?: pulumi.Input<string | undefined>;
     /**
      * The node type sku.
      */
-    sku?: pulumi.Input<inputs.servicefabric.NodeTypeSkuArgs>;
+    sku?: pulumi.Input<inputs.servicefabric.NodeTypeSkuArgs | undefined>;
     /**
      * Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
      */
-    spotRestoreTimeout?: pulumi.Input<string>;
+    spotRestoreTimeout?: pulumi.Input<string | undefined>;
     /**
      * Indicates the resource id of the subnet for the node type.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
      */
-    useDefaultPublicLoadBalancer?: pulumi.Input<boolean>;
+    useDefaultPublicLoadBalancer?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
      */
-    useEphemeralOSDisk?: pulumi.Input<boolean>;
+    useEphemeralOSDisk?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
      */
-    useTempDataDisk?: pulumi.Input<boolean>;
+    useTempDataDisk?: pulumi.Input<boolean | undefined>;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
-    vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.VMSSExtensionArgs>[]>;
+    vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.VMSSExtensionArgs>[] | undefined>;
     /**
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
-    vmImageOffer?: pulumi.Input<string>;
+    vmImageOffer?: pulumi.Input<string | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
      */
-    vmImagePlan?: pulumi.Input<inputs.servicefabric.VmImagePlanArgs>;
+    vmImagePlan?: pulumi.Input<inputs.servicefabric.VmImagePlanArgs | undefined>;
     /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */
-    vmImagePublisher?: pulumi.Input<string>;
+    vmImagePublisher?: pulumi.Input<string | undefined>;
     /**
      * Indicates the resource id of the vm image. This parameter is used for custom vm image.
      */
-    vmImageResourceId?: pulumi.Input<string>;
+    vmImageResourceId?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
      */
-    vmImageSku?: pulumi.Input<string>;
+    vmImageSku?: pulumi.Input<string | undefined>;
     /**
      * The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
      */
-    vmImageVersion?: pulumi.Input<string>;
+    vmImageVersion?: pulumi.Input<string | undefined>;
     /**
      * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
      */
@@ -602,25 +602,25 @@ export interface NodeTypeArgs {
     /**
      * Identities to assign to the virtual machine scale set under the node type.
      */
-    vmManagedIdentity?: pulumi.Input<inputs.servicefabric.VmManagedIdentityArgs>;
+    vmManagedIdentity?: pulumi.Input<inputs.servicefabric.VmManagedIdentityArgs | undefined>;
     /**
      * The secrets to install in the virtual machines.
      */
-    vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.VaultSecretGroupArgs>[]>;
+    vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.VaultSecretGroupArgs>[] | undefined>;
     /**
      * Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
      */
-    vmSetupActions?: pulumi.Input<pulumi.Input<string | enums.servicefabric.VmSetupAction>[]>;
+    vmSetupActions?: pulumi.Input<pulumi.Input<string | enums.servicefabric.VmSetupAction>[] | undefined>;
     /**
      * Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.
      */
-    vmSharedGalleryImageId?: pulumi.Input<string>;
+    vmSharedGalleryImageId?: pulumi.Input<string | undefined>;
     /**
      * The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
      */
-    vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -122,7 +122,7 @@ export class PacketCapture extends pulumi.CustomResource {
                 throw new Error("Missing required property 'target'");
             }
             resourceInputs["bytesToCapturePerPacket"] = (args?.bytesToCapturePerPacket) ?? 0;
-            resourceInputs["captureSettings"] = args ? (args.captureSettings ? pulumi.output(args.captureSettings).apply(inputs.network.packetCaptureSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["captureSettings"] = args ? pulumi.output(args.captureSettings).apply(v => v === undefined ? undefined : inputs.network.packetCaptureSettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["continuousCapture"] = args?.continuousCapture;
             resourceInputs["filters"] = args?.filters;
             resourceInputs["networkWatcherName"] = args?.networkWatcherName;
@@ -168,19 +168,19 @@ export interface PacketCaptureArgs {
     /**
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
-    bytesToCapturePerPacket?: pulumi.Input<number>;
+    bytesToCapturePerPacket?: pulumi.Input<number | undefined>;
     /**
      * The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
      */
-    captureSettings?: pulumi.Input<inputs.network.PacketCaptureSettingsArgs>;
+    captureSettings?: pulumi.Input<inputs.network.PacketCaptureSettingsArgs | undefined>;
     /**
      * This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
      */
-    continuousCapture?: pulumi.Input<boolean>;
+    continuousCapture?: pulumi.Input<boolean | undefined>;
     /**
      * A list of packet capture filters.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.network.PacketCaptureFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.network.PacketCaptureFilterArgs>[] | undefined>;
     /**
      * The name of the network watcher.
      */
@@ -188,7 +188,7 @@ export interface PacketCaptureArgs {
     /**
      * The name of the packet capture session.
      */
-    packetCaptureName?: pulumi.Input<string>;
+    packetCaptureName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -196,7 +196,7 @@ export interface PacketCaptureArgs {
     /**
      * A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
      */
-    scope?: pulumi.Input<inputs.network.PacketCaptureMachineScopeArgs>;
+    scope?: pulumi.Input<inputs.network.PacketCaptureMachineScopeArgs | undefined>;
     /**
      * The storage location for a packet capture session.
      */
@@ -208,13 +208,13 @@ export interface PacketCaptureArgs {
     /**
      * Target type of the resource provided.
      */
-    targetType?: pulumi.Input<enums.network.PacketCaptureTargetType>;
+    targetType?: pulumi.Input<enums.network.PacketCaptureTargetType | undefined>;
     /**
      * Maximum duration of the capture session in seconds.
      */
-    timeLimitInSeconds?: pulumi.Input<number>;
+    timeLimitInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Maximum size of the capture output.
      */
-    totalBytesPerSession?: pulumi.Input<number>;
+    totalBytesPerSession?: pulumi.Input<number | undefined>;
 }

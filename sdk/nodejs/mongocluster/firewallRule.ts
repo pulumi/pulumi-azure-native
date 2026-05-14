@@ -108,7 +108,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the mongo cluster firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the mongo cluster.
      */
@@ -116,7 +116,7 @@ export interface FirewallRuleArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.mongocluster.FirewallRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.mongocluster.FirewallRulePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

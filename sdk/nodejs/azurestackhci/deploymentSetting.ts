@@ -163,11 +163,11 @@ export interface DeploymentSettingArgs {
     /**
      * Name of Deployment Setting
      */
-    deploymentSettingsName?: pulumi.Input<string>;
+    deploymentSettingsName?: pulumi.Input<string | undefined>;
     /**
      * The intended operation for a cluster.
      */
-    operationType?: pulumi.Input<string | enums.azurestackhci.OperationType>;
+    operationType?: pulumi.Input<string | enums.azurestackhci.OperationType | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

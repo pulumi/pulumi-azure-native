@@ -122,19 +122,19 @@ export interface PublisherArgs {
     /**
      * The managed identity of the publisher, if configured.
      */
-    identity?: pulumi.Input<inputs.hybridnetwork.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridnetwork.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Publisher properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.PublisherPropertiesFormatArgs>;
+    properties?: pulumi.Input<inputs.hybridnetwork.PublisherPropertiesFormatArgs | undefined>;
     /**
      * The name of the publisher.
      */
-    publisherName?: pulumi.Input<string>;
+    publisherName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface PublisherArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
