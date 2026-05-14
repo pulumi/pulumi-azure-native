@@ -32,6 +32,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -1818,6 +1819,12 @@ func (m *moduleGenerator) genMethodParameters(
 				},
 				// All path parameters are part of resource ID, so they always cause replacement.
 				WillReplaceOnChanges: param.In == "path" && !options.listParameters,
+			}
+
+			if param.Type == "array" {
+				propertySpec.TypeSpec.Items = &pschema.TypeSpec{
+					Ref: convert.TypeAny,
+				}
 			}
 
 			// Check each parameter for auto-naming.

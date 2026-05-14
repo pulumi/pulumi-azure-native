@@ -501,6 +501,18 @@ func extractObjectElementsFromListResponse(response map[string]any) ([]map[strin
 	return result, nil
 }
 
+func extractNextLinkFromListResponse(response map[string]any, nextLinkName string) string {
+	// find the nextLink in the response if it exists
+	for key, value := range response {
+		if key == nextLinkName {
+			if nextLink, ok := value.(string); ok {
+				return nextLink
+			}
+		}
+	}
+	return ""
+}
+
 func valueOrEmpty(key string, element map[string]any) string {
 	if value, ok := element[key]; ok {
 		if str, ok := value.(string); ok {
@@ -517,6 +529,28 @@ func valueOrError(key string, element map[string]any) (string, error) {
 		}
 	}
 	return "", fmt.Errorf("missing or invalid value for key %s", key)
+}
+
+// findPageSizeParamSdkName returns the SDK-facing input key to use for the page size parameter
+// for the given list operation parameters, along with whether one was found.
+// Azure APIs use several different conventions for page size; this normalises them.
+func findPageSizeParam(params []resources.AzureAPIParameter) (string, bool) {
+	pageSizeWireNames := map[string]bool{
+		"$top":         true,
+		"top":          true,
+		"pageSize":     true,
+		"$maxpagesize": true,
+		"$maxPageSize": true,
+	}
+	for _, p := range params {
+		if pageSizeWireNames[p.Name] {
+			if p.Value != nil && p.Value.SdkName != "" {
+				return p.Value.SdkName, true
+			}
+			return p.Name, true
+		}
+	}
+	return "", false
 }
 
 func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStreamingServer[rpc.ListResponse]) error {
@@ -539,6 +573,7 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		return fmt.Errorf("resource for token %s is not listable", token)
 	}
 
+	// Expecting plain inputs in the query for List operations
 	inputs, err := plugin.UnmarshalProperties(req.Query, plugin.MarshalOptions{
 		Label:          "",
 		SkipNulls:      true,
@@ -551,8 +586,34 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		return fmt.Errorf("unmarshalling list query for token %s: %w", token, err)
 	}
 
-	// if list parameters require a subscriptionId and it's not provided,
+	// The total number of items to be listed across all pages is determined by the caller's requested limit,
+	// so we need to keep track of how many items we've sent and
+	// how many are remaining to know when to
+	// stop sending results and continuation tokens.
+	limit := req.GetLimit()
+
+	// How many items the caller requested per page, passed down to Azure's pageSize parameter if supported,
+	// and used for calculating the Remaining count in the continuation token.
+	pageSize := req.GetPageSize()
+
+	effectivePageSize := pageSize
+	if effectivePageSize == 0 && limit > 0 {
+		effectivePageSize = limit
+	}
+
+	if effectivePageSize > 0 {
+		// Inject page size into inputs so it is encoded as the correct Azure query parameter.
+		// If no explicit pageSize was requested but a limit was, use the limit as the page size
+		// to avoid over-fetching on what may be the only page.
+		if pageSizeParam, ok := findPageSizeParam(resourceAPI.ListMetadata.Parameters); ok {
+			// the pageSizeParam here will be translated into a query parameter
+			inputs[resource.PropertyKey(pageSizeParam)] = resource.NewNumberProperty(float64(effectivePageSize))
+		}
+	}
+
+	// if list parameters require a subscriptionId and it's not provided by the caller
 	// attempt to derive it from the provider's configured subscriptionId
+	// the schema of subscriptionId intentionally specifies this input as optional
 	subscriptionID := resource.PropertyKey("subscriptionId")
 	if hasParameter(string(subscriptionID), resourceAPI.ListMetadata.Parameters) {
 		if _, alreadyProvided := inputs[subscriptionID]; !alreadyProvided {
@@ -585,12 +646,18 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		return fmt.Errorf("preparing ARM REST request for list operation for token %s: %w", token, err)
 	}
 
-	var response map[string]any
+	continuationToken, err := decodeListContinuationToken(req.GetContinuationToken())
+	if err != nil {
+		return fmt.Errorf("decoding continuation token for token %s: %w", token, err)
+	}
+
 	// When attempting to list resources, we check if we have a "nextLink" already in the request
-	// if that is populated, then we use it to retrieve the next page of results, otherwise we make the initial list request using the provided parameters
-	if nextLink := req.GetContinuationToken(); nextLink != "" {
+	// if that is populated, then we use it to retrieve the next page of results,
+	// otherwise we make the initial list request using the provided parameters
+	var response map[string]any
+	if continuationToken.NextLink != "" {
 		// nextLink here is an absolute URL, parse and strip the host part
-		nextLinkURL, err := url.Parse(nextLink)
+		nextLinkURL, err := url.Parse(continuationToken.NextLink)
 		if err != nil {
 			return fmt.Errorf("parsing nextLink URL for token %s: %w", token, err)
 		}
@@ -625,20 +692,70 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		return fmt.Errorf("extracting elements from the List response for token %s: %w", token, err)
 	}
 
+	nextLinkURL := extractNextLinkFromListResponse(response, resourceAPI.ListMetadata.NextLinkName)
+
+	// Determine how many items we are allowed to send on this page.
+	// On the first call limit comes from the request; on subsequent calls it is carried in the
+	// continuation token as Remaining so the total across all pages stays correct.
+	var effectiveLimit int64
+	if continuationToken.Remaining != nil {
+		effectiveLimit = *continuationToken.Remaining
+	} else {
+		effectiveLimit = limit
+	}
+
+	sentElementsCount := int64(0)
 	for _, element := range elements {
+		if effectiveLimit > 0 && sentElementsCount >= effectiveLimit {
+			// stop streaming results
+			break
+		}
+
 		id, err := valueOrError("id", element)
 		if err != nil {
 			return fmt.Errorf("extracting id from element for token %s: %w", token, err)
 		}
 		name := valueOrEmpty("name", element)
-		stream.Send(&rpc.ListResponse{
+		if err := stream.Send(&rpc.ListResponse{
 			Response: &rpc.ListResponse_Result_{
 				Result: &rpc.ListResponse_Result{
 					Id:   id,
 					Name: name,
 				},
 			},
-		})
+		}); err != nil {
+			return fmt.Errorf("sending list response for token %s: %w", token, err)
+		}
+		sentElementsCount++
+	}
+
+	// Send a continuation token if Azure has more pages and the caller's limit (if any) is not yet reached.
+	var newRemaining *int64
+	if effectiveLimit > 0 {
+		if diff := effectiveLimit - sentElementsCount; diff > 0 {
+			newRemaining = &diff
+		}
+	}
+
+	nextContinuationToken := &listContinuationToken{
+		NextLink:  nextLinkURL,
+		Remaining: newRemaining,
+	}
+
+	if !isEmptyListContinuationToken(nextContinuationToken) {
+		encoded, err := encodeListContinuationToken(nextContinuationToken)
+		if err != nil {
+			return fmt.Errorf("encoding continuation token for token %s: %w", token, err)
+		}
+		if err := stream.Send(&rpc.ListResponse{
+			Response: &rpc.ListResponse_Continuation_{
+				Continuation: &rpc.ListResponse_Continuation{
+					ContinuationToken: encoded,
+				},
+			},
+		}); err != nil {
+			return fmt.Errorf("sending continuation token for token %s: %w", token, err)
+		}
 	}
 
 	return nil
