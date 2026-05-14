@@ -599,6 +599,8 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 	effectivePageSize := pageSize
 	if effectivePageSize == 0 && limit > 0 {
 		effectivePageSize = limit
+	} else if effectivePageSize > 0 && limit > 0 && limit < effectivePageSize {
+		effectivePageSize = limit
 	}
 
 	if effectivePageSize > 0 {
@@ -730,11 +732,12 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 	}
 
 	// Send a continuation token if Azure has more pages and the caller's limit (if any) is not yet reached.
+	// When a limit is active we always set newRemaining (even to 0) so isEmptyListContinuationToken
+	// can distinguish "limit exactly met" from "no limit was set".
 	var newRemaining *int64
 	if effectiveLimit > 0 {
-		if diff := effectiveLimit - sentElementsCount; diff > 0 {
-			newRemaining = &diff
-		}
+		diff := effectiveLimit - sentElementsCount
+		newRemaining = &diff
 	}
 
 	nextContinuationToken := &listContinuationToken{
