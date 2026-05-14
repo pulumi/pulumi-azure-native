@@ -293,8 +293,8 @@ def get_app(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-def get_app_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Get the metadata of an IoT Central application.

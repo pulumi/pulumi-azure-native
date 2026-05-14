@@ -22,7 +22,7 @@ class ContentItemArgs:
                  content_type_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 content_item_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None):
         """
         The set of arguments for constructing a ContentItem resource.
@@ -79,14 +79,14 @@ class ContentItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentItemId")
-    def content_item_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content item identifier.
         """
         return pulumi.get(self, "content_item_id")
 
     @content_item_id.setter
-    def content_item_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_item_id", value)
 
     @_builtins.property
@@ -108,11 +108,11 @@ class ContentItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Content type contract details.
@@ -159,11 +159,11 @@ class ContentItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

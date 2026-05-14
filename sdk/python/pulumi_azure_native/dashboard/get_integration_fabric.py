@@ -163,9 +163,9 @@ def get_integration_fabric(integration_fabric_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_fabric_output(integration_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_fabric_output(integration_fabric_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationFabricResult]:
     """
     The integration fabric resource type.

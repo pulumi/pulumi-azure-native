@@ -24,19 +24,19 @@ class ConnectionMonitorArgs:
     def __init__(__self__, *,
                  network_watcher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]] = None,
-                 source: Optional[pulumi.Input['ConnectionMonitorSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]] = None):
+                 auto_start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional['ConnectionMonitorDestinationArgs']] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]] = None,
+                 source: pulumi.Input[Optional['ConnectionMonitorSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectionMonitor resource.
 
@@ -115,158 +115,158 @@ class ConnectionMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoStart")
-    def auto_start(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_start(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the connection monitor will start automatically once created.
         """
         return pulumi.get(self, "auto_start")
 
     @auto_start.setter
-    def auto_start(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_start(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_start", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionMonitorName")
-    def connection_monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection monitor.
         """
         return pulumi.get(self, "connection_monitor_name")
 
     @connection_monitor_name.setter
-    def connection_monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['ConnectionMonitorDestinationArgs']]:
+    def destination(self) -> pulumi.Input[Optional['ConnectionMonitorDestinationArgs']]:
         """
         Describes the destination of connection monitor.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']]):
+    def destination(self, value: pulumi.Input[Optional['ConnectionMonitorDestinationArgs']]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]:
         """
         List of connection monitor endpoints.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connection monitor location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def migrate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migrate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value indicating whether connection monitor V1 should be migrated to V2 format.
         """
         return pulumi.get(self, "migrate")
 
     @migrate.setter
-    def migrate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migrate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migrate", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monitoring_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Monitoring interval in seconds.
         """
         return pulumi.get(self, "monitoring_interval_in_seconds")
 
     @monitoring_interval_in_seconds.setter
-    def monitoring_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monitoring_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monitoring_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional notes to be associated with the connection monitor.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]:
+    def outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]:
         """
         List of connection monitor outputs.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]):
+    def outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['ConnectionMonitorSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['ConnectionMonitorSourceArgs']]:
         """
         Describes the source of connection monitor.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['ConnectionMonitorSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['ConnectionMonitorSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Connection monitor tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testConfigurations")
-    def test_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]:
+    def test_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]:
         """
         List of connection monitor test configurations.
         """
         return pulumi.get(self, "test_configurations")
 
     @test_configurations.setter
-    def test_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]):
+    def test_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]):
         pulumi.set(self, "test_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="testGroups")
-    def test_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]:
+    def test_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]:
         """
         List of connection monitor test groups.
         """
         return pulumi.get(self, "test_groups")
 
     @test_groups.setter
-    def test_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]):
+    def test_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]):
         pulumi.set(self, "test_groups", value)
 
 
@@ -276,21 +276,21 @@ class ConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
+                 auto_start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Information about the connection monitor.
@@ -347,21 +347,21 @@ class ConnectionMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
+                 auto_start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

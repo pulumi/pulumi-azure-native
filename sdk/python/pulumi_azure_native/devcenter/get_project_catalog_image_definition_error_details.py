@@ -78,10 +78,10 @@ def get_project_catalog_image_definition_error_details(catalog_name: Optional[_b
 
     return AwaitableGetProjectCatalogImageDefinitionErrorDetailsResult(
         errors=pulumi.get(__ret__, 'errors'))
-def get_project_catalog_image_definition_error_details_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_catalog_image_definition_error_details_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCatalogImageDefinitionErrorDetailsResult]:
     """
     Gets Image Definition error details

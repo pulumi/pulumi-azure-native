@@ -309,9 +309,9 @@ def get_dicom_service(dicom_service_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dicom_service_output(dicom_service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Gets the properties of the specified DICOM Service.

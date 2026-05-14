@@ -309,9 +309,9 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[_
         shared_key=pulumi.get(__ret__, 'shared_key'),
         state=pulumi.get(__ret__, 'state'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-def get_express_route_cross_connection_peering_output(cross_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_route_cross_connection_peering_output(cross_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      peering_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
     """
     Gets the specified peering for the ExpressRouteCrossConnection.

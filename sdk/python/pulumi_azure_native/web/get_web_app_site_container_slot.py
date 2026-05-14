@@ -299,10 +299,10 @@ def get_web_app_site_container_slot(container_name: Optional[_builtins.str] = No
         user_managed_identity_client_id=pulumi.get(__ret__, 'user_managed_identity_client_id'),
         user_name=pulumi.get(__ret__, 'user_name'),
         volume_mounts=pulumi.get(__ret__, 'volume_mounts'))
-def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           slot: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_site_container_slot_output(container_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           slot: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteContainerSlotResult]:
     """
     Container of a site

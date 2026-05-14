@@ -126,9 +126,9 @@ def list_tenant_access_secrets(access_name: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_tenant_access_secrets_output(access_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTenantAccessSecretsResult]:
     """
     Get tenant access information details.

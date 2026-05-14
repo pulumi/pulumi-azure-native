@@ -293,8 +293,8 @@ def get_iot_security_solution(resource_group_name: Optional[_builtins.str] = Non
         unmasked_ip_logging_status=pulumi.get(__ret__, 'unmasked_ip_logging_status'),
         user_defined_resources=pulumi.get(__ret__, 'user_defined_resources'),
         workspace=pulumi.get(__ret__, 'workspace'))
-def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_iot_security_solution_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     solution_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
     """
     User this method to get details of a specific IoT Security solution based on solution name

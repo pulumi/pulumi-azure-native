@@ -361,9 +361,9 @@ def get_internal_network(internal_network_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-def get_internal_network_output(internal_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                l3_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_internal_network_output(internal_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                l3_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternalNetworkResult]:
     """
     Gets a InternalNetworks.

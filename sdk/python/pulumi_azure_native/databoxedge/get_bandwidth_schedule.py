@@ -179,9 +179,9 @@ def get_bandwidth_schedule(device_name: Optional[_builtins.str] = None,
         stop=pulumi.get(__ret__, 'stop'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bandwidth_schedule_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBandwidthScheduleResult]:
     """
     Gets the properties of the specified bandwidth schedule.

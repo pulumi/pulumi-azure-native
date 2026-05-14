@@ -22,12 +22,12 @@ class WebAppVnetConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cert_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_swift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cert_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_swift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppVnetConnection resource.
 
@@ -82,7 +82,7 @@ class WebAppVnetConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="certBlob")
-    def cert_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
         Point-To-Site VPN connection.
@@ -90,67 +90,67 @@ class WebAppVnetConnectionArgs:
         return pulumi.get(self, "cert_blob")
 
     @cert_blob.setter
-    def cert_blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_blob", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_servers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_servers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="isSwift")
-    def is_swift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_swift(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that is used to denote if this is VNET injection
         """
         return pulumi.get(self, "is_swift")
 
     @is_swift.setter
-    def is_swift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_swift(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_swift", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetName")
-    def vnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing Virtual Network.
         """
         return pulumi.get(self, "vnet_name")
 
     @vnet_name.setter
-    def vnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetResourceId")
-    def vnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network's resource ID.
         """
         return pulumi.get(self, "vnet_resource_id")
 
     @vnet_resource_id.setter
-    def vnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_resource_id", value)
 
 
@@ -160,14 +160,14 @@ class WebAppVnetConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cert_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_swift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cert_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_swift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Virtual Network information ARM resource.
@@ -218,14 +218,14 @@ class WebAppVnetConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cert_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_swift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cert_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_swift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

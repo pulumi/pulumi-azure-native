@@ -75,9 +75,9 @@ def list_client_application_secrets(client_application_id: Optional[_builtins.st
 
     return AwaitableListClientApplicationSecretsResult(
         entra=pulumi.get(__ret__, 'entra'))
-def list_client_application_secrets_output(client_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_client_application_secrets_output(client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClientApplicationSecretsResult]:
     """
     Retrived client application secrets.

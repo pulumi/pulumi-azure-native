@@ -82,12 +82,12 @@ def get_factory_git_hub_access_token(factory_name: Optional[_builtins.str] = Non
 
     return AwaitableGetFactoryGitHubAccessTokenResult(
         git_hub_access_token=pulumi.get(__ret__, 'git_hub_access_token'))
-def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            git_hub_access_code: Optional[pulumi.Input[_builtins.str]] = None,
-                                            git_hub_access_token_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                                            git_hub_client_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            git_hub_client_secret: Optional[pulumi.Input[Optional[Union['GitHubClientSecret', 'GitHubClientSecretDict']]]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_factory_git_hub_access_token_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            git_hub_access_code: pulumi.Input[Optional[_builtins.str]] = None,
+                                            git_hub_access_token_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                                            git_hub_client_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            git_hub_client_secret: pulumi.Input[Optional[Optional[Union['GitHubClientSecret', 'GitHubClientSecretDict']]]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
     """
     Get GitHub Access Token.

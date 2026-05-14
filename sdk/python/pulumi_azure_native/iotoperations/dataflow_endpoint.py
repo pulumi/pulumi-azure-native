@@ -25,8 +25,8 @@ class DataflowEndpointArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dataflow_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DataflowEndpointPropertiesArgs']] = None):
+                 dataflow_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DataflowEndpointPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataflowEndpoint resource.
 
@@ -82,26 +82,26 @@ class DataflowEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataflowEndpointName")
-    def dataflow_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataflow_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Instance dataflowEndpoint resource
         """
         return pulumi.get(self, "dataflow_endpoint_name")
 
     @dataflow_endpoint_name.setter
-    def dataflow_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataflow_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataflow_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DataflowEndpointPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DataflowEndpointPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DataflowEndpointPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DataflowEndpointPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class DataflowEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowEndpointPropertiesArgs', 'DataflowEndpointPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowEndpointPropertiesArgs', 'DataflowEndpointPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Instance dataflowEndpoint resource
@@ -162,11 +162,11 @@ class DataflowEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowEndpointPropertiesArgs', 'DataflowEndpointPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowEndpointPropertiesArgs', 'DataflowEndpointPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

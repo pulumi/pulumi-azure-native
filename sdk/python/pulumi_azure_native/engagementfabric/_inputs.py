@@ -27,7 +27,7 @@ class SKUArgsDict(TypedDict):
     """
     The name of the SKU
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The price tier of the SKU
     """
@@ -36,7 +36,7 @@ class SKUArgsDict(TypedDict):
 class SKUArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The EngagementFabric SKU
 
@@ -61,14 +61,14 @@ class SKUArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The price tier of the SKU
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 

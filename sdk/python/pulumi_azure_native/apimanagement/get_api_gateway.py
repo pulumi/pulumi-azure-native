@@ -267,8 +267,8 @@ def get_api_gateway(gateway_name: Optional[_builtins.str] = None,
         target_provisioning_state=pulumi.get(__ret__, 'target_provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_type=pulumi.get(__ret__, 'virtual_network_type'))
-def get_api_gateway_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_gateway_output(gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayResult]:
     """
     Gets an API Management gateway resource description.

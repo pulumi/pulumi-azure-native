@@ -163,8 +163,8 @@ def get_sql_server_license(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_server_license_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  sql_server_license_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_server_license_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  sql_server_license_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerLicenseResult]:
     """
     Retrieves a SQL Server license resource

@@ -141,10 +141,10 @@ def get_assessment(assessment_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_assessment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_output(assessment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.

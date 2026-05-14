@@ -22,8 +22,8 @@ __all__ = ['ServiceGroupMemberRelationshipArgs', 'ServiceGroupMemberRelationship
 class ServiceGroupMemberRelationshipArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ServiceGroupMemberRelationshipPropertiesArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ServiceGroupMemberRelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ServiceGroupMemberRelationship resource.
 
@@ -51,26 +51,26 @@ class ServiceGroupMemberRelationshipArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of ServiceGroupMember relationship.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ServiceGroupMemberRelationshipPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ServiceGroupMemberRelationshipPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ServiceGroupMemberRelationshipPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ServiceGroupMemberRelationshipPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ServiceGroupMemberRelationshipPropertiesArgs', 'ServiceGroupMemberRelationshipPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ServiceGroupMemberRelationshipPropertiesArgs', 'ServiceGroupMemberRelationshipPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a ServiceGroupMember relationship resource.
@@ -123,9 +123,9 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ServiceGroupMemberRelationshipPropertiesArgs', 'ServiceGroupMemberRelationshipPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ServiceGroupMemberRelationshipPropertiesArgs', 'ServiceGroupMemberRelationshipPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

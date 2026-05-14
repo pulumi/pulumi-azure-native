@@ -24,11 +24,11 @@ class AmountArgsDict(TypedDict):
     """
     The amount.
     """
-    currency: NotRequired[pulumi.Input[_builtins.str]]
+    currency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of currency being used for the value.
     """
-    value: NotRequired[pulumi.Input[_builtins.float]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Amount value.
     """
@@ -36,8 +36,8 @@ class AmountArgsDict(TypedDict):
 @pulumi.input_type
 class AmountArgs:
     def __init__(__self__, *,
-                 currency: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None):
+                 currency: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The amount.
 
@@ -51,26 +51,26 @@ class AmountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def currency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def currency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of currency being used for the value.
         """
         return pulumi.get(self, "currency")
 
     @currency.setter
-    def currency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def currency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "currency", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Amount value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
 
 

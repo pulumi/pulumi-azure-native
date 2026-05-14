@@ -152,9 +152,9 @@ def get_server_trust_certificate(certificate_name: Optional[_builtins.str] = Non
         public_blob=pulumi.get(__ret__, 'public_blob'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_trust_certificate_output(certificate_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTrustCertificateResult]:
     """
     Gets a server trust certificate that was uploaded from SQL Server to SQL Managed Instance.

@@ -64,7 +64,7 @@ def get_client_token(endpoint: Optional[_builtins.str] = None,
 
     return AwaitableGetClientTokenResult(
         token=pulumi.get(__ret__, 'token'))
-def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_client_token_output(endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientTokenResult]:
     """
     Use this function to get an Azure authentication token for the current login context.

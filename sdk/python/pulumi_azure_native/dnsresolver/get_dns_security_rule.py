@@ -231,9 +231,9 @@ def get_dns_security_rule(dns_resolver_policy_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dns_security_rule_output(dns_resolver_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 dns_security_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_security_rule_output(dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 dns_security_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsSecurityRuleResult]:
     """
     Gets properties of a DNS security rule for a DNS resolver policy.

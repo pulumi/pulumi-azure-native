@@ -334,9 +334,9 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[_bu
         tactics=pulumi.get(__ret__, 'tactics'),
         techniques=pulumi.get(__ret__, 'techniques'),
         type=pulumi.get(__ret__, 'type'))
-def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      settings_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_anomaly_security_ml_analytics_settings_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      settings_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalySecurityMLAnalyticsSettingsResult]:
     """
     Gets the Security ML Analytics Settings.

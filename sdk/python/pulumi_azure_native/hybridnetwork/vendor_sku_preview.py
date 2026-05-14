@@ -22,7 +22,7 @@ class VendorSkuPreviewArgs:
     def __init__(__self__, *,
                  sku_name: pulumi.Input[_builtins.str],
                  vendor_name: pulumi.Input[_builtins.str],
-                 preview_subscription: Optional[pulumi.Input[_builtins.str]] = None):
+                 preview_subscription: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VendorSkuPreview resource.
 
@@ -61,14 +61,14 @@ class VendorSkuPreviewArgs:
 
     @_builtins.property
     @pulumi.getter(name="previewSubscription")
-    def preview_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preview_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preview subscription ID.
         """
         return pulumi.get(self, "preview_subscription")
 
     @preview_subscription.setter
-    def preview_subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preview_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preview_subscription", value)
 
 
@@ -78,9 +78,9 @@ class VendorSkuPreview(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 preview_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 preview_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Customer subscription which can use a sku.
@@ -121,9 +121,9 @@ class VendorSkuPreview(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 preview_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 preview_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

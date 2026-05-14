@@ -371,8 +371,8 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[_bu
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stack_at_management_group_output(deployment_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_stack_at_management_group_output(deployment_stack_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtManagementGroupResult]:
     """
     Gets the Deployment stack with the given name.

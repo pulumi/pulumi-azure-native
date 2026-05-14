@@ -202,8 +202,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[_builtins.str] = Non
         trusted_service_access_enabled=pulumi.get(__ret__, 'trusted_service_access_enabled'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_network_rule_set_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.

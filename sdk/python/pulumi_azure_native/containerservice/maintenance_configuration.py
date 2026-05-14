@@ -24,10 +24,10 @@ class MaintenanceConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['MaintenanceWindowArgs']] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
         """
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
@@ -75,50 +75,50 @@ class MaintenanceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configName")
-    def config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the maintenance configuration.
         """
         return pulumi.get(self, "config_name")
 
     @config_name.setter
-    def config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['MaintenanceWindowArgs']]:
         """
         Maintenance window for the maintenance configuration.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['MaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['MaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="notAllowedTime")
-    def not_allowed_time(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]:
+    def not_allowed_time(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]]:
         """
         Time slots on which upgrade is not allowed.
         """
         return pulumi.get(self, "not_allowed_time")
 
     @not_allowed_time.setter
-    def not_allowed_time(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]):
+    def not_allowed_time(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]]):
         pulumi.set(self, "not_allowed_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInWeek")
-    def time_in_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]:
+    def time_in_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]]:
         """
         Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
         return pulumi.get(self, "time_in_week")
 
     @time_in_week.setter
-    def time_in_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]):
+    def time_in_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]]):
         pulumi.set(self, "time_in_week", value)
 
 
@@ -128,12 +128,12 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         """
         Planned maintenance configuration, used to configure when updates can be deployed to a Managed Cluster. See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
@@ -181,12 +181,12 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

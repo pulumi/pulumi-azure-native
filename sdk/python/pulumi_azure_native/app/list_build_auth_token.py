@@ -87,9 +87,9 @@ def list_build_auth_token(build_name: Optional[_builtins.str] = None,
     return AwaitableListBuildAuthTokenResult(
         expires=pulumi.get(__ret__, 'expires'),
         token=pulumi.get(__ret__, 'token'))
-def list_build_auth_token_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_build_auth_token_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildAuthTokenResult]:
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.

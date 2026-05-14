@@ -139,9 +139,9 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[_builtins.
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def list_managed_cluster_access_profile_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_managed_cluster_access_profile_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               role_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
     """
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.

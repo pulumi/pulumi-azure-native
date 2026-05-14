@@ -192,9 +192,9 @@ def get_email_template(resource_group_name: Optional[_builtins.str] = None,
         subject=pulumi.get(__ret__, 'subject'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_email_template_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_email_template_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              template_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailTemplateResult]:
     """
     Gets the details of the email template specified by its identifier.

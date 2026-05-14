@@ -24,10 +24,10 @@ class TokenArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['TokenCredentialsPropertiesArgs']] = None,
-                 scope_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TokenStatus']]] = None,
-                 token_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['TokenCredentialsPropertiesArgs']] = None,
+                 scope_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]] = None,
+                 token_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Token resource.
 
@@ -75,50 +75,50 @@ class TokenArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['TokenCredentialsPropertiesArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['TokenCredentialsPropertiesArgs']]:
         """
         The credentials that can be used for authenticating the token.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['TokenCredentialsPropertiesArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['TokenCredentialsPropertiesArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeMapId")
-    def scope_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the scope map to which the token will be associated with.
         """
         return pulumi.get(self, "scope_map_id")
 
     @scope_map_id.setter
-    def scope_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_map_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TokenStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]]:
         """
         The status of the token example enabled or disabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TokenStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenName")
-    def token_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the token.
         """
         return pulumi.get(self, "token_name")
 
     @token_name.setter
-    def token_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_name", value)
 
 
@@ -128,12 +128,12 @@ class Token(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['TokenCredentialsPropertiesArgs', 'TokenCredentialsPropertiesArgsDict']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TokenStatus']]] = None,
-                 token_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['TokenCredentialsPropertiesArgs', 'TokenCredentialsPropertiesArgsDict']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]] = None,
+                 token_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a token for a container registry.
@@ -181,12 +181,12 @@ class Token(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['TokenCredentialsPropertiesArgs', 'TokenCredentialsPropertiesArgsDict']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TokenStatus']]] = None,
-                 token_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['TokenCredentialsPropertiesArgs', 'TokenCredentialsPropertiesArgsDict']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]] = None,
+                 token_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

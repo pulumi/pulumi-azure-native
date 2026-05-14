@@ -383,9 +383,9 @@ def get_web_app_site_extension(name: Optional[_builtins.str] = None,
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_web_app_site_extension_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      site_extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_site_extension_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      site_extension_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.

@@ -171,7 +171,7 @@ def get_report(report_name: Optional[_builtins.str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_report_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_report_output(report_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportResult]:
     """
     Gets the report for a subscription by report name.

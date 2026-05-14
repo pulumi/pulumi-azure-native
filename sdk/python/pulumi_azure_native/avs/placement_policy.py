@@ -25,8 +25,8 @@ class PlacementPolicyArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PlacementPolicy resource.
 
@@ -82,26 +82,26 @@ class PlacementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="placementPolicyName")
-    def placement_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the placement policy.
         """
         return pulumi.get(self, "placement_policy_name")
 
     @placement_policy_name.setter
-    def placement_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class PlacementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A vSphere Distributed Resource Scheduler (DRS) placement policy
@@ -162,11 +162,11 @@ class PlacementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

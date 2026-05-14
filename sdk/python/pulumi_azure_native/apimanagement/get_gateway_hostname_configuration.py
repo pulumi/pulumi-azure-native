@@ -194,10 +194,10 @@ def get_gateway_hostname_configuration(gateway_id: Optional[_builtins.str] = Non
         tls10_enabled=pulumi.get(__ret__, 'tls10_enabled'),
         tls11_enabled=pulumi.get(__ret__, 'tls11_enabled'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              hc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_hostname_configuration_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              hc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
     Get details of a hostname configuration

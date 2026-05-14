@@ -280,8 +280,8 @@ def get_open_shift_cluster(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         worker_profiles=pulumi.get(__ret__, 'worker_profiles'),
         worker_profiles_status=pulumi.get(__ret__, 'worker_profiles_status'))
-def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_open_shift_cluster_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
     The operation returns properties of a OpenShift cluster.

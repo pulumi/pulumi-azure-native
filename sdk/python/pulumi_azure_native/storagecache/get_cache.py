@@ -358,8 +358,8 @@ def get_cache(cache_name: Optional[_builtins.str] = None,
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         upgrade_status=pulumi.get(__ret__, 'upgrade_status'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_cache_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_output(cache_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Returns a cache.

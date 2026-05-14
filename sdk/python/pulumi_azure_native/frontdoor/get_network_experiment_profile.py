@@ -175,8 +175,8 @@ def get_network_experiment_profile(profile_name: Optional[_builtins.str] = None,
         resource_state=pulumi.get(__ret__, 'resource_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_experiment_profile_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_experiment_profile_output(profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkExperimentProfileResult]:
     """
     Defines an Network Experiment Profile and lists of Experiments

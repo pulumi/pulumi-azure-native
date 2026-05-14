@@ -72,8 +72,8 @@ def list_mongo_cluster_connection_strings(mongo_cluster_name: Optional[_builtins
 
     return AwaitableListMongoClusterConnectionStringsResult(
         connection_strings=pulumi.get(__ret__, 'connection_strings'))
-def list_mongo_cluster_connection_strings_output(mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_mongo_cluster_connection_strings_output(mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMongoClusterConnectionStringsResult]:
     """
     List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.

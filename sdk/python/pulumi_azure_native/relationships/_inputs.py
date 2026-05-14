@@ -29,7 +29,7 @@ class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
     """
     The relationship target resource id.
     """
-    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    target_tenant: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relationship target tenant id.
     """
@@ -38,7 +38,7 @@ class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
 class DependencyOfRelationshipPropertiesArgs:
     def __init__(__self__, *,
                  target_id: pulumi.Input[_builtins.str],
-                 target_tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         dependencyOf relationship properties.
 
@@ -63,14 +63,14 @@ class DependencyOfRelationshipPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetTenant")
-    def target_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relationship target tenant id.
         """
         return pulumi.get(self, "target_tenant")
 
     @target_tenant.setter
-    def target_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_tenant", value)
 
 
@@ -82,7 +82,7 @@ class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
     """
     The relationship target resource id.
     """
-    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    target_tenant: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relationship target tenant id.
     """
@@ -91,7 +91,7 @@ class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
 class ServiceGroupMemberRelationshipPropertiesArgs:
     def __init__(__self__, *,
                  target_id: pulumi.Input[_builtins.str],
-                 target_tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ServiceGroupMember relationship properties.
 
@@ -116,14 +116,14 @@ class ServiceGroupMemberRelationshipPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetTenant")
-    def target_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relationship target tenant id.
         """
         return pulumi.get(self, "target_tenant")
 
     @target_tenant.setter
-    def target_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_tenant", value)
 
 

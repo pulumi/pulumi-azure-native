@@ -410,8 +410,8 @@ def get_static_site(name: Optional[_builtins.str] = None,
         template_properties=pulumi.get(__ret__, 'template_properties'),
         type=pulumi.get(__ret__, 'type'),
         user_provided_function_apps=pulumi.get(__ret__, 'user_provided_function_apps'))
-def get_static_site_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_site_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteResult]:
     """
     Description for Gets the details of a static site.

@@ -153,9 +153,9 @@ def get_firewall_rule(cache_name: Optional[_builtins.str] = None,
         start_ip=pulumi.get(__ret__, 'start_ip'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_rule_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.

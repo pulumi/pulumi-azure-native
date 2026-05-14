@@ -143,10 +143,10 @@ def get_replication_fabric(fabric_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_fabric_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_fabric_output(fabric_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationFabricResult]:
     """
     Gets the details of an Azure Site Recovery fabric.

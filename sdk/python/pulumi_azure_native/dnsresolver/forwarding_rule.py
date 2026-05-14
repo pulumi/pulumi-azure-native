@@ -26,9 +26,9 @@ class ForwardingRuleArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_dns_servers: pulumi.Input[Sequence[pulumi.Input['TargetDnsServerArgs']]],
-                 forwarding_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 forwarding_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ForwardingRule resource.
 
@@ -101,38 +101,38 @@ class ForwardingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="forwardingRuleName")
-    def forwarding_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the forwarding rule.
         """
         return pulumi.get(self, "forwarding_rule_name")
 
     @forwarding_rule_name.setter
-    def forwarding_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingRuleState")
-    def forwarding_rule_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']]]:
+    def forwarding_rule_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]]:
         """
         The state of forwarding rule.
         """
         return pulumi.get(self, "forwarding_rule_state")
 
     @forwarding_rule_state.setter
-    def forwarding_rule_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']]]):
+    def forwarding_rule_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]]):
         pulumi.set(self, "forwarding_rule_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata attached to the forwarding rule.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
 
@@ -142,13 +142,13 @@ class ForwardingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
+                 dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
                  __props__=None):
         """
         Describes a forwarding rule within a DNS forwarding ruleset.
@@ -197,13 +197,13 @@ class ForwardingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_rule_state: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
+                 dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

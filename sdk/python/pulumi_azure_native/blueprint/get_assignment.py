@@ -252,8 +252,8 @@ def get_assignment(assignment_name: Optional[_builtins.str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_assignment_output(assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assignment_output(assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Get a blueprint assignment.

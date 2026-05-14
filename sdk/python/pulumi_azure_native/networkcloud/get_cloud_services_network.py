@@ -322,8 +322,8 @@ def get_cloud_services_network(cloud_services_network_name: Optional[_builtins.s
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-def get_cloud_services_network_output(cloud_services_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_services_network_output(cloud_services_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudServicesNetworkResult]:
     """
     Get properties of the provided cloud services network.

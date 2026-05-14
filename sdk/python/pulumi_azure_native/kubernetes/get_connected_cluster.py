@@ -423,8 +423,8 @@ def get_connected_cluster(cluster_name: Optional[_builtins.str] = None,
         total_core_count=pulumi.get(__ret__, 'total_core_count'),
         total_node_count=pulumi.get(__ret__, 'total_node_count'),
         type=pulumi.get(__ret__, 'type'))
-def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connected_cluster_output(cluster_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedClusterResult]:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.

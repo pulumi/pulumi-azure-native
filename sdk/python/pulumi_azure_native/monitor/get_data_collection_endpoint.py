@@ -319,8 +319,8 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_collection_endpoint_output(data_collection_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Definition of ARM tracked top level resource.

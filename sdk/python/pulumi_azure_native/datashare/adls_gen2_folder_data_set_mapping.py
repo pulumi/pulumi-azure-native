@@ -30,7 +30,7 @@ class ADLSGen2FolderDataSetMappingArgs:
                  share_subscription_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
                  subscription_id: pulumi.Input[_builtins.str],
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ADLSGen2FolderDataSetMapping resource.
 
@@ -183,14 +183,14 @@ class ADLSGen2FolderDataSetMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetMappingName")
-    def data_set_mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data set mapping to be created.
         """
         return pulumi.get(self, "data_set_mapping_name")
 
     @data_set_mapping_name.setter
-    def data_set_mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_mapping_name", value)
 
 
@@ -200,17 +200,17 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An ADLS Gen2 folder data set mapping.
@@ -260,17 +260,17 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

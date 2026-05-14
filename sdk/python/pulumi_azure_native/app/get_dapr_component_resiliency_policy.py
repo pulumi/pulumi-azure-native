@@ -156,10 +156,10 @@ def get_dapr_component_resiliency_policy(component_name: Optional[_builtins.str]
         outbound_policy=pulumi.get(__ret__, 'outbound_policy'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dapr_component_resiliency_policy_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """
     Dapr Component Resiliency Policy.

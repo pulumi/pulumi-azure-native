@@ -202,8 +202,8 @@ def get_disk_access(disk_access_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'))
-def get_disk_access_output(disk_access_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_disk_access_output(disk_access_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     Gets information about a disk access resource.

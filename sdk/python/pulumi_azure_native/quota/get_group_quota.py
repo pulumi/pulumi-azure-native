@@ -134,8 +134,8 @@ def get_group_quota(group_quota_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_group_quota_output(group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_quota_output(group_quota_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaResult]:
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.

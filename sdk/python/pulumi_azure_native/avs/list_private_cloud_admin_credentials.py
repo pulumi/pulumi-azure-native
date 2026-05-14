@@ -110,8 +110,8 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[_builtins.
         nsxt_username=pulumi.get(__ret__, 'nsxt_username'),
         vcenter_password=pulumi.get(__ret__, 'vcenter_password'),
         vcenter_username=pulumi.get(__ret__, 'vcenter_username'))
-def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_private_cloud_admin_credentials_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateCloudAdminCredentialsResult]:
     """
     List the admin credentials for the private cloud

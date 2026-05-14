@@ -85,8 +85,8 @@ def list_query_key_by_search_service(resource_group_name: Optional[_builtins.str
     return AwaitableListQueryKeyBySearchServiceResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_query_key_by_search_service_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQueryKeyBySearchServiceResult]:
     """
     Returns the list of query API keys for the given Azure AI Search service.

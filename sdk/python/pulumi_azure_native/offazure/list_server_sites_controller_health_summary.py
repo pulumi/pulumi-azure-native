@@ -85,8 +85,8 @@ def list_server_sites_controller_health_summary(resource_group_name: Optional[_b
     return AwaitableListServerSitesControllerHealthSummaryResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_server_sites_controller_health_summary_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_server_sites_controller_health_summary_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerSitesControllerHealthSummaryResult]:
     """
     Method to get site health summary.

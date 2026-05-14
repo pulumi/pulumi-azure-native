@@ -137,9 +137,9 @@ def get_skus(provider_namespace: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_skus_output(provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                    sku: Optional[pulumi.Input[_builtins.str]] = None,
+def get_skus_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                    sku: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSkusResult]:
     """
     Gets the sku details for the given resource type and sku name.

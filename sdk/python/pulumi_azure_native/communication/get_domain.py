@@ -257,9 +257,9 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         user_engagement_tracking=pulumi.get(__ret__, 'user_engagement_tracking'),
         verification_records=pulumi.get(__ret__, 'verification_records'),
         verification_states=pulumi.get(__ret__, 'verification_states'))
-def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get the Domains resource and its properties.

@@ -146,11 +146,11 @@ def get_elastic_snapshot(account_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_elastic_snapshot_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_elastic_snapshot_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                snapshot_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticSnapshotResult]:
     """
     Get a ElasticSnapshot

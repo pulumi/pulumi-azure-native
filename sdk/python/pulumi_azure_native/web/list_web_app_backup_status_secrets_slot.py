@@ -306,16 +306,16 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[_builtins.str] =
         storage_account_url=pulumi.get(__ret__, 'storage_account_url'),
         type=pulumi.get(__ret__, 'type'),
         website_size_in_bytes=pulumi.get(__ret__, 'website_size_in_bytes'))
-def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   backup_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                   backup_schedule: Optional[pulumi.Input[Optional[Union['BackupSchedule', 'BackupScheduleDict']]]] = None,
-                                                   databases: Optional[pulumi.Input[Optional[Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']]]]] = None,
-                                                   enabled: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                   kind: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                   name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   slot: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   storage_account_url: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_backup_status_secrets_slot_output(backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   backup_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                   backup_schedule: pulumi.Input[Optional[Optional[Union['BackupSchedule', 'BackupScheduleDict']]]] = None,
+                                                   databases: pulumi.Input[Optional[Optional[Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']]]]] = None,
+                                                   enabled: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                   kind: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                   name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   slot: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   storage_account_url: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsSlotResult]:
     """
     Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.

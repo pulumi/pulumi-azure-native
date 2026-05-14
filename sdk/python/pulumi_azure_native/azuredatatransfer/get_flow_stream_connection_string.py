@@ -74,9 +74,9 @@ def get_flow_stream_connection_string(connection_name: Optional[_builtins.str] =
 
     return AwaitableGetFlowStreamConnectionStringResult(
         connection_string=pulumi.get(__ret__, 'connection_string'))
-def get_flow_stream_connection_string_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_stream_connection_string_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             flow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowStreamConnectionStringResult]:
     """
     Get the connection string for the specified flow.

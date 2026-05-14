@@ -165,9 +165,9 @@ def get_cache(cache_id: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         type=pulumi.get(__ret__, 'type'),
         use_from_location=pulumi.get(__ret__, 'use_from_location'))
-def get_cache_output(cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_output(cache_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     service_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Gets the details of the Cache specified by its identifier.

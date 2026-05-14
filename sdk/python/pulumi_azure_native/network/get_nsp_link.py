@@ -256,9 +256,9 @@ def get_nsp_link(link_name: Optional[_builtins.str] = None,
         remote_perimeter_location=pulumi.get(__ret__, 'remote_perimeter_location'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_nsp_link_output(link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nsp_link_output(link_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspLinkResult]:
     """
     Gets the specified NSP link resource.

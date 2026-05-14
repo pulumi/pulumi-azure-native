@@ -257,9 +257,9 @@ def get_catalog(catalog_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_catalog_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_catalog_output(catalog_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Gets a catalog

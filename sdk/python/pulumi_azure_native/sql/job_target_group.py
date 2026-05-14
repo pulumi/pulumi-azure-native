@@ -26,7 +26,7 @@ class JobTargetGroupArgs:
                  members: pulumi.Input[Sequence[pulumi.Input['JobTargetArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobTargetGroup resource.
 
@@ -93,14 +93,14 @@ class JobTargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target group.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_name", value)
 
 
@@ -110,11 +110,11 @@ class JobTargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A group of job targets.
@@ -161,11 +161,11 @@ class JobTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

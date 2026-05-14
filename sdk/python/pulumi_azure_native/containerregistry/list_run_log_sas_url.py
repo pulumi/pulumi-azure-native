@@ -87,9 +87,9 @@ def list_run_log_sas_url(registry_name: Optional[_builtins.str] = None,
     return AwaitableListRunLogSasUrlResult(
         log_artifact_link=pulumi.get(__ret__, 'log_artifact_link'),
         log_link=pulumi.get(__ret__, 'log_link'))
-def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                run_id: Optional[pulumi.Input[_builtins.str]] = None,
+def list_run_log_sas_url_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                run_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRunLogSasUrlResult]:
     """
     Gets a link to download the run logs.

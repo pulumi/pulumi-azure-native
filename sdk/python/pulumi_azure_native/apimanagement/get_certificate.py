@@ -166,9 +166,9 @@ def get_certificate(certificate_id: Optional[_builtins.str] = None,
         subject=pulumi.get(__ret__, 'subject'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_certificate_output(certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(certificate_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Gets the details of the certificate specified by its identifier.

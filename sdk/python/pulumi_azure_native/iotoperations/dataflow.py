@@ -26,8 +26,8 @@ class DataflowArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DataflowPropertiesArgs']] = None):
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DataflowPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Dataflow resource.
 
@@ -97,26 +97,26 @@ class DataflowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataflowName")
-    def dataflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Instance dataflowProfile dataflow resource
         """
         return pulumi.get(self, "dataflow_name")
 
     @dataflow_name.setter
-    def dataflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataflow_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DataflowPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DataflowPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DataflowPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DataflowPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class Dataflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataflow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataflow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Instance dataflowProfile dataflow resource
@@ -179,12 +179,12 @@ class Dataflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataflow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataflow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

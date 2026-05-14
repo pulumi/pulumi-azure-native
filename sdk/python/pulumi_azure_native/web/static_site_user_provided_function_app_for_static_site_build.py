@@ -22,11 +22,11 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
                  environment_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 function_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticSiteUserProvidedFunctionAppForStaticSiteBuild resource.
 
@@ -91,62 +91,62 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionAppName")
-    def function_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the function app to register with the static site build.
         """
         return pulumi.get(self, "function_app_name")
 
     @function_app_name.setter
-    def function_app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppRegion")
-    def function_app_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the function app registered with the static site
         """
         return pulumi.get(self, "function_app_region")
 
     @function_app_region.setter
-    def function_app_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_region", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppResourceId")
-    def function_app_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the function app registered with the static site
         """
         return pulumi.get(self, "function_app_resource_id")
 
     @function_app_resource_id.setter
-    def function_app_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isForced")
-    def is_forced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_forced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
         """
         return pulumi.get(self, "is_forced")
 
     @is_forced.setter
-    def is_forced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_forced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_forced", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -156,14 +156,14 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuild(pulumi.CustomResource)
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Static Site User Provided Function App ARM resource.
@@ -213,14 +213,14 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuild(pulumi.CustomResource)
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

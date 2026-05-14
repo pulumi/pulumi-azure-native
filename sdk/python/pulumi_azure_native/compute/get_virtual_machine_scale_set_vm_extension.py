@@ -289,11 +289,11 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[_builtins.str] =
         suppress_failures=pulumi.get(__ret__, 'suppress_failures'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                      instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      vm_extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_scale_set_vm_extension_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                      instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      vm_extension_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                      vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
     """
     The operation to get the VMSS VM extension.

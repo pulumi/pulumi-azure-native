@@ -140,9 +140,9 @@ def get_dpp_resource_guard_proxy(resource_group_name: Optional[_builtins.str] = 
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_guard_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dpp_resource_guard_proxy_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_guard_proxy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDppResourceGuardProxyResult]:
     """
     ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs

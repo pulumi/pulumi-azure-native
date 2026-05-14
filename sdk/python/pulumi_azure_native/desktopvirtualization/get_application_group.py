@@ -323,8 +323,8 @@ def get_application_group(application_group_name: Optional[_builtins.str] = None
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workspace_arm_path=pulumi.get(__ret__, 'workspace_arm_path'))
-def get_application_group_output(application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_group_output(application_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Get an application group.

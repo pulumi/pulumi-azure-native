@@ -234,10 +234,10 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[_builtins.str]
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         tenant_name=pulumi.get(__ret__, 'tenant_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kusto_pool_principal_assignment_output(kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               principal_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolPrincipalAssignmentResult]:
     """
     Gets a Kusto pool principalAssignment.

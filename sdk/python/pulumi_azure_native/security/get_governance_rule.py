@@ -291,8 +291,8 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_governance_rule_output(rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               scope: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
     Get a specific governance rule for the requested scope by ruleId

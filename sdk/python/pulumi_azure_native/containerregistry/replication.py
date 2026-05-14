@@ -23,11 +23,11 @@ class ReplicationArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         The set of arguments for constructing a Replication resource.
 
@@ -82,62 +82,62 @@ class ReplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="regionEndpointEnabled")
-    def region_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def region_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
         """
         return pulumi.get(self, "region_endpoint_enabled")
 
     @region_endpoint_enabled.setter
-    def region_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def region_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "region_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationName")
-    def replication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication.
         """
         return pulumi.get(self, "replication_name")
 
     @replication_name.setter
-    def replication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]:
+    def zone_redundancy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]:
         """
         Whether or not zone redundancy is enabled for this container registry replication
         """
         return pulumi.get(self, "zone_redundancy")
 
     @zone_redundancy.setter
-    def zone_redundancy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]):
+    def zone_redundancy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]):
         pulumi.set(self, "zone_redundancy", value)
 
 
@@ -147,13 +147,13 @@ class Replication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         """
         An object that represents a replication for a container registry.
@@ -202,13 +202,13 @@ class Replication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

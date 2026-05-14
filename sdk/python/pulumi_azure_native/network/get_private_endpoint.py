@@ -283,9 +283,9 @@ def get_private_endpoint(expand: Optional[_builtins.str] = None,
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                private_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets the specified private endpoint by resource group.

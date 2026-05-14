@@ -29,11 +29,11 @@ class BusinessProcessIdentifierArgsDict(TypedDict):
     """
     The properties of business process identifier.
     """
-    property_name: NotRequired[pulumi.Input[_builtins.str]]
+    property_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property name of the business process identifier.
     """
-    property_type: NotRequired[pulumi.Input[_builtins.str]]
+    property_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property type of the business process identifier.
     """
@@ -41,8 +41,8 @@ class BusinessProcessIdentifierArgsDict(TypedDict):
 @pulumi.input_type
 class BusinessProcessIdentifierArgs:
     def __init__(__self__, *,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of business process identifier.
 
@@ -56,26 +56,26 @@ class BusinessProcessIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property name of the business process identifier.
         """
         return pulumi.get(self, "property_name")
 
     @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_name", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyType")
-    def property_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property type of the business process identifier.
         """
         return pulumi.get(self, "property_type")
 
     @property_type.setter
-    def property_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_type", value)
 
 
@@ -83,19 +83,19 @@ class BusinessProcessMappingItemArgsDict(TypedDict):
     """
     The properties of business process mapping.
     """
-    logic_app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    logic_app_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logic app resource id.
     """
-    operation_name: NotRequired[pulumi.Input[_builtins.str]]
+    operation_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operation name.
     """
-    operation_type: NotRequired[pulumi.Input[_builtins.str]]
+    operation_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The mapping item operation type of the business process.
     """
-    workflow_name: NotRequired[pulumi.Input[_builtins.str]]
+    workflow_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The workflow name within the logic app.
     """
@@ -103,10 +103,10 @@ class BusinessProcessMappingItemArgsDict(TypedDict):
 @pulumi.input_type
 class BusinessProcessMappingItemArgs:
     def __init__(__self__, *,
-                 logic_app_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 logic_app_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of business process mapping.
 
@@ -126,50 +126,50 @@ class BusinessProcessMappingItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logic app resource id.
         """
         return pulumi.get(self, "logic_app_resource_id")
 
     @logic_app_resource_id.setter
-    def logic_app_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation name.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationType")
-    def operation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mapping item operation type of the business process.
         """
         return pulumi.get(self, "operation_type")
 
     @operation_type.setter
-    def operation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workflow name within the logic app.
         """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
-    def workflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_name", value)
 
 
@@ -177,15 +177,15 @@ class BusinessProcessStageArgsDict(TypedDict):
     """
     The properties of business process stage.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the business stage.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The properties within the properties of the business process stage.
     """
-    stages_before: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stages_before: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The property to keep track of stages before current in the business process stage.
     """
@@ -193,9 +193,9 @@ class BusinessProcessStageArgsDict(TypedDict):
 @pulumi.input_type
 class BusinessProcessStageArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 stages_before: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 stages_before: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The properties of business process stage.
 
@@ -212,38 +212,38 @@ class BusinessProcessStageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the business stage.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The properties within the properties of the business process stage.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="stagesBefore")
-    def stages_before(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stages_before(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The property to keep track of stages before current in the business process stage.
         """
         return pulumi.get(self, "stages_before")
 
     @stages_before.setter
-    def stages_before(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stages_before(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stages_before", value)
 
 
@@ -251,19 +251,19 @@ class TrackingDataStoreArgsDict(TypedDict):
     """
     The properties of tracking data store.
     """
-    data_store_ingestion_uri: NotRequired[pulumi.Input[_builtins.str]]
+    data_store_ingestion_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data store ingestion URI.
     """
-    data_store_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    data_store_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data store resource id.
     """
-    data_store_uri: NotRequired[pulumi.Input[_builtins.str]]
+    data_store_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data store URI.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The database name.
     """
@@ -271,10 +271,10 @@ class TrackingDataStoreArgsDict(TypedDict):
 @pulumi.input_type
 class TrackingDataStoreArgs:
     def __init__(__self__, *,
-                 data_store_ingestion_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_store_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_store_ingestion_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_store_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of tracking data store.
 
@@ -294,50 +294,50 @@ class TrackingDataStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStoreIngestionUri")
-    def data_store_ingestion_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_store_ingestion_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data store ingestion URI.
         """
         return pulumi.get(self, "data_store_ingestion_uri")
 
     @data_store_ingestion_uri.setter
-    def data_store_ingestion_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_store_ingestion_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_store_ingestion_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStoreResourceId")
-    def data_store_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_store_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data store resource id.
         """
         return pulumi.get(self, "data_store_resource_id")
 
     @data_store_resource_id.setter
-    def data_store_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_store_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_store_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStoreUri")
-    def data_store_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_store_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data store URI.
         """
         return pulumi.get(self, "data_store_uri")
 
     @data_store_uri.setter
-    def data_store_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_store_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_store_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database name.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
 

@@ -198,11 +198,11 @@ def get_job_step(job_agent_name: Optional[_builtins.str] = None,
         step_id=pulumi.get(__ret__, 'step_id'),
         target_group=pulumi.get(__ret__, 'target_group'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_step_output(job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        step_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_step_output(job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        step_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobStepResult]:
     """
     Gets a job step in a job's current version.

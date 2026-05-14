@@ -291,8 +291,8 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               virtual_machine_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Gets a virtual machine

@@ -23,7 +23,7 @@ __all__ = ['Ec2InstanceArgs', 'Ec2Instance']
 class Ec2InstanceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['Ec2InstancePropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['Ec2InstancePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Ec2Instance resource.
 
@@ -48,14 +48,14 @@ class Ec2InstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['Ec2InstancePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['Ec2InstancePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['Ec2InstancePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['Ec2InstancePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -65,8 +65,8 @@ class Ec2Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['Ec2InstancePropertiesArgs', 'Ec2InstancePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['Ec2InstancePropertiesArgs', 'Ec2InstancePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Microsoft.AwsConnector resource
@@ -106,8 +106,8 @@ class Ec2Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['Ec2InstancePropertiesArgs', 'Ec2InstancePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['Ec2InstancePropertiesArgs', 'Ec2InstancePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

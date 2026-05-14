@@ -209,7 +209,7 @@ def get_partner(partner_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_time=pulumi.get(__ret__, 'updated_time'),
         version=pulumi.get(__ret__, 'version'))
-def get_partner_output(partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_partner_output(partner_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerResult]:
     """
     Get the management partner using the partnerId, objectId and tenantId.

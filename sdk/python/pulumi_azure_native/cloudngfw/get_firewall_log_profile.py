@@ -150,8 +150,8 @@ def get_firewall_log_profile(firewall_name: Optional[_builtins.str] = None,
         log_type=pulumi.get(__ret__, 'log_type'),
         threat_log_destination=pulumi.get(__ret__, 'threat_log_destination'),
         traffic_log_destination=pulumi.get(__ret__, 'traffic_log_destination'))
-def get_firewall_log_profile_output(firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_log_profile_output(firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallLogProfileResult]:
     """
     Log Profile for Firewall

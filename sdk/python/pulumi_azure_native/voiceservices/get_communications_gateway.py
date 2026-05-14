@@ -410,8 +410,8 @@ def get_communications_gateway(communications_gateway_name: Optional[_builtins.s
         tags=pulumi.get(__ret__, 'tags'),
         teams_voicemail_pilot_number=pulumi.get(__ret__, 'teams_voicemail_pilot_number'),
         type=pulumi.get(__ret__, 'type'))
-def get_communications_gateway_output(communications_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_communications_gateway_output(communications_gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
     Get a CommunicationsGateway

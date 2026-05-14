@@ -21,7 +21,7 @@ class WorkspaceSettingArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 workspace_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSetting resource.
 
@@ -60,14 +60,14 @@ class WorkspaceSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="workspaceSettingName")
-    def workspace_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the security setting
         """
         return pulumi.get(self, "workspace_setting_name")
 
     @workspace_setting_name.setter
-    def workspace_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_setting_name", value)
 
 
@@ -77,9 +77,9 @@ class WorkspaceSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configures where to store the OMS agent data for workspaces under a scope
@@ -120,9 +120,9 @@ class WorkspaceSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -231,9 +231,9 @@ def get_interface_endpoint(expand: Optional[_builtins.str] = None,
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  interface_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_interface_endpoint_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  interface_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
     """
     Gets the specified interface endpoint by resource group.

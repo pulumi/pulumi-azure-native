@@ -182,10 +182,10 @@ def get_connector_dryrun(dryrun_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                location: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connector_dryrun_output(dryrun_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                location: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorDryrunResult]:
     """
     get a dryrun job

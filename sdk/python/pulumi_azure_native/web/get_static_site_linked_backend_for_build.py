@@ -181,10 +181,10 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[_builtin
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_site_linked_backend_for_build_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    linked_backend_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_site_linked_backend_for_build_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    linked_backend_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteLinkedBackendForBuildResult]:
     """
     Static Site Linked Backend ARM resource.

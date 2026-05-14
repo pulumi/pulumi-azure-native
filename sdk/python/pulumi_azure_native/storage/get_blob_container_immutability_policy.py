@@ -181,10 +181,10 @@ def get_blob_container_immutability_policy(account_name: Optional[_builtins.str]
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  immutability_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blob_container_immutability_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  immutability_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
     """
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.

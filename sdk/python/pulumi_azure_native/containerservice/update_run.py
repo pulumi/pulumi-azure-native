@@ -25,9 +25,9 @@ class UpdateRunArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  managed_cluster_update: pulumi.Input['ManagedClusterUpdateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 strategy: Optional[pulumi.Input['UpdateRunStrategyArgs']] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 strategy: pulumi.Input[Optional['UpdateRunStrategyArgs']] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
 
@@ -99,7 +99,7 @@ class UpdateRunArgs:
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input['UpdateRunStrategyArgs']]:
+    def strategy(self) -> pulumi.Input[Optional['UpdateRunStrategyArgs']]:
         """
         The strategy defines the order in which the clusters will be updated.
         If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
@@ -108,24 +108,24 @@ class UpdateRunArgs:
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input['UpdateRunStrategyArgs']]):
+    def strategy(self, value: pulumi.Input[Optional['UpdateRunStrategyArgs']]):
         pulumi.set(self, "strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="updateRunName")
-    def update_run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the UpdateRun resource.
         """
         return pulumi.get(self, "update_run_name")
 
     @update_run_name.setter
-    def update_run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_run_name", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyId")
-    def update_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the FleetUpdateStrategy resource to reference.
 
@@ -143,7 +143,7 @@ class UpdateRunArgs:
         return pulumi.get(self, "update_strategy_id")
 
     @update_strategy_id.setter
-    def update_strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_strategy_id", value)
 
 
@@ -153,12 +153,12 @@ class UpdateRun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A multi-stage process to perform update operations across members of a Fleet.
@@ -219,12 +219,12 @@ class UpdateRun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

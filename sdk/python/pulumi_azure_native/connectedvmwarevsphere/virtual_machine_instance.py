@@ -23,14 +23,14 @@ __all__ = ['VirtualMachineInstanceArgs', 'VirtualMachineInstance']
 class VirtualMachineInstanceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 infrastructure_profile: Optional[pulumi.Input['InfrastructureProfileArgs']] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileForVMInstanceArgs']] = None,
-                 placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None,
-                 security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
+                 infrastructure_profile: pulumi.Input[Optional['InfrastructureProfileArgs']] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 os_profile: pulumi.Input[Optional['OsProfileForVMInstanceArgs']] = None,
+                 placement_profile: pulumi.Input[Optional['PlacementProfileArgs']] = None,
+                 security_profile: pulumi.Input[Optional['SecurityProfileArgs']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
 
@@ -76,98 +76,98 @@ class VirtualMachineInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['HardwareProfileArgs']]:
         """
         Hardware properties.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureProfile")
-    def infrastructure_profile(self) -> Optional[pulumi.Input['InfrastructureProfileArgs']]:
+    def infrastructure_profile(self) -> pulumi.Input[Optional['InfrastructureProfileArgs']]:
         """
         Gets the infrastructure profile.
         """
         return pulumi.get(self, "infrastructure_profile")
 
     @infrastructure_profile.setter
-    def infrastructure_profile(self, value: Optional[pulumi.Input['InfrastructureProfileArgs']]):
+    def infrastructure_profile(self, value: pulumi.Input[Optional['InfrastructureProfileArgs']]):
         pulumi.set(self, "infrastructure_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
         """
         Network properties.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OsProfileForVMInstanceArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OsProfileForVMInstanceArgs']]:
         """
         OS properties.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OsProfileForVMInstanceArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OsProfileForVMInstanceArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProfile")
-    def placement_profile(self) -> Optional[pulumi.Input['PlacementProfileArgs']]:
+    def placement_profile(self) -> pulumi.Input[Optional['PlacementProfileArgs']]:
         """
         Placement properties.
         """
         return pulumi.get(self, "placement_profile")
 
     @placement_profile.setter
-    def placement_profile(self, value: Optional[pulumi.Input['PlacementProfileArgs']]):
+    def placement_profile(self, value: pulumi.Input[Optional['PlacementProfileArgs']]):
         pulumi.set(self, "placement_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['SecurityProfileArgs']]:
         """
         Gets the security profile.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['SecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['SecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage properties.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
 
@@ -177,15 +177,15 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
-                 placement_profile: Optional[pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: pulumi.Input[Optional[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 placement_profile: pulumi.Input[Optional[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         """
         Define the virtualMachineInstance.
@@ -236,15 +236,15 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
-                 placement_profile: Optional[pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: pulumi.Input[Optional[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 placement_profile: pulumi.Input[Optional[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

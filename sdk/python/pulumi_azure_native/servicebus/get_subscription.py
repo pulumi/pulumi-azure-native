@@ -390,10 +390,10 @@ def get_subscription(namespace_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_subscription_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            subscription_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Returns a subscription description for the specified topic.

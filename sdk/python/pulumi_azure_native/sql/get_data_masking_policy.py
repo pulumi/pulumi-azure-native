@@ -194,10 +194,10 @@ def get_data_masking_policy(data_masking_policy_name: Optional[_builtins.str] = 
         masking_level=pulumi.get(__ret__, 'masking_level'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_masking_policy_output(data_masking_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataMaskingPolicyResult]:
     """
     Gets the database data masking policy.

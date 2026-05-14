@@ -280,8 +280,8 @@ def get_maintenance_configuration(resource_group_name: Optional[_builtins.str] =
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_maintenance_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Get Configuration record

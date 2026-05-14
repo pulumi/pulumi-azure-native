@@ -140,9 +140,9 @@ def get_failover_group(failover_group_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_failover_group_output(failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              sql_managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_failover_group_output(failover_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              sql_managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFailoverGroupResult]:
     """
     Retrieves a failover group resource

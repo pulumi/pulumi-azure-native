@@ -295,9 +295,9 @@ def get_activity_custom_entity_query(entity_query_id: Optional[_builtins.str] = 
         template_name=pulumi.get(__ret__, 'template_name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_activity_custom_entity_query_output(entity_query_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
     """
     Gets an entity query.

@@ -100,9 +100,9 @@ def get_extension(cluster_name: Optional[_builtins.str] = None,
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_monitoring_enabled=pulumi.get(__ret__, 'cluster_monitoring_enabled'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_extension_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_extension_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         extension_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets the extension properties for the specified HDInsight cluster extension.

@@ -361,9 +361,9 @@ def get_server(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         workspace_feature=pulumi.get(__ret__, 'workspace_feature'))
-def get_server_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      server_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Gets a server.

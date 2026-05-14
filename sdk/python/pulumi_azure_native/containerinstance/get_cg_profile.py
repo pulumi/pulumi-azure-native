@@ -413,8 +413,8 @@ def get_cg_profile(container_group_profile_name: Optional[_builtins.str] = None,
         use_krypton=pulumi.get(__ret__, 'use_krypton'),
         volumes=pulumi.get(__ret__, 'volumes'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_cg_profile_output(container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cg_profile_output(container_group_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCGProfileResult]:
     """
     Get the properties of the specified container group profile.

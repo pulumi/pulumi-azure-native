@@ -341,11 +341,11 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[_builtins.str]
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
         treat_failure_as_deployment_failure=pulumi.get(__ret__, 'treat_failure_as_deployment_failure'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        run_command_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_scale_set_vm_run_command_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        run_command_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """
     The operation to get the VMSS VM run command.

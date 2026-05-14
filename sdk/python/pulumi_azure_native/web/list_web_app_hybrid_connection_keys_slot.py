@@ -145,11 +145,11 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[_builtins.str] = Non
         send_key_name=pulumi.get(__ret__, 'send_key_name'),
         send_key_value=pulumi.get(__ret__, 'send_key_value'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    slot: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_hybrid_connection_keys_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHybridConnectionKeysSlotResult]:
     """
     Gets the send key name and value for a Hybrid Connection.

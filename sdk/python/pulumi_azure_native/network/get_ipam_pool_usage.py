@@ -179,9 +179,9 @@ def get_ipam_pool_usage(network_manager_name: Optional[_builtins.str] = None,
         number_of_reserved_ip_addresses=pulumi.get(__ret__, 'number_of_reserved_ip_addresses'),
         reserved_address_prefixes=pulumi.get(__ret__, 'reserved_address_prefixes'),
         total_number_of_ip_addresses=pulumi.get(__ret__, 'total_number_of_ip_addresses'))
-def get_ipam_pool_usage_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_pool_usage_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolUsageResult]:
     """
     IpamPool usage information.

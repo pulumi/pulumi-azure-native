@@ -141,10 +141,10 @@ def get_managed_private_endpoint(factory_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_private_endpoint_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        managed_private_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        managed_virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Gets a managed private endpoint.

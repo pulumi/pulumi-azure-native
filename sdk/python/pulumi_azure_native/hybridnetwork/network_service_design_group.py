@@ -23,10 +23,10 @@ class NetworkServiceDesignGroupArgs:
     def __init__(__self__, *,
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['NetworkServiceDesignGroupPropertiesFormatArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['NetworkServiceDesignGroupPropertiesFormatArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkServiceDesignGroup resource.
 
@@ -74,50 +74,50 @@ class NetworkServiceDesignGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkServiceDesignGroupName")
-    def network_service_design_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_service_design_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network service design group.
         """
         return pulumi.get(self, "network_service_design_group_name")
 
     @network_service_design_group_name.setter
-    def network_service_design_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_service_design_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_service_design_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['NetworkServiceDesignGroupPropertiesFormatArgs']]:
+    def properties(self) -> pulumi.Input[Optional['NetworkServiceDesignGroupPropertiesFormatArgs']]:
         """
         network service design group properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['NetworkServiceDesignGroupPropertiesFormatArgs']]):
+    def properties(self, value: pulumi.Input[Optional['NetworkServiceDesignGroupPropertiesFormatArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class NetworkServiceDesignGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkServiceDesignGroupPropertiesFormatArgs', 'NetworkServiceDesignGroupPropertiesFormatArgsDict']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NetworkServiceDesignGroupPropertiesFormatArgs', 'NetworkServiceDesignGroupPropertiesFormatArgsDict']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         network service design group resource.
@@ -180,12 +180,12 @@ class NetworkServiceDesignGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkServiceDesignGroupPropertiesFormatArgs', 'NetworkServiceDesignGroupPropertiesFormatArgsDict']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NetworkServiceDesignGroupPropertiesFormatArgs', 'NetworkServiceDesignGroupPropertiesFormatArgsDict']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

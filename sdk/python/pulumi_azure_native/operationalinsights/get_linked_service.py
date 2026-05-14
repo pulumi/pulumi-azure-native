@@ -165,9 +165,9 @@ def get_linked_service(linked_service_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         write_access_resource_id=pulumi.get(__ret__, 'write_access_resource_id'))
-def get_linked_service_output(linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linked_service_output(linked_service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
     Gets a linked service instance.

@@ -66,7 +66,7 @@ def get_organization_api_key(email_id: Optional[_builtins.str] = None,
 
     return AwaitableGetOrganizationApiKeyResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_organization_api_key_output(email_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationApiKeyResult]:
     """
     Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.

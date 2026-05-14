@@ -155,10 +155,10 @@ def get_graph_ql_api_resolver(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         path=pulumi.get(__ret__, 'path'),
         type=pulumi.get(__ret__, 'type'))
-def get_graph_ql_api_resolver_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_ql_api_resolver_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resolver_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQLApiResolverResult]:
     """
     Gets the details of the GraphQL API Resolver specified by its identifier.

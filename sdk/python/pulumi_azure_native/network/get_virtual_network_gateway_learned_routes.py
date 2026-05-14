@@ -72,8 +72,8 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[_bu
 
     return AwaitableGetVirtualNetworkGatewayLearnedRoutesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_learned_routes_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
     """
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.

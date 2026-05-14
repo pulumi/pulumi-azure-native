@@ -161,8 +161,8 @@ def get_elastic_load_balancingv2_target_health_description(name: Optional[_built
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_elastic_load_balancingv2_target_health_description_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_elastic_load_balancingv2_target_health_description_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticLoadBalancingv2TargetHealthDescriptionResult]:
     """
     Get a ElasticLoadBalancingv2TargetHealthDescription

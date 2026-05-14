@@ -23,12 +23,12 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
                  database_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backup_storage_access_tier: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_storage_access_tier: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceLongTermRetentionPolicy resource.
 
@@ -96,74 +96,74 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupStorageAccessTier")
-    def backup_storage_access_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']]]:
+    def backup_storage_access_tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]]:
         """
         The BackupStorageAccessTier for the LTR backups
         """
         return pulumi.get(self, "backup_storage_access_tier")
 
     @backup_storage_access_tier.setter
-    def backup_storage_access_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']]]):
+    def backup_storage_access_tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]]):
         pulumi.set(self, "backup_storage_access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
-    def monthly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monthly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "monthly_retention")
 
     @monthly_retention.setter
-    def monthly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monthly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monthly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy name. Should always be Default.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="weekOfYear")
-    def week_of_year(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def week_of_year(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The week of year to take the yearly backup in an ISO 8601 format.
         """
         return pulumi.get(self, "week_of_year")
 
     @week_of_year.setter
-    def week_of_year(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def week_of_year(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "week_of_year", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRetention")
-    def weekly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "weekly_retention")
 
     @weekly_retention.setter
-    def weekly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="yearlyRetention")
-    def yearly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yearly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The yearly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "yearly_retention")
 
     @yearly_retention.setter
-    def yearly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yearly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yearly_retention", value)
 
 
@@ -173,15 +173,15 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_storage_access_tier: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_storage_access_tier: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A long term retention policy.
@@ -232,15 +232,15 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_storage_access_tier: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_storage_access_tier: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

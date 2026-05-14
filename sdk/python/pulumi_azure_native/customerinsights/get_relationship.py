@@ -268,9 +268,9 @@ def get_relationship(hub_name: Optional[_builtins.str] = None,
         relationship_name=pulumi.get(__ret__, 'relationship_name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_relationship_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            relationship_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_relationship_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            relationship_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRelationshipResult]:
     """
     Gets information about the specified relationship.

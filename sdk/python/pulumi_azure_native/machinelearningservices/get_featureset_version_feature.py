@@ -117,11 +117,11 @@ def get_featureset_version_feature(feature_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         feature_name=pulumi.get(__ret__, 'feature_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          version: Optional[pulumi.Input[_builtins.str]] = None,
-                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_featureset_version_feature_output(feature_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          version: pulumi.Input[Optional[_builtins.str]] = None,
+                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturesetVersionFeatureResult]:
     """
     Dto object representing feature

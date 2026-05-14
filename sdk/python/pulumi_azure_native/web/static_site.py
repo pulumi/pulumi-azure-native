@@ -23,22 +23,22 @@ __all__ = ['StaticSiteArgs', 'StaticSite']
 class StaticSiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_config_file_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_properties: Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']] = None,
-                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
-                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_properties: Optional[pulumi.Input['StaticSiteTemplateOptionsArgs']] = None):
+                 allow_config_file_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_properties: pulumi.Input[Optional['StaticSiteBuildPropertiesArgs']] = None,
+                 enterprise_grade_cdn_status: pulumi.Input[Optional[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SkuDescriptionArgs']] = None,
+                 staging_environment_policy: pulumi.Input[Optional['StagingEnvironmentPolicy']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_properties: pulumi.Input[Optional['StaticSiteTemplateOptionsArgs']] = None):
         """
         The set of arguments for constructing a StaticSite resource.
 
@@ -108,194 +108,194 @@ class StaticSiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowConfigFileUpdates")
-    def allow_config_file_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_config_file_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "allow_config_file_updates")
 
     @allow_config_file_updates.setter
-    def allow_config_file_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_config_file_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_config_file_updates", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target branch in the repository.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="buildProperties")
-    def build_properties(self) -> Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']]:
+    def build_properties(self) -> pulumi.Input[Optional['StaticSiteBuildPropertiesArgs']]:
         """
         Build properties to configure on the repository.
         """
         return pulumi.get(self, "build_properties")
 
     @build_properties.setter
-    def build_properties(self, value: Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']]):
+    def build_properties(self, value: pulumi.Input[Optional['StaticSiteBuildPropertiesArgs']]):
         pulumi.set(self, "build_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseGradeCdnStatus")
-    def enterprise_grade_cdn_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]]:
+    def enterprise_grade_cdn_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]]:
         """
         State indicating the status of the enterprise grade CDN serving traffic to the static web app.
         """
         return pulumi.get(self, "enterprise_grade_cdn_status")
 
     @enterprise_grade_cdn_status.setter
-    def enterprise_grade_cdn_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]]):
+    def enterprise_grade_cdn_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]]):
         pulumi.set(self, "enterprise_grade_cdn_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Managed service identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the static site to create or update.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider that submitted the last deployment to the primary environment of the static site.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State indicating whether public traffic are allowed or not for a static web app. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryToken")
-    def repository_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         """
         return pulumi.get(self, "repository_token")
 
     @repository_token.setter
-    def repository_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_token", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
-    def repository_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL for the repository of the static site.
         """
         return pulumi.get(self, "repository_url")
 
     @repository_url.setter
-    def repository_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuDescriptionArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuDescriptionArgs']]:
         """
         Description of a SKU for a scalable resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuDescriptionArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuDescriptionArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingEnvironmentPolicy")
-    def staging_environment_policy(self) -> Optional[pulumi.Input['StagingEnvironmentPolicy']]:
+    def staging_environment_policy(self) -> pulumi.Input[Optional['StagingEnvironmentPolicy']]:
         """
         State indicating whether staging environments are allowed or not allowed for a static web app.
         """
         return pulumi.get(self, "staging_environment_policy")
 
     @staging_environment_policy.setter
-    def staging_environment_policy(self, value: Optional[pulumi.Input['StagingEnvironmentPolicy']]):
+    def staging_environment_policy(self, value: pulumi.Input[Optional['StagingEnvironmentPolicy']]):
         pulumi.set(self, "staging_environment_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateProperties")
-    def template_properties(self) -> Optional[pulumi.Input['StaticSiteTemplateOptionsArgs']]:
+    def template_properties(self) -> pulumi.Input[Optional['StaticSiteTemplateOptionsArgs']]:
         """
         Template options for generating a new repository.
         """
         return pulumi.get(self, "template_properties")
 
     @template_properties.setter
-    def template_properties(self, value: Optional[pulumi.Input['StaticSiteTemplateOptionsArgs']]):
+    def template_properties(self, value: pulumi.Input[Optional['StaticSiteTemplateOptionsArgs']]):
         pulumi.set(self, "template_properties", value)
 
 
@@ -305,23 +305,23 @@ class StaticSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_config_file_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_properties: Optional[pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
-                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
-                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_properties: Optional[pulumi.Input[Union['StaticSiteTemplateOptionsArgs', 'StaticSiteTemplateOptionsArgsDict']]] = None,
+                 allow_config_file_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_properties: pulumi.Input[Optional[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
+                 enterprise_grade_cdn_status: pulumi.Input[Optional[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
+                 staging_environment_policy: pulumi.Input[Optional['StagingEnvironmentPolicy']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_properties: pulumi.Input[Optional[Union['StaticSiteTemplateOptionsArgs', 'StaticSiteTemplateOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Static Site ARM resource.
@@ -380,23 +380,23 @@ class StaticSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_config_file_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_properties: Optional[pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
-                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
-                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_properties: Optional[pulumi.Input[Union['StaticSiteTemplateOptionsArgs', 'StaticSiteTemplateOptionsArgsDict']]] = None,
+                 allow_config_file_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_properties: pulumi.Input[Optional[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
+                 enterprise_grade_cdn_status: pulumi.Input[Optional[Union[_builtins.str, 'EnterpriseGradeCdnStatus']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
+                 staging_environment_policy: pulumi.Input[Optional['StagingEnvironmentPolicy']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_properties: pulumi.Input[Optional[Union['StaticSiteTemplateOptionsArgs', 'StaticSiteTemplateOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

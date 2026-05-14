@@ -24,7 +24,7 @@ class JWTAuthenticatorArgs:
                  properties: pulumi.Input['JWTAuthenticatorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 jwt_authenticator_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 jwt_authenticator_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JWTAuthenticator resource.
 
@@ -77,14 +77,14 @@ class JWTAuthenticatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="jwtAuthenticatorName")
-    def jwt_authenticator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwt_authenticator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the JWT authenticator.
         """
         return pulumi.get(self, "jwt_authenticator_name")
 
     @jwt_authenticator_name.setter
-    def jwt_authenticator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwt_authenticator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwt_authenticator_name", value)
 
 
@@ -94,10 +94,10 @@ class JWTAuthenticator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 jwt_authenticator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['JWTAuthenticatorPropertiesArgs', 'JWTAuthenticatorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 jwt_authenticator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['JWTAuthenticatorPropertiesArgs', 'JWTAuthenticatorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration for JWT authenticator in the managed cluster.
@@ -143,10 +143,10 @@ class JWTAuthenticator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 jwt_authenticator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['JWTAuthenticatorPropertiesArgs', 'JWTAuthenticatorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 jwt_authenticator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['JWTAuthenticatorPropertiesArgs', 'JWTAuthenticatorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

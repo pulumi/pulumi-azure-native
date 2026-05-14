@@ -285,8 +285,8 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
         topic_spaces_configuration=pulumi.get(__ret__, 'topic_spaces_configuration'),
         topics_configuration=pulumi.get(__ret__, 'topics_configuration'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_output(namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Get properties of a namespace.

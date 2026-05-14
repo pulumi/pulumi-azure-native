@@ -278,8 +278,8 @@ def get_storage_class(resource_uri: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         type_properties=pulumi.get(__ret__, 'type_properties'),
         volume_binding_mode=pulumi.get(__ret__, 'volume_binding_mode'))
-def get_storage_class_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                             storage_class_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_class_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                             storage_class_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageClassResult]:
     """
     Get a StorageClassResource

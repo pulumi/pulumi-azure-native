@@ -140,9 +140,9 @@ def get_managed_environments_storage(environment_name: Optional[_builtins.str] =
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_environments_storage_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            storage_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_environments_storage_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            storage_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
     """
     Get storage for a managedEnvironment.

@@ -179,9 +179,9 @@ def get_business_case_operation(business_case_name: Optional[_builtins.str] = No
         state=pulumi.get(__ret__, 'state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_business_case_operation_output(business_case_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_business_case_operation_output(business_case_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessCaseOperationResult]:
     """
     Get a BusinessCase

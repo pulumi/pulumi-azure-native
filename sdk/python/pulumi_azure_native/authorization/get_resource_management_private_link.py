@@ -129,8 +129,8 @@ def get_resource_management_private_link(resource_group_name: Optional[_builtins
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_management_private_link_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                rmpl_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_management_private_link_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                rmpl_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
     Get a resource management private link(resource-level).

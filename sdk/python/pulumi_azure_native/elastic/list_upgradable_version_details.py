@@ -84,8 +84,8 @@ def list_upgradable_version_details(monitor_name: Optional[_builtins.str] = None
     return AwaitableListUpgradableVersionDetailsResult(
         current_version=pulumi.get(__ret__, 'current_version'),
         upgradable_versions=pulumi.get(__ret__, 'upgradable_versions'))
-def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_upgradable_version_details_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
     """
     Stack Versions that this version can upgrade to

@@ -24,10 +24,10 @@ class BackupArgs:
                  backup_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_resource_id: pulumi.Input[_builtins.str],
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_existing_snapshot: Optional[pulumi.Input[_builtins.bool]] = None):
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_existing_snapshot: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
 
@@ -105,50 +105,50 @@ class BackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupName")
-    def backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the backup
         """
         return pulumi.get(self, "backup_name")
 
     @backup_name.setter
-    def backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for backup
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the snapshot
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="useExistingSnapshot")
-    def use_existing_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_existing_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
         return pulumi.get(self, "use_existing_snapshot")
 
     @use_existing_snapshot.setter
-    def use_existing_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_existing_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_existing_snapshot", value)
 
 
@@ -158,14 +158,14 @@ class Backup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_existing_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_existing_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Backup under a Backup Vault
@@ -215,14 +215,14 @@ class Backup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_existing_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_existing_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

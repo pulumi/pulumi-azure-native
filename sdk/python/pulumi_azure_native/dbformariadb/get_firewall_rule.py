@@ -137,9 +137,9 @@ def get_firewall_rule(firewall_rule_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(firewall_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             server_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets information about a server firewall rule.

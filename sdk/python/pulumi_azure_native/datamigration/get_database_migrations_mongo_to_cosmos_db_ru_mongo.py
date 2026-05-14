@@ -297,9 +297,9 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo(migration_name: Optional
         system_data=pulumi.get(__ret__, 'system_data'),
         target_mongo_connection=pulumi.get(__ret__, 'target_mongo_connection'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                               target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsMongoToCosmosDbRUMongoResult]:
     """
     Get Database Migration resource.

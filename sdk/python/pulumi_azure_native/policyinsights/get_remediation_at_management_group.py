@@ -296,9 +296,9 @@ def get_remediation_at_management_group(management_group_id: Optional[_builtins.
         status_message=pulumi.get(__ret__, 'status_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_remediation_at_management_group_output(management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                               management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                               remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_remediation_at_management_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                               management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                               remediation_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
     """
     Gets an existing remediation at management group scope.

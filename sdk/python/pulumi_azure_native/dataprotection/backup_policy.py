@@ -24,8 +24,8 @@ class BackupPolicyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BackupPolicyArgs']] = None):
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
 
@@ -67,26 +67,26 @@ class BackupPolicyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyName")
-    def backup_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the policy
         """
         return pulumi.get(self, "backup_policy_name")
 
     @backup_policy_name.setter
-    def backup_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BackupPolicyArgs']]:
         """
         BaseBackupPolicyResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BackupPolicyArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         BaseBackupPolicy resource
@@ -145,10 +145,10 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

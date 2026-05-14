@@ -310,10 +310,10 @@ def get_connector_mapping(connector_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_mapping_output(connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_mapping_output(connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 mapping_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorMappingResult]:
     """
     Gets a connector mapping in the connector.

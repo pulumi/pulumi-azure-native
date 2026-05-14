@@ -285,10 +285,10 @@ def list_geodata_by_ip(enrichment_type: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_code=pulumi.get(__ret__, 'state_code'),
         state_confidence_factor=pulumi.get(__ret__, 'state_confidence_factor'))
-def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                              ip_address: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_geodata_by_ip_output(enrichment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                              ip_address: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGeodataByIpResult]:
     """
     Get geodata for a single IP address

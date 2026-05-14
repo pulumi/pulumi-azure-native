@@ -371,8 +371,8 @@ def get_registry(registry_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy=pulumi.get(__ret__, 'zone_redundancy'))
-def get_registry_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_output(registry_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Gets the properties of the specified container registry.

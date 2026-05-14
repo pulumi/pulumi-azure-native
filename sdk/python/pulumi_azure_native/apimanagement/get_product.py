@@ -204,9 +204,9 @@ def get_product(product_id: Optional[_builtins.str] = None,
         subscriptions_limit=pulumi.get(__ret__, 'subscriptions_limit'),
         terms=pulumi.get(__ret__, 'terms'),
         type=pulumi.get(__ret__, 'type'))
-def get_product_output(product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_output(product_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Gets the details of the product specified by its identifier.

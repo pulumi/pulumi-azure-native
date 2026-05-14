@@ -220,10 +220,10 @@ def get_read_write_database(database_name: Optional[_builtins.str] = None,
         statistics=pulumi.get(__ret__, 'statistics'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_read_write_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_read_write_database_output(database_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
     Returns a database.

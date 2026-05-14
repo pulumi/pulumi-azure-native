@@ -296,9 +296,9 @@ def get_connected_registry(connected_registry_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connected_registry_output(connected_registry_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
     Gets the properties of the connected registry.

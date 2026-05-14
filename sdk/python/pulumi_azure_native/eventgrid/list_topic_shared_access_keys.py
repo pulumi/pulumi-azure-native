@@ -84,8 +84,8 @@ def list_topic_shared_access_keys(resource_group_name: Optional[_builtins.str] =
     return AwaitableListTopicSharedAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_topic_shared_access_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
     """
     List the two keys used to publish to a topic.

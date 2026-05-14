@@ -264,7 +264,7 @@ def get_global_rulestack(global_rulestack_name: Optional[_builtins.str] = None,
         security_services=pulumi.get(__ret__, 'security_services'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_rulestack_output(global_rulestack_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalRulestackResult]:
     """
     Get a GlobalRulestackResource

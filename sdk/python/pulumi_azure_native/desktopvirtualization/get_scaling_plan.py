@@ -323,8 +323,8 @@ def get_scaling_plan(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scaling_plan_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            scaling_plan_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
     Get a scaling plan.

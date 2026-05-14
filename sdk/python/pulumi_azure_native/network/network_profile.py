@@ -23,11 +23,11 @@ __all__ = ['NetworkProfileArgs', 'NetworkProfile']
 class NetworkProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 container_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
 
@@ -64,62 +64,62 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerNetworkInterfaceConfigurations")
-    def container_network_interface_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]]:
+    def container_network_interface_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]]:
         """
         List of chid container network interface configurations.
         """
         return pulumi.get(self, "container_network_interface_configurations")
 
     @container_network_interface_configurations.setter
-    def container_network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]]):
+    def container_network_interface_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]]):
         pulumi.set(self, "container_network_interface_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfileName")
-    def network_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network profile.
         """
         return pulumi.get(self, "network_profile_name")
 
     @network_profile_name.setter
-    def network_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -129,12 +129,12 @@ class NetworkProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Network profile resource.
@@ -182,12 +182,12 @@ class NetworkProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

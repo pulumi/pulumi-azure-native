@@ -82,7 +82,7 @@ def list_policy_set_definition_version_all_at_management_group(management_group_
     return AwaitableListPolicySetDefinitionVersionAllAtManagementGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_policy_set_definition_version_all_at_management_group_output(management_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_policy_set_definition_version_all_at_management_group_output(management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllAtManagementGroupResult]:
     """
     This operation lists all the policy set definition versions for all policy set definitions at the management group scope.

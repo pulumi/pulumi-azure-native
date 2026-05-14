@@ -25,7 +25,7 @@ class EndpointArgs:
                  properties: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_mover_name: pulumi.Input[_builtins.str],
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -78,14 +78,14 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Endpoint resource.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
 
@@ -95,10 +95,10 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Endpoint resource, which contains information about file sources and targets.
@@ -144,10 +144,10 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

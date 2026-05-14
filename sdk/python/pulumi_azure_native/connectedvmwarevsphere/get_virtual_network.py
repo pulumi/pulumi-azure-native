@@ -280,8 +280,8 @@ def get_virtual_network(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
-def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               virtual_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Implements virtual network GET method.

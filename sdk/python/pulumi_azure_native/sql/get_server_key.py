@@ -191,9 +191,9 @@ def get_server_key(key_name: Optional[_builtins.str] = None,
         subregion=pulumi.get(__ret__, 'subregion'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_key_output(key_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          server_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerKeyResult]:
     """
     Gets a server key.

@@ -138,9 +138,9 @@ def get_credential_operation(credential_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_credential_operation_output(credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_credential_operation_output(credential_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialOperationResult]:
     """
     Gets a credential.

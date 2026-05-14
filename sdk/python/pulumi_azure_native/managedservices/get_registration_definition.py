@@ -148,8 +148,8 @@ def get_registration_definition(registration_definition_id: Optional[_builtins.s
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_registration_definition_output(registration_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registration_definition_output(registration_definition_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       scope: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
     """
     Gets the registration definition details.

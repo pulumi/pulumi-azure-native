@@ -139,9 +139,9 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         workspace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the details of the workspace specified by its identifier.

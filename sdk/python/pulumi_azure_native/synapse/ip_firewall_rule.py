@@ -21,9 +21,9 @@ class IpFirewallRuleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpFirewallRule resource.
 
@@ -68,38 +68,38 @@ class IpFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
         """
         return pulumi.get(self, "end_ip_address")
 
     @end_ip_address.setter
-    def end_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP firewall rule name
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start IP address of the firewall rule. Must be IPv4 format
         """
         return pulumi.get(self, "start_ip_address")
 
     @start_ip_address.setter
-    def start_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip_address", value)
 
 
@@ -109,11 +109,11 @@ class IpFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         IP firewall rule
@@ -160,11 +160,11 @@ class IpFirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

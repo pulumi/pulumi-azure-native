@@ -803,9 +803,9 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
         vnet_subnet_id=pulumi.get(__ret__, 'vnet_subnet_id'),
         windows_profile=pulumi.get(__ret__, 'windows_profile'),
         workload_runtime=pulumi.get(__ret__, 'workload_runtime'))
-def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_pool_output(agent_pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Agent Pool.

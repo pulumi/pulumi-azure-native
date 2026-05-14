@@ -165,9 +165,9 @@ def get_global_schema(resource_group_name: Optional[_builtins.str] = None,
         schema_type=pulumi.get(__ret__, 'schema_type'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_global_schema_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_schema_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             schema_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalSchemaResult]:
     """
     Gets the details of the Schema specified by its identifier.

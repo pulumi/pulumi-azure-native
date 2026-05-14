@@ -81,12 +81,12 @@ def get_online_deployment_logs(container_type: Optional[Union[_builtins.str, 'Co
 
     return AwaitableGetOnlineDeploymentLogsResult(
         content=pulumi.get(__ret__, 'content'))
-def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ContainerType']]]] = None,
-                                      deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      tail: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_online_deployment_logs_output(container_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ContainerType']]]] = None,
+                                      deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      tail: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
     Polls an Endpoint operation.

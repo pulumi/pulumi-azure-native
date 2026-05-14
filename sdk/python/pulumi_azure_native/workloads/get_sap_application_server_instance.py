@@ -359,9 +359,9 @@ def get_sap_application_server_instance(application_instance_name: Optional[_bui
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-def get_sap_application_server_instance_output(application_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               sap_virtual_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sap_application_server_instance_output(application_instance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               sap_virtual_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapApplicationServerInstanceResult]:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.

@@ -232,9 +232,9 @@ def get_managed_cluster_application(application_name: Optional[_builtins.str] = 
         type=pulumi.get(__ret__, 'type'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'))
-def get_managed_cluster_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_cluster_application_output(application_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationResult]:
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.

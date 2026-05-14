@@ -143,10 +143,10 @@ def get_gateway_route_config(gateway_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    route_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_route_config_output(gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    route_config_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayRouteConfigResult]:
     """
     Get the Spring Cloud Gateway route configs.

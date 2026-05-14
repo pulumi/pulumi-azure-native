@@ -306,8 +306,8 @@ def get_fleet(fleet_name: Optional[_builtins.str] = None,
         vm_attributes=pulumi.get(__ret__, 'vm_attributes'),
         vm_sizes_profile=pulumi.get(__ret__, 'vm_sizes_profile'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_fleet_output(fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fleet_output(fleet_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Get a Fleet

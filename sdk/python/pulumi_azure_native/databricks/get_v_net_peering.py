@@ -244,9 +244,9 @@ def get_v_net_peering(peering_name: Optional[_builtins.str] = None,
         remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
         type=pulumi.get(__ret__, 'type'),
         use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
-def get_v_net_peering_output(peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_v_net_peering_output(peering_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVNetPeeringResult]:
     """
     Gets the workspace vNet Peering.

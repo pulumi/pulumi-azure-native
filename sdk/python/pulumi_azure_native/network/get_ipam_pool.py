@@ -166,9 +166,9 @@ def get_ipam_pool(network_manager_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_pool_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
     Instance of Pool resource.

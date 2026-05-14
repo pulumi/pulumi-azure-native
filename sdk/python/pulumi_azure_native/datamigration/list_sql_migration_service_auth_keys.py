@@ -84,8 +84,8 @@ def list_sql_migration_service_auth_keys(resource_group_name: Optional[_builtins
     return AwaitableListSqlMigrationServiceAuthKeysResult(
         auth_key1=pulumi.get(__ret__, 'auth_key1'),
         auth_key2=pulumi.get(__ret__, 'auth_key2'))
-def list_sql_migration_service_auth_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                sql_migration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_sql_migration_service_auth_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                sql_migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSqlMigrationServiceAuthKeysResult]:
     """
     Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.

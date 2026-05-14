@@ -24,7 +24,7 @@ class ConfigServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['ConfigServerPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['ConfigServerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigServer resource.
 
@@ -63,14 +63,14 @@ class ConfigServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConfigServerPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConfigServerPropertiesArgs']]:
         """
         Properties of the Config Server resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConfigServerPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConfigServerPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class ConfigServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Config Server resource
@@ -127,9 +127,9 @@ class ConfigServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

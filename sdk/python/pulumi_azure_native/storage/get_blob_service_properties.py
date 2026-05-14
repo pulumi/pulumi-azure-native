@@ -244,9 +244,9 @@ def get_blob_service_properties(account_name: Optional[_builtins.str] = None,
         restore_policy=pulumi.get(__ret__, 'restore_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
-def get_blob_service_properties_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       blob_services_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blob_service_properties_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       blob_services_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.

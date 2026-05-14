@@ -80,11 +80,11 @@ def list_datastore_secrets(expirable_secret: Optional[_builtins.bool] = None,
 
     return AwaitableListDatastoreSecretsResult(
         secrets_type=pulumi.get(__ret__, 'secrets_type'))
-def list_datastore_secrets_output(expirable_secret: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                  expire_after_hours: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_datastore_secrets_output(expirable_secret: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                  expire_after_hours: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatastoreSecretsResult]:
     """
     Get datastore secrets.

@@ -25,8 +25,8 @@ class DatastoreArgs:
                  properties: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Datastore resource.
 
@@ -82,26 +82,26 @@ class DatastoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Datastore name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
-    def skip_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to skip validation.
         """
         return pulumi.get(self, "skip_validation")
 
     @skip_validation.setter
-    def skip_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation", value)
 
 
@@ -111,11 +111,11 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
@@ -162,11 +162,11 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

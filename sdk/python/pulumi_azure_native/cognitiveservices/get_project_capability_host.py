@@ -130,10 +130,10 @@ def get_project_capability_host(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         project_capability_host_properties=pulumi.get(__ret__, 'project_capability_host_properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_project_capability_host_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       capability_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_capability_host_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       capability_host_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCapabilityHostResult]:
     """
     Azure Resource Manager resource envelope for Project CapabilityHost.

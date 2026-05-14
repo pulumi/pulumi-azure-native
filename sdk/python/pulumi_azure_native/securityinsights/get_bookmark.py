@@ -309,9 +309,9 @@ def get_bookmark(bookmark_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated=pulumi.get(__ret__, 'updated'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-def get_bookmark_output(bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bookmark_output(bookmark_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBookmarkResult]:
     """
     Gets a bookmark.

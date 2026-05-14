@@ -213,8 +213,8 @@ def get_blueprint(blueprint_name: Optional[_builtins.str] = None,
         target_scope=pulumi.get(__ret__, 'target_scope'),
         type=pulumi.get(__ret__, 'type'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_blueprint_output(blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blueprint_output(blueprint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlueprintResult]:
     """
     Get a blueprint definition.

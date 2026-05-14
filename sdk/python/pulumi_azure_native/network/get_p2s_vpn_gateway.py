@@ -254,8 +254,8 @@ def get_p2s_vpn_gateway(gateway_name: Optional[_builtins.str] = None,
         vpn_client_connection_health=pulumi.get(__ret__, 'vpn_client_connection_health'),
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'),
         vpn_server_configuration=pulumi.get(__ret__, 'vpn_server_configuration'))
-def get_p2s_vpn_gateway_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_p2s_vpn_gateway_output(gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnGatewayResult]:
     """
     Retrieves the details of a virtual wan p2s vpn gateway.

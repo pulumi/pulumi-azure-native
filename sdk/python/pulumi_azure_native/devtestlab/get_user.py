@@ -219,10 +219,10 @@ def get_user(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-def get_user_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Get user profile.

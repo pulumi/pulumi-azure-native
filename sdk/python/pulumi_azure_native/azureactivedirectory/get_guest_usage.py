@@ -163,8 +163,8 @@ def get_guest_usage(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_usage_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider

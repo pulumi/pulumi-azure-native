@@ -164,9 +164,9 @@ def get_node_pool(node_pool_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_node_pool_output(node_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         supercomputer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_node_pool_output(node_pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         supercomputer_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodePoolResult]:
     """
     Get a NodePool

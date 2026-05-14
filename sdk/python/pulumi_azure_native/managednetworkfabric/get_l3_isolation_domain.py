@@ -267,8 +267,8 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[_builtins.str] = 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_l3_isolation_domain_output(l3_isolation_domain_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
     """
     Retrieves details of this L3 Isolation Domain.

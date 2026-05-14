@@ -387,9 +387,9 @@ def get_express_route_circuit_peering(circuit_name: Optional[_builtins.str] = No
         stats=pulumi.get(__ret__, 'stats'),
         type=pulumi.get(__ret__, 'type'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_route_circuit_peering_output(circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             peering_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitPeeringResult]:
     """
     Gets the specified peering for the express route circuit.

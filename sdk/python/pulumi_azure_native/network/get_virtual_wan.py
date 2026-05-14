@@ -241,8 +241,8 @@ def get_virtual_wan(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
         vpn_sites=pulumi.get(__ret__, 'vpn_sites'))
-def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_wan_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           virtual_wan_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Retrieves the details of a VirtualWAN.

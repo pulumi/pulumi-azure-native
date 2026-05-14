@@ -22,8 +22,8 @@ __all__ = ['ConfigurationReferenceArgs', 'ConfigurationReference']
 class ConfigurationReferenceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 configuration_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ConfigurationReferencePropertiesArgs']] = None):
+                 configuration_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ConfigurationReferencePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationReference resource.
 
@@ -51,26 +51,26 @@ class ConfigurationReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationReferenceName")
-    def configuration_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ConfigurationReference
         """
         return pulumi.get(self, "configuration_reference_name")
 
     @configuration_reference_name.setter
-    def configuration_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConfigurationReferencePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConfigurationReferencePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConfigurationReferencePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConfigurationReferencePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class ConfigurationReference(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationReferencePropertiesArgs', 'ConfigurationReferencePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationReferencePropertiesArgs', 'ConfigurationReferencePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ConfigurationReference Resource
@@ -127,9 +127,9 @@ class ConfigurationReference(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationReferencePropertiesArgs', 'ConfigurationReferencePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationReferencePropertiesArgs', 'ConfigurationReferencePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

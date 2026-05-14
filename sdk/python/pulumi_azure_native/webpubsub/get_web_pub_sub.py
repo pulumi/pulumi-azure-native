@@ -446,8 +446,8 @@ def get_web_pub_sub(resource_group_name: Optional[_builtins.str] = None,
         tls=pulumi.get(__ret__, 'tls'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_pub_sub_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubResult]:
     """
     Get the resource and its properties.

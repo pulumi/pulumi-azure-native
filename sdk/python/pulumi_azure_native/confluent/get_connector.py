@@ -172,11 +172,11 @@ def get_connector(cluster_id: Optional[_builtins.str] = None,
         partner_connector_info=pulumi.get(__ret__, 'partner_connector_info'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         connector_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Get confluent connector by Name

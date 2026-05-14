@@ -96,16 +96,16 @@ def list_storage_account_sas(account_name: Optional[_builtins.str] = None,
 
     return AwaitableListStorageAccountSASResult(
         account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
-def list_storage_account_sas_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    i_p_address_or_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    key_to_sign: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    permissions: Optional[pulumi.Input[Union[_builtins.str, 'Permissions']]] = None,
-                                    protocols: Optional[pulumi.Input[Optional['HttpProtocol']]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_types: Optional[pulumi.Input[Union[_builtins.str, 'SignedResourceTypes']]] = None,
-                                    services: Optional[pulumi.Input[Union[_builtins.str, 'Services']]] = None,
-                                    shared_access_expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                    shared_access_start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_storage_account_sas_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    i_p_address_or_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    key_to_sign: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    permissions: pulumi.Input[Optional[Union[_builtins.str, 'Permissions']]] = None,
+                                    protocols: pulumi.Input[Optional[Optional['HttpProtocol']]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_types: pulumi.Input[Optional[Union[_builtins.str, 'SignedResourceTypes']]] = None,
+                                    services: pulumi.Input[Optional[Union[_builtins.str, 'Services']]] = None,
+                                    shared_access_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                    shared_access_start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountSASResult]:
     """
     List SAS credentials of a storage account.

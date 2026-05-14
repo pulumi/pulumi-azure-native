@@ -137,8 +137,8 @@ def get_default_rollout(provider_namespace: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                               rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_default_rollout_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                               rollout_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultRolloutResult]:
     """
     Gets the default rollout details.

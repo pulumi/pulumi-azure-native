@@ -192,9 +192,9 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[_bu
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_policy_group_output(configuration_policy_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_policy_group_output(configuration_policy_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationPolicyGroupResult]:
     """
     Retrieves the details of a ConfigurationPolicyGroup.

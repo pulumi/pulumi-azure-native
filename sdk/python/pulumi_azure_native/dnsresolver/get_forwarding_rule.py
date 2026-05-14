@@ -205,9 +205,9 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[_builtins.str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'),
         type=pulumi.get(__ret__, 'type'))
-def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               forwarding_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_forwarding_rule_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               forwarding_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetForwardingRuleResult]:
     """
     Gets properties of a forwarding rule in a DNS forwarding ruleset.

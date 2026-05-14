@@ -468,10 +468,10 @@ def get_file_share(account_name: Optional[_builtins.str] = None,
         snapshot_time=pulumi.get(__ret__, 'snapshot_time'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_file_share_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          share_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_share_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          share_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareResult]:
     """
     Gets properties of a specified share.

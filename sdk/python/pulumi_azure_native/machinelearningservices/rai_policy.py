@@ -26,8 +26,8 @@ class RaiPolicyArgs:
                  properties: pulumi.Input['RaiPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RaiPolicy resource.
 
@@ -97,26 +97,26 @@ class RaiPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="proxyApiVersion")
-    def proxy_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Api version used by proxy call
         """
         return pulumi.get(self, "proxy_api_version")
 
     @proxy_api_version.setter
-    def proxy_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Rai Policy.
         """
         return pulumi.get(self, "rai_policy_name")
 
     @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rai_policy_name", value)
 
 
@@ -126,12 +126,12 @@ class RaiPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure OpenAI Content Filters resource.
@@ -179,12 +179,12 @@ class RaiPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

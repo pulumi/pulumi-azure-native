@@ -85,8 +85,8 @@ def list_host_pool_registration_tokens(host_pool_name: Optional[_builtins.str] =
     return AwaitableListHostPoolRegistrationTokensResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_host_pool_registration_tokens_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListHostPoolRegistrationTokensResult]:
     """
     Operation to list the RegistrationTokens associated with the HostPool

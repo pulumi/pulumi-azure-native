@@ -104,14 +104,14 @@ def list_source_control_repositories(client_id: Optional[_builtins.str] = None,
     return AwaitableListSourceControlRepositoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            code: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            installation_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            kind: Optional[pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_source_control_repositories_output(client_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            installation_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            kind: pulumi.Input[Optional[Union[_builtins.str, 'RepositoryAccessKind']]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.

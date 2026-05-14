@@ -24,9 +24,9 @@ class ServerAzureADAdministratorArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  sid: pulumi.Input[_builtins.str],
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerAzureADAdministrator resource.
 
@@ -99,38 +99,38 @@ class ServerAzureADAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorName")
-    def administrator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of server active directory administrator.
         """
         return pulumi.get(self, "administrator_name")
 
     @administrator_name.setter
-    def administrator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]:
+    def administrator_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]:
         """
         Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
 
     @administrator_type.setter
-    def administrator_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]):
+    def administrator_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]):
         pulumi.set(self, "administrator_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant ID of the administrator.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -140,13 +140,13 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Active Directory administrator.
@@ -195,13 +195,13 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

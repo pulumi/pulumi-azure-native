@@ -168,10 +168,10 @@ def get_api_release(api_id: Optional[_builtins.str] = None,
         notes=pulumi.get(__ret__, 'notes'),
         type=pulumi.get(__ret__, 'type'),
         updated_date_time=pulumi.get(__ret__, 'updated_date_time'))
-def get_api_release_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           release_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_release_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           release_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiReleaseResult]:
     """
     Returns the details of an API release.

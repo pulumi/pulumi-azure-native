@@ -124,8 +124,8 @@ def get_cost_allocation_rule(billing_account_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cost_allocation_rule_output(billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.

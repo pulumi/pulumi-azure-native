@@ -93,11 +93,11 @@ def get_test_result_console_log_download_url(log_file_name: Optional[_builtins.s
     return AwaitableGetTestResultConsoleLogDownloadURLResult(
         download_url=pulumi.get(__ret__, 'download_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_test_result_console_log_download_url_output(log_file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    test_result_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_result_console_log_download_url_output(log_file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    test_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
     Gets the download URL of the test execution console log file.

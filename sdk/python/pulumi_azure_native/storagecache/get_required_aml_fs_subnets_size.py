@@ -72,8 +72,8 @@ def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict
 
     return AwaitableGetRequiredAmlFSSubnetsSizeResult(
         filesystem_subnet_size=pulumi.get(__ret__, 'filesystem_subnet_size'))
-def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
-                                            storage_capacity_ti_b: Optional[pulumi.Input[Optional[_builtins.float]]] = None,
+def get_required_aml_fs_subnets_size_output(sku: pulumi.Input[Optional[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
+                                            storage_capacity_ti_b: pulumi.Input[Optional[Optional[_builtins.float]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
     Get the number of available IP addresses needed for the AML file system information provided.

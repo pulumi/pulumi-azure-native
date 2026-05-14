@@ -166,9 +166,9 @@ def get_maintenance_configuration(config_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         time_in_week=pulumi.get(__ret__, 'time_in_week'),
         type=pulumi.get(__ret__, 'type'))
-def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_maintenance_configuration_output(config_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Planned maintenance configuration, used to configure when updates can be deployed to a Managed Cluster. See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.

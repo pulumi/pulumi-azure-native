@@ -228,8 +228,8 @@ def get_prometheus_rule_group(resource_group_name: Optional[_builtins.str] = Non
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_prometheus_rule_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prometheus_rule_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     rule_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrometheusRuleGroupResult]:
     """
     Retrieve a Prometheus rule group definition.

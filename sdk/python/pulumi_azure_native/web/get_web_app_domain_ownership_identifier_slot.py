@@ -142,10 +142,10 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        slot: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identifier_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDomainOwnershipIdentifierSlotResult]:
     """
     Description for Get domain ownership identifier for web app.

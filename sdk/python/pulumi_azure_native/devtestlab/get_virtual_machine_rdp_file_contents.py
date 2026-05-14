@@ -72,9 +72,9 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[_builtins.str] = No
 
     return AwaitableGetVirtualMachineRdpFileContentsResult(
         contents=pulumi.get(__ret__, 'contents'))
-def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_rdp_file_contents_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
     """
     Gets a string that represents the contents of the RDP file for the virtual machine

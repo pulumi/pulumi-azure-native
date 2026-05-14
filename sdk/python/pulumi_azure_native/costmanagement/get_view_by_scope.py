@@ -319,8 +319,8 @@ def get_view_by_scope(scope: Optional[_builtins.str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
-def get_view_by_scope_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
-                             view_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_by_scope_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
+                             view_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewByScopeResult]:
     """
     Gets the view for the defined scope by view name.

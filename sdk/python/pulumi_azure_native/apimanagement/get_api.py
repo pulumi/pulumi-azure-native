@@ -400,9 +400,9 @@ def get_api(api_id: Optional[_builtins.str] = None,
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         terms_of_service_url=pulumi.get(__ret__, 'terms_of_service_url'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_output(api_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   service_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
     Gets the details of the API specified by its identifier.

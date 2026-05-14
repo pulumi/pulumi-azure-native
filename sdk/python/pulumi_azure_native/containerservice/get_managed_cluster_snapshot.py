@@ -189,8 +189,8 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[_builtins.str] = 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_cluster_snapshot_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterSnapshotResult]:
     """
     A managed cluster snapshot resource.

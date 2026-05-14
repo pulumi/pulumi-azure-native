@@ -85,9 +85,9 @@ def list_integration_runtime_auth_keys(factory_name: Optional[_builtins.str] = N
     return AwaitableListIntegrationRuntimeAuthKeysResult(
         auth_key1=pulumi.get(__ret__, 'auth_key1'),
         auth_key2=pulumi.get(__ret__, 'auth_key2'))
-def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_integration_runtime_auth_keys_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeysResult]:
     """
     Retrieves the authentication keys for an integration runtime.

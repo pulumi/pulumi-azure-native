@@ -138,9 +138,9 @@ def get_professional_service_subscription_level(resource_group_name: Optional[_b
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_professional_service_subscription_level_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_professional_service_subscription_level_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                       subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfessionalServiceSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level ProfessionalService.

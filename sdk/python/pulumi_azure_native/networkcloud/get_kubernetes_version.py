@@ -197,8 +197,8 @@ def get_kubernetes_version(kubernetes_version_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         values=pulumi.get(__ret__, 'values'))
-def get_kubernetes_version_output(kubernetes_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kubernetes_version_output(kubernetes_version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesVersionResult]:
     """
     Retrieve the Kubernetes version resource that describes the available Kubernetes versions for deployment.

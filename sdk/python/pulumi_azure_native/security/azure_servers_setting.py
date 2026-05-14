@@ -23,7 +23,7 @@ class AzureServersSettingArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  selected_provider: pulumi.Input[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']],
-                 setting_kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 setting_kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzureServersSetting resource.
 
@@ -64,14 +64,14 @@ class AzureServersSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="settingKind")
-    def setting_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def setting_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the server vulnerability assessments setting
         """
         return pulumi.get(self, "setting_kind")
 
     @setting_kind.setter
-    def setting_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def setting_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setting_kind", value)
 
 
@@ -81,9 +81,9 @@ class AzureServersSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_provider: Optional[pulumi.Input[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']]] = None,
-                 setting_kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_provider: pulumi.Input[Optional[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']]] = None,
+                 setting_kind: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A vulnerability assessments setting on Azure servers in the defined scope.
@@ -125,9 +125,9 @@ class AzureServersSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_provider: Optional[pulumi.Input[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']]] = None,
-                 setting_kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_provider: pulumi.Input[Optional[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']]] = None,
+                 setting_kind: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

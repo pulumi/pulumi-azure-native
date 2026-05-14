@@ -23,8 +23,8 @@ class StorageArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['StorageAccountArgs']] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['StorageAccountArgs']] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Storage resource.
 
@@ -66,26 +66,26 @@ class StorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['StorageAccountArgs']]:
+    def properties(self) -> pulumi.Input[Optional['StorageAccountArgs']]:
         """
         Properties of the storage resource payload.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['StorageAccountArgs']]):
+    def properties(self, value: pulumi.Input[Optional['StorageAccountArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageName")
-    def storage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage resource.
         """
         return pulumi.get(self, "storage_name")
 
     @storage_name.setter
-    def storage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_name", value)
 
 
@@ -95,10 +95,10 @@ class Storage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Storage resource payload.
@@ -144,10 +144,10 @@ class Storage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

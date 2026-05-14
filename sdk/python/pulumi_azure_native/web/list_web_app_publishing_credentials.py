@@ -175,8 +175,8 @@ def list_web_app_publishing_credentials(name: Optional[_builtins.str] = None,
         publishing_user_name=pulumi.get(__ret__, 'publishing_user_name'),
         scm_uri=pulumi.get(__ret__, 'scm_uri'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_publishing_credentials_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_publishing_credentials_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppPublishingCredentialsResult]:
     """
     Description for Gets the Git/FTP publishing credentials of an app.

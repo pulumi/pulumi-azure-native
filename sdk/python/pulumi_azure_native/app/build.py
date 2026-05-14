@@ -23,9 +23,9 @@ class BuildArgs:
     def __init__(__self__, *,
                  builder_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input['BuildConfigurationArgs']] = None,
-                 destination_container_registry: Optional[pulumi.Input['ContainerRegistryWithCustomImageArgs']] = None):
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional['BuildConfigurationArgs']] = None,
+                 destination_container_registry: pulumi.Input[Optional['ContainerRegistryWithCustomImageArgs']] = None):
         """
         The set of arguments for constructing a Build resource.
 
@@ -70,38 +70,38 @@ class BuildArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildName")
-    def build_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a build.
         """
         return pulumi.get(self, "build_name")
 
     @build_name.setter
-    def build_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['BuildConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['BuildConfigurationArgs']]:
         """
         Configuration of the build.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['BuildConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['BuildConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationContainerRegistry")
-    def destination_container_registry(self) -> Optional[pulumi.Input['ContainerRegistryWithCustomImageArgs']]:
+    def destination_container_registry(self) -> pulumi.Input[Optional['ContainerRegistryWithCustomImageArgs']]:
         """
         Container registry that the final image will be uploaded to.
         """
         return pulumi.get(self, "destination_container_registry")
 
     @destination_container_registry.setter
-    def destination_container_registry(self, value: Optional[pulumi.Input['ContainerRegistryWithCustomImageArgs']]):
+    def destination_container_registry(self, value: pulumi.Input[Optional['ContainerRegistryWithCustomImageArgs']]):
         pulumi.set(self, "destination_container_registry", value)
 
 
@@ -111,11 +111,11 @@ class Build(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
-                 destination_container_registry: Optional[pulumi.Input[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
+                 destination_container_registry: pulumi.Input[Optional[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Information pertaining to an individual build.
@@ -162,11 +162,11 @@ class Build(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
-                 destination_container_registry: Optional[pulumi.Input[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
+                 destination_container_registry: pulumi.Input[Optional[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

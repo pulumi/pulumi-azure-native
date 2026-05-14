@@ -197,7 +197,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[_builtins
         state=pulumi.get(__ret__, 'state'),
         suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alerts_suppression_rule_output(alerts_suppression_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
     Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription

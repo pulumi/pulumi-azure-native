@@ -91,10 +91,10 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     return AwaitableListRemediationDeploymentsAtManagementGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_remediation_deployments_at_management_group_output(management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_remediation_deployments_at_management_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
     """
     Gets all deployments for a remediation at management group scope.

@@ -400,9 +400,9 @@ def get_public_ip_address(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 public_ip_address_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_public_ip_address_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 public_ip_address_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPAddressResult]:
     """
     Gets the specified public IP address in a specified resource group.

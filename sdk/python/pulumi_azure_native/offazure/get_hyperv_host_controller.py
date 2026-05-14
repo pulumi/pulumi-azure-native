@@ -218,9 +218,9 @@ def get_hyperv_host_controller(host_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         version=pulumi.get(__ret__, 'version'))
-def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hyperv_host_controller_output(host_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervHostControllerResult]:
     """
     Get a HypervHost

@@ -90,10 +90,10 @@ def list_web_app_function_secrets_slot(function_name: Optional[_builtins.str] = 
     return AwaitableListWebAppFunctionSecretsSlotResult(
         key=pulumi.get(__ret__, 'key'),
         trigger_url=pulumi.get(__ret__, 'trigger_url'))
-def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              slot: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_function_secrets_slot_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              slot: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppFunctionSecretsSlotResult]:
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.

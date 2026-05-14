@@ -322,9 +322,9 @@ def get_connection_monitor(connection_monitor_name: Optional[_builtins.str] = No
         test_configurations=pulumi.get(__ret__, 'test_configurations'),
         test_groups=pulumi.get(__ret__, 'test_groups'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_monitor_output(connection_monitor_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
     Gets a connection monitor by name.

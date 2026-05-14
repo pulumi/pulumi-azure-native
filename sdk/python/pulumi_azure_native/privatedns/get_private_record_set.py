@@ -299,10 +299,10 @@ def get_private_record_set(private_zone_name: Optional[_builtins.str] = None,
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                  relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_record_set_output(private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                  relative_record_set_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateRecordSetResult]:
     """
     Gets a record set.

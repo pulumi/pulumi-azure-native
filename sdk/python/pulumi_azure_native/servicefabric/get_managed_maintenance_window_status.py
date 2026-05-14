@@ -149,8 +149,8 @@ def get_managed_maintenance_window_status(cluster_name: Optional[_builtins.str] 
         last_window_end_time_utc=pulumi.get(__ret__, 'last_window_end_time_utc'),
         last_window_start_time_utc=pulumi.get(__ret__, 'last_window_start_time_utc'),
         last_window_status_update_at_utc=pulumi.get(__ret__, 'last_window_status_update_at_utc'))
-def get_managed_maintenance_window_status_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_maintenance_window_status_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedMaintenanceWindowStatusResult]:
     """
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.

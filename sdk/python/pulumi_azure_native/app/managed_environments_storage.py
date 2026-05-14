@@ -24,8 +24,8 @@ class ManagedEnvironmentsStorageArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['ManagedEnvironmentStoragePropertiesArgs']] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedEnvironmentsStorage resource.
 
@@ -67,26 +67,26 @@ class ManagedEnvironmentsStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ManagedEnvironmentStoragePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']]:
         """
         Storage properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ManagedEnvironmentStoragePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageName")
-    def storage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the storage.
         """
         return pulumi.get(self, "storage_name")
 
     @storage_name.setter
-    def storage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_name", value)
 
 
@@ -96,10 +96,10 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedEnvironmentStoragePropertiesArgs', 'ManagedEnvironmentStoragePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedEnvironmentStoragePropertiesArgs', 'ManagedEnvironmentStoragePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Storage resource for managedEnvironment.
@@ -145,10 +145,10 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedEnvironmentStoragePropertiesArgs', 'ManagedEnvironmentStoragePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedEnvironmentStoragePropertiesArgs', 'ManagedEnvironmentStoragePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

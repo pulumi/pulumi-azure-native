@@ -110,8 +110,8 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[_builtins.str] = None,
         last_stable_version=pulumi.get(__ret__, 'last_stable_version'),
         primary_endpoint_key=pulumi.get(__ret__, 'primary_endpoint_key'),
         secondary_endpoint_key=pulumi.get(__ret__, 'secondary_endpoint_key'))
-def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_qn_a_maker_endpoint_key_output(authkey: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
     """
     Lists the QnA Maker endpoint keys

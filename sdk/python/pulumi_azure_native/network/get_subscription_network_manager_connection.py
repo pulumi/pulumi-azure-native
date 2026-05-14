@@ -160,7 +160,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_subscription_network_manager_connection_output(network_manager_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_network_manager_connection_output(network_manager_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this subscription.

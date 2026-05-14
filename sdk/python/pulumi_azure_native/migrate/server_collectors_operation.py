@@ -24,10 +24,10 @@ class ServerCollectorsOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_properties: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 server_collector_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 server_collector_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerCollectorsOperation resource.
 
@@ -75,50 +75,50 @@ class ServerCollectorsOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentProperties")
-    def agent_properties(self) -> Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]:
+    def agent_properties(self) -> pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]:
         """
         Gets or sets the collector agent properties.
         """
         return pulumi.get(self, "agent_properties")
 
     @agent_properties.setter
-    def agent_properties(self, value: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]):
+    def agent_properties(self, value: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]):
         pulumi.set(self, "agent_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
-    def discovery_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the discovery site id.
         """
         return pulumi.get(self, "discovery_site_id")
 
     @discovery_site_id.setter
-    def discovery_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCollectorName")
-    def server_collector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical server collector ARM name
         """
         return pulumi.get(self, "server_collector_name")
 
     @server_collector_name.setter
-    def server_collector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_collector_name", value)
 
 
@@ -128,12 +128,12 @@ class ServerCollectorsOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Physical server collector resource.
@@ -181,12 +181,12 @@ class ServerCollectorsOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

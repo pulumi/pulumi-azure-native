@@ -238,7 +238,7 @@ def get_assessment(assessment_name: Optional[_builtins.str] = None,
         type_version=pulumi.get(__ret__, 'type_version'),
         workload_id=pulumi.get(__ret__, 'workload_id'),
         workload_name=pulumi.get(__ret__, 'workload_name'))
-def get_assessment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_output(assessment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a existing Azure Advisor assessment.

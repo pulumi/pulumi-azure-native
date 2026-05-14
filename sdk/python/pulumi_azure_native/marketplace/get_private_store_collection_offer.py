@@ -270,9 +270,9 @@ def get_private_store_collection_offer(collection_id: Optional[_builtins.str] = 
         type=pulumi.get(__ret__, 'type'),
         unique_offer_id=pulumi.get(__ret__, 'unique_offer_id'),
         update_suppressed_due_idempotence=pulumi.get(__ret__, 'update_suppressed_due_idempotence'))
-def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_store_collection_offer_output(collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              offer_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
     """
     Gets information about a specific offer.

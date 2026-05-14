@@ -26,8 +26,8 @@ class ReplicationProtectedItemArgs:
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['EnableProtectionInputPropertiesArgs']] = None,
-                 replicated_protected_item_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']] = None,
+                 replicated_protected_item_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationProtectedItem resource.
 
@@ -97,26 +97,26 @@ class ReplicationProtectedItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EnableProtectionInputPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']]:
         """
         Enable protection input properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EnableProtectionInputPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replicatedProtectedItemName")
-    def replicated_protected_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replicated_protected_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the replication protected item.
         """
         return pulumi.get(self, "replicated_protected_item_name")
 
     @replicated_protected_item_name.setter
-    def replicated_protected_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replicated_protected_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replicated_protected_item_name", value)
 
 
@@ -126,12 +126,12 @@ class ReplicationProtectedItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnableProtectionInputPropertiesArgs', 'EnableProtectionInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicated_protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnableProtectionInputPropertiesArgs', 'EnableProtectionInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicated_protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Replication protected item.
@@ -179,12 +179,12 @@ class ReplicationProtectedItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnableProtectionInputPropertiesArgs', 'EnableProtectionInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicated_protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnableProtectionInputPropertiesArgs', 'EnableProtectionInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicated_protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

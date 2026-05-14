@@ -410,8 +410,8 @@ def get_app_service_certificate_order(certificate_order_name: Optional[_builtins
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validity_in_years=pulumi.get(__ret__, 'validity_in_years'))
-def get_app_service_certificate_order_output(certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_certificate_order_output(certificate_order_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
     """
     Description for Get a certificate order.

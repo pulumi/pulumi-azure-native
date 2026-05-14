@@ -150,9 +150,9 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[_builtins.str] = 
         ip_mask=pulumi.get(__ret__, 'ip_mask'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_ip_filter_rule_output(ip_filter_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceIpFilterRuleResult]:
     """
     Gets an IpFilterRule for a Namespace by rule name.

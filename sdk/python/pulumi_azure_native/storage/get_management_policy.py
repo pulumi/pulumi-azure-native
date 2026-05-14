@@ -140,9 +140,9 @@ def get_management_policy(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 management_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 management_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementPolicyResult]:
     """
     Gets the managementpolicy associated with the specified storage account.

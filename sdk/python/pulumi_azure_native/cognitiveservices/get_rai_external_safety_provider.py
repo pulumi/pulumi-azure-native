@@ -158,7 +158,7 @@ def get_rai_external_safety_provider(safety_provider_name: Optional[_builtins.st
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_rai_external_safety_provider_output(safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rai_external_safety_provider_output(safety_provider_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRaiExternalSafetyProviderResult]:
     """
     Gets the specified external safety provider associated with the Subscription

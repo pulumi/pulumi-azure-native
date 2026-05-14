@@ -174,8 +174,8 @@ def get_integration_service_environment(integration_service_environment_name: Op
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_service_environment_output(integration_service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_service_environment_output(integration_service_environment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
     """
     Gets an integration service environment.

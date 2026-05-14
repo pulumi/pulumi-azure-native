@@ -333,9 +333,9 @@ def get_sap_central_server_instance(central_instance_name: Optional[_builtins.st
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-def get_sap_central_server_instance_output(central_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           sap_virtual_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sap_central_server_instance_output(central_instance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           sap_virtual_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapCentralServerInstanceResult]:
     """
     Gets the SAP Central Services Instance resource.

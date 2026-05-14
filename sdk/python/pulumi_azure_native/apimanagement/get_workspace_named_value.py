@@ -195,10 +195,10 @@ def get_workspace_named_value(named_value_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_workspace_named_value_output(named_value_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_named_value_output(named_value_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceNamedValueResult]:
     """
     Gets the details of the named value specified by its identifier.

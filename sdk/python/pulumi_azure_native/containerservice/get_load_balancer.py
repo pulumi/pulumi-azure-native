@@ -205,9 +205,9 @@ def get_load_balancer(load_balancer_name: Optional[_builtins.str] = None,
         service_namespace_selector=pulumi.get(__ret__, 'service_namespace_selector'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.

@@ -32,11 +32,11 @@ class AutoScaleVCoreSkuArgsDict(TypedDict):
     """
     Name of the SKU level.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The capacity of an auto scale v-core resource.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'VCoreSkuTier']]]]
     """
     The name of the Azure pricing tier to which the SKU applies.
     """
@@ -45,8 +45,8 @@ class AutoScaleVCoreSkuArgsDict(TypedDict):
 class AutoScaleVCoreSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'VCoreSkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for auto scale v-core resource.
 
@@ -74,26 +74,26 @@ class AutoScaleVCoreSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity of an auto scale v-core resource.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VCoreSkuTier']]]:
         """
         The name of the Azure pricing tier to which the SKU applies.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VCoreSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -105,11 +105,11 @@ class CapacitySkuArgsDict(TypedDict):
     """
     Name of the SKU level.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The capacity of the SKU.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CapacitySkuTier']]]]
     """
     The name of the Azure pricing tier to which the SKU applies.
     """
@@ -118,8 +118,8 @@ class CapacitySkuArgsDict(TypedDict):
 class CapacitySkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'CapacitySkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 
@@ -147,26 +147,26 @@ class CapacitySkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity of the SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CapacitySkuTier']]]:
         """
         The name of the Azure pricing tier to which the SKU applies.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CapacitySkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -174,7 +174,7 @@ class DedicatedCapacityAdministratorsArgsDict(TypedDict):
     """
     An array of administrator user identities
     """
-    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of administrator user identities.
     """
@@ -182,7 +182,7 @@ class DedicatedCapacityAdministratorsArgsDict(TypedDict):
 @pulumi.input_type
 class DedicatedCapacityAdministratorsArgs:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of administrator user identities
 
@@ -193,14 +193,14 @@ class DedicatedCapacityAdministratorsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
 

@@ -192,9 +192,9 @@ def get_compute(compute_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_compute_output(compute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_output(compute_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeResult]:
     """
     Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.

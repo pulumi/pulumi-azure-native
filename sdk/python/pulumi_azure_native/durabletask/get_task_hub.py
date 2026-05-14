@@ -140,9 +140,9 @@ def get_task_hub(resource_group_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_task_hub_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        task_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_hub_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        task_hub_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskHubResult]:
     """
     Get a Task Hub

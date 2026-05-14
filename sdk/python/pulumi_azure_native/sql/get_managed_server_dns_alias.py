@@ -138,9 +138,9 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         public_azure_dns_record=pulumi.get(__ret__, 'public_azure_dns_record'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_server_dns_alias_output(dns_alias_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedServerDnsAliasResult]:
     """
     Gets a server DNS alias.

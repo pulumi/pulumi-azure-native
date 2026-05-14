@@ -283,9 +283,9 @@ def get_capacity_pool(account_name: Optional[_builtins.str] = None,
         total_throughput_mibps=pulumi.get(__ret__, 'total_throughput_mibps'),
         type=pulumi.get(__ret__, 'type'),
         utilized_throughput_mibps=pulumi.get(__ret__, 'utilized_throughput_mibps'))
-def get_capacity_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolResult]:
     """
     Get details of the specified capacity pool

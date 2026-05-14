@@ -271,8 +271,8 @@ def get_event_subscription(event_subscription_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
-def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_subscription_output(event_subscription_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     Get properties of an event subscription.

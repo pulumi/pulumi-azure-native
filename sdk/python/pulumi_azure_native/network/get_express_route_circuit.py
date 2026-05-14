@@ -384,8 +384,8 @@ def get_express_route_circuit(circuit_name: Optional[_builtins.str] = None,
         stag=pulumi.get(__ret__, 'stag'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_route_circuit_output(circuit_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     Gets information about the specified express route circuit.

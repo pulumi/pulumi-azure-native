@@ -22,9 +22,9 @@ class WebAppSwiftVirtualNetworkConnectionSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 swift_supported: Optional[pulumi.Input[_builtins.bool]] = None):
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 swift_supported: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WebAppSwiftVirtualNetworkConnectionSlot resource.
 
@@ -83,38 +83,38 @@ class WebAppSwiftVirtualNetworkConnectionSlotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetResourceId")
-    def subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         """
         return pulumi.get(self, "subnet_resource_id")
 
     @subnet_resource_id.setter
-    def subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="swiftSupported")
-    def swift_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def swift_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
         return pulumi.get(self, "swift_supported")
 
     @swift_supported.setter
-    def swift_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def swift_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "swift_supported", value)
 
 
@@ -124,12 +124,12 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 swift_supported: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 swift_supported: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
@@ -177,12 +177,12 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 swift_supported: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 swift_supported: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -153,9 +153,9 @@ def get_authorization_provider(authorization_provider_id: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         oauth2=pulumi.get(__ret__, 'oauth2'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorization_provider_output(authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_provider_output(authorization_provider_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationProviderResult]:
     """
     Gets the details of the authorization provider specified by its identifier.

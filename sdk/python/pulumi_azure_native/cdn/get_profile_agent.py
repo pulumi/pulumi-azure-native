@@ -164,9 +164,9 @@ def get_profile_agent(agent_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         web_agent=pulumi.get(__ret__, 'web_agent'))
-def get_profile_agent_output(agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_agent_output(agent_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileAgentResult]:
     """
     Gets an agent link (web agent association) within a CDN profile.

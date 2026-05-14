@@ -23,8 +23,8 @@ __all__ = ['CostAllocationRuleArgs', 'CostAllocationRule']
 class CostAllocationRuleArgs:
     def __init__(__self__, *,
                  billing_account_id: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['CostAllocationRulePropertiesArgs']] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['CostAllocationRulePropertiesArgs']] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CostAllocationRule resource.
 
@@ -52,26 +52,26 @@ class CostAllocationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CostAllocationRulePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['CostAllocationRulePropertiesArgs']]:
         """
         Cost allocation rule properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CostAllocationRulePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['CostAllocationRulePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -81,9 +81,9 @@ class CostAllocationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The cost allocation rule model definition
@@ -128,9 +128,9 @@ class CostAllocationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

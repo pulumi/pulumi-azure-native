@@ -269,9 +269,9 @@ def get_gen2_environment(environment_name: Optional[_builtins.str] = None,
         time_series_id_properties=pulumi.get(__ret__, 'time_series_id_properties'),
         type=pulumi.get(__ret__, 'type'),
         warm_store_configuration=pulumi.get(__ret__, 'warm_store_configuration'))
-def get_gen2_environment_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gen2_environment_output(environment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGen2EnvironmentResult]:
     """
     Gets the environment with the specified name in the specified subscription and resource group.

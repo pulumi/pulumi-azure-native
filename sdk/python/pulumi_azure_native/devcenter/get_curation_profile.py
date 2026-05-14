@@ -166,9 +166,9 @@ def get_curation_profile(curation_profile_name: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_curation_profile_output(curation_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurationProfileResult]:
     """
     Gets a specific curation profile.

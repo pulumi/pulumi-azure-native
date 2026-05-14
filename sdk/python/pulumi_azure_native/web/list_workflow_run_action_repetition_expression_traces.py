@@ -104,12 +104,12 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
         inputs=pulumi.get(__ret__, 'inputs'),
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_workflow_run_action_repetition_expression_traces_output(action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 repetition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workflow_run_action_repetition_expression_traces_output(action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 repetition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
     """
     Lists a workflow run expression trace.

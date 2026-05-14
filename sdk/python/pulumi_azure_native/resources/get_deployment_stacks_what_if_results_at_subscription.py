@@ -158,7 +158,7 @@ def get_deployment_stacks_what_if_results_at_subscription(deployment_stacks_what
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stacks_what_if_results_at_subscription_output(deployment_stacks_what_if_result_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_stacks_what_if_results_at_subscription_output(deployment_stacks_what_if_result_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStacksWhatIfResultsAtSubscriptionResult]:
     """
     Gets the Deployment stack with the given name.

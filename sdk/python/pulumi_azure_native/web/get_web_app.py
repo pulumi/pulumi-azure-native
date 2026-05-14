@@ -886,8 +886,8 @@ def get_web_app(name: Optional[_builtins.str] = None,
         usage_state=pulumi.get(__ret__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
-def get_web_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppResult]:
     """
     Description for Gets the details of a web, mobile, or API app.

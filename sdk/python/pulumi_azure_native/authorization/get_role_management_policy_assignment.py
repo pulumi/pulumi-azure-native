@@ -176,8 +176,8 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_role_management_policy_assignment_output(role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_management_policy_assignment_output(role_management_policy_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
     """
     Get the specified role management policy assignment for a resource scope

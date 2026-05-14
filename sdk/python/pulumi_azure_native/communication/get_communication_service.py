@@ -254,8 +254,8 @@ def get_communication_service(communication_service_name: Optional[_builtins.str
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_communication_service_output(communication_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_communication_service_output(communication_service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
     Get the CommunicationService and its properties.

@@ -335,9 +335,9 @@ def get_security_rule(network_security_group_name: Optional[_builtins.str] = Non
         source_port_range=pulumi.get(__ret__, 'source_port_range'),
         source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
         type=pulumi.get(__ret__, 'type'))
-def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             security_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_rule_output(network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             security_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityRuleResult]:
     """
     Get the specified network security rule.

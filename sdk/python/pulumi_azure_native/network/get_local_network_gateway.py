@@ -228,8 +228,8 @@ def get_local_network_gateway(local_network_gateway_name: Optional[_builtins.str
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_network_gateway_output(local_network_gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
     """
     Gets the specified local network gateway in a resource group.

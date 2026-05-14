@@ -75,9 +75,9 @@ def get_compute_allowed_resize_sizes(compute_name: Optional[_builtins.str] = Non
 
     return AwaitableGetComputeAllowedResizeSizesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_compute_allowed_resize_sizes_output(compute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_allowed_resize_sizes_output(compute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeAllowedResizeSizesResult]:
     """
     Returns supported virtual machine sizes for resize

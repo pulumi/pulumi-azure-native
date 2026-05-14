@@ -204,9 +204,9 @@ def get_database_account_sql_database(account_name: Optional[_builtins.str] = No
         ts=pulumi.get(__ret__, 'ts'),
         type=pulumi.get(__ret__, 'type'),
         users=pulumi.get(__ret__, 'users'))
-def get_database_account_sql_database_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_sql_database_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             database_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountSqlDatabaseResult]:
     """
     Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.

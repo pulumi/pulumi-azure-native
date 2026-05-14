@@ -98,12 +98,12 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
     return AwaitableListNetworkManagerDeploymentStatusResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_network_manager_deployment_status_output(deployment_types: Optional[pulumi.Input[Optional[Sequence[Union[_builtins.str, 'ConfigurationType']]]]] = None,
-                                                  network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  regions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                  top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_network_manager_deployment_status_output(deployment_types: pulumi.Input[Optional[Optional[Sequence[Union[_builtins.str, 'ConfigurationType']]]]] = None,
+                                                  network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
     """
     Post to List of Network Manager Deployment Status.

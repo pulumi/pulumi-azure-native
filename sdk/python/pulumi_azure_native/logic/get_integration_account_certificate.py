@@ -205,9 +205,9 @@ def get_integration_account_certificate(certificate_name: Optional[_builtins.str
         public_certificate=pulumi.get(__ret__, 'public_certificate'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_account_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_account_certificate_output(certificate_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountCertificateResult]:
     """
     Gets an integration account certificate.

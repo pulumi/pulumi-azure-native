@@ -22,8 +22,8 @@ class SentinelOnboardingStateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 customer_managed_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sentinel_onboarding_state_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sentinel_onboarding_state_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SentinelOnboardingState resource.
 
@@ -65,26 +65,26 @@ class SentinelOnboardingStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicates the status of the CMK setting
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sentinelOnboardingStateName")
-    def sentinel_onboarding_state_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sentinel_onboarding_state_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Sentinel onboarding state name. Supports - default
         """
         return pulumi.get(self, "sentinel_onboarding_state_name")
 
     @sentinel_onboarding_state_name.setter
-    def sentinel_onboarding_state_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sentinel_onboarding_state_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sentinel_onboarding_state_name", value)
 
 
@@ -94,10 +94,10 @@ class SentinelOnboardingState(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_onboarding_state_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_onboarding_state_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Sentinel onboarding state
@@ -143,10 +143,10 @@ class SentinelOnboardingState(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_onboarding_state_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_onboarding_state_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

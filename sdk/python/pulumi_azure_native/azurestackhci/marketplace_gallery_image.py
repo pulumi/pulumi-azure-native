@@ -24,15 +24,15 @@ class MarketplaceGalleryImageArgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cloud_init_data_source: Optional[pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input['GalleryImageIdentifierArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None):
+                 cloud_init_data_source: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 identifier: pulumi.Input[Optional['GalleryImageIdentifierArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional['GalleryImageVersionArgs']] = None):
         """
         The set of arguments for constructing a MarketplaceGalleryImage resource.
 
@@ -95,110 +95,110 @@ class MarketplaceGalleryImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudInitDataSource")
-    def cloud_init_data_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']]]:
+    def cloud_init_data_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]]:
         """
         Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
         """
         return pulumi.get(self, "cloud_init_data_source")
 
     @cloud_init_data_source.setter
-    def cloud_init_data_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']]]):
+    def cloud_init_data_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]]):
         pulumi.set(self, "cloud_init_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage ContainerID of the storage container to be used for marketplace gallery image
         """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
-    def container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_id", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]:
         """
         The hypervisor generation of the Virtual Machine [V1, V2]
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input['GalleryImageIdentifierArgs']]:
+    def identifier(self) -> pulumi.Input[Optional['GalleryImageIdentifierArgs']]:
         """
         This is the gallery image definition identifier.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input['GalleryImageIdentifierArgs']]):
+    def identifier(self, value: pulumi.Input[Optional['GalleryImageIdentifierArgs']]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceGalleryImageName")
-    def marketplace_gallery_image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_gallery_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the marketplace gallery image
         """
         return pulumi.get(self, "marketplace_gallery_image_name")
 
     @marketplace_gallery_image_name.setter
-    def marketplace_gallery_image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_gallery_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['GalleryImageVersionArgs']]:
+    def version(self) -> pulumi.Input[Optional['GalleryImageVersionArgs']]:
         """
         Specifies information about the gallery image version that you want to create or update.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['GalleryImageVersionArgs']]):
+    def version(self, value: pulumi.Input[Optional['GalleryImageVersionArgs']]):
         pulumi.set(self, "version", value)
 
 
@@ -208,17 +208,17 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_init_data_source: Optional[pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
+                 cloud_init_data_source: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 identifier: pulumi.Input[Optional[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
                  __props__=None):
         """
         The marketplace gallery image resource definition.
@@ -271,17 +271,17 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_init_data_source: Optional[pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
+                 cloud_init_data_source: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 identifier: pulumi.Input[Optional[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -88,9 +88,9 @@ def list_webhook_events(registry_name: Optional[_builtins.str] = None,
     return AwaitableListWebhookEventsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_webhook_events_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_webhook_events_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebhookEventsResult]:
     """
     Lists recent events for the specified webhook.

@@ -23,14 +23,14 @@ __all__ = ['SecurityConnectorArgs', 'SecurityConnector']
 class SecurityConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 environment_data: Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]] = None,
-                 environment_name: Optional[pulumi.Input[Union[_builtins.str, 'CloudName']]] = None,
-                 hierarchy_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]] = None,
-                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 environment_data: pulumi.Input[Optional[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]] = None,
+                 environment_name: pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]] = None,
+                 hierarchy_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 offerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityConnector resource.
 
@@ -76,98 +76,98 @@ class SecurityConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentData")
-    def environment_data(self) -> Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]]:
+    def environment_data(self) -> pulumi.Input[Optional[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]]:
         """
         The security connector environment data.
         """
         return pulumi.get(self, "environment_data")
 
     @environment_data.setter
-    def environment_data(self, value: Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]]):
+    def environment_data(self, value: pulumi.Input[Optional[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]]):
         pulumi.set(self, "environment_data", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CloudName']]]:
+    def environment_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]]:
         """
         The multi cloud resource's cloud name.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CloudName']]]):
+    def environment_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyIdentifier")
-    def hierarchy_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         """
         return pulumi.get(self, "hierarchy_identifier")
 
     @hierarchy_identifier.setter
-    def hierarchy_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the resource
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location where the resource is stored
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def offerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]]:
+    def offerings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]]:
         """
         A collection of offerings for the security connector.
         """
         return pulumi.get(self, "offerings")
 
     @offerings.setter
-    def offerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]]):
+    def offerings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]]):
         pulumi.set(self, "offerings", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConnectorName")
-    def security_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security connector name.
         """
         return pulumi.get(self, "security_connector_name")
 
     @security_connector_name.setter
-    def security_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of key value pairs that describe the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,15 +177,15 @@ class SecurityConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_data: Optional[pulumi.Input[Union[Union['AwsEnvironmentDataArgs', 'AwsEnvironmentDataArgsDict'], Union['AzureDevOpsScopeEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgsDict'], Union['DockerHubEnvironmentDataArgs', 'DockerHubEnvironmentDataArgsDict'], Union['GcpProjectEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgsDict'], Union['GithubScopeEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgsDict'], Union['GitlabScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgsDict'], Union['JFrogEnvironmentDataArgs', 'JFrogEnvironmentDataArgsDict']]]] = None,
-                 environment_name: Optional[pulumi.Input[Union[_builtins.str, 'CloudName']]] = None,
-                 hierarchy_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgsDict'], Union['CspmMonitorDockerHubOfferingArgs', 'CspmMonitorDockerHubOfferingArgsDict'], Union['CspmMonitorGcpOfferingArgs', 'CspmMonitorGcpOfferingArgsDict'], Union['CspmMonitorGitLabOfferingArgs', 'CspmMonitorGitLabOfferingArgsDict'], Union['CspmMonitorGithubOfferingArgs', 'CspmMonitorGithubOfferingArgsDict'], Union['CspmMonitorJFrogOfferingArgs', 'CspmMonitorJFrogOfferingArgsDict'], Union['DefenderCspmAwsOfferingArgs', 'DefenderCspmAwsOfferingArgsDict'], Union['DefenderCspmDockerHubOfferingArgs', 'DefenderCspmDockerHubOfferingArgsDict'], Union['DefenderCspmGcpOfferingArgs', 'DefenderCspmGcpOfferingArgsDict'], Union['DefenderCspmJFrogOfferingArgs', 'DefenderCspmJFrogOfferingArgsDict'], Union['DefenderFoDatabasesAwsOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersDockerHubOfferingArgsDict'], Union['DefenderForContainersGcpOfferingArgs', 'DefenderForContainersGcpOfferingArgsDict'], Union['DefenderForContainersJFrogOfferingArgs', 'DefenderForContainersJFrogOfferingArgsDict'], Union['DefenderForDatabasesGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['DefenderForServersGcpOfferingArgs', 'DefenderForServersGcpOfferingArgsDict']]]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 environment_data: pulumi.Input[Optional[Union[Union['AwsEnvironmentDataArgs', 'AwsEnvironmentDataArgsDict'], Union['AzureDevOpsScopeEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgsDict'], Union['DockerHubEnvironmentDataArgs', 'DockerHubEnvironmentDataArgsDict'], Union['GcpProjectEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgsDict'], Union['GithubScopeEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgsDict'], Union['GitlabScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgsDict'], Union['JFrogEnvironmentDataArgs', 'JFrogEnvironmentDataArgsDict']]]] = None,
+                 environment_name: pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]] = None,
+                 hierarchy_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 offerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgsDict'], Union['CspmMonitorDockerHubOfferingArgs', 'CspmMonitorDockerHubOfferingArgsDict'], Union['CspmMonitorGcpOfferingArgs', 'CspmMonitorGcpOfferingArgsDict'], Union['CspmMonitorGitLabOfferingArgs', 'CspmMonitorGitLabOfferingArgsDict'], Union['CspmMonitorGithubOfferingArgs', 'CspmMonitorGithubOfferingArgsDict'], Union['CspmMonitorJFrogOfferingArgs', 'CspmMonitorJFrogOfferingArgsDict'], Union['DefenderCspmAwsOfferingArgs', 'DefenderCspmAwsOfferingArgsDict'], Union['DefenderCspmDockerHubOfferingArgs', 'DefenderCspmDockerHubOfferingArgsDict'], Union['DefenderCspmGcpOfferingArgs', 'DefenderCspmGcpOfferingArgsDict'], Union['DefenderCspmJFrogOfferingArgs', 'DefenderCspmJFrogOfferingArgsDict'], Union['DefenderFoDatabasesAwsOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersDockerHubOfferingArgsDict'], Union['DefenderForContainersGcpOfferingArgs', 'DefenderForContainersGcpOfferingArgsDict'], Union['DefenderForContainersJFrogOfferingArgs', 'DefenderForContainersJFrogOfferingArgsDict'], Union['DefenderForDatabasesGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['DefenderForServersGcpOfferingArgs', 'DefenderForServersGcpOfferingArgsDict']]]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The security connector resource.
@@ -236,15 +236,15 @@ class SecurityConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_data: Optional[pulumi.Input[Union[Union['AwsEnvironmentDataArgs', 'AwsEnvironmentDataArgsDict'], Union['AzureDevOpsScopeEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgsDict'], Union['DockerHubEnvironmentDataArgs', 'DockerHubEnvironmentDataArgsDict'], Union['GcpProjectEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgsDict'], Union['GithubScopeEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgsDict'], Union['GitlabScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgsDict'], Union['JFrogEnvironmentDataArgs', 'JFrogEnvironmentDataArgsDict']]]] = None,
-                 environment_name: Optional[pulumi.Input[Union[_builtins.str, 'CloudName']]] = None,
-                 hierarchy_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgsDict'], Union['CspmMonitorDockerHubOfferingArgs', 'CspmMonitorDockerHubOfferingArgsDict'], Union['CspmMonitorGcpOfferingArgs', 'CspmMonitorGcpOfferingArgsDict'], Union['CspmMonitorGitLabOfferingArgs', 'CspmMonitorGitLabOfferingArgsDict'], Union['CspmMonitorGithubOfferingArgs', 'CspmMonitorGithubOfferingArgsDict'], Union['CspmMonitorJFrogOfferingArgs', 'CspmMonitorJFrogOfferingArgsDict'], Union['DefenderCspmAwsOfferingArgs', 'DefenderCspmAwsOfferingArgsDict'], Union['DefenderCspmDockerHubOfferingArgs', 'DefenderCspmDockerHubOfferingArgsDict'], Union['DefenderCspmGcpOfferingArgs', 'DefenderCspmGcpOfferingArgsDict'], Union['DefenderCspmJFrogOfferingArgs', 'DefenderCspmJFrogOfferingArgsDict'], Union['DefenderFoDatabasesAwsOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersDockerHubOfferingArgsDict'], Union['DefenderForContainersGcpOfferingArgs', 'DefenderForContainersGcpOfferingArgsDict'], Union['DefenderForContainersJFrogOfferingArgs', 'DefenderForContainersJFrogOfferingArgsDict'], Union['DefenderForDatabasesGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['DefenderForServersGcpOfferingArgs', 'DefenderForServersGcpOfferingArgsDict']]]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 environment_data: pulumi.Input[Optional[Union[Union['AwsEnvironmentDataArgs', 'AwsEnvironmentDataArgsDict'], Union['AzureDevOpsScopeEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgsDict'], Union['DockerHubEnvironmentDataArgs', 'DockerHubEnvironmentDataArgsDict'], Union['GcpProjectEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgsDict'], Union['GithubScopeEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgsDict'], Union['GitlabScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgsDict'], Union['JFrogEnvironmentDataArgs', 'JFrogEnvironmentDataArgsDict']]]] = None,
+                 environment_name: pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]] = None,
+                 hierarchy_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 offerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgsDict'], Union['CspmMonitorDockerHubOfferingArgs', 'CspmMonitorDockerHubOfferingArgsDict'], Union['CspmMonitorGcpOfferingArgs', 'CspmMonitorGcpOfferingArgsDict'], Union['CspmMonitorGitLabOfferingArgs', 'CspmMonitorGitLabOfferingArgsDict'], Union['CspmMonitorGithubOfferingArgs', 'CspmMonitorGithubOfferingArgsDict'], Union['CspmMonitorJFrogOfferingArgs', 'CspmMonitorJFrogOfferingArgsDict'], Union['DefenderCspmAwsOfferingArgs', 'DefenderCspmAwsOfferingArgsDict'], Union['DefenderCspmDockerHubOfferingArgs', 'DefenderCspmDockerHubOfferingArgsDict'], Union['DefenderCspmGcpOfferingArgs', 'DefenderCspmGcpOfferingArgsDict'], Union['DefenderCspmJFrogOfferingArgs', 'DefenderCspmJFrogOfferingArgsDict'], Union['DefenderFoDatabasesAwsOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersDockerHubOfferingArgsDict'], Union['DefenderForContainersGcpOfferingArgs', 'DefenderForContainersGcpOfferingArgsDict'], Union['DefenderForContainersJFrogOfferingArgs', 'DefenderForContainersJFrogOfferingArgsDict'], Union['DefenderForDatabasesGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['DefenderForServersGcpOfferingArgs', 'DefenderForServersGcpOfferingArgsDict']]]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

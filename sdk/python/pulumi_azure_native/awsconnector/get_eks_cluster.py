@@ -132,7 +132,7 @@ def get_eks_cluster(resource_uri: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_eks_cluster_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_eks_cluster_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEksClusterResult]:
     """
     Get a EksCluster

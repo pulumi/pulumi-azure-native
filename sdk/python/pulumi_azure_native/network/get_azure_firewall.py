@@ -345,8 +345,8 @@ def get_azure_firewall(azure_firewall_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_firewall_output(azure_firewall_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureFirewallResult]:
     """
     Gets the specified Azure Firewall.

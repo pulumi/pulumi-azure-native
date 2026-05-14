@@ -163,8 +163,8 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[_buil
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alert_processing_rule_by_name_output(alert_processing_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
     """
     Get an alert processing rule by name.

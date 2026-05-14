@@ -374,9 +374,9 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_ip_prefix_output(custom_ip_prefix_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomIPPrefixResult]:
     """
     Gets the specified custom IP prefix in a specified resource group.

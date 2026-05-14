@@ -163,8 +163,8 @@ def get_load_test_mapping(load_test_mapping_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         test_id=pulumi.get(__ret__, 'test_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_load_test_mapping_output(load_test_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_test_mapping_output(load_test_mapping_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadTestMappingResult]:
     """
     Get a LoadTestMappingResource

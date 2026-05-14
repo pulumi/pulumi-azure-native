@@ -361,9 +361,9 @@ def get_policy_assignment(expand: Optional[_builtins.str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_assignment_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_assignment_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 policy_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.

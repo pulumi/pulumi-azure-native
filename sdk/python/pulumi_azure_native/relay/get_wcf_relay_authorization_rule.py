@@ -156,10 +156,10 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[_builtins
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wcf_relay_authorization_rule_output(authorization_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
     """
     Get authorizationRule for a WCF relay by name.

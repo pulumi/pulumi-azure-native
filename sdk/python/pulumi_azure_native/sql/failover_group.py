@@ -26,11 +26,11 @@ class FailoverGroupArgs:
                  read_write_endpoint: pulumi.Input['FailoverGroupReadWriteEndpointArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only_endpoint: Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only_endpoint: pulumi.Input[Optional['FailoverGroupReadOnlyEndpointArgs']] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
 
@@ -109,62 +109,62 @@ class FailoverGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of databases in the failover group.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverGroupName")
-    def failover_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the failover group.
         """
         return pulumi.get(self, "failover_group_name")
 
     @failover_group_name.setter
-    def failover_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyEndpoint")
-    def read_only_endpoint(self) -> Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']]:
+    def read_only_endpoint(self) -> pulumi.Input[Optional['FailoverGroupReadOnlyEndpointArgs']]:
         """
         Read-only endpoint of the failover group instance.
         """
         return pulumi.get(self, "read_only_endpoint")
 
     @read_only_endpoint.setter
-    def read_only_endpoint(self, value: Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']]):
+    def read_only_endpoint(self, value: pulumi.Input[Optional['FailoverGroupReadOnlyEndpointArgs']]):
         pulumi.set(self, "read_only_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryType")
-    def secondary_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]]:
+    def secondary_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]]:
         """
         Databases secondary type on partner server.
         """
         return pulumi.get(self, "secondary_type")
 
     @secondary_type.setter
-    def secondary_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]]):
+    def secondary_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]]):
         pulumi.set(self, "secondary_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,15 +174,15 @@ class FailoverGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
-                 read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
-                 read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
+                 read_only_endpoint: pulumi.Input[Optional[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: pulumi.Input[Optional[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A failover group.
@@ -233,15 +233,15 @@ class FailoverGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
-                 read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
-                 read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
+                 read_only_endpoint: pulumi.Input[Optional[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: pulumi.Input[Optional[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'FailoverGroupDatabasesSecondaryType']]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

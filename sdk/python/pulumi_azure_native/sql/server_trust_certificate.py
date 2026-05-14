@@ -21,8 +21,8 @@ class ServerTrustCertificateArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_blob: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_blob: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustCertificate resource.
 
@@ -64,26 +64,26 @@ class ServerTrustCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of of the certificate to upload.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicBlob")
-    def public_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate public blob
         """
         return pulumi.get(self, "public_blob")
 
     @public_blob.setter
-    def public_blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_blob", value)
 
 
@@ -93,10 +93,10 @@ class ServerTrustCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
@@ -142,10 +142,10 @@ class ServerTrustCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

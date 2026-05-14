@@ -247,10 +247,10 @@ def get_connector(connector_name: Optional[_builtins.str] = None,
         target_service=pulumi.get(__ret__, 'target_service'),
         type=pulumi.get(__ret__, 'type'),
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
-def get_connector_output(connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         location: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connector_output(connector_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         location: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Returns Connector resource for a given name.

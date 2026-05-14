@@ -282,7 +282,7 @@ class AllowedAudiencesValidationArgsDict(TypedDict):
     """
     The configuration settings of the Allowed Audiences validation flow.
     """
-    allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The configuration settings of the allowed list of audiences from which to validate the JWT token.
     """
@@ -290,7 +290,7 @@ class AllowedAudiencesValidationArgsDict(TypedDict):
 @pulumi.input_type
 class AllowedAudiencesValidationArgs:
     def __init__(__self__, *,
-                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the Allowed Audiences validation flow.
 
@@ -301,14 +301,14 @@ class AllowedAudiencesValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The configuration settings of the allowed list of audiences from which to validate the JWT token.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
 
@@ -316,11 +316,11 @@ class AllowedPrincipalsArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active Directory allowed principals.
     """
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the allowed groups.
     """
-    identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the allowed identities.
     """
@@ -328,8 +328,8 @@ class AllowedPrincipalsArgsDict(TypedDict):
 @pulumi.input_type
 class AllowedPrincipalsArgs:
     def __init__(__self__, *,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the Azure Active Directory allowed principals.
 
@@ -343,60 +343,60 @@ class AllowedPrincipalsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the allowed groups.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the allowed identities.
         """
         return pulumi.get(self, "identities")
 
     @identities.setter
-    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identities", value)
 
 
 class ApiConnectionDefinitionPropertiesArgsDict(TypedDict):
-    api: NotRequired[pulumi.Input['ApiReferenceArgsDict']]
-    changed_time: NotRequired[pulumi.Input[_builtins.str]]
+    api: NotRequired[pulumi.Input[Optional['ApiReferenceArgs']]]
+    changed_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp of last connection change
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp of the connection creation
     """
-    custom_parameter_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom_parameter_values: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dictionary of custom parameter values
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    non_secret_parameter_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    non_secret_parameter_values: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dictionary of nonsecret parameter values
     """
-    parameter_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameter_values: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dictionary of parameter values
     """
-    statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgsDict']]]]
+    statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]]
     """
     Status of the connection
     """
-    test_links: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgsDict']]]]
+    test_links: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]]
     """
     Links to test the API connection
     """
@@ -404,15 +404,15 @@ class ApiConnectionDefinitionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApiConnectionDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 api: Optional[pulumi.Input['ApiReferenceArgs']] = None,
-                 changed_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]] = None,
-                 test_links: Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]] = None):
+                 api: pulumi.Input[Optional['ApiReferenceArgs']] = None,
+                 changed_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_secret_parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]] = None,
+                 test_links: pulumi.Input[Optional[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] changed_time: Timestamp of last connection change
         :param pulumi.Input[_builtins.str] created_time: Timestamp of the connection creation
@@ -444,107 +444,107 @@ class ApiConnectionDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def api(self) -> Optional[pulumi.Input['ApiReferenceArgs']]:
+    def api(self) -> pulumi.Input[Optional['ApiReferenceArgs']]:
         return pulumi.get(self, "api")
 
     @api.setter
-    def api(self, value: Optional[pulumi.Input['ApiReferenceArgs']]):
+    def api(self, value: pulumi.Input[Optional['ApiReferenceArgs']]):
         pulumi.set(self, "api", value)
 
     @_builtins.property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def changed_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of last connection change
         """
         return pulumi.get(self, "changed_time")
 
     @changed_time.setter
-    def changed_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def changed_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "changed_time", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the connection creation
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="customParameterValues")
-    def custom_parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_parameter_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of custom parameter values
         """
         return pulumi.get(self, "custom_parameter_values")
 
     @custom_parameter_values.setter
-    def custom_parameter_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_parameter_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nonSecretParameterValues")
-    def non_secret_parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def non_secret_parameter_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of nonsecret parameter values
         """
         return pulumi.get(self, "non_secret_parameter_values")
 
     @non_secret_parameter_values.setter
-    def non_secret_parameter_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def non_secret_parameter_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_secret_parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameter_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of parameter values
         """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameter_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]:
+    def statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]:
         """
         Status of the connection
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]):
+    def statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @_builtins.property
     @pulumi.getter(name="testLinks")
-    def test_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]:
+    def test_links(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]:
         """
         Links to test the API connection
         """
         return pulumi.get(self, "test_links")
 
     @test_links.setter
-    def test_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]):
+    def test_links(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]):
         pulumi.set(self, "test_links", value)
 
 
@@ -552,11 +552,11 @@ class ApiConnectionTestLinkArgsDict(TypedDict):
     """
     API connection properties
     """
-    method: NotRequired[pulumi.Input[_builtins.str]]
+    method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     HTTP Method
     """
-    request_uri: NotRequired[pulumi.Input[_builtins.str]]
+    request_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Test link request URI
     """
@@ -564,8 +564,8 @@ class ApiConnectionTestLinkArgsDict(TypedDict):
 @pulumi.input_type
 class ApiConnectionTestLinkArgs:
     def __init__(__self__, *,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API connection properties
 
@@ -579,26 +579,26 @@ class ApiConnectionTestLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP Method
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter(name="requestUri")
-    def request_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Test link request URI
         """
         return pulumi.get(self, "request_uri")
 
     @request_uri.setter
-    def request_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_uri", value)
 
 
@@ -606,7 +606,7 @@ class ApiDefinitionInfoArgsDict(TypedDict):
     """
     Information about the formal API definition for the app.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL of the API definition.
     """
@@ -614,7 +614,7 @@ class ApiDefinitionInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ApiDefinitionInfoArgs:
     def __init__(__self__, *,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about the formal API definition for the app.
 
@@ -625,14 +625,14 @@ class ApiDefinitionInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the API definition.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -640,7 +640,7 @@ class ApiManagementConfigArgsDict(TypedDict):
     """
     Azure API management (APIM) configuration linked to the app.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     APIM-Api Identifier.
     """
@@ -648,7 +648,7 @@ class ApiManagementConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ApiManagementConfigArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure API management (APIM) configuration linked to the app.
 
@@ -659,14 +659,14 @@ class ApiManagementConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         APIM-Api Identifier.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -674,15 +674,15 @@ class ApiOAuthSettingsParameterArgsDict(TypedDict):
     """
     OAuth settings for the API
     """
-    options: NotRequired[Any]
+    options: NotRequired[Optional[Any]]
     """
     Options available to this parameter
     """
-    ui_definition: NotRequired[Any]
+    ui_definition: NotRequired[Optional[Any]]
     """
     UI definitions per culture as caller can specify the culture
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the setting
     """
@@ -692,7 +692,7 @@ class ApiOAuthSettingsParameterArgs:
     def __init__(__self__, *,
                  options: Optional[Any] = None,
                  ui_definition: Optional[Any] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         OAuth settings for the API
 
@@ -733,14 +733,14 @@ class ApiOAuthSettingsParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the setting
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -748,31 +748,31 @@ class ApiOAuthSettingsArgsDict(TypedDict):
     """
     OAuth settings for the connection provider
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource provider client id
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client Secret needed for OAuth
     """
-    custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgsDict']]]]
+    custom_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]]]
     """
     OAuth parameters key is the name of parameter
     """
-    identity_provider: NotRequired[pulumi.Input[_builtins.str]]
+    identity_provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identity provider
     """
-    properties: NotRequired[Any]
+    properties: NotRequired[Optional[Any]]
     """
     Read only properties for this oauth setting.
     """
-    redirect_url: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Url
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     OAuth scopes
     """
@@ -780,13 +780,13 @@ class ApiOAuthSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ApiOAuthSettingsArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         OAuth settings for the connection provider
 
@@ -815,50 +815,50 @@ class ApiOAuthSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource provider client id
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Secret needed for OAuth
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="customParameters")
-    def custom_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]]:
+    def custom_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]]:
         """
         OAuth parameters key is the name of parameter
         """
         return pulumi.get(self, "custom_parameters")
 
     @custom_parameters.setter
-    def custom_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]]):
+    def custom_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]]):
         pulumi.set(self, "custom_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity provider
         """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
-    def identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider", value)
 
     @_builtins.property
@@ -875,59 +875,59 @@ class ApiOAuthSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         OAuth scopes
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
 class ApiReferenceArgsDict(TypedDict):
-    brand_color: NotRequired[pulumi.Input[_builtins.str]]
+    brand_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Brand color
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom API description
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name
     """
-    icon_uri: NotRequired[pulumi.Input[_builtins.str]]
+    icon_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The icon URI
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference id
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the API
     """
-    swagger: NotRequired[Any]
+    swagger: NotRequired[Optional[Any]]
     """
     The JSON representation of the swagger
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference type
     """
@@ -935,14 +935,14 @@ class ApiReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ApiReferenceArgs:
     def __init__(__self__, *,
-                 brand_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  swagger: Optional[Any] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] brand_color: Brand color
         :param pulumi.Input[_builtins.str] description: The custom API description
@@ -972,74 +972,74 @@ class ApiReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="brandColor")
-    def brand_color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand color
         """
         return pulumi.get(self, "brand_color")
 
     @brand_color.setter
-    def brand_color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_color", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom API description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUri")
-    def icon_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The icon URI
         """
         return pulumi.get(self, "icon_uri")
 
     @icon_uri.setter
-    def icon_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference id
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
@@ -1056,14 +1056,14 @@ class ApiReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1071,7 +1071,7 @@ class ApiResourceBackendServiceArgsDict(TypedDict):
     """
     The API backend service
     """
-    service_url: NotRequired[pulumi.Input[_builtins.str]]
+    service_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service URL
     """
@@ -1079,7 +1079,7 @@ class ApiResourceBackendServiceArgsDict(TypedDict):
 @pulumi.input_type
 class ApiResourceBackendServiceArgs:
     def __init__(__self__, *,
-                 service_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The API backend service
 
@@ -1090,14 +1090,14 @@ class ApiResourceBackendServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceUrl")
-    def service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service URL
         """
         return pulumi.get(self, "service_url")
 
     @service_url.setter
-    def service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_url", value)
 
 
@@ -1105,11 +1105,11 @@ class ApiResourceDefinitionsArgsDict(TypedDict):
     """
     API Definitions
     """
-    modified_swagger_url: NotRequired[pulumi.Input[_builtins.str]]
+    modified_swagger_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The modified swagger URL
     """
-    original_swagger_url: NotRequired[pulumi.Input[_builtins.str]]
+    original_swagger_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The original swagger URL
     """
@@ -1117,8 +1117,8 @@ class ApiResourceDefinitionsArgsDict(TypedDict):
 @pulumi.input_type
 class ApiResourceDefinitionsArgs:
     def __init__(__self__, *,
-                 modified_swagger_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 original_swagger_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 modified_swagger_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 original_swagger_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API Definitions
 
@@ -1132,38 +1132,38 @@ class ApiResourceDefinitionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="modifiedSwaggerUrl")
-    def modified_swagger_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_swagger_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The modified swagger URL
         """
         return pulumi.get(self, "modified_swagger_url")
 
     @modified_swagger_url.setter
-    def modified_swagger_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_swagger_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_swagger_url", value)
 
     @_builtins.property
     @pulumi.getter(name="originalSwaggerUrl")
-    def original_swagger_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def original_swagger_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The original swagger URL
         """
         return pulumi.get(self, "original_swagger_url")
 
     @original_swagger_url.setter
-    def original_swagger_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def original_swagger_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "original_swagger_url", value)
 
 
 class AppLogsConfigurationArgsDict(TypedDict):
-    destination: NotRequired[pulumi.Input[_builtins.str]]
-    log_analytics_configuration: NotRequired[pulumi.Input['LogAnalyticsConfigurationArgsDict']]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_analytics_configuration: NotRequired[pulumi.Input[Optional['LogAnalyticsConfigurationArgs']]]
 
 @pulumi.input_type
 class AppLogsConfigurationArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_configuration: pulumi.Input[Optional['LogAnalyticsConfigurationArgs']] = None):
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if log_analytics_configuration is not None:
@@ -1171,20 +1171,20 @@ class AppLogsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsConfiguration")
-    def log_analytics_configuration(self) -> Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]:
+    def log_analytics_configuration(self) -> pulumi.Input[Optional['LogAnalyticsConfigurationArgs']]:
         return pulumi.get(self, "log_analytics_configuration")
 
     @log_analytics_configuration.setter
-    def log_analytics_configuration(self, value: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]):
+    def log_analytics_configuration(self, value: pulumi.Input[Optional['LogAnalyticsConfigurationArgs']]):
         pulumi.set(self, "log_analytics_configuration", value)
 
 
@@ -1192,11 +1192,11 @@ class AppRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the app registration for providers that have app ids and app secrets
     """
-    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The App ID of the app used for login.
     """
-    app_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    app_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting name that contains the app secret.
     """
@@ -1204,8 +1204,8 @@ class AppRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class AppRegistrationArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the app registration for providers that have app ids and app secrets
 
@@ -1219,26 +1219,26 @@ class AppRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The App ID of the app used for login.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appSecretSettingName")
-    def app_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the app secret.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
     @app_secret_setting_name.setter
-    def app_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_secret_setting_name", value)
 
 
@@ -1246,11 +1246,11 @@ class AppleRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the registration for the Apple provider
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Client ID of the app used for login.
     """
-    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting name that contains the client secret.
     """
@@ -1258,8 +1258,8 @@ class AppleRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class AppleRegistrationArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the registration for the Apple provider
 
@@ -1273,26 +1273,26 @@ class AppleRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of the app used for login.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
 
@@ -1300,15 +1300,15 @@ class AppleArgsDict(TypedDict):
     """
     The configuration settings of the Apple provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['LoginScopesArgs']]]
     """
     The configuration settings of the login flow.
     """
-    registration: NotRequired[pulumi.Input['AppleRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['AppleRegistrationArgs']]]
     """
     The configuration settings of the Apple registration.
     """
@@ -1316,9 +1316,9 @@ class AppleArgsDict(TypedDict):
 @pulumi.input_type
 class AppleArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['AppleRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['LoginScopesArgs']] = None,
+                 registration: pulumi.Input[Optional['AppleRegistrationArgs']] = None):
         """
         The configuration settings of the Apple provider.
 
@@ -1335,38 +1335,38 @@ class AppleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginScopesArgs']]:
         """
         The configuration settings of the login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginScopesArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['AppleRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['AppleRegistrationArgs']]:
         """
         The configuration settings of the Apple registration.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['AppleRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['AppleRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -1374,15 +1374,15 @@ class ApplicationLogsConfigArgsDict(TypedDict):
     """
     Application logs configuration.
     """
-    azure_blob_storage: NotRequired[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgsDict']]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['AzureBlobStorageApplicationLogsConfigArgs']]]
     """
     Application logs to blob storage configuration.
     """
-    azure_table_storage: NotRequired[pulumi.Input['AzureTableStorageApplicationLogsConfigArgsDict']]
+    azure_table_storage: NotRequired[pulumi.Input[Optional['AzureTableStorageApplicationLogsConfigArgs']]]
     """
     Application logs to azure table storage configuration.
     """
-    file_system: NotRequired[pulumi.Input['FileSystemApplicationLogsConfigArgsDict']]
+    file_system: NotRequired[pulumi.Input[Optional['FileSystemApplicationLogsConfigArgs']]]
     """
     Application logs to file system configuration.
     """
@@ -1390,9 +1390,9 @@ class ApplicationLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationLogsConfigArgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']] = None,
-                 azure_table_storage: Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']] = None,
-                 file_system: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']] = None):
+                 azure_blob_storage: pulumi.Input[Optional['AzureBlobStorageApplicationLogsConfigArgs']] = None,
+                 azure_table_storage: pulumi.Input[Optional['AzureTableStorageApplicationLogsConfigArgs']] = None,
+                 file_system: pulumi.Input[Optional['FileSystemApplicationLogsConfigArgs']] = None):
         """
         Application logs configuration.
 
@@ -1409,60 +1409,60 @@ class ApplicationLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']]:
+    def azure_blob_storage(self) -> pulumi.Input[Optional['AzureBlobStorageApplicationLogsConfigArgs']]:
         """
         Application logs to blob storage configuration.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']]):
+    def azure_blob_storage(self, value: pulumi.Input[Optional['AzureBlobStorageApplicationLogsConfigArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="azureTableStorage")
-    def azure_table_storage(self) -> Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']]:
+    def azure_table_storage(self) -> pulumi.Input[Optional['AzureTableStorageApplicationLogsConfigArgs']]:
         """
         Application logs to azure table storage configuration.
         """
         return pulumi.get(self, "azure_table_storage")
 
     @azure_table_storage.setter
-    def azure_table_storage(self, value: Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']]):
+    def azure_table_storage(self, value: pulumi.Input[Optional['AzureTableStorageApplicationLogsConfigArgs']]):
         pulumi.set(self, "azure_table_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]:
+    def file_system(self) -> pulumi.Input[Optional['FileSystemApplicationLogsConfigArgs']]:
         """
         Application logs to file system configuration.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]):
+    def file_system(self, value: pulumi.Input[Optional['FileSystemApplicationLogsConfigArgs']]):
         pulumi.set(self, "file_system", value)
 
 
 class ArcConfigurationArgsDict(TypedDict):
-    artifact_storage_access_mode: NotRequired[pulumi.Input[_builtins.str]]
-    artifact_storage_class_name: NotRequired[pulumi.Input[_builtins.str]]
-    artifact_storage_mount_path: NotRequired[pulumi.Input[_builtins.str]]
-    artifact_storage_node_name: NotRequired[pulumi.Input[_builtins.str]]
-    artifacts_storage_type: NotRequired[pulumi.Input['StorageType']]
-    front_end_service_configuration: NotRequired[pulumi.Input['FrontEndConfigurationArgsDict']]
-    kube_config: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_storage_access_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    artifact_storage_class_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    artifact_storage_mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    artifact_storage_node_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    artifacts_storage_type: NotRequired[pulumi.Input[Optional['StorageType']]]
+    front_end_service_configuration: NotRequired[pulumi.Input[Optional['FrontEndConfigurationArgs']]]
+    kube_config: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ArcConfigurationArgs:
     def __init__(__self__, *,
-                 artifact_storage_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_storage_class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_storage_mount_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_storage_node_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifacts_storage_type: Optional[pulumi.Input['StorageType']] = None,
-                 front_end_service_configuration: Optional[pulumi.Input['FrontEndConfigurationArgs']] = None,
-                 kube_config: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_storage_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_storage_class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_storage_mount_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_storage_node_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifacts_storage_type: pulumi.Input[Optional['StorageType']] = None,
+                 front_end_service_configuration: pulumi.Input[Optional['FrontEndConfigurationArgs']] = None,
+                 kube_config: pulumi.Input[Optional[_builtins.str]] = None):
         if artifact_storage_access_mode is not None:
             pulumi.set(__self__, "artifact_storage_access_mode", artifact_storage_access_mode)
         if artifact_storage_class_name is not None:
@@ -1480,65 +1480,65 @@ class ArcConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStorageAccessMode")
-    def artifact_storage_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_storage_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "artifact_storage_access_mode")
 
     @artifact_storage_access_mode.setter
-    def artifact_storage_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_storage_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_storage_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStorageClassName")
-    def artifact_storage_class_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_storage_class_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "artifact_storage_class_name")
 
     @artifact_storage_class_name.setter
-    def artifact_storage_class_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_storage_class_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_storage_class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStorageMountPath")
-    def artifact_storage_mount_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_storage_mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "artifact_storage_mount_path")
 
     @artifact_storage_mount_path.setter
-    def artifact_storage_mount_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_storage_mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_storage_mount_path", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStorageNodeName")
-    def artifact_storage_node_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_storage_node_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "artifact_storage_node_name")
 
     @artifact_storage_node_name.setter
-    def artifact_storage_node_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_storage_node_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_storage_node_name", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactsStorageType")
-    def artifacts_storage_type(self) -> Optional[pulumi.Input['StorageType']]:
+    def artifacts_storage_type(self) -> pulumi.Input[Optional['StorageType']]:
         return pulumi.get(self, "artifacts_storage_type")
 
     @artifacts_storage_type.setter
-    def artifacts_storage_type(self, value: Optional[pulumi.Input['StorageType']]):
+    def artifacts_storage_type(self, value: pulumi.Input[Optional['StorageType']]):
         pulumi.set(self, "artifacts_storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="frontEndServiceConfiguration")
-    def front_end_service_configuration(self) -> Optional[pulumi.Input['FrontEndConfigurationArgs']]:
+    def front_end_service_configuration(self) -> pulumi.Input[Optional['FrontEndConfigurationArgs']]:
         return pulumi.get(self, "front_end_service_configuration")
 
     @front_end_service_configuration.setter
-    def front_end_service_configuration(self, value: Optional[pulumi.Input['FrontEndConfigurationArgs']]):
+    def front_end_service_configuration(self, value: pulumi.Input[Optional['FrontEndConfigurationArgs']]):
         pulumi.set(self, "front_end_service_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeConfig")
-    def kube_config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kube_config(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kube_config")
 
     @kube_config.setter
-    def kube_config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kube_config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kube_config", value)
 
 
@@ -1546,23 +1546,23 @@ class AseV3NetworkingConfigurationArgsDict(TypedDict):
     """
     Full view of networking configuration for an ASE.
     """
-    allow_new_private_endpoint_connections: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_new_private_endpoint_connections: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to enable and disable new private endpoint connection creation on ASE
     """
-    ftp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ftp_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to enable and disable FTP on ASEV3
     """
-    inbound_ip_address_override: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_ip_address_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided Inbound IP Address. Only able to be set on Ase create.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of resource.
     """
-    remote_debug_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    remote_debug_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to enable and disable Remote Debug on ASEV3
     """
@@ -1570,11 +1570,11 @@ class AseV3NetworkingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AseV3NetworkingConfigurationArgs:
     def __init__(__self__, *,
-                 allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inbound_ip_address_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debug_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inbound_ip_address_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debug_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Full view of networking configuration for an ASE.
 
@@ -1597,62 +1597,62 @@ class AseV3NetworkingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
-    def allow_new_private_endpoint_connections(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_new_private_endpoint_connections(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to enable and disable new private endpoint connection creation on ASE
         """
         return pulumi.get(self, "allow_new_private_endpoint_connections")
 
     @allow_new_private_endpoint_connections.setter
-    def allow_new_private_endpoint_connections(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_new_private_endpoint_connections(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_new_private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpEnabled")
-    def ftp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ftp_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to enable and disable FTP on ASEV3
         """
         return pulumi.get(self, "ftp_enabled")
 
     @ftp_enabled.setter
-    def ftp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ftp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ftp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundIpAddressOverride")
-    def inbound_ip_address_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_ip_address_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided Inbound IP Address. Only able to be set on Ase create.
         """
         return pulumi.get(self, "inbound_ip_address_override")
 
     @inbound_ip_address_override.setter
-    def inbound_ip_address_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_ip_address_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_ip_address_override", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebugEnabled")
-    def remote_debug_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_debug_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to enable and disable Remote Debug on ASEV3
         """
         return pulumi.get(self, "remote_debug_enabled")
 
     @remote_debug_enabled.setter
-    def remote_debug_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_debug_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_debug_enabled", value)
 
 
@@ -1660,16 +1660,16 @@ class AuthPlatformArgsDict(TypedDict):
     """
     The configuration settings of the platform of App Service Authentication/Authorization.
     """
-    config_file_path: NotRequired[pulumi.Input[_builtins.str]]
+    config_file_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path of the config file containing auth settings if they come from a file.
     If the path is relative, base will the site's root directory.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
     """
-    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
     The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
@@ -1678,9 +1678,9 @@ class AuthPlatformArgsDict(TypedDict):
 @pulumi.input_type
 class AuthPlatformArgs:
     def __init__(__self__, *,
-                 config_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 config_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the platform of App Service Authentication/Authorization.
 
@@ -1699,7 +1699,7 @@ class AuthPlatformArgs:
 
     @_builtins.property
     @pulumi.getter(name="configFilePath")
-    def config_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the config file containing auth settings if they come from a file.
         If the path is relative, base will the site's root directory.
@@ -1707,24 +1707,24 @@ class AuthPlatformArgs:
         return pulumi.get(self, "config_file_path")
 
     @config_file_path.setter
-    def config_file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_file_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
@@ -1732,7 +1732,7 @@ class AuthPlatformArgs:
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
 
@@ -1740,15 +1740,15 @@ class AutoHealActionsArgsDict(TypedDict):
     """
     Actions which to take by the auto-heal module when a rule is triggered.
     """
-    action_type: NotRequired[pulumi.Input['AutoHealActionType']]
+    action_type: NotRequired[pulumi.Input[Optional['AutoHealActionType']]]
     """
     Predefined action to be taken.
     """
-    custom_action: NotRequired[pulumi.Input['AutoHealCustomActionArgsDict']]
+    custom_action: NotRequired[pulumi.Input[Optional['AutoHealCustomActionArgs']]]
     """
     Custom action to be taken.
     """
-    min_process_execution_time: NotRequired[pulumi.Input[_builtins.str]]
+    min_process_execution_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Minimum time the process must execute
     before taking the action
@@ -1757,9 +1757,9 @@ class AutoHealActionsArgsDict(TypedDict):
 @pulumi.input_type
 class AutoHealActionsArgs:
     def __init__(__self__, *,
-                 action_type: Optional[pulumi.Input['AutoHealActionType']] = None,
-                 custom_action: Optional[pulumi.Input['AutoHealCustomActionArgs']] = None,
-                 min_process_execution_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_type: pulumi.Input[Optional['AutoHealActionType']] = None,
+                 custom_action: pulumi.Input[Optional['AutoHealCustomActionArgs']] = None,
+                 min_process_execution_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Actions which to take by the auto-heal module when a rule is triggered.
 
@@ -1777,31 +1777,31 @@ class AutoHealActionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input['AutoHealActionType']]:
+    def action_type(self) -> pulumi.Input[Optional['AutoHealActionType']]:
         """
         Predefined action to be taken.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input['AutoHealActionType']]):
+    def action_type(self, value: pulumi.Input[Optional['AutoHealActionType']]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customAction")
-    def custom_action(self) -> Optional[pulumi.Input['AutoHealCustomActionArgs']]:
+    def custom_action(self) -> pulumi.Input[Optional['AutoHealCustomActionArgs']]:
         """
         Custom action to be taken.
         """
         return pulumi.get(self, "custom_action")
 
     @custom_action.setter
-    def custom_action(self, value: Optional[pulumi.Input['AutoHealCustomActionArgs']]):
+    def custom_action(self, value: pulumi.Input[Optional['AutoHealCustomActionArgs']]):
         pulumi.set(self, "custom_action", value)
 
     @_builtins.property
     @pulumi.getter(name="minProcessExecutionTime")
-    def min_process_execution_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_process_execution_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum time the process must execute
         before taking the action
@@ -1809,7 +1809,7 @@ class AutoHealActionsArgs:
         return pulumi.get(self, "min_process_execution_time")
 
     @min_process_execution_time.setter
-    def min_process_execution_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_process_execution_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_process_execution_time", value)
 
 
@@ -1818,11 +1818,11 @@ class AutoHealCustomActionArgsDict(TypedDict):
     Custom action to be executed
     when an auto heal rule is triggered.
     """
-    exe: NotRequired[pulumi.Input[_builtins.str]]
+    exe: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Executable to be run.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Parameters for the executable.
     """
@@ -1830,8 +1830,8 @@ class AutoHealCustomActionArgsDict(TypedDict):
 @pulumi.input_type
 class AutoHealCustomActionArgs:
     def __init__(__self__, *,
-                 exe: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 exe: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Custom action to be executed
         when an auto heal rule is triggered.
@@ -1846,26 +1846,26 @@ class AutoHealCustomActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Executable to be run.
         """
         return pulumi.get(self, "exe")
 
     @exe.setter
-    def exe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exe", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameters for the executable.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1873,11 +1873,11 @@ class AutoHealRulesArgsDict(TypedDict):
     """
     Rules that can be defined for auto-heal.
     """
-    actions: NotRequired[pulumi.Input['AutoHealActionsArgsDict']]
+    actions: NotRequired[pulumi.Input[Optional['AutoHealActionsArgs']]]
     """
     Actions to be executed when a rule is triggered.
     """
-    triggers: NotRequired[pulumi.Input['AutoHealTriggersArgsDict']]
+    triggers: NotRequired[pulumi.Input[Optional['AutoHealTriggersArgs']]]
     """
     Conditions that describe when to execute the auto-heal actions.
     """
@@ -1885,8 +1885,8 @@ class AutoHealRulesArgsDict(TypedDict):
 @pulumi.input_type
 class AutoHealRulesArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input['AutoHealActionsArgs']] = None,
-                 triggers: Optional[pulumi.Input['AutoHealTriggersArgs']] = None):
+                 actions: pulumi.Input[Optional['AutoHealActionsArgs']] = None,
+                 triggers: pulumi.Input[Optional['AutoHealTriggersArgs']] = None):
         """
         Rules that can be defined for auto-heal.
 
@@ -1900,26 +1900,26 @@ class AutoHealRulesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['AutoHealActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['AutoHealActionsArgs']]:
         """
         Actions to be executed when a rule is triggered.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['AutoHealActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['AutoHealActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input['AutoHealTriggersArgs']]:
+    def triggers(self) -> pulumi.Input[Optional['AutoHealTriggersArgs']]:
         """
         Conditions that describe when to execute the auto-heal actions.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input['AutoHealTriggersArgs']]):
+    def triggers(self, value: pulumi.Input[Optional['AutoHealTriggersArgs']]):
         pulumi.set(self, "triggers", value)
 
 
@@ -1927,27 +1927,27 @@ class AutoHealTriggersArgsDict(TypedDict):
     """
     Triggers for auto-heal.
     """
-    private_bytes_in_kb: NotRequired[pulumi.Input[_builtins.int]]
+    private_bytes_in_kb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     A rule based on private bytes.
     """
-    requests: NotRequired[pulumi.Input['RequestsBasedTriggerArgsDict']]
+    requests: NotRequired[pulumi.Input[Optional['RequestsBasedTriggerArgs']]]
     """
     A rule based on total requests.
     """
-    slow_requests: NotRequired[pulumi.Input['SlowRequestsBasedTriggerArgsDict']]
+    slow_requests: NotRequired[pulumi.Input[Optional['SlowRequestsBasedTriggerArgs']]]
     """
     A rule based on request execution time.
     """
-    slow_requests_with_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgsDict']]]]
+    slow_requests_with_path: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]]
     """
     A rule based on multiple Slow Requests Rule with path
     """
-    status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgsDict']]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]]
     """
     A rule based on status codes.
     """
-    status_codes_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgsDict']]]]
+    status_codes_range: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]]
     """
     A rule based on status codes ranges.
     """
@@ -1955,12 +1955,12 @@ class AutoHealTriggersArgsDict(TypedDict):
 @pulumi.input_type
 class AutoHealTriggersArgs:
     def __init__(__self__, *,
-                 private_bytes_in_kb: Optional[pulumi.Input[_builtins.int]] = None,
-                 requests: Optional[pulumi.Input['RequestsBasedTriggerArgs']] = None,
-                 slow_requests: Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']] = None,
-                 slow_requests_with_path: Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None,
-                 status_codes_range: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]] = None):
+                 private_bytes_in_kb: pulumi.Input[Optional[_builtins.int]] = None,
+                 requests: pulumi.Input[Optional['RequestsBasedTriggerArgs']] = None,
+                 slow_requests: pulumi.Input[Optional['SlowRequestsBasedTriggerArgs']] = None,
+                 slow_requests_with_path: pulumi.Input[Optional[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]] = None,
+                 status_codes: pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None,
+                 status_codes_range: pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]] = None):
         """
         Triggers for auto-heal.
 
@@ -1986,74 +1986,74 @@ class AutoHealTriggersArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateBytesInKB")
-    def private_bytes_in_kb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def private_bytes_in_kb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A rule based on private bytes.
         """
         return pulumi.get(self, "private_bytes_in_kb")
 
     @private_bytes_in_kb.setter
-    def private_bytes_in_kb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def private_bytes_in_kb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "private_bytes_in_kb", value)
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['RequestsBasedTriggerArgs']]:
+    def requests(self) -> pulumi.Input[Optional['RequestsBasedTriggerArgs']]:
         """
         A rule based on total requests.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['RequestsBasedTriggerArgs']]):
+    def requests(self, value: pulumi.Input[Optional['RequestsBasedTriggerArgs']]):
         pulumi.set(self, "requests", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']]:
+    def slow_requests(self) -> pulumi.Input[Optional['SlowRequestsBasedTriggerArgs']]:
         """
         A rule based on request execution time.
         """
         return pulumi.get(self, "slow_requests")
 
     @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']]):
+    def slow_requests(self, value: pulumi.Input[Optional['SlowRequestsBasedTriggerArgs']]):
         pulumi.set(self, "slow_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRequestsWithPath")
-    def slow_requests_with_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]:
+    def slow_requests_with_path(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]:
         """
         A rule based on multiple Slow Requests Rule with path
         """
         return pulumi.get(self, "slow_requests_with_path")
 
     @slow_requests_with_path.setter
-    def slow_requests_with_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]):
+    def slow_requests_with_path(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]):
         pulumi.set(self, "slow_requests_with_path", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]:
+    def status_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]:
         """
         A rule based on status codes.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
+    def status_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
         pulumi.set(self, "status_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCodesRange")
-    def status_codes_range(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]:
+    def status_codes_range(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]:
         """
         A rule based on status codes ranges.
         """
         return pulumi.get(self, "status_codes_range")
 
     @status_codes_range.setter
-    def status_codes_range(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]):
+    def status_codes_range(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]):
         pulumi.set(self, "status_codes_range", value)
 
 
@@ -2061,11 +2061,11 @@ class AzureActiveDirectoryLoginArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active Directory login flow.
     """
-    disable_www_authenticate: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_www_authenticate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
     """
-    login_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    login_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Login parameters to send to the OpenID Connect authorization endpoint when
     a user logs in. Each parameter must be in the form "key=value".
@@ -2074,8 +2074,8 @@ class AzureActiveDirectoryLoginArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryLoginArgs:
     def __init__(__self__, *,
-                 disable_www_authenticate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_www_authenticate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the Azure Active Directory login flow.
 
@@ -2090,19 +2090,19 @@ class AzureActiveDirectoryLoginArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableWWWAuthenticate")
-    def disable_www_authenticate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_www_authenticate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "disable_www_authenticate")
 
     @disable_www_authenticate.setter
-    def disable_www_authenticate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_www_authenticate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_www_authenticate", value)
 
     @_builtins.property
     @pulumi.getter(name="loginParameters")
-    def login_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def login_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Login parameters to send to the OpenID Connect authorization endpoint when
         a user logs in. Each parameter must be in the form "key=value".
@@ -2110,7 +2110,7 @@ class AzureActiveDirectoryLoginArgs:
         return pulumi.get(self, "login_parameters")
 
     @login_parameters.setter
-    def login_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def login_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "login_parameters", value)
 
 
@@ -2118,33 +2118,33 @@ class AzureActiveDirectoryRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active Directory app registration.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Client ID of this relying party application, known as the client_id.
     This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
     other 3rd party OpenID Connect providers.
     More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
     """
-    client_secret_certificate_issuer: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_certificate_issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
     a replacement for the Client Secret Certificate Thumbprint. It is also optional.
     """
-    client_secret_certificate_subject_alternative_name: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_certificate_subject_alternative_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as
     a replacement for the Client Secret Certificate Thumbprint. It is also optional.
     """
-    client_secret_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_certificate_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
     a replacement for the Client Secret. It is also optional.
     """
-    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting name that contains the client secret of the relying party application.
     """
-    open_id_issuer: NotRequired[pulumi.Input[_builtins.str]]
+    open_id_issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
     When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
@@ -2155,12 +2155,12 @@ class AzureActiveDirectoryRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryRegistrationArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_subject_alternative_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_id_issuer: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_subject_alternative_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_id_issuer: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the Azure Active Directory app registration.
 
@@ -2195,7 +2195,7 @@ class AzureActiveDirectoryRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of this relying party application, known as the client_id.
         This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
@@ -2205,12 +2205,12 @@ class AzureActiveDirectoryRegistrationArgs:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretCertificateIssuer")
-    def client_secret_certificate_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_certificate_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
         a replacement for the Client Secret Certificate Thumbprint. It is also optional.
@@ -2218,12 +2218,12 @@ class AzureActiveDirectoryRegistrationArgs:
         return pulumi.get(self, "client_secret_certificate_issuer")
 
     @client_secret_certificate_issuer.setter
-    def client_secret_certificate_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_certificate_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_certificate_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretCertificateSubjectAlternativeName")
-    def client_secret_certificate_subject_alternative_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_certificate_subject_alternative_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as
         a replacement for the Client Secret Certificate Thumbprint. It is also optional.
@@ -2231,12 +2231,12 @@ class AzureActiveDirectoryRegistrationArgs:
         return pulumi.get(self, "client_secret_certificate_subject_alternative_name")
 
     @client_secret_certificate_subject_alternative_name.setter
-    def client_secret_certificate_subject_alternative_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_certificate_subject_alternative_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_certificate_subject_alternative_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
-    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
         a replacement for the Client Secret. It is also optional.
@@ -2244,24 +2244,24 @@ class AzureActiveDirectoryRegistrationArgs:
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
-    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret of the relying party application.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="openIdIssuer")
-    def open_id_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_id_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
@@ -2271,7 +2271,7 @@ class AzureActiveDirectoryRegistrationArgs:
         return pulumi.get(self, "open_id_issuer")
 
     @open_id_issuer.setter
-    def open_id_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_id_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_id_issuer", value)
 
 
@@ -2279,15 +2279,15 @@ class AzureActiveDirectoryValidationArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active Directory token validation flow.
     """
-    allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of audiences that can make successful authentication/authorization requests.
     """
-    default_authorization_policy: NotRequired[pulumi.Input['DefaultAuthorizationPolicyArgsDict']]
+    default_authorization_policy: NotRequired[pulumi.Input[Optional['DefaultAuthorizationPolicyArgs']]]
     """
     The configuration settings of the default authorization policy.
     """
-    jwt_claim_checks: NotRequired[pulumi.Input['JwtClaimChecksArgsDict']]
+    jwt_claim_checks: NotRequired[pulumi.Input[Optional['JwtClaimChecksArgs']]]
     """
     The configuration settings of the checks that should be made while validating the JWT Claims.
     """
@@ -2295,9 +2295,9 @@ class AzureActiveDirectoryValidationArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryValidationArgs:
     def __init__(__self__, *,
-                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_authorization_policy: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']] = None,
-                 jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None):
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_authorization_policy: pulumi.Input[Optional['DefaultAuthorizationPolicyArgs']] = None,
+                 jwt_claim_checks: pulumi.Input[Optional['JwtClaimChecksArgs']] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
 
@@ -2314,38 +2314,38 @@ class AzureActiveDirectoryValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of audiences that can make successful authentication/authorization requests.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthorizationPolicy")
-    def default_authorization_policy(self) -> Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]:
+    def default_authorization_policy(self) -> pulumi.Input[Optional['DefaultAuthorizationPolicyArgs']]:
         """
         The configuration settings of the default authorization policy.
         """
         return pulumi.get(self, "default_authorization_policy")
 
     @default_authorization_policy.setter
-    def default_authorization_policy(self, value: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]):
+    def default_authorization_policy(self, value: pulumi.Input[Optional['DefaultAuthorizationPolicyArgs']]):
         pulumi.set(self, "default_authorization_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtClaimChecks")
-    def jwt_claim_checks(self) -> Optional[pulumi.Input['JwtClaimChecksArgs']]:
+    def jwt_claim_checks(self) -> pulumi.Input[Optional['JwtClaimChecksArgs']]:
         """
         The configuration settings of the checks that should be made while validating the JWT Claims.
         """
         return pulumi.get(self, "jwt_claim_checks")
 
     @jwt_claim_checks.setter
-    def jwt_claim_checks(self, value: Optional[pulumi.Input['JwtClaimChecksArgs']]):
+    def jwt_claim_checks(self, value: pulumi.Input[Optional['JwtClaimChecksArgs']]):
         pulumi.set(self, "jwt_claim_checks", value)
 
 
@@ -2353,25 +2353,25 @@ class AzureActiveDirectoryArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active directory provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    is_auto_provisioned: NotRequired[pulumi.Input[_builtins.bool]]
+    is_auto_provisioned: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
     This is an internal flag primarily intended to support the Azure Management Portal. Users should not
     read or write to this property.
     """
-    login: NotRequired[pulumi.Input['AzureActiveDirectoryLoginArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['AzureActiveDirectoryLoginArgs']]]
     """
     The configuration settings of the Azure Active Directory login flow.
     """
-    registration: NotRequired[pulumi.Input['AzureActiveDirectoryRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['AzureActiveDirectoryRegistrationArgs']]]
     """
     The configuration settings of the Azure Active Directory app registration.
     """
-    validation: NotRequired[pulumi.Input['AzureActiveDirectoryValidationArgsDict']]
+    validation: NotRequired[pulumi.Input[Optional['AzureActiveDirectoryValidationArgs']]]
     """
     The configuration settings of the Azure Active Directory token validation flow.
     """
@@ -2379,11 +2379,11 @@ class AzureActiveDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_auto_provisioned: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']] = None,
-                 registration: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']] = None,
-                 validation: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_auto_provisioned: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['AzureActiveDirectoryLoginArgs']] = None,
+                 registration: pulumi.Input[Optional['AzureActiveDirectoryRegistrationArgs']] = None,
+                 validation: pulumi.Input[Optional['AzureActiveDirectoryValidationArgs']] = None):
         """
         The configuration settings of the Azure Active directory provider.
 
@@ -2408,19 +2408,19 @@ class AzureActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isAutoProvisioned")
-    def is_auto_provisioned(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_auto_provisioned(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
         This is an internal flag primarily intended to support the Azure Management Portal. Users should not
@@ -2429,43 +2429,43 @@ class AzureActiveDirectoryArgs:
         return pulumi.get(self, "is_auto_provisioned")
 
     @is_auto_provisioned.setter
-    def is_auto_provisioned(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_auto_provisioned(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_auto_provisioned", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']]:
+    def login(self) -> pulumi.Input[Optional['AzureActiveDirectoryLoginArgs']]:
         """
         The configuration settings of the Azure Active Directory login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']]):
+    def login(self, value: pulumi.Input[Optional['AzureActiveDirectoryLoginArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['AzureActiveDirectoryRegistrationArgs']]:
         """
         The configuration settings of the Azure Active Directory app registration.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['AzureActiveDirectoryRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']]:
+    def validation(self) -> pulumi.Input[Optional['AzureActiveDirectoryValidationArgs']]:
         """
         The configuration settings of the Azure Active Directory token validation flow.
         """
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']]):
+    def validation(self, value: pulumi.Input[Optional['AzureActiveDirectoryValidationArgs']]):
         pulumi.set(self, "validation", value)
 
 
@@ -2473,17 +2473,17 @@ class AzureBlobStorageApplicationLogsConfigArgsDict(TypedDict):
     """
     Application logs azure blob storage configuration.
     """
-    level: NotRequired[pulumi.Input['LogLevel']]
+    level: NotRequired[pulumi.Input[Optional['LogLevel']]]
     """
     Log level.
     """
-    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retention in days.
     Remove blobs older than X days.
     0 or lower means no retention.
     """
-    sas_url: NotRequired[pulumi.Input[_builtins.str]]
+    sas_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAS url to a azure blob container with read/write/list/delete permissions.
     """
@@ -2491,9 +2491,9 @@ class AzureBlobStorageApplicationLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AzureBlobStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
-                 level: Optional[pulumi.Input['LogLevel']] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sas_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 level: pulumi.Input[Optional['LogLevel']] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sas_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Application logs azure blob storage configuration.
 
@@ -2512,19 +2512,19 @@ class AzureBlobStorageApplicationLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
+    def level(self) -> pulumi.Input[Optional['LogLevel']]:
         """
         Log level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
+    def level(self, value: pulumi.Input[Optional['LogLevel']]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention in days.
         Remove blobs older than X days.
@@ -2533,19 +2533,19 @@ class AzureBlobStorageApplicationLogsConfigArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAS url to a azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
 
     @sas_url.setter
-    def sas_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_url", value)
 
 
@@ -2553,17 +2553,17 @@ class AzureBlobStorageHttpLogsConfigArgsDict(TypedDict):
     """
     Http logs to azure blob storage configuration.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if configuration is enabled, false if it is disabled and null if configuration is not set.
     """
-    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retention in days.
     Remove blobs older than X days.
     0 or lower means no retention.
     """
-    sas_url: NotRequired[pulumi.Input[_builtins.str]]
+    sas_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAS url to a azure blob container with read/write/list/delete permissions.
     """
@@ -2571,9 +2571,9 @@ class AzureBlobStorageHttpLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AzureBlobStorageHttpLogsConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sas_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sas_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Http logs to azure blob storage configuration.
 
@@ -2592,19 +2592,19 @@ class AzureBlobStorageHttpLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention in days.
         Remove blobs older than X days.
@@ -2613,19 +2613,19 @@ class AzureBlobStorageHttpLogsConfigArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAS url to a azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
 
     @sas_url.setter
-    def sas_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_url", value)
 
 
@@ -2633,7 +2633,7 @@ class AzureStaticWebAppsRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the registration for the Azure Static Web Apps provider
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Client ID of the app used for login.
     """
@@ -2641,7 +2641,7 @@ class AzureStaticWebAppsRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class AzureStaticWebAppsRegistrationArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the registration for the Azure Static Web Apps provider
 
@@ -2652,14 +2652,14 @@ class AzureStaticWebAppsRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of the app used for login.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
 
@@ -2667,11 +2667,11 @@ class AzureStaticWebAppsArgsDict(TypedDict):
     """
     The configuration settings of the Azure Static Web Apps provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    registration: NotRequired[pulumi.Input['AzureStaticWebAppsRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['AzureStaticWebAppsRegistrationArgs']]]
     """
     The configuration settings of the Azure Static Web Apps registration.
     """
@@ -2679,8 +2679,8 @@ class AzureStaticWebAppsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureStaticWebAppsArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registration: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registration: pulumi.Input[Optional['AzureStaticWebAppsRegistrationArgs']] = None):
         """
         The configuration settings of the Azure Static Web Apps provider.
 
@@ -2694,26 +2694,26 @@ class AzureStaticWebAppsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['AzureStaticWebAppsRegistrationArgs']]:
         """
         The configuration settings of the Azure Static Web Apps registration.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['AzureStaticWebAppsRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -2721,27 +2721,27 @@ class AzureStorageInfoValueArgsDict(TypedDict):
     """
     Azure Files or Blob Storage access information value for dictionary storage.
     """
-    access_key: NotRequired[pulumi.Input[_builtins.str]]
+    access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access key for the storage account.
     """
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the storage account.
     """
-    mount_path: NotRequired[pulumi.Input[_builtins.str]]
+    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path to mount the storage within the site's runtime environment.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureStorageProtocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AzureStorageProtocol']]]]
     """
     Mounting protocol to use for the storage account.
     """
-    share_name: NotRequired[pulumi.Input[_builtins.str]]
+    share_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the file share (container name, for Blob storage).
     """
-    type: NotRequired[pulumi.Input['AzureStorageType']]
+    type: NotRequired[pulumi.Input[Optional['AzureStorageType']]]
     """
     Type of storage.
     """
@@ -2749,12 +2749,12 @@ class AzureStorageInfoValueArgsDict(TypedDict):
 @pulumi.input_type
 class AzureStorageInfoValueArgs:
     def __init__(__self__, *,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'AzureStorageProtocol']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['AzureStorageType']] = None):
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'AzureStorageProtocol']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['AzureStorageType']] = None):
         """
         Azure Files or Blob Storage access information value for dictionary storage.
 
@@ -2780,74 +2780,74 @@ class AzureStorageInfoValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key for the storage account.
         """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the storage account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mountPath")
-    def mount_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to mount the storage within the site's runtime environment.
         """
         return pulumi.get(self, "mount_path")
 
     @mount_path.setter
-    def mount_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mount_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureStorageProtocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureStorageProtocol']]]:
         """
         Mounting protocol to use for the storage account.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureStorageProtocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureStorageProtocol']]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the file share (container name, for Blob storage).
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AzureStorageType']]:
+    def type(self) -> pulumi.Input[Optional['AzureStorageType']]:
         """
         Type of storage.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AzureStorageType']]):
+    def type(self, value: pulumi.Input[Optional['AzureStorageType']]):
         pulumi.set(self, "type", value)
 
 
@@ -2859,7 +2859,7 @@ class AzureTableStorageApplicationLogsConfigArgsDict(TypedDict):
     """
     SAS URL to an Azure table with add/query/delete permissions.
     """
-    level: NotRequired[pulumi.Input['LogLevel']]
+    level: NotRequired[pulumi.Input[Optional['LogLevel']]]
     """
     Log level.
     """
@@ -2868,7 +2868,7 @@ class AzureTableStorageApplicationLogsConfigArgsDict(TypedDict):
 class AzureTableStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[_builtins.str],
-                 level: Optional[pulumi.Input['LogLevel']] = None):
+                 level: pulumi.Input[Optional['LogLevel']] = None):
         """
         Application logs to Azure table storage configuration.
 
@@ -2893,14 +2893,14 @@ class AzureTableStorageApplicationLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
+    def level(self) -> pulumi.Input[Optional['LogLevel']]:
         """
         Log level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
+    def level(self, value: pulumi.Input[Optional['LogLevel']]):
         pulumi.set(self, "level", value)
 
 
@@ -3042,7 +3042,7 @@ class BackupScheduleArgsDict(TypedDict):
     """
     After how many days backups should be deleted.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When the schedule should start working.
     """
@@ -3050,11 +3050,11 @@ class BackupScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
-                 frequency_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 frequency_unit: Optional[pulumi.Input['FrequencyUnit']] = None,
-                 keep_at_least_one_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 frequency_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 frequency_unit: pulumi.Input[Optional['FrequencyUnit']] = None,
+                 keep_at_least_one_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 
@@ -3129,14 +3129,14 @@ class BackupScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the schedule should start working.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -3144,7 +3144,7 @@ class BlobStorageTokenStoreArgsDict(TypedDict):
     """
     The configuration settings of the storage of the tokens if blob storage is used.
     """
-    sas_url_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    sas_url_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the app setting containing the SAS URL of the blob storage containing the tokens.
     """
@@ -3152,7 +3152,7 @@ class BlobStorageTokenStoreArgsDict(TypedDict):
 @pulumi.input_type
 class BlobStorageTokenStoreArgs:
     def __init__(__self__, *,
-                 sas_url_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 sas_url_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the storage of the tokens if blob storage is used.
 
@@ -3163,14 +3163,14 @@ class BlobStorageTokenStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="sasUrlSettingName")
-    def sas_url_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_url_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
         return pulumi.get(self, "sas_url_setting_name")
 
     @sas_url_setting_name.setter
-    def sas_url_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_url_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_url_setting_name", value)
 
 
@@ -3178,15 +3178,15 @@ class CapabilityArgsDict(TypedDict):
     """
     Describes the capabilities/features allowed for a specific SKU.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the SKU capability.
     """
-    reason: NotRequired[pulumi.Input[_builtins.str]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reason of the SKU capability.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the SKU capability.
     """
@@ -3194,9 +3194,9 @@ class CapabilityArgsDict(TypedDict):
 @pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the capabilities/features allowed for a specific SKU.
 
@@ -3213,38 +3213,38 @@ class CapabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SKU capability.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason of the SKU capability.
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the SKU capability.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -3252,11 +3252,11 @@ class ClientRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the app registration for providers that have client ids and client secrets
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Client ID of the app used for login.
     """
-    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting name that contains the client secret.
     """
@@ -3264,8 +3264,8 @@ class ClientRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class ClientRegistrationArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the app registration for providers that have client ids and client secrets
 
@@ -3279,26 +3279,26 @@ class ClientRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of the app used for login.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
 
@@ -3312,46 +3312,46 @@ class CloningInfoArgsDict(TypedDict):
     /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
     /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
     """
-    app_settings_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    app_settings_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Application setting overrides for cloned app. If specified, these settings override the settings cloned 
     from source app. Otherwise, application settings from source app are retained.
     """
-    clone_custom_host_names: NotRequired[pulumi.Input[_builtins.bool]]
+    clone_custom_host_names: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
     """
-    clone_source_control: NotRequired[pulumi.Input[_builtins.bool]]
+    clone_source_control: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
     """
-    configure_load_balancing: NotRequired[pulumi.Input[_builtins.bool]]
+    configure_load_balancing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to configure load balancing for source and destination app.
     """
-    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Correlation ID of cloning operation. This ID ties multiple cloning operations
     together to use the same snapshot.
     """
-    hosting_environment: NotRequired[pulumi.Input[_builtins.str]]
+    hosting_environment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     App Service Environment.
     """
-    overwrite: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
     """
-    source_web_app_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_web_app_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of source app ex: West US or North Europe
     """
-    traffic_manager_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    traffic_manager_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
     /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
     """
-    traffic_manager_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    traffic_manager_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
     """
@@ -3360,16 +3360,16 @@ class CloningInfoArgsDict(TypedDict):
 class CloningInfoArgs:
     def __init__(__self__, *,
                  source_web_app_id: pulumi.Input[_builtins.str],
-                 app_settings_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 clone_custom_host_names: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clone_source_control: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configure_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 correlation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_web_app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_manager_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_manager_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_settings_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 clone_custom_host_names: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clone_source_control: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configure_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 correlation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_web_app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_manager_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_manager_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information needed for cloning operation.
 
@@ -3428,7 +3428,7 @@ class CloningInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSettingsOverrides")
-    def app_settings_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Application setting overrides for cloned app. If specified, these settings override the settings cloned 
         from source app. Otherwise, application settings from source app are retained.
@@ -3436,48 +3436,48 @@ class CloningInfoArgs:
         return pulumi.get(self, "app_settings_overrides")
 
     @app_settings_overrides.setter
-    def app_settings_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="cloneCustomHostNames")
-    def clone_custom_host_names(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def clone_custom_host_names(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "clone_custom_host_names")
 
     @clone_custom_host_names.setter
-    def clone_custom_host_names(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def clone_custom_host_names(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "clone_custom_host_names", value)
 
     @_builtins.property
     @pulumi.getter(name="cloneSourceControl")
-    def clone_source_control(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def clone_source_control(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "clone_source_control")
 
     @clone_source_control.setter
-    def clone_source_control(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def clone_source_control(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "clone_source_control", value)
 
     @_builtins.property
     @pulumi.getter(name="configureLoadBalancing")
-    def configure_load_balancing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def configure_load_balancing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to configure load balancing for source and destination app.
         """
         return pulumi.get(self, "configure_load_balancing")
 
     @configure_load_balancing.setter
-    def configure_load_balancing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def configure_load_balancing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "configure_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationId")
-    def correlation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Correlation ID of cloning operation. This ID ties multiple cloning operations
         together to use the same snapshot.
@@ -3485,48 +3485,48 @@ class CloningInfoArgs:
         return pulumi.get(self, "correlation_id")
 
     @correlation_id.setter
-    def correlation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingEnvironment")
-    def hosting_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosting_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App Service Environment.
         """
         return pulumi.get(self, "hosting_environment")
 
     @hosting_environment.setter
-    def hosting_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosting_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosting_environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
-    def overwrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceWebAppLocation")
-    def source_web_app_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_web_app_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of source app ex: West US or North Europe
         """
         return pulumi.get(self, "source_web_app_location")
 
     @source_web_app_location.setter
-    def source_web_app_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_web_app_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_web_app_location", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficManagerProfileId")
-    def traffic_manager_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_manager_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
         /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
@@ -3534,19 +3534,19 @@ class CloningInfoArgs:
         return pulumi.get(self, "traffic_manager_profile_id")
 
     @traffic_manager_profile_id.setter
-    def traffic_manager_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_manager_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_manager_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficManagerProfileName")
-    def traffic_manager_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_manager_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
         """
         return pulumi.get(self, "traffic_manager_profile_name")
 
     @traffic_manager_profile_name.setter
-    def traffic_manager_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_manager_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_manager_profile_name", value)
 
 
@@ -3554,15 +3554,15 @@ class ConnStringInfoArgsDict(TypedDict):
     """
     Database connection string information.
     """
-    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connection string value.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of connection string.
     """
-    type: NotRequired[pulumi.Input['ConnectionStringType']]
+    type: NotRequired[pulumi.Input[Optional['ConnectionStringType']]]
     """
     Type of database.
     """
@@ -3570,9 +3570,9 @@ class ConnStringInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ConnStringInfoArgs:
     def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['ConnectionStringType']] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['ConnectionStringType']] = None):
         """
         Database connection string information.
 
@@ -3589,38 +3589,38 @@ class ConnStringInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connection string value.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of connection string.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ConnectionStringType']]:
+    def type(self) -> pulumi.Input[Optional['ConnectionStringType']]:
         """
         Type of database.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ConnectionStringType']]):
+    def type(self, value: pulumi.Input[Optional['ConnectionStringType']]):
         pulumi.set(self, "type", value)
 
 
@@ -3680,23 +3680,23 @@ class ConnectionErrorArgsDict(TypedDict):
     """
     Connection error
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Code of the status
     """
-    etag: NotRequired[pulumi.Input[_builtins.str]]
+    etag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ETag
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource location
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the status
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Resource tags
     """
@@ -3704,11 +3704,11 @@ class ConnectionErrorArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionErrorArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Connection error
 
@@ -3731,91 +3731,91 @@ class ConnectionErrorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Code of the status
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ETag
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the status
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 class ConnectionGatewayDefinitionPropertiesArgsDict(TypedDict):
-    backend_uri: NotRequired[pulumi.Input[_builtins.str]]
+    backend_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the backend
     """
-    connection_gateway_installation: NotRequired[pulumi.Input['ConnectionGatewayReferenceArgsDict']]
+    connection_gateway_installation: NotRequired[pulumi.Input[Optional['ConnectionGatewayReferenceArgs']]]
     """
     The gateway installation reference
     """
-    contact_information: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_information: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The gateway admin
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The gateway description
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The gateway display name
     """
-    machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The machine name of the gateway
     """
-    status: NotRequired[Any]
+    status: NotRequired[Optional[Any]]
     """
     The gateway status
     """
@@ -3823,12 +3823,12 @@ class ConnectionGatewayDefinitionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionGatewayDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 backend_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_gateway_installation: Optional[pulumi.Input['ConnectionGatewayReferenceArgs']] = None,
-                 contact_information: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_gateway_installation: pulumi.Input[Optional['ConnectionGatewayReferenceArgs']] = None,
+                 contact_information: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: Optional[Any] = None):
         """
         :param pulumi.Input[_builtins.str] backend_uri: The URI of the backend
@@ -3856,74 +3856,74 @@ class ConnectionGatewayDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendUri")
-    def backend_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the backend
         """
         return pulumi.get(self, "backend_uri")
 
     @backend_uri.setter
-    def backend_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionGatewayInstallation")
-    def connection_gateway_installation(self) -> Optional[pulumi.Input['ConnectionGatewayReferenceArgs']]:
+    def connection_gateway_installation(self) -> pulumi.Input[Optional['ConnectionGatewayReferenceArgs']]:
         """
         The gateway installation reference
         """
         return pulumi.get(self, "connection_gateway_installation")
 
     @connection_gateway_installation.setter
-    def connection_gateway_installation(self, value: Optional[pulumi.Input['ConnectionGatewayReferenceArgs']]):
+    def connection_gateway_installation(self, value: pulumi.Input[Optional['ConnectionGatewayReferenceArgs']]):
         pulumi.set(self, "connection_gateway_installation", value)
 
     @_builtins.property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_information(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The gateway admin
         """
         return pulumi.get(self, "contact_information")
 
     @contact_information.setter
-    def contact_information(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_information(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="machineName")
-    def machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The machine name of the gateway
         """
         return pulumi.get(self, "machine_name")
 
     @machine_name.setter
-    def machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_name", value)
 
     @_builtins.property
@@ -3943,19 +3943,19 @@ class ConnectionGatewayReferenceArgsDict(TypedDict):
     """
     The gateway installation reference
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference id
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference location
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference name
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource reference type
     """
@@ -3963,10 +3963,10 @@ class ConnectionGatewayReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionGatewayReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The gateway installation reference
 
@@ -3986,50 +3986,50 @@ class ConnectionGatewayReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference id
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource reference type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -4037,11 +4037,11 @@ class ConnectionParameterArgsDict(TypedDict):
     """
     Connection provider parameters
     """
-    o_auth_settings: NotRequired[pulumi.Input['ApiOAuthSettingsArgsDict']]
+    o_auth_settings: NotRequired[pulumi.Input[Optional['ApiOAuthSettingsArgs']]]
     """
     OAuth settings for the connection provider
     """
-    type: NotRequired[pulumi.Input['ConnectionParameterType']]
+    type: NotRequired[pulumi.Input[Optional['ConnectionParameterType']]]
     """
     Type of the parameter
     """
@@ -4049,8 +4049,8 @@ class ConnectionParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionParameterArgs:
     def __init__(__self__, *,
-                 o_auth_settings: Optional[pulumi.Input['ApiOAuthSettingsArgs']] = None,
-                 type: Optional[pulumi.Input['ConnectionParameterType']] = None):
+                 o_auth_settings: pulumi.Input[Optional['ApiOAuthSettingsArgs']] = None,
+                 type: pulumi.Input[Optional['ConnectionParameterType']] = None):
         """
         Connection provider parameters
 
@@ -4064,26 +4064,26 @@ class ConnectionParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="oAuthSettings")
-    def o_auth_settings(self) -> Optional[pulumi.Input['ApiOAuthSettingsArgs']]:
+    def o_auth_settings(self) -> pulumi.Input[Optional['ApiOAuthSettingsArgs']]:
         """
         OAuth settings for the connection provider
         """
         return pulumi.get(self, "o_auth_settings")
 
     @o_auth_settings.setter
-    def o_auth_settings(self, value: Optional[pulumi.Input['ApiOAuthSettingsArgs']]):
+    def o_auth_settings(self, value: pulumi.Input[Optional['ApiOAuthSettingsArgs']]):
         pulumi.set(self, "o_auth_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ConnectionParameterType']]:
+    def type(self) -> pulumi.Input[Optional['ConnectionParameterType']]:
         """
         Type of the parameter
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ConnectionParameterType']]):
+    def type(self, value: pulumi.Input[Optional['ConnectionParameterType']]):
         pulumi.set(self, "type", value)
 
 
@@ -4091,15 +4091,15 @@ class ConnectionStatusDefinitionArgsDict(TypedDict):
     """
     Connection status
     """
-    error: NotRequired[pulumi.Input['ConnectionErrorArgsDict']]
+    error: NotRequired[pulumi.Input[Optional['ConnectionErrorArgs']]]
     """
     Connection error
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The gateway status
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target of the error
     """
@@ -4107,9 +4107,9 @@ class ConnectionStatusDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionStatusDefinitionArgs:
     def __init__(__self__, *,
-                 error: Optional[pulumi.Input['ConnectionErrorArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 error: pulumi.Input[Optional['ConnectionErrorArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connection status
 
@@ -4126,38 +4126,38 @@ class ConnectionStatusDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input['ConnectionErrorArgs']]:
+    def error(self) -> pulumi.Input[Optional['ConnectionErrorArgs']]:
         """
         Connection error
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input['ConnectionErrorArgs']]):
+    def error(self, value: pulumi.Input[Optional['ConnectionErrorArgs']]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target of the error
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -4256,27 +4256,27 @@ class ConsentLinkParameterDefinition:
 
 
 class ContainerAppsConfigurationArgsDict(TypedDict):
-    app_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_subnet_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
     """
-    control_plane_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    control_plane_subnet_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
     """
-    dapr_ai_instrumentation_key: NotRequired[pulumi.Input[_builtins.str]]
+    dapr_ai_instrumentation_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
     """
-    docker_bridge_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    docker_bridge_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
     """
-    platform_reserved_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    platform_reserved_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
     """
-    platform_reserved_dns_ip: NotRequired[pulumi.Input[_builtins.str]]
+    platform_reserved_dns_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
     """
@@ -4284,12 +4284,12 @@ class ContainerAppsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerAppsConfigurationArgs:
     def __init__(__self__, *,
-                 app_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_plane_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_bridge_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_reserved_dns_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_plane_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr_ai_instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_bridge_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_reserved_dns_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] app_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
         :param pulumi.Input[_builtins.str] control_plane_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
@@ -4313,74 +4313,74 @@ class ContainerAppsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSubnetResourceId")
-    def app_subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
         """
         return pulumi.get(self, "app_subnet_resource_id")
 
     @app_subnet_resource_id.setter
-    def app_subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="controlPlaneSubnetResourceId")
-    def control_plane_subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_plane_subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
         """
         return pulumi.get(self, "control_plane_subnet_resource_id")
 
     @control_plane_subnet_resource_id.setter
-    def control_plane_subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_plane_subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_plane_subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="daprAIInstrumentationKey")
-    def dapr_ai_instrumentation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_ai_instrumentation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         """
         return pulumi.get(self, "dapr_ai_instrumentation_key")
 
     @dapr_ai_instrumentation_key.setter
-    def dapr_ai_instrumentation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_ai_instrumentation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_ai_instrumentation_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerBridgeCidr")
-    def docker_bridge_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_bridge_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
         """
         return pulumi.get(self, "docker_bridge_cidr")
 
     @docker_bridge_cidr.setter
-    def docker_bridge_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_bridge_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_bridge_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="platformReservedCidr")
-    def platform_reserved_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_reserved_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
         """
         return pulumi.get(self, "platform_reserved_cidr")
 
     @platform_reserved_cidr.setter
-    def platform_reserved_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_reserved_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_reserved_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="platformReservedDnsIP")
-    def platform_reserved_dns_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_reserved_dns_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
         """
         return pulumi.get(self, "platform_reserved_dns_ip")
 
     @platform_reserved_dns_ip.setter
-    def platform_reserved_dns_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_reserved_dns_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_reserved_dns_ip", value)
 
 
@@ -4388,11 +4388,11 @@ class CookieExpirationArgsDict(TypedDict):
     """
     The configuration settings of the session cookie's expiration.
     """
-    convention: NotRequired[pulumi.Input['CookieExpirationConvention']]
+    convention: NotRequired[pulumi.Input[Optional['CookieExpirationConvention']]]
     """
     The convention used when determining the session cookie's expiration.
     """
-    time_to_expiration: NotRequired[pulumi.Input[_builtins.str]]
+    time_to_expiration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time after the request is made when the session cookie should expire.
     """
@@ -4400,8 +4400,8 @@ class CookieExpirationArgsDict(TypedDict):
 @pulumi.input_type
 class CookieExpirationArgs:
     def __init__(__self__, *,
-                 convention: Optional[pulumi.Input['CookieExpirationConvention']] = None,
-                 time_to_expiration: Optional[pulumi.Input[_builtins.str]] = None):
+                 convention: pulumi.Input[Optional['CookieExpirationConvention']] = None,
+                 time_to_expiration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the session cookie's expiration.
 
@@ -4415,26 +4415,26 @@ class CookieExpirationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def convention(self) -> Optional[pulumi.Input['CookieExpirationConvention']]:
+    def convention(self) -> pulumi.Input[Optional['CookieExpirationConvention']]:
         """
         The convention used when determining the session cookie's expiration.
         """
         return pulumi.get(self, "convention")
 
     @convention.setter
-    def convention(self, value: Optional[pulumi.Input['CookieExpirationConvention']]):
+    def convention(self, value: pulumi.Input[Optional['CookieExpirationConvention']]):
         pulumi.set(self, "convention", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToExpiration")
-    def time_to_expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_to_expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time after the request is made when the session cookie should expire.
         """
         return pulumi.get(self, "time_to_expiration")
 
     @time_to_expiration.setter
-    def time_to_expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_to_expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_to_expiration", value)
 
 
@@ -4442,12 +4442,12 @@ class CorsSettingsArgsDict(TypedDict):
     """
     Cross-Origin Resource Sharing (CORS) settings for the app.
     """
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Gets or sets the list of origins that should be allowed to make cross-origin
     calls (for example: http://example.com:12345). Use "*" to allow all.
     """
-    support_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    support_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets whether CORS requests with credentials are allowed. See 
     https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
@@ -4457,8 +4457,8 @@ class CorsSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 support_credentials: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 support_credentials: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings for the app.
 
@@ -4475,7 +4475,7 @@ class CorsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin
         calls (for example: http://example.com:12345). Use "*" to allow all.
@@ -4483,12 +4483,12 @@ class CorsSettingsArgs:
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="supportCredentials")
-    def support_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def support_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets whether CORS requests with credentials are allowed. See 
         https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
@@ -4497,7 +4497,7 @@ class CorsSettingsArgs:
         return pulumi.get(self, "support_credentials")
 
     @support_credentials.setter
-    def support_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def support_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "support_credentials", value)
 
 
@@ -4505,51 +4505,51 @@ class CustomApiPropertiesDefinitionArgsDict(TypedDict):
     """
     Custom API properties
     """
-    api_definitions: NotRequired[pulumi.Input['ApiResourceDefinitionsArgsDict']]
+    api_definitions: NotRequired[pulumi.Input[Optional['ApiResourceDefinitionsArgs']]]
     """
     API Definitions
     """
-    api_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiType']]]
+    api_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApiType']]]]
     """
     The API type
     """
-    backend_service: NotRequired[pulumi.Input['ApiResourceBackendServiceArgsDict']]
+    backend_service: NotRequired[pulumi.Input[Optional['ApiResourceBackendServiceArgs']]]
     """
     The API backend service
     """
-    brand_color: NotRequired[pulumi.Input[_builtins.str]]
+    brand_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Brand color
     """
-    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    capabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The custom API capabilities
     """
-    connection_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgsDict']]]]
+    connection_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]]]
     """
     Connection parameters
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom API description
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name
     """
-    icon_uri: NotRequired[pulumi.Input[_builtins.str]]
+    icon_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The icon URI
     """
-    runtime_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    runtime_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Runtime URLs
     """
-    swagger: NotRequired[Any]
+    swagger: NotRequired[Optional[Any]]
     """
     The JSON representation of the swagger
     """
-    wsdl_definition: NotRequired[pulumi.Input['WsdlDefinitionArgsDict']]
+    wsdl_definition: NotRequired[pulumi.Input[Optional['WsdlDefinitionArgs']]]
     """
     The WSDL definition
     """
@@ -4557,18 +4557,18 @@ class CustomApiPropertiesDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class CustomApiPropertiesDefinitionArgs:
     def __init__(__self__, *,
-                 api_definitions: Optional[pulumi.Input['ApiResourceDefinitionsArgs']] = None,
-                 api_type: Optional[pulumi.Input[Union[_builtins.str, 'ApiType']]] = None,
-                 backend_service: Optional[pulumi.Input['ApiResourceBackendServiceArgs']] = None,
-                 brand_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_definitions: pulumi.Input[Optional['ApiResourceDefinitionsArgs']] = None,
+                 api_type: pulumi.Input[Optional[Union[_builtins.str, 'ApiType']]] = None,
+                 backend_service: pulumi.Input[Optional['ApiResourceBackendServiceArgs']] = None,
+                 brand_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  swagger: Optional[Any] = None,
-                 wsdl_definition: Optional[pulumi.Input['WsdlDefinitionArgs']] = None):
+                 wsdl_definition: pulumi.Input[Optional['WsdlDefinitionArgs']] = None):
         """
         Custom API properties
 
@@ -4612,122 +4612,122 @@ class CustomApiPropertiesDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiDefinitions")
-    def api_definitions(self) -> Optional[pulumi.Input['ApiResourceDefinitionsArgs']]:
+    def api_definitions(self) -> pulumi.Input[Optional['ApiResourceDefinitionsArgs']]:
         """
         API Definitions
         """
         return pulumi.get(self, "api_definitions")
 
     @api_definitions.setter
-    def api_definitions(self, value: Optional[pulumi.Input['ApiResourceDefinitionsArgs']]):
+    def api_definitions(self, value: pulumi.Input[Optional['ApiResourceDefinitionsArgs']]):
         pulumi.set(self, "api_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="apiType")
-    def api_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApiType']]]:
+    def api_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApiType']]]:
         """
         The API type
         """
         return pulumi.get(self, "api_type")
 
     @api_type.setter
-    def api_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApiType']]]):
+    def api_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApiType']]]):
         pulumi.set(self, "api_type", value)
 
     @_builtins.property
     @pulumi.getter(name="backendService")
-    def backend_service(self) -> Optional[pulumi.Input['ApiResourceBackendServiceArgs']]:
+    def backend_service(self) -> pulumi.Input[Optional['ApiResourceBackendServiceArgs']]:
         """
         The API backend service
         """
         return pulumi.get(self, "backend_service")
 
     @backend_service.setter
-    def backend_service(self, value: Optional[pulumi.Input['ApiResourceBackendServiceArgs']]):
+    def backend_service(self, value: pulumi.Input[Optional['ApiResourceBackendServiceArgs']]):
         pulumi.set(self, "backend_service", value)
 
     @_builtins.property
     @pulumi.getter(name="brandColor")
-    def brand_color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand color
         """
         return pulumi.get(self, "brand_color")
 
     @brand_color.setter
-    def brand_color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_color", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The custom API capabilities
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionParameters")
-    def connection_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]]:
+    def connection_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]]:
         """
         Connection parameters
         """
         return pulumi.get(self, "connection_parameters")
 
     @connection_parameters.setter
-    def connection_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]]):
+    def connection_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]]):
         pulumi.set(self, "connection_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom API description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUri")
-    def icon_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The icon URI
         """
         return pulumi.get(self, "icon_uri")
 
     @icon_uri.setter
-    def icon_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def runtime_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Runtime URLs
         """
         return pulumi.get(self, "runtime_urls")
 
     @runtime_urls.setter
-    def runtime_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def runtime_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "runtime_urls", value)
 
     @_builtins.property
@@ -4744,14 +4744,14 @@ class CustomApiPropertiesDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="wsdlDefinition")
-    def wsdl_definition(self) -> Optional[pulumi.Input['WsdlDefinitionArgs']]:
+    def wsdl_definition(self) -> pulumi.Input[Optional['WsdlDefinitionArgs']]:
         """
         The WSDL definition
         """
         return pulumi.get(self, "wsdl_definition")
 
     @wsdl_definition.setter
-    def wsdl_definition(self, value: Optional[pulumi.Input['WsdlDefinitionArgs']]):
+    def wsdl_definition(self, value: pulumi.Input[Optional['WsdlDefinitionArgs']]):
         pulumi.set(self, "wsdl_definition", value)
 
 
@@ -4759,19 +4759,19 @@ class CustomDnsSuffixConfigurationArgsDict(TypedDict):
     """
     Full view of the custom domain suffix configuration for ASEv3.
     """
-    certificate_url: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
     """
-    dns_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    dns_suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default custom domain suffix to use for all sites deployed on the ASE.
     """
-    key_vault_reference_identity: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_reference_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of resource.
     """
@@ -4779,10 +4779,10 @@ class CustomDnsSuffixConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CustomDnsSuffixConfigurationArgs:
     def __init__(__self__, *,
-                 certificate_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_reference_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_reference_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Full view of the custom domain suffix configuration for ASEv3.
 
@@ -4802,50 +4802,50 @@ class CustomDnsSuffixConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateUrl")
-    def certificate_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
         """
         return pulumi.get(self, "certificate_url")
 
     @certificate_url.setter
-    def certificate_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_url", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSuffix")
-    def dns_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default custom domain suffix to use for all sites deployed on the ASE.
         """
         return pulumi.get(self, "dns_suffix")
 
     @dns_suffix.setter
-    def dns_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentity")
-    def key_vault_reference_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
         """
         return pulumi.get(self, "key_vault_reference_identity")
 
     @key_vault_reference_identity.setter
-    def key_vault_reference_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -4853,15 +4853,15 @@ class CustomOpenIdConnectProviderArgsDict(TypedDict):
     """
     The configuration settings of the custom Open ID Connect provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
     """
-    login: NotRequired[pulumi.Input['OpenIdConnectLoginArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['OpenIdConnectLoginArgs']]]
     """
     The configuration settings of the login flow of the custom Open ID Connect provider.
     """
-    registration: NotRequired[pulumi.Input['OpenIdConnectRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['OpenIdConnectRegistrationArgs']]]
     """
     The configuration settings of the app registration for the custom Open ID Connect provider.
     """
@@ -4869,9 +4869,9 @@ class CustomOpenIdConnectProviderArgsDict(TypedDict):
 @pulumi.input_type
 class CustomOpenIdConnectProviderArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
-                 registration: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['OpenIdConnectLoginArgs']] = None,
+                 registration: pulumi.Input[Optional['OpenIdConnectRegistrationArgs']] = None):
         """
         The configuration settings of the custom Open ID Connect provider.
 
@@ -4888,38 +4888,38 @@ class CustomOpenIdConnectProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['OpenIdConnectLoginArgs']]:
+    def login(self) -> pulumi.Input[Optional['OpenIdConnectLoginArgs']]:
         """
         The configuration settings of the login flow of the custom Open ID Connect provider.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['OpenIdConnectLoginArgs']]):
+    def login(self, value: pulumi.Input[Optional['OpenIdConnectLoginArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['OpenIdConnectRegistrationArgs']]:
         """
         The configuration settings of the app registration for the custom Open ID Connect provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['OpenIdConnectRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -4927,31 +4927,31 @@ class DaprConfigArgsDict(TypedDict):
     """
     App Dapr configuration.
     """
-    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dapr application identifier
     """
-    app_port: NotRequired[pulumi.Input[_builtins.int]]
+    app_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Tells Dapr which port your application is listening on
     """
-    enable_api_logging: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_api_logging: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables API logging for the Dapr sidecar
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean indicating if the Dapr side car is enabled
     """
-    http_max_request_size: NotRequired[pulumi.Input[_builtins.int]]
+    http_max_request_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
     """
-    http_read_buffer_size: NotRequired[pulumi.Input[_builtins.int]]
+    http_read_buffer_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
     """
-    log_level: NotRequired[pulumi.Input[Union[_builtins.str, 'DaprLogLevel']]]
+    log_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DaprLogLevel']]]]
     """
     Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
     """
@@ -4959,13 +4959,13 @@ class DaprConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DaprConfigArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_api_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_max_request_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_read_buffer_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_level: Optional[pulumi.Input[Union[_builtins.str, 'DaprLogLevel']]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_api_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_max_request_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_read_buffer_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_level: pulumi.Input[Optional[Union[_builtins.str, 'DaprLogLevel']]] = None):
         """
         App Dapr configuration.
 
@@ -4996,86 +4996,86 @@ class DaprConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dapr application identifier
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appPort")
-    def app_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def app_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Tells Dapr which port your application is listening on
         """
         return pulumi.get(self, "app_port")
 
     @app_port.setter
-    def app_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def app_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "app_port", value)
 
     @_builtins.property
     @pulumi.getter(name="enableApiLogging")
-    def enable_api_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_api_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables API logging for the Dapr sidecar
         """
         return pulumi.get(self, "enable_api_logging")
 
     @enable_api_logging.setter
-    def enable_api_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_api_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_api_logging", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating if the Dapr side car is enabled
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMaxRequestSize")
-    def http_max_request_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_max_request_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
         """
         return pulumi.get(self, "http_max_request_size")
 
     @http_max_request_size.setter
-    def http_max_request_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_max_request_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_max_request_size", value)
 
     @_builtins.property
     @pulumi.getter(name="httpReadBufferSize")
-    def http_read_buffer_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_read_buffer_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
         """
         return pulumi.get(self, "http_read_buffer_size")
 
     @http_read_buffer_size.setter
-    def http_read_buffer_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_read_buffer_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_read_buffer_size", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DaprLogLevel']]]:
+    def log_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DaprLogLevel']]]:
         """
         Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DaprLogLevel']]]):
+    def log_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DaprLogLevel']]]):
         pulumi.set(self, "log_level", value)
 
 
@@ -5176,24 +5176,24 @@ class DatabaseBackupSettingArgsDict(TypedDict):
     """
     Database type (e.g. SqlAzure / MySql).
     """
-    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
     """
-    connection_string_name: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
     This is used during restore with overwrite connection strings options.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DatabaseBackupSettingArgs:
     def __init__(__self__, *,
                  database_type: pulumi.Input[Union[_builtins.str, 'DatabaseType']],
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database backup settings.
 
@@ -5224,19 +5224,19 @@ class DatabaseBackupSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStringName")
-    def connection_string_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
         This is used during restore with overwrite connection strings options.
@@ -5244,16 +5244,16 @@ class DatabaseBackupSettingArgs:
         return pulumi.get(self, "connection_string_name")
 
     @connection_string_name.setter
-    def connection_string_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -5261,11 +5261,11 @@ class DefaultAuthorizationPolicyArgsDict(TypedDict):
     """
     The configuration settings of the Azure Active Directory default authorization policy.
     """
-    allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The configuration settings of the Azure Active Directory allowed applications.
     """
-    allowed_principals: NotRequired[pulumi.Input['AllowedPrincipalsArgsDict']]
+    allowed_principals: NotRequired[pulumi.Input[Optional['AllowedPrincipalsArgs']]]
     """
     The configuration settings of the Azure Active Directory allowed principals.
     """
@@ -5273,8 +5273,8 @@ class DefaultAuthorizationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultAuthorizationPolicyArgs:
     def __init__(__self__, *,
-                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_principals: Optional[pulumi.Input['AllowedPrincipalsArgs']] = None):
+                 allowed_applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_principals: pulumi.Input[Optional['AllowedPrincipalsArgs']] = None):
         """
         The configuration settings of the Azure Active Directory default authorization policy.
 
@@ -5288,26 +5288,26 @@ class DefaultAuthorizationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedApplications")
-    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The configuration settings of the Azure Active Directory allowed applications.
         """
         return pulumi.get(self, "allowed_applications")
 
     @allowed_applications.setter
-    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
-    def allowed_principals(self) -> Optional[pulumi.Input['AllowedPrincipalsArgs']]:
+    def allowed_principals(self) -> pulumi.Input[Optional['AllowedPrincipalsArgs']]:
         """
         The configuration settings of the Azure Active Directory allowed principals.
         """
         return pulumi.get(self, "allowed_principals")
 
     @allowed_principals.setter
-    def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
+    def allowed_principals(self, value: pulumi.Input[Optional['AllowedPrincipalsArgs']]):
         pulumi.set(self, "allowed_principals", value)
 
 
@@ -5315,7 +5315,7 @@ class EnabledConfigArgsDict(TypedDict):
     """
     Enabled configuration.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if configuration is enabled, false if it is disabled and null if configuration is not set.
     """
@@ -5323,7 +5323,7 @@ class EnabledConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EnabledConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Enabled configuration.
 
@@ -5334,14 +5334,14 @@ class EnabledConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -5396,7 +5396,7 @@ class ExperimentsArgsDict(TypedDict):
     """
     Routing rules in production experiments.
     """
-    ramp_up_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgsDict']]]]
+    ramp_up_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RampUpRuleArgs']]]]]
     """
     List of ramp-up rules.
     """
@@ -5404,7 +5404,7 @@ class ExperimentsArgsDict(TypedDict):
 @pulumi.input_type
 class ExperimentsArgs:
     def __init__(__self__, *,
-                 ramp_up_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]] = None):
+                 ramp_up_rules: pulumi.Input[Optional[Sequence[pulumi.Input['RampUpRuleArgs']]]] = None):
         """
         Routing rules in production experiments.
 
@@ -5415,14 +5415,14 @@ class ExperimentsArgs:
 
     @_builtins.property
     @pulumi.getter(name="rampUpRules")
-    def ramp_up_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]:
+    def ramp_up_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RampUpRuleArgs']]]]:
         """
         List of ramp-up rules.
         """
         return pulumi.get(self, "ramp_up_rules")
 
     @ramp_up_rules.setter
-    def ramp_up_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
+    def ramp_up_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
         pulumi.set(self, "ramp_up_rules", value)
 
 
@@ -5430,7 +5430,7 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     Extended Location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of extended location.
     """
@@ -5438,7 +5438,7 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Extended Location.
 
@@ -5449,14 +5449,14 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of extended location.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -5464,19 +5464,19 @@ class FacebookArgsDict(TypedDict):
     """
     The configuration settings of the Facebook provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    graph_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    graph_api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the Facebook api to be used while logging in.
     """
-    login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['LoginScopesArgs']]]
     """
     The configuration settings of the login flow.
     """
-    registration: NotRequired[pulumi.Input['AppRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['AppRegistrationArgs']]]
     """
     The configuration settings of the app registration for the Facebook provider.
     """
@@ -5484,10 +5484,10 @@ class FacebookArgsDict(TypedDict):
 @pulumi.input_type
 class FacebookArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['AppRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional['LoginScopesArgs']] = None,
+                 registration: pulumi.Input[Optional['AppRegistrationArgs']] = None):
         """
         The configuration settings of the Facebook provider.
 
@@ -5507,50 +5507,50 @@ class FacebookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="graphApiVersion")
-    def graph_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def graph_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Facebook api to be used while logging in.
         """
         return pulumi.get(self, "graph_api_version")
 
     @graph_api_version.setter
-    def graph_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def graph_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "graph_api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginScopesArgs']]:
         """
         The configuration settings of the login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginScopesArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['AppRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['AppRegistrationArgs']]:
         """
         The configuration settings of the app registration for the Facebook provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['AppRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['AppRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -5558,7 +5558,7 @@ class FileSystemApplicationLogsConfigArgsDict(TypedDict):
     """
     Application logs to file system configuration.
     """
-    level: NotRequired[pulumi.Input['LogLevel']]
+    level: NotRequired[pulumi.Input[Optional['LogLevel']]]
     """
     Log level.
     """
@@ -5566,7 +5566,7 @@ class FileSystemApplicationLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemApplicationLogsConfigArgs:
     def __init__(__self__, *,
-                 level: Optional[pulumi.Input['LogLevel']] = None):
+                 level: pulumi.Input[Optional['LogLevel']] = None):
         """
         Application logs to file system configuration.
 
@@ -5579,14 +5579,14 @@ class FileSystemApplicationLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
+    def level(self) -> pulumi.Input[Optional['LogLevel']]:
         """
         Log level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
+    def level(self, value: pulumi.Input[Optional['LogLevel']]):
         pulumi.set(self, "level", value)
 
 
@@ -5594,17 +5594,17 @@ class FileSystemHttpLogsConfigArgsDict(TypedDict):
     """
     Http logs to file system configuration.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if configuration is enabled, false if it is disabled and null if configuration is not set.
     """
-    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retention in days.
     Remove files older than X days.
     0 or lower means no retention.
     """
-    retention_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum size in megabytes that http log files can use.
     When reached old log files will be removed to make space for new ones.
@@ -5614,9 +5614,9 @@ class FileSystemHttpLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemHttpLogsConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_in_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_in_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Http logs to file system configuration.
 
@@ -5637,19 +5637,19 @@ class FileSystemHttpLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention in days.
         Remove files older than X days.
@@ -5658,12 +5658,12 @@ class FileSystemHttpLogsConfigArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInMb")
-    def retention_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size in megabytes that http log files can use.
         When reached old log files will be removed to make space for new ones.
@@ -5672,7 +5672,7 @@ class FileSystemHttpLogsConfigArgs:
         return pulumi.get(self, "retention_in_mb")
 
     @retention_in_mb.setter
-    def retention_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_mb", value)
 
 
@@ -5680,7 +5680,7 @@ class FileSystemTokenStoreArgsDict(TypedDict):
     """
     The configuration settings of the storage of the tokens if a file system is used.
     """
-    directory: NotRequired[pulumi.Input[_builtins.str]]
+    directory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The directory in which the tokens will be stored.
     """
@@ -5688,7 +5688,7 @@ class FileSystemTokenStoreArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemTokenStoreArgs:
     def __init__(__self__, *,
-                 directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the storage of the tokens if a file system is used.
 
@@ -5699,14 +5699,14 @@ class FileSystemTokenStoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The directory in which the tokens will be stored.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory", value)
 
 
@@ -5714,15 +5714,15 @@ class ForwardProxyArgsDict(TypedDict):
     """
     The configuration settings of a forward proxy used to make the requests.
     """
-    convention: NotRequired[pulumi.Input['ForwardProxyConvention']]
+    convention: NotRequired[pulumi.Input[Optional['ForwardProxyConvention']]]
     """
     The convention used to determine the url of the request made.
     """
-    custom_host_header_name: NotRequired[pulumi.Input[_builtins.str]]
+    custom_host_header_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the header containing the host of the request.
     """
-    custom_proto_header_name: NotRequired[pulumi.Input[_builtins.str]]
+    custom_proto_header_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the header containing the scheme of the request.
     """
@@ -5730,9 +5730,9 @@ class ForwardProxyArgsDict(TypedDict):
 @pulumi.input_type
 class ForwardProxyArgs:
     def __init__(__self__, *,
-                 convention: Optional[pulumi.Input['ForwardProxyConvention']] = None,
-                 custom_host_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_proto_header_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 convention: pulumi.Input[Optional['ForwardProxyConvention']] = None,
+                 custom_host_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_proto_header_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of a forward proxy used to make the requests.
 
@@ -5749,58 +5749,58 @@ class ForwardProxyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def convention(self) -> Optional[pulumi.Input['ForwardProxyConvention']]:
+    def convention(self) -> pulumi.Input[Optional['ForwardProxyConvention']]:
         """
         The convention used to determine the url of the request made.
         """
         return pulumi.get(self, "convention")
 
     @convention.setter
-    def convention(self, value: Optional[pulumi.Input['ForwardProxyConvention']]):
+    def convention(self, value: pulumi.Input[Optional['ForwardProxyConvention']]):
         pulumi.set(self, "convention", value)
 
     @_builtins.property
     @pulumi.getter(name="customHostHeaderName")
-    def custom_host_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_host_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the header containing the host of the request.
         """
         return pulumi.get(self, "custom_host_header_name")
 
     @custom_host_header_name.setter
-    def custom_host_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_host_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_host_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customProtoHeaderName")
-    def custom_proto_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_proto_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the header containing the scheme of the request.
         """
         return pulumi.get(self, "custom_proto_header_name")
 
     @custom_proto_header_name.setter
-    def custom_proto_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_proto_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_proto_header_name", value)
 
 
 class FrontEndConfigurationArgsDict(TypedDict):
-    kind: NotRequired[pulumi.Input['FrontEndServiceType']]
+    kind: NotRequired[pulumi.Input[Optional['FrontEndServiceType']]]
 
 @pulumi.input_type
 class FrontEndConfigurationArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input['FrontEndServiceType']] = None):
+                 kind: pulumi.Input[Optional['FrontEndServiceType']] = None):
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input['FrontEndServiceType']]:
+    def kind(self) -> pulumi.Input[Optional['FrontEndServiceType']]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input['FrontEndServiceType']]):
+    def kind(self, value: pulumi.Input[Optional['FrontEndServiceType']]):
         pulumi.set(self, "kind", value)
 
 
@@ -5808,15 +5808,15 @@ class FunctionAppConfigArgsDict(TypedDict):
     """
     Function app configuration.
     """
-    deployment: NotRequired[pulumi.Input['FunctionsDeploymentArgsDict']]
+    deployment: NotRequired[pulumi.Input[Optional['FunctionsDeploymentArgs']]]
     """
     Function app deployment configuration.
     """
-    runtime: NotRequired[pulumi.Input['FunctionsRuntimeArgsDict']]
+    runtime: NotRequired[pulumi.Input[Optional['FunctionsRuntimeArgs']]]
     """
     Function app runtime settings.
     """
-    scale_and_concurrency: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyArgsDict']]
+    scale_and_concurrency: NotRequired[pulumi.Input[Optional['FunctionsScaleAndConcurrencyArgs']]]
     """
     Function app scale and concurrency settings.
     """
@@ -5824,9 +5824,9 @@ class FunctionAppConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionAppConfigArgs:
     def __init__(__self__, *,
-                 deployment: Optional[pulumi.Input['FunctionsDeploymentArgs']] = None,
-                 runtime: Optional[pulumi.Input['FunctionsRuntimeArgs']] = None,
-                 scale_and_concurrency: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']] = None):
+                 deployment: pulumi.Input[Optional['FunctionsDeploymentArgs']] = None,
+                 runtime: pulumi.Input[Optional['FunctionsRuntimeArgs']] = None,
+                 scale_and_concurrency: pulumi.Input[Optional['FunctionsScaleAndConcurrencyArgs']] = None):
         """
         Function app configuration.
 
@@ -5843,38 +5843,38 @@ class FunctionAppConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def deployment(self) -> Optional[pulumi.Input['FunctionsDeploymentArgs']]:
+    def deployment(self) -> pulumi.Input[Optional['FunctionsDeploymentArgs']]:
         """
         Function app deployment configuration.
         """
         return pulumi.get(self, "deployment")
 
     @deployment.setter
-    def deployment(self, value: Optional[pulumi.Input['FunctionsDeploymentArgs']]):
+    def deployment(self, value: pulumi.Input[Optional['FunctionsDeploymentArgs']]):
         pulumi.set(self, "deployment", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input['FunctionsRuntimeArgs']]:
+    def runtime(self) -> pulumi.Input[Optional['FunctionsRuntimeArgs']]:
         """
         Function app runtime settings.
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input['FunctionsRuntimeArgs']]):
+    def runtime(self, value: pulumi.Input[Optional['FunctionsRuntimeArgs']]):
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleAndConcurrency")
-    def scale_and_concurrency(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']]:
+    def scale_and_concurrency(self) -> pulumi.Input[Optional['FunctionsScaleAndConcurrencyArgs']]:
         """
         Function app scale and concurrency settings.
         """
         return pulumi.get(self, "scale_and_concurrency")
 
     @scale_and_concurrency.setter
-    def scale_and_concurrency(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']]):
+    def scale_and_concurrency(self, value: pulumi.Input[Optional['FunctionsScaleAndConcurrencyArgs']]):
         pulumi.set(self, "scale_and_concurrency", value)
 
 
@@ -5882,11 +5882,11 @@ class FunctionsAlwaysReadyConfigArgsDict(TypedDict):
     """
     Sets the number of 'Always Ready' instances for a function group or a specific function.
     """
-    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
     """
@@ -5894,8 +5894,8 @@ class FunctionsAlwaysReadyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsAlwaysReadyConfigArgs:
     def __init__(__self__, *,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Sets the number of 'Always Ready' instances for a function group or a specific function.
 
@@ -5909,26 +5909,26 @@ class FunctionsAlwaysReadyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -5936,15 +5936,15 @@ class FunctionsDeploymentAuthenticationArgsDict(TypedDict):
     """
     Authentication method to access the storage account for deployment.
     """
-    storage_account_connection_string_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_connection_string_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
     """
@@ -5952,9 +5952,9 @@ class FunctionsDeploymentAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsDeploymentAuthenticationArgs:
     def __init__(__self__, *,
-                 storage_account_connection_string_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_connection_string_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication method to access the storage account for deployment.
 
@@ -5971,38 +5971,38 @@ class FunctionsDeploymentAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountConnectionStringName")
-    def storage_account_connection_string_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_connection_string_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
         """
         return pulumi.get(self, "storage_account_connection_string_name")
 
     @storage_account_connection_string_name.setter
-    def storage_account_connection_string_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_connection_string_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_connection_string_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
@@ -6010,15 +6010,15 @@ class FunctionsDeploymentStorageArgsDict(TypedDict):
     """
     Storage for deployed package used by the function app.
     """
-    authentication: NotRequired[pulumi.Input['FunctionsDeploymentAuthenticationArgsDict']]
+    authentication: NotRequired[pulumi.Input[Optional['FunctionsDeploymentAuthenticationArgs']]]
     """
     Authentication method to access the storage account for deployment.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]]
     """
     Property to select Azure Storage type. Available options: blobContainer.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
     """
@@ -6026,9 +6026,9 @@ class FunctionsDeploymentStorageArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsDeploymentStorageArgs:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['FunctionsDeploymentAuthenticationArgs']] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'FunctionsDeploymentStorageType']]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Storage for deployed package used by the function app.
 
@@ -6045,38 +6045,38 @@ class FunctionsDeploymentStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['FunctionsDeploymentAuthenticationArgs']]:
         """
         Authentication method to access the storage account for deployment.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['FunctionsDeploymentAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]:
         """
         Property to select Azure Storage type. Available options: blobContainer.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FunctionsDeploymentStorageType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -6084,7 +6084,7 @@ class FunctionsDeploymentArgsDict(TypedDict):
     """
     Configuration section for the function app deployment.
     """
-    storage: NotRequired[pulumi.Input['FunctionsDeploymentStorageArgsDict']]
+    storage: NotRequired[pulumi.Input[Optional['FunctionsDeploymentStorageArgs']]]
     """
     Storage for deployed package used by the function app.
     """
@@ -6092,7 +6092,7 @@ class FunctionsDeploymentArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsDeploymentArgs:
     def __init__(__self__, *,
-                 storage: Optional[pulumi.Input['FunctionsDeploymentStorageArgs']] = None):
+                 storage: pulumi.Input[Optional['FunctionsDeploymentStorageArgs']] = None):
         """
         Configuration section for the function app deployment.
 
@@ -6103,14 +6103,14 @@ class FunctionsDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['FunctionsDeploymentStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['FunctionsDeploymentStorageArgs']]:
         """
         Storage for deployed package used by the function app.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['FunctionsDeploymentStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['FunctionsDeploymentStorageArgs']]):
         pulumi.set(self, "storage", value)
 
 
@@ -6118,11 +6118,11 @@ class FunctionsRuntimeArgsDict(TypedDict):
     """
     Function app runtime name and version.
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'RuntimeName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RuntimeName']]]]
     """
     Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Function app runtime version. Example: 8 (for dotnet-isolated)
     """
@@ -6130,8 +6130,8 @@ class FunctionsRuntimeArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsRuntimeArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'RuntimeName']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'RuntimeName']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Function app runtime name and version.
 
@@ -6145,26 +6145,26 @@ class FunctionsRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuntimeName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RuntimeName']]]:
         """
         Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuntimeName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RuntimeName']]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function app runtime version. Example: 8 (for dotnet-isolated)
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -6172,7 +6172,7 @@ class FunctionsScaleAndConcurrencyHttpArgsDict(TypedDict):
     """
     Scale and concurrency settings for the HTTP trigger.
     """
-    per_instance_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    per_instance_concurrency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of concurrent HTTP trigger invocations per instance.
     """
@@ -6180,7 +6180,7 @@ class FunctionsScaleAndConcurrencyHttpArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsScaleAndConcurrencyHttpArgs:
     def __init__(__self__, *,
-                 per_instance_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
+                 per_instance_concurrency: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Scale and concurrency settings for the HTTP trigger.
 
@@ -6191,14 +6191,14 @@ class FunctionsScaleAndConcurrencyHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="perInstanceConcurrency")
-    def per_instance_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def per_instance_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of concurrent HTTP trigger invocations per instance.
         """
         return pulumi.get(self, "per_instance_concurrency")
 
     @per_instance_concurrency.setter
-    def per_instance_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def per_instance_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "per_instance_concurrency", value)
 
 
@@ -6206,7 +6206,7 @@ class FunctionsScaleAndConcurrencyTriggersArgsDict(TypedDict):
     """
     Scale and concurrency settings for the function app triggers.
     """
-    http: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgsDict']]
+    http: NotRequired[pulumi.Input[Optional['FunctionsScaleAndConcurrencyHttpArgs']]]
     """
     Scale and concurrency settings for the HTTP trigger.
     """
@@ -6214,7 +6214,7 @@ class FunctionsScaleAndConcurrencyTriggersArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsScaleAndConcurrencyTriggersArgs:
     def __init__(__self__, *,
-                 http: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']] = None):
+                 http: pulumi.Input[Optional['FunctionsScaleAndConcurrencyHttpArgs']] = None):
         """
         Scale and concurrency settings for the function app triggers.
 
@@ -6225,14 +6225,14 @@ class FunctionsScaleAndConcurrencyTriggersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['FunctionsScaleAndConcurrencyHttpArgs']]:
         """
         Scale and concurrency settings for the HTTP trigger.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['FunctionsScaleAndConcurrencyHttpArgs']]):
         pulumi.set(self, "http", value)
 
 
@@ -6240,19 +6240,19 @@ class FunctionsScaleAndConcurrencyArgsDict(TypedDict):
     """
     Scale and concurrency settings for the function app.
     """
-    always_ready: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgsDict']]]]
+    always_ready: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]]
     """
     'Always Ready' configuration for the function app.
     """
-    instance_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    instance_memory_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
     """
-    maximum_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of instances for the function app.
     """
-    triggers: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgsDict']]
+    triggers: NotRequired[pulumi.Input[Optional['FunctionsScaleAndConcurrencyTriggersArgs']]]
     """
     Scale and concurrency settings for the function app triggers.
     """
@@ -6260,10 +6260,10 @@ class FunctionsScaleAndConcurrencyArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsScaleAndConcurrencyArgs:
     def __init__(__self__, *,
-                 always_ready: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]] = None,
-                 instance_memory_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 triggers: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']] = None):
+                 always_ready: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]] = None,
+                 instance_memory_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 triggers: pulumi.Input[Optional['FunctionsScaleAndConcurrencyTriggersArgs']] = None):
         """
         Scale and concurrency settings for the function app.
 
@@ -6283,50 +6283,50 @@ class FunctionsScaleAndConcurrencyArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysReady")
-    def always_ready(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]:
+    def always_ready(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]:
         """
         'Always Ready' configuration for the function app.
         """
         return pulumi.get(self, "always_ready")
 
     @always_ready.setter
-    def always_ready(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]):
+    def always_ready(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]):
         pulumi.set(self, "always_ready", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMemoryMB")
-    def instance_memory_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_memory_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         """
         return pulumi.get(self, "instance_memory_mb")
 
     @instance_memory_mb.setter
-    def instance_memory_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_memory_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_memory_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumInstanceCount")
-    def maximum_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of instances for the function app.
         """
         return pulumi.get(self, "maximum_instance_count")
 
     @maximum_instance_count.setter
-    def maximum_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']]:
+    def triggers(self) -> pulumi.Input[Optional['FunctionsScaleAndConcurrencyTriggersArgs']]:
         """
         Scale and concurrency settings for the function app triggers.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']]):
+    def triggers(self, value: pulumi.Input[Optional['FunctionsScaleAndConcurrencyTriggersArgs']]):
         pulumi.set(self, "triggers", value)
 
 
@@ -6334,11 +6334,11 @@ class GitHubActionCodeConfigurationArgsDict(TypedDict):
     """
     The GitHub action code configuration.
     """
-    runtime_stack: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_stack: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Runtime stack is used to determine the workflow file content for code base apps.
     """
-    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Runtime version is used to determine what build version to set in the workflow file.
     """
@@ -6346,8 +6346,8 @@ class GitHubActionCodeConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GitHubActionCodeConfigurationArgs:
     def __init__(__self__, *,
-                 runtime_stack: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 runtime_stack: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The GitHub action code configuration.
 
@@ -6361,26 +6361,26 @@ class GitHubActionCodeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="runtimeStack")
-    def runtime_stack(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_stack(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runtime stack is used to determine the workflow file content for code base apps.
         """
         return pulumi.get(self, "runtime_stack")
 
     @runtime_stack.setter
-    def runtime_stack(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_stack(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runtime version is used to determine what build version to set in the workflow file.
         """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
 
@@ -6388,19 +6388,19 @@ class GitHubActionConfigurationArgsDict(TypedDict):
     """
     The GitHub action configuration.
     """
-    code_configuration: NotRequired[pulumi.Input['GitHubActionCodeConfigurationArgsDict']]
+    code_configuration: NotRequired[pulumi.Input[Optional['GitHubActionCodeConfigurationArgs']]]
     """
     GitHub Action code configuration.
     """
-    container_configuration: NotRequired[pulumi.Input['GitHubActionContainerConfigurationArgsDict']]
+    container_configuration: NotRequired[pulumi.Input[Optional['GitHubActionContainerConfigurationArgs']]]
     """
     GitHub Action container configuration.
     """
-    generate_workflow_file: NotRequired[pulumi.Input[_builtins.bool]]
+    generate_workflow_file: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Workflow option to determine whether the workflow file should be generated and written to the repository.
     """
-    is_linux: NotRequired[pulumi.Input[_builtins.bool]]
+    is_linux: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This will help determine the workflow configuration to select.
     """
@@ -6408,10 +6408,10 @@ class GitHubActionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GitHubActionConfigurationArgs:
     def __init__(__self__, *,
-                 code_configuration: Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']] = None,
-                 container_configuration: Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']] = None,
-                 generate_workflow_file: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_linux: Optional[pulumi.Input[_builtins.bool]] = None):
+                 code_configuration: pulumi.Input[Optional['GitHubActionCodeConfigurationArgs']] = None,
+                 container_configuration: pulumi.Input[Optional['GitHubActionContainerConfigurationArgs']] = None,
+                 generate_workflow_file: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_linux: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The GitHub action configuration.
 
@@ -6431,50 +6431,50 @@ class GitHubActionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']]:
+    def code_configuration(self) -> pulumi.Input[Optional['GitHubActionCodeConfigurationArgs']]:
         """
         GitHub Action code configuration.
         """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']]):
+    def code_configuration(self, value: pulumi.Input[Optional['GitHubActionCodeConfigurationArgs']]):
         pulumi.set(self, "code_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
-    def container_configuration(self) -> Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']]:
+    def container_configuration(self) -> pulumi.Input[Optional['GitHubActionContainerConfigurationArgs']]:
         """
         GitHub Action container configuration.
         """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
-    def container_configuration(self, value: Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']]):
+    def container_configuration(self, value: pulumi.Input[Optional['GitHubActionContainerConfigurationArgs']]):
         pulumi.set(self, "container_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="generateWorkflowFile")
-    def generate_workflow_file(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate_workflow_file(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Workflow option to determine whether the workflow file should be generated and written to the repository.
         """
         return pulumi.get(self, "generate_workflow_file")
 
     @generate_workflow_file.setter
-    def generate_workflow_file(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate_workflow_file(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate_workflow_file", value)
 
     @_builtins.property
     @pulumi.getter(name="isLinux")
-    def is_linux(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_linux(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This will help determine the workflow configuration to select.
         """
         return pulumi.get(self, "is_linux")
 
     @is_linux.setter
-    def is_linux(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_linux(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_linux", value)
 
 
@@ -6482,19 +6482,19 @@ class GitHubActionContainerConfigurationArgsDict(TypedDict):
     """
     The GitHub action container configuration.
     """
-    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image name for the build.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password used to upload the image to the container registry.
     """
-    server_url: NotRequired[pulumi.Input[_builtins.str]]
+    server_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The server URL for the container registry where the build will be hosted.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username used to upload the image to the container registry.
     """
@@ -6502,10 +6502,10 @@ class GitHubActionContainerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GitHubActionContainerConfigurationArgs:
     def __init__(__self__, *,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The GitHub action container configuration.
 
@@ -6525,50 +6525,50 @@ class GitHubActionContainerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image name for the build.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password used to upload the image to the container registry.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The server URL for the container registry where the build will be hosted.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username used to upload the image to the container registry.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -6576,15 +6576,15 @@ class GitHubArgsDict(TypedDict):
     """
     The configuration settings of the GitHub provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['LoginScopesArgs']]]
     """
     The configuration settings of the login flow.
     """
-    registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['ClientRegistrationArgs']]]
     """
     The configuration settings of the app registration for the GitHub provider.
     """
@@ -6592,9 +6592,9 @@ class GitHubArgsDict(TypedDict):
 @pulumi.input_type
 class GitHubArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['LoginScopesArgs']] = None,
+                 registration: pulumi.Input[Optional['ClientRegistrationArgs']] = None):
         """
         The configuration settings of the GitHub provider.
 
@@ -6611,38 +6611,38 @@ class GitHubArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginScopesArgs']]:
         """
         The configuration settings of the login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginScopesArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['ClientRegistrationArgs']]:
         """
         The configuration settings of the app registration for the GitHub provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['ClientRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -6650,21 +6650,21 @@ class GlobalValidationArgsDict(TypedDict):
     """
     The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
     """
-    excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The paths for which unauthenticated flow would not be redirected to the login page.
     """
-    redirect_to_provider: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_to_provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default authentication provider to use when multiple providers are configured.
     This setting is only needed if multiple providers are configured and the unauthenticated client
     action is set to "RedirectToLoginPage".
     """
-    require_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    require_authentication: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
     """
-    unauthenticated_client_action: NotRequired[pulumi.Input['UnauthenticatedClientActionV2']]
+    unauthenticated_client_action: NotRequired[pulumi.Input[Optional['UnauthenticatedClientActionV2']]]
     """
     The action to take when an unauthenticated client attempts to access the app.
     """
@@ -6672,10 +6672,10 @@ class GlobalValidationArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalValidationArgs:
     def __init__(__self__, *,
-                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 redirect_to_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientActionV2']] = None):
+                 excluded_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 redirect_to_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unauthenticated_client_action: pulumi.Input[Optional['UnauthenticatedClientActionV2']] = None):
         """
         The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 
@@ -6697,19 +6697,19 @@ class GlobalValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The paths for which unauthenticated flow would not be redirected to the login page.
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectToProvider")
-    def redirect_to_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_to_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default authentication provider to use when multiple providers are configured.
         This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -6718,31 +6718,31 @@ class GlobalValidationArgs:
         return pulumi.get(self, "redirect_to_provider")
 
     @redirect_to_provider.setter
-    def redirect_to_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_to_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_to_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="requireAuthentication")
-    def require_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "require_authentication")
 
     @require_authentication.setter
-    def require_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="unauthenticatedClientAction")
-    def unauthenticated_client_action(self) -> Optional[pulumi.Input['UnauthenticatedClientActionV2']]:
+    def unauthenticated_client_action(self) -> pulumi.Input[Optional['UnauthenticatedClientActionV2']]:
         """
         The action to take when an unauthenticated client attempts to access the app.
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
     @unauthenticated_client_action.setter
-    def unauthenticated_client_action(self, value: Optional[pulumi.Input['UnauthenticatedClientActionV2']]):
+    def unauthenticated_client_action(self, value: pulumi.Input[Optional['UnauthenticatedClientActionV2']]):
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
@@ -6750,19 +6750,19 @@ class GoogleArgsDict(TypedDict):
     """
     The configuration settings of the Google provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['LoginScopesArgs']]]
     """
     The configuration settings of the login flow.
     """
-    registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['ClientRegistrationArgs']]]
     """
     The configuration settings of the app registration for the Google provider.
     """
-    validation: NotRequired[pulumi.Input['AllowedAudiencesValidationArgsDict']]
+    validation: NotRequired[pulumi.Input[Optional['AllowedAudiencesValidationArgs']]]
     """
     The configuration settings of the Azure Active Directory token validation flow.
     """
@@ -6770,10 +6770,10 @@ class GoogleArgsDict(TypedDict):
 @pulumi.input_type
 class GoogleArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
-                 validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['LoginScopesArgs']] = None,
+                 registration: pulumi.Input[Optional['ClientRegistrationArgs']] = None,
+                 validation: pulumi.Input[Optional['AllowedAudiencesValidationArgs']] = None):
         """
         The configuration settings of the Google provider.
 
@@ -6793,50 +6793,50 @@ class GoogleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginScopesArgs']]:
         """
         The configuration settings of the login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginScopesArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['ClientRegistrationArgs']]:
         """
         The configuration settings of the app registration for the Google provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['ClientRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+    def validation(self) -> pulumi.Input[Optional['AllowedAudiencesValidationArgs']]:
         """
         The configuration settings of the Azure Active Directory token validation flow.
         """
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
+    def validation(self, value: pulumi.Input[Optional['AllowedAudiencesValidationArgs']]):
         pulumi.set(self, "validation", value)
 
 
@@ -6845,15 +6845,15 @@ class HandlerMappingArgsDict(TypedDict):
     The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
     For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
     """
-    arguments: NotRequired[pulumi.Input[_builtins.str]]
+    arguments: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Command-line arguments to be passed to the script processor.
     """
-    extension: NotRequired[pulumi.Input[_builtins.str]]
+    extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Requests with this extension will be handled using the specified FastCGI application.
     """
-    script_processor: NotRequired[pulumi.Input[_builtins.str]]
+    script_processor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The absolute path to the FastCGI application.
     """
@@ -6861,9 +6861,9 @@ class HandlerMappingArgsDict(TypedDict):
 @pulumi.input_type
 class HandlerMappingArgs:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_processor: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_processor: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
         For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
@@ -6881,38 +6881,38 @@ class HandlerMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arguments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Command-line arguments to be passed to the script processor.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arguments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requests with this extension will be handled using the specified FastCGI application.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptProcessor")
-    def script_processor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_processor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to the FastCGI application.
         """
         return pulumi.get(self, "script_processor")
 
     @script_processor.setter
-    def script_processor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_processor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_processor", value)
 
 
@@ -6920,27 +6920,27 @@ class HostNameSslStateArgsDict(TypedDict):
     """
     SSL-enabled hostname.
     """
-    host_type: NotRequired[pulumi.Input['HostType']]
+    host_type: NotRequired[pulumi.Input[Optional['HostType']]]
     """
     Indicates whether the hostname is a standard or repository hostname.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Hostname.
     """
-    ssl_state: NotRequired[pulumi.Input['SslState']]
+    ssl_state: NotRequired[pulumi.Input[Optional['SslState']]]
     """
     SSL type.
     """
-    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SSL certificate thumbprint.
     """
-    to_update: NotRequired[pulumi.Input[_builtins.bool]]
+    to_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to <code>true</code> to update existing hostname.
     """
-    virtual_ip: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual IP address assigned to the hostname if IP based SSL is enabled.
     """
@@ -6948,12 +6948,12 @@ class HostNameSslStateArgsDict(TypedDict):
 @pulumi.input_type
 class HostNameSslStateArgs:
     def __init__(__self__, *,
-                 host_type: Optional[pulumi.Input['HostType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input['SslState']] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 to_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 host_type: pulumi.Input[Optional['HostType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional['SslState']] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 to_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         SSL-enabled hostname.
 
@@ -6979,74 +6979,74 @@ class HostNameSslStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostType")
-    def host_type(self) -> Optional[pulumi.Input['HostType']]:
+    def host_type(self) -> pulumi.Input[Optional['HostType']]:
         """
         Indicates whether the hostname is a standard or repository hostname.
         """
         return pulumi.get(self, "host_type")
 
     @host_type.setter
-    def host_type(self, value: Optional[pulumi.Input['HostType']]):
+    def host_type(self, value: pulumi.Input[Optional['HostType']]):
         pulumi.set(self, "host_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hostname.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[pulumi.Input['SslState']]:
+    def ssl_state(self) -> pulumi.Input[Optional['SslState']]:
         """
         SSL type.
         """
         return pulumi.get(self, "ssl_state")
 
     @ssl_state.setter
-    def ssl_state(self, value: Optional[pulumi.Input['SslState']]):
+    def ssl_state(self, value: pulumi.Input[Optional['SslState']]):
         pulumi.set(self, "ssl_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSL certificate thumbprint.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="toUpdate")
-    def to_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def to_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to <code>true</code> to update existing hostname.
         """
         return pulumi.get(self, "to_update")
 
     @to_update.setter
-    def to_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def to_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "to_update", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualIP")
-    def virtual_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         return pulumi.get(self, "virtual_ip")
 
     @virtual_ip.setter
-    def virtual_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_ip", value)
 
 
@@ -7054,7 +7054,7 @@ class HostingEnvironmentProfileArgsDict(TypedDict):
     """
     Specification for an App Service Environment to use for this resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of the App Service Environment.
     """
@@ -7062,7 +7062,7 @@ class HostingEnvironmentProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HostingEnvironmentProfileArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specification for an App Service Environment to use for this resource.
 
@@ -7073,14 +7073,14 @@ class HostingEnvironmentProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the App Service Environment.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -7088,11 +7088,11 @@ class HttpLogsConfigArgsDict(TypedDict):
     """
     Http logs configuration.
     """
-    azure_blob_storage: NotRequired[pulumi.Input['AzureBlobStorageHttpLogsConfigArgsDict']]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['AzureBlobStorageHttpLogsConfigArgs']]]
     """
     Http logs to azure blob storage configuration.
     """
-    file_system: NotRequired[pulumi.Input['FileSystemHttpLogsConfigArgsDict']]
+    file_system: NotRequired[pulumi.Input[Optional['FileSystemHttpLogsConfigArgs']]]
     """
     Http logs to file system configuration.
     """
@@ -7100,8 +7100,8 @@ class HttpLogsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class HttpLogsConfigArgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']] = None,
-                 file_system: Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']] = None):
+                 azure_blob_storage: pulumi.Input[Optional['AzureBlobStorageHttpLogsConfigArgs']] = None,
+                 file_system: pulumi.Input[Optional['FileSystemHttpLogsConfigArgs']] = None):
         """
         Http logs configuration.
 
@@ -7115,26 +7115,26 @@ class HttpLogsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']]:
+    def azure_blob_storage(self) -> pulumi.Input[Optional['AzureBlobStorageHttpLogsConfigArgs']]:
         """
         Http logs to azure blob storage configuration.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']]):
+    def azure_blob_storage(self, value: pulumi.Input[Optional['AzureBlobStorageHttpLogsConfigArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']]:
+    def file_system(self) -> pulumi.Input[Optional['FileSystemHttpLogsConfigArgs']]:
         """
         Http logs to file system configuration.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']]):
+    def file_system(self, value: pulumi.Input[Optional['FileSystemHttpLogsConfigArgs']]):
         pulumi.set(self, "file_system", value)
 
 
@@ -7142,7 +7142,7 @@ class HttpSettingsRoutesArgsDict(TypedDict):
     """
     The configuration settings of the paths HTTP requests.
     """
-    api_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    api_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix that should precede all the authentication/authorization paths.
     """
@@ -7150,7 +7150,7 @@ class HttpSettingsRoutesArgsDict(TypedDict):
 @pulumi.input_type
 class HttpSettingsRoutesArgs:
     def __init__(__self__, *,
-                 api_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the paths HTTP requests.
 
@@ -7161,14 +7161,14 @@ class HttpSettingsRoutesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiPrefix")
-    def api_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix that should precede all the authentication/authorization paths.
         """
         return pulumi.get(self, "api_prefix")
 
     @api_prefix.setter
-    def api_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_prefix", value)
 
 
@@ -7176,15 +7176,15 @@ class HttpSettingsArgsDict(TypedDict):
     """
     The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
     """
-    forward_proxy: NotRequired[pulumi.Input['ForwardProxyArgsDict']]
+    forward_proxy: NotRequired[pulumi.Input[Optional['ForwardProxyArgs']]]
     """
     The configuration settings of a forward proxy used to make the requests.
     """
-    require_https: NotRequired[pulumi.Input[_builtins.bool]]
+    require_https: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
     """
-    routes: NotRequired[pulumi.Input['HttpSettingsRoutesArgsDict']]
+    routes: NotRequired[pulumi.Input[Optional['HttpSettingsRoutesArgs']]]
     """
     The configuration settings of the paths HTTP requests.
     """
@@ -7192,9 +7192,9 @@ class HttpSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class HttpSettingsArgs:
     def __init__(__self__, *,
-                 forward_proxy: Optional[pulumi.Input['ForwardProxyArgs']] = None,
-                 require_https: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routes: Optional[pulumi.Input['HttpSettingsRoutesArgs']] = None):
+                 forward_proxy: pulumi.Input[Optional['ForwardProxyArgs']] = None,
+                 require_https: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routes: pulumi.Input[Optional['HttpSettingsRoutesArgs']] = None):
         """
         The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 
@@ -7211,38 +7211,38 @@ class HttpSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="forwardProxy")
-    def forward_proxy(self) -> Optional[pulumi.Input['ForwardProxyArgs']]:
+    def forward_proxy(self) -> pulumi.Input[Optional['ForwardProxyArgs']]:
         """
         The configuration settings of a forward proxy used to make the requests.
         """
         return pulumi.get(self, "forward_proxy")
 
     @forward_proxy.setter
-    def forward_proxy(self, value: Optional[pulumi.Input['ForwardProxyArgs']]):
+    def forward_proxy(self, value: pulumi.Input[Optional['ForwardProxyArgs']]):
         pulumi.set(self, "forward_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="requireHttps")
-    def require_https(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_https(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "require_https")
 
     @require_https.setter
-    def require_https(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_https(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_https", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input['HttpSettingsRoutesArgs']]:
+    def routes(self) -> pulumi.Input[Optional['HttpSettingsRoutesArgs']]:
         """
         The configuration settings of the paths HTTP requests.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input['HttpSettingsRoutesArgs']]):
+    def routes(self, value: pulumi.Input[Optional['HttpSettingsRoutesArgs']]):
         pulumi.set(self, "routes", value)
 
 
@@ -7250,40 +7250,40 @@ class IdentityProvidersArgsDict(TypedDict):
     """
     The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
     """
-    apple: NotRequired[pulumi.Input['AppleArgsDict']]
+    apple: NotRequired[pulumi.Input[Optional['AppleArgs']]]
     """
     The configuration settings of the Apple provider.
     """
-    azure_active_directory: NotRequired[pulumi.Input['AzureActiveDirectoryArgsDict']]
+    azure_active_directory: NotRequired[pulumi.Input[Optional['AzureActiveDirectoryArgs']]]
     """
     The configuration settings of the Azure Active directory provider.
     """
-    azure_static_web_apps: NotRequired[pulumi.Input['AzureStaticWebAppsArgsDict']]
+    azure_static_web_apps: NotRequired[pulumi.Input[Optional['AzureStaticWebAppsArgs']]]
     """
     The configuration settings of the Azure Static Web Apps provider.
     """
-    custom_open_id_connect_providers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgsDict']]]]
+    custom_open_id_connect_providers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]]
     """
     The map of the name of the alias of each custom Open ID Connect provider to the
     configuration settings of the custom Open ID Connect provider.
     """
-    facebook: NotRequired[pulumi.Input['FacebookArgsDict']]
+    facebook: NotRequired[pulumi.Input[Optional['FacebookArgs']]]
     """
     The configuration settings of the Facebook provider.
     """
-    git_hub: NotRequired[pulumi.Input['GitHubArgsDict']]
+    git_hub: NotRequired[pulumi.Input[Optional['GitHubArgs']]]
     """
     The configuration settings of the GitHub provider.
     """
-    google: NotRequired[pulumi.Input['GoogleArgsDict']]
+    google: NotRequired[pulumi.Input[Optional['GoogleArgs']]]
     """
     The configuration settings of the Google provider.
     """
-    legacy_microsoft_account: NotRequired[pulumi.Input['LegacyMicrosoftAccountArgsDict']]
+    legacy_microsoft_account: NotRequired[pulumi.Input[Optional['LegacyMicrosoftAccountArgs']]]
     """
     The configuration settings of the legacy Microsoft Account provider.
     """
-    twitter: NotRequired[pulumi.Input['TwitterArgsDict']]
+    twitter: NotRequired[pulumi.Input[Optional['TwitterArgs']]]
     """
     The configuration settings of the Twitter provider.
     """
@@ -7291,15 +7291,15 @@ class IdentityProvidersArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityProvidersArgs:
     def __init__(__self__, *,
-                 apple: Optional[pulumi.Input['AppleArgs']] = None,
-                 azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
-                 azure_static_web_apps: Optional[pulumi.Input['AzureStaticWebAppsArgs']] = None,
-                 custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]] = None,
-                 facebook: Optional[pulumi.Input['FacebookArgs']] = None,
-                 git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
-                 google: Optional[pulumi.Input['GoogleArgs']] = None,
-                 legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
-                 twitter: Optional[pulumi.Input['TwitterArgs']] = None):
+                 apple: pulumi.Input[Optional['AppleArgs']] = None,
+                 azure_active_directory: pulumi.Input[Optional['AzureActiveDirectoryArgs']] = None,
+                 azure_static_web_apps: pulumi.Input[Optional['AzureStaticWebAppsArgs']] = None,
+                 custom_open_id_connect_providers: pulumi.Input[Optional[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]] = None,
+                 facebook: pulumi.Input[Optional['FacebookArgs']] = None,
+                 git_hub: pulumi.Input[Optional['GitHubArgs']] = None,
+                 google: pulumi.Input[Optional['GoogleArgs']] = None,
+                 legacy_microsoft_account: pulumi.Input[Optional['LegacyMicrosoftAccountArgs']] = None,
+                 twitter: pulumi.Input[Optional['TwitterArgs']] = None):
         """
         The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 
@@ -7335,43 +7335,43 @@ class IdentityProvidersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def apple(self) -> Optional[pulumi.Input['AppleArgs']]:
+    def apple(self) -> pulumi.Input[Optional['AppleArgs']]:
         """
         The configuration settings of the Apple provider.
         """
         return pulumi.get(self, "apple")
 
     @apple.setter
-    def apple(self, value: Optional[pulumi.Input['AppleArgs']]):
+    def apple(self, value: pulumi.Input[Optional['AppleArgs']]):
         pulumi.set(self, "apple", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
+    def azure_active_directory(self) -> pulumi.Input[Optional['AzureActiveDirectoryArgs']]:
         """
         The configuration settings of the Azure Active directory provider.
         """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
-    def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
+    def azure_active_directory(self, value: pulumi.Input[Optional['AzureActiveDirectoryArgs']]):
         pulumi.set(self, "azure_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStaticWebApps")
-    def azure_static_web_apps(self) -> Optional[pulumi.Input['AzureStaticWebAppsArgs']]:
+    def azure_static_web_apps(self) -> pulumi.Input[Optional['AzureStaticWebAppsArgs']]:
         """
         The configuration settings of the Azure Static Web Apps provider.
         """
         return pulumi.get(self, "azure_static_web_apps")
 
     @azure_static_web_apps.setter
-    def azure_static_web_apps(self, value: Optional[pulumi.Input['AzureStaticWebAppsArgs']]):
+    def azure_static_web_apps(self, value: pulumi.Input[Optional['AzureStaticWebAppsArgs']]):
         pulumi.set(self, "azure_static_web_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="customOpenIdConnectProviders")
-    def custom_open_id_connect_providers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]:
+    def custom_open_id_connect_providers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]:
         """
         The map of the name of the alias of each custom Open ID Connect provider to the
         configuration settings of the custom Open ID Connect provider.
@@ -7379,67 +7379,67 @@ class IdentityProvidersArgs:
         return pulumi.get(self, "custom_open_id_connect_providers")
 
     @custom_open_id_connect_providers.setter
-    def custom_open_id_connect_providers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]):
+    def custom_open_id_connect_providers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]):
         pulumi.set(self, "custom_open_id_connect_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['FacebookArgs']]:
+    def facebook(self) -> pulumi.Input[Optional['FacebookArgs']]:
         """
         The configuration settings of the Facebook provider.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['FacebookArgs']]):
+    def facebook(self, value: pulumi.Input[Optional['FacebookArgs']]):
         pulumi.set(self, "facebook", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHub")
-    def git_hub(self) -> Optional[pulumi.Input['GitHubArgs']]:
+    def git_hub(self) -> pulumi.Input[Optional['GitHubArgs']]:
         """
         The configuration settings of the GitHub provider.
         """
         return pulumi.get(self, "git_hub")
 
     @git_hub.setter
-    def git_hub(self, value: Optional[pulumi.Input['GitHubArgs']]):
+    def git_hub(self, value: pulumi.Input[Optional['GitHubArgs']]):
         pulumi.set(self, "git_hub", value)
 
     @_builtins.property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['GoogleArgs']]:
+    def google(self) -> pulumi.Input[Optional['GoogleArgs']]:
         """
         The configuration settings of the Google provider.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['GoogleArgs']]):
+    def google(self, value: pulumi.Input[Optional['GoogleArgs']]):
         pulumi.set(self, "google", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyMicrosoftAccount")
-    def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
+    def legacy_microsoft_account(self) -> pulumi.Input[Optional['LegacyMicrosoftAccountArgs']]:
         """
         The configuration settings of the legacy Microsoft Account provider.
         """
         return pulumi.get(self, "legacy_microsoft_account")
 
     @legacy_microsoft_account.setter
-    def legacy_microsoft_account(self, value: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]):
+    def legacy_microsoft_account(self, value: pulumi.Input[Optional['LegacyMicrosoftAccountArgs']]):
         pulumi.set(self, "legacy_microsoft_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['TwitterArgs']]:
+    def twitter(self) -> pulumi.Input[Optional['TwitterArgs']]:
         """
         The configuration settings of the Twitter provider.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
+    def twitter(self, value: pulumi.Input[Optional['TwitterArgs']]):
         pulumi.set(self, "twitter", value)
 
 
@@ -7447,15 +7447,15 @@ class IpSecurityRestrictionArgsDict(TypedDict):
     """
     IP security restriction on an app.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Allow or Deny access for this IP range.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP restriction rule description.
     """
-    headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]]
     """
     IP restriction rule headers.
     X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
@@ -7474,38 +7474,38 @@ class IpSecurityRestrictionArgsDict(TypedDict):
     X-Azure-FDID and X-FD-HealthProbe.
     The matching logic is exact match.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP address the security restriction is valid for.
     It can be in form of pure ipv4 address (required SubnetMask property) or
     CIDR notation such as ipv4/mask (leading bit match). For CIDR,
     SubnetMask property must not be specified.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP restriction rule name.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Priority of IP restriction rule.
     """
-    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_mask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subnet mask for the range of IP addresses the restriction is valid for.
     """
-    subnet_traffic_tag: NotRequired[pulumi.Input[_builtins.int]]
+    subnet_traffic_tag: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     (internal) Subnet traffic tag
     """
-    tag: NotRequired[pulumi.Input[Union[_builtins.str, 'IpFilterTag']]]
+    tag: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IpFilterTag']]]]
     """
     Defines what this IP filter will be used for. This is to support IP filtering on proxies.
     """
-    vnet_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    vnet_subnet_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual network resource id
     """
-    vnet_traffic_tag: NotRequired[pulumi.Input[_builtins.int]]
+    vnet_traffic_tag: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     (internal) Vnet traffic tag
     """
@@ -7513,17 +7513,17 @@ class IpSecurityRestrictionArgsDict(TypedDict):
 @pulumi.input_type
 class IpSecurityRestrictionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_traffic_tag: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[Union[_builtins.str, 'IpFilterTag']]] = None,
-                 vnet_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_traffic_tag: Optional[pulumi.Input[_builtins.int]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_traffic_tag: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[Union[_builtins.str, 'IpFilterTag']]] = None,
+                 vnet_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_traffic_tag: pulumi.Input[Optional[_builtins.int]] = None):
         """
         IP security restriction on an app.
 
@@ -7582,31 +7582,31 @@ class IpSecurityRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or Deny access for this IP range.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP restriction rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         IP restriction rule headers.
         X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
@@ -7628,12 +7628,12 @@ class IpSecurityRestrictionArgs:
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address the security restriction is valid for.
         It can be in form of pure ipv4 address (required SubnetMask property) or
@@ -7643,91 +7643,91 @@ class IpSecurityRestrictionArgs:
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP restriction rule name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of IP restriction rule.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet mask for the range of IP addresses the restriction is valid for.
         """
         return pulumi.get(self, "subnet_mask")
 
     @subnet_mask.setter
-    def subnet_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_mask", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetTrafficTag")
-    def subnet_traffic_tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def subnet_traffic_tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (internal) Subnet traffic tag
         """
         return pulumi.get(self, "subnet_traffic_tag")
 
     @subnet_traffic_tag.setter
-    def subnet_traffic_tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def subnet_traffic_tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "subnet_traffic_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IpFilterTag']]]:
+    def tag(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IpFilterTag']]]:
         """
         Defines what this IP filter will be used for. This is to support IP filtering on proxies.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IpFilterTag']]]):
+    def tag(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IpFilterTag']]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSubnetResourceId")
-    def vnet_subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual network resource id
         """
         return pulumi.get(self, "vnet_subnet_resource_id")
 
     @vnet_subnet_resource_id.setter
-    def vnet_subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetTrafficTag")
-    def vnet_traffic_tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vnet_traffic_tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (internal) Vnet traffic tag
         """
         return pulumi.get(self, "vnet_traffic_tag")
 
     @vnet_traffic_tag.setter
-    def vnet_traffic_tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vnet_traffic_tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vnet_traffic_tag", value)
 
 
@@ -7735,11 +7735,11 @@ class JwtClaimChecksArgsDict(TypedDict):
     """
     The configuration settings of the checks that should be made while validating the JWT Claims.
     """
-    allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_client_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the allowed client applications.
     """
-    allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the allowed groups.
     """
@@ -7747,8 +7747,8 @@ class JwtClaimChecksArgsDict(TypedDict):
 @pulumi.input_type
 class JwtClaimChecksArgs:
     def __init__(__self__, *,
-                 allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_client_applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the checks that should be made while validating the JWT Claims.
 
@@ -7762,26 +7762,26 @@ class JwtClaimChecksArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedClientApplications")
-    def allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_client_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the allowed client applications.
         """
         return pulumi.get(self, "allowed_client_applications")
 
     @allowed_client_applications.setter
-    def allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_client_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_client_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedGroups")
-    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the allowed groups.
         """
         return pulumi.get(self, "allowed_groups")
 
     @allowed_groups.setter
-    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_groups", value)
 
 
@@ -7789,7 +7789,7 @@ class KubeEnvironmentProfileArgsDict(TypedDict):
     """
     Specification for a Kubernetes Environment to use for this resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of the Kubernetes Environment.
     """
@@ -7797,7 +7797,7 @@ class KubeEnvironmentProfileArgsDict(TypedDict):
 @pulumi.input_type
 class KubeEnvironmentProfileArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specification for a Kubernetes Environment to use for this resource.
 
@@ -7808,14 +7808,14 @@ class KubeEnvironmentProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Kubernetes Environment.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -7823,19 +7823,19 @@ class LegacyMicrosoftAccountArgsDict(TypedDict):
     """
     The configuration settings of the legacy Microsoft Account provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+    login: NotRequired[pulumi.Input[Optional['LoginScopesArgs']]]
     """
     The configuration settings of the login flow.
     """
-    registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['ClientRegistrationArgs']]]
     """
     The configuration settings of the app registration for the legacy Microsoft Account provider.
     """
-    validation: NotRequired[pulumi.Input['AllowedAudiencesValidationArgsDict']]
+    validation: NotRequired[pulumi.Input[Optional['AllowedAudiencesValidationArgs']]]
     """
     The configuration settings of the legacy Microsoft Account provider token validation flow.
     """
@@ -7843,10 +7843,10 @@ class LegacyMicrosoftAccountArgsDict(TypedDict):
 @pulumi.input_type
 class LegacyMicrosoftAccountArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
-                 validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional['LoginScopesArgs']] = None,
+                 registration: pulumi.Input[Optional['ClientRegistrationArgs']] = None,
+                 validation: pulumi.Input[Optional['AllowedAudiencesValidationArgs']] = None):
         """
         The configuration settings of the legacy Microsoft Account provider.
 
@@ -7866,62 +7866,62 @@ class LegacyMicrosoftAccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginScopesArgs']]:
         """
         The configuration settings of the login flow.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginScopesArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['ClientRegistrationArgs']]:
         """
         The configuration settings of the app registration for the legacy Microsoft Account provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['ClientRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+    def validation(self) -> pulumi.Input[Optional['AllowedAudiencesValidationArgs']]:
         """
         The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
+    def validation(self, value: pulumi.Input[Optional['AllowedAudiencesValidationArgs']]):
         pulumi.set(self, "validation", value)
 
 
 class LogAnalyticsConfigurationArgsDict(TypedDict):
-    customer_id: NotRequired[pulumi.Input[_builtins.str]]
-    shared_key: NotRequired[pulumi.Input[_builtins.str]]
+    customer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    shared_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class LogAnalyticsConfigurationArgs:
     def __init__(__self__, *,
-                 customer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None):
         if customer_id is not None:
             pulumi.set(__self__, "customer_id", customer_id)
         if shared_key is not None:
@@ -7929,20 +7929,20 @@ class LogAnalyticsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerId")
-    def customer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "customer_id")
 
     @customer_id.setter
-    def customer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "shared_key")
 
     @shared_key.setter
-    def shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_key", value)
 
 
@@ -7950,7 +7950,7 @@ class LoginRoutesArgsDict(TypedDict):
     """
     The routes that specify the endpoints used for login and logout requests.
     """
-    logout_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    logout_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint at which a logout request should be made.
     """
@@ -7958,7 +7958,7 @@ class LoginRoutesArgsDict(TypedDict):
 @pulumi.input_type
 class LoginRoutesArgs:
     def __init__(__self__, *,
-                 logout_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 logout_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The routes that specify the endpoints used for login and logout requests.
 
@@ -7969,14 +7969,14 @@ class LoginRoutesArgs:
 
     @_builtins.property
     @pulumi.getter(name="logoutEndpoint")
-    def logout_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logout_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint at which a logout request should be made.
         """
         return pulumi.get(self, "logout_endpoint")
 
     @logout_endpoint.setter
-    def logout_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logout_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logout_endpoint", value)
 
 
@@ -7984,7 +7984,7 @@ class LoginScopesArgsDict(TypedDict):
     """
     The configuration settings of the login flow, including the scopes that should be requested.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the scopes that should be requested while authenticating.
     """
@@ -7992,7 +7992,7 @@ class LoginScopesArgsDict(TypedDict):
 @pulumi.input_type
 class LoginScopesArgs:
     def __init__(__self__, *,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the login flow, including the scopes that should be requested.
 
@@ -8003,14 +8003,14 @@ class LoginScopesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the scopes that should be requested while authenticating.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -8018,29 +8018,29 @@ class LoginArgsDict(TypedDict):
     """
     The configuration settings of the login flow of users using App Service Authentication/Authorization.
     """
-    allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_external_redirect_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
     This is an advanced setting typically only needed by Windows Store application backends.
     Note that URLs within the current domain are always implicitly allowed.
     """
-    cookie_expiration: NotRequired[pulumi.Input['CookieExpirationArgsDict']]
+    cookie_expiration: NotRequired[pulumi.Input[Optional['CookieExpirationArgs']]]
     """
     The configuration settings of the session cookie's expiration.
     """
-    nonce: NotRequired[pulumi.Input['NonceArgsDict']]
+    nonce: NotRequired[pulumi.Input[Optional['NonceArgs']]]
     """
     The configuration settings of the nonce used in the login flow.
     """
-    preserve_url_fragments_for_logins: NotRequired[pulumi.Input[_builtins.bool]]
+    preserve_url_fragments_for_logins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
     """
-    routes: NotRequired[pulumi.Input['LoginRoutesArgsDict']]
+    routes: NotRequired[pulumi.Input[Optional['LoginRoutesArgs']]]
     """
     The routes that specify the endpoints used for login and logout requests.
     """
-    token_store: NotRequired[pulumi.Input['TokenStoreArgsDict']]
+    token_store: NotRequired[pulumi.Input[Optional['TokenStoreArgs']]]
     """
     The configuration settings of the token store.
     """
@@ -8048,12 +8048,12 @@ class LoginArgsDict(TypedDict):
 @pulumi.input_type
 class LoginArgs:
     def __init__(__self__, *,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cookie_expiration: Optional[pulumi.Input['CookieExpirationArgs']] = None,
-                 nonce: Optional[pulumi.Input['NonceArgs']] = None,
-                 preserve_url_fragments_for_logins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routes: Optional[pulumi.Input['LoginRoutesArgs']] = None,
-                 token_store: Optional[pulumi.Input['TokenStoreArgs']] = None):
+                 allowed_external_redirect_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cookie_expiration: pulumi.Input[Optional['CookieExpirationArgs']] = None,
+                 nonce: pulumi.Input[Optional['NonceArgs']] = None,
+                 preserve_url_fragments_for_logins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routes: pulumi.Input[Optional['LoginRoutesArgs']] = None,
+                 token_store: pulumi.Input[Optional['TokenStoreArgs']] = None):
         """
         The configuration settings of the login flow of users using App Service Authentication/Authorization.
 
@@ -8081,7 +8081,7 @@ class LoginArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_external_redirect_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
         This is an advanced setting typically only needed by Windows Store application backends.
@@ -8090,67 +8090,67 @@ class LoginArgs:
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_external_redirect_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieExpiration")
-    def cookie_expiration(self) -> Optional[pulumi.Input['CookieExpirationArgs']]:
+    def cookie_expiration(self) -> pulumi.Input[Optional['CookieExpirationArgs']]:
         """
         The configuration settings of the session cookie's expiration.
         """
         return pulumi.get(self, "cookie_expiration")
 
     @cookie_expiration.setter
-    def cookie_expiration(self, value: Optional[pulumi.Input['CookieExpirationArgs']]):
+    def cookie_expiration(self, value: pulumi.Input[Optional['CookieExpirationArgs']]):
         pulumi.set(self, "cookie_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def nonce(self) -> Optional[pulumi.Input['NonceArgs']]:
+    def nonce(self) -> pulumi.Input[Optional['NonceArgs']]:
         """
         The configuration settings of the nonce used in the login flow.
         """
         return pulumi.get(self, "nonce")
 
     @nonce.setter
-    def nonce(self, value: Optional[pulumi.Input['NonceArgs']]):
+    def nonce(self, value: pulumi.Input[Optional['NonceArgs']]):
         pulumi.set(self, "nonce", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveUrlFragmentsForLogins")
-    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_url_fragments_for_logins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "preserve_url_fragments_for_logins")
 
     @preserve_url_fragments_for_logins.setter
-    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_url_fragments_for_logins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_url_fragments_for_logins", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input['LoginRoutesArgs']]:
+    def routes(self) -> pulumi.Input[Optional['LoginRoutesArgs']]:
         """
         The routes that specify the endpoints used for login and logout requests.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input['LoginRoutesArgs']]):
+    def routes(self, value: pulumi.Input[Optional['LoginRoutesArgs']]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenStore")
-    def token_store(self) -> Optional[pulumi.Input['TokenStoreArgs']]:
+    def token_store(self) -> pulumi.Input[Optional['TokenStoreArgs']]:
         """
         The configuration settings of the token store.
         """
         return pulumi.get(self, "token_store")
 
     @token_store.setter
-    def token_store(self, value: Optional[pulumi.Input['TokenStoreArgs']]):
+    def token_store(self, value: pulumi.Input[Optional['TokenStoreArgs']]):
         pulumi.set(self, "token_store", value)
 
 
@@ -8158,11 +8158,11 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Managed service identity.
     """
-    type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ManagedServiceIdentityType']]]
     """
     Type of managed service identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
     """
@@ -8170,8 +8170,8 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ManagedServiceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity.
 
@@ -8185,26 +8185,26 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ManagedServiceIdentityType']]:
         """
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -8212,11 +8212,11 @@ class NameValuePairArgsDict(TypedDict):
     """
     Name value pair.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Pair name.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Pair value.
     """
@@ -8224,8 +8224,8 @@ class NameValuePairArgsDict(TypedDict):
 @pulumi.input_type
 class NameValuePairArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Name value pair.
 
@@ -8239,26 +8239,26 @@ class NameValuePairArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pair name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pair value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -8266,11 +8266,11 @@ class NonceArgsDict(TypedDict):
     """
     The configuration settings of the nonce used in the login flow.
     """
-    nonce_expiration_interval: NotRequired[pulumi.Input[_builtins.str]]
+    nonce_expiration_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time after the request is made when the nonce should expire.
     """
-    validate_nonce: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_nonce: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
     """
@@ -8278,8 +8278,8 @@ class NonceArgsDict(TypedDict):
 @pulumi.input_type
 class NonceArgs:
     def __init__(__self__, *,
-                 nonce_expiration_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_nonce: Optional[pulumi.Input[_builtins.bool]] = None):
+                 nonce_expiration_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_nonce: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The configuration settings of the nonce used in the login flow.
 
@@ -8293,26 +8293,26 @@ class NonceArgs:
 
     @_builtins.property
     @pulumi.getter(name="nonceExpirationInterval")
-    def nonce_expiration_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nonce_expiration_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time after the request is made when the nonce should expire.
         """
         return pulumi.get(self, "nonce_expiration_interval")
 
     @nonce_expiration_interval.setter
-    def nonce_expiration_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nonce_expiration_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nonce_expiration_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="validateNonce")
-    def validate_nonce(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_nonce(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "validate_nonce")
 
     @validate_nonce.setter
-    def validate_nonce(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_nonce(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_nonce", value)
 
 
@@ -8320,11 +8320,11 @@ class OpenIdConnectClientCredentialArgsDict(TypedDict):
     """
     The authentication client credentials of the custom Open ID Connect provider.
     """
-    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting that contains the client secret for the custom Open ID Connect provider.
     """
-    method: NotRequired[pulumi.Input['ClientCredentialMethod']]
+    method: NotRequired[pulumi.Input[Optional['ClientCredentialMethod']]]
     """
     The method that should be used to authenticate the user.
     """
@@ -8332,8 +8332,8 @@ class OpenIdConnectClientCredentialArgsDict(TypedDict):
 @pulumi.input_type
 class OpenIdConnectClientCredentialArgs:
     def __init__(__self__, *,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input['ClientCredentialMethod']] = None):
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional['ClientCredentialMethod']] = None):
         """
         The authentication client credentials of the custom Open ID Connect provider.
 
@@ -8347,26 +8347,26 @@ class OpenIdConnectClientCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting that contains the client secret for the custom Open ID Connect provider.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input['ClientCredentialMethod']]:
+    def method(self) -> pulumi.Input[Optional['ClientCredentialMethod']]:
         """
         The method that should be used to authenticate the user.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input['ClientCredentialMethod']]):
+    def method(self, value: pulumi.Input[Optional['ClientCredentialMethod']]):
         pulumi.set(self, "method", value)
 
 
@@ -8374,23 +8374,23 @@ class OpenIdConnectConfigArgsDict(TypedDict):
     """
     The configuration settings of the endpoints used for the custom Open ID Connect provider.
     """
-    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint to be used to make an authorization request.
     """
-    certification_uri: NotRequired[pulumi.Input[_builtins.str]]
+    certification_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint that provides the keys necessary to validate the token.
     """
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint that issues the token.
     """
-    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    token_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint to be used to request a token.
     """
-    well_known_open_id_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    well_known_open_id_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint that contains all the configuration endpoints for the provider.
     """
@@ -8398,11 +8398,11 @@ class OpenIdConnectConfigArgsDict(TypedDict):
 @pulumi.input_type
 class OpenIdConnectConfigArgs:
     def __init__(__self__, *,
-                 authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 certification_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 well_known_open_id_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 certification_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 well_known_open_id_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the endpoints used for the custom Open ID Connect provider.
 
@@ -8425,62 +8425,62 @@ class OpenIdConnectConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint to be used to make an authorization request.
         """
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
-    def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="certificationUri")
-    def certification_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certification_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint that provides the keys necessary to validate the token.
         """
         return pulumi.get(self, "certification_uri")
 
     @certification_uri.setter
-    def certification_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certification_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certification_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint that issues the token.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint to be used to request a token.
         """
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter
-    def token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="wellKnownOpenIdConfiguration")
-    def well_known_open_id_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def well_known_open_id_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint that contains all the configuration endpoints for the provider.
         """
         return pulumi.get(self, "well_known_open_id_configuration")
 
     @well_known_open_id_configuration.setter
-    def well_known_open_id_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def well_known_open_id_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "well_known_open_id_configuration", value)
 
 
@@ -8488,11 +8488,11 @@ class OpenIdConnectLoginArgsDict(TypedDict):
     """
     The configuration settings of the login flow of the custom Open ID Connect provider.
     """
-    name_claim_type: NotRequired[pulumi.Input[_builtins.str]]
+    name_claim_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the claim that contains the users name.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the scopes that should be requested while authenticating.
     """
@@ -8500,8 +8500,8 @@ class OpenIdConnectLoginArgsDict(TypedDict):
 @pulumi.input_type
 class OpenIdConnectLoginArgs:
     def __init__(__self__, *,
-                 name_claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name_claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings of the login flow of the custom Open ID Connect provider.
 
@@ -8515,26 +8515,26 @@ class OpenIdConnectLoginArgs:
 
     @_builtins.property
     @pulumi.getter(name="nameClaimType")
-    def name_claim_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_claim_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the claim that contains the users name.
         """
         return pulumi.get(self, "name_claim_type")
 
     @name_claim_type.setter
-    def name_claim_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_claim_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_claim_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the scopes that should be requested while authenticating.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -8542,15 +8542,15 @@ class OpenIdConnectRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the app registration for the custom Open ID Connect provider.
     """
-    client_credential: NotRequired[pulumi.Input['OpenIdConnectClientCredentialArgsDict']]
+    client_credential: NotRequired[pulumi.Input[Optional['OpenIdConnectClientCredentialArgs']]]
     """
     The authentication credentials of the custom Open ID Connect provider.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client id of the custom Open ID Connect provider.
     """
-    open_id_connect_configuration: NotRequired[pulumi.Input['OpenIdConnectConfigArgsDict']]
+    open_id_connect_configuration: NotRequired[pulumi.Input[Optional['OpenIdConnectConfigArgs']]]
     """
     The configuration settings of the endpoints used for the custom Open ID Connect provider.
     """
@@ -8558,9 +8558,9 @@ class OpenIdConnectRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class OpenIdConnectRegistrationArgs:
     def __init__(__self__, *,
-                 client_credential: Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None):
+                 client_credential: pulumi.Input[Optional['OpenIdConnectClientCredentialArgs']] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_id_connect_configuration: pulumi.Input[Optional['OpenIdConnectConfigArgs']] = None):
         """
         The configuration settings of the app registration for the custom Open ID Connect provider.
 
@@ -8577,38 +8577,38 @@ class OpenIdConnectRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCredential")
-    def client_credential(self) -> Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']]:
+    def client_credential(self) -> pulumi.Input[Optional['OpenIdConnectClientCredentialArgs']]:
         """
         The authentication credentials of the custom Open ID Connect provider.
         """
         return pulumi.get(self, "client_credential")
 
     @client_credential.setter
-    def client_credential(self, value: Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']]):
+    def client_credential(self, value: pulumi.Input[Optional['OpenIdConnectClientCredentialArgs']]):
         pulumi.set(self, "client_credential", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id of the custom Open ID Connect provider.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="openIdConnectConfiguration")
-    def open_id_connect_configuration(self) -> Optional[pulumi.Input['OpenIdConnectConfigArgs']]:
+    def open_id_connect_configuration(self) -> pulumi.Input[Optional['OpenIdConnectConfigArgs']]:
         """
         The configuration settings of the endpoints used for the custom Open ID Connect provider.
         """
         return pulumi.get(self, "open_id_connect_configuration")
 
     @open_id_connect_configuration.setter
-    def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
+    def open_id_connect_configuration(self, value: pulumi.Input[Optional['OpenIdConnectConfigArgs']]):
         pulumi.set(self, "open_id_connect_configuration", value)
 
 
@@ -8616,23 +8616,23 @@ class OutboundVnetRoutingArgsDict(TypedDict):
     """
     Outbound traffic options over virtual network.
     """
-    all_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    all_traffic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
     """
-    application_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    application_traffic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
     """
-    backup_restore_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    backup_restore_traffic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
     """
-    content_share_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    content_share_traffic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables accessing content over virtual network. Previously called VnetContentShareEnabled
     """
-    image_pull_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    image_pull_traffic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
     """
@@ -8640,11 +8640,11 @@ class OutboundVnetRoutingArgsDict(TypedDict):
 @pulumi.input_type
 class OutboundVnetRoutingArgs:
     def __init__(__self__, *,
-                 all_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_restore_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 content_share_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_pull_traffic: Optional[pulumi.Input[_builtins.bool]] = None):
+                 all_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_restore_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 content_share_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_pull_traffic: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Outbound traffic options over virtual network.
 
@@ -8667,62 +8667,62 @@ class OutboundVnetRoutingArgs:
 
     @_builtins.property
     @pulumi.getter(name="allTraffic")
-    def all_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
         """
         return pulumi.get(self, "all_traffic")
 
     @all_traffic.setter
-    def all_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationTraffic")
-    def application_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def application_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
         """
         return pulumi.get(self, "application_traffic")
 
     @application_traffic.setter
-    def application_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def application_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "application_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRestoreTraffic")
-    def backup_restore_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_restore_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
         """
         return pulumi.get(self, "backup_restore_traffic")
 
     @backup_restore_traffic.setter
-    def backup_restore_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_restore_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_restore_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="contentShareTraffic")
-    def content_share_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_share_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables accessing content over virtual network. Previously called VnetContentShareEnabled
         """
         return pulumi.get(self, "content_share_traffic")
 
     @content_share_traffic.setter
-    def content_share_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_share_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_share_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="imagePullTraffic")
-    def image_pull_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def image_pull_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
         """
         return pulumi.get(self, "image_pull_traffic")
 
     @image_pull_traffic.setter
-    def image_pull_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def image_pull_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "image_pull_traffic", value)
 
 
@@ -8730,15 +8730,15 @@ class PrivateLinkConnectionStateArgsDict(TypedDict):
     """
     The state of a private link connection
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ActionsRequired for a private link connection
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of a private link connection
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of a private link connection
     """
@@ -8746,9 +8746,9 @@ class PrivateLinkConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The state of a private link connection
 
@@ -8765,38 +8765,38 @@ class PrivateLinkConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ActionsRequired for a private link connection
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of a private link connection
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of a private link connection
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -8808,19 +8808,19 @@ class PushSettingsArgsDict(TypedDict):
     """
     Gets or sets a flag indicating whether the Push endpoint is enabled.
     """
-    dynamic_tags_json: NotRequired[pulumi.Input[_builtins.str]]
+    dynamic_tags_json: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of resource.
     """
-    tag_whitelist_json: NotRequired[pulumi.Input[_builtins.str]]
+    tag_whitelist_json: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
     """
-    tags_requiring_auth: NotRequired[pulumi.Input[_builtins.str]]
+    tags_requiring_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
     Tags can consist of alphanumeric characters and the following:
@@ -8832,10 +8832,10 @@ class PushSettingsArgsDict(TypedDict):
 class PushSettingsArgs:
     def __init__(__self__, *,
                  is_push_enabled: pulumi.Input[_builtins.bool],
-                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Push settings for the App.
 
@@ -8872,43 +8872,43 @@ class PushSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicTagsJson")
-    def dynamic_tags_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_tags_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         """
         return pulumi.get(self, "dynamic_tags_json")
 
     @dynamic_tags_json.setter
-    def dynamic_tags_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_tags_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_tags_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="tagWhitelistJson")
-    def tag_whitelist_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_whitelist_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
     @tag_whitelist_json.setter
-    def tag_whitelist_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_whitelist_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_whitelist_json", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsRequiringAuth")
-    def tags_requiring_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tags_requiring_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
         Tags can consist of alphanumeric characters and the following:
@@ -8918,7 +8918,7 @@ class PushSettingsArgs:
         return pulumi.get(self, "tags_requiring_auth")
 
     @tags_requiring_auth.setter
-    def tags_requiring_auth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tags_requiring_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tags_requiring_auth", value)
 
 
@@ -8926,37 +8926,37 @@ class RampUpRuleArgsDict(TypedDict):
     """
     Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
     """
-    action_host_name: NotRequired[pulumi.Input[_builtins.str]]
+    action_host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
     """
-    change_decision_callback_url: NotRequired[pulumi.Input[_builtins.str]]
+    change_decision_callback_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
     """
-    change_interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    change_interval_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies interval in minutes to reevaluate ReroutePercentage.
     """
-    change_step: NotRequired[pulumi.Input[_builtins.float]]
+    change_step: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
     <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
     can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
     """
-    max_reroute_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    max_reroute_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies upper boundary below which ReroutePercentage will stay.
     """
-    min_reroute_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    min_reroute_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies lower boundary above which ReroutePercentage will stay.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
     """
-    reroute_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    reroute_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
     """
@@ -8964,14 +8964,14 @@ class RampUpRuleArgsDict(TypedDict):
 @pulumi.input_type
 class RampUpRuleArgs:
     def __init__(__self__, *,
-                 action_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 change_decision_callback_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 change_interval_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 change_step: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_reroute_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_reroute_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reroute_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 action_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 change_decision_callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 change_interval_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 change_step: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_reroute_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_reroute_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reroute_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 
@@ -9005,43 +9005,43 @@ class RampUpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionHostName")
-    def action_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
         """
         return pulumi.get(self, "action_host_name")
 
     @action_host_name.setter
-    def action_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="changeDecisionCallbackUrl")
-    def change_decision_callback_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def change_decision_callback_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         """
         return pulumi.get(self, "change_decision_callback_url")
 
     @change_decision_callback_url.setter
-    def change_decision_callback_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def change_decision_callback_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "change_decision_callback_url", value)
 
     @_builtins.property
     @pulumi.getter(name="changeIntervalInMinutes")
-    def change_interval_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_interval_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies interval in minutes to reevaluate ReroutePercentage.
         """
         return pulumi.get(self, "change_interval_in_minutes")
 
     @change_interval_in_minutes.setter
-    def change_interval_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_interval_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_interval_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="changeStep")
-    def change_step(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def change_step(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
         <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
@@ -9050,55 +9050,55 @@ class RampUpRuleArgs:
         return pulumi.get(self, "change_step")
 
     @change_step.setter
-    def change_step(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def change_step(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "change_step", value)
 
     @_builtins.property
     @pulumi.getter(name="maxReroutePercentage")
-    def max_reroute_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_reroute_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies upper boundary below which ReroutePercentage will stay.
         """
         return pulumi.get(self, "max_reroute_percentage")
 
     @max_reroute_percentage.setter
-    def max_reroute_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_reroute_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_reroute_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="minReroutePercentage")
-    def min_reroute_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_reroute_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies lower boundary above which ReroutePercentage will stay.
         """
         return pulumi.get(self, "min_reroute_percentage")
 
     @min_reroute_percentage.setter
-    def min_reroute_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_reroute_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_reroute_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reroutePercentage")
-    def reroute_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def reroute_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
         """
         return pulumi.get(self, "reroute_percentage")
 
     @reroute_percentage.setter
-    def reroute_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def reroute_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "reroute_percentage", value)
 
 
@@ -9106,11 +9106,11 @@ class RequestsBasedTriggerArgsDict(TypedDict):
     """
     Trigger based on total requests.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Request Count.
     """
-    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    time_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time interval.
     """
@@ -9118,8 +9118,8 @@ class RequestsBasedTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class RequestsBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_interval: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_interval: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Trigger based on total requests.
 
@@ -9133,26 +9133,26 @@ class RequestsBasedTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Request Count.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInterval")
-    def time_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time interval.
         """
         return pulumi.get(self, "time_interval")
 
     @time_interval.setter
-    def time_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_interval", value)
 
 
@@ -9160,11 +9160,11 @@ class ResourceConfigArgsDict(TypedDict):
     """
     Function app resource requirements.
     """
-    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Required CPU in cores, e.g. 0.5
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Required memory, e.g. "1Gi"
     """
@@ -9172,8 +9172,8 @@ class ResourceConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceConfigArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.float]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.float]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Function app resource requirements.
 
@@ -9187,26 +9187,26 @@ class ResourceConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Required CPU in cores, e.g. 0.5
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required memory, e.g. "1Gi"
         """
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
@@ -9214,297 +9214,297 @@ class SiteConfigArgsDict(TypedDict):
     """
     Configuration of an App Service app.
     """
-    acr_use_managed_identity_creds: NotRequired[pulumi.Input[_builtins.bool]]
+    acr_use_managed_identity_creds: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to use Managed Identity Creds for ACR pull
     """
-    acr_user_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    acr_user_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If using user managed identity, the user managed identity ClientId
     """
-    always_on: NotRequired[pulumi.Input[_builtins.bool]]
+    always_on: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
     """
-    api_definition: NotRequired[pulumi.Input['ApiDefinitionInfoArgsDict']]
+    api_definition: NotRequired[pulumi.Input[Optional['ApiDefinitionInfoArgs']]]
     """
     Information about the formal API definition for the app.
     """
-    api_management_config: NotRequired[pulumi.Input['ApiManagementConfigArgsDict']]
+    api_management_config: NotRequired[pulumi.Input[Optional['ApiManagementConfigArgs']]]
     """
     Azure API management settings linked to the app.
     """
-    app_command_line: NotRequired[pulumi.Input[_builtins.str]]
+    app_command_line: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     App command line to launch.
     """
-    app_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
+    app_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]]
     """
     Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
     """
-    auto_heal_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_heal_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
     """
-    auto_heal_rules: NotRequired[pulumi.Input['AutoHealRulesArgsDict']]
+    auto_heal_rules: NotRequired[pulumi.Input[Optional['AutoHealRulesArgs']]]
     """
     Auto Heal rules.
     """
-    auto_swap_slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    auto_swap_slot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Auto-swap slot name.
     """
-    azure_storage_accounts: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgsDict']]]]
+    azure_storage_accounts: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]]
     """
     List of Azure Storage Accounts.
     """
-    connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgsDict']]]]
+    connection_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnStringInfoArgs']]]]]
     """
     Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
     """
-    cors: NotRequired[pulumi.Input['CorsSettingsArgsDict']]
+    cors: NotRequired[pulumi.Input[Optional['CorsSettingsArgs']]]
     """
     Cross-Origin Resource Sharing (CORS) settings.
     """
-    default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    default_documents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Default documents.
     """
-    detailed_error_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    detailed_error_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
     """
-    document_root: NotRequired[pulumi.Input[_builtins.str]]
+    document_root: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Document root.
     """
-    elastic_web_app_scale_limit: NotRequired[pulumi.Input[_builtins.int]]
+    elastic_web_app_scale_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of workers that a site can scale out to.
     This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
     """
-    experiments: NotRequired[pulumi.Input['ExperimentsArgsDict']]
+    experiments: NotRequired[pulumi.Input[Optional['ExperimentsArgs']]]
     """
     This is work around for polymorphic types.
     """
-    ftps_state: NotRequired[pulumi.Input[Union[_builtins.str, 'FtpsState']]]
+    ftps_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FtpsState']]]]
     """
     State of FTP / FTPS service
     """
-    function_app_scale_limit: NotRequired[pulumi.Input[_builtins.int]]
+    function_app_scale_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of workers that a site can scale out to.
     This setting only applies to the Consumption and Elastic Premium Plans
     """
-    functions_runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    functions_runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
     the ScaleController will not monitor event sources directly, but will instead call to the
     runtime to get scale status.
     """
-    handler_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgsDict']]]]
+    handler_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HandlerMappingArgs']]]]]
     """
     Handler mappings.
     """
-    health_check_path: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Health check path
     """
-    http20_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    http20_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Http20Enabled: configures a web site to allow clients to connect over http2.0
     """
-    http20_proxy_flag: NotRequired[pulumi.Input[_builtins.int]]
+    http20_proxy_flag: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
     """
-    http_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    http_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
     """
-    ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgsDict']]]]
+    ip_security_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]]
     """
     IP security restrictions for main.
     """
-    ip_security_restrictions_default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]
+    ip_security_restrictions_default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]]
     """
     Default action for main access restriction if no rules are matched.
     """
-    java_container: NotRequired[pulumi.Input[_builtins.str]]
+    java_container: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Java container.
     """
-    java_container_version: NotRequired[pulumi.Input[_builtins.str]]
+    java_container_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Java container version.
     """
-    java_version: NotRequired[pulumi.Input[_builtins.str]]
+    java_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Java version.
     """
-    key_vault_reference_identity: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_reference_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identity to use for Key Vault Reference authentication.
     """
-    limits: NotRequired[pulumi.Input['SiteLimitsArgsDict']]
+    limits: NotRequired[pulumi.Input[Optional['SiteLimitsArgs']]]
     """
     Site limits.
     """
-    linux_fx_version: NotRequired[pulumi.Input[_builtins.str]]
+    linux_fx_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Linux App Framework and version
     """
-    load_balancing: NotRequired[pulumi.Input['SiteLoadBalancing']]
+    load_balancing: NotRequired[pulumi.Input[Optional['SiteLoadBalancing']]]
     """
     Site load balancing.
     """
-    local_my_sql_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    local_my_sql_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
     """
-    logs_directory_size_limit: NotRequired[pulumi.Input[_builtins.int]]
+    logs_directory_size_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     HTTP logs directory size limit.
     """
-    managed_pipeline_mode: NotRequired[pulumi.Input['ManagedPipelineMode']]
+    managed_pipeline_mode: NotRequired[pulumi.Input[Optional['ManagedPipelineMode']]]
     """
     Managed pipeline mode.
     """
-    managed_service_identity_id: NotRequired[pulumi.Input[_builtins.int]]
+    managed_service_identity_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Managed Service Identity Id
     """
-    metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
+    metadata: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]]
     """
     Application metadata. This property cannot be retrieved, since it may contain secrets.
     """
-    min_tls_cipher_suite: NotRequired[pulumi.Input[Union[_builtins.str, 'TlsCipherSuites']]]
+    min_tls_cipher_suite: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TlsCipherSuites']]]]
     """
     The minimum strength TLS cipher suite allowed for an application
     """
-    min_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]
+    min_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]]
     """
     MinTlsVersion: configures the minimum version of TLS required for SSL requests
     """
-    minimum_elastic_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_elastic_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of minimum instance count for a site
     This setting only applies to the Elastic Plans
     """
-    net_framework_version: NotRequired[pulumi.Input[_builtins.str]]
+    net_framework_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     .NET Framework version.
     """
-    node_version: NotRequired[pulumi.Input[_builtins.str]]
+    node_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of Node.js.
     """
-    number_of_workers: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of workers.
     """
-    php_version: NotRequired[pulumi.Input[_builtins.str]]
+    php_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of PHP.
     """
-    power_shell_version: NotRequired[pulumi.Input[_builtins.str]]
+    power_shell_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of PowerShell.
     """
-    pre_warmed_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    pre_warmed_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of preWarmed instances.
     This setting only applies to the Consumption and Elastic Plans
     """
-    public_network_access: NotRequired[pulumi.Input[_builtins.str]]
+    public_network_access: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Property to allow or block all public traffic.
     """
-    publishing_username: NotRequired[pulumi.Input[_builtins.str]]
+    publishing_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Publishing user name.
     """
-    push: NotRequired[pulumi.Input['PushSettingsArgsDict']]
+    push: NotRequired[pulumi.Input[Optional['PushSettingsArgs']]]
     """
     Push endpoint settings.
     """
-    python_version: NotRequired[pulumi.Input[_builtins.str]]
+    python_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of Python.
     """
-    remote_debugging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    remote_debugging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
     """
-    remote_debugging_version: NotRequired[pulumi.Input[_builtins.str]]
+    remote_debugging_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Remote debugging version.
     """
-    request_tracing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    request_tracing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
     """
-    request_tracing_expiration_time: NotRequired[pulumi.Input[_builtins.str]]
+    request_tracing_expiration_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Request tracing expiration time.
     """
-    scm_ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgsDict']]]]
+    scm_ip_security_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]]
     """
     IP security restrictions for scm.
     """
-    scm_ip_security_restrictions_default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]
+    scm_ip_security_restrictions_default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]]
     """
     Default action for scm access restriction if no rules are matched.
     """
-    scm_ip_security_restrictions_use_main: NotRequired[pulumi.Input[_builtins.bool]]
+    scm_ip_security_restrictions_use_main: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     IP security restrictions for scm to use main.
     """
-    scm_min_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]
+    scm_min_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]]
     """
     ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
     """
-    scm_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ScmType']]]
+    scm_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScmType']]]]
     """
     SCM type.
     """
-    tracing_options: NotRequired[pulumi.Input[_builtins.str]]
+    tracing_options: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tracing options.
     """
-    use32_bit_worker_process: NotRequired[pulumi.Input[_builtins.bool]]
+    use32_bit_worker_process: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
     """
-    virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgsDict']]]]
+    virtual_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualApplicationArgs']]]]]
     """
     Virtual applications.
     """
-    vnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    vnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual Network name.
     """
-    vnet_private_ports_count: NotRequired[pulumi.Input[_builtins.int]]
+    vnet_private_ports_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of private ports assigned to this app. These will be assigned dynamically on runtime.
     """
-    vnet_route_all_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    vnet_route_all_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
     """
-    web_sockets_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    web_sockets_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
     """
-    website_time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    website_time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
     """
-    windows_fx_version: NotRequired[pulumi.Input[_builtins.str]]
+    windows_fx_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Xenon App Framework and version
     """
-    x_managed_service_identity_id: NotRequired[pulumi.Input[_builtins.int]]
+    x_managed_service_identity_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Explicit Managed Service Identity Id
     """
@@ -9512,78 +9512,78 @@ class SiteConfigArgsDict(TypedDict):
 @pulumi.input_type
 class SiteConfigArgs:
     def __init__(__self__, *,
-                 acr_use_managed_identity_creds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acr_user_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 always_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 api_definition: Optional[pulumi.Input['ApiDefinitionInfoArgs']] = None,
-                 api_management_config: Optional[pulumi.Input['ApiManagementConfigArgs']] = None,
-                 app_command_line: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
-                 auto_heal_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_heal_rules: Optional[pulumi.Input['AutoHealRulesArgs']] = None,
-                 auto_swap_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_storage_accounts: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]] = None,
-                 cors: Optional[pulumi.Input['CorsSettingsArgs']] = None,
-                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 detailed_error_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 document_root: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_web_app_scale_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 experiments: Optional[pulumi.Input['ExperimentsArgs']] = None,
-                 ftps_state: Optional[pulumi.Input[Union[_builtins.str, 'FtpsState']]] = None,
-                 function_app_scale_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 functions_runtime_scale_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 http20_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http20_proxy_flag: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
-                 ip_security_restrictions_default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
-                 java_container: Optional[pulumi.Input[_builtins.str]] = None,
-                 java_container_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 java_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_reference_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 limits: Optional[pulumi.Input['SiteLimitsArgs']] = None,
-                 linux_fx_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing: Optional[pulumi.Input['SiteLoadBalancing']] = None,
-                 local_my_sql_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logs_directory_size_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
-                 managed_service_identity_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
-                 min_tls_cipher_suite: Optional[pulumi.Input[Union[_builtins.str, 'TlsCipherSuites']]] = None,
-                 min_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]] = None,
-                 minimum_elastic_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_framework_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 php_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_shell_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_warmed_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 publishing_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 push: Optional[pulumi.Input['PushSettingsArgs']] = None,
-                 python_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote_debugging_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request_tracing_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
-                 scm_ip_security_restrictions_default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
-                 scm_ip_security_restrictions_use_main: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scm_min_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]] = None,
-                 scm_type: Optional[pulumi.Input[Union[_builtins.str, 'ScmType']]] = None,
-                 tracing_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 use32_bit_worker_process: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
-                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_private_ports_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vnet_route_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_sockets_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 website_time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_fx_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_managed_service_identity_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 acr_use_managed_identity_creds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acr_user_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 always_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 api_definition: pulumi.Input[Optional['ApiDefinitionInfoArgs']] = None,
+                 api_management_config: pulumi.Input[Optional['ApiManagementConfigArgs']] = None,
+                 app_command_line: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 auto_heal_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_heal_rules: pulumi.Input[Optional['AutoHealRulesArgs']] = None,
+                 auto_swap_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_storage_accounts: pulumi.Input[Optional[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['ConnStringInfoArgs']]]] = None,
+                 cors: pulumi.Input[Optional['CorsSettingsArgs']] = None,
+                 default_documents: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 detailed_error_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 document_root: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_web_app_scale_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 experiments: pulumi.Input[Optional['ExperimentsArgs']] = None,
+                 ftps_state: pulumi.Input[Optional[Union[_builtins.str, 'FtpsState']]] = None,
+                 function_app_scale_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 functions_runtime_scale_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handler_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 http20_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http20_proxy_flag: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_security_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+                 ip_security_restrictions_default_action: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]] = None,
+                 java_container: pulumi.Input[Optional[_builtins.str]] = None,
+                 java_container_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 java_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_reference_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 limits: pulumi.Input[Optional['SiteLimitsArgs']] = None,
+                 linux_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing: pulumi.Input[Optional['SiteLoadBalancing']] = None,
+                 local_my_sql_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logs_directory_size_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_pipeline_mode: pulumi.Input[Optional['ManagedPipelineMode']] = None,
+                 managed_service_identity_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 metadata: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 min_tls_cipher_suite: pulumi.Input[Optional[Union[_builtins.str, 'TlsCipherSuites']]] = None,
+                 min_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]] = None,
+                 minimum_elastic_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_framework_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 php_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_shell_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 publishing_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 push: pulumi.Input[Optional['PushSettingsArgs']] = None,
+                 python_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote_debugging_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request_tracing_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_ip_security_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+                 scm_ip_security_restrictions_default_action: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]] = None,
+                 scm_ip_security_restrictions_use_main: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scm_min_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]] = None,
+                 scm_type: pulumi.Input[Optional[Union[_builtins.str, 'ScmType']]] = None,
+                 tracing_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 use32_bit_worker_process: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_applications: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
+                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_private_ports_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vnet_route_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_sockets_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 website_time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_managed_service_identity_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration of an App Service app.
 
@@ -9821,199 +9821,199 @@ class SiteConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="acrUseManagedIdentityCreds")
-    def acr_use_managed_identity_creds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def acr_use_managed_identity_creds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to use Managed Identity Creds for ACR pull
         """
         return pulumi.get(self, "acr_use_managed_identity_creds")
 
     @acr_use_managed_identity_creds.setter
-    def acr_use_managed_identity_creds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def acr_use_managed_identity_creds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "acr_use_managed_identity_creds", value)
 
     @_builtins.property
     @pulumi.getter(name="acrUserManagedIdentityID")
-    def acr_user_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acr_user_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If using user managed identity, the user managed identity ClientId
         """
         return pulumi.get(self, "acr_user_managed_identity_id")
 
     @acr_user_managed_identity_id.setter
-    def acr_user_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acr_user_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acr_user_managed_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysOn")
-    def always_on(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_on(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "always_on")
 
     @always_on.setter
-    def always_on(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_on(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_on", value)
 
     @_builtins.property
     @pulumi.getter(name="apiDefinition")
-    def api_definition(self) -> Optional[pulumi.Input['ApiDefinitionInfoArgs']]:
+    def api_definition(self) -> pulumi.Input[Optional['ApiDefinitionInfoArgs']]:
         """
         Information about the formal API definition for the app.
         """
         return pulumi.get(self, "api_definition")
 
     @api_definition.setter
-    def api_definition(self, value: Optional[pulumi.Input['ApiDefinitionInfoArgs']]):
+    def api_definition(self, value: pulumi.Input[Optional['ApiDefinitionInfoArgs']]):
         pulumi.set(self, "api_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="apiManagementConfig")
-    def api_management_config(self) -> Optional[pulumi.Input['ApiManagementConfigArgs']]:
+    def api_management_config(self) -> pulumi.Input[Optional['ApiManagementConfigArgs']]:
         """
         Azure API management settings linked to the app.
         """
         return pulumi.get(self, "api_management_config")
 
     @api_management_config.setter
-    def api_management_config(self, value: Optional[pulumi.Input['ApiManagementConfigArgs']]):
+    def api_management_config(self, value: pulumi.Input[Optional['ApiManagementConfigArgs']]):
         pulumi.set(self, "api_management_config", value)
 
     @_builtins.property
     @pulumi.getter(name="appCommandLine")
-    def app_command_line(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_command_line(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App command line to launch.
         """
         return pulumi.get(self, "app_command_line")
 
     @app_command_line.setter
-    def app_command_line(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_command_line(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_command_line", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
         Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="autoHealEnabled")
-    def auto_heal_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_heal_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "auto_heal_enabled")
 
     @auto_heal_enabled.setter
-    def auto_heal_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_heal_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_heal_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoHealRules")
-    def auto_heal_rules(self) -> Optional[pulumi.Input['AutoHealRulesArgs']]:
+    def auto_heal_rules(self) -> pulumi.Input[Optional['AutoHealRulesArgs']]:
         """
         Auto Heal rules.
         """
         return pulumi.get(self, "auto_heal_rules")
 
     @auto_heal_rules.setter
-    def auto_heal_rules(self, value: Optional[pulumi.Input['AutoHealRulesArgs']]):
+    def auto_heal_rules(self, value: pulumi.Input[Optional['AutoHealRulesArgs']]):
         pulumi.set(self, "auto_heal_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSwapSlotName")
-    def auto_swap_slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_swap_slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auto-swap slot name.
         """
         return pulumi.get(self, "auto_swap_slot_name")
 
     @auto_swap_slot_name.setter
-    def auto_swap_slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_swap_slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_swap_slot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStorageAccounts")
-    def azure_storage_accounts(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]:
+    def azure_storage_accounts(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]:
         """
         List of Azure Storage Accounts.
         """
         return pulumi.get(self, "azure_storage_accounts")
 
     @azure_storage_accounts.setter
-    def azure_storage_accounts(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]):
+    def azure_storage_accounts(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]):
         pulumi.set(self, "azure_storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnStringInfoArgs']]]]:
         """
         Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnStringInfoArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['CorsSettingsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['CorsSettingsArgs']]:
         """
         Cross-Origin Resource Sharing (CORS) settings.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['CorsSettingsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['CorsSettingsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_documents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Default documents.
         """
         return pulumi.get(self, "default_documents")
 
     @default_documents.setter
-    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_documents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_documents", value)
 
     @_builtins.property
     @pulumi.getter(name="detailedErrorLoggingEnabled")
-    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detailed_error_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
     @detailed_error_logging_enabled.setter
-    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detailed_error_logging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detailed_error_logging_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="documentRoot")
-    def document_root(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_root(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Document root.
         """
         return pulumi.get(self, "document_root")
 
     @document_root.setter
-    def document_root(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_root(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_root", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticWebAppScaleLimit")
-    def elastic_web_app_scale_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def elastic_web_app_scale_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of workers that a site can scale out to.
         This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
@@ -10021,36 +10021,36 @@ class SiteConfigArgs:
         return pulumi.get(self, "elastic_web_app_scale_limit")
 
     @elastic_web_app_scale_limit.setter
-    def elastic_web_app_scale_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def elastic_web_app_scale_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "elastic_web_app_scale_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def experiments(self) -> Optional[pulumi.Input['ExperimentsArgs']]:
+    def experiments(self) -> pulumi.Input[Optional['ExperimentsArgs']]:
         """
         This is work around for polymorphic types.
         """
         return pulumi.get(self, "experiments")
 
     @experiments.setter
-    def experiments(self, value: Optional[pulumi.Input['ExperimentsArgs']]):
+    def experiments(self, value: pulumi.Input[Optional['ExperimentsArgs']]):
         pulumi.set(self, "experiments", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpsState")
-    def ftps_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FtpsState']]]:
+    def ftps_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FtpsState']]]:
         """
         State of FTP / FTPS service
         """
         return pulumi.get(self, "ftps_state")
 
     @ftps_state.setter
-    def ftps_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FtpsState']]]):
+    def ftps_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FtpsState']]]):
         pulumi.set(self, "ftps_state", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppScaleLimit")
-    def function_app_scale_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def function_app_scale_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of workers that a site can scale out to.
         This setting only applies to the Consumption and Elastic Premium Plans
@@ -10058,12 +10058,12 @@ class SiteConfigArgs:
         return pulumi.get(self, "function_app_scale_limit")
 
     @function_app_scale_limit.setter
-    def function_app_scale_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def function_app_scale_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "function_app_scale_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="functionsRuntimeScaleMonitoringEnabled")
-    def functions_runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def functions_runtime_scale_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
         the ScaleController will not monitor event sources directly, but will instead call to the
@@ -10072,264 +10072,264 @@ class SiteConfigArgs:
         return pulumi.get(self, "functions_runtime_scale_monitoring_enabled")
 
     @functions_runtime_scale_monitoring_enabled.setter
-    def functions_runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def functions_runtime_scale_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "functions_runtime_scale_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="handlerMappings")
-    def handler_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]]:
+    def handler_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HandlerMappingArgs']]]]:
         """
         Handler mappings.
         """
         return pulumi.get(self, "handler_mappings")
 
     @handler_mappings.setter
-    def handler_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]]):
+    def handler_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HandlerMappingArgs']]]]):
         pulumi.set(self, "handler_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Health check path
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="http20Enabled")
-    def http20_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http20_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Http20Enabled: configures a web site to allow clients to connect over http2.0
         """
         return pulumi.get(self, "http20_enabled")
 
     @http20_enabled.setter
-    def http20_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http20_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http20_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="http20ProxyFlag")
-    def http20_proxy_flag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http20_proxy_flag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
         """
         return pulumi.get(self, "http20_proxy_flag")
 
     @http20_proxy_flag.setter
-    def http20_proxy_flag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http20_proxy_flag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http20_proxy_flag", value)
 
     @_builtins.property
     @pulumi.getter(name="httpLoggingEnabled")
-    def http_logging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "http_logging_enabled")
 
     @http_logging_enabled.setter
-    def http_logging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_logging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_logging_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSecurityRestrictions")
-    def ip_security_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]:
+    def ip_security_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]:
         """
         IP security restrictions for main.
         """
         return pulumi.get(self, "ip_security_restrictions")
 
     @ip_security_restrictions.setter
-    def ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
+    def ip_security_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "ip_security_restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSecurityRestrictionsDefaultAction")
-    def ip_security_restrictions_default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]:
+    def ip_security_restrictions_default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]:
         """
         Default action for main access restriction if no rules are matched.
         """
         return pulumi.get(self, "ip_security_restrictions_default_action")
 
     @ip_security_restrictions_default_action.setter
-    def ip_security_restrictions_default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]):
+    def ip_security_restrictions_default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]):
         pulumi.set(self, "ip_security_restrictions_default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="javaContainer")
-    def java_container(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def java_container(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java container.
         """
         return pulumi.get(self, "java_container")
 
     @java_container.setter
-    def java_container(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def java_container(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "java_container", value)
 
     @_builtins.property
     @pulumi.getter(name="javaContainerVersion")
-    def java_container_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def java_container_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java container version.
         """
         return pulumi.get(self, "java_container_version")
 
     @java_container_version.setter
-    def java_container_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def java_container_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "java_container_version", value)
 
     @_builtins.property
     @pulumi.getter(name="javaVersion")
-    def java_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def java_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java version.
         """
         return pulumi.get(self, "java_version")
 
     @java_version.setter
-    def java_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def java_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "java_version", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentity")
-    def key_vault_reference_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity to use for Key Vault Reference authentication.
         """
         return pulumi.get(self, "key_vault_reference_identity")
 
     @key_vault_reference_identity.setter
-    def key_vault_reference_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> Optional[pulumi.Input['SiteLimitsArgs']]:
+    def limits(self) -> pulumi.Input[Optional['SiteLimitsArgs']]:
         """
         Site limits.
         """
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: Optional[pulumi.Input['SiteLimitsArgs']]):
+    def limits(self, value: pulumi.Input[Optional['SiteLimitsArgs']]):
         pulumi.set(self, "limits", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxFxVersion")
-    def linux_fx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linux_fx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Linux App Framework and version
         """
         return pulumi.get(self, "linux_fx_version")
 
     @linux_fx_version.setter
-    def linux_fx_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linux_fx_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linux_fx_version", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input['SiteLoadBalancing']]:
+    def load_balancing(self) -> pulumi.Input[Optional['SiteLoadBalancing']]:
         """
         Site load balancing.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input['SiteLoadBalancing']]):
+    def load_balancing(self, value: pulumi.Input[Optional['SiteLoadBalancing']]):
         pulumi.set(self, "load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="localMySqlEnabled")
-    def local_my_sql_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_my_sql_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "local_my_sql_enabled")
 
     @local_my_sql_enabled.setter
-    def local_my_sql_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_my_sql_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_my_sql_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logsDirectorySizeLimit")
-    def logs_directory_size_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logs_directory_size_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         HTTP logs directory size limit.
         """
         return pulumi.get(self, "logs_directory_size_limit")
 
     @logs_directory_size_limit.setter
-    def logs_directory_size_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logs_directory_size_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logs_directory_size_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="managedPipelineMode")
-    def managed_pipeline_mode(self) -> Optional[pulumi.Input['ManagedPipelineMode']]:
+    def managed_pipeline_mode(self) -> pulumi.Input[Optional['ManagedPipelineMode']]:
         """
         Managed pipeline mode.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
     @managed_pipeline_mode.setter
-    def managed_pipeline_mode(self, value: Optional[pulumi.Input['ManagedPipelineMode']]):
+    def managed_pipeline_mode(self, value: pulumi.Input[Optional['ManagedPipelineMode']]):
         pulumi.set(self, "managed_pipeline_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServiceIdentityId")
-    def managed_service_identity_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def managed_service_identity_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Managed Service Identity Id
         """
         return pulumi.get(self, "managed_service_identity_id")
 
     @managed_service_identity_id.setter
-    def managed_service_identity_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def managed_service_identity_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "managed_service_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
+    def metadata(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
         Application metadata. This property cannot be retrieved, since it may contain secrets.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
+    def metadata(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="minTlsCipherSuite")
-    def min_tls_cipher_suite(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TlsCipherSuites']]]:
+    def min_tls_cipher_suite(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TlsCipherSuites']]]:
         """
         The minimum strength TLS cipher suite allowed for an application
         """
         return pulumi.get(self, "min_tls_cipher_suite")
 
     @min_tls_cipher_suite.setter
-    def min_tls_cipher_suite(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TlsCipherSuites']]]):
+    def min_tls_cipher_suite(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsCipherSuites']]]):
         pulumi.set(self, "min_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]:
+    def min_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]:
         """
         MinTlsVersion: configures the minimum version of TLS required for SSL requests
         """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
-    def min_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]):
+    def min_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]):
         pulumi.set(self, "min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumElasticInstanceCount")
-    def minimum_elastic_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_elastic_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minimum instance count for a site
         This setting only applies to the Elastic Plans
@@ -10337,72 +10337,72 @@ class SiteConfigArgs:
         return pulumi.get(self, "minimum_elastic_instance_count")
 
     @minimum_elastic_instance_count.setter
-    def minimum_elastic_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_elastic_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_elastic_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="netFrameworkVersion")
-    def net_framework_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def net_framework_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         .NET Framework version.
         """
         return pulumi.get(self, "net_framework_version")
 
     @net_framework_version.setter
-    def net_framework_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def net_framework_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "net_framework_version", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeVersion")
-    def node_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of Node.js.
         """
         return pulumi.get(self, "node_version")
 
     @node_version.setter
-    def node_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_version", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of workers.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="phpVersion")
-    def php_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def php_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of PHP.
         """
         return pulumi.get(self, "php_version")
 
     @php_version.setter
-    def php_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def php_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "php_version", value)
 
     @_builtins.property
     @pulumi.getter(name="powerShellVersion")
-    def power_shell_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def power_shell_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of PowerShell.
         """
         return pulumi.get(self, "power_shell_version")
 
     @power_shell_version.setter
-    def power_shell_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def power_shell_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "power_shell_version", value)
 
     @_builtins.property
     @pulumi.getter(name="preWarmedInstanceCount")
-    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pre_warmed_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of preWarmed instances.
         This setting only applies to the Consumption and Elastic Plans
@@ -10410,304 +10410,304 @@ class SiteConfigArgs:
         return pulumi.get(self, "pre_warmed_instance_count")
 
     @pre_warmed_instance_count.setter
-    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pre_warmed_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property to allow or block all public traffic.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publishingUsername")
-    def publishing_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publishing_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publishing user name.
         """
         return pulumi.get(self, "publishing_username")
 
     @publishing_username.setter
-    def publishing_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publishing_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publishing_username", value)
 
     @_builtins.property
     @pulumi.getter
-    def push(self) -> Optional[pulumi.Input['PushSettingsArgs']]:
+    def push(self) -> pulumi.Input[Optional['PushSettingsArgs']]:
         """
         Push endpoint settings.
         """
         return pulumi.get(self, "push")
 
     @push.setter
-    def push(self, value: Optional[pulumi.Input['PushSettingsArgs']]):
+    def push(self, value: pulumi.Input[Optional['PushSettingsArgs']]):
         pulumi.set(self, "push", value)
 
     @_builtins.property
     @pulumi.getter(name="pythonVersion")
-    def python_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def python_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of Python.
         """
         return pulumi.get(self, "python_version")
 
     @python_version.setter
-    def python_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def python_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "python_version", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebuggingEnabled")
-    def remote_debugging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_debugging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
-    def remote_debugging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_debugging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_debugging_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebuggingVersion")
-    def remote_debugging_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_debugging_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Remote debugging version.
         """
         return pulumi.get(self, "remote_debugging_version")
 
     @remote_debugging_version.setter
-    def remote_debugging_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_debugging_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_debugging_version", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTracingEnabled")
-    def request_tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_tracing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "request_tracing_enabled")
 
     @request_tracing_enabled.setter
-    def request_tracing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_tracing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_tracing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTracingExpirationTime")
-    def request_tracing_expiration_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_tracing_expiration_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Request tracing expiration time.
         """
         return pulumi.get(self, "request_tracing_expiration_time")
 
     @request_tracing_expiration_time.setter
-    def request_tracing_expiration_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_tracing_expiration_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_tracing_expiration_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpSecurityRestrictions")
-    def scm_ip_security_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]:
+    def scm_ip_security_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]:
         """
         IP security restrictions for scm.
         """
         return pulumi.get(self, "scm_ip_security_restrictions")
 
     @scm_ip_security_restrictions.setter
-    def scm_ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
+    def scm_ip_security_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_security_restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpSecurityRestrictionsDefaultAction")
-    def scm_ip_security_restrictions_default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]:
+    def scm_ip_security_restrictions_default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]:
         """
         Default action for scm access restriction if no rules are matched.
         """
         return pulumi.get(self, "scm_ip_security_restrictions_default_action")
 
     @scm_ip_security_restrictions_default_action.setter
-    def scm_ip_security_restrictions_default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]):
+    def scm_ip_security_restrictions_default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]):
         pulumi.set(self, "scm_ip_security_restrictions_default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpSecurityRestrictionsUseMain")
-    def scm_ip_security_restrictions_use_main(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scm_ip_security_restrictions_use_main(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         IP security restrictions for scm to use main.
         """
         return pulumi.get(self, "scm_ip_security_restrictions_use_main")
 
     @scm_ip_security_restrictions_use_main.setter
-    def scm_ip_security_restrictions_use_main(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scm_ip_security_restrictions_use_main(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scm_ip_security_restrictions_use_main", value)
 
     @_builtins.property
     @pulumi.getter(name="scmMinTlsVersion")
-    def scm_min_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]:
+    def scm_min_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]:
         """
         ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         """
         return pulumi.get(self, "scm_min_tls_version")
 
     @scm_min_tls_version.setter
-    def scm_min_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportedTlsVersions']]]):
+    def scm_min_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SupportedTlsVersions']]]):
         pulumi.set(self, "scm_min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="scmType")
-    def scm_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScmType']]]:
+    def scm_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScmType']]]:
         """
         SCM type.
         """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
-    def scm_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScmType']]]):
+    def scm_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScmType']]]):
         pulumi.set(self, "scm_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingOptions")
-    def tracing_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracing_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tracing options.
         """
         return pulumi.get(self, "tracing_options")
 
     @tracing_options.setter
-    def tracing_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracing_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracing_options", value)
 
     @_builtins.property
     @pulumi.getter(name="use32BitWorkerProcess")
-    def use32_bit_worker_process(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use32_bit_worker_process(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "use32_bit_worker_process")
 
     @use32_bit_worker_process.setter
-    def use32_bit_worker_process(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use32_bit_worker_process(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use32_bit_worker_process", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]]:
+    def virtual_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualApplicationArgs']]]]:
         """
         Virtual applications.
         """
         return pulumi.get(self, "virtual_applications")
 
     @virtual_applications.setter
-    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]]):
+    def virtual_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualApplicationArgs']]]]):
         pulumi.set(self, "virtual_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetName")
-    def vnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual Network name.
         """
         return pulumi.get(self, "vnet_name")
 
     @vnet_name.setter
-    def vnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetPrivatePortsCount")
-    def vnet_private_ports_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vnet_private_ports_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of private ports assigned to this app. These will be assigned dynamically on runtime.
         """
         return pulumi.get(self, "vnet_private_ports_count")
 
     @vnet_private_ports_count.setter
-    def vnet_private_ports_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vnet_private_ports_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vnet_private_ports_count", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
-    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_route_all_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @vnet_route_all_enabled.setter
-    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_route_all_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_route_all_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="webSocketsEnabled")
-    def web_sockets_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def web_sockets_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "web_sockets_enabled")
 
     @web_sockets_enabled.setter
-    def web_sockets_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def web_sockets_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "web_sockets_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteTimeZone")
-    def website_time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
         """
         return pulumi.get(self, "website_time_zone")
 
     @website_time_zone.setter
-    def website_time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsFxVersion")
-    def windows_fx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def windows_fx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Xenon App Framework and version
         """
         return pulumi.get(self, "windows_fx_version")
 
     @windows_fx_version.setter
-    def windows_fx_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def windows_fx_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "windows_fx_version", value)
 
     @_builtins.property
     @pulumi.getter(name="xManagedServiceIdentityId")
-    def x_managed_service_identity_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def x_managed_service_identity_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Explicit Managed Service Identity Id
         """
         return pulumi.get(self, "x_managed_service_identity_id")
 
     @x_managed_service_identity_id.setter
-    def x_managed_service_identity_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def x_managed_service_identity_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "x_managed_service_identity_id", value)
 
 
 class SiteDnsConfigArgsDict(TypedDict):
-    dns_alt_server: NotRequired[pulumi.Input[_builtins.str]]
+    dns_alt_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
     """
-    dns_max_cache_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    dns_max_cache_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
     """
-    dns_retry_attempt_count: NotRequired[pulumi.Input[_builtins.int]]
+    dns_retry_attempt_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
     """
-    dns_retry_attempt_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    dns_retry_attempt_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
     """
-    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
     """
@@ -10715,11 +10715,11 @@ class SiteDnsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class SiteDnsConfigArgs:
     def __init__(__self__, *,
-                 dns_alt_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_max_cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_retry_attempt_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_retry_attempt_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_alt_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_max_cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_retry_attempt_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_retry_attempt_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] dns_alt_server: Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
         :param pulumi.Input[_builtins.int] dns_max_cache_timeout: Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
@@ -10740,62 +10740,62 @@ class SiteDnsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsAltServer")
-    def dns_alt_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_alt_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
         """
         return pulumi.get(self, "dns_alt_server")
 
     @dns_alt_server.setter
-    def dns_alt_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_alt_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_alt_server", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsMaxCacheTimeout")
-    def dns_max_cache_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dns_max_cache_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
         """
         return pulumi.get(self, "dns_max_cache_timeout")
 
     @dns_max_cache_timeout.setter
-    def dns_max_cache_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dns_max_cache_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dns_max_cache_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRetryAttemptCount")
-    def dns_retry_attempt_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dns_retry_attempt_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
         """
         return pulumi.get(self, "dns_retry_attempt_count")
 
     @dns_retry_attempt_count.setter
-    def dns_retry_attempt_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dns_retry_attempt_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dns_retry_attempt_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRetryAttemptTimeout")
-    def dns_retry_attempt_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dns_retry_attempt_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
         """
         return pulumi.get(self, "dns_retry_attempt_timeout")
 
     @dns_retry_attempt_timeout.setter
-    def dns_retry_attempt_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dns_retry_attempt_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dns_retry_attempt_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
 
@@ -10803,15 +10803,15 @@ class SiteLimitsArgsDict(TypedDict):
     """
     Metric limits set on an app.
     """
-    max_disk_size_in_mb: NotRequired[pulumi.Input[_builtins.float]]
+    max_disk_size_in_mb: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum allowed disk size usage in MB.
     """
-    max_memory_in_mb: NotRequired[pulumi.Input[_builtins.float]]
+    max_memory_in_mb: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum allowed memory usage in MB.
     """
-    max_percentage_cpu: NotRequired[pulumi.Input[_builtins.float]]
+    max_percentage_cpu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum allowed CPU usage percentage.
     """
@@ -10819,9 +10819,9 @@ class SiteLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_memory_in_mb: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_percentage_cpu: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_disk_size_in_mb: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_memory_in_mb: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_percentage_cpu: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Metric limits set on an app.
 
@@ -10838,38 +10838,38 @@ class SiteLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_disk_size_in_mb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum allowed disk size usage in MB.
         """
         return pulumi.get(self, "max_disk_size_in_mb")
 
     @max_disk_size_in_mb.setter
-    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_disk_size_in_mb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_disk_size_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_memory_in_mb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum allowed memory usage in MB.
         """
         return pulumi.get(self, "max_memory_in_mb")
 
     @max_memory_in_mb.setter
-    def max_memory_in_mb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_memory_in_mb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_memory_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPercentageCpu")
-    def max_percentage_cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_percentage_cpu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum allowed CPU usage percentage.
         """
         return pulumi.get(self, "max_percentage_cpu")
 
     @max_percentage_cpu.setter
-    def max_percentage_cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_percentage_cpu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_percentage_cpu", value)
 
 
@@ -10877,23 +10877,23 @@ class SkuCapacityArgsDict(TypedDict):
     """
     Description of the App Service plan scale options.
     """
-    default: NotRequired[pulumi.Input[_builtins.int]]
+    default: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Default number of workers for this App Service plan SKU.
     """
-    elastic_maximum: NotRequired[pulumi.Input[_builtins.int]]
+    elastic_maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of Elastic workers for this App Service plan SKU.
     """
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of workers for this App Service plan SKU.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum number of workers for this App Service plan SKU.
     """
-    scale_type: NotRequired[pulumi.Input[_builtins.str]]
+    scale_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Available scale configurations for an App Service plan.
     """
@@ -10901,11 +10901,11 @@ class SkuCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class SkuCapacityArgs:
     def __init__(__self__, *,
-                 default: Optional[pulumi.Input[_builtins.int]] = None,
-                 elastic_maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 default: pulumi.Input[Optional[_builtins.int]] = None,
+                 elastic_maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Description of the App Service plan scale options.
 
@@ -10928,62 +10928,62 @@ class SkuCapacityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticMaximum")
-    def elastic_maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def elastic_maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of Elastic workers for this App Service plan SKU.
         """
         return pulumi.get(self, "elastic_maximum")
 
     @elastic_maximum.setter
-    def elastic_maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def elastic_maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "elastic_maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleType")
-    def scale_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Available scale configurations for an App Service plan.
         """
         return pulumi.get(self, "scale_type")
 
     @scale_type.setter
-    def scale_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_type", value)
 
 
@@ -10991,35 +10991,35 @@ class SkuDescriptionArgsDict(TypedDict):
     """
     Description of a SKU for a scalable resource.
     """
-    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+    capabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgs']]]]]
     """
     Capabilities of the SKU, e.g., is traffic manager enabled?
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Current number of instances assigned to the resource.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Family code of the resource SKU.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Locations of the SKU.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the resource SKU.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Size specifier of the resource SKU.
     """
-    sku_capacity: NotRequired[pulumi.Input['SkuCapacityArgsDict']]
+    sku_capacity: NotRequired[pulumi.Input[Optional['SkuCapacityArgs']]]
     """
     Min, max, and default scale values of the SKU.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Service tier of the resource SKU.
     """
@@ -11027,14 +11027,14 @@ class SkuDescriptionArgsDict(TypedDict):
 @pulumi.input_type
 class SkuDescriptionArgs:
     def __init__(__self__, *,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_capacity: Optional[pulumi.Input['SkuCapacityArgs']] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_capacity: pulumi.Input[Optional['SkuCapacityArgs']] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Description of a SKU for a scalable resource.
 
@@ -11066,98 +11066,98 @@ class SkuDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgs']]]]:
         """
         Capabilities of the SKU, e.g., is traffic manager enabled?
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Current number of instances assigned to the resource.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Family code of the resource SKU.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Locations of the SKU.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size specifier of the resource SKU.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="skuCapacity")
-    def sku_capacity(self) -> Optional[pulumi.Input['SkuCapacityArgs']]:
+    def sku_capacity(self) -> pulumi.Input[Optional['SkuCapacityArgs']]:
         """
         Min, max, and default scale values of the SKU.
         """
         return pulumi.get(self, "sku_capacity")
 
     @sku_capacity.setter
-    def sku_capacity(self, value: Optional[pulumi.Input['SkuCapacityArgs']]):
+    def sku_capacity(self, value: pulumi.Input[Optional['SkuCapacityArgs']]):
         pulumi.set(self, "sku_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service tier of the resource SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -11165,19 +11165,19 @@ class SlowRequestsBasedTriggerArgsDict(TypedDict):
     """
     Trigger based on request execution time.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Request Count.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Request Path.
     """
-    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    time_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time interval.
     """
-    time_taken: NotRequired[pulumi.Input[_builtins.str]]
+    time_taken: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time taken.
     """
@@ -11185,10 +11185,10 @@ class SlowRequestsBasedTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class SlowRequestsBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_taken: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_taken: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Trigger based on request execution time.
 
@@ -11208,50 +11208,50 @@ class SlowRequestsBasedTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Request Count.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Request Path.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInterval")
-    def time_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time interval.
         """
         return pulumi.get(self, "time_interval")
 
     @time_interval.setter
-    def time_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="timeTaken")
-    def time_taken(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_taken(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time taken.
         """
         return pulumi.get(self, "time_taken")
 
     @time_taken.setter
-    def time_taken(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_taken(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_taken", value)
 
 
@@ -11259,35 +11259,35 @@ class StaticSiteBuildPropertiesArgsDict(TypedDict):
     """
     Build properties for the static site.
     """
-    api_build_command: NotRequired[pulumi.Input[_builtins.str]]
+    api_build_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A custom command to run during deployment of the Azure Functions API application.
     """
-    api_location: NotRequired[pulumi.Input[_builtins.str]]
+    api_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the api code within the repository.
     """
-    app_artifact_location: NotRequired[pulumi.Input[_builtins.str]]
+    app_artifact_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
     """
-    app_build_command: NotRequired[pulumi.Input[_builtins.str]]
+    app_build_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A custom command to run during deployment of the static content application.
     """
-    app_location: NotRequired[pulumi.Input[_builtins.str]]
+    app_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the app code within the repository.
     """
-    github_action_secret_name_override: NotRequired[pulumi.Input[_builtins.str]]
+    github_action_secret_name_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Github Action secret name override.
     """
-    output_location: NotRequired[pulumi.Input[_builtins.str]]
+    output_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The output path of the app after building.
     """
-    skip_github_action_workflow_generation: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_github_action_workflow_generation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Skip Github Action workflow generation.
     """
@@ -11295,14 +11295,14 @@ class StaticSiteBuildPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StaticSiteBuildPropertiesArgs:
     def __init__(__self__, *,
-                 api_build_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_artifact_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_build_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_action_secret_name_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_github_action_workflow_generation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 api_build_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_artifact_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_build_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_action_secret_name_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_github_action_workflow_generation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Build properties for the static site.
 
@@ -11334,98 +11334,98 @@ class StaticSiteBuildPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiBuildCommand")
-    def api_build_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_build_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom command to run during deployment of the Azure Functions API application.
         """
         return pulumi.get(self, "api_build_command")
 
     @api_build_command.setter
-    def api_build_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_build_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_build_command", value)
 
     @_builtins.property
     @pulumi.getter(name="apiLocation")
-    def api_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the api code within the repository.
         """
         return pulumi.get(self, "api_location")
 
     @api_location.setter
-    def api_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_location", value)
 
     @_builtins.property
     @pulumi.getter(name="appArtifactLocation")
-    def app_artifact_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_artifact_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
         """
         return pulumi.get(self, "app_artifact_location")
 
     @app_artifact_location.setter
-    def app_artifact_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_artifact_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_artifact_location", value)
 
     @_builtins.property
     @pulumi.getter(name="appBuildCommand")
-    def app_build_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_build_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom command to run during deployment of the static content application.
         """
         return pulumi.get(self, "app_build_command")
 
     @app_build_command.setter
-    def app_build_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_build_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_build_command", value)
 
     @_builtins.property
     @pulumi.getter(name="appLocation")
-    def app_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the app code within the repository.
         """
         return pulumi.get(self, "app_location")
 
     @app_location.setter
-    def app_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_location", value)
 
     @_builtins.property
     @pulumi.getter(name="githubActionSecretNameOverride")
-    def github_action_secret_name_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def github_action_secret_name_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Github Action secret name override.
         """
         return pulumi.get(self, "github_action_secret_name_override")
 
     @github_action_secret_name_override.setter
-    def github_action_secret_name_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def github_action_secret_name_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "github_action_secret_name_override", value)
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output path of the app after building.
         """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_location", value)
 
     @_builtins.property
     @pulumi.getter(name="skipGithubActionWorkflowGeneration")
-    def skip_github_action_workflow_generation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_github_action_workflow_generation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip Github Action workflow generation.
         """
         return pulumi.get(self, "skip_github_action_workflow_generation")
 
     @skip_github_action_workflow_generation.setter
-    def skip_github_action_workflow_generation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_github_action_workflow_generation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_github_action_workflow_generation", value)
 
 
@@ -11433,23 +11433,23 @@ class StaticSiteTemplateOptionsArgsDict(TypedDict):
     """
     Template Options for the static site.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the newly generated repository.
     """
-    is_private: NotRequired[pulumi.Input[_builtins.bool]]
+    is_private: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
     """
-    owner: NotRequired[pulumi.Input[_builtins.str]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the newly generated repository.
     """
-    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    repository_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the newly generated repository.
     """
-    template_repository_url: NotRequired[pulumi.Input[_builtins.str]]
+    template_repository_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL of the template repository. The newly generated repository will be based on this one.
     """
@@ -11457,11 +11457,11 @@ class StaticSiteTemplateOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class StaticSiteTemplateOptionsArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_private: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_repository_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_repository_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Template Options for the static site.
 
@@ -11484,62 +11484,62 @@ class StaticSiteTemplateOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the newly generated repository.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isPrivate")
-    def is_private(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
         """
         return pulumi.get(self, "is_private")
 
     @is_private.setter
-    def is_private(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_private(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_private", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the newly generated repository.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the newly generated repository.
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
     @pulumi.getter(name="templateRepositoryUrl")
-    def template_repository_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_repository_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the template repository. The newly generated repository will be based on this one.
         """
         return pulumi.get(self, "template_repository_url")
 
     @template_repository_url.setter
-    def template_repository_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_repository_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_repository_url", value)
 
 
@@ -11547,27 +11547,27 @@ class StatusCodesBasedTriggerArgsDict(TypedDict):
     """
     Trigger based on status code.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Request Count.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Request Path
     """
-    status: NotRequired[pulumi.Input[_builtins.int]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     HTTP status code.
     """
-    sub_status: NotRequired[pulumi.Input[_builtins.int]]
+    sub_status: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Request Sub Status.
     """
-    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    time_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time interval.
     """
-    win32_status: NotRequired[pulumi.Input[_builtins.int]]
+    win32_status: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Win32 error code.
     """
@@ -11575,12 +11575,12 @@ class StatusCodesBasedTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class StatusCodesBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.int]] = None,
-                 sub_status: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 win32_status: Optional[pulumi.Input[_builtins.int]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.int]] = None,
+                 sub_status: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 win32_status: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Trigger based on status code.
 
@@ -11606,74 +11606,74 @@ class StatusCodesBasedTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Request Count.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Request Path
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         HTTP status code.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subStatus")
-    def sub_status(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sub_status(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Request Sub Status.
         """
         return pulumi.get(self, "sub_status")
 
     @sub_status.setter
-    def sub_status(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sub_status(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sub_status", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInterval")
-    def time_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time interval.
         """
         return pulumi.get(self, "time_interval")
 
     @time_interval.setter
-    def time_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def win32_status(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Win32 error code.
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def win32_status(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "win32_status", value)
 
 
@@ -11681,16 +11681,16 @@ class StatusCodesRangeBasedTriggerArgsDict(TypedDict):
     """
     Trigger based on range of status codes.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Request Count.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
-    status_codes: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status_codes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     HTTP status code.
     """
-    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    time_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time interval.
     """
@@ -11698,10 +11698,10 @@ class StatusCodesRangeBasedTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class StatusCodesRangeBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_codes: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_interval: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_codes: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_interval: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Trigger based on range of status codes.
 
@@ -11720,47 +11720,47 @@ class StatusCodesRangeBasedTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Request Count.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_codes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP status code.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_codes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInterval")
-    def time_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time interval.
         """
         return pulumi.get(self, "time_interval")
 
     @time_interval.setter
-    def time_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_interval", value)
 
 
@@ -11768,20 +11768,20 @@ class TokenStoreArgsDict(TypedDict):
     """
     The configuration settings of the token store.
     """
-    azure_blob_storage: NotRequired[pulumi.Input['BlobStorageTokenStoreArgsDict']]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['BlobStorageTokenStoreArgs']]]
     """
     The configuration settings of the storage of the tokens if blob storage is used.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
      The default is <code>false</code>.
     """
-    file_system: NotRequired[pulumi.Input['FileSystemTokenStoreArgsDict']]
+    file_system: NotRequired[pulumi.Input[Optional['FileSystemTokenStoreArgs']]]
     """
     The configuration settings of the storage of the tokens if a file system is used.
     """
-    token_refresh_extension_hours: NotRequired[pulumi.Input[_builtins.float]]
+    token_refresh_extension_hours: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of hours after session token expiration that a session token can be used to
     call the token refresh API. The default is 72 hours.
@@ -11790,10 +11790,10 @@ class TokenStoreArgsDict(TypedDict):
 @pulumi.input_type
 class TokenStoreArgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['BlobStorageTokenStoreArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input['FileSystemTokenStoreArgs']] = None,
-                 token_refresh_extension_hours: Optional[pulumi.Input[_builtins.float]] = None):
+                 azure_blob_storage: pulumi.Input[Optional['BlobStorageTokenStoreArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional['FileSystemTokenStoreArgs']] = None,
+                 token_refresh_extension_hours: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The configuration settings of the token store.
 
@@ -11815,19 +11815,19 @@ class TokenStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['BlobStorageTokenStoreArgs']]:
+    def azure_blob_storage(self) -> pulumi.Input[Optional['BlobStorageTokenStoreArgs']]:
         """
         The configuration settings of the storage of the tokens if blob storage is used.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['BlobStorageTokenStoreArgs']]):
+    def azure_blob_storage(self, value: pulumi.Input[Optional['BlobStorageTokenStoreArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
          The default is <code>false</code>.
@@ -11835,24 +11835,24 @@ class TokenStoreArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['FileSystemTokenStoreArgs']]:
+    def file_system(self) -> pulumi.Input[Optional['FileSystemTokenStoreArgs']]:
         """
         The configuration settings of the storage of the tokens if a file system is used.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['FileSystemTokenStoreArgs']]):
+    def file_system(self, value: pulumi.Input[Optional['FileSystemTokenStoreArgs']]):
         pulumi.set(self, "file_system", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenRefreshExtensionHours")
-    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def token_refresh_extension_hours(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of hours after session token expiration that a session token can be used to
         call the token refresh API. The default is 72 hours.
@@ -11860,7 +11860,7 @@ class TokenStoreArgs:
         return pulumi.get(self, "token_refresh_extension_hours")
 
     @token_refresh_extension_hours.setter
-    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def token_refresh_extension_hours(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "token_refresh_extension_hours", value)
 
 
@@ -11868,13 +11868,13 @@ class TwitterRegistrationArgsDict(TypedDict):
     """
     The configuration settings of the app registration for the Twitter provider.
     """
-    consumer_key: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OAuth 1.0a consumer key of the Twitter application used for sign-in.
     This setting is required for enabling Twitter Sign-In.
     Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
     """
-    consumer_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_secret_setting_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
     application used for sign-in.
@@ -11883,8 +11883,8 @@ class TwitterRegistrationArgsDict(TypedDict):
 @pulumi.input_type
 class TwitterRegistrationArgs:
     def __init__(__self__, *,
-                 consumer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 consumer_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 consumer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumer_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings of the app registration for the Twitter provider.
 
@@ -11901,7 +11901,7 @@ class TwitterRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerKey")
-    def consumer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         This setting is required for enabling Twitter Sign-In.
@@ -11910,12 +11910,12 @@ class TwitterRegistrationArgs:
         return pulumi.get(self, "consumer_key")
 
     @consumer_key.setter
-    def consumer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="consumerSecretSettingName")
-    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
         application used for sign-in.
@@ -11923,7 +11923,7 @@ class TwitterRegistrationArgs:
         return pulumi.get(self, "consumer_secret_setting_name")
 
     @consumer_secret_setting_name.setter
-    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
 
@@ -11931,11 +11931,11 @@ class TwitterArgsDict(TypedDict):
     """
     The configuration settings of the Twitter provider.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
     """
-    registration: NotRequired[pulumi.Input['TwitterRegistrationArgsDict']]
+    registration: NotRequired[pulumi.Input[Optional['TwitterRegistrationArgs']]]
     """
     The configuration settings of the app registration for the Twitter provider.
     """
@@ -11943,8 +11943,8 @@ class TwitterArgsDict(TypedDict):
 @pulumi.input_type
 class TwitterArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registration: Optional[pulumi.Input['TwitterRegistrationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registration: pulumi.Input[Optional['TwitterRegistrationArgs']] = None):
         """
         The configuration settings of the Twitter provider.
 
@@ -11958,26 +11958,26 @@ class TwitterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['TwitterRegistrationArgs']]:
+    def registration(self) -> pulumi.Input[Optional['TwitterRegistrationArgs']]:
         """
         The configuration settings of the app registration for the Twitter provider.
         """
         return pulumi.get(self, "registration")
 
     @registration.setter
-    def registration(self, value: Optional[pulumi.Input['TwitterRegistrationArgs']]):
+    def registration(self, value: pulumi.Input[Optional['TwitterRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
 
@@ -11985,19 +11985,19 @@ class VirtualApplicationArgsDict(TypedDict):
     """
     Virtual application in an app.
     """
-    physical_path: NotRequired[pulumi.Input[_builtins.str]]
+    physical_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Physical path.
     """
-    preload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    preload_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
     """
-    virtual_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgsDict']]]]
+    virtual_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]]
     """
     Virtual directories for virtual application.
     """
-    virtual_path: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual path.
     """
@@ -12005,10 +12005,10 @@ class VirtualApplicationArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualApplicationArgs:
     def __init__(__self__, *,
-                 physical_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 preload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]] = None,
-                 virtual_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 physical_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 preload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_directories: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDirectoryArgs']]]] = None,
+                 virtual_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Virtual application in an app.
 
@@ -12028,50 +12028,50 @@ class VirtualApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="physicalPath")
-    def physical_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def physical_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical path.
         """
         return pulumi.get(self, "physical_path")
 
     @physical_path.setter
-    def physical_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def physical_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "physical_path", value)
 
     @_builtins.property
     @pulumi.getter(name="preloadEnabled")
-    def preload_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preload_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "preload_enabled")
 
     @preload_enabled.setter
-    def preload_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preload_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preload_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]:
+    def virtual_directories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]:
         """
         Virtual directories for virtual application.
         """
         return pulumi.get(self, "virtual_directories")
 
     @virtual_directories.setter
-    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]):
+    def virtual_directories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]):
         pulumi.set(self, "virtual_directories", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualPath")
-    def virtual_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual path.
         """
         return pulumi.get(self, "virtual_path")
 
     @virtual_path.setter
-    def virtual_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_path", value)
 
 
@@ -12079,11 +12079,11 @@ class VirtualDirectoryArgsDict(TypedDict):
     """
     Directory for virtual application.
     """
-    physical_path: NotRequired[pulumi.Input[_builtins.str]]
+    physical_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Physical path.
     """
-    virtual_path: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path to virtual application.
     """
@@ -12091,8 +12091,8 @@ class VirtualDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualDirectoryArgs:
     def __init__(__self__, *,
-                 physical_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 physical_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Directory for virtual application.
 
@@ -12106,26 +12106,26 @@ class VirtualDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="physicalPath")
-    def physical_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def physical_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical path.
         """
         return pulumi.get(self, "physical_path")
 
     @physical_path.setter
-    def physical_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def physical_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "physical_path", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualPath")
-    def virtual_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to virtual application.
         """
         return pulumi.get(self, "virtual_path")
 
     @virtual_path.setter
-    def virtual_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_path", value)
 
 
@@ -12137,7 +12137,7 @@ class VirtualNetworkProfileArgsDict(TypedDict):
     """
     Resource id of the Virtual Network.
     """
-    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    subnet: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subnet within the Virtual Network.
     """
@@ -12146,7 +12146,7 @@ class VirtualNetworkProfileArgsDict(TypedDict):
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 subnet: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specification for using a Virtual Network.
 
@@ -12171,14 +12171,14 @@ class VirtualNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet within the Virtual Network.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet", value)
 
 
@@ -12191,11 +12191,11 @@ class VolumeMountArgsDict(TypedDict):
     """
     Sub path in the volume where volume is mounted from.
     """
-    data: NotRequired[pulumi.Input[_builtins.str]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Config Data to be mounted on the volume
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean to specify if the mount is read only on the container
     """
@@ -12205,8 +12205,8 @@ class VolumeMountArgs:
     def __init__(__self__, *,
                  container_mount_path: pulumi.Input[_builtins.str],
                  volume_sub_path: pulumi.Input[_builtins.str],
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] container_mount_path: Target path on the container where volume is mounted on
         :param pulumi.Input[_builtins.str] volume_sub_path: Sub path in the volume where volume is mounted from.
@@ -12246,26 +12246,26 @@ class VolumeMountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Config Data to be mounted on the volume
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to specify if the mount is read only on the container
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
 
@@ -12273,19 +12273,19 @@ class WsdlDefinitionArgsDict(TypedDict):
     """
     The WSDL definition
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The WSDL content
     """
-    import_method: NotRequired[pulumi.Input[Union[_builtins.str, 'WsdlImportMethod']]]
+    import_method: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'WsdlImportMethod']]]]
     """
     The WSDL import method
     """
-    service: NotRequired[pulumi.Input['WsdlServiceArgsDict']]
+    service: NotRequired[pulumi.Input[Optional['WsdlServiceArgs']]]
     """
     The service with name and endpoint names
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The WSDL URL
     """
@@ -12293,10 +12293,10 @@ class WsdlDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class WsdlDefinitionArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_method: Optional[pulumi.Input[Union[_builtins.str, 'WsdlImportMethod']]] = None,
-                 service: Optional[pulumi.Input['WsdlServiceArgs']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_method: pulumi.Input[Optional[Union[_builtins.str, 'WsdlImportMethod']]] = None,
+                 service: pulumi.Input[Optional['WsdlServiceArgs']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The WSDL definition
 
@@ -12316,50 +12316,50 @@ class WsdlDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The WSDL content
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="importMethod")
-    def import_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WsdlImportMethod']]]:
+    def import_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WsdlImportMethod']]]:
         """
         The WSDL import method
         """
         return pulumi.get(self, "import_method")
 
     @import_method.setter
-    def import_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WsdlImportMethod']]]):
+    def import_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WsdlImportMethod']]]):
         pulumi.set(self, "import_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input['WsdlServiceArgs']]:
+    def service(self) -> pulumi.Input[Optional['WsdlServiceArgs']]:
         """
         The service with name and endpoint names
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input['WsdlServiceArgs']]):
+    def service(self, value: pulumi.Input[Optional['WsdlServiceArgs']]):
         pulumi.set(self, "service", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The WSDL URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -12424,7 +12424,7 @@ class WsdlServiceArgsDict(TypedDict):
     """
     The service's qualified name
     """
-    endpoint_qualified_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    endpoint_qualified_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the endpoints' qualified names
     """
@@ -12433,7 +12433,7 @@ class WsdlServiceArgsDict(TypedDict):
 class WsdlServiceArgs:
     def __init__(__self__, *,
                  qualified_name: pulumi.Input[_builtins.str],
-                 endpoint_qualified_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 endpoint_qualified_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The service with name and endpoint names
 
@@ -12458,14 +12458,14 @@ class WsdlServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointQualifiedNames")
-    def endpoint_qualified_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def endpoint_qualified_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the endpoints' qualified names
         """
         return pulumi.get(self, "endpoint_qualified_names")
 
     @endpoint_qualified_names.setter
-    def endpoint_qualified_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def endpoint_qualified_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "endpoint_qualified_names", value)
 
 

@@ -244,9 +244,9 @@ def get_policy_set_definition_at_management_group(expand: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_policy_set_definition_at_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                         management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         policy_set_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_set_definition_at_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         policy_set_definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition in the given management group with the given name.

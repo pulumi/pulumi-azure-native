@@ -85,9 +85,9 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[_builtins
     return AwaitableListIpamPoolAssociatedResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_ipam_pool_associated_resources_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIpamPoolAssociatedResourcesResult]:
     """
     List of PoolAssociation

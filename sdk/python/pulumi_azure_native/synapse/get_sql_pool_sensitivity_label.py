@@ -252,13 +252,13 @@ def get_sql_pool_sensitivity_label(column_name: Optional[_builtins.str] = None,
         schema_name=pulumi.get(__ret__, 'schema_name'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None,
-                                          sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_pool_sensitivity_label_output(column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          sensitivity_label_source: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
     """
     Gets the sensitivity label of a given column

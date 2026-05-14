@@ -155,10 +155,10 @@ def list_event_hub_keys(authorization_rule_name: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_event_hub_keys_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEventHubKeysResult]:
     """
     Gets the ACS and SAS connection strings for the Event Hub.

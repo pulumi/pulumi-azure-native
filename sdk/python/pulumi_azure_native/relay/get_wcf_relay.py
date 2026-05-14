@@ -244,9 +244,9 @@ def get_wcf_relay(namespace_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
-def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wcf_relay_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         relay_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayResult]:
     """
     Returns the description for the specified WCF relay.

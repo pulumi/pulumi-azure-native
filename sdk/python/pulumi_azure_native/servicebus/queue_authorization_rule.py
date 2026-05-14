@@ -25,7 +25,7 @@ class QueueAuthorizationRuleArgs:
                  queue_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
 
@@ -92,14 +92,14 @@ class QueueAuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization rule name.
         """
         return pulumi.get(self, "authorization_rule_name")
 
     @authorization_rule_name.setter
-    def authorization_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_rule_name", value)
 
 
@@ -109,11 +109,11 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
         """
         Description of a namespace authorization rule.
@@ -160,11 +160,11 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

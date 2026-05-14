@@ -25,9 +25,9 @@ class SolutionVersionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  solution_name: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 properties: Optional[pulumi.Input['SolutionVersionPropertiesArgs']] = None,
-                 solution_version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 properties: pulumi.Input[Optional['SolutionVersionPropertiesArgs']] = None,
+                 solution_version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SolutionVersion resource.
 
@@ -86,38 +86,38 @@ class SolutionVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SolutionVersionPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SolutionVersionPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SolutionVersionPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SolutionVersionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionVersionName")
-    def solution_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the solution version
         """
         return pulumi.get(self, "solution_version_name")
 
     @solution_version_name.setter
-    def solution_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_version_name", value)
 
 
@@ -127,12 +127,12 @@ class SolutionVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['SolutionVersionPropertiesArgs', 'SolutionVersionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['SolutionVersionPropertiesArgs', 'SolutionVersionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Solution Version Resource. It has the resolved configuration along with edge specification.
@@ -180,12 +180,12 @@ class SolutionVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['SolutionVersionPropertiesArgs', 'SolutionVersionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['SolutionVersionPropertiesArgs', 'SolutionVersionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

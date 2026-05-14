@@ -182,8 +182,8 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
         provisioning_details=pulumi.get(__ret__, 'provisioning_details'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult]:
     """
     Full view of the custom domain suffix configuration for ASEv3.
