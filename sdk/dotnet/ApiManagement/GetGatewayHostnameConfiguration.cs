@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hcId", required: true)]
-        public string HcId { get; set; } = null!;
+        [Input("hcId")]
+        public string? HcId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hcId", required: true)]
-        public Input<string> HcId { get; set; } = null!;
+        [Input("hcId")]
+        public Input<string>? HcId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

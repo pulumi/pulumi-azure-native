@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Deployment resource.
         /// </summary>
-        [Input("deploymentName", required: true)]
-        public string DeploymentName { get; set; } = null!;
+        [Input("deploymentName")]
+        public string? DeploymentName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Deployment resource.
         /// </summary>
-        [Input("deploymentName", required: true)]
-        public Input<string> DeploymentName { get; set; } = null!;
+        [Input("deploymentName")]
+        public Input<string>? DeploymentName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

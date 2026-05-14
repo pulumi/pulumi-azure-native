@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigurationReference
         /// </summary>
-        [Input("configurationReferenceName", required: true)]
-        public string ConfigurationReferenceName { get; set; } = null!;
+        [Input("configurationReferenceName")]
+        public string? ConfigurationReferenceName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigurationReference
         /// </summary>
-        [Input("configurationReferenceName", required: true)]
-        public Input<string> ConfigurationReferenceName { get; set; } = null!;
+        [Input("configurationReferenceName")]
+        public Input<string>? ConfigurationReferenceName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The factory name.
         /// </summary>
-        [Input("factoryName", required: true)]
-        public string FactoryName { get; set; } = null!;
+        [Input("factoryName")]
+        public string? FactoryName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The factory name.
         /// </summary>
-        [Input("factoryName", required: true)]
-        public Input<string> FactoryName { get; set; } = null!;
+        [Input("factoryName")]
+        public Input<string>? FactoryName { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// VMware collector ARM name
         /// </summary>
-        [Input("vmWareCollectorName", required: true)]
-        public string VmWareCollectorName { get; set; } = null!;
+        [Input("vmWareCollectorName")]
+        public string? VmWareCollectorName { get; set; }
 
         public GetVmwareCollectorsOperationArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// VMware collector ARM name
         /// </summary>
-        [Input("vmWareCollectorName", required: true)]
-        public Input<string> VmWareCollectorName { get; set; } = null!;
+        [Input("vmWareCollectorName")]
+        public Input<string>? VmWareCollectorName { get; set; }
 
         public GetVmwareCollectorsOperationInvokeArgs()
         {

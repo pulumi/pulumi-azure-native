@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the agent pool in the provisioned cluster
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public string AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public string? AgentPoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the agent pool in the provisioned cluster
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public Input<string> AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

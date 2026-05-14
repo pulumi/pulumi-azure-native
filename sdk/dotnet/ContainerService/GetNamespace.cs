@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

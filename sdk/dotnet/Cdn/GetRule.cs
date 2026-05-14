@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the delivery rule which is unique within the endpoint.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public string RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public string? RuleName { get; set; }
 
         /// <summary>
         /// Name of the rule set under the profile which is unique globally.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the delivery rule which is unique within the endpoint.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// Name of the rule set under the profile which is unique globally.

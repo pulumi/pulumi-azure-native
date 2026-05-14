@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public string ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public string? ProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

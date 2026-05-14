@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CustomProviders
         /// <summary>
         /// The name of the association.
         /// </summary>
-        [Input("associationName", required: true)]
-        public string AssociationName { get; set; } = null!;
+        [Input("associationName")]
+        public string? AssociationName { get; set; }
 
         /// <summary>
         /// The scope of the association.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CustomProviders
         /// <summary>
         /// The name of the association.
         /// </summary>
-        [Input("associationName", required: true)]
-        public Input<string> AssociationName { get; set; } = null!;
+        [Input("associationName")]
+        public Input<string>? AssociationName { get; set; }
 
         /// <summary>
         /// The scope of the association.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// <summary>
         /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("dedicatedCapacityName", required: true)]
-        public string DedicatedCapacityName { get; set; } = null!;
+        [Input("dedicatedCapacityName")]
+        public string? DedicatedCapacityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// <summary>
         /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("dedicatedCapacityName", required: true)]
-        public Input<string> DedicatedCapacityName { get; set; } = null!;
+        [Input("dedicatedCapacityName")]
+        public Input<string>? DedicatedCapacityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

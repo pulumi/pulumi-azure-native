@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the security rule.
         /// </summary>
-        [Input("securityRuleName", required: true)]
-        public string SecurityRuleName { get; set; } = null!;
+        [Input("securityRuleName")]
+        public string? SecurityRuleName { get; set; }
 
         public GetSecurityRuleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the security rule.
         /// </summary>
-        [Input("securityRuleName", required: true)]
-        public Input<string> SecurityRuleName { get; set; } = null!;
+        [Input("securityRuleName")]
+        public Input<string>? SecurityRuleName { get; set; }
 
         public GetSecurityRuleInvokeArgs()
         {

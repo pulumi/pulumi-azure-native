@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the client.
         /// </summary>
-        [Input("clientName", required: true)]
-        public string ClientName { get; set; } = null!;
+        [Input("clientName")]
+        public string? ClientName { get; set; }
 
         /// <summary>
         /// Name of the namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the client.
         /// </summary>
-        [Input("clientName", required: true)]
-        public Input<string> ClientName { get; set; } = null!;
+        [Input("clientName")]
+        public Input<string>? ClientName { get; set; }
 
         /// <summary>
         /// Name of the namespace.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The pipeline name.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public string PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public string? PipelineName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The pipeline name.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// The resource group name.

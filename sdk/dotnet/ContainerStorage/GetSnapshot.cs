@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Volume Snapshot Resource
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public string SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public string? SnapshotName { get; set; }
 
         public GetSnapshotArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Volume Snapshot Resource
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         public GetSnapshotInvokeArgs()
         {

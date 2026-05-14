@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Internet Gateway.
         /// </summary>
-        [Input("internetGatewayName", required: true)]
-        public string InternetGatewayName { get; set; } = null!;
+        [Input("internetGatewayName")]
+        public string? InternetGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Internet Gateway.
         /// </summary>
-        [Input("internetGatewayName", required: true)]
-        public Input<string> InternetGatewayName { get; set; } = null!;
+        [Input("internetGatewayName")]
+        public Input<string>? InternetGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

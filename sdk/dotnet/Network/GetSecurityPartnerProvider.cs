@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Security Partner Provider.
         /// </summary>
-        [Input("securityPartnerProviderName", required: true)]
-        public string SecurityPartnerProviderName { get; set; } = null!;
+        [Input("securityPartnerProviderName")]
+        public string? SecurityPartnerProviderName { get; set; }
 
         public GetSecurityPartnerProviderArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Security Partner Provider.
         /// </summary>
-        [Input("securityPartnerProviderName", required: true)]
-        public Input<string> SecurityPartnerProviderName { get; set; } = null!;
+        [Input("securityPartnerProviderName")]
+        public Input<string>? SecurityPartnerProviderName { get; set; }
 
         public GetSecurityPartnerProviderInvokeArgs()
         {

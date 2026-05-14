@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2022-07-01-preview.
         /// </summary>
-        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
+        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:security:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2022-07-01-preview.
         /// </summary>
-        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:security:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security Application key - unique key for the standard application
         /// </summary>
-        [Input("applicationId", required: true)]
-        public string ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public string? ApplicationId { get; set; }
 
         public GetApplicationArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security Application key - unique key for the standard application
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         public GetApplicationInvokeArgs()
         {

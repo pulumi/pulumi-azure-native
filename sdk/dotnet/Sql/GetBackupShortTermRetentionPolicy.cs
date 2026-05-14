@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The policy name. Should always be "default".
         /// </summary>
-        [Input("policyName", required: true)]
-        public string PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public string? PolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The policy name. Should always be "default".
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

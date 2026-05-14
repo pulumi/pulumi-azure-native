@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of device group.
         /// </summary>
-        [Input("deviceGroupName", required: true)]
-        public string DeviceGroupName { get; set; } = null!;
+        [Input("deviceGroupName")]
+        public string? DeviceGroupName { get; set; }
 
         /// <summary>
         /// Name of product.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of device group.
         /// </summary>
-        [Input("deviceGroupName", required: true)]
-        public Input<string> DeviceGroupName { get; set; } = null!;
+        [Input("deviceGroupName")]
+        public Input<string>? DeviceGroupName { get; set; }
 
         /// <summary>
         /// Name of product.

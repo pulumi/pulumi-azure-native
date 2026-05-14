@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the gallery.
         /// </summary>
-        [Input("galleryName", required: true)]
-        public string GalleryName { get; set; } = null!;
+        [Input("galleryName")]
+        public string? GalleryName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the gallery.
         /// </summary>
-        [Input("galleryName", required: true)]
-        public Input<string> GalleryName { get; set; } = null!;
+        [Input("galleryName")]
+        public Input<string>? GalleryName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

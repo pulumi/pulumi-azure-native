@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai Topic associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiTopicName", required: true)]
-        public string RaiTopicName { get; set; } = null!;
+        [Input("raiTopicName")]
+        public string? RaiTopicName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai Topic associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiTopicName", required: true)]
-        public Input<string> RaiTopicName { get; set; } = null!;
+        [Input("raiTopicName")]
+        public Input<string>? RaiTopicName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

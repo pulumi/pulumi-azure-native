@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
-        [Input("offerId", required: true)]
-        public string OfferId { get; set; } = null!;
+        [Input("offerId")]
+        public string? OfferId { get; set; }
 
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
-        [Input("offerId", required: true)]
-        public Input<string> OfferId { get; set; } = null!;
+        [Input("offerId")]
+        public Input<string>? OfferId { get; set; }
 
         /// <summary>
         /// The store ID - must use the tenant ID

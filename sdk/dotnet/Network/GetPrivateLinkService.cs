@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private link service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public string ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public string? ServiceName { get; set; }
 
         public GetPrivateLinkServiceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private link service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public GetPrivateLinkServiceInvokeArgs()
         {

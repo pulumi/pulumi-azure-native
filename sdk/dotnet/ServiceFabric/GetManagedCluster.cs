@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the cluster resource.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public string ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public string? ClusterName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the cluster resource.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

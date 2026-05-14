@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security Application key - unique key for the standard application
         /// </summary>
-        [Input("applicationId", required: true)]
-        public string ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public string? ApplicationId { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security Application key - unique key for the standard application
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

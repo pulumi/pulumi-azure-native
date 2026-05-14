@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine console.
         /// </summary>
-        [Input("consoleName", required: true)]
-        public string ConsoleName { get; set; } = null!;
+        [Input("consoleName")]
+        public string? ConsoleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine console.
         /// </summary>
-        [Input("consoleName", required: true)]
-        public Input<string> ConsoleName { get; set; } = null!;
+        [Input("consoleName")]
+        public Input<string>? ConsoleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

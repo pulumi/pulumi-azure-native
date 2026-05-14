@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The workflow name.
         /// </summary>
-        [Input("workflowName", required: true)]
-        public string WorkflowName { get; set; } = null!;
+        [Input("workflowName")]
+        public string? WorkflowName { get; set; }
 
         public GetWorkflowArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The workflow name.
         /// </summary>
-        [Input("workflowName", required: true)]
-        public Input<string> WorkflowName { get; set; } = null!;
+        [Input("workflowName")]
+        public Input<string>? WorkflowName { get; set; }
 
         public GetWorkflowInvokeArgs()
         {

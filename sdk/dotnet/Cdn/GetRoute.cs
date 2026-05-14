@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the routing rule.
         /// </summary>
-        [Input("routeName", required: true)]
-        public string RouteName { get; set; } = null!;
+        [Input("routeName")]
+        public string? RouteName { get; set; }
 
         public GetRouteArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the routing rule.
         /// </summary>
-        [Input("routeName", required: true)]
-        public Input<string> RouteName { get; set; } = null!;
+        [Input("routeName")]
+        public Input<string>? RouteName { get; set; }
 
         public GetRouteInvokeArgs()
         {

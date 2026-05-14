@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureData
         /// <summary>
         /// Name of the SQL Server registration.
         /// </summary>
-        [Input("sqlServerRegistrationName", required: true)]
-        public string SqlServerRegistrationName { get; set; } = null!;
+        [Input("sqlServerRegistrationName")]
+        public string? SqlServerRegistrationName { get; set; }
 
         public GetSqlServerRegistrationArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureData
         /// <summary>
         /// Name of the SQL Server registration.
         /// </summary>
-        [Input("sqlServerRegistrationName", required: true)]
-        public Input<string> SqlServerRegistrationName { get; set; } = null!;
+        [Input("sqlServerRegistrationName")]
+        public Input<string>? SqlServerRegistrationName { get; set; }
 
         public GetSqlServerRegistrationInvokeArgs()
         {

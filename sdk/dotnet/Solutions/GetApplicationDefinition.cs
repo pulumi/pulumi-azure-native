@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the managed application definition.
         /// </summary>
-        [Input("applicationDefinitionName", required: true)]
-        public string ApplicationDefinitionName { get; set; } = null!;
+        [Input("applicationDefinitionName")]
+        public string? ApplicationDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the managed application definition.
         /// </summary>
-        [Input("applicationDefinitionName", required: true)]
-        public Input<string> ApplicationDefinitionName { get; set; } = null!;
+        [Input("applicationDefinitionName")]
+        public Input<string>? ApplicationDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

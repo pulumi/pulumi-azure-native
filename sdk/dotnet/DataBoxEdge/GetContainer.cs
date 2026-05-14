@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The container Name
         /// </summary>
-        [Input("containerName", required: true)]
-        public string ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public string? ContainerName { get; set; }
 
         /// <summary>
         /// The device name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The container Name
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// The device name.

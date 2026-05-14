@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Name of the cloud service.
         /// </summary>
-        [Input("cloudServiceName", required: true)]
-        public string CloudServiceName { get; set; } = null!;
+        [Input("cloudServiceName")]
+        public string? CloudServiceName { get; set; }
 
         /// <summary>
         /// Name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Name of the cloud service.
         /// </summary>
-        [Input("cloudServiceName", required: true)]
-        public Input<string> CloudServiceName { get; set; } = null!;
+        [Input("cloudServiceName")]
+        public Input<string>? CloudServiceName { get; set; }
 
         /// <summary>
         /// Name of the resource group.

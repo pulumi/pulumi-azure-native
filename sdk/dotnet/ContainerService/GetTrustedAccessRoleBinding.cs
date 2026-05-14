@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of trusted access role binding.
         /// </summary>
-        [Input("trustedAccessRoleBindingName", required: true)]
-        public string TrustedAccessRoleBindingName { get; set; } = null!;
+        [Input("trustedAccessRoleBindingName")]
+        public string? TrustedAccessRoleBindingName { get; set; }
 
         public GetTrustedAccessRoleBindingArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of trusted access role binding.
         /// </summary>
-        [Input("trustedAccessRoleBindingName", required: true)]
-        public Input<string> TrustedAccessRoleBindingName { get; set; } = null!;
+        [Input("trustedAccessRoleBindingName")]
+        public Input<string>? TrustedAccessRoleBindingName { get; set; }
 
         public GetTrustedAccessRoleBindingInvokeArgs()
         {

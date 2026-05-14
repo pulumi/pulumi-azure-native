@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license profile.
         /// </summary>
-        [Input("licenseProfileName", required: true)]
-        public string LicenseProfileName { get; set; } = null!;
+        [Input("licenseProfileName")]
+        public string? LicenseProfileName { get; set; }
 
         /// <summary>
         /// The name of the hybrid machine.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license profile.
         /// </summary>
-        [Input("licenseProfileName", required: true)]
-        public Input<string> LicenseProfileName { get; set; } = null!;
+        [Input("licenseProfileName")]
+        public Input<string>? LicenseProfileName { get; set; }
 
         /// <summary>
         /// The name of the hybrid machine.

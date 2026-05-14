@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Job Name
         /// </summary>
-        [Input("jobName", required: true)]
-        public string JobName { get; set; } = null!;
+        [Input("jobName")]
+        public string? JobName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Job Name
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

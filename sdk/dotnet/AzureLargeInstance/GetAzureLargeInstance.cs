@@ -45,8 +45,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Name of the AzureLargeInstance.
         /// </summary>
-        [Input("azureLargeInstanceName", required: true)]
-        public string AzureLargeInstanceName { get; set; } = null!;
+        [Input("azureLargeInstanceName")]
+        public string? AzureLargeInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Name of the AzureLargeInstance.
         /// </summary>
-        [Input("azureLargeInstanceName", required: true)]
-        public Input<string> AzureLargeInstanceName { get; set; } = null!;
+        [Input("azureLargeInstanceName")]
+        public Input<string>? AzureLargeInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

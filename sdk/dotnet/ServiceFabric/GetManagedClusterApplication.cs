@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the application resource.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public string ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public string? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the cluster resource.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the application resource.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the cluster resource.

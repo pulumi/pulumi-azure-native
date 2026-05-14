@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Modernize project name.
         /// </summary>
-        [Input("modernizeProjectName", required: true)]
-        public string ModernizeProjectName { get; set; } = null!;
+        [Input("modernizeProjectName")]
+        public string? ModernizeProjectName { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Modernize project name.
         /// </summary>
-        [Input("modernizeProjectName", required: true)]
-        public Input<string> ModernizeProjectName { get; set; } = null!;
+        [Input("modernizeProjectName")]
+        public Input<string>? ModernizeProjectName { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

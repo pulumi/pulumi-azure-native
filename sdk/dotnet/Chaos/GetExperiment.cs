@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Experiment resource name.
         /// </summary>
-        [Input("experimentName", required: true)]
-        public string ExperimentName { get; set; } = null!;
+        [Input("experimentName")]
+        public string? ExperimentName { get; set; }
 
         /// <summary>
         /// String that represents an Azure resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Experiment resource name.
         /// </summary>
-        [Input("experimentName", required: true)]
-        public Input<string> ExperimentName { get; set; } = null!;
+        [Input("experimentName")]
+        public Input<string>? ExperimentName { get; set; }
 
         /// <summary>
         /// String that represents an Azure resource group.

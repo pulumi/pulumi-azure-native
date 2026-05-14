@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("lockName", required: true)]
-        public string LockName { get; set; } = null!;
+        [Input("lockName")]
+        public string? LockName { get; set; }
 
         /// <summary>
         /// An extra path parameter needed in some services, like SQL Databases.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         /// <summary>
         /// An extra path parameter needed in some services, like SQL Databases.

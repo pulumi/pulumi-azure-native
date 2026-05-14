@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the access policy assignment.
         /// </summary>
-        [Input("accessPolicyAssignmentName", required: true)]
-        public string AccessPolicyAssignmentName { get; set; } = null!;
+        [Input("accessPolicyAssignmentName")]
+        public string? AccessPolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the access policy assignment.
         /// </summary>
-        [Input("accessPolicyAssignmentName", required: true)]
-        public Input<string> AccessPolicyAssignmentName { get; set; } = null!;
+        [Input("accessPolicyAssignmentName")]
+        public Input<string>? AccessPolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Incident task ID
         /// </summary>
-        [Input("incidentTaskId", required: true)]
-        public string IncidentTaskId { get; set; } = null!;
+        [Input("incidentTaskId")]
+        public string? IncidentTaskId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Incident task ID
         /// </summary>
-        [Input("incidentTaskId", required: true)]
-        public Input<string> IncidentTaskId { get; set; } = null!;
+        [Input("incidentTaskId")]
+        public Input<string>? IncidentTaskId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

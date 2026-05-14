@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hostnameBindingName", required: true)]
-        public string HostnameBindingName { get; set; } = null!;
+        [Input("hostnameBindingName")]
+        public string? HostnameBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hostnameBindingName", required: true)]
-        public Input<string> HostnameBindingName { get; set; } = null!;
+        [Input("hostnameBindingName")]
+        public Input<string>? HostnameBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

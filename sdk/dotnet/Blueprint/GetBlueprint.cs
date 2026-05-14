@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint definition.
         /// </summary>
-        [Input("blueprintName", required: true)]
-        public string BlueprintName { get; set; } = null!;
+        [Input("blueprintName")]
+        public string? BlueprintName { get; set; }
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint definition.
         /// </summary>
-        [Input("blueprintName", required: true)]
-        public Input<string> BlueprintName { get; set; } = null!;
+        [Input("blueprintName")]
+        public Input<string>? BlueprintName { get; set; }
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

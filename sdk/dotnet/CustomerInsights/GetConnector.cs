@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the connector.
         /// </summary>
-        [Input("connectorName", required: true)]
-        public string ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public string? ConnectorName { get; set; }
 
         /// <summary>
         /// The name of the hub.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the connector.
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// The name of the hub.

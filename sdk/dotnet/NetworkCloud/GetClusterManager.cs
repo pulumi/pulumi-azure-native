@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cluster manager.
         /// </summary>
-        [Input("clusterManagerName", required: true)]
-        public string ClusterManagerName { get; set; } = null!;
+        [Input("clusterManagerName")]
+        public string? ClusterManagerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cluster manager.
         /// </summary>
-        [Input("clusterManagerName", required: true)]
-        public Input<string> ClusterManagerName { get; set; } = null!;
+        [Input("clusterManagerName")]
+        public Input<string>? ClusterManagerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

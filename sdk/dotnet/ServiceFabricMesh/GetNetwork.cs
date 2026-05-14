@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the network.
         /// </summary>
-        [Input("networkResourceName", required: true)]
-        public string NetworkResourceName { get; set; } = null!;
+        [Input("networkResourceName")]
+        public string? NetworkResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the network.
         /// </summary>
-        [Input("networkResourceName", required: true)]
-        public Input<string> NetworkResourceName { get; set; } = null!;
+        [Input("networkResourceName")]
+        public Input<string>? NetworkResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name

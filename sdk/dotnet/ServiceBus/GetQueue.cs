@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The queue name.
         /// </summary>
-        [Input("queueName", required: true)]
-        public string QueueName { get; set; } = null!;
+        [Input("queueName")]
+        public string? QueueName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The queue name.
         /// </summary>
-        [Input("queueName", required: true)]
-        public Input<string> QueueName { get; set; } = null!;
+        [Input("queueName")]
+        public Input<string>? QueueName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

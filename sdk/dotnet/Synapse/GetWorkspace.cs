@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workspace.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public string WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public string? WorkspaceName { get; set; }
 
         public GetWorkspaceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workspace.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public GetWorkspaceInvokeArgs()
         {

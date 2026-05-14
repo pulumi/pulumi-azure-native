@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Pool Object
         /// </summary>
-        [Input("poolName", required: true)]
-        public string PoolName { get; set; } = null!;
+        [Input("poolName")]
+        public string? PoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Pool Object
         /// </summary>
-        [Input("poolName", required: true)]
-        public Input<string> PoolName { get; set; } = null!;
+        [Input("poolName")]
+        public Input<string>? PoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

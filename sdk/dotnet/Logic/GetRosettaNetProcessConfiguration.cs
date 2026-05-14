@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account RosettaNetProcessConfiguration name.
         /// </summary>
-        [Input("rosettaNetProcessConfigurationName", required: true)]
-        public string RosettaNetProcessConfigurationName { get; set; } = null!;
+        [Input("rosettaNetProcessConfigurationName")]
+        public string? RosettaNetProcessConfigurationName { get; set; }
 
         public GetRosettaNetProcessConfigurationArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account RosettaNetProcessConfiguration name.
         /// </summary>
-        [Input("rosettaNetProcessConfigurationName", required: true)]
-        public Input<string> RosettaNetProcessConfigurationName { get; set; } = null!;
+        [Input("rosettaNetProcessConfigurationName")]
+        public Input<string>? RosettaNetProcessConfigurationName { get; set; }
 
         public GetRosettaNetProcessConfigurationInvokeArgs()
         {

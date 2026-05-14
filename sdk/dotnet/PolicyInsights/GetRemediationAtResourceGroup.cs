@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public string RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public string? RemediationName { get; set; }
 
         /// <summary>
         /// Resource group name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         /// <summary>
         /// Resource group name.

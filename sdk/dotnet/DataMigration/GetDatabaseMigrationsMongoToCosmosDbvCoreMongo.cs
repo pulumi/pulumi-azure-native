@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public string MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public string? MigrationName { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public Input<string> MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public Input<string>? MigrationName { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

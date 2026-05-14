@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Source control Id
         /// </summary>
-        [Input("sourceControlId", required: true)]
-        public string SourceControlId { get; set; } = null!;
+        [Input("sourceControlId")]
+        public string? SourceControlId { get; set; }
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Source control Id
         /// </summary>
-        [Input("sourceControlId", required: true)]
-        public Input<string> SourceControlId { get; set; } = null!;
+        [Input("sourceControlId")]
+        public Input<string>? SourceControlId { get; set; }
 
         /// <summary>
         /// The name of the workspace.

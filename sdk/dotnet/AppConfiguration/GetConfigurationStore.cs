@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("configStoreName", required: true)]
-        public string ConfigStoreName { get; set; } = null!;
+        [Input("configStoreName")]
+        public string? ConfigStoreName { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("configStoreName", required: true)]
-        public Input<string> ConfigStoreName { get; set; } = null!;
+        [Input("configStoreName")]
+        public Input<string>? ConfigStoreName { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

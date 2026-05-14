@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
-        public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
+        public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
-        public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The unique name of the suppression alert rule
         /// </summary>
-        [Input("alertsSuppressionRuleName", required: true)]
-        public string AlertsSuppressionRuleName { get; set; } = null!;
+        [Input("alertsSuppressionRuleName")]
+        public string? AlertsSuppressionRuleName { get; set; }
 
         public GetAlertsSuppressionRuleArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The unique name of the suppression alert rule
         /// </summary>
-        [Input("alertsSuppressionRuleName", required: true)]
-        public Input<string> AlertsSuppressionRuleName { get; set; } = null!;
+        [Input("alertsSuppressionRuleName")]
+        public Input<string>? AlertsSuppressionRuleName { get; set; }
 
         public GetAlertsSuppressionRuleInvokeArgs()
         {

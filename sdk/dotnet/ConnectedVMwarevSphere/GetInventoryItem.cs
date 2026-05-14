@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the inventoryItem.
         /// </summary>
-        [Input("inventoryItemName", required: true)]
-        public string InventoryItemName { get; set; } = null!;
+        [Input("inventoryItemName")]
+        public string? InventoryItemName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the inventoryItem.
         /// </summary>
-        [Input("inventoryItemName", required: true)]
-        public Input<string> InventoryItemName { get; set; } = null!;
+        [Input("inventoryItemName")]
+        public Input<string>? InventoryItemName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the secret.
         /// </summary>
-        [Input("secretName", required: true)]
-        public string SecretName { get; set; } = null!;
+        [Input("secretName")]
+        public string? SecretName { get; set; }
 
         /// <summary>
         /// The name of the vault.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the secret.
         /// </summary>
-        [Input("secretName", required: true)]
-        public Input<string> SecretName { get; set; } = null!;
+        [Input("secretName")]
+        public Input<string>? SecretName { get; set; }
 
         /// <summary>
         /// The name of the vault.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the public IP
         /// </summary>
-        [Input("publicIPAddressName", required: true)]
-        public string PublicIPAddressName { get; set; } = null!;
+        [Input("publicIPAddressName")]
+        public string? PublicIPAddressName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the public IP
         /// </summary>
-        [Input("publicIPAddressName", required: true)]
-        public Input<string> PublicIPAddressName { get; set; } = null!;
+        [Input("publicIPAddressName")]
+        public Input<string>? PublicIPAddressName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

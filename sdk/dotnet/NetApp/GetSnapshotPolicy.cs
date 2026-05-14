@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the snapshot policy
         /// </summary>
-        [Input("snapshotPolicyName", required: true)]
-        public string SnapshotPolicyName { get; set; } = null!;
+        [Input("snapshotPolicyName")]
+        public string? SnapshotPolicyName { get; set; }
 
         public GetSnapshotPolicyArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the snapshot policy
         /// </summary>
-        [Input("snapshotPolicyName", required: true)]
-        public Input<string> SnapshotPolicyName { get; set; } = null!;
+        [Input("snapshotPolicyName")]
+        public Input<string>? SnapshotPolicyName { get; set; }
 
         public GetSnapshotPolicyInvokeArgs()
         {

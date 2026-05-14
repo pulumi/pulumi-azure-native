@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the file Service within the specified storage account. File Service Name must be "default"
         /// </summary>
-        [Input("fileServicesName", required: true)]
-        public string FileServicesName { get; set; } = null!;
+        [Input("fileServicesName")]
+        public string? FileServicesName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the file Service within the specified storage account. File Service Name must be "default"
         /// </summary>
-        [Input("fileServicesName", required: true)]
-        public Input<string> FileServicesName { get; set; } = null!;
+        [Input("fileServicesName")]
+        public Input<string>? FileServicesName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of broker.
         /// </summary>
-        [Input("brokerName", required: true)]
-        public string BrokerName { get; set; } = null!;
+        [Input("brokerName")]
+        public string? BrokerName { get; set; }
 
         /// <summary>
         /// Name of instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of broker.
         /// </summary>
-        [Input("brokerName", required: true)]
-        public Input<string> BrokerName { get; set; } = null!;
+        [Input("brokerName")]
+        public Input<string>? BrokerName { get; set; }
 
         /// <summary>
         /// Name of instance.

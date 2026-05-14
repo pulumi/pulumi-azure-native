@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Security Standard key - unique key for the standard type
         /// </summary>
-        [Input("standardId", required: true)]
-        public string StandardId { get; set; } = null!;
+        [Input("standardId")]
+        public string? StandardId { get; set; }
 
         public GetStandardArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Security Standard key - unique key for the standard type
         /// </summary>
-        [Input("standardId", required: true)]
-        public Input<string> StandardId { get; set; } = null!;
+        [Input("standardId")]
+        public Input<string>? StandardId { get; set; }
 
         public GetStandardInvokeArgs()
         {

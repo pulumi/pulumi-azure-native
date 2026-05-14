@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         /// </summary>
-        [Input("addressName", required: true)]
-        public string AddressName { get; set; } = null!;
+        [Input("addressName")]
+        public string? AddressName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         /// </summary>
-        [Input("addressName", required: true)]
-        public Input<string> AddressName { get; set; } = null!;
+        [Input("addressName")]
+        public Input<string>? AddressName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

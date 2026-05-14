@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the connectedEnvironment.
         /// </summary>
-        [Input("connectedEnvironmentName", required: true)]
-        public string ConnectedEnvironmentName { get; set; } = null!;
+        [Input("connectedEnvironmentName")]
+        public string? ConnectedEnvironmentName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the connectedEnvironment.
         /// </summary>
-        [Input("connectedEnvironmentName", required: true)]
-        public Input<string> ConnectedEnvironmentName { get; set; } = null!;
+        [Input("connectedEnvironmentName")]
+        public Input<string>? ConnectedEnvironmentName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

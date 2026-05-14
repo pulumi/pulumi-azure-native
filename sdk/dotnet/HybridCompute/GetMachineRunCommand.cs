@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the run command.
         /// </summary>
-        [Input("runCommandName", required: true)]
-        public string RunCommandName { get; set; } = null!;
+        [Input("runCommandName")]
+        public string? RunCommandName { get; set; }
 
         public GetMachineRunCommandArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the run command.
         /// </summary>
-        [Input("runCommandName", required: true)]
-        public Input<string> RunCommandName { get; set; } = null!;
+        [Input("runCommandName")]
+        public Input<string>? RunCommandName { get; set; }
 
         public GetMachineRunCommandInvokeArgs()
         {

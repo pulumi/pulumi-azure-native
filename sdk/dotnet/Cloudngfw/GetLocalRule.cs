@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("priority", required: true)]
-        public string Priority { get; set; } = null!;
+        [Input("priority")]
+        public string? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("priority", required: true)]
-        public Input<string> Priority { get; set; } = null!;
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a Import collector within a project.
         /// </summary>
-        [Input("importCollectorName", required: true)]
-        public string ImportCollectorName { get; set; } = null!;
+        [Input("importCollectorName")]
+        public string? ImportCollectorName { get; set; }
 
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a Import collector within a project.
         /// </summary>
-        [Input("importCollectorName", required: true)]
-        public Input<string> ImportCollectorName { get; set; } = null!;
+        [Input("importCollectorName")]
+        public Input<string>? ImportCollectorName { get; set; }
 
         /// <summary>
         /// Name of the Azure Migrate project.

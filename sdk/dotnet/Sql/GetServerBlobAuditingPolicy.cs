@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the blob auditing policy.
         /// </summary>
-        [Input("blobAuditingPolicyName", required: true)]
-        public string BlobAuditingPolicyName { get; set; } = null!;
+        [Input("blobAuditingPolicyName")]
+        public string? BlobAuditingPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the blob auditing policy.
         /// </summary>
-        [Input("blobAuditingPolicyName", required: true)]
-        public Input<string> BlobAuditingPolicyName { get; set; } = null!;
+        [Input("blobAuditingPolicyName")]
+        public Input<string>? BlobAuditingPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

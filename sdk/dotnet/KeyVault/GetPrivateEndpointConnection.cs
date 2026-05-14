@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the key vault.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the key vault.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Load Test name
         /// </summary>
-        [Input("loadTestName", required: true)]
-        public string LoadTestName { get; set; } = null!;
+        [Input("loadTestName")]
+        public string? LoadTestName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Load Test name
         /// </summary>
-        [Input("loadTestName", required: true)]
-        public Input<string> LoadTestName { get; set; } = null!;
+        [Input("loadTestName")]
+        public Input<string>? LoadTestName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The Dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public string DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public string? DatasetName { get; set; }
 
         /// <summary>
         /// Name of the resource group in which workspace is located.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The Dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public Input<string> DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public Input<string>? DatasetName { get; set; }
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the artifact store.
         /// </summary>
-        [Input("artifactStoreName", required: true)]
-        public string ArtifactStoreName { get; set; } = null!;
+        [Input("artifactStoreName")]
+        public string? ArtifactStoreName { get; set; }
 
         /// <summary>
         /// The name of the publisher.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the artifact store.
         /// </summary>
-        [Input("artifactStoreName", required: true)]
-        public Input<string> ArtifactStoreName { get; set; } = null!;
+        [Input("artifactStoreName")]
+        public Input<string>? ArtifactStoreName { get; set; }
 
         /// <summary>
         /// The name of the publisher.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the proximity placement group.
         /// </summary>
-        [Input("proximityPlacementGroupName", required: true)]
-        public string ProximityPlacementGroupName { get; set; } = null!;
+        [Input("proximityPlacementGroupName")]
+        public string? ProximityPlacementGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the proximity placement group.
         /// </summary>
-        [Input("proximityPlacementGroupName", required: true)]
-        public Input<string> ProximityPlacementGroupName { get; set; } = null!;
+        [Input("proximityPlacementGroupName")]
+        public Input<string>? ProximityPlacementGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

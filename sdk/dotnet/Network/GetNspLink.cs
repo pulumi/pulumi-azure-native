@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP link.
         /// </summary>
-        [Input("linkName", required: true)]
-        public string LinkName { get; set; } = null!;
+        [Input("linkName")]
+        public string? LinkName { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP link.
         /// </summary>
-        [Input("linkName", required: true)]
-        public Input<string> LinkName { get; set; } = null!;
+        [Input("linkName")]
+        public Input<string>? LinkName { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.

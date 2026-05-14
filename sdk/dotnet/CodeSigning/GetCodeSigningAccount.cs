@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Artifact Signing account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public string AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Artifact Signing account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

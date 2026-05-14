@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The assembly artifact name.
         /// </summary>
-        [Input("assemblyArtifactName", required: true)]
-        public string AssemblyArtifactName { get; set; } = null!;
+        [Input("assemblyArtifactName")]
+        public string? AssemblyArtifactName { get; set; }
 
         /// <summary>
         /// The integration account name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The assembly artifact name.
         /// </summary>
-        [Input("assemblyArtifactName", required: true)]
-        public Input<string> AssemblyArtifactName { get; set; } = null!;
+        [Input("assemblyArtifactName")]
+        public Input<string>? AssemblyArtifactName { get; set; }
 
         /// <summary>
         /// The integration account name.

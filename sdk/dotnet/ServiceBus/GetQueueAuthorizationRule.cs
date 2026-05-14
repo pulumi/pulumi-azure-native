@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public string AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public string? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// The namespace name
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public Input<string> AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// The namespace name

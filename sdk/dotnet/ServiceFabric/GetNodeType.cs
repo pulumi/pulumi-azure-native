@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the node type.
         /// </summary>
-        [Input("nodeTypeName", required: true)]
-        public string NodeTypeName { get; set; } = null!;
+        [Input("nodeTypeName")]
+        public string? NodeTypeName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the node type.
         /// </summary>
-        [Input("nodeTypeName", required: true)]
-        public Input<string> NodeTypeName { get; set; } = null!;
+        [Input("nodeTypeName")]
+        public Input<string>? NodeTypeName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

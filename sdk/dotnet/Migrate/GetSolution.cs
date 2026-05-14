@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a migration solution within a migrate project.
         /// </summary>
-        [Input("solutionName", required: true)]
-        public string SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public string? SolutionName { get; set; }
 
         public GetSolutionArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a migration solution within a migrate project.
         /// </summary>
-        [Input("solutionName", required: true)]
-        public Input<string> SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public Input<string>? SolutionName { get; set; }
 
         public GetSolutionInvokeArgs()
         {

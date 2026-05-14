@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetAccessReviewHistoryDefinitionByIdResult> InvokeAsync(GetAccessReviewHistoryDefinitionByIdArgs args, InvokeOptions? options = null)
+        public static Task<GetAccessReviewHistoryDefinitionByIdResult> InvokeAsync(GetAccessReviewHistoryDefinitionByIdArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetAccessReviewHistoryDefinitionByIdResult> Invoke(GetAccessReviewHistoryDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetAccessReviewHistoryDefinitionByIdResult> Invoke(GetAccessReviewHistoryDefinitionByIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review history definition.
         /// </summary>
-        [Input("historyDefinitionId", required: true)]
-        public string HistoryDefinitionId { get; set; } = null!;
+        [Input("historyDefinitionId")]
+        public string? HistoryDefinitionId { get; set; }
 
         public GetAccessReviewHistoryDefinitionByIdArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review history definition.
         /// </summary>
-        [Input("historyDefinitionId", required: true)]
-        public Input<string> HistoryDefinitionId { get; set; } = null!;
+        [Input("historyDefinitionId")]
+        public Input<string>? HistoryDefinitionId { get; set; }
 
         public GetAccessReviewHistoryDefinitionByIdInvokeArgs()
         {

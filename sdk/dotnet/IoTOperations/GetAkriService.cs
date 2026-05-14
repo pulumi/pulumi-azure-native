@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriService resource.
         /// </summary>
-        [Input("akriServiceName", required: true)]
-        public string AkriServiceName { get; set; } = null!;
+        [Input("akriServiceName")]
+        public string? AkriServiceName { get; set; }
 
         /// <summary>
         /// Name of instance.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriService resource.
         /// </summary>
-        [Input("akriServiceName", required: true)]
-        public Input<string> AkriServiceName { get; set; } = null!;
+        [Input("akriServiceName")]
+        public Input<string>? AkriServiceName { get; set; }
 
         /// <summary>
         /// Name of instance.

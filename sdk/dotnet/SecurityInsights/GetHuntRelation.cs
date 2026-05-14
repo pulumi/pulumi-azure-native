@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt relation id (GUID)
         /// </summary>
-        [Input("huntRelationId", required: true)]
-        public string HuntRelationId { get; set; } = null!;
+        [Input("huntRelationId")]
+        public string? HuntRelationId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt relation id (GUID)
         /// </summary>
-        [Input("huntRelationId", required: true)]
-        public Input<string> HuntRelationId { get; set; } = null!;
+        [Input("huntRelationId")]
+        public Input<string>? HuntRelationId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

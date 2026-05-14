@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public string ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public string? ServiceName { get; set; }
 
         public GetApiManagementServiceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public GetApiManagementServiceInvokeArgs()
         {

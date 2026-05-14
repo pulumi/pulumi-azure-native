@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Backup policy Name which uniquely identify backup policy.
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public string BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public string? BackupPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Backup policy Name which uniquely identify backup policy.
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public Input<string> BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

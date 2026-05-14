@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Syntex
         /// <summary>
         /// The name of document processor resource.
         /// </summary>
-        [Input("processorName", required: true)]
-        public string ProcessorName { get; set; } = null!;
+        [Input("processorName")]
+        public string? ProcessorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Syntex
         /// <summary>
         /// The name of document processor resource.
         /// </summary>
-        [Input("processorName", required: true)]
-        public Input<string> ProcessorName { get; set; } = null!;
+        [Input("processorName")]
+        public Input<string>? ProcessorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

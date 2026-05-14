@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
-        [Input("solutionId", required: true)]
-        public string SolutionId { get; set; } = null!;
+        [Input("solutionId")]
+        public string? SolutionId { get; set; }
 
         public GetSolutionArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
-        [Input("solutionId", required: true)]
-        public Input<string> SolutionId { get; set; } = null!;
+        [Input("solutionId")]
+        public Input<string>? SolutionId { get; set; }
 
         public GetSolutionInvokeArgs()
         {

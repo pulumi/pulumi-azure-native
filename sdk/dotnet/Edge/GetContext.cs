@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Context.
         /// </summary>
-        [Input("contextName", required: true)]
-        public string ContextName { get; set; } = null!;
+        [Input("contextName")]
+        public string? ContextName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Context.
         /// </summary>
-        [Input("contextName", required: true)]
-        public Input<string> ContextName { get; set; } = null!;
+        [Input("contextName")]
+        public Input<string>? ContextName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

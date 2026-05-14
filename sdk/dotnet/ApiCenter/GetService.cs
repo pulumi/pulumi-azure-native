@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of Azure API Center service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public string ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public string? ServiceName { get; set; }
 
         public GetServiceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of Azure API Center service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public GetServiceInvokeArgs()
         {

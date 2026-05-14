@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The ID of the PLA
         /// </summary>
-        [Input("plaId", required: true)]
-        public string PlaId { get; set; } = null!;
+        [Input("plaId")]
+        public string? PlaId { get; set; }
 
         public GetPrivateLinkAssociationArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The ID of the PLA
         /// </summary>
-        [Input("plaId", required: true)]
-        public Input<string> PlaId { get; set; } = null!;
+        [Input("plaId")]
+        public Input<string>? PlaId { get; set; }
 
         public GetPrivateLinkAssociationInvokeArgs()
         {

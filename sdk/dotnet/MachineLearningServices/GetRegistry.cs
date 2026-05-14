@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive
         /// </summary>
-        [Input("registryName", required: true)]
-        public string RegistryName { get; set; } = null!;
+        [Input("registryName")]
+        public string? RegistryName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive
         /// </summary>
-        [Input("registryName", required: true)]
-        public Input<string> RegistryName { get; set; } = null!;
+        [Input("registryName")]
+        public Input<string>? RegistryName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

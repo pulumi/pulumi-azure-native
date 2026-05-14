@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the Disk Pool.
         /// </summary>
-        [Input("diskPoolName", required: true)]
-        public string DiskPoolName { get; set; } = null!;
+        [Input("diskPoolName")]
+        public string? DiskPoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the Disk Pool.
         /// </summary>
-        [Input("diskPoolName", required: true)]
-        public Input<string> DiskPoolName { get; set; } = null!;
+        [Input("diskPoolName")]
+        public Input<string>? DiskPoolName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

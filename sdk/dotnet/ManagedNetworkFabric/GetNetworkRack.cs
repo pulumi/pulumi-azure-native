@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Rack.
         /// </summary>
-        [Input("networkRackName", required: true)]
-        public string NetworkRackName { get; set; } = null!;
+        [Input("networkRackName")]
+        public string? NetworkRackName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Rack.
         /// </summary>
-        [Input("networkRackName", required: true)]
-        public Input<string> NetworkRackName { get; set; } = null!;
+        [Input("networkRackName")]
+        public Input<string>? NetworkRackName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AgriculturePlatform
         /// <summary>
         /// The name of the AgriService resource.
         /// </summary>
-        [Input("agriServiceResourceName", required: true)]
-        public string AgriServiceResourceName { get; set; } = null!;
+        [Input("agriServiceResourceName")]
+        public string? AgriServiceResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AgriculturePlatform
         /// <summary>
         /// The name of the AgriService resource.
         /// </summary>
-        [Input("agriServiceResourceName", required: true)]
-        public Input<string> AgriServiceResourceName { get; set; } = null!;
+        [Input("agriServiceResourceName")]
+        public Input<string>? AgriServiceResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

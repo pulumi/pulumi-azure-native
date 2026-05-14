@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Sync Group resource.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public string SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public string? SyncGroupName { get; set; }
 
         public GetSyncGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Sync Group resource.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public Input<string> SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public Input<string>? SyncGroupName { get; set; }
 
         public GetSyncGroupInvokeArgs()
         {

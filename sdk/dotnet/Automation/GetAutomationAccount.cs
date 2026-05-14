@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public string AutomationAccountName { get; set; } = null!;
+        [Input("automationAccountName")]
+        public string? AutomationAccountName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public Input<string> AutomationAccountName { get; set; } = null!;
+        [Input("automationAccountName")]
+        public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

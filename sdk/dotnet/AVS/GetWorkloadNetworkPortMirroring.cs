@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the NSX port mirroring profile.
         /// </summary>
-        [Input("portMirroringId", required: true)]
-        public string PortMirroringId { get; set; } = null!;
+        [Input("portMirroringId")]
+        public string? PortMirroringId { get; set; }
 
         /// <summary>
         /// Name of the private cloud
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the NSX port mirroring profile.
         /// </summary>
-        [Input("portMirroringId", required: true)]
-        public Input<string> PortMirroringId { get; set; } = null!;
+        [Input("portMirroringId")]
+        public Input<string>? PortMirroringId { get; set; }
 
         /// <summary>
         /// Name of the private cloud

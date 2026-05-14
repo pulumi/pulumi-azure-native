@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the authorization.
         /// </summary>
-        [Input("authorizationName", required: true)]
-        public string AuthorizationName { get; set; } = null!;
+        [Input("authorizationName")]
+        public string? AuthorizationName { get; set; }
 
         /// <summary>
         /// The name of the express route circuit.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the authorization.
         /// </summary>
-        [Input("authorizationName", required: true)]
-        public Input<string> AuthorizationName { get; set; } = null!;
+        [Input("authorizationName")]
+        public Input<string>? AuthorizationName { get; set; }
 
         /// <summary>
         /// The name of the express route circuit.

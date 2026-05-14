@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// <summary>
         /// The initial sub domain of the tenant.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public string ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public string? ResourceName { get; set; }
 
         public GetCIAMTenantArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// <summary>
         /// The initial sub domain of the tenant.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         public GetCIAMTenantInvokeArgs()
         {

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution version
         /// </summary>
-        [Input("solutionVersionName", required: true)]
-        public string SolutionVersionName { get; set; } = null!;
+        [Input("solutionVersionName")]
+        public string? SolutionVersionName { get; set; }
 
         /// <summary>
         /// Name of the target
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution version
         /// </summary>
-        [Input("solutionVersionName", required: true)]
-        public Input<string> SolutionVersionName { get; set; } = null!;
+        [Input("solutionVersionName")]
+        public Input<string>? SolutionVersionName { get; set; }
 
         /// <summary>
         /// Name of the target

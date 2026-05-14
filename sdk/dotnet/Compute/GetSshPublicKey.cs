@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the SSH public key.
         /// </summary>
-        [Input("sshPublicKeyName", required: true)]
-        public string SshPublicKeyName { get; set; } = null!;
+        [Input("sshPublicKeyName")]
+        public string? SshPublicKeyName { get; set; }
 
         public GetSshPublicKeyArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the SSH public key.
         /// </summary>
-        [Input("sshPublicKeyName", required: true)]
-        public Input<string> SshPublicKeyName { get; set; } = null!;
+        [Input("sshPublicKeyName")]
+        public Input<string>? SshPublicKeyName { get; set; }
 
         public GetSshPublicKeyInvokeArgs()
         {

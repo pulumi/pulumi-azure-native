@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeMachineName", required: true)]
-        public string EdgeMachineName { get; set; } = null!;
+        [Input("edgeMachineName")]
+        public string? EdgeMachineName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeMachineName", required: true)]
-        public Input<string> EdgeMachineName { get; set; } = null!;
+        [Input("edgeMachineName")]
+        public Input<string>? EdgeMachineName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

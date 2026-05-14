@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the Dev Box definition.
         /// </summary>
-        [Input("devBoxDefinitionName", required: true)]
-        public string DevBoxDefinitionName { get; set; } = null!;
+        [Input("devBoxDefinitionName")]
+        public string? DevBoxDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the Dev Box definition.
         /// </summary>
-        [Input("devBoxDefinitionName", required: true)]
-        public Input<string> DevBoxDefinitionName { get; set; } = null!;
+        [Input("devBoxDefinitionName")]
+        public Input<string>? DevBoxDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// Maps resource name
         /// </summary>
-        [Input("mapName", required: true)]
-        public string MapName { get; set; } = null!;
+        [Input("mapName")]
+        public string? MapName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// Maps resource name
         /// </summary>
-        [Input("mapName", required: true)]
-        public Input<string> MapName { get; set; } = null!;
+        [Input("mapName")]
+        public Input<string>? MapName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network Peering Policy.
         /// </summary>
-        [Input("managedNetworkPeeringPolicyName", required: true)]
-        public string ManagedNetworkPeeringPolicyName { get; set; } = null!;
+        [Input("managedNetworkPeeringPolicyName")]
+        public string? ManagedNetworkPeeringPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network Peering Policy.
         /// </summary>
-        [Input("managedNetworkPeeringPolicyName", required: true)]
-        public Input<string> ManagedNetworkPeeringPolicyName { get; set; } = null!;
+        [Input("managedNetworkPeeringPolicyName")]
+        public Input<string>? ManagedNetworkPeeringPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Dashboard Definition.
         /// </summary>
-        [Input("definitionName", required: true)]
-        public string DefinitionName { get; set; } = null!;
+        [Input("definitionName")]
+        public string? DefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Dashboard Definition.
         /// </summary>
-        [Input("definitionName", required: true)]
-        public Input<string> DefinitionName { get; set; } = null!;
+        [Input("definitionName")]
+        public Input<string>? DefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

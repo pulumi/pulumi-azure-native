@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the application accelerator.
         /// </summary>
-        [Input("applicationAcceleratorName", required: true)]
-        public string ApplicationAcceleratorName { get; set; } = null!;
+        [Input("applicationAcceleratorName")]
+        public string? ApplicationAcceleratorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the application accelerator.
         /// </summary>
-        [Input("applicationAcceleratorName", required: true)]
-        public Input<string> ApplicationAcceleratorName { get; set; } = null!;
+        [Input("applicationAcceleratorName")]
+        public Input<string>? ApplicationAcceleratorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

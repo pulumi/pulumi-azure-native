@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the function.
         /// </summary>
-        [Input("functionName", required: true)]
-        public string FunctionName { get; set; } = null!;
+        [Input("functionName")]
+        public string? FunctionName { get; set; }
 
         /// <summary>
         /// The name of the streaming job.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the function.
         /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
+        [Input("functionName")]
+        public Input<string>? FunctionName { get; set; }
 
         /// <summary>
         /// The name of the streaming job.

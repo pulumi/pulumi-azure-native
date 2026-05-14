@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// The evidence name.
         /// </summary>
-        [Input("evidenceName", required: true)]
-        public string EvidenceName { get; set; } = null!;
+        [Input("evidenceName")]
+        public string? EvidenceName { get; set; }
 
         /// <summary>
         /// Report Name.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// The evidence name.
         /// </summary>
-        [Input("evidenceName", required: true)]
-        public Input<string> EvidenceName { get; set; } = null!;
+        [Input("evidenceName")]
+        public Input<string>? EvidenceName { get; set; }
 
         /// <summary>
         /// Report Name.

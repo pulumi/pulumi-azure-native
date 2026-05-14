@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the DDoS custom policy.
         /// </summary>
-        [Input("ddosCustomPolicyName", required: true)]
-        public string DdosCustomPolicyName { get; set; } = null!;
+        [Input("ddosCustomPolicyName")]
+        public string? DdosCustomPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the DDoS custom policy.
         /// </summary>
-        [Input("ddosCustomPolicyName", required: true)]
-        public Input<string> DdosCustomPolicyName { get; set; } = null!;
+        [Input("ddosCustomPolicyName")]
+        public Input<string>? DdosCustomPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

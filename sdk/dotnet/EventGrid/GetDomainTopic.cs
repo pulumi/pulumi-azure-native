@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the topic.
         /// </summary>
-        [Input("domainTopicName", required: true)]
-        public string DomainTopicName { get; set; } = null!;
+        [Input("domainTopicName")]
+        public string? DomainTopicName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the topic.
         /// </summary>
-        [Input("domainTopicName", required: true)]
-        public Input<string> DomainTopicName { get; set; } = null!;
+        [Input("domainTopicName")]
+        public Input<string>? DomainTopicName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

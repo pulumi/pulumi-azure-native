@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// <summary>
         /// The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public string InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public string? InstanceName { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// <summary>
         /// The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the RouteMap.
         /// </summary>
-        [Input("routeMapName", required: true)]
-        public string RouteMapName { get; set; } = null!;
+        [Input("routeMapName")]
+        public string? RouteMapName { get; set; }
 
         /// <summary>
         /// The name of the VirtualHub containing the RouteMap.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the RouteMap.
         /// </summary>
-        [Input("routeMapName", required: true)]
-        public Input<string> RouteMapName { get; set; } = null!;
+        [Input("routeMapName")]
+        public Input<string>? RouteMapName { get; set; }
 
         /// <summary>
         /// The name of the VirtualHub containing the RouteMap.

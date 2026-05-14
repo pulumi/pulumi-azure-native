@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB container name.
         /// </summary>
-        [Input("containerName", required: true)]
-        public string ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public string? ContainerName { get; set; }
 
         /// <summary>
         /// Cosmos DB database name.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB container name.
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// Cosmos DB database name.

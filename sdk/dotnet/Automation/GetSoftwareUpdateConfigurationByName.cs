@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the software update configuration to be created.
         /// </summary>
-        [Input("softwareUpdateConfigurationName", required: true)]
-        public string SoftwareUpdateConfigurationName { get; set; } = null!;
+        [Input("softwareUpdateConfigurationName")]
+        public string? SoftwareUpdateConfigurationName { get; set; }
 
         public GetSoftwareUpdateConfigurationByNameArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the software update configuration to be created.
         /// </summary>
-        [Input("softwareUpdateConfigurationName", required: true)]
-        public Input<string> SoftwareUpdateConfigurationName { get; set; } = null!;
+        [Input("softwareUpdateConfigurationName")]
+        public Input<string>? SoftwareUpdateConfigurationName { get; set; }
 
         public GetSoftwareUpdateConfigurationByNameInvokeArgs()
         {

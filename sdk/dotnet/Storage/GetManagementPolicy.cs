@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the Storage Account Management Policy. It should always be 'default'
         /// </summary>
-        [Input("managementPolicyName", required: true)]
-        public string ManagementPolicyName { get; set; } = null!;
+        [Input("managementPolicyName")]
+        public string? ManagementPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the Storage Account Management Policy. It should always be 'default'
         /// </summary>
-        [Input("managementPolicyName", required: true)]
-        public Input<string> ManagementPolicyName { get; set; } = null!;
+        [Input("managementPolicyName")]
+        public Input<string>? ManagementPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

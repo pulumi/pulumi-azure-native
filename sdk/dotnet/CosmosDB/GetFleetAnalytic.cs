@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB fleetAnalytics name.
         /// </summary>
-        [Input("fleetAnalyticsName", required: true)]
-        public string FleetAnalyticsName { get; set; } = null!;
+        [Input("fleetAnalyticsName")]
+        public string? FleetAnalyticsName { get; set; }
 
         /// <summary>
         /// Cosmos DB fleet name. Needs to be unique under a subscription.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB fleetAnalytics name.
         /// </summary>
-        [Input("fleetAnalyticsName", required: true)]
-        public Input<string> FleetAnalyticsName { get; set; } = null!;
+        [Input("fleetAnalyticsName")]
+        public Input<string>? FleetAnalyticsName { get; set; }
 
         /// <summary>
         /// Cosmos DB fleet name. Needs to be unique under a subscription.

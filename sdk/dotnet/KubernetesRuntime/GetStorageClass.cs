@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the the storage class
         /// </summary>
-        [Input("storageClassName", required: true)]
-        public string StorageClassName { get; set; } = null!;
+        [Input("storageClassName")]
+        public string? StorageClassName { get; set; }
 
         public GetStorageClassArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the the storage class
         /// </summary>
-        [Input("storageClassName", required: true)]
-        public Input<string> StorageClassName { get; set; } = null!;
+        [Input("storageClassName")]
+        public Input<string>? StorageClassName { get; set; }
 
         public GetStorageClassInvokeArgs()
         {

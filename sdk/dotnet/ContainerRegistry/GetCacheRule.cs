@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the cache rule.
         /// </summary>
-        [Input("cacheRuleName", required: true)]
-        public string CacheRuleName { get; set; } = null!;
+        [Input("cacheRuleName")]
+        public string? CacheRuleName { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the cache rule.
         /// </summary>
-        [Input("cacheRuleName", required: true)]
-        public Input<string> CacheRuleName { get; set; } = null!;
+        [Input("cacheRuleName")]
+        public Input<string>? CacheRuleName { get; set; }
 
         /// <summary>
         /// The name of the container registry.

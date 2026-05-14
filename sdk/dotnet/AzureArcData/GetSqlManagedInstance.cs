@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Managed Instance
         /// </summary>
-        [Input("sqlManagedInstanceName", required: true)]
-        public string SqlManagedInstanceName { get; set; } = null!;
+        [Input("sqlManagedInstanceName")]
+        public string? SqlManagedInstanceName { get; set; }
 
         public GetSqlManagedInstanceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Managed Instance
         /// </summary>
-        [Input("sqlManagedInstanceName", required: true)]
-        public Input<string> SqlManagedInstanceName { get; set; } = null!;
+        [Input("sqlManagedInstanceName")]
+        public Input<string>? SqlManagedInstanceName { get; set; }
 
         public GetSqlManagedInstanceInvokeArgs()
         {

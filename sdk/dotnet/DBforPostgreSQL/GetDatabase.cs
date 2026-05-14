@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public string DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public string? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

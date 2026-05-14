@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the Update Run
         /// </summary>
-        [Input("updateRunName", required: true)]
-        public string UpdateRunName { get; set; } = null!;
+        [Input("updateRunName")]
+        public string? UpdateRunName { get; set; }
 
         public GetUpdateRunArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the Update Run
         /// </summary>
-        [Input("updateRunName", required: true)]
-        public Input<string> UpdateRunName { get; set; } = null!;
+        [Input("updateRunName")]
+        public Input<string>? UpdateRunName { get; set; }
 
         public GetUpdateRunInvokeArgs()
         {

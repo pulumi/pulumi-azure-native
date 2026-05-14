@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the Role Definition {dbName.roleName}.
         /// </summary>
-        [Input("mongoRoleDefinitionId", required: true)]
-        public string MongoRoleDefinitionId { get; set; } = null!;
+        [Input("mongoRoleDefinitionId")]
+        public string? MongoRoleDefinitionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the Role Definition {dbName.roleName}.
         /// </summary>
-        [Input("mongoRoleDefinitionId", required: true)]
-        public Input<string> MongoRoleDefinitionId { get; set; } = null!;
+        [Input("mongoRoleDefinitionId")]
+        public Input<string>? MongoRoleDefinitionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

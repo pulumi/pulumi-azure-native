@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy definition to get.
         /// </summary>
-        [Input("policyDefinitionName", required: true)]
-        public string PolicyDefinitionName { get; set; } = null!;
+        [Input("policyDefinitionName")]
+        public string? PolicyDefinitionName { get; set; }
 
         public GetPolicyDefinitionAtManagementGroupArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy definition to get.
         /// </summary>
-        [Input("policyDefinitionName", required: true)]
-        public Input<string> PolicyDefinitionName { get; set; } = null!;
+        [Input("policyDefinitionName")]
+        public Input<string>? PolicyDefinitionName { get; set; }
 
         public GetPolicyDefinitionAtManagementGroupInvokeArgs()
         {

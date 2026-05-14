@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Relation Name
         /// </summary>
-        [Input("relationName", required: true)]
-        public string RelationName { get; set; } = null!;
+        [Input("relationName")]
+        public string? RelationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Relation Name
         /// </summary>
-        [Input("relationName", required: true)]
-        public Input<string> RelationName { get; set; } = null!;
+        [Input("relationName")]
+        public Input<string>? RelationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

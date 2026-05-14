@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureData
         /// <summary>
         /// Name of the SQL Server.
         /// </summary>
-        [Input("sqlServerName", required: true)]
-        public string SqlServerName { get; set; } = null!;
+        [Input("sqlServerName")]
+        public string? SqlServerName { get; set; }
 
         /// <summary>
         /// Name of the SQL Server registration.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AzureData
         /// <summary>
         /// Name of the SQL Server.
         /// </summary>
-        [Input("sqlServerName", required: true)]
-        public Input<string> SqlServerName { get; set; } = null!;
+        [Input("sqlServerName")]
+        public Input<string>? SqlServerName { get; set; }
 
         /// <summary>
         /// Name of the SQL Server registration.

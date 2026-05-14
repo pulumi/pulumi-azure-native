@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of API portal.
         /// </summary>
-        [Input("apiPortalName", required: true)]
-        public string ApiPortalName { get; set; } = null!;
+        [Input("apiPortalName")]
+        public string? ApiPortalName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of API portal.
         /// </summary>
-        [Input("apiPortalName", required: true)]
-        public Input<string> ApiPortalName { get; set; } = null!;
+        [Input("apiPortalName")]
+        public Input<string>? ApiPortalName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

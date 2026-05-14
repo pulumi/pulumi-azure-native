@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// <summary>
         /// dedicated cloud Service name
         /// </summary>
-        [Input("dedicatedCloudServiceName", required: true)]
-        public string DedicatedCloudServiceName { get; set; } = null!;
+        [Input("dedicatedCloudServiceName")]
+        public string? DedicatedCloudServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// <summary>
         /// dedicated cloud Service name
         /// </summary>
-        [Input("dedicatedCloudServiceName", required: true)]
-        public Input<string> DedicatedCloudServiceName { get; set; } = null!;
+        [Input("dedicatedCloudServiceName")]
+        public Input<string>? DedicatedCloudServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the credit source
         /// </summary>
-        [Input("sourceName", required: true)]
-        public string SourceName { get; set; } = null!;
+        [Input("sourceName")]
+        public string? SourceName { get; set; }
 
         public GetSourceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the credit source
         /// </summary>
-        [Input("sourceName", required: true)]
-        public Input<string> SourceName { get; set; } = null!;
+        [Input("sourceName")]
+        public Input<string>? SourceName { get; set; }
 
         public GetSourceInvokeArgs()
         {

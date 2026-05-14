@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the subvolume.
         /// </summary>
-        [Input("subvolumeName", required: true)]
-        public string SubvolumeName { get; set; } = null!;
+        [Input("subvolumeName")]
+        public string? SubvolumeName { get; set; }
 
         /// <summary>
         /// The name of the volume
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the subvolume.
         /// </summary>
-        [Input("subvolumeName", required: true)]
-        public Input<string> SubvolumeName { get; set; } = null!;
+        [Input("subvolumeName")]
+        public Input<string>? SubvolumeName { get; set; }
 
         /// <summary>
         /// The name of the volume

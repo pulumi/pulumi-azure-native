@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Migration item name.
         /// </summary>
-        [Input("migrationItemName", required: true)]
-        public string MigrationItemName { get; set; } = null!;
+        [Input("migrationItemName")]
+        public string? MigrationItemName { get; set; }
 
         /// <summary>
         /// Protection container name.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Migration item name.
         /// </summary>
-        [Input("migrationItemName", required: true)]
-        public Input<string> MigrationItemName { get; set; } = null!;
+        [Input("migrationItemName")]
+        public Input<string>? MigrationItemName { get; set; }
 
         /// <summary>
         /// Protection container name.

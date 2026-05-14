@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the managed namespace.
         /// </summary>
-        [Input("managedNamespaceName", required: true)]
-        public string ManagedNamespaceName { get; set; } = null!;
+        [Input("managedNamespaceName")]
+        public string? ManagedNamespaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the managed namespace.
         /// </summary>
-        [Input("managedNamespaceName", required: true)]
-        public Input<string> ManagedNamespaceName { get; set; } = null!;
+        [Input("managedNamespaceName")]
+        public Input<string>? ManagedNamespaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

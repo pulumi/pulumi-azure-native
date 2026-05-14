@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the SQL Migration Service.
         /// </summary>
-        [Input("sqlMigrationServiceName", required: true)]
-        public string SqlMigrationServiceName { get; set; } = null!;
+        [Input("sqlMigrationServiceName")]
+        public string? SqlMigrationServiceName { get; set; }
 
         public GetSqlMigrationServiceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the SQL Migration Service.
         /// </summary>
-        [Input("sqlMigrationServiceName", required: true)]
-        public Input<string> SqlMigrationServiceName { get; set; } = null!;
+        [Input("sqlMigrationServiceName")]
+        public Input<string>? SqlMigrationServiceName { get; set; }
 
         public GetSqlMigrationServiceInvokeArgs()
         {

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Private endpoint connection name.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public string PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public string? PeConnectionName { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Private endpoint connection name.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public Input<string> PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public Input<string>? PeConnectionName { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

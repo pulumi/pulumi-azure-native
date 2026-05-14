@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Integration runtime name
         /// </summary>
-        [Input("integrationRuntimeName", required: true)]
-        public string IntegrationRuntimeName { get; set; } = null!;
+        [Input("integrationRuntimeName")]
+        public string? IntegrationRuntimeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Integration runtime name
         /// </summary>
-        [Input("integrationRuntimeName", required: true)]
-        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+        [Input("integrationRuntimeName")]
+        public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

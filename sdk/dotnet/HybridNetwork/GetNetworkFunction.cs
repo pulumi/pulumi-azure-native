@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function resource.
         /// </summary>
-        [Input("networkFunctionName", required: true)]
-        public string NetworkFunctionName { get; set; } = null!;
+        [Input("networkFunctionName")]
+        public string? NetworkFunctionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function resource.
         /// </summary>
-        [Input("networkFunctionName", required: true)]
-        public Input<string> NetworkFunctionName { get; set; } = null!;
+        [Input("networkFunctionName")]
+        public Input<string>? NetworkFunctionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Spacecraft ID.
         /// </summary>
-        [Input("spacecraftName", required: true)]
-        public string SpacecraftName { get; set; } = null!;
+        [Input("spacecraftName")]
+        public string? SpacecraftName { get; set; }
 
         public GetSpacecraftArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Spacecraft ID.
         /// </summary>
-        [Input("spacecraftName", required: true)]
-        public Input<string> SpacecraftName { get; set; } = null!;
+        [Input("spacecraftName")]
+        public Input<string>? SpacecraftName { get; set; }
 
         public GetSpacecraftInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// Instance name.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public string InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public string? InstanceName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// Instance name.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// The resource group name.

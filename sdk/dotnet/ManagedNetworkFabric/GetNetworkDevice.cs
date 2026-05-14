@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Device.
         /// </summary>
-        [Input("networkDeviceName", required: true)]
-        public string NetworkDeviceName { get; set; } = null!;
+        [Input("networkDeviceName")]
+        public string? NetworkDeviceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Device.
         /// </summary>
-        [Input("networkDeviceName", required: true)]
-        public Input<string> NetworkDeviceName { get; set; } = null!;
+        [Input("networkDeviceName")]
+        public Input<string>? NetworkDeviceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

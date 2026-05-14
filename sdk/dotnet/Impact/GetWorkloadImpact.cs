@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Impact
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
-        public static Task<GetWorkloadImpactResult> InvokeAsync(GetWorkloadImpactArgs args, InvokeOptions? options = null)
+        public static Task<GetWorkloadImpactResult> InvokeAsync(GetWorkloadImpactArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadImpactResult>("azure-native:impact:getWorkloadImpact", args ?? new GetWorkloadImpactArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Impact
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
-        public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadImpactResult>("azure-native:impact:getWorkloadImpact", args ?? new GetWorkloadImpactInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// workloadImpact resource 
         /// </summary>
-        [Input("workloadImpactName", required: true)]
-        public string WorkloadImpactName { get; set; } = null!;
+        [Input("workloadImpactName")]
+        public string? WorkloadImpactName { get; set; }
 
         public GetWorkloadImpactArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// workloadImpact resource 
         /// </summary>
-        [Input("workloadImpactName", required: true)]
-        public Input<string> WorkloadImpactName { get; set; } = null!;
+        [Input("workloadImpactName")]
+        public Input<string>? WorkloadImpactName { get; set; }
 
         public GetWorkloadImpactInvokeArgs()
         {

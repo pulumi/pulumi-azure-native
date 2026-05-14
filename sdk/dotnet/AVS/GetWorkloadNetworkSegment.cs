@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The ID of the NSX Segment
         /// </summary>
-        [Input("segmentId", required: true)]
-        public string SegmentId { get; set; } = null!;
+        [Input("segmentId")]
+        public string? SegmentId { get; set; }
 
         public GetWorkloadNetworkSegmentArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The ID of the NSX Segment
         /// </summary>
-        [Input("segmentId", required: true)]
-        public Input<string> SegmentId { get; set; } = null!;
+        [Input("segmentId")]
+        public Input<string>? SegmentId { get; set; }
 
         public GetWorkloadNetworkSegmentInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization.
         /// </summary>
-        [Input("authorizationId", required: true)]
-        public string AuthorizationId { get; set; } = null!;
+        [Input("authorizationId")]
+        public string? AuthorizationId { get; set; }
 
         /// <summary>
         /// Identifier of the authorization provider.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization.
         /// </summary>
-        [Input("authorizationId", required: true)]
-        public Input<string> AuthorizationId { get; set; } = null!;
+        [Input("authorizationId")]
+        public Input<string>? AuthorizationId { get; set; }
 
         /// <summary>
         /// Identifier of the authorization provider.

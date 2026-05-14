@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
-        [Input("roleAssignmentName", required: true)]
-        public string RoleAssignmentName { get; set; } = null!;
+        [Input("roleAssignmentName")]
+        public string? RoleAssignmentName { get; set; }
 
         /// <summary>
         /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
-        [Input("roleAssignmentName", required: true)]
-        public Input<string> RoleAssignmentName { get; set; } = null!;
+        [Input("roleAssignmentName")]
+        public Input<string>? RoleAssignmentName { get; set; }
 
         /// <summary>
         /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

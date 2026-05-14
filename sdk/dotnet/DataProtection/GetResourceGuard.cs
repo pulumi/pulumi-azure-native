@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of ResourceGuard
         /// </summary>
-        [Input("resourceGuardsName", required: true)]
-        public string ResourceGuardsName { get; set; } = null!;
+        [Input("resourceGuardsName")]
+        public string? ResourceGuardsName { get; set; }
 
         public GetResourceGuardArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of ResourceGuard
         /// </summary>
-        [Input("resourceGuardsName", required: true)]
-        public Input<string> ResourceGuardsName { get; set; } = null!;
+        [Input("resourceGuardsName")]
+        public Input<string>? ResourceGuardsName { get; set; }
 
         public GetResourceGuardInvokeArgs()
         {

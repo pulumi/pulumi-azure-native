@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the discount
         /// </summary>
-        [Input("discountName", required: true)]
-        public string DiscountName { get; set; } = null!;
+        [Input("discountName")]
+        public string? DiscountName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the discount
         /// </summary>
-        [Input("discountName", required: true)]
-        public Input<string> DiscountName { get; set; } = null!;
+        [Input("discountName")]
+        public Input<string>? DiscountName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

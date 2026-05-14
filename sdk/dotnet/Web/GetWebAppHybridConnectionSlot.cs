@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The relay name for this hybrid connection.
         /// </summary>
-        [Input("relayName", required: true)]
-        public string RelayName { get; set; } = null!;
+        [Input("relayName")]
+        public string? RelayName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The relay name for this hybrid connection.
         /// </summary>
-        [Input("relayName", required: true)]
-        public Input<string> RelayName { get; set; } = null!;
+        [Input("relayName")]
+        public Input<string>? RelayName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name for the flow that is to be onboarded.
         /// </summary>
-        [Input("flowName", required: true)]
-        public string FlowName { get; set; } = null!;
+        [Input("flowName")]
+        public string? FlowName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name for the flow that is to be onboarded.
         /// </summary>
-        [Input("flowName", required: true)]
-        public Input<string> FlowName { get; set; } = null!;
+        [Input("flowName")]
+        public Input<string>? FlowName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

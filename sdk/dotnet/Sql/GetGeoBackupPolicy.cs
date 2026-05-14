@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
-        [Input("geoBackupPolicyName", required: true)]
-        public string GeoBackupPolicyName { get; set; } = null!;
+        [Input("geoBackupPolicyName")]
+        public string? GeoBackupPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
-        [Input("geoBackupPolicyName", required: true)]
-        public Input<string> GeoBackupPolicyName { get; set; } = null!;
+        [Input("geoBackupPolicyName")]
+        public Input<string>? GeoBackupPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

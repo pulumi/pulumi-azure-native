@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Managed CCF
         /// </summary>
-        [Input("appName", required: true)]
-        public string AppName { get; set; } = null!;
+        [Input("appName")]
+        public string? AppName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Managed CCF
         /// </summary>
-        [Input("appName", required: true)]
-        public Input<string> AppName { get; set; } = null!;
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

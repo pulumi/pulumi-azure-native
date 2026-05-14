@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the capacity reservation.
         /// </summary>
-        [Input("capacityReservationName", required: true)]
-        public string CapacityReservationName { get; set; } = null!;
+        [Input("capacityReservationName")]
+        public string? CapacityReservationName { get; set; }
 
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the capacity reservation.
         /// </summary>
-        [Input("capacityReservationName", required: true)]
-        public Input<string> CapacityReservationName { get; set; } = null!;
+        [Input("capacityReservationName")]
+        public Input<string>? CapacityReservationName { get; set; }
 
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Product-API link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("apiLinkId", required: true)]
-        public string ApiLinkId { get; set; } = null!;
+        [Input("apiLinkId")]
+        public string? ApiLinkId { get; set; }
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Product-API link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("apiLinkId", required: true)]
-        public Input<string> ApiLinkId { get; set; } = null!;
+        [Input("apiLinkId")]
+        public Input<string>? ApiLinkId { get; set; }
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

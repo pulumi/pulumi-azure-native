@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("containerName", required: true)]
-        public string ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public string? ContainerName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

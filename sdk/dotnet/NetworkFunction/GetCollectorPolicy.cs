@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Collector Policy Name
         /// </summary>
-        [Input("collectorPolicyName", required: true)]
-        public string CollectorPolicyName { get; set; } = null!;
+        [Input("collectorPolicyName")]
+        public string? CollectorPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Collector Policy Name
         /// </summary>
-        [Input("collectorPolicyName", required: true)]
-        public Input<string> CollectorPolicyName { get; set; } = null!;
+        [Input("collectorPolicyName")]
+        public Input<string>? CollectorPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

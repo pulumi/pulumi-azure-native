@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public string DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public string? DatasetName { get; set; }
 
         /// <summary>
         /// The factory name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public Input<string> DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public Input<string>? DatasetName { get; set; }
 
         /// <summary>
         /// The factory name.

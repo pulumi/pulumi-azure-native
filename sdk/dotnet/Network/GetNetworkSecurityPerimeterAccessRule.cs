@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP access rule.
         /// </summary>
-        [Input("accessRuleName", required: true)]
-        public string AccessRuleName { get; set; } = null!;
+        [Input("accessRuleName")]
+        public string? AccessRuleName { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP access rule.
         /// </summary>
-        [Input("accessRuleName", required: true)]
-        public Input<string> AccessRuleName { get; set; } = null!;
+        [Input("accessRuleName")]
+        public Input<string>? AccessRuleName { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.

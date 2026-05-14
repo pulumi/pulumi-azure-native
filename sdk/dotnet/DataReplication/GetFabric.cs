@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The fabric name.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public string FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public string? FabricName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The fabric name.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public Input<string> FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public Input<string>? FabricName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

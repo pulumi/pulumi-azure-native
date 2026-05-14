@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the export pipeline.
         /// </summary>
-        [Input("exportPipelineName", required: true)]
-        public string ExportPipelineName { get; set; } = null!;
+        [Input("exportPipelineName")]
+        public string? ExportPipelineName { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the export pipeline.
         /// </summary>
-        [Input("exportPipelineName", required: true)]
-        public Input<string> ExportPipelineName { get; set; } = null!;
+        [Input("exportPipelineName")]
+        public Input<string>? ExportPipelineName { get; set; }
 
         /// <summary>
         /// The name of the container registry.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Version identifier.
         /// </summary>
-        [Input("version", required: true)]
-        public string Version { get; set; } = null!;
+        [Input("version")]
+        public string? Version { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Version identifier.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Name of the provisioning service to retrieve.
         /// </summary>
-        [Input("provisioningServiceName", required: true)]
-        public string ProvisioningServiceName { get; set; } = null!;
+        [Input("provisioningServiceName")]
+        public string? ProvisioningServiceName { get; set; }
 
         /// <summary>
         /// Resource group name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Name of the provisioning service to retrieve.
         /// </summary>
-        [Input("provisioningServiceName", required: true)]
-        public Input<string> ProvisioningServiceName { get; set; } = null!;
+        [Input("provisioningServiceName")]
+        public Input<string>? ProvisioningServiceName { get; set; }
 
         /// <summary>
         /// Resource group name.

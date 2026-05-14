@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the sync group.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public string SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public string? SyncGroupName { get; set; }
 
         public GetSyncGroupArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the sync group.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public Input<string> SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public Input<string>? SyncGroupName { get; set; }
 
         public GetSyncGroupInvokeArgs()
         {

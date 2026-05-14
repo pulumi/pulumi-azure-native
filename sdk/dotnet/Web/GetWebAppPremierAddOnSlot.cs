@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Add-on name.
         /// </summary>
-        [Input("premierAddOnName", required: true)]
-        public string PremierAddOnName { get; set; } = null!;
+        [Input("premierAddOnName")]
+        public string? PremierAddOnName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Add-on name.
         /// </summary>
-        [Input("premierAddOnName", required: true)]
-        public Input<string> PremierAddOnName { get; set; } = null!;
+        [Input("premierAddOnName")]
+        public Input<string>? PremierAddOnName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

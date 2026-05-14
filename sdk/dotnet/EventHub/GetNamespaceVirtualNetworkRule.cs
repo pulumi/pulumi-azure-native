@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Virtual Network Rule name.
         /// </summary>
-        [Input("virtualNetworkRuleName", required: true)]
-        public string VirtualNetworkRuleName { get; set; } = null!;
+        [Input("virtualNetworkRuleName")]
+        public string? VirtualNetworkRuleName { get; set; }
 
         public GetNamespaceVirtualNetworkRuleArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Virtual Network Rule name.
         /// </summary>
-        [Input("virtualNetworkRuleName", required: true)]
-        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+        [Input("virtualNetworkRuleName")]
+        public Input<string>? VirtualNetworkRuleName { get; set; }
 
         public GetNamespaceVirtualNetworkRuleInvokeArgs()
         {

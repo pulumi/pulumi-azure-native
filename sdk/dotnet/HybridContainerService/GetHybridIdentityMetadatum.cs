@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the hybrid identity metadata resource.
         /// </summary>
-        [Input("hybridIdentityMetadataResourceName", required: true)]
-        public string HybridIdentityMetadataResourceName { get; set; } = null!;
+        [Input("hybridIdentityMetadataResourceName")]
+        public string? HybridIdentityMetadataResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the hybrid identity metadata resource.
         /// </summary>
-        [Input("hybridIdentityMetadataResourceName", required: true)]
-        public Input<string> HybridIdentityMetadataResourceName { get; set; } = null!;
+        [Input("hybridIdentityMetadataResourceName")]
+        public Input<string>? HybridIdentityMetadataResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

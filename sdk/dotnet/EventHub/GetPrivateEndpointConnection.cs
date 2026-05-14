@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The PrivateEndpointConnection name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The PrivateEndpointConnection name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

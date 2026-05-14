@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the discovery rule. Must be unique within a health model.
         /// </summary>
-        [Input("discoveryRuleName", required: true)]
-        public string DiscoveryRuleName { get; set; } = null!;
+        [Input("discoveryRuleName")]
+        public string? DiscoveryRuleName { get; set; }
 
         /// <summary>
         /// Name of health model resource
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the discovery rule. Must be unique within a health model.
         /// </summary>
-        [Input("discoveryRuleName", required: true)]
-        public Input<string> DiscoveryRuleName { get; set; } = null!;
+        [Input("discoveryRuleName")]
+        public Input<string>? DiscoveryRuleName { get; set; }
 
         /// <summary>
         /// Name of health model resource

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the session host within the specified host pool
         /// </summary>
-        [Input("sessionHostName", required: true)]
-        public string SessionHostName { get; set; } = null!;
+        [Input("sessionHostName")]
+        public string? SessionHostName { get; set; }
 
         public GetSessionHostArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the session host within the specified host pool
         /// </summary>
-        [Input("sessionHostName", required: true)]
-        public Input<string> SessionHostName { get; set; } = null!;
+        [Input("sessionHostName")]
+        public Input<string>? SessionHostName { get; set; }
 
         public GetSessionHostInvokeArgs()
         {

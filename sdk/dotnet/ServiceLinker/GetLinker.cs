@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name Linker resource.
         /// </summary>
-        [Input("linkerName", required: true)]
-        public string LinkerName { get; set; } = null!;
+        [Input("linkerName")]
+        public string? LinkerName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name Linker resource.
         /// </summary>
-        [Input("linkerName", required: true)]
-        public Input<string> LinkerName { get; set; } = null!;
+        [Input("linkerName")]
+        public Input<string>? LinkerName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.

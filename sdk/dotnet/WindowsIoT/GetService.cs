@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// <summary>
         /// The name of the Windows IoT Device Service.
         /// </summary>
-        [Input("deviceName", required: true)]
-        public string DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public string? DeviceName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Windows IoT Device Service.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// <summary>
         /// The name of the Windows IoT Device Service.
         /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Windows IoT Device Service.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// <summary>
         /// The name of the StorageDiscoveryWorkspace
         /// </summary>
-        [Input("storageDiscoveryWorkspaceName", required: true)]
-        public string StorageDiscoveryWorkspaceName { get; set; } = null!;
+        [Input("storageDiscoveryWorkspaceName")]
+        public string? StorageDiscoveryWorkspaceName { get; set; }
 
         public GetStorageDiscoveryWorkspaceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// <summary>
         /// The name of the StorageDiscoveryWorkspace
         /// </summary>
-        [Input("storageDiscoveryWorkspaceName", required: true)]
-        public Input<string> StorageDiscoveryWorkspaceName { get; set; } = null!;
+        [Input("storageDiscoveryWorkspaceName")]
+        public Input<string>? StorageDiscoveryWorkspaceName { get; set; }
 
         public GetStorageDiscoveryWorkspaceInvokeArgs()
         {

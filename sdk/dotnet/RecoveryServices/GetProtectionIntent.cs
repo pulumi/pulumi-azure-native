@@ -57,8 +57,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Backed up item name whose details are to be fetched.
         /// </summary>
-        [Input("intentObjectName", required: true)]
-        public string IntentObjectName { get; set; } = null!;
+        [Input("intentObjectName")]
+        public string? IntentObjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Backed up item name whose details are to be fetched.
         /// </summary>
-        [Input("intentObjectName", required: true)]
-        public Input<string> IntentObjectName { get; set; } = null!;
+        [Input("intentObjectName")]
+        public Input<string>? IntentObjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

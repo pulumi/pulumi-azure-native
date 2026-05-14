@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security connector name.
         /// </summary>
-        [Input("securityConnectorName", required: true)]
-        public string SecurityConnectorName { get; set; } = null!;
+        [Input("securityConnectorName")]
+        public string? SecurityConnectorName { get; set; }
 
         public GetSecurityConnectorArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security connector name.
         /// </summary>
-        [Input("securityConnectorName", required: true)]
-        public Input<string> SecurityConnectorName { get; set; } = null!;
+        [Input("securityConnectorName")]
+        public Input<string>? SecurityConnectorName { get; set; }
 
         public GetSecurityConnectorInvokeArgs()
         {

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafka/topicMap resource
         /// </summary>
-        [Input("topicMapName", required: true)]
-        public string TopicMapName { get; set; } = null!;
+        [Input("topicMapName")]
+        public string? TopicMapName { get; set; }
 
         public GetKafkaConnectorTopicMapArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafka/topicMap resource
         /// </summary>
-        [Input("topicMapName", required: true)]
-        public Input<string> TopicMapName { get; set; } = null!;
+        [Input("topicMapName")]
+        public Input<string>? TopicMapName { get; set; }
 
         public GetKafkaConnectorTopicMapInvokeArgs()
         {

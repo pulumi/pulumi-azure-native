@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Certificate profile name.
         /// </summary>
-        [Input("profileName", required: true)]
-        public string ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public string? ProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Certificate profile name.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

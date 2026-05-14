@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the External Network.
         /// </summary>
-        [Input("externalNetworkName", required: true)]
-        public string ExternalNetworkName { get; set; } = null!;
+        [Input("externalNetworkName")]
+        public string? ExternalNetworkName { get; set; }
 
         /// <summary>
         /// Name of the L3 Isolation Domain.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the External Network.
         /// </summary>
-        [Input("externalNetworkName", required: true)]
-        public Input<string> ExternalNetworkName { get; set; } = null!;
+        [Input("externalNetworkName")]
+        public Input<string>? ExternalNetworkName { get; set; }
 
         /// <summary>
         /// Name of the L3 Isolation Domain.

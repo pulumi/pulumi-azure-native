@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Relationships
         /// <summary>
         /// Name of ServiceGroupMember relationship.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Relationships
         /// <summary>
         /// Name of ServiceGroupMember relationship.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

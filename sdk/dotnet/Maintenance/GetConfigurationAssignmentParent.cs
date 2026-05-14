@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public string ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public string? ConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// Resource provider name
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public Input<string>? ConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// Resource provider name

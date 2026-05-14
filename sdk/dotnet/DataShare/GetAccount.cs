@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the share account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public string AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the share account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("productId", required: true)]
-        public string ProductId { get; set; } = null!;
+        [Input("productId")]
+        public string? ProductId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("productId", required: true)]
-        public Input<string> ProductId { get; set; } = null!;
+        [Input("productId")]
+        public Input<string>? ProductId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

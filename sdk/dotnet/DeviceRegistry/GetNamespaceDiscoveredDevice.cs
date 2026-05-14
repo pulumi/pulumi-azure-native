@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered device.
         /// </summary>
-        [Input("discoveredDeviceName", required: true)]
-        public string DiscoveredDeviceName { get; set; } = null!;
+        [Input("discoveredDeviceName")]
+        public string? DiscoveredDeviceName { get; set; }
 
         /// <summary>
         /// The name of the namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered device.
         /// </summary>
-        [Input("discoveredDeviceName", required: true)]
-        public Input<string> DiscoveredDeviceName { get; set; } = null!;
+        [Input("discoveredDeviceName")]
+        public Input<string>? DiscoveredDeviceName { get; set; }
 
         /// <summary>
         /// The name of the namespace.

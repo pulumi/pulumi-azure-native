@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the mesh membership.
         /// </summary>
-        [Input("meshMembershipName", required: true)]
-        public string MeshMembershipName { get; set; } = null!;
+        [Input("meshMembershipName")]
+        public string? MeshMembershipName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the mesh membership.
         /// </summary>
-        [Input("meshMembershipName", required: true)]
-        public Input<string> MeshMembershipName { get; set; } = null!;
+        [Input("meshMembershipName")]
+        public Input<string>? MeshMembershipName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter.
         /// </summary>
-        [Input("devCenterName", required: true)]
-        public string DevCenterName { get; set; } = null!;
+        [Input("devCenterName")]
+        public string? DevCenterName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter.
         /// </summary>
-        [Input("devCenterName", required: true)]
-        public Input<string> DevCenterName { get; set; } = null!;
+        [Input("devCenterName")]
+        public Input<string>? DevCenterName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

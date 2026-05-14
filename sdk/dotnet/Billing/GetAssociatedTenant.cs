@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a tenant.
         /// </summary>
-        [Input("associatedTenantName", required: true)]
-        public string AssociatedTenantName { get; set; } = null!;
+        [Input("associatedTenantName")]
+        public string? AssociatedTenantName { get; set; }
 
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a tenant.
         /// </summary>
-        [Input("associatedTenantName", required: true)]
-        public Input<string> AssociatedTenantName { get; set; } = null!;
+        [Input("associatedTenantName")]
+        public Input<string>? AssociatedTenantName { get; set; }
 
         /// <summary>
         /// The ID that uniquely identifies a billing account.

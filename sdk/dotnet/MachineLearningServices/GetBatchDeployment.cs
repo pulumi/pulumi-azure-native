@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The identifier for the Batch deployments.
         /// </summary>
-        [Input("deploymentName", required: true)]
-        public string DeploymentName { get; set; } = null!;
+        [Input("deploymentName")]
+        public string? DeploymentName { get; set; }
 
         /// <summary>
         /// Name for the Batch Endpoint.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The identifier for the Batch deployments.
         /// </summary>
-        [Input("deploymentName", required: true)]
-        public Input<string> DeploymentName { get; set; } = null!;
+        [Input("deploymentName")]
+        public Input<string>? DeploymentName { get; set; }
 
         /// <summary>
         /// Name for the Batch Endpoint.

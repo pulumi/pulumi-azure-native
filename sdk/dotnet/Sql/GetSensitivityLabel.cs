@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The source of the sensitivity label.
         /// </summary>
-        [Input("sensitivityLabelSource", required: true)]
-        public string SensitivityLabelSource { get; set; } = null!;
+        [Input("sensitivityLabelSource")]
+        public string? SensitivityLabelSource { get; set; }
 
         /// <summary>
         /// The name of the server.
@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The source of the sensitivity label.
         /// </summary>
-        [Input("sensitivityLabelSource", required: true)]
-        public Input<string> SensitivityLabelSource { get; set; } = null!;
+        [Input("sensitivityLabelSource")]
+        public Input<string>? SensitivityLabelSource { get; set; }
 
         /// <summary>
         /// The name of the server.

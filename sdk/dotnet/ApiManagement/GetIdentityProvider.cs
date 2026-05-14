@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identity Provider Type identifier.
         /// </summary>
-        [Input("identityProviderName", required: true)]
-        public string IdentityProviderName { get; set; } = null!;
+        [Input("identityProviderName")]
+        public string? IdentityProviderName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identity Provider Type identifier.
         /// </summary>
-        [Input("identityProviderName", required: true)]
-        public Input<string> IdentityProviderName { get; set; } = null!;
+        [Input("identityProviderName")]
+        public Input<string>? IdentityProviderName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

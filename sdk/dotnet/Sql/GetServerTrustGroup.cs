@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server trust group.
         /// </summary>
-        [Input("serverTrustGroupName", required: true)]
-        public string ServerTrustGroupName { get; set; } = null!;
+        [Input("serverTrustGroupName")]
+        public string? ServerTrustGroupName { get; set; }
 
         public GetServerTrustGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server trust group.
         /// </summary>
-        [Input("serverTrustGroupName", required: true)]
-        public Input<string> ServerTrustGroupName { get; set; } = null!;
+        [Input("serverTrustGroupName")]
+        public Input<string>? ServerTrustGroupName { get; set; }
 
         public GetServerTrustGroupInvokeArgs()
         {

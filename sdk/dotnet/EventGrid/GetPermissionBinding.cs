@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the permission binding.
         /// </summary>
-        [Input("permissionBindingName", required: true)]
-        public string PermissionBindingName { get; set; } = null!;
+        [Input("permissionBindingName")]
+        public string? PermissionBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the permission binding.
         /// </summary>
-        [Input("permissionBindingName", required: true)]
-        public Input<string> PermissionBindingName { get; set; } = null!;
+        [Input("permissionBindingName")]
+        public Input<string>? PermissionBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

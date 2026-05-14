@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the identity binding.
         /// </summary>
-        [Input("identityBindingName", required: true)]
-        public string IdentityBindingName { get; set; } = null!;
+        [Input("identityBindingName")]
+        public string? IdentityBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the identity binding.
         /// </summary>
-        [Input("identityBindingName", required: true)]
-        public Input<string> IdentityBindingName { get; set; } = null!;
+        [Input("identityBindingName")]
+        public Input<string>? IdentityBindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

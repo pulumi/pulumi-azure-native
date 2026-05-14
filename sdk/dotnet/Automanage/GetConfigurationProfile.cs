@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// The configuration profile name.
         /// </summary>
-        [Input("configurationProfileName", required: true)]
-        public string ConfigurationProfileName { get; set; } = null!;
+        [Input("configurationProfileName")]
+        public string? ConfigurationProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// The configuration profile name.
         /// </summary>
-        [Input("configurationProfileName", required: true)]
-        public Input<string> ConfigurationProfileName { get; set; } = null!;
+        [Input("configurationProfileName")]
+        public Input<string>? ConfigurationProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

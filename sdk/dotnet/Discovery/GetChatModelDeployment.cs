@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the ChatModelDeployment
         /// </summary>
-        [Input("chatModelDeploymentName", required: true)]
-        public string ChatModelDeploymentName { get; set; } = null!;
+        [Input("chatModelDeploymentName")]
+        public string? ChatModelDeploymentName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the ChatModelDeployment
         /// </summary>
-        [Input("chatModelDeploymentName", required: true)]
-        public Input<string> ChatModelDeploymentName { get; set; } = null!;
+        [Input("chatModelDeploymentName")]
+        public Input<string>? ChatModelDeploymentName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

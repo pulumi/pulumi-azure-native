@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The standard assignments assignment key - unique key for the standard assignment
         /// </summary>
-        [Input("standardAssignmentName", required: true)]
-        public string StandardAssignmentName { get; set; } = null!;
+        [Input("standardAssignmentName")]
+        public string? StandardAssignmentName { get; set; }
 
         public GetStandardAssignmentArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The standard assignments assignment key - unique key for the standard assignment
         /// </summary>
-        [Input("standardAssignmentName", required: true)]
-        public Input<string> StandardAssignmentName { get; set; } = null!;
+        [Input("standardAssignmentName")]
+        public Input<string>? StandardAssignmentName { get; set; }
 
         public GetStandardAssignmentInvokeArgs()
         {

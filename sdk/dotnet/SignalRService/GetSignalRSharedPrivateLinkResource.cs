@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// The name of the shared private link resource.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName", required: true)]
-        public string SharedPrivateLinkResourceName { get; set; } = null!;
+        [Input("sharedPrivateLinkResourceName")]
+        public string? SharedPrivateLinkResourceName { get; set; }
 
         public GetSignalRSharedPrivateLinkResourceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// The name of the shared private link resource.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName", required: true)]
-        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
+        [Input("sharedPrivateLinkResourceName")]
+        public Input<string>? SharedPrivateLinkResourceName { get; set; }
 
         public GetSignalRSharedPrivateLinkResourceInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Spring Cloud Gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public string GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public string? GatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Spring Cloud Gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public Input<string> GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

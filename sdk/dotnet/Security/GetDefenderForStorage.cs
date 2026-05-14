@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Defender for Storage setting name.
         /// </summary>
-        [Input("settingName", required: true)]
-        public string SettingName { get; set; } = null!;
+        [Input("settingName")]
+        public string? SettingName { get; set; }
 
         public GetDefenderForStorageArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Defender for Storage setting name.
         /// </summary>
-        [Input("settingName", required: true)]
-        public Input<string> SettingName { get; set; } = null!;
+        [Input("settingName")]
+        public Input<string>? SettingName { get; set; }
 
         public GetDefenderForStorageInvokeArgs()
         {

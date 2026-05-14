@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Policy restrictions after an entity level
         /// </summary>
-        [Input("policyRestrictionId", required: true)]
-        public string PolicyRestrictionId { get; set; } = null!;
+        [Input("policyRestrictionId")]
+        public string? PolicyRestrictionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Policy restrictions after an entity level
         /// </summary>
-        [Input("policyRestrictionId", required: true)]
-        public Input<string> PolicyRestrictionId { get; set; } = null!;
+        [Input("policyRestrictionId")]
+        public Input<string>? PolicyRestrictionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

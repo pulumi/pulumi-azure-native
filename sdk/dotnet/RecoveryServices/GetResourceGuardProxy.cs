@@ -51,8 +51,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("resourceGuardProxyName", required: true)]
-        public string ResourceGuardProxyName { get; set; } = null!;
+        [Input("resourceGuardProxyName")]
+        public string? ResourceGuardProxyName { get; set; }
 
         /// <summary>
         /// The name of the recovery services vault.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("resourceGuardProxyName", required: true)]
-        public Input<string> ResourceGuardProxyName { get; set; } = null!;
+        [Input("resourceGuardProxyName")]
+        public Input<string>? ResourceGuardProxyName { get; set; }
 
         /// <summary>
         /// The name of the recovery services vault.

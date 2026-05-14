@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the share to retrieve.
         /// </summary>
-        [Input("shareName", required: true)]
-        public string ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public string? ShareName { get; set; }
 
         public GetShareArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the share to retrieve.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         public GetShareInvokeArgs()
         {

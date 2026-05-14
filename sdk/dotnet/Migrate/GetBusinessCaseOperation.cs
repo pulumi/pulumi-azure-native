@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Business case ARM name
         /// </summary>
-        [Input("businessCaseName", required: true)]
-        public string BusinessCaseName { get; set; } = null!;
+        [Input("businessCaseName")]
+        public string? BusinessCaseName { get; set; }
 
         /// <summary>
         /// Assessment Project Name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Business case ARM name
         /// </summary>
-        [Input("businessCaseName", required: true)]
-        public Input<string> BusinessCaseName { get; set; } = null!;
+        [Input("businessCaseName")]
+        public Input<string>? BusinessCaseName { get; set; }
 
         /// <summary>
         /// Assessment Project Name

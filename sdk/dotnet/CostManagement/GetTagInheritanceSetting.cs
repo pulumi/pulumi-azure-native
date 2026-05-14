@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Setting type.
         /// </summary>
-        [Input("type", required: true)]
-        public string Type { get; set; } = null!;
+        [Input("type")]
+        public string? Type { get; set; }
 
         public GetTagInheritanceSettingArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Setting type.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public GetTagInheritanceSettingInvokeArgs()
         {

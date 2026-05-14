@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ConfigurationPolicyGroup being retrieved.
         /// </summary>
-        [Input("configurationPolicyGroupName", required: true)]
-        public string ConfigurationPolicyGroupName { get; set; } = null!;
+        [Input("configurationPolicyGroupName")]
+        public string? ConfigurationPolicyGroupName { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnServerConfiguration.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ConfigurationPolicyGroup being retrieved.
         /// </summary>
-        [Input("configurationPolicyGroupName", required: true)]
-        public Input<string> ConfigurationPolicyGroupName { get; set; } = null!;
+        [Input("configurationPolicyGroupName")]
+        public Input<string>? ConfigurationPolicyGroupName { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnServerConfiguration.

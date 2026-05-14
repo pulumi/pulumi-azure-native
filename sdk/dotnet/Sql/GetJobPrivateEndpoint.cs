@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the private endpoint to get.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public string PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public string? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the private endpoint to get.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public Input<string> PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public Input<string>? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

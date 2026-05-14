@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The name of the AzureKeyVaultSecretProviderClass
         /// </summary>
-        [Input("azureKeyVaultSecretProviderClassName", required: true)]
-        public string AzureKeyVaultSecretProviderClassName { get; set; } = null!;
+        [Input("azureKeyVaultSecretProviderClassName")]
+        public string? AzureKeyVaultSecretProviderClassName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The name of the AzureKeyVaultSecretProviderClass
         /// </summary>
-        [Input("azureKeyVaultSecretProviderClassName", required: true)]
-        public Input<string> AzureKeyVaultSecretProviderClassName { get; set; } = null!;
+        [Input("azureKeyVaultSecretProviderClassName")]
+        public Input<string>? AzureKeyVaultSecretProviderClassName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

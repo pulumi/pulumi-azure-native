@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the VM group.
         /// </summary>
-        [Input("vmGroupId", required: true)]
-        public string VmGroupId { get; set; } = null!;
+        [Input("vmGroupId")]
+        public string? VmGroupId { get; set; }
 
         public GetWorkloadNetworkVMGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the VM group.
         /// </summary>
-        [Input("vmGroupId", required: true)]
-        public Input<string> VmGroupId { get; set; } = null!;
+        [Input("vmGroupId")]
+        public Input<string>? VmGroupId { get; set; }
 
         public GetWorkloadNetworkVMGroupInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("serverName", required: true)]
-        public string ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public string? ServerName { get; set; }
 
         public GetServerDetailsArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         public GetServerDetailsInvokeArgs()
         {

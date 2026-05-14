@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2020-05-01.
         /// </summary>
-        public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
+        public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2020-05-01.
         /// </summary>
-        public static Output<GetManagementLockAtSubscriptionLevelResult> Invoke(GetManagementLockAtSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetManagementLockAtSubscriptionLevelResult> Invoke(GetManagementLockAtSubscriptionLevelInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the lock to get.
         /// </summary>
-        [Input("lockName", required: true)]
-        public string LockName { get; set; } = null!;
+        [Input("lockName")]
+        public string? LockName { get; set; }
 
         public GetManagementLockAtSubscriptionLevelArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the lock to get.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         public GetManagementLockAtSubscriptionLevelInvokeArgs()
         {

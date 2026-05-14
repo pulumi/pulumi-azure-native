@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the storage policy.
         /// </summary>
-        [Input("storagePolicyName", required: true)]
-        public string StoragePolicyName { get; set; } = null!;
+        [Input("storagePolicyName")]
+        public string? StoragePolicyName { get; set; }
 
         public GetPureStoragePolicyArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the storage policy.
         /// </summary>
-        [Input("storagePolicyName", required: true)]
-        public Input<string> StoragePolicyName { get; set; } = null!;
+        [Input("storagePolicyName")]
+        public Input<string>? StoragePolicyName { get; set; }
 
         public GetPureStoragePolicyInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the curation profile.
         /// </summary>
-        [Input("curationProfileName", required: true)]
-        public string CurationProfileName { get; set; } = null!;
+        [Input("curationProfileName")]
+        public string? CurationProfileName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the curation profile.
         /// </summary>
-        [Input("curationProfileName", required: true)]
-        public Input<string> CurationProfileName { get; set; } = null!;
+        [Input("curationProfileName")]
+        public Input<string>? CurationProfileName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.

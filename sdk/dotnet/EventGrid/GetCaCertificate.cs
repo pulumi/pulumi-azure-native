@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the CA certificate.
         /// </summary>
-        [Input("caCertificateName", required: true)]
-        public string CaCertificateName { get; set; } = null!;
+        [Input("caCertificateName")]
+        public string? CaCertificateName { get; set; }
 
         /// <summary>
         /// Name of the namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the CA certificate.
         /// </summary>
-        [Input("caCertificateName", required: true)]
-        public Input<string> CaCertificateName { get; set; } = null!;
+        [Input("caCertificateName")]
+        public Input<string>? CaCertificateName { get; set; }
 
         /// <summary>
         /// Name of the namespace.

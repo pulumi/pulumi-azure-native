@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Name of kafka configuration.
         /// </summary>
-        [Input("kafkaConfigurationName", required: true)]
-        public string KafkaConfigurationName { get; set; } = null!;
+        [Input("kafkaConfigurationName")]
+        public string? KafkaConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Name of kafka configuration.
         /// </summary>
-        [Input("kafkaConfigurationName", required: true)]
-        public Input<string> KafkaConfigurationName { get; set; } = null!;
+        [Input("kafkaConfigurationName")]
+        public Input<string>? KafkaConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

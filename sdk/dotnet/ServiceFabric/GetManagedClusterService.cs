@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the service resource in the format of {applicationName}~{serviceName}.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public string ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public string? ServiceName { get; set; }
 
         public GetManagedClusterServiceArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the service resource in the format of {applicationName}~{serviceName}.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public GetManagedClusterServiceInvokeArgs()
         {

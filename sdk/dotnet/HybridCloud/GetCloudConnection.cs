@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridCloud
         /// <summary>
         /// The name of the cloud connection resource
         /// </summary>
-        [Input("cloudConnectionName", required: true)]
-        public string CloudConnectionName { get; set; } = null!;
+        [Input("cloudConnectionName")]
+        public string? CloudConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.HybridCloud
         /// <summary>
         /// The name of the cloud connection resource
         /// </summary>
-        [Input("cloudConnectionName", required: true)]
-        public Input<string> CloudConnectionName { get; set; } = null!;
+        [Input("cloudConnectionName")]
+        public Input<string>? CloudConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

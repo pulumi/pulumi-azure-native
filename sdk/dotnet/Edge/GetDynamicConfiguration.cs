@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the dynamic configuration
         /// </summary>
-        [Input("dynamicConfigurationName", required: true)]
-        public string DynamicConfigurationName { get; set; } = null!;
+        [Input("dynamicConfigurationName")]
+        public string? DynamicConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the dynamic configuration
         /// </summary>
-        [Input("dynamicConfigurationName", required: true)]
-        public Input<string> DynamicConfigurationName { get; set; } = null!;
+        [Input("dynamicConfigurationName")]
+        public Input<string>? DynamicConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

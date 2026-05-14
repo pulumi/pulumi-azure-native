@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Credential name
         /// </summary>
-        [Input("credentialName", required: true)]
-        public string CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public string? CredentialName { get; set; }
 
         /// <summary>
         /// The factory name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Credential name
         /// </summary>
-        [Input("credentialName", required: true)]
-        public Input<string> CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// The factory name.

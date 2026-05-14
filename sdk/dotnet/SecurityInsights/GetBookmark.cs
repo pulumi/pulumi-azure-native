@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Bookmark ID
         /// </summary>
-        [Input("bookmarkId", required: true)]
-        public string BookmarkId { get; set; } = null!;
+        [Input("bookmarkId")]
+        public string? BookmarkId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Bookmark ID
         /// </summary>
-        [Input("bookmarkId", required: true)]
-        public Input<string> BookmarkId { get; set; } = null!;
+        [Input("bookmarkId")]
+        public Input<string>? BookmarkId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

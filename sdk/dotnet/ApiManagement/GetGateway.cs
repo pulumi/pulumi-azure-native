@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         /// </summary>
-        [Input("gatewayId", required: true)]
-        public string GatewayId { get; set; } = null!;
+        [Input("gatewayId")]
+        public string? GatewayId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         /// </summary>
-        [Input("gatewayId", required: true)]
-        public Input<string> GatewayId { get; set; } = null!;
+        [Input("gatewayId")]
+        public Input<string>? GatewayId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

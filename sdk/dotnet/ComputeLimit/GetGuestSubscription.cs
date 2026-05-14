@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// <summary>
         /// The name of the GuestSubscription
         /// </summary>
-        [Input("guestSubscriptionId", required: true)]
-        public string GuestSubscriptionId { get; set; } = null!;
+        [Input("guestSubscriptionId")]
+        public string? GuestSubscriptionId { get; set; }
 
         /// <summary>
         /// The name of the Azure region.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// <summary>
         /// The name of the GuestSubscription
         /// </summary>
-        [Input("guestSubscriptionId", required: true)]
-        public Input<string> GuestSubscriptionId { get; set; } = null!;
+        [Input("guestSubscriptionId")]
+        public Input<string>? GuestSubscriptionId { get; set; }
 
         /// <summary>
         /// The name of the Azure region.

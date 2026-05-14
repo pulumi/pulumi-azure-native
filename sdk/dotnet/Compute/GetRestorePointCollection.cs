@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the restore point collection.
         /// </summary>
-        [Input("restorePointCollectionName", required: true)]
-        public string RestorePointCollectionName { get; set; } = null!;
+        [Input("restorePointCollectionName")]
+        public string? RestorePointCollectionName { get; set; }
 
         public GetRestorePointCollectionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the restore point collection.
         /// </summary>
-        [Input("restorePointCollectionName", required: true)]
-        public Input<string> RestorePointCollectionName { get; set; } = null!;
+        [Input("restorePointCollectionName")]
+        public Input<string>? RestorePointCollectionName { get; set; }
 
         public GetRestorePointCollectionInvokeArgs()
         {

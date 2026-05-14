@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network to Network Interconnect.
         /// </summary>
-        [Input("networkToNetworkInterconnectName", required: true)]
-        public string NetworkToNetworkInterconnectName { get; set; } = null!;
+        [Input("networkToNetworkInterconnectName")]
+        public string? NetworkToNetworkInterconnectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network to Network Interconnect.
         /// </summary>
-        [Input("networkToNetworkInterconnectName", required: true)]
-        public Input<string> NetworkToNetworkInterconnectName { get; set; } = null!;
+        [Input("networkToNetworkInterconnectName")]
+        public Input<string>? NetworkToNetworkInterconnectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

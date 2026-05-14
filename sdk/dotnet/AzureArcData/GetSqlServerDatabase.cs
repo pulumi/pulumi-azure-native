@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of the database
         /// </summary>
-        [Input("databaseName", required: true)]
-        public string DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public string? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of the database
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group

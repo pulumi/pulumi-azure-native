@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the rule group.
         /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public string RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public string? RuleGroupName { get; set; }
 
         public GetPrometheusRuleGroupArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the rule group.
         /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public Input<string>? RuleGroupName { get; set; }
 
         public GetPrometheusRuleGroupInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The data connector definition name.
         /// </summary>
-        [Input("dataConnectorDefinitionName", required: true)]
-        public string DataConnectorDefinitionName { get; set; } = null!;
+        [Input("dataConnectorDefinitionName")]
+        public string? DataConnectorDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The data connector definition name.
         /// </summary>
-        [Input("dataConnectorDefinitionName", required: true)]
-        public Input<string> DataConnectorDefinitionName { get; set; } = null!;
+        [Input("dataConnectorDefinitionName")]
+        public Input<string>? DataConnectorDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

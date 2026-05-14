@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the workload classifier.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public string WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public string? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group from which to receive the classifier from.
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the workload classifier.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public Input<string> WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public Input<string>? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group from which to receive the classifier from.

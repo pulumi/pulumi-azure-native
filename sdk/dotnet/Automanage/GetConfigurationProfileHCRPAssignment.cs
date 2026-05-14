@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// The configuration profile assignment name.
         /// </summary>
-        [Input("configurationProfileAssignmentName", required: true)]
-        public string ConfigurationProfileAssignmentName { get; set; } = null!;
+        [Input("configurationProfileAssignmentName")]
+        public string? ConfigurationProfileAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the Arc machine.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// The configuration profile assignment name.
         /// </summary>
-        [Input("configurationProfileAssignmentName", required: true)]
-        public Input<string> ConfigurationProfileAssignmentName { get; set; } = null!;
+        [Input("configurationProfileAssignmentName")]
+        public Input<string>? ConfigurationProfileAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the Arc machine.

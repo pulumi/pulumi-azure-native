@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// The name of the PlaywrightWorkspace
         /// </summary>
-        [Input("playwrightWorkspaceName", required: true)]
-        public string PlaywrightWorkspaceName { get; set; } = null!;
+        [Input("playwrightWorkspaceName")]
+        public string? PlaywrightWorkspaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// The name of the PlaywrightWorkspace
         /// </summary>
-        [Input("playwrightWorkspaceName", required: true)]
-        public Input<string> PlaywrightWorkspaceName { get; set; } = null!;
+        [Input("playwrightWorkspaceName")]
+        public Input<string>? PlaywrightWorkspaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

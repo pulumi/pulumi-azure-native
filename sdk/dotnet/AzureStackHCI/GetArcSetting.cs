@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
         /// </summary>
-        [Input("arcSettingName", required: true)]
-        public string ArcSettingName { get; set; } = null!;
+        [Input("arcSettingName")]
+        public string? ArcSettingName { get; set; }
 
         /// <summary>
         /// The name of the cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
         /// </summary>
-        [Input("arcSettingName", required: true)]
-        public Input<string> ArcSettingName { get; set; } = null!;
+        [Input("arcSettingName")]
+        public Input<string>? ArcSettingName { get; set; }
 
         /// <summary>
         /// The name of the cluster.

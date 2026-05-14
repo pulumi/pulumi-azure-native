@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the BgpPeer
         /// </summary>
-        [Input("bgpPeerName", required: true)]
-        public string BgpPeerName { get; set; } = null!;
+        [Input("bgpPeerName")]
+        public string? BgpPeerName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the BgpPeer
         /// </summary>
-        [Input("bgpPeerName", required: true)]
-        public Input<string> BgpPeerName { get; set; } = null!;
+        [Input("bgpPeerName")]
+        public Input<string>? BgpPeerName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

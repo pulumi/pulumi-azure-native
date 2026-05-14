@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PowerBI
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public string PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public string? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.PowerBI
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public Input<string> PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public Input<string>? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

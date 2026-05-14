@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the failover group.
         /// </summary>
-        [Input("failoverGroupName", required: true)]
-        public string FailoverGroupName { get; set; } = null!;
+        [Input("failoverGroupName")]
+        public string? FailoverGroupName { get; set; }
 
         /// <summary>
         /// The name of the region where the resource is located.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the failover group.
         /// </summary>
-        [Input("failoverGroupName", required: true)]
-        public Input<string> FailoverGroupName { get; set; } = null!;
+        [Input("failoverGroupName")]
+        public Input<string>? FailoverGroupName { get; set; }
 
         /// <summary>
         /// The name of the region where the resource is located.

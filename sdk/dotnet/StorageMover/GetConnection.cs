@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Connection resource.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public string ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public string? ConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Connection resource.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

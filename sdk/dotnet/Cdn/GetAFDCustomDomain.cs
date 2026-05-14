@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the domain under the profile which is unique globally.
         /// </summary>
-        [Input("customDomainName", required: true)]
-        public string CustomDomainName { get; set; } = null!;
+        [Input("customDomainName")]
+        public string? CustomDomainName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the domain under the profile which is unique globally.
         /// </summary>
-        [Input("customDomainName", required: true)]
-        public Input<string> CustomDomainName { get; set; } = null!;
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("lockName", required: true)]
-        public string LockName { get; set; } = null!;
+        [Input("lockName")]
+        public string? LockName { get; set; }
 
         /// <summary>
         /// The scope for the lock. 
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         /// <summary>
         /// The scope for the lock. 

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Name of the private endpoint connection associated with the Cloud HSM Cluster.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public string PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public string? PeConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Name of the private endpoint connection associated with the Cloud HSM Cluster.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public Input<string> PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public Input<string>? PeConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

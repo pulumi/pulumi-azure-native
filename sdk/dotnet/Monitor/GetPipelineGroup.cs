@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of pipeline group. The name is case insensitive.
         /// </summary>
-        [Input("pipelineGroupName", required: true)]
-        public string PipelineGroupName { get; set; } = null!;
+        [Input("pipelineGroupName")]
+        public string? PipelineGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of pipeline group. The name is case insensitive.
         /// </summary>
-        [Input("pipelineGroupName", required: true)]
-        public Input<string> PipelineGroupName { get; set; } = null!;
+        [Input("pipelineGroupName")]
+        public Input<string>? PipelineGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

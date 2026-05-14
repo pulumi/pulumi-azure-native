@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy assignment to get.
         /// </summary>
-        [Input("policyAssignmentName", required: true)]
-        public string PolicyAssignmentName { get; set; } = null!;
+        [Input("policyAssignmentName")]
+        public string? PolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy assignment to get.
         /// </summary>
-        [Input("policyAssignmentName", required: true)]
-        public Input<string> PolicyAssignmentName { get; set; } = null!;
+        [Input("policyAssignmentName")]
+        public Input<string>? PolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

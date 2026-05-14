@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// The name of the application. This must be unique within the account.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public string ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public string? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// The name of the application. This must be unique within the account.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

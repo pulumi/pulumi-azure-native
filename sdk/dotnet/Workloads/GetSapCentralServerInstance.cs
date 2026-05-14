@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("centralInstanceName", required: true)]
-        public string CentralInstanceName { get; set; } = null!;
+        [Input("centralInstanceName")]
+        public string? CentralInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("centralInstanceName", required: true)]
-        public Input<string> CentralInstanceName { get; set; } = null!;
+        [Input("centralInstanceName")]
+        public Input<string>? CentralInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

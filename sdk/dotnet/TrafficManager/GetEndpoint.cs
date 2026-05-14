@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager endpoint.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public string EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public string? EndpointName { get; set; }
 
         /// <summary>
         /// The type of the Traffic Manager endpoint.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager endpoint.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// The type of the Traffic Manager endpoint.

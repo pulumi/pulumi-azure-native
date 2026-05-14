@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         /// <summary>
         /// The resource name.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public string ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public string? ResourceName { get; set; }
 
         public GetEnergyServiceArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         /// <summary>
         /// The resource name.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         public GetEnergyServiceInvokeArgs()
         {

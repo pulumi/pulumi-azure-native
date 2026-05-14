@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the Modeling resource.
         /// </summary>
-        [Input("modelingName", required: true)]
-        public string ModelingName { get; set; } = null!;
+        [Input("modelingName")]
+        public string? ModelingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the Modeling resource.
         /// </summary>
-        [Input("modelingName", required: true)]
-        public Input<string> ModelingName { get; set; } = null!;
+        [Input("modelingName")]
+        public Input<string>? ModelingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

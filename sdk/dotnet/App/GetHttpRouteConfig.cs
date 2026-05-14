@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Http Route Config Resource.
         /// </summary>
-        [Input("httpRouteName", required: true)]
-        public string HttpRouteName { get; set; } = null!;
+        [Input("httpRouteName")]
+        public string? HttpRouteName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Http Route Config Resource.
         /// </summary>
-        [Input("httpRouteName", required: true)]
-        public Input<string> HttpRouteName { get; set; } = null!;
+        [Input("httpRouteName")]
+        public Input<string>? HttpRouteName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

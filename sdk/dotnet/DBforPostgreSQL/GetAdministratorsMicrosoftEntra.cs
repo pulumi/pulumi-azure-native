@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Object identifier of the Microsoft Entra principal.
         /// </summary>
-        [Input("objectId", required: true)]
-        public string ObjectId { get; set; } = null!;
+        [Input("objectId")]
+        public string? ObjectId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Object identifier of the Microsoft Entra principal.
         /// </summary>
-        [Input("objectId", required: true)]
-        public Input<string> ObjectId { get; set; } = null!;
+        [Input("objectId")]
+        public Input<string>? ObjectId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

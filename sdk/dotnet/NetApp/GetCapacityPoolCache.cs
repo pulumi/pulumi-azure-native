@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the cache resource.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public string CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public string? CacheName { get; set; }
 
         /// <summary>
         /// The name of the capacity pool
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the cache resource.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public Input<string> CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public Input<string>? CacheName { get; set; }
 
         /// <summary>
         /// The name of the capacity pool

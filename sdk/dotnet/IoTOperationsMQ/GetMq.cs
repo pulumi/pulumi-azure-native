@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ resource
         /// </summary>
-        [Input("mqName", required: true)]
-        public string MqName { get; set; } = null!;
+        [Input("mqName")]
+        public string? MqName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ resource
         /// </summary>
-        [Input("mqName", required: true)]
-        public Input<string> MqName { get; set; } = null!;
+        [Input("mqName")]
+        public Input<string>? MqName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

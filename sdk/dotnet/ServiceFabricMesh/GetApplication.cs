@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the application.
         /// </summary>
-        [Input("applicationResourceName", required: true)]
-        public string ApplicationResourceName { get; set; } = null!;
+        [Input("applicationResourceName")]
+        public string? ApplicationResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the application.
         /// </summary>
-        [Input("applicationResourceName", required: true)]
-        public Input<string> ApplicationResourceName { get; set; } = null!;
+        [Input("applicationResourceName")]
+        public Input<string>? ApplicationResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name

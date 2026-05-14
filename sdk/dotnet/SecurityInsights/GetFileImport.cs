@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// File import ID
         /// </summary>
-        [Input("fileImportId", required: true)]
-        public string FileImportId { get; set; } = null!;
+        [Input("fileImportId")]
+        public string? FileImportId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// File import ID
         /// </summary>
-        [Input("fileImportId", required: true)]
-        public Input<string> FileImportId { get; set; } = null!;
+        [Input("fileImportId")]
+        public Input<string>? FileImportId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent kafka or schema registry topic name
         /// </summary>
-        [Input("topicName", required: true)]
-        public string TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public string? TopicName { get; set; }
 
         public GetTopicArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent kafka or schema registry topic name
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public GetTopicInvokeArgs()
         {

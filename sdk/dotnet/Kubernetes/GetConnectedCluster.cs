@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public string ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public string? ClusterName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

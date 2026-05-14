@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Deployment Setting
         /// </summary>
-        [Input("deploymentSettingsName", required: true)]
-        public string DeploymentSettingsName { get; set; } = null!;
+        [Input("deploymentSettingsName")]
+        public string? DeploymentSettingsName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Deployment Setting
         /// </summary>
-        [Input("deploymentSettingsName", required: true)]
-        public Input<string> DeploymentSettingsName { get; set; } = null!;
+        [Input("deploymentSettingsName")]
+        public Input<string>? DeploymentSettingsName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

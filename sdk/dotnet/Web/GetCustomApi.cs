@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// API name
         /// </summary>
-        [Input("apiName", required: true)]
-        public string ApiName { get; set; } = null!;
+        [Input("apiName")]
+        public string? ApiName { get; set; }
 
         /// <summary>
         /// The resource group
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// API name
         /// </summary>
-        [Input("apiName", required: true)]
-        public Input<string> ApiName { get; set; } = null!;
+        [Input("apiName")]
+        public Input<string>? ApiName { get; set; }
 
         /// <summary>
         /// The resource group

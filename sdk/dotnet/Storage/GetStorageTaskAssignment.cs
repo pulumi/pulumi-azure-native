@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("storageTaskAssignmentName", required: true)]
-        public string StorageTaskAssignmentName { get; set; } = null!;
+        [Input("storageTaskAssignmentName")]
+        public string? StorageTaskAssignmentName { get; set; }
 
         public GetStorageTaskAssignmentArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("storageTaskAssignmentName", required: true)]
-        public Input<string> StorageTaskAssignmentName { get; set; } = null!;
+        [Input("storageTaskAssignmentName")]
+        public Input<string>? StorageTaskAssignmentName { get; set; }
 
         public GetStorageTaskAssignmentInvokeArgs()
         {

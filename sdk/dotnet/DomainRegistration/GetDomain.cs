@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public string DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

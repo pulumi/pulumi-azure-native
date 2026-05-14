@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("dnsZoneId", required: true)]
-        public string DnsZoneId { get; set; } = null!;
+        [Input("dnsZoneId")]
+        public string? DnsZoneId { get; set; }
 
         /// <summary>
         /// Name of the private cloud
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("dnsZoneId", required: true)]
-        public Input<string> DnsZoneId { get; set; } = null!;
+        [Input("dnsZoneId")]
+        public Input<string>? DnsZoneId { get; set; }
 
         /// <summary>
         /// Name of the private cloud

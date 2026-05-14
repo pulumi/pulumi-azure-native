@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the attached NetworkConnection.
         /// </summary>
-        [Input("attachedNetworkConnectionName", required: true)]
-        public string AttachedNetworkConnectionName { get; set; } = null!;
+        [Input("attachedNetworkConnectionName")]
+        public string? AttachedNetworkConnectionName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the attached NetworkConnection.
         /// </summary>
-        [Input("attachedNetworkConnectionName", required: true)]
-        public Input<string> AttachedNetworkConnectionName { get; set; } = null!;
+        [Input("attachedNetworkConnectionName")]
+        public Input<string>? AttachedNetworkConnectionName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.

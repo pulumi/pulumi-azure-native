@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Workspace name.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public string WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public string? WorkspaceName { get; set; }
 
         public GetVerifierWorkspaceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Workspace name.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public GetVerifierWorkspaceInvokeArgs()
         {

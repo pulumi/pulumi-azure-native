@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Notification Hub name
         /// </summary>
-        [Input("notificationHubName", required: true)]
-        public string NotificationHubName { get; set; } = null!;
+        [Input("notificationHubName")]
+        public string? NotificationHubName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Notification Hub name
         /// </summary>
-        [Input("notificationHubName", required: true)]
-        public Input<string> NotificationHubName { get; set; } = null!;
+        [Input("notificationHubName")]
+        public Input<string>? NotificationHubName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Private Atlas instance.
         /// </summary>
-        [Input("privateAtlasName", required: true)]
-        public string PrivateAtlasName { get; set; } = null!;
+        [Input("privateAtlasName")]
+        public string? PrivateAtlasName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Private Atlas instance.
         /// </summary>
-        [Input("privateAtlasName", required: true)]
-        public Input<string> PrivateAtlasName { get; set; } = null!;
+        [Input("privateAtlasName")]
+        public Input<string>? PrivateAtlasName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

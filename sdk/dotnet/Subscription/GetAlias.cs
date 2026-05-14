@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Subscription
         /// 
         /// Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Subscription
         /// 
         /// Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Subscription
         /// <summary>
         /// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         /// </summary>
-        [Input("aliasName", required: true)]
-        public string AliasName { get; set; } = null!;
+        [Input("aliasName")]
+        public string? AliasName { get; set; }
 
         public GetAliasArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Subscription
         /// <summary>
         /// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         /// </summary>
-        [Input("aliasName", required: true)]
-        public Input<string> AliasName { get; set; } = null!;
+        [Input("aliasName")]
+        public Input<string>? AliasName { get; set; }
 
         public GetAliasInvokeArgs()
         {

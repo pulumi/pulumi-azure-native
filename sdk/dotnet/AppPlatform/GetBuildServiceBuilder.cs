@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the builder resource.
         /// </summary>
-        [Input("builderName", required: true)]
-        public string BuilderName { get; set; } = null!;
+        [Input("builderName")]
+        public string? BuilderName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the builder resource.
         /// </summary>
-        [Input("builderName", required: true)]
-        public Input<string> BuilderName { get; set; } = null!;
+        [Input("builderName")]
+        public Input<string>? BuilderName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

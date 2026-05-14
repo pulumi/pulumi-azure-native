@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         /// </summary>
-        [Input("blobServicesName", required: true)]
-        public string BlobServicesName { get; set; } = null!;
+        [Input("blobServicesName")]
+        public string? BlobServicesName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         /// </summary>
-        [Input("blobServicesName", required: true)]
-        public Input<string> BlobServicesName { get; set; } = null!;
+        [Input("blobServicesName")]
+        public Input<string>? BlobServicesName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

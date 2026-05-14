@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// <summary>
         /// The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("vcoreName", required: true)]
-        public string VcoreName { get; set; } = null!;
+        [Input("vcoreName")]
+        public string? VcoreName { get; set; }
 
         public GetAutoScaleVCoreArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// <summary>
         /// The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("vcoreName", required: true)]
-        public Input<string> VcoreName { get; set; } = null!;
+        [Input("vcoreName")]
+        public Input<string>? VcoreName { get; set; }
 
         public GetAutoScaleVCoreInvokeArgs()
         {

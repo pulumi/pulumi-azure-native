@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the encryption protector to be retrieved.
         /// </summary>
-        [Input("encryptionProtectorName", required: true)]
-        public string EncryptionProtectorName { get; set; } = null!;
+        [Input("encryptionProtectorName")]
+        public string? EncryptionProtectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the encryption protector to be retrieved.
         /// </summary>
-        [Input("encryptionProtectorName", required: true)]
-        public Input<string> EncryptionProtectorName { get; set; } = null!;
+        [Input("encryptionProtectorName")]
+        public Input<string>? EncryptionProtectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName", required: true)]
-        public string DeploymentStacksWhatIfResultName { get; set; } = null!;
+        [Input("deploymentStacksWhatIfResultName")]
+        public string? DeploymentStacksWhatIfResultName { get; set; }
 
         /// <summary>
         /// The management group ID.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName", required: true)]
-        public Input<string> DeploymentStacksWhatIfResultName { get; set; } = null!;
+        [Input("deploymentStacksWhatIfResultName")]
+        public Input<string>? DeploymentStacksWhatIfResultName { get; set; }
 
         /// <summary>
         /// The management group ID.

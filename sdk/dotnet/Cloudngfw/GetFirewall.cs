@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Firewall resource name
         /// </summary>
-        [Input("firewallName", required: true)]
-        public string FirewallName { get; set; } = null!;
+        [Input("firewallName")]
+        public string? FirewallName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Firewall resource name
         /// </summary>
-        [Input("firewallName", required: true)]
-        public Input<string> FirewallName { get; set; } = null!;
+        [Input("firewallName")]
+        public Input<string>? FirewallName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

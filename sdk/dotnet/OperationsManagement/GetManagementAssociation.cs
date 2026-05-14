@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User ManagementAssociation Name.
         /// </summary>
-        [Input("managementAssociationName", required: true)]
-        public string ManagementAssociationName { get; set; } = null!;
+        [Input("managementAssociationName")]
+        public string? ManagementAssociationName { get; set; }
 
         /// <summary>
         /// Provider name for the parent resource.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User ManagementAssociation Name.
         /// </summary>
-        [Input("managementAssociationName", required: true)]
-        public Input<string> ManagementAssociationName { get; set; } = null!;
+        [Input("managementAssociationName")]
+        public Input<string>? ManagementAssociationName { get; set; }
 
         /// <summary>
         /// Provider name for the parent resource.

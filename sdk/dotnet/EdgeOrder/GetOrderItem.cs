@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// The name of the order item.
         /// </summary>
-        [Input("orderItemName", required: true)]
-        public string OrderItemName { get; set; } = null!;
+        [Input("orderItemName")]
+        public string? OrderItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// The name of the order item.
         /// </summary>
-        [Input("orderItemName", required: true)]
-        public Input<string> OrderItemName { get; set; } = null!;
+        [Input("orderItemName")]
+        public Input<string>? OrderItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

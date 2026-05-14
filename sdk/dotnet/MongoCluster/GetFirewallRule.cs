@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster firewall rule.
         /// </summary>
-        [Input("firewallRuleName", required: true)]
-        public string FirewallRuleName { get; set; } = null!;
+        [Input("firewallRuleName")]
+        public string? FirewallRuleName { get; set; }
 
         /// <summary>
         /// The name of the mongo cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster firewall rule.
         /// </summary>
-        [Input("firewallRuleName", required: true)]
-        public Input<string> FirewallRuleName { get; set; } = null!;
+        [Input("firewallRuleName")]
+        public Input<string>? FirewallRuleName { get; set; }
 
         /// <summary>
         /// The name of the mongo cluster.

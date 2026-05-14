@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The IP Filter Rule name.
         /// </summary>
-        [Input("ipFilterRuleName", required: true)]
-        public string IpFilterRuleName { get; set; } = null!;
+        [Input("ipFilterRuleName")]
+        public string? IpFilterRuleName { get; set; }
 
         /// <summary>
         /// The namespace name
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The IP Filter Rule name.
         /// </summary>
-        [Input("ipFilterRuleName", required: true)]
-        public Input<string> IpFilterRuleName { get; set; } = null!;
+        [Input("ipFilterRuleName")]
+        public Input<string>? IpFilterRuleName { get; set; }
 
         /// <summary>
         /// The namespace name

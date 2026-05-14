@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Extended Community.
         /// </summary>
-        [Input("ipExtendedCommunityName", required: true)]
-        public string IpExtendedCommunityName { get; set; } = null!;
+        [Input("ipExtendedCommunityName")]
+        public string? IpExtendedCommunityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Extended Community.
         /// </summary>
-        [Input("ipExtendedCommunityName", required: true)]
-        public Input<string> IpExtendedCommunityName { get; set; } = null!;
+        [Input("ipExtendedCommunityName")]
+        public Input<string>? IpExtendedCommunityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

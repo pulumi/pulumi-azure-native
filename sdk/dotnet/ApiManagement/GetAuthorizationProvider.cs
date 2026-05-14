@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization provider.
         /// </summary>
-        [Input("authorizationProviderId", required: true)]
-        public string AuthorizationProviderId { get; set; } = null!;
+        [Input("authorizationProviderId")]
+        public string? AuthorizationProviderId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization provider.
         /// </summary>
-        [Input("authorizationProviderId", required: true)]
-        public Input<string> AuthorizationProviderId { get; set; } = null!;
+        [Input("authorizationProviderId")]
+        public Input<string>? AuthorizationProviderId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

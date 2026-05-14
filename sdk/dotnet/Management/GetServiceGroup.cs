@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
-        public static Task<GetServiceGroupResult> InvokeAsync(GetServiceGroupArgs args, InvokeOptions? options = null)
+        public static Task<GetServiceGroupResult> InvokeAsync(GetServiceGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceGroupResult>("azure-native:management:getServiceGroup", args ?? new GetServiceGroupArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
-        public static Output<GetServiceGroupResult> Invoke(GetServiceGroupInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetServiceGroupResult> Invoke(GetServiceGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceGroupResult>("azure-native:management:getServiceGroup", args ?? new GetServiceGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// ServiceGroup Name.
         /// </summary>
-        [Input("serviceGroupName", required: true)]
-        public string ServiceGroupName { get; set; } = null!;
+        [Input("serviceGroupName")]
+        public string? ServiceGroupName { get; set; }
 
         public GetServiceGroupArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// ServiceGroup Name.
         /// </summary>
-        [Input("serviceGroupName", required: true)]
-        public Input<string> ServiceGroupName { get; set; } = null!;
+        [Input("serviceGroupName")]
+        public Input<string>? ServiceGroupName { get; set; }
 
         public GetServiceGroupInvokeArgs()
         {

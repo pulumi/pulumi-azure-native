@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the alert processing rule that needs to be fetched.
         /// </summary>
-        [Input("alertProcessingRuleName", required: true)]
-        public string AlertProcessingRuleName { get; set; } = null!;
+        [Input("alertProcessingRuleName")]
+        public string? AlertProcessingRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the alert processing rule that needs to be fetched.
         /// </summary>
-        [Input("alertProcessingRuleName", required: true)]
-        public Input<string> AlertProcessingRuleName { get; set; } = null!;
+        [Input("alertProcessingRuleName")]
+        public Input<string>? AlertProcessingRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

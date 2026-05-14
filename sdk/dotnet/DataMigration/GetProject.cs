@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the project
         /// </summary>
-        [Input("projectName", required: true)]
-        public string ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public string? ProjectName { get; set; }
 
         /// <summary>
         /// Name of the service
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the project
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// Name of the service

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the Backup Vault
         /// </summary>
-        [Input("backupVaultName", required: true)]
-        public string BackupVaultName { get; set; } = null!;
+        [Input("backupVaultName")]
+        public string? BackupVaultName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the Backup Vault
         /// </summary>
-        [Input("backupVaultName", required: true)]
-        public Input<string> BackupVaultName { get; set; } = null!;
+        [Input("backupVaultName")]
+        public Input<string>? BackupVaultName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

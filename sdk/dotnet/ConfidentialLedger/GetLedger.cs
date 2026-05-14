@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Confidential Ledger
         /// </summary>
-        [Input("ledgerName", required: true)]
-        public string LedgerName { get; set; } = null!;
+        [Input("ledgerName")]
+        public string? LedgerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Confidential Ledger
         /// </summary>
-        [Input("ledgerName", required: true)]
-        public Input<string> LedgerName { get; set; } = null!;
+        [Input("ledgerName")]
+        public Input<string>? LedgerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

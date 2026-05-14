@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Connector name.
         /// </summary>
-        [Input("dataConnectorName", required: true)]
-        public string DataConnectorName { get; set; } = null!;
+        [Input("dataConnectorName")]
+        public string? DataConnectorName { get; set; }
 
         /// <summary>
         /// DataManagerForAgriculture resource name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Connector name.
         /// </summary>
-        [Input("dataConnectorName", required: true)]
-        public Input<string> DataConnectorName { get; set; } = null!;
+        [Input("dataConnectorName")]
+        public Input<string>? DataConnectorName { get; set; }
 
         /// <summary>
         /// DataManagerForAgriculture resource name.

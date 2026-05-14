@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId", required: true)]
-        public string RuleId { get; set; } = null!;
+        [Input("ruleId")]
+        public string? RuleId { get; set; }
 
         /// <summary>
         /// The name of the workspace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
+        [Input("ruleId")]
+        public Input<string>? RuleId { get; set; }
 
         /// <summary>
         /// The name of the workspace.

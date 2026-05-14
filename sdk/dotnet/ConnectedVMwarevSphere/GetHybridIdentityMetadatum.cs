@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the HybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public string MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public string? MetadataName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the HybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public Input<string> MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public Input<string>? MetadataName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.

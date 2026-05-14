@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of security setting
         /// </summary>
-        [Input("securitySettingsName", required: true)]
-        public string SecuritySettingsName { get; set; } = null!;
+        [Input("securitySettingsName")]
+        public string? SecuritySettingsName { get; set; }
 
         public GetSecuritySettingArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of security setting
         /// </summary>
-        [Input("securitySettingsName", required: true)]
-        public Input<string> SecuritySettingsName { get; set; } = null!;
+        [Input("securitySettingsName")]
+        public Input<string>? SecuritySettingsName { get; set; }
 
         public GetSecuritySettingInvokeArgs()
         {

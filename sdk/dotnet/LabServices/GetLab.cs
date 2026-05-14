@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         /// </summary>
-        [Input("labName", required: true)]
-        public string LabName { get; set; } = null!;
+        [Input("labName")]
+        public string? LabName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         /// </summary>
-        [Input("labName", required: true)]
-        public Input<string> LabName { get; set; } = null!;
+        [Input("labName")]
+        public Input<string>? LabName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

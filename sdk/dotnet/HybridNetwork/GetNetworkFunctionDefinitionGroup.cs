@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function definition group.
         /// </summary>
-        [Input("networkFunctionDefinitionGroupName", required: true)]
-        public string NetworkFunctionDefinitionGroupName { get; set; } = null!;
+        [Input("networkFunctionDefinitionGroupName")]
+        public string? NetworkFunctionDefinitionGroupName { get; set; }
 
         /// <summary>
         /// The name of the publisher.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function definition group.
         /// </summary>
-        [Input("networkFunctionDefinitionGroupName", required: true)]
-        public Input<string> NetworkFunctionDefinitionGroupName { get; set; } = null!;
+        [Input("networkFunctionDefinitionGroupName")]
+        public Input<string>? NetworkFunctionDefinitionGroupName { get; set; }
 
         /// <summary>
         /// The name of the publisher.

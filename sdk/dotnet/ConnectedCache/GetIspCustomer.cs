@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// <summary>
         /// Name of the Customer resource
         /// </summary>
-        [Input("customerResourceName", required: true)]
-        public string CustomerResourceName { get; set; } = null!;
+        [Input("customerResourceName")]
+        public string? CustomerResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// <summary>
         /// Name of the Customer resource
         /// </summary>
-        [Input("customerResourceName", required: true)]
-        public Input<string> CustomerResourceName { get; set; } = null!;
+        [Input("customerResourceName")]
+        public Input<string>? CustomerResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

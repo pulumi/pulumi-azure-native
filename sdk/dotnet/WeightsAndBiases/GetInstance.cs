@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// <summary>
         /// Name of the Instance resource
         /// </summary>
-        [Input("instancename", required: true)]
-        public string Instancename { get; set; } = null!;
+        [Input("instancename")]
+        public string? Instancename { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// <summary>
         /// Name of the Instance resource
         /// </summary>
-        [Input("instancename", required: true)]
-        public Input<string> Instancename { get; set; } = null!;
+        [Input("instancename")]
+        public Input<string>? Instancename { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

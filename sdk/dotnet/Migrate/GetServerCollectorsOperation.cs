@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Physical server collector ARM name
         /// </summary>
-        [Input("serverCollectorName", required: true)]
-        public string ServerCollectorName { get; set; } = null!;
+        [Input("serverCollectorName")]
+        public string? ServerCollectorName { get; set; }
 
         public GetServerCollectorsOperationArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Physical server collector ARM name
         /// </summary>
-        [Input("serverCollectorName", required: true)]
-        public Input<string> ServerCollectorName { get; set; } = null!;
+        [Input("serverCollectorName")]
+        public Input<string>? ServerCollectorName { get; set; }
 
         public GetServerCollectorsOperationInvokeArgs()
         {

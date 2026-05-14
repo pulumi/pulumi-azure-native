@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("fluidRelayServerName", required: true)]
-        public string FluidRelayServerName { get; set; } = null!;
+        [Input("fluidRelayServerName")]
+        public string? FluidRelayServerName { get; set; }
 
         /// <summary>
         /// The resource group containing the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("fluidRelayServerName", required: true)]
-        public Input<string> FluidRelayServerName { get; set; } = null!;
+        [Input("fluidRelayServerName")]
+        public Input<string>? FluidRelayServerName { get; set; }
 
         /// <summary>
         /// The resource group containing the resource.

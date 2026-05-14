@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Fabric name.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public string FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public string? FabricName { get; set; }
 
         /// <summary>
         /// OData filter options.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Fabric name.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public Input<string> FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public Input<string>? FabricName { get; set; }
 
         /// <summary>
         /// OData filter options.

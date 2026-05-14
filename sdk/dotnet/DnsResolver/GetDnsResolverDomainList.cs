@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver domain list.
         /// </summary>
-        [Input("dnsResolverDomainListName", required: true)]
-        public string DnsResolverDomainListName { get; set; } = null!;
+        [Input("dnsResolverDomainListName")]
+        public string? DnsResolverDomainListName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver domain list.
         /// </summary>
-        [Input("dnsResolverDomainListName", required: true)]
-        public Input<string> DnsResolverDomainListName { get; set; } = null!;
+        [Input("dnsResolverDomainListName")]
+        public Input<string>? DnsResolverDomainListName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

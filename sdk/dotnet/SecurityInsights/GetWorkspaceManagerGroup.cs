@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The name of the workspace manager group
         /// </summary>
-        [Input("workspaceManagerGroupName", required: true)]
-        public string WorkspaceManagerGroupName { get; set; } = null!;
+        [Input("workspaceManagerGroupName")]
+        public string? WorkspaceManagerGroupName { get; set; }
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The name of the workspace manager group
         /// </summary>
-        [Input("workspaceManagerGroupName", required: true)]
-        public Input<string> WorkspaceManagerGroupName { get; set; } = null!;
+        [Input("workspaceManagerGroupName")]
+        public Input<string>? WorkspaceManagerGroupName { get; set; }
 
         /// <summary>
         /// The name of the workspace.

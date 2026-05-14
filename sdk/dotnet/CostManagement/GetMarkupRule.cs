@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Markup rule name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetMarkupRuleArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Markup rule name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetMarkupRuleInvokeArgs()
         {

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the signal definition. Must be unique within a health model.
         /// </summary>
-        [Input("signalDefinitionName", required: true)]
-        public string SignalDefinitionName { get; set; } = null!;
+        [Input("signalDefinitionName")]
+        public string? SignalDefinitionName { get; set; }
 
         public GetSignalDefinitionArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the signal definition. Must be unique within a health model.
         /// </summary>
-        [Input("signalDefinitionName", required: true)]
-        public Input<string> SignalDefinitionName { get; set; } = null!;
+        [Input("signalDefinitionName")]
+        public Input<string>? SignalDefinitionName { get; set; }
 
         public GetSignalDefinitionInvokeArgs()
         {

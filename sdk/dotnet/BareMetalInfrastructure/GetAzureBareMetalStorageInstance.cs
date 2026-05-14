@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// <summary>
         /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
-        [Input("azureBareMetalStorageInstanceName", required: true)]
-        public string AzureBareMetalStorageInstanceName { get; set; } = null!;
+        [Input("azureBareMetalStorageInstanceName")]
+        public string? AzureBareMetalStorageInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// <summary>
         /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
-        [Input("azureBareMetalStorageInstanceName", required: true)]
-        public Input<string> AzureBareMetalStorageInstanceName { get; set; } = null!;
+        [Input("azureBareMetalStorageInstanceName")]
+        public Input<string>? AzureBareMetalStorageInstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

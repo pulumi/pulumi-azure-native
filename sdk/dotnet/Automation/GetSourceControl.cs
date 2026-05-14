@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of source control.
         /// </summary>
-        [Input("sourceControlName", required: true)]
-        public string SourceControlName { get; set; } = null!;
+        [Input("sourceControlName")]
+        public string? SourceControlName { get; set; }
 
         public GetSourceControlArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of source control.
         /// </summary>
-        [Input("sourceControlName", required: true)]
-        public Input<string> SourceControlName { get; set; } = null!;
+        [Input("sourceControlName")]
+        public Input<string>? SourceControlName { get; set; }
 
         public GetSourceControlInvokeArgs()
         {

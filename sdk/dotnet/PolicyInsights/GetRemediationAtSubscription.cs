@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// 
         /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
+        public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-native:policyinsights:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// 
         /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetRemediationAtSubscriptionResult> Invoke(GetRemediationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetRemediationAtSubscriptionResult> Invoke(GetRemediationAtSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtSubscriptionResult>("azure-native:policyinsights:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public string RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public string? RemediationName { get; set; }
 
         public GetRemediationAtSubscriptionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         public GetRemediationAtSubscriptionInvokeArgs()
         {

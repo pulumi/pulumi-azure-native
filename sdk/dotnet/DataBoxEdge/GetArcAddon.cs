@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The addon name.
         /// </summary>
-        [Input("addonName", required: true)]
-        public string AddonName { get; set; } = null!;
+        [Input("addonName")]
+        public string? AddonName { get; set; }
 
         /// <summary>
         /// The device name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The addon name.
         /// </summary>
-        [Input("addonName", required: true)]
-        public Input<string> AddonName { get; set; } = null!;
+        [Input("addonName")]
+        public Input<string>? AddonName { get; set; }
 
         /// <summary>
         /// The device name.

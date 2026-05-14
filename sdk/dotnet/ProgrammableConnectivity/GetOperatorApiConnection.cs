@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity (APC) Operator API Connection Name.
         /// </summary>
-        [Input("operatorApiConnectionName", required: true)]
-        public string OperatorApiConnectionName { get; set; } = null!;
+        [Input("operatorApiConnectionName")]
+        public string? OperatorApiConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity (APC) Operator API Connection Name.
         /// </summary>
-        [Input("operatorApiConnectionName", required: true)]
-        public Input<string> OperatorApiConnectionName { get; set; } = null!;
+        [Input("operatorApiConnectionName")]
+        public Input<string>? OperatorApiConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

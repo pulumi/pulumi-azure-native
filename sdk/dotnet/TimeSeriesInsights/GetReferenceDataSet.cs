@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights reference data set associated with the specified environment.
         /// </summary>
-        [Input("referenceDataSetName", required: true)]
-        public string ReferenceDataSetName { get; set; } = null!;
+        [Input("referenceDataSetName")]
+        public string? ReferenceDataSetName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights reference data set associated with the specified environment.
         /// </summary>
-        [Input("referenceDataSetName", required: true)]
-        public Input<string> ReferenceDataSetName { get; set; } = null!;
+        [Input("referenceDataSetName")]
+        public Input<string>? ReferenceDataSetName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

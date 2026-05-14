@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the attestation provider.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Name of the attestation provider.

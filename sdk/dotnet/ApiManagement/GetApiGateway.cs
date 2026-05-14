@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public string GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public string? GatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public Input<string> GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

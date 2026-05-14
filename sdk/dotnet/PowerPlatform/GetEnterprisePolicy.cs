@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// The EnterprisePolicy name.
         /// </summary>
-        [Input("enterprisePolicyName", required: true)]
-        public string EnterprisePolicyName { get; set; } = null!;
+        [Input("enterprisePolicyName")]
+        public string? EnterprisePolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// The EnterprisePolicy name.
         /// </summary>
-        [Input("enterprisePolicyName", required: true)]
-        public Input<string> EnterprisePolicyName { get; set; } = null!;
+        [Input("enterprisePolicyName")]
+        public Input<string>? EnterprisePolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

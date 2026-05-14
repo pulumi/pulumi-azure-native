@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the encryptionScope associated with the Cognitive Services Account
         /// </summary>
-        [Input("encryptionScopeName", required: true)]
-        public string EncryptionScopeName { get; set; } = null!;
+        [Input("encryptionScopeName")]
+        public string? EncryptionScopeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the encryptionScope associated with the Cognitive Services Account
         /// </summary>
-        [Input("encryptionScopeName", required: true)]
-        public Input<string> EncryptionScopeName { get; set; } = null!;
+        [Input("encryptionScopeName")]
+        public Input<string>? EncryptionScopeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

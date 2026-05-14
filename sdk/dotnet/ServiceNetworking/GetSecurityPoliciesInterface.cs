@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// SecurityPolicy
         /// </summary>
-        [Input("securityPolicyName", required: true)]
-        public string SecurityPolicyName { get; set; } = null!;
+        [Input("securityPolicyName")]
+        public string? SecurityPolicyName { get; set; }
 
         /// <summary>
         /// traffic controller name for path
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// SecurityPolicy
         /// </summary>
-        [Input("securityPolicyName", required: true)]
-        public Input<string> SecurityPolicyName { get; set; } = null!;
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
         /// traffic controller name for path

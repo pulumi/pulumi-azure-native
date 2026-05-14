@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the tap configuration.
         /// </summary>
-        [Input("tapConfigurationName", required: true)]
-        public string TapConfigurationName { get; set; } = null!;
+        [Input("tapConfigurationName")]
+        public string? TapConfigurationName { get; set; }
 
         public GetNetworkInterfaceTapConfigurationArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the tap configuration.
         /// </summary>
-        [Input("tapConfigurationName", required: true)]
-        public Input<string> TapConfigurationName { get; set; } = null!;
+        [Input("tapConfigurationName")]
+        public Input<string>? TapConfigurationName { get; set; }
 
         public GetNetworkInterfaceTapConfigurationInvokeArgs()
         {

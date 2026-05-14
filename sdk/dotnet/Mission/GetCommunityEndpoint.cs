@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Community Endpoint Resource
         /// </summary>
-        [Input("communityEndpointName", required: true)]
-        public string CommunityEndpointName { get; set; } = null!;
+        [Input("communityEndpointName")]
+        public string? CommunityEndpointName { get; set; }
 
         /// <summary>
         /// The name of the communityResource Resource
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Community Endpoint Resource
         /// </summary>
-        [Input("communityEndpointName", required: true)]
-        public Input<string> CommunityEndpointName { get; set; } = null!;
+        [Input("communityEndpointName")]
+        public Input<string>? CommunityEndpointName { get; set; }
 
         /// <summary>
         /// The name of the communityResource Resource

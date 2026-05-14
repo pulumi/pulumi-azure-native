@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network watcher.
         /// </summary>
-        [Input("networkWatcherName", required: true)]
-        public string NetworkWatcherName { get; set; } = null!;
+        [Input("networkWatcherName")]
+        public string? NetworkWatcherName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network watcher.
         /// </summary>
-        [Input("networkWatcherName", required: true)]
-        public Input<string> NetworkWatcherName { get; set; } = null!;
+        [Input("networkWatcherName")]
+        public Input<string>? NetworkWatcherName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

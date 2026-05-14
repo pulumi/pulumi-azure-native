@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the web agent association.
         /// </summary>
-        [Input("agentName", required: true)]
-        public string AgentName { get; set; } = null!;
+        [Input("agentName")]
+        public string? AgentName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the web agent association.
         /// </summary>
-        [Input("agentName", required: true)]
-        public Input<string> AgentName { get; set; } = null!;
+        [Input("agentName")]
+        public Input<string>? AgentName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

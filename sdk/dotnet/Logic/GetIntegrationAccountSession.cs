@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account session name.
         /// </summary>
-        [Input("sessionName", required: true)]
-        public string SessionName { get; set; } = null!;
+        [Input("sessionName")]
+        public string? SessionName { get; set; }
 
         public GetIntegrationAccountSessionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account session name.
         /// </summary>
-        [Input("sessionName", required: true)]
-        public Input<string> SessionName { get; set; } = null!;
+        [Input("sessionName")]
+        public Input<string>? SessionName { get; set; }
 
         public GetIntegrationAccountSessionInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Prefix.
         /// </summary>
-        [Input("ipPrefixName", required: true)]
-        public string IpPrefixName { get; set; } = null!;
+        [Input("ipPrefixName")]
+        public string? IpPrefixName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Prefix.
         /// </summary>
-        [Input("ipPrefixName", required: true)]
-        public Input<string> IpPrefixName { get; set; } = null!;
+        [Input("ipPrefixName")]
+        public Input<string>? IpPrefixName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

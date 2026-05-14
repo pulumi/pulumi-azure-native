@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Assessment Project Name
         /// </summary>
-        [Input("projectName", required: true)]
-        public string ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public string? ProjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Assessment Project Name
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

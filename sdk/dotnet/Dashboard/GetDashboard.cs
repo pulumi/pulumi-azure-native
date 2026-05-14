@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Azure Managed Dashboard.
         /// </summary>
-        [Input("dashboardName", required: true)]
-        public string DashboardName { get; set; } = null!;
+        [Input("dashboardName")]
+        public string? DashboardName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Azure Managed Dashboard.
         /// </summary>
-        [Input("dashboardName", required: true)]
-        public Input<string> DashboardName { get; set; } = null!;
+        [Input("dashboardName")]
+        public Input<string>? DashboardName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

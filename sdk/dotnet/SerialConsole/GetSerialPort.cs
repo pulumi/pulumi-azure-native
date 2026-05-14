@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.SerialConsole
         /// <summary>
         /// The name of the serial port to connect to.
         /// </summary>
-        [Input("serialPort", required: true)]
-        public string SerialPort { get; set; } = null!;
+        [Input("serialPort")]
+        public string? SerialPort { get; set; }
 
         public GetSerialPortArgs()
         {
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.SerialConsole
         /// <summary>
         /// The name of the serial port to connect to.
         /// </summary>
-        [Input("serialPort", required: true)]
-        public Input<string> SerialPort { get; set; } = null!;
+        [Input("serialPort")]
+        public Input<string>? SerialPort { get; set; }
 
         public GetSerialPortInvokeArgs()
         {

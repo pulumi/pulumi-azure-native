@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network security group.
         /// </summary>
-        [Input("networkSecurityGroupName", required: true)]
-        public string NetworkSecurityGroupName { get; set; } = null!;
+        [Input("networkSecurityGroupName")]
+        public string? NetworkSecurityGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network security group.
         /// </summary>
-        [Input("networkSecurityGroupName", required: true)]
-        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
+        [Input("networkSecurityGroupName")]
+        public Input<string>? NetworkSecurityGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

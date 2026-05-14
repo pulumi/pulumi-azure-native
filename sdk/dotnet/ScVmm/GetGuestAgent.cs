@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the GuestAgent.
         /// </summary>
-        [Input("guestAgentName", required: true)]
-        public string GuestAgentName { get; set; } = null!;
+        [Input("guestAgentName")]
+        public string? GuestAgentName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the GuestAgent.
         /// </summary>
-        [Input("guestAgentName", required: true)]
-        public Input<string> GuestAgentName { get; set; } = null!;
+        [Input("guestAgentName")]
+        public Input<string>? GuestAgentName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The runbook name.
         /// </summary>
-        [Input("runbookName", required: true)]
-        public string RunbookName { get; set; } = null!;
+        [Input("runbookName")]
+        public string? RunbookName { get; set; }
 
         public GetRunbookArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The runbook name.
         /// </summary>
-        [Input("runbookName", required: true)]
-        public Input<string> RunbookName { get; set; } = null!;
+        [Input("runbookName")]
+        public Input<string>? RunbookName { get; set; }
 
         public GetRunbookInvokeArgs()
         {

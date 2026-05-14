@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId", required: true)]
-        public string ScheduleDefinitionId { get; set; } = null!;
+        [Input("scheduleDefinitionId")]
+        public string? ScheduleDefinitionId { get; set; }
 
         /// <summary>
         /// The scope of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId", required: true)]
-        public Input<string> ScheduleDefinitionId { get; set; } = null!;
+        [Input("scheduleDefinitionId")]
+        public Input<string>? ScheduleDefinitionId { get; set; }
 
         /// <summary>
         /// The scope of the resource.

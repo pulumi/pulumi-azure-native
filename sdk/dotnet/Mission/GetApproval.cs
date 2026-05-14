@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the approvals resource.
         /// </summary>
-        [Input("approvalName", required: true)]
-        public string ApprovalName { get; set; } = null!;
+        [Input("approvalName")]
+        public string? ApprovalName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the approvals resource.
         /// </summary>
-        [Input("approvalName", required: true)]
-        public Input<string> ApprovalName { get; set; } = null!;
+        [Input("approvalName")]
+        public Input<string>? ApprovalName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

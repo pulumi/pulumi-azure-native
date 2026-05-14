@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the instance
         /// </summary>
-        [Input("instanceName", required: true)]
-        public string InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public string? InstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the instance
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

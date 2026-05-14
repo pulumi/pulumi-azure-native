@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the partner destination.
         /// </summary>
-        [Input("partnerDestinationName", required: true)]
-        public string PartnerDestinationName { get; set; } = null!;
+        [Input("partnerDestinationName")]
+        public string? PartnerDestinationName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the partner destination.
         /// </summary>
-        [Input("partnerDestinationName", required: true)]
-        public Input<string> PartnerDestinationName { get; set; } = null!;
+        [Input("partnerDestinationName")]
+        public Input<string>? PartnerDestinationName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

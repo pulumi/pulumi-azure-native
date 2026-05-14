@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workload classifier.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public string WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public string? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workload classifier.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public Input<string> WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public Input<string>? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group.

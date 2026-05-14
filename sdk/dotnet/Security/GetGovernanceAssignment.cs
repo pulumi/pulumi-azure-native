@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
-        [Input("assignmentKey", required: true)]
-        public string AssignmentKey { get; set; } = null!;
+        [Input("assignmentKey")]
+        public string? AssignmentKey { get; set; }
 
         /// <summary>
         /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
-        [Input("assignmentKey", required: true)]
-        public Input<string> AssignmentKey { get; set; } = null!;
+        [Input("assignmentKey")]
+        public Input<string>? AssignmentKey { get; set; }
 
         /// <summary>
         /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'

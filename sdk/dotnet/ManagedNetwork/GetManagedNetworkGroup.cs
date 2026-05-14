@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network Group.
         /// </summary>
-        [Input("managedNetworkGroupName", required: true)]
-        public string ManagedNetworkGroupName { get; set; } = null!;
+        [Input("managedNetworkGroupName")]
+        public string? ManagedNetworkGroupName { get; set; }
 
         /// <summary>
         /// The name of the Managed Network.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network Group.
         /// </summary>
-        [Input("managedNetworkGroupName", required: true)]
-        public Input<string> ManagedNetworkGroupName { get; set; } = null!;
+        [Input("managedNetworkGroupName")]
+        public Input<string>? ManagedNetworkGroupName { get; set; }
 
         /// <summary>
         /// The name of the Managed Network.

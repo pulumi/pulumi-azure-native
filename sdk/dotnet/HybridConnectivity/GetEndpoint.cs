@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// The endpoint name.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public string EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public string? EndpointName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// The endpoint name.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

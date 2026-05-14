@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of server azure active directory only authentication.
         /// </summary>
-        [Input("authenticationName", required: true)]
-        public string AuthenticationName { get; set; } = null!;
+        [Input("authenticationName")]
+        public string? AuthenticationName { get; set; }
 
         /// <summary>
         /// The name of the managed instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of server azure active directory only authentication.
         /// </summary>
-        [Input("authenticationName", required: true)]
-        public Input<string> AuthenticationName { get; set; } = null!;
+        [Input("authenticationName")]
+        public Input<string>? AuthenticationName { get; set; }
 
         /// <summary>
         /// The name of the managed instance.

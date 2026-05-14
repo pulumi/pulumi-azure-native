@@ -39,8 +39,8 @@ namespace Pulumi.AzureNative.TestBase
 
     public sealed class GetActionRequestArgs : global::Pulumi.InvokeArgs
     {
-        [Input("actionRequestName", required: true)]
-        public string ActionRequestName { get; set; } = null!;
+        [Input("actionRequestName")]
+        public string? ActionRequestName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.TestBase
 
     public sealed class GetActionRequestInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("actionRequestName", required: true)]
-        public Input<string> ActionRequestName { get; set; } = null!;
+        [Input("actionRequestName")]
+        public Input<string>? ActionRequestName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

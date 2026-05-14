@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Monitor.
         /// </summary>
-        [Input("networkMonitorName", required: true)]
-        public string NetworkMonitorName { get; set; } = null!;
+        [Input("networkMonitorName")]
+        public string? NetworkMonitorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Monitor.
         /// </summary>
-        [Input("networkMonitorName", required: true)]
-        public Input<string> NetworkMonitorName { get; set; } = null!;
+        [Input("networkMonitorName")]
+        public Input<string>? NetworkMonitorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

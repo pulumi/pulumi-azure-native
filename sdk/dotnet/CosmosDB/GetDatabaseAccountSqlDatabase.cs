@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB database name.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public string DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public string? DatabaseName { get; set; }
 
         /// <summary>
         /// Name of an Azure resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB database name.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// Name of an Azure resource group.

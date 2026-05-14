@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Binding resource.
         /// </summary>
-        [Input("bindingName", required: true)]
-        public string BindingName { get; set; } = null!;
+        [Input("bindingName")]
+        public string? BindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Binding resource.
         /// </summary>
-        [Input("bindingName", required: true)]
-        public Input<string> BindingName { get; set; } = null!;
+        [Input("bindingName")]
+        public Input<string>? BindingName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the managed private endpoint.
         /// </summary>
-        [Input("managedPrivateEndpointName", required: true)]
-        public string ManagedPrivateEndpointName { get; set; } = null!;
+        [Input("managedPrivateEndpointName")]
+        public string? ManagedPrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the managed private endpoint.
         /// </summary>
-        [Input("managedPrivateEndpointName", required: true)]
-        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+        [Input("managedPrivateEndpointName")]
+        public Input<string>? ManagedPrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

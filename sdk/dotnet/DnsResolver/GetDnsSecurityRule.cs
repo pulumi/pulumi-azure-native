@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS security rule.
         /// </summary>
-        [Input("dnsSecurityRuleName", required: true)]
-        public string DnsSecurityRuleName { get; set; } = null!;
+        [Input("dnsSecurityRuleName")]
+        public string? DnsSecurityRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS security rule.
         /// </summary>
-        [Input("dnsSecurityRuleName", required: true)]
-        public Input<string> DnsSecurityRuleName { get; set; } = null!;
+        [Input("dnsSecurityRuleName")]
+        public Input<string>? DnsSecurityRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Linked storage accounts type.
         /// </summary>
-        [Input("dataSourceType", required: true)]
-        public string DataSourceType { get; set; } = null!;
+        [Input("dataSourceType")]
+        public string? DataSourceType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Linked storage accounts type.
         /// </summary>
-        [Input("dataSourceType", required: true)]
-        public Input<string> DataSourceType { get; set; } = null!;
+        [Input("dataSourceType")]
+        public Input<string>? DataSourceType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

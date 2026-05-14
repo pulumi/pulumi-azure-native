@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the client group.
         /// </summary>
-        [Input("clientGroupName", required: true)]
-        public string ClientGroupName { get; set; } = null!;
+        [Input("clientGroupName")]
+        public string? ClientGroupName { get; set; }
 
         /// <summary>
         /// Name of the namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the client group.
         /// </summary>
-        [Input("clientGroupName", required: true)]
-        public Input<string> ClientGroupName { get; set; } = null!;
+        [Input("clientGroupName")]
+        public Input<string>? ClientGroupName { get; set; }
 
         /// <summary>
         /// Name of the namespace.

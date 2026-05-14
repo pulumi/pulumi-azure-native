@@ -45,8 +45,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class GetManagedInstanceAdministratorArgs : global::Pulumi.InvokeArgs
     {
-        [Input("administratorName", required: true)]
-        public string AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public string? AdministratorName { get; set; }
 
         /// <summary>
         /// The name of the managed instance.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class GetManagedInstanceAdministratorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// The name of the managed instance.

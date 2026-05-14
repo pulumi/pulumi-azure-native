@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the function app registered with the static site build.
         /// </summary>
-        [Input("functionAppName", required: true)]
-        public string FunctionAppName { get; set; } = null!;
+        [Input("functionAppName")]
+        public string? FunctionAppName { get; set; }
 
         /// <summary>
         /// Name of the static site.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the function app registered with the static site build.
         /// </summary>
-        [Input("functionAppName", required: true)]
-        public Input<string> FunctionAppName { get; set; } = null!;
+        [Input("functionAppName")]
+        public Input<string>? FunctionAppName { get; set; }
 
         /// <summary>
         /// Name of the static site.

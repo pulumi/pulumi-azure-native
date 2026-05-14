@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// <summary>
         /// Channel Name
         /// </summary>
-        [Input("channelName", required: true)]
-        public string ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public string? ChannelName { get; set; }
 
         /// <summary>
         /// Resource Group Name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// <summary>
         /// Channel Name
         /// </summary>
-        [Input("channelName", required: true)]
-        public Input<string> ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public Input<string>? ChannelName { get; set; }
 
         /// <summary>
         /// Resource Group Name

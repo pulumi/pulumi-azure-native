@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// <summary>
         /// The guest configuration assignment name.
         /// </summary>
-        [Input("guestConfigurationAssignmentName", required: true)]
-        public string GuestConfigurationAssignmentName { get; set; } = null!;
+        [Input("guestConfigurationAssignmentName")]
+        public string? GuestConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the ARC machine.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// <summary>
         /// The guest configuration assignment name.
         /// </summary>
-        [Input("guestConfigurationAssignmentName", required: true)]
-        public Input<string> GuestConfigurationAssignmentName { get; set; } = null!;
+        [Input("guestConfigurationAssignmentName")]
+        public Input<string>? GuestConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// The name of the ARC machine.

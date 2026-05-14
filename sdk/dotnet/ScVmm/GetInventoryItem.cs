@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the inventoryItem.
         /// </summary>
-        [Input("inventoryItemName", required: true)]
-        public string InventoryItemName { get; set; } = null!;
+        [Input("inventoryItemName")]
+        public string? InventoryItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the inventoryItem.
         /// </summary>
-        [Input("inventoryItemName", required: true)]
-        public Input<string> InventoryItemName { get; set; } = null!;
+        [Input("inventoryItemName")]
+        public Input<string>? InventoryItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

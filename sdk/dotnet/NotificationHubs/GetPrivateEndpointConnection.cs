@@ -57,8 +57,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Private Endpoint Connection Name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Private Endpoint Connection Name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

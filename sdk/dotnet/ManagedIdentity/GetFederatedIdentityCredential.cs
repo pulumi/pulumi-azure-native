@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// The name of the federated identity credential resource.
         /// </summary>
-        [Input("federatedIdentityCredentialResourceName", required: true)]
-        public string FederatedIdentityCredentialResourceName { get; set; } = null!;
+        [Input("federatedIdentityCredentialResourceName")]
+        public string? FederatedIdentityCredentialResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// The name of the federated identity credential resource.
         /// </summary>
-        [Input("federatedIdentityCredentialResourceName", required: true)]
-        public Input<string> FederatedIdentityCredentialResourceName { get; set; } = null!;
+        [Input("federatedIdentityCredentialResourceName")]
+        public Input<string>? FederatedIdentityCredentialResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

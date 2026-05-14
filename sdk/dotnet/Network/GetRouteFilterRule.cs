@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public string RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public string? RuleName { get; set; }
 
         public GetRouteFilterRuleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         public GetRouteFilterRuleInvokeArgs()
         {

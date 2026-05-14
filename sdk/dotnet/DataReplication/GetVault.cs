@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The vault name.
         /// </summary>
-        [Input("vaultName", required: true)]
-        public string VaultName { get; set; } = null!;
+        [Input("vaultName")]
+        public string? VaultName { get; set; }
 
         public GetVaultArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The vault name.
         /// </summary>
-        [Input("vaultName", required: true)]
-        public Input<string> VaultName { get; set; } = null!;
+        [Input("vaultName")]
+        public Input<string>? VaultName { get; set; }
 
         public GetVaultInvokeArgs()
         {

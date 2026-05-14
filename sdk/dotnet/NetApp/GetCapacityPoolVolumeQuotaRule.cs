@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of volume quota rule
         /// </summary>
-        [Input("volumeQuotaRuleName", required: true)]
-        public string VolumeQuotaRuleName { get; set; } = null!;
+        [Input("volumeQuotaRuleName")]
+        public string? VolumeQuotaRuleName { get; set; }
 
         public GetCapacityPoolVolumeQuotaRuleArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of volume quota rule
         /// </summary>
-        [Input("volumeQuotaRuleName", required: true)]
-        public Input<string> VolumeQuotaRuleName { get; set; } = null!;
+        [Input("volumeQuotaRuleName")]
+        public Input<string>? VolumeQuotaRuleName { get; set; }
 
         public GetCapacityPoolVolumeQuotaRuleInvokeArgs()
         {

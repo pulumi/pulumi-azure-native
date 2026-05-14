@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the certificate.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public string CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public string? CertificateName { get; set; }
 
         /// <summary>
         /// Name of the site.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the certificate.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// Name of the site.

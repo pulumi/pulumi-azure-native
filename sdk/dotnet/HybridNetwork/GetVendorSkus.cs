@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the sku.
         /// </summary>
-        [Input("skuName", required: true)]
-        public string SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public string? SkuName { get; set; }
 
         /// <summary>
         /// The name of the vendor.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the sku.
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// The name of the vendor.

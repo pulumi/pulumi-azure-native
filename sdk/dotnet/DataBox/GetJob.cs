@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("jobName", required: true)]
-        public string JobName { get; set; } = null!;
+        [Input("jobName")]
+        public string? JobName { get; set; }
 
         /// <summary>
         /// The Resource Group Name
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The Resource Group Name

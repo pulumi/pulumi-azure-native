@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.
         /// </summary>
-        [Input("queryPackName", required: true)]
-        public string QueryPackName { get; set; } = null!;
+        [Input("queryPackName")]
+        public string? QueryPackName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.
         /// </summary>
-        [Input("queryPackName", required: true)]
-        public Input<string> QueryPackName { get; set; } = null!;
+        [Input("queryPackName")]
+        public Input<string>? QueryPackName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

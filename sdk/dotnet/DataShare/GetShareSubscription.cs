@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the shareSubscription.
         /// </summary>
-        [Input("shareSubscriptionName", required: true)]
-        public string ShareSubscriptionName { get; set; } = null!;
+        [Input("shareSubscriptionName")]
+        public string? ShareSubscriptionName { get; set; }
 
         public GetShareSubscriptionArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the shareSubscription.
         /// </summary>
-        [Input("shareSubscriptionName", required: true)]
-        public Input<string> ShareSubscriptionName { get; set; } = null!;
+        [Input("shareSubscriptionName")]
+        public Input<string>? ShareSubscriptionName { get; set; }
 
         public GetShareSubscriptionInvokeArgs()
         {

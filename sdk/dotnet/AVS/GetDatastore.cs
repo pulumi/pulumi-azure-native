@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the datastore
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public string DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public string? DatastoreName { get; set; }
 
         /// <summary>
         /// Name of the private cloud
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the datastore
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public Input<string> DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public Input<string>? DatastoreName { get; set; }
 
         /// <summary>
         /// Name of the private cloud

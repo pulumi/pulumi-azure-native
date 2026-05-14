@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the Domains resource.
         /// </summary>
-        [Input("domainName", required: true)]
-        public string DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// The name of the EmailService resource.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the Domains resource.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// The name of the EmailService resource.

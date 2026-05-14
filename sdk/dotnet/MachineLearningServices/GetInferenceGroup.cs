@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceGroup name.
         /// </summary>
-        [Input("groupName", required: true)]
-        public string GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public string? GroupName { get; set; }
 
         /// <summary>
         /// InferencePool name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceGroup name.
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         /// <summary>
         /// InferencePool name.

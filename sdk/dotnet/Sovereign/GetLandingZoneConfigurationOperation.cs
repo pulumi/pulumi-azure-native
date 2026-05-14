@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sovereign
         /// <summary>
         /// The landing zone configuration name
         /// </summary>
-        [Input("landingZoneConfigurationName", required: true)]
-        public string LandingZoneConfigurationName { get; set; } = null!;
+        [Input("landingZoneConfigurationName")]
+        public string? LandingZoneConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sovereign
         /// <summary>
         /// The landing zone configuration name
         /// </summary>
-        [Input("landingZoneConfigurationName", required: true)]
-        public Input<string> LandingZoneConfigurationName { get; set; } = null!;
+        [Input("landingZoneConfigurationName")]
+        public Input<string>? LandingZoneConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

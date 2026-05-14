@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("userId", required: true)]
-        public string UserId { get; set; } = null!;
+        [Input("userId")]
+        public string? UserId { get; set; }
 
         public GetUserArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("userId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
 
         public GetUserInvokeArgs()
         {

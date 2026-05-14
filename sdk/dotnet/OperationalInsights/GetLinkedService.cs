@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the linked service.
         /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public string LinkedServiceName { get; set; } = null!;
+        [Input("linkedServiceName")]
+        public string? LinkedServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the linked service.
         /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public Input<string> LinkedServiceName { get; set; } = null!;
+        [Input("linkedServiceName")]
+        public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

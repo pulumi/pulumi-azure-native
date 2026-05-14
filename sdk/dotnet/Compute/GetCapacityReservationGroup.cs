@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the capacity reservation group.
         /// </summary>
-        [Input("capacityReservationGroupName", required: true)]
-        public string CapacityReservationGroupName { get; set; } = null!;
+        [Input("capacityReservationGroupName")]
+        public string? CapacityReservationGroupName { get; set; }
 
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the capacity reservation group.
         /// </summary>
-        [Input("capacityReservationGroupName", required: true)]
-        public Input<string> CapacityReservationGroupName { get; set; } = null!;
+        [Input("capacityReservationGroupName")]
+        public Input<string>? CapacityReservationGroupName { get; set; }
 
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.

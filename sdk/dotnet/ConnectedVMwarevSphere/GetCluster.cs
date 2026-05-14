@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public string ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public string? ClusterName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.

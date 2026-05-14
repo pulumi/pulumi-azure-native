@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// discovery source resource
         /// </summary>
-        [Input("sourceName", required: true)]
-        public string SourceName { get; set; } = null!;
+        [Input("sourceName")]
+        public string? SourceName { get; set; }
 
         public GetDiscoverySourceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// discovery source resource
         /// </summary>
-        [Input("sourceName", required: true)]
-        public Input<string> SourceName { get; set; } = null!;
+        [Input("sourceName")]
+        public Input<string>? SourceName { get; set; }
 
         public GetDiscoverySourceInvokeArgs()
         {

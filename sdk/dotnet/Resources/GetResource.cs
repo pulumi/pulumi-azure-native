@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The name of the resource to get.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public string ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public string? ResourceName { get; set; }
 
         /// <summary>
         /// The namespace of the resource provider.
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The name of the resource to get.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// The namespace of the resource provider.

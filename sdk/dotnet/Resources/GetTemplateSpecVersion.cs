@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The version of the Template Spec.
         /// </summary>
-        [Input("templateSpecVersion", required: true)]
-        public string TemplateSpecVersion { get; set; } = null!;
+        [Input("templateSpecVersion")]
+        public string? TemplateSpecVersion { get; set; }
 
         public GetTemplateSpecVersionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The version of the Template Spec.
         /// </summary>
-        [Input("templateSpecVersion", required: true)]
-        public Input<string> TemplateSpecVersion { get; set; } = null!;
+        [Input("templateSpecVersion")]
+        public Input<string>? TemplateSpecVersion { get; set; }
 
         public GetTemplateSpecVersionInvokeArgs()
         {

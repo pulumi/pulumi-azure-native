@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the target
         /// </summary>
-        [Input("targetName", required: true)]
-        public string TargetName { get; set; } = null!;
+        [Input("targetName")]
+        public string? TargetName { get; set; }
 
         public GetTargetArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the target
         /// </summary>
-        [Input("targetName", required: true)]
-        public Input<string> TargetName { get; set; } = null!;
+        [Input("targetName")]
+        public Input<string>? TargetName { get; set; }
 
         public GetTargetInvokeArgs()
         {

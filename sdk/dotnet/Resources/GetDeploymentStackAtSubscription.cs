@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetDeploymentStackAtSubscriptionResult> InvokeAsync(GetDeploymentStackAtSubscriptionArgs args, InvokeOptions? options = null)
+        public static Task<GetDeploymentStackAtSubscriptionResult> InvokeAsync(GetDeploymentStackAtSubscriptionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack.
         /// </summary>
-        [Input("deploymentStackName", required: true)]
-        public string DeploymentStackName { get; set; } = null!;
+        [Input("deploymentStackName")]
+        public string? DeploymentStackName { get; set; }
 
         public GetDeploymentStackAtSubscriptionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack.
         /// </summary>
-        [Input("deploymentStackName", required: true)]
-        public Input<string> DeploymentStackName { get; set; } = null!;
+        [Input("deploymentStackName")]
+        public Input<string>? DeploymentStackName { get; set; }
 
         public GetDeploymentStackAtSubscriptionInvokeArgs()
         {

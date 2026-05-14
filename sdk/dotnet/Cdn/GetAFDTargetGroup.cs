@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Target Group under the profile.
         /// </summary>
-        [Input("targetGroupName", required: true)]
-        public string TargetGroupName { get; set; } = null!;
+        [Input("targetGroupName")]
+        public string? TargetGroupName { get; set; }
 
         public GetAFDTargetGroupArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Target Group under the profile.
         /// </summary>
-        [Input("targetGroupName", required: true)]
-        public Input<string> TargetGroupName { get; set; } = null!;
+        [Input("targetGroupName")]
+        public Input<string>? TargetGroupName { get; set; }
 
         public GetAFDTargetGroupInvokeArgs()
         {

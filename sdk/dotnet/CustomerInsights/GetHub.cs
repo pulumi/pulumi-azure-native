@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the hub.
         /// </summary>
-        [Input("hubName", required: true)]
-        public string HubName { get; set; } = null!;
+        [Input("hubName")]
+        public string? HubName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the hub.
         /// </summary>
-        [Input("hubName", required: true)]
-        public Input<string> HubName { get; set; } = null!;
+        [Input("hubName")]
+        public Input<string>? HubName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("peeringServiceName", required: true)]
-        public string PeeringServiceName { get; set; } = null!;
+        [Input("peeringServiceName")]
+        public string? PeeringServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("peeringServiceName", required: true)]
-        public Input<string> PeeringServiceName { get; set; } = null!;
+        [Input("peeringServiceName")]
+        public Input<string>? PeeringServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Features
         /// <summary>
         /// The feature name.
         /// </summary>
-        [Input("featureName", required: true)]
-        public string FeatureName { get; set; } = null!;
+        [Input("featureName")]
+        public string? FeatureName { get; set; }
 
         /// <summary>
         /// The provider namespace.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Features
         /// <summary>
         /// The feature name.
         /// </summary>
-        [Input("featureName", required: true)]
-        public Input<string> FeatureName { get; set; } = null!;
+        [Input("featureName")]
+        public Input<string>? FeatureName { get; set; }
 
         /// <summary>
         /// The provider namespace.

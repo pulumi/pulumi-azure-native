@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2018-08-01-preview.
         /// </summary>
-        public static Task<GetReportResult> InvokeAsync(GetReportArgs args, InvokeOptions? options = null)
+        public static Task<GetReportResult> InvokeAsync(GetReportArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportResult>("azure-native:costmanagement:getReport", args ?? new GetReportArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2018-08-01-preview.
         /// </summary>
-        public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetReportResult> Invoke(GetReportInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:costmanagement:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName", required: true)]
-        public string ReportName { get; set; } = null!;
+        [Input("reportName")]
+        public string? ReportName { get; set; }
 
         public GetReportArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName", required: true)]
-        public Input<string> ReportName { get; set; } = null!;
+        [Input("reportName")]
+        public Input<string>? ReportName { get; set; }
 
         public GetReportInvokeArgs()
         {

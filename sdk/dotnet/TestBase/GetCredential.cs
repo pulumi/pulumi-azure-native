@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The credential resource name.
         /// </summary>
-        [Input("credentialName", required: true)]
-        public string CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public string? CredentialName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The credential resource name.
         /// </summary>
-        [Input("credentialName", required: true)]
-        public Input<string> CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

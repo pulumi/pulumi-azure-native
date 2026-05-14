@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// 
         /// Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetReportResult> InvokeAsync(GetReportArgs args, InvokeOptions? options = null)
+        public static Task<GetReportResult> InvokeAsync(GetReportArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportResult>("azure-native:appcomplianceautomation:getReport", args ?? new GetReportArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// 
         /// Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetReportResult> Invoke(GetReportInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:appcomplianceautomation:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName", required: true)]
-        public string ReportName { get; set; } = null!;
+        [Input("reportName")]
+        public string? ReportName { get; set; }
 
         public GetReportArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName", required: true)]
-        public Input<string> ReportName { get; set; } = null!;
+        [Input("reportName")]
+        public Input<string>? ReportName { get; set; }
 
         public GetReportInvokeArgs()
         {

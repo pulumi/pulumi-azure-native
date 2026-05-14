@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job step.
         /// </summary>
-        [Input("stepName", required: true)]
-        public string StepName { get; set; } = null!;
+        [Input("stepName")]
+        public string? StepName { get; set; }
 
         public GetJobStepArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job step.
         /// </summary>
-        [Input("stepName", required: true)]
-        public Input<string> StepName { get; set; } = null!;
+        [Input("stepName")]
+        public Input<string>? StepName { get; set; }
 
         public GetJobStepInvokeArgs()
         {

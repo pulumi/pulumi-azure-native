@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the FirewallPolicyRuleGroup.
         /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public string RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public string? RuleGroupName { get; set; }
 
         public GetFirewallPolicyRuleGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the FirewallPolicyRuleGroup.
         /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public Input<string>? RuleGroupName { get; set; }
 
         public GetFirewallPolicyRuleGroupInvokeArgs()
         {

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the backup
         /// </summary>
-        [Input("backupName", required: true)]
-        public string BackupName { get; set; } = null!;
+        [Input("backupName")]
+        public string? BackupName { get; set; }
 
         /// <summary>
         /// The name of the Backup Vault
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the backup
         /// </summary>
-        [Input("backupName", required: true)]
-        public Input<string> BackupName { get; set; } = null!;
+        [Input("backupName")]
+        public Input<string>? BackupName { get; set; }
 
         /// <summary>
         /// The name of the Backup Vault

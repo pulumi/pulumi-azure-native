@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Community
         /// <summary>
         /// The name of the Community Training Resource
         /// </summary>
-        [Input("communityTrainingName", required: true)]
-        public string CommunityTrainingName { get; set; } = null!;
+        [Input("communityTrainingName")]
+        public string? CommunityTrainingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Community
         /// <summary>
         /// The name of the Community Training Resource
         /// </summary>
-        [Input("communityTrainingName", required: true)]
-        public Input<string> CommunityTrainingName { get; set; } = null!;
+        [Input("communityTrainingName")]
+        public Input<string>? CommunityTrainingName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

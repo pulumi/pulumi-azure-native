@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("configurationId", required: true)]
-        public string ConfigurationId { get; set; } = null!;
+        [Input("configurationId")]
+        public string? ConfigurationId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("configurationId", required: true)]
-        public Input<string> ConfigurationId { get; set; } = null!;
+        [Input("configurationId")]
+        public Input<string>? ConfigurationId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

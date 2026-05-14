@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the Application Insights WebTest resource.
         /// </summary>
-        [Input("webTestName", required: true)]
-        public string WebTestName { get; set; } = null!;
+        [Input("webTestName")]
+        public string? WebTestName { get; set; }
 
         public GetWebTestArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the Application Insights WebTest resource.
         /// </summary>
-        [Input("webTestName", required: true)]
-        public Input<string> WebTestName { get; set; } = null!;
+        [Input("webTestName")]
+        public Input<string>? WebTestName { get; set; }
 
         public GetWebTestInvokeArgs()
         {

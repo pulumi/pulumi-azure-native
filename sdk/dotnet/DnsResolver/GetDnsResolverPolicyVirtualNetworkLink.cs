@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver policy virtual network link for the DNS resolver policy.
         /// </summary>
-        [Input("dnsResolverPolicyVirtualNetworkLinkName", required: true)]
-        public string DnsResolverPolicyVirtualNetworkLinkName { get; set; } = null!;
+        [Input("dnsResolverPolicyVirtualNetworkLinkName")]
+        public string? DnsResolverPolicyVirtualNetworkLinkName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver policy virtual network link for the DNS resolver policy.
         /// </summary>
-        [Input("dnsResolverPolicyVirtualNetworkLinkName", required: true)]
-        public Input<string> DnsResolverPolicyVirtualNetworkLinkName { get; set; } = null!;
+        [Input("dnsResolverPolicyVirtualNetworkLinkName")]
+        public Input<string>? DnsResolverPolicyVirtualNetworkLinkName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

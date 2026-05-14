@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The name of the Azure AI Search service associated with the specified resource group.
         /// </summary>
-        [Input("searchServiceName", required: true)]
-        public string SearchServiceName { get; set; } = null!;
+        [Input("searchServiceName")]
+        public string? SearchServiceName { get; set; }
 
         public GetServiceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The name of the Azure AI Search service associated with the specified resource group.
         /// </summary>
-        [Input("searchServiceName", required: true)]
-        public Input<string> SearchServiceName { get; set; } = null!;
+        [Input("searchServiceName")]
+        public Input<string>? SearchServiceName { get; set; }
 
         public GetServiceInvokeArgs()
         {

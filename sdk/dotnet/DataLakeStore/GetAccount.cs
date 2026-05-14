@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the Data Lake Store account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public string AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the Data Lake Store account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Webhook Name.
         /// </summary>
-        [Input("webhookName", required: true)]
-        public string WebhookName { get; set; } = null!;
+        [Input("webhookName")]
+        public string? WebhookName { get; set; }
 
         public GetWebhookArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Webhook Name.
         /// </summary>
-        [Input("webhookName", required: true)]
-        public Input<string> WebhookName { get; set; } = null!;
+        [Input("webhookName")]
+        public Input<string>? WebhookName { get; set; }
 
         public GetWebhookInvokeArgs()
         {

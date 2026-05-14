@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the VirtualMachineRunCommand
         /// </summary>
-        [Input("runCommandName", required: true)]
-        public string RunCommandName { get; set; } = null!;
+        [Input("runCommandName")]
+        public string? RunCommandName { get; set; }
 
         /// <summary>
         /// The name of the VirtualMachineScaleSet
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the VirtualMachineRunCommand
         /// </summary>
-        [Input("runCommandName", required: true)]
-        public Input<string> RunCommandName { get; set; } = null!;
+        [Input("runCommandName")]
+        public Input<string>? RunCommandName { get; set; }
 
         /// <summary>
         /// The name of the VirtualMachineScaleSet

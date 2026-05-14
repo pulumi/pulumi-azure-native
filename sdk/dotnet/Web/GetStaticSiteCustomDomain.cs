@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The custom domain name.
         /// </summary>
-        [Input("domainName", required: true)]
-        public string DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// Name of the static site resource to search in.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The custom domain name.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Name of the static site resource to search in.

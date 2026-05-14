@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The hybrid runbook worker group name
         /// </summary>
-        [Input("hybridRunbookWorkerGroupName", required: true)]
-        public string HybridRunbookWorkerGroupName { get; set; } = null!;
+        [Input("hybridRunbookWorkerGroupName")]
+        public string? HybridRunbookWorkerGroupName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The hybrid runbook worker group name
         /// </summary>
-        [Input("hybridRunbookWorkerGroupName", required: true)]
-        public Input<string> HybridRunbookWorkerGroupName { get; set; } = null!;
+        [Input("hybridRunbookWorkerGroupName")]
+        public Input<string>? HybridRunbookWorkerGroupName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("shareName", required: true)]
-        public string ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public string? ShareName { get; set; }
 
         public GetFileShareArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         public GetFileShareInvokeArgs()
         {

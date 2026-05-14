@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the application gateway.
         /// </summary>
-        [Input("applicationGatewayName", required: true)]
-        public string ApplicationGatewayName { get; set; } = null!;
+        [Input("applicationGatewayName")]
+        public string? ApplicationGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the application gateway.
         /// </summary>
-        [Input("applicationGatewayName", required: true)]
-        public Input<string> ApplicationGatewayName { get; set; } = null!;
+        [Input("applicationGatewayName")]
+        public Input<string>? ApplicationGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

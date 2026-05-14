@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The Metadata name.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public string MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public string? MetadataName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The Metadata name.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public Input<string> MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public Input<string>? MetadataName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

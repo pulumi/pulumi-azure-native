@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Attachment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("attachmentId", required: true)]
-        public string AttachmentId { get; set; } = null!;
+        [Input("attachmentId")]
+        public string? AttachmentId { get; set; }
 
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Attachment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("attachmentId", required: true)]
-        public Input<string> AttachmentId { get; set; } = null!;
+        [Input("attachmentId")]
+        public Input<string>? AttachmentId { get; set; }
 
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.

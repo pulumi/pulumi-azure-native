@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// The ID of the private endpoint connection proxy object.
         /// </summary>
-        [Input("privateEndpointConnectionProxyId", required: true)]
-        public string PrivateEndpointConnectionProxyId { get; set; } = null!;
+        [Input("privateEndpointConnectionProxyId")]
+        public string? PrivateEndpointConnectionProxyId { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// The ID of the private endpoint connection proxy object.
         /// </summary>
-        [Input("privateEndpointConnectionProxyId", required: true)]
-        public Input<string> PrivateEndpointConnectionProxyId { get; set; } = null!;
+        [Input("privateEndpointConnectionProxyId")]
+        public Input<string>? PrivateEndpointConnectionProxyId { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the deployment slot. By default, this API returns the production slot.
         /// </summary>
-        [Input("slot", required: true)]
-        public string Slot { get; set; } = null!;
+        [Input("slot")]
+        public string? Slot { get; set; }
 
         public GetWebAppSlotArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the deployment slot. By default, this API returns the production slot.
         /// </summary>
-        [Input("slot", required: true)]
-        public Input<string> Slot { get; set; } = null!;
+        [Input("slot")]
+        public Input<string>? Slot { get; set; }
 
         public GetWebAppSlotInvokeArgs()
         {

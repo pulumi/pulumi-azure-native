@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the communityResource Resource
         /// </summary>
-        [Input("communityName", required: true)]
-        public string CommunityName { get; set; } = null!;
+        [Input("communityName")]
+        public string? CommunityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the communityResource Resource
         /// </summary>
-        [Input("communityName", required: true)]
-        public Input<string> CommunityName { get; set; } = null!;
+        [Input("communityName")]
+        public Input<string>? CommunityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

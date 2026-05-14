@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of Cognitive Services account's project.
         /// </summary>
-        [Input("projectName", required: true)]
-        public string ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public string? ProjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of Cognitive Services account's project.
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// <summary>
         /// Name of identifier.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// <summary>
         /// Name of identifier.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

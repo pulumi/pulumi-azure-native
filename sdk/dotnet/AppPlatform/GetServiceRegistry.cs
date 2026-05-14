@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Service Registry.
         /// </summary>
-        [Input("serviceRegistryName", required: true)]
-        public string ServiceRegistryName { get; set; } = null!;
+        [Input("serviceRegistryName")]
+        public string? ServiceRegistryName { get; set; }
 
         public GetServiceRegistryArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Service Registry.
         /// </summary>
-        [Input("serviceRegistryName", required: true)]
-        public Input<string> ServiceRegistryName { get; set; } = null!;
+        [Input("serviceRegistryName")]
+        public Input<string>? ServiceRegistryName { get; set; }
 
         public GetServiceRegistryInvokeArgs()
         {

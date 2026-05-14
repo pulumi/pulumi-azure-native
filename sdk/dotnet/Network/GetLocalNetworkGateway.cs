@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the local network gateway.
         /// </summary>
-        [Input("localNetworkGatewayName", required: true)]
-        public string LocalNetworkGatewayName { get; set; } = null!;
+        [Input("localNetworkGatewayName")]
+        public string? LocalNetworkGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the local network gateway.
         /// </summary>
-        [Input("localNetworkGatewayName", required: true)]
-        public Input<string> LocalNetworkGatewayName { get; set; } = null!;
+        [Input("localNetworkGatewayName")]
+        public Input<string>? LocalNetworkGatewayName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

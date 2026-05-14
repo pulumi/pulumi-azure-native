@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Scheduler
         /// <summary>
         /// The job name.
         /// </summary>
-        [Input("jobName", required: true)]
-        public string JobName { get; set; } = null!;
+        [Input("jobName")]
+        public string? JobName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Scheduler
         /// <summary>
         /// The job name.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The resource group name.

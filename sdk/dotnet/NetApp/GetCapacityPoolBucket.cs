@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the bucket
         /// </summary>
-        [Input("bucketName", required: true)]
-        public string BucketName { get; set; } = null!;
+        [Input("bucketName")]
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// The name of the capacity pool
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the bucket
         /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// The name of the capacity pool

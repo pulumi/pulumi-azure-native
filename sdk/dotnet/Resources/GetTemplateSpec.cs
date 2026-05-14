@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the Template Spec.
         /// </summary>
-        [Input("templateSpecName", required: true)]
-        public string TemplateSpecName { get; set; } = null!;
+        [Input("templateSpecName")]
+        public string? TemplateSpecName { get; set; }
 
         public GetTemplateSpecArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the Template Spec.
         /// </summary>
-        [Input("templateSpecName", required: true)]
-        public Input<string> TemplateSpecName { get; set; } = null!;
+        [Input("templateSpecName")]
+        public Input<string>? TemplateSpecName { get; set; }
 
         public GetTemplateSpecInvokeArgs()
         {

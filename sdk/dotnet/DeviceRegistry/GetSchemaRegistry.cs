@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Schema registry name parameter.
         /// </summary>
-        [Input("schemaRegistryName", required: true)]
-        public string SchemaRegistryName { get; set; } = null!;
+        [Input("schemaRegistryName")]
+        public string? SchemaRegistryName { get; set; }
 
         public GetSchemaRegistryArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Schema registry name parameter.
         /// </summary>
-        [Input("schemaRegistryName", required: true)]
-        public Input<string> SchemaRegistryName { get; set; } = null!;
+        [Input("schemaRegistryName")]
+        public Input<string>? SchemaRegistryName { get; set; }
 
         public GetSchemaRegistryInvokeArgs()
         {

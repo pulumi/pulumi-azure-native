@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigTemplate
         /// </summary>
-        [Input("configTemplateName", required: true)]
-        public string ConfigTemplateName { get; set; } = null!;
+        [Input("configTemplateName")]
+        public string? ConfigTemplateName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigTemplate
         /// </summary>
-        [Input("configTemplateName", required: true)]
-        public Input<string> ConfigTemplateName { get; set; } = null!;
+        [Input("configTemplateName")]
+        public Input<string>? ConfigTemplateName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

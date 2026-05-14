@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of IoT Connector resource.
         /// </summary>
-        [Input("iotConnectorName", required: true)]
-        public string IotConnectorName { get; set; } = null!;
+        [Input("iotConnectorName")]
+        public string? IotConnectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of IoT Connector resource.
         /// </summary>
-        [Input("iotConnectorName", required: true)]
-        public Input<string> IotConnectorName { get; set; } = null!;
+        [Input("iotConnectorName")]
+        public Input<string>? IotConnectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the service instance.

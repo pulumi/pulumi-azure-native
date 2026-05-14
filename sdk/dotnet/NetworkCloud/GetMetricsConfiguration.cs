@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the metrics configuration for the cluster.
         /// </summary>
-        [Input("metricsConfigurationName", required: true)]
-        public string MetricsConfigurationName { get; set; } = null!;
+        [Input("metricsConfigurationName")]
+        public string? MetricsConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the metrics configuration for the cluster.
         /// </summary>
-        [Input("metricsConfigurationName", required: true)]
-        public Input<string> MetricsConfigurationName { get; set; } = null!;
+        [Input("metricsConfigurationName")]
+        public Input<string>? MetricsConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

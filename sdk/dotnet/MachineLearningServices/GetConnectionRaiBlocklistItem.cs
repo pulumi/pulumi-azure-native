@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the RaiBlocklist Item
         /// </summary>
-        [Input("raiBlocklistItemName", required: true)]
-        public string RaiBlocklistItemName { get; set; } = null!;
+        [Input("raiBlocklistItemName")]
+        public string? RaiBlocklistItemName { get; set; }
 
         /// <summary>
         /// The name of the RaiBlocklist.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the RaiBlocklist Item
         /// </summary>
-        [Input("raiBlocklistItemName", required: true)]
-        public Input<string> RaiBlocklistItemName { get; set; } = null!;
+        [Input("raiBlocklistItemName")]
+        public Input<string>? RaiBlocklistItemName { get; set; }
 
         /// <summary>
         /// The name of the RaiBlocklist.

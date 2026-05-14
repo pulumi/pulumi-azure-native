@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of an assessment within a project.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public string AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public string? AssessmentName { get; set; }
 
         /// <summary>
         /// Unique name of a group within a project.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of an assessment within a project.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// Unique name of a group within a project.

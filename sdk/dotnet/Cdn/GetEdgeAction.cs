@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the Edge Action
         /// </summary>
-        [Input("edgeActionName", required: true)]
-        public string EdgeActionName { get; set; } = null!;
+        [Input("edgeActionName")]
+        public string? EdgeActionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the Edge Action
         /// </summary>
-        [Input("edgeActionName", required: true)]
-        public Input<string> EdgeActionName { get; set; } = null!;
+        [Input("edgeActionName")]
+        public Input<string>? EdgeActionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

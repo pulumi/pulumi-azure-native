@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// The private endpoint connection name.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// The private endpoint connection name.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.

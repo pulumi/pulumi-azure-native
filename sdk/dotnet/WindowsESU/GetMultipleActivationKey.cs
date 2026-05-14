@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.WindowsESU
         /// <summary>
         /// The name of the MAK key.
         /// </summary>
-        [Input("multipleActivationKeyName", required: true)]
-        public string MultipleActivationKeyName { get; set; } = null!;
+        [Input("multipleActivationKeyName")]
+        public string? MultipleActivationKeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.WindowsESU
         /// <summary>
         /// The name of the MAK key.
         /// </summary>
-        [Input("multipleActivationKeyName", required: true)]
-        public Input<string> MultipleActivationKeyName { get; set; } = null!;
+        [Input("multipleActivationKeyName")]
+        public Input<string>? MultipleActivationKeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

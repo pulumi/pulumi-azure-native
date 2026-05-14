@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the Application
         /// </summary>
-        [Input("applicationName", required: true)]
-        public string ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public string? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the Application
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

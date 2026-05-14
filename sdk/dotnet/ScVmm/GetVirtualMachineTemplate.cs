@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachineTemplate.
         /// </summary>
-        [Input("virtualMachineTemplateName", required: true)]
-        public string VirtualMachineTemplateName { get; set; } = null!;
+        [Input("virtualMachineTemplateName")]
+        public string? VirtualMachineTemplateName { get; set; }
 
         public GetVirtualMachineTemplateArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachineTemplate.
         /// </summary>
-        [Input("virtualMachineTemplateName", required: true)]
-        public Input<string> VirtualMachineTemplateName { get; set; } = null!;
+        [Input("virtualMachineTemplateName")]
+        public Input<string>? VirtualMachineTemplateName { get; set; }
 
         public GetVirtualMachineTemplateInvokeArgs()
         {

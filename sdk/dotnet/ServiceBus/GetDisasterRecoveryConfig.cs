@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("alias", required: true)]
-        public string Alias { get; set; } = null!;
+        [Input("alias")]
+        public string? Alias { get; set; }
 
         /// <summary>
         /// The namespace name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("alias", required: true)]
-        public Input<string> Alias { get; set; } = null!;
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
 
         /// <summary>
         /// The namespace name

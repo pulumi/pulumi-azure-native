@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriConnectorTemplate resource.
         /// </summary>
-        [Input("akriConnectorTemplateName", required: true)]
-        public string AkriConnectorTemplateName { get; set; } = null!;
+        [Input("akriConnectorTemplateName")]
+        public string? AkriConnectorTemplateName { get; set; }
 
         /// <summary>
         /// Name of instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriConnectorTemplate resource.
         /// </summary>
-        [Input("akriConnectorTemplateName", required: true)]
-        public Input<string> AkriConnectorTemplateName { get; set; } = null!;
+        [Input("akriConnectorTemplateName")]
+        public Input<string>? AkriConnectorTemplateName { get; set; }
 
         /// <summary>
         /// Name of instance.

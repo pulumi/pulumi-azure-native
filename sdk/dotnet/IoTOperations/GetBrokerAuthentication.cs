@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker authentication resource
         /// </summary>
-        [Input("authenticationName", required: true)]
-        public string AuthenticationName { get; set; } = null!;
+        [Input("authenticationName")]
+        public string? AuthenticationName { get; set; }
 
         /// <summary>
         /// Name of broker.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker authentication resource
         /// </summary>
-        [Input("authenticationName", required: true)]
-        public Input<string> AuthenticationName { get; set; } = null!;
+        [Input("authenticationName")]
+        public Input<string>? AuthenticationName { get; set; }
 
         /// <summary>
         /// Name of broker.

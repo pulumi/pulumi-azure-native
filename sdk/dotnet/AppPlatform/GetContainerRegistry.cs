@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("containerRegistryName", required: true)]
-        public string ContainerRegistryName { get; set; } = null!;
+        [Input("containerRegistryName")]
+        public string? ContainerRegistryName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("containerRegistryName", required: true)]
-        public Input<string> ContainerRegistryName { get; set; } = null!;
+        [Input("containerRegistryName")]
+        public Input<string>? ContainerRegistryName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

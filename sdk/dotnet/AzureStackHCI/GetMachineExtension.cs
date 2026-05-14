@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public string ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public string? ExtensionName { get; set; }
 
         /// <summary>
         /// The name of the machine containing the extension.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// The name of the machine containing the extension.

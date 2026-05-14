@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Addons
         /// <summary>
         /// The Canonical support plan type.
         /// </summary>
-        [Input("planTypeName", required: true)]
-        public string PlanTypeName { get; set; } = null!;
+        [Input("planTypeName")]
+        public string? PlanTypeName { get; set; }
 
         /// <summary>
         /// The support plan type. For now the only valid type is "canonical".
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Addons
         /// <summary>
         /// The Canonical support plan type.
         /// </summary>
-        [Input("planTypeName", required: true)]
-        public Input<string> PlanTypeName { get; set; } = null!;
+        [Input("planTypeName")]
+        public Input<string>? PlanTypeName { get; set; }
 
         /// <summary>
         /// The support plan type. For now the only valid type is "canonical".

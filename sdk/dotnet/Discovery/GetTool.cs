@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Tool
         /// </summary>
-        [Input("toolName", required: true)]
-        public string ToolName { get; set; } = null!;
+        [Input("toolName")]
+        public string? ToolName { get; set; }
 
         public GetToolArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Tool
         /// </summary>
-        [Input("toolName", required: true)]
-        public Input<string> ToolName { get; set; } = null!;
+        [Input("toolName")]
+        public Input<string>? ToolName { get; set; }
 
         public GetToolInvokeArgs()
         {

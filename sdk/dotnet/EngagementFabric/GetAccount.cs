@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// <summary>
         /// Account Name
         /// </summary>
-        [Input("accountName", required: true)]
-        public string AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// Resource Group Name
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// <summary>
         /// Account Name
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Resource Group Name

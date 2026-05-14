@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// Name of the Front Door which is globally unique.
         /// </summary>
-        [Input("frontDoorName", required: true)]
-        public string FrontDoorName { get; set; } = null!;
+        [Input("frontDoorName")]
+        public string? FrontDoorName { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// Name of the Front Door which is globally unique.
         /// </summary>
-        [Input("frontDoorName", required: true)]
-        public Input<string> FrontDoorName { get; set; } = null!;
+        [Input("frontDoorName")]
+        public Input<string>? FrontDoorName { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

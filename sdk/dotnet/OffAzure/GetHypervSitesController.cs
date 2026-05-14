@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site name
         /// </summary>
-        [Input("siteName", required: true)]
-        public string SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public string? SiteName { get; set; }
 
         public GetHypervSitesControllerArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site name
         /// </summary>
-        [Input("siteName", required: true)]
-        public Input<string> SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         public GetHypervSitesControllerInvokeArgs()
         {

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Advanced Threat Protection setting name.
         /// </summary>
-        [Input("settingName", required: true)]
-        public string SettingName { get; set; } = null!;
+        [Input("settingName")]
+        public string? SettingName { get; set; }
 
         public GetAdvancedThreatProtectionArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Advanced Threat Protection setting name.
         /// </summary>
-        [Input("settingName", required: true)]
-        public Input<string> SettingName { get; set; } = null!;
+        [Input("settingName")]
+        public Input<string>? SettingName { get; set; }
 
         public GetAdvancedThreatProtectionInvokeArgs()
         {

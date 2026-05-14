@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the test base image definition.
         /// </summary>
-        [Input("imageDefinitionName", required: true)]
-        public string ImageDefinitionName { get; set; } = null!;
+        [Input("imageDefinitionName")]
+        public string? ImageDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the test base image definition.
         /// </summary>
-        [Input("imageDefinitionName", required: true)]
-        public Input<string> ImageDefinitionName { get; set; } = null!;
+        [Input("imageDefinitionName")]
+        public Input<string>? ImageDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

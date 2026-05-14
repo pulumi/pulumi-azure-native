@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the SQL virtual machine group.
         /// </summary>
-        [Input("sqlVirtualMachineGroupName", required: true)]
-        public string SqlVirtualMachineGroupName { get; set; } = null!;
+        [Input("sqlVirtualMachineGroupName")]
+        public string? SqlVirtualMachineGroupName { get; set; }
 
         public GetSqlVirtualMachineGroupArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the SQL virtual machine group.
         /// </summary>
-        [Input("sqlVirtualMachineGroupName", required: true)]
-        public Input<string> SqlVirtualMachineGroupName { get; set; } = null!;
+        [Input("sqlVirtualMachineGroupName")]
+        public Input<string>? SqlVirtualMachineGroupName { get; set; }
 
         public GetSqlVirtualMachineGroupInvokeArgs()
         {

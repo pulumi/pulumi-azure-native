@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the dataSetMapping.
         /// </summary>
-        [Input("dataSetMappingName", required: true)]
-        public string DataSetMappingName { get; set; } = null!;
+        [Input("dataSetMappingName")]
+        public string? DataSetMappingName { get; set; }
 
         /// <summary>
         /// The resource group name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the dataSetMapping.
         /// </summary>
-        [Input("dataSetMappingName", required: true)]
-        public Input<string> DataSetMappingName { get; set; } = null!;
+        [Input("dataSetMappingName")]
+        public Input<string>? DataSetMappingName { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the datastore.
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public string DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public string? DatastoreName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the datastore.
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public Input<string> DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public Input<string>? DatastoreName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.

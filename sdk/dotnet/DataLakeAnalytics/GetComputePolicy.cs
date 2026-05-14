@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// The name of the compute policy to retrieve.
         /// </summary>
-        [Input("computePolicyName", required: true)]
-        public string ComputePolicyName { get; set; } = null!;
+        [Input("computePolicyName")]
+        public string? ComputePolicyName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// The name of the compute policy to retrieve.
         /// </summary>
-        [Input("computePolicyName", required: true)]
-        public Input<string> ComputePolicyName { get; set; } = null!;
+        [Input("computePolicyName")]
+        public Input<string>? ComputePolicyName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.

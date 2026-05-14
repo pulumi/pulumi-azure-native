@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafkaConnector resource
         /// </summary>
-        [Input("kafkaConnectorName", required: true)]
-        public string KafkaConnectorName { get; set; } = null!;
+        [Input("kafkaConnectorName")]
+        public string? KafkaConnectorName { get; set; }
 
         /// <summary>
         /// Name of MQ resource
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafkaConnector resource
         /// </summary>
-        [Input("kafkaConnectorName", required: true)]
-        public Input<string> KafkaConnectorName { get; set; } = null!;
+        [Input("kafkaConnectorName")]
+        public Input<string>? KafkaConnectorName { get; set; }
 
         /// <summary>
         /// Name of MQ resource

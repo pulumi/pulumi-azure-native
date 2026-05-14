@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataCatalog
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
         /// </summary>
-        [Input("catalogName", required: true)]
-        public string CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public string? CatalogName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DataCatalog
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
         /// </summary>
-        [Input("catalogName", required: true)]
-        public Input<string> CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

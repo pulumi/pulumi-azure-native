@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the API portal custom domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public string DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the API portal custom domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

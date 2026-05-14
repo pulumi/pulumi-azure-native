@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the scaling plan.
         /// </summary>
-        [Input("scalingPlanName", required: true)]
-        public string ScalingPlanName { get; set; } = null!;
+        [Input("scalingPlanName")]
+        public string? ScalingPlanName { get; set; }
 
         public GetScalingPlanArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the scaling plan.
         /// </summary>
-        [Input("scalingPlanName", required: true)]
-        public Input<string> ScalingPlanName { get; set; } = null!;
+        [Input("scalingPlanName")]
+        public Input<string>? ScalingPlanName { get; set; }
 
         public GetScalingPlanInvokeArgs()
         {

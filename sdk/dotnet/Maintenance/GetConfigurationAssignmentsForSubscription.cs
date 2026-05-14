@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// 
         /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetConfigurationAssignmentsForSubscriptionResult> InvokeAsync(GetConfigurationAssignmentsForSubscriptionArgs args, InvokeOptions? options = null)
+        public static Task<GetConfigurationAssignmentsForSubscriptionResult> InvokeAsync(GetConfigurationAssignmentsForSubscriptionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// 
         /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetConfigurationAssignmentsForSubscriptionResult> Invoke(GetConfigurationAssignmentsForSubscriptionInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetConfigurationAssignmentsForSubscriptionResult> Invoke(GetConfigurationAssignmentsForSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public string ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public string? ConfigurationAssignmentName { get; set; }
 
         public GetConfigurationAssignmentsForSubscriptionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public Input<string>? ConfigurationAssignmentName { get; set; }
 
         public GetConfigurationAssignmentsForSubscriptionInvokeArgs()
         {

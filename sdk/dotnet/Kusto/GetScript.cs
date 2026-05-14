@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the Kusto database script.
         /// </summary>
-        [Input("scriptName", required: true)]
-        public string ScriptName { get; set; } = null!;
+        [Input("scriptName")]
+        public string? ScriptName { get; set; }
 
         public GetScriptArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the Kusto database script.
         /// </summary>
-        [Input("scriptName", required: true)]
-        public Input<string> ScriptName { get; set; } = null!;
+        [Input("scriptName")]
+        public Input<string>? ScriptName { get; set; }
 
         public GetScriptInvokeArgs()
         {

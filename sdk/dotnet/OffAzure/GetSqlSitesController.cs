@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// SQL site name.
         /// </summary>
-        [Input("sqlSiteName", required: true)]
-        public string SqlSiteName { get; set; } = null!;
+        [Input("sqlSiteName")]
+        public string? SqlSiteName { get; set; }
 
         public GetSqlSitesControllerArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// SQL site name.
         /// </summary>
-        [Input("sqlSiteName", required: true)]
-        public Input<string> SqlSiteName { get; set; } = null!;
+        [Input("sqlSiteName")]
+        public Input<string>? SqlSiteName { get; set; }
 
         public GetSqlSitesControllerInvokeArgs()
         {

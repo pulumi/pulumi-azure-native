@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Dns
         /// <summary>
         /// The name of the DNS zone (without a terminating dot).
         /// </summary>
-        [Input("zoneName", required: true)]
-        public string ZoneName { get; set; } = null!;
+        [Input("zoneName")]
+        public string? ZoneName { get; set; }
 
         public GetZoneArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Dns
         /// <summary>
         /// The name of the DNS zone (without a terminating dot).
         /// </summary>
-        [Input("zoneName", required: true)]
-        public Input<string> ZoneName { get; set; } = null!;
+        [Input("zoneName")]
+        public Input<string>? ZoneName { get; set; }
 
         public GetZoneInvokeArgs()
         {

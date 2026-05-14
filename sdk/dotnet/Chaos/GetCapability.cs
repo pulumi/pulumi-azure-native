@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Capability resource name.
         /// </summary>
-        [Input("capabilityName", required: true)]
-        public string CapabilityName { get; set; } = null!;
+        [Input("capabilityName")]
+        public string? CapabilityName { get; set; }
 
         /// <summary>
         /// String that represents a resource provider namespace.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Capability resource name.
         /// </summary>
-        [Input("capabilityName", required: true)]
-        public Input<string> CapabilityName { get; set; } = null!;
+        [Input("capabilityName")]
+        public Input<string>? CapabilityName { get; set; }
 
         /// <summary>
         /// String that represents a resource provider namespace.

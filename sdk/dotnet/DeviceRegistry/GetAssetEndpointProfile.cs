@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Asset Endpoint Profile name parameter.
         /// </summary>
-        [Input("assetEndpointProfileName", required: true)]
-        public string AssetEndpointProfileName { get; set; } = null!;
+        [Input("assetEndpointProfileName")]
+        public string? AssetEndpointProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Asset Endpoint Profile name parameter.
         /// </summary>
-        [Input("assetEndpointProfileName", required: true)]
-        public Input<string> AssetEndpointProfileName { get; set; } = null!;
+        [Input("assetEndpointProfileName")]
+        public Input<string>? AssetEndpointProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

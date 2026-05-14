@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// GUID identifying the on-premises server.
         /// </summary>
-        [Input("serverId", required: true)]
-        public string ServerId { get; set; } = null!;
+        [Input("serverId")]
+        public string? ServerId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// GUID identifying the on-premises server.
         /// </summary>
-        [Input("serverId", required: true)]
-        public Input<string> ServerId { get; set; } = null!;
+        [Input("serverId")]
+        public Input<string>? ServerId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

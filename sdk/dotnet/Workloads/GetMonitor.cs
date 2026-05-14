@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the SAP monitor resource.
         /// </summary>
-        [Input("monitorName", required: true)]
-        public string MonitorName { get; set; } = null!;
+        [Input("monitorName")]
+        public string? MonitorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the SAP monitor resource.
         /// </summary>
-        [Input("monitorName", required: true)]
-        public Input<string> MonitorName { get; set; } = null!;
+        [Input("monitorName")]
+        public Input<string>? MonitorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

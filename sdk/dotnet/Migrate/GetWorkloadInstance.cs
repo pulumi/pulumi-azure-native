@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Workload instance name.
         /// </summary>
-        [Input("workloadInstanceName", required: true)]
-        public string WorkloadInstanceName { get; set; } = null!;
+        [Input("workloadInstanceName")]
+        public string? WorkloadInstanceName { get; set; }
 
         public GetWorkloadInstanceArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Workload instance name.
         /// </summary>
-        [Input("workloadInstanceName", required: true)]
-        public Input<string> WorkloadInstanceName { get; set; } = null!;
+        [Input("workloadInstanceName")]
+        public Input<string>? WorkloadInstanceName { get; set; }
 
         public GetWorkloadInstanceInvokeArgs()
         {

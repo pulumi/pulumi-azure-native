@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the static member.
         /// </summary>
-        [Input("staticMemberName", required: true)]
-        public string StaticMemberName { get; set; } = null!;
+        [Input("staticMemberName")]
+        public string? StaticMemberName { get; set; }
 
         public GetStaticMemberArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the static member.
         /// </summary>
-        [Input("staticMemberName", required: true)]
-        public Input<string> StaticMemberName { get; set; } = null!;
+        [Input("staticMemberName")]
+        public Input<string>? StaticMemberName { get; set; }
 
         public GetStaticMemberInvokeArgs()
         {

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the Edge Action version
         /// </summary>
-        [Input("version", required: true)]
-        public string Version { get; set; } = null!;
+        [Input("version")]
+        public string? Version { get; set; }
 
         public GetEdgeActionVersionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the Edge Action version
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public GetEdgeActionVersionInvokeArgs()
         {

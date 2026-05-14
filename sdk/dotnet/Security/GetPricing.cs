@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// name of the pricing configuration
         /// </summary>
-        [Input("pricingName", required: true)]
-        public string PricingName { get; set; } = null!;
+        [Input("pricingName")]
+        public string? PricingName { get; set; }
 
         /// <summary>
         /// The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// name of the pricing configuration
         /// </summary>
-        [Input("pricingName", required: true)]
-        public Input<string> PricingName { get; set; } = null!;
+        [Input("pricingName")]
+        public Input<string>? PricingName { get; set; }
 
         /// <summary>
         /// The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Discovered Asset name parameter.
         /// </summary>
-        [Input("discoveredAssetName", required: true)]
-        public string DiscoveredAssetName { get; set; } = null!;
+        [Input("discoveredAssetName")]
+        public string? DiscoveredAssetName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Discovered Asset name parameter.
         /// </summary>
-        [Input("discoveredAssetName", required: true)]
-        public Input<string> DiscoveredAssetName { get; set; } = null!;
+        [Input("discoveredAssetName")]
+        public Input<string>? DiscoveredAssetName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

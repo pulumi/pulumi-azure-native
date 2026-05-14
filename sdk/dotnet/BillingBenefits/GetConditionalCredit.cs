@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the conditional credit
         /// </summary>
-        [Input("conditionalCreditName", required: true)]
-        public string ConditionalCreditName { get; set; } = null!;
+        [Input("conditionalCreditName")]
+        public string? ConditionalCreditName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the conditional credit
         /// </summary>
-        [Input("conditionalCreditName", required: true)]
-        public Input<string> ConditionalCreditName { get; set; } = null!;
+        [Input("conditionalCreditName")]
+        public Input<string>? ConditionalCreditName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

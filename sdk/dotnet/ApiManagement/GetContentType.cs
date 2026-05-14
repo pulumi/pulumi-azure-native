@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content type identifier.
         /// </summary>
-        [Input("contentTypeId", required: true)]
-        public string ContentTypeId { get; set; } = null!;
+        [Input("contentTypeId")]
+        public string? ContentTypeId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content type identifier.
         /// </summary>
-        [Input("contentTypeId", required: true)]
-        public Input<string> ContentTypeId { get; set; } = null!;
+        [Input("contentTypeId")]
+        public Input<string>? ContentTypeId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

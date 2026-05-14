@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent connector name
         /// </summary>
-        [Input("connectorName", required: true)]
-        public string ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public string? ConnectorName { get; set; }
 
         /// <summary>
         /// Confluent environment id
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent connector name
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// Confluent environment id

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         /// </summary>
-        [Input("groupQuotaName", required: true)]
-        public string GroupQuotaName { get; set; } = null!;
+        [Input("groupQuotaName")]
+        public string? GroupQuotaName { get; set; }
 
         /// <summary>
         /// Management Group Id.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         /// </summary>
-        [Input("groupQuotaName", required: true)]
-        public Input<string> GroupQuotaName { get; set; } = null!;
+        [Input("groupQuotaName")]
+        public Input<string>? GroupQuotaName { get; set; }
 
         /// <summary>
         /// Management Group Id.

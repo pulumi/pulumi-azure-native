@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the environment type.
         /// </summary>
-        [Input("environmentTypeName", required: true)]
-        public string EnvironmentTypeName { get; set; } = null!;
+        [Input("environmentTypeName")]
+        public string? EnvironmentTypeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the environment type.
         /// </summary>
-        [Input("environmentTypeName", required: true)]
-        public Input<string> EnvironmentTypeName { get; set; } = null!;
+        [Input("environmentTypeName")]
+        public Input<string>? EnvironmentTypeName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

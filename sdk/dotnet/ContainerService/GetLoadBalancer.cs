@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public string LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public string? LoadBalancerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public Input<string> LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

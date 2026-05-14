@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The name of the private endpoint connection connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public string? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The name of the private endpoint connection connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

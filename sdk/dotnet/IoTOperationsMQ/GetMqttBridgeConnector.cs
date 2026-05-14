@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ mqttBridgeConnector resource
         /// </summary>
-        [Input("mqttBridgeConnectorName", required: true)]
-        public string MqttBridgeConnectorName { get; set; } = null!;
+        [Input("mqttBridgeConnectorName")]
+        public string? MqttBridgeConnectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ mqttBridgeConnector resource
         /// </summary>
-        [Input("mqttBridgeConnectorName", required: true)]
-        public Input<string> MqttBridgeConnectorName { get; set; } = null!;
+        [Input("mqttBridgeConnectorName")]
+        public Input<string>? MqttBridgeConnectorName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

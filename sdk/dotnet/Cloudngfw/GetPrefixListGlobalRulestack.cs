@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetPrefixListGlobalRulestackArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetPrefixListGlobalRulestackInvokeArgs()
         {

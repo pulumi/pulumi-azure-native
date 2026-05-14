@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the replication link.
         /// </summary>
-        [Input("linkId", required: true)]
-        public string LinkId { get; set; } = null!;
+        [Input("linkId")]
+        public string? LinkId { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the replication link.
         /// </summary>
-        [Input("linkId", required: true)]
-        public Input<string> LinkId { get; set; } = null!;
+        [Input("linkId")]
+        public Input<string>? LinkId { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

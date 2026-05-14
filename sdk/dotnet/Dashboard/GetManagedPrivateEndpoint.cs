@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint name of Azure Managed Grafana.
         /// </summary>
-        [Input("managedPrivateEndpointName", required: true)]
-        public string ManagedPrivateEndpointName { get; set; } = null!;
+        [Input("managedPrivateEndpointName")]
+        public string? ManagedPrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint name of Azure Managed Grafana.
         /// </summary>
-        [Input("managedPrivateEndpointName", required: true)]
-        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+        [Input("managedPrivateEndpointName")]
+        public Input<string>? ManagedPrivateEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

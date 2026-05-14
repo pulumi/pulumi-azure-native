@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// A resource identifier.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// A resource identifier.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

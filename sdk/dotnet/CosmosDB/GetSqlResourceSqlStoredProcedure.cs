@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB storedProcedure name.
         /// </summary>
-        [Input("storedProcedureName", required: true)]
-        public string StoredProcedureName { get; set; } = null!;
+        [Input("storedProcedureName")]
+        public string? StoredProcedureName { get; set; }
 
         public GetSqlResourceSqlStoredProcedureArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB storedProcedure name.
         /// </summary>
-        [Input("storedProcedureName", required: true)]
-        public Input<string> StoredProcedureName { get; set; } = null!;
+        [Input("storedProcedureName")]
+        public Input<string>? StoredProcedureName { get; set; }
 
         public GetSqlResourceSqlStoredProcedureInvokeArgs()
         {

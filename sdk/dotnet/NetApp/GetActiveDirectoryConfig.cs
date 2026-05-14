@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ActiveDirectoryConfig
         /// </summary>
-        [Input("activeDirectoryConfigName", required: true)]
-        public string ActiveDirectoryConfigName { get; set; } = null!;
+        [Input("activeDirectoryConfigName")]
+        public string? ActiveDirectoryConfigName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ActiveDirectoryConfig
         /// </summary>
-        [Input("activeDirectoryConfigName", required: true)]
-        public Input<string> ActiveDirectoryConfigName { get; set; } = null!;
+        [Input("activeDirectoryConfigName")]
+        public Input<string>? ActiveDirectoryConfigName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered asset.
         /// </summary>
-        [Input("discoveredAssetName", required: true)]
-        public string DiscoveredAssetName { get; set; } = null!;
+        [Input("discoveredAssetName")]
+        public string? DiscoveredAssetName { get; set; }
 
         /// <summary>
         /// The name of the namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered asset.
         /// </summary>
-        [Input("discoveredAssetName", required: true)]
-        public Input<string> DiscoveredAssetName { get; set; } = null!;
+        [Input("discoveredAssetName")]
+        public Input<string>? DiscoveredAssetName { get; set; }
 
         /// <summary>
         /// The name of the namespace.

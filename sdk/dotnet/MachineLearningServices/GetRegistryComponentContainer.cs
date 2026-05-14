@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Container name.
         /// </summary>
-        [Input("componentName", required: true)]
-        public string ComponentName { get; set; } = null!;
+        [Input("componentName")]
+        public string? ComponentName { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Container name.
         /// </summary>
-        [Input("componentName", required: true)]
-        public Input<string> ComponentName { get; set; } = null!;
+        [Input("componentName")]
+        public Input<string>? ComponentName { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive

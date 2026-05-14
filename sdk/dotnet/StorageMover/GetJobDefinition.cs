@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Job Definition resource.
         /// </summary>
-        [Input("jobDefinitionName", required: true)]
-        public string JobDefinitionName { get; set; } = null!;
+        [Input("jobDefinitionName")]
+        public string? JobDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the Project resource.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Job Definition resource.
         /// </summary>
-        [Input("jobDefinitionName", required: true)]
-        public Input<string> JobDefinitionName { get; set; } = null!;
+        [Input("jobDefinitionName")]
+        public Input<string>? JobDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the Project resource.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network interface.
         /// </summary>
-        [Input("networkInterfaceName", required: true)]
-        public string NetworkInterfaceName { get; set; } = null!;
+        [Input("networkInterfaceName")]
+        public string? NetworkInterfaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network interface.
         /// </summary>
-        [Input("networkInterfaceName", required: true)]
-        public Input<string> NetworkInterfaceName { get; set; } = null!;
+        [Input("networkInterfaceName")]
+        public Input<string>? NetworkInterfaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

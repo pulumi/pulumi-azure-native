@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Name of the container whose details need to be fetched.
         /// </summary>
-        [Input("containerName", required: true)]
-        public string ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public string? ContainerName { get; set; }
 
         /// <summary>
         /// Name of the fabric where the container belongs.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Name of the container whose details need to be fetched.
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// Name of the fabric where the container belongs.

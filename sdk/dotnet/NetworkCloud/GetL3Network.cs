@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L3 network.
         /// </summary>
-        [Input("l3NetworkName", required: true)]
-        public string L3NetworkName { get; set; } = null!;
+        [Input("l3NetworkName")]
+        public string? L3NetworkName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L3 network.
         /// </summary>
-        [Input("l3NetworkName", required: true)]
-        public Input<string> L3NetworkName { get; set; } = null!;
+        [Input("l3NetworkName")]
+        public Input<string>? L3NetworkName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

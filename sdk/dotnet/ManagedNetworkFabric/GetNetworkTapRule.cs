@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Tap Rule.
         /// </summary>
-        [Input("networkTapRuleName", required: true)]
-        public string NetworkTapRuleName { get; set; } = null!;
+        [Input("networkTapRuleName")]
+        public string? NetworkTapRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Tap Rule.
         /// </summary>
-        [Input("networkTapRuleName", required: true)]
-        public Input<string> NetworkTapRuleName { get; set; } = null!;
+        [Input("networkTapRuleName")]
+        public Input<string>? NetworkTapRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

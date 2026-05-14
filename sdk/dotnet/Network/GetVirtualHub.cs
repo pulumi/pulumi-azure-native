@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualHub.
         /// </summary>
-        [Input("virtualHubName", required: true)]
-        public string VirtualHubName { get; set; } = null!;
+        [Input("virtualHubName")]
+        public string? VirtualHubName { get; set; }
 
         public GetVirtualHubArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualHub.
         /// </summary>
-        [Input("virtualHubName", required: true)]
-        public Input<string> VirtualHubName { get; set; } = null!;
+        [Input("virtualHubName")]
+        public Input<string>? VirtualHubName { get; set; }
 
         public GetVirtualHubInvokeArgs()
         {

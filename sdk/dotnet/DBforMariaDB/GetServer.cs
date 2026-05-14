@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName", required: true)]
-        public string ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public string? ServerName { get; set; }
 
         public GetServerArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         public GetServerInvokeArgs()
         {

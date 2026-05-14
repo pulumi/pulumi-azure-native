@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Definition.
         /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public string RoleDefinitionId { get; set; } = null!;
+        [Input("roleDefinitionId")]
+        public string? RoleDefinitionId { get; set; }
 
         public GetTableResourceTableRoleDefinitionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Definition.
         /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
+        [Input("roleDefinitionId")]
+        public Input<string>? RoleDefinitionId { get; set; }
 
         public GetTableResourceTableRoleDefinitionInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization server.
         /// </summary>
-        [Input("authsid", required: true)]
-        public string Authsid { get; set; } = null!;
+        [Input("authsid")]
+        public string? Authsid { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization server.
         /// </summary>
-        [Input("authsid", required: true)]
-        public Input<string> Authsid { get; set; } = null!;
+        [Input("authsid")]
+        public Input<string>? Authsid { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

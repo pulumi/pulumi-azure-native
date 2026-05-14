@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reachability Analysis Run name.
         /// </summary>
-        [Input("reachabilityAnalysisRunName", required: true)]
-        public string ReachabilityAnalysisRunName { get; set; } = null!;
+        [Input("reachabilityAnalysisRunName")]
+        public string? ReachabilityAnalysisRunName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reachability Analysis Run name.
         /// </summary>
-        [Input("reachabilityAnalysisRunName", required: true)]
-        public Input<string> ReachabilityAnalysisRunName { get; set; } = null!;
+        [Input("reachabilityAnalysisRunName")]
+        public Input<string>? ReachabilityAnalysisRunName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

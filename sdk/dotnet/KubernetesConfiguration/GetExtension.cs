@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public string ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public string? ExtensionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

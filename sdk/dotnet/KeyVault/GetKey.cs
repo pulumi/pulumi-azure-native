@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the key to be retrieved.
         /// </summary>
-        [Input("keyName", required: true)]
-        public string KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public string? KeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group which contains the specified key vault.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the key to be retrieved.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group which contains the specified key vault.

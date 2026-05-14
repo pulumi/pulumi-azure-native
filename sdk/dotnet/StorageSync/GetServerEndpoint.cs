@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Server Endpoint object.
         /// </summary>
-        [Input("serverEndpointName", required: true)]
-        public string ServerEndpointName { get; set; } = null!;
+        [Input("serverEndpointName")]
+        public string? ServerEndpointName { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Server Endpoint object.
         /// </summary>
-        [Input("serverEndpointName", required: true)]
-        public Input<string> ServerEndpointName { get; set; } = null!;
+        [Input("serverEndpointName")]
+        public Input<string>? ServerEndpointName { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

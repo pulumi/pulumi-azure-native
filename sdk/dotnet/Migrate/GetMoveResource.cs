@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// The Move Resource Name.
         /// </summary>
-        [Input("moveResourceName", required: true)]
-        public string MoveResourceName { get; set; } = null!;
+        [Input("moveResourceName")]
+        public string? MoveResourceName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// The Move Resource Name.
         /// </summary>
-        [Input("moveResourceName", required: true)]
-        public Input<string> MoveResourceName { get; set; } = null!;
+        [Input("moveResourceName")]
+        public Input<string>? MoveResourceName { get; set; }
 
         /// <summary>
         /// The Resource Group Name.

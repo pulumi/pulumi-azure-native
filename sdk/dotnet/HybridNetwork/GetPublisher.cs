@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the publisher.
         /// </summary>
-        [Input("publisherName", required: true)]
-        public string PublisherName { get; set; } = null!;
+        [Input("publisherName")]
+        public string? PublisherName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the publisher.
         /// </summary>
-        [Input("publisherName", required: true)]
-        public Input<string> PublisherName { get; set; } = null!;
+        [Input("publisherName")]
+        public Input<string>? PublisherName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

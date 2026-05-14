@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of IoT Connector FHIR destination resource.
         /// </summary>
-        [Input("fhirDestinationName", required: true)]
-        public string FhirDestinationName { get; set; } = null!;
+        [Input("fhirDestinationName")]
+        public string? FhirDestinationName { get; set; }
 
         /// <summary>
         /// The name of IoT Connector resource.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of IoT Connector FHIR destination resource.
         /// </summary>
-        [Input("fhirDestinationName", required: true)]
-        public Input<string> FhirDestinationName { get; set; } = null!;
+        [Input("fhirDestinationName")]
+        public Input<string>? FhirDestinationName { get; set; }
 
         /// <summary>
         /// The name of IoT Connector resource.

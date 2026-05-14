@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public string CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public string? CacheName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public Input<string> CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public Input<string>? CacheName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

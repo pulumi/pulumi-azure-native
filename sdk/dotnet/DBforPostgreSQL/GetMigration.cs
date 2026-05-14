@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public string MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public string? MigrationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public Input<string> MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public Input<string>? MigrationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("amlFilesystemName", required: true)]
-        public string AmlFilesystemName { get; set; } = null!;
+        [Input("amlFilesystemName")]
+        public string? AmlFilesystemName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("amlFilesystemName", required: true)]
-        public Input<string> AmlFilesystemName { get; set; } = null!;
+        [Input("amlFilesystemName")]
+        public Input<string>? AmlFilesystemName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

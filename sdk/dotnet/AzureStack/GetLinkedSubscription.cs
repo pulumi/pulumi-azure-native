@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the Linked Subscription resource.
         /// </summary>
-        [Input("linkedSubscriptionName", required: true)]
-        public string LinkedSubscriptionName { get; set; } = null!;
+        [Input("linkedSubscriptionName")]
+        public string? LinkedSubscriptionName { get; set; }
 
         /// <summary>
         /// Name of the resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the Linked Subscription resource.
         /// </summary>
-        [Input("linkedSubscriptionName", required: true)]
-        public Input<string> LinkedSubscriptionName { get; set; } = null!;
+        [Input("linkedSubscriptionName")]
+        public Input<string>? LinkedSubscriptionName { get; set; }
 
         /// <summary>
         /// Name of the resource group.

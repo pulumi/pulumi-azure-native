@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The alert rule proxy resource name.
         /// </summary>
-        [Input("alertRuleResourceName", required: true)]
-        public string AlertRuleResourceName { get; set; } = null!;
+        [Input("alertRuleResourceName")]
+        public string? AlertRuleResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The alert rule proxy resource name.
         /// </summary>
-        [Input("alertRuleResourceName", required: true)]
-        public Input<string> AlertRuleResourceName { get; set; } = null!;
+        [Input("alertRuleResourceName")]
+        public Input<string>? AlertRuleResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

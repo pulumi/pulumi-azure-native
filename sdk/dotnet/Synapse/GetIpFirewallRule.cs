@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The IP firewall rule name
         /// </summary>
-        [Input("ruleName", required: true)]
-        public string RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public string? RuleName { get; set; }
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The IP firewall rule name
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// The name of the workspace.

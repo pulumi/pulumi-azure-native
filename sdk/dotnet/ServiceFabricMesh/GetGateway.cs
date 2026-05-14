@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the gateway.
         /// </summary>
-        [Input("gatewayResourceName", required: true)]
-        public string GatewayResourceName { get; set; } = null!;
+        [Input("gatewayResourceName")]
+        public string? GatewayResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the gateway.
         /// </summary>
-        [Input("gatewayResourceName", required: true)]
-        public Input<string> GatewayResourceName { get; set; } = null!;
+        [Input("gatewayResourceName")]
+        public Input<string>? GatewayResourceName { get; set; }
 
         /// <summary>
         /// Azure resource group name

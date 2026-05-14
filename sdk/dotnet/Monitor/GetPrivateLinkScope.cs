@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        [Input("scopeName", required: true)]
-        public string ScopeName { get; set; } = null!;
+        [Input("scopeName")]
+        public string? ScopeName { get; set; }
 
         public GetPrivateLinkScopeArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        [Input("scopeName", required: true)]
-        public Input<string> ScopeName { get; set; } = null!;
+        [Input("scopeName")]
+        public Input<string>? ScopeName { get; set; }
 
         public GetPrivateLinkScopeInvokeArgs()
         {

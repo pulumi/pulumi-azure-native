@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Availability Group
         /// </summary>
-        [Input("availabilityGroupName", required: true)]
-        public string AvailabilityGroupName { get; set; } = null!;
+        [Input("availabilityGroupName")]
+        public string? AvailabilityGroupName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Availability Group
         /// </summary>
-        [Input("availabilityGroupName", required: true)]
-        public Input<string> AvailabilityGroupName { get; set; } = null!;
+        [Input("availabilityGroupName")]
+        public Input<string>? AvailabilityGroupName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group

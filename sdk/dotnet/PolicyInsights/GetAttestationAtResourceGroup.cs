@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the attestation.
         /// </summary>
-        [Input("attestationName", required: true)]
-        public string AttestationName { get; set; } = null!;
+        [Input("attestationName")]
+        public string? AttestationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the attestation.
         /// </summary>
-        [Input("attestationName", required: true)]
-        public Input<string> AttestationName { get; set; } = null!;
+        [Input("attestationName")]
+        public Input<string>? AttestationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

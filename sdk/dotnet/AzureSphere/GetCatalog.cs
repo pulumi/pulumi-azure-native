@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of catalog
         /// </summary>
-        [Input("catalogName", required: true)]
-        public string CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public string? CatalogName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of catalog
         /// </summary>
-        [Input("catalogName", required: true)]
-        public Input<string> CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the enclaveResource Resource
         /// </summary>
-        [Input("virtualEnclaveName", required: true)]
-        public string VirtualEnclaveName { get; set; } = null!;
+        [Input("virtualEnclaveName")]
+        public string? VirtualEnclaveName { get; set; }
 
         public GetVirtualEnclaveArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the enclaveResource Resource
         /// </summary>
-        [Input("virtualEnclaveName", required: true)]
-        public Input<string> VirtualEnclaveName { get; set; } = null!;
+        [Input("virtualEnclaveName")]
+        public Input<string>? VirtualEnclaveName { get; set; }
 
         public GetVirtualEnclaveInvokeArgs()
         {

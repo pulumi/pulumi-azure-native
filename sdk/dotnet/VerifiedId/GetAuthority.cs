@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.VerifiedId
         /// <summary>
         /// The ID of the authority
         /// </summary>
-        [Input("authorityName", required: true)]
-        public string AuthorityName { get; set; } = null!;
+        [Input("authorityName")]
+        public string? AuthorityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.VerifiedId
         /// <summary>
         /// The ID of the authority
         /// </summary>
-        [Input("authorityName", required: true)]
-        public Input<string> AuthorityName { get; set; } = null!;
+        [Input("authorityName")]
+        public Input<string>? AuthorityName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

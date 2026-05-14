@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the authentication setting. Must be unique within a health model.
         /// </summary>
-        [Input("authenticationSettingName", required: true)]
-        public string AuthenticationSettingName { get; set; } = null!;
+        [Input("authenticationSettingName")]
+        public string? AuthenticationSettingName { get; set; }
 
         /// <summary>
         /// Name of health model resource
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the authentication setting. Must be unique within a health model.
         /// </summary>
-        [Input("authenticationSettingName", required: true)]
-        public Input<string> AuthenticationSettingName { get; set; } = null!;
+        [Input("authenticationSettingName")]
+        public Input<string>? AuthenticationSettingName { get; set; }
 
         /// <summary>
         /// Name of health model resource

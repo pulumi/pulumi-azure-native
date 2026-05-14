@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the KeyGroup under the profile.
         /// </summary>
-        [Input("keyGroupName", required: true)]
-        public string KeyGroupName { get; set; } = null!;
+        [Input("keyGroupName")]
+        public string? KeyGroupName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the KeyGroup under the profile.
         /// </summary>
-        [Input("keyGroupName", required: true)]
-        public Input<string> KeyGroupName { get; set; } = null!;
+        [Input("keyGroupName")]
+        public Input<string>? KeyGroupName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.

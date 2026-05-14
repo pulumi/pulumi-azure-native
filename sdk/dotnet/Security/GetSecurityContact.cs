@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
+        public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the security contact object
         /// </summary>
-        [Input("securityContactName", required: true)]
-        public string SecurityContactName { get; set; } = null!;
+        [Input("securityContactName")]
+        public string? SecurityContactName { get; set; }
 
         public GetSecurityContactArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the security contact object
         /// </summary>
-        [Input("securityContactName", required: true)]
-        public Input<string> SecurityContactName { get; set; } = null!;
+        [Input("securityContactName")]
+        public Input<string>? SecurityContactName { get; set; }
 
         public GetSecurityContactInvokeArgs()
         {

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the storage appliance.
         /// </summary>
-        [Input("storageApplianceName", required: true)]
-        public string StorageApplianceName { get; set; } = null!;
+        [Input("storageApplianceName")]
+        public string? StorageApplianceName { get; set; }
 
         public GetStorageApplianceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the storage appliance.
         /// </summary>
-        [Input("storageApplianceName", required: true)]
-        public Input<string> StorageApplianceName { get; set; } = null!;
+        [Input("storageApplianceName")]
+        public Input<string>? StorageApplianceName { get; set; }
 
         public GetStorageApplianceInvokeArgs()
         {

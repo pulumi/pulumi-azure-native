@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("favoriteId", required: true)]
-        public string FavoriteId { get; set; } = null!;
+        [Input("favoriteId")]
+        public string? FavoriteId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("favoriteId", required: true)]
-        public Input<string> FavoriteId { get; set; } = null!;
+        [Input("favoriteId")]
+        public Input<string>? FavoriteId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

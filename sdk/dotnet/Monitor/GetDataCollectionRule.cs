@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
         /// </summary>
-        [Input("dataCollectionRuleName", required: true)]
-        public string DataCollectionRuleName { get; set; } = null!;
+        [Input("dataCollectionRuleName")]
+        public string? DataCollectionRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
         /// </summary>
-        [Input("dataCollectionRuleName", required: true)]
-        public Input<string> DataCollectionRuleName { get; set; } = null!;
+        [Input("dataCollectionRuleName")]
+        public Input<string>? DataCollectionRuleName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

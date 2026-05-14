@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual network subnet
         /// </summary>
-        [Input("subnetName", required: true)]
-        public string SubnetName { get; set; } = null!;
+        [Input("subnetName")]
+        public string? SubnetName { get; set; }
 
         /// <summary>
         /// Name of the virtual network
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual network subnet
         /// </summary>
-        [Input("subnetName", required: true)]
-        public Input<string> SubnetName { get; set; } = null!;
+        [Input("subnetName")]
+        public Input<string>? SubnetName { get; set; }
 
         /// <summary>
         /// Name of the virtual network

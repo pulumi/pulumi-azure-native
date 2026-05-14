@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.ProviderHub
         /// 
         /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
+        public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ProviderHub
         /// 
         /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>
-        [Input("providerNamespace", required: true)]
-        public string ProviderNamespace { get; set; } = null!;
+        [Input("providerNamespace")]
+        public string? ProviderNamespace { get; set; }
 
         public GetProviderRegistrationArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>
-        [Input("providerNamespace", required: true)]
-        public Input<string> ProviderNamespace { get; set; } = null!;
+        [Input("providerNamespace")]
+        public Input<string>? ProviderNamespace { get; set; }
 
         public GetProviderRegistrationInvokeArgs()
         {

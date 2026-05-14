@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site extension name.
         /// </summary>
-        [Input("siteExtensionId", required: true)]
-        public string SiteExtensionId { get; set; } = null!;
+        [Input("siteExtensionId")]
+        public string? SiteExtensionId { get; set; }
 
         /// <summary>
         /// Name of the deployment slot. If a slot is not specified, the API uses the production slot.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site extension name.
         /// </summary>
-        [Input("siteExtensionId", required: true)]
-        public Input<string> SiteExtensionId { get; set; } = null!;
+        [Input("siteExtensionId")]
+        public Input<string>? SiteExtensionId { get; set; }
 
         /// <summary>
         /// Name of the deployment slot. If a slot is not specified, the API uses the production slot.

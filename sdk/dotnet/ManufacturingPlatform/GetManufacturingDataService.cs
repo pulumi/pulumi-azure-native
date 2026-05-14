@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
         /// <summary>
         /// Name.
         /// </summary>
-        [Input("mdsResourceName", required: true)]
-        public string MdsResourceName { get; set; } = null!;
+        [Input("mdsResourceName")]
+        public string? MdsResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
         /// <summary>
         /// Name.
         /// </summary>
-        [Input("mdsResourceName", required: true)]
-        public Input<string> MdsResourceName { get; set; } = null!;
+        [Input("mdsResourceName")]
+        public Input<string>? MdsResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

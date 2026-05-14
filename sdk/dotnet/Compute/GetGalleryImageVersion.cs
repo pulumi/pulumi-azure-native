@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery image version to be retrieved.
         /// </summary>
-        [Input("galleryImageVersionName", required: true)]
-        public string GalleryImageVersionName { get; set; } = null!;
+        [Input("galleryImageVersionName")]
+        public string? GalleryImageVersionName { get; set; }
 
         /// <summary>
         /// The name of the Shared Image Gallery.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery image version to be retrieved.
         /// </summary>
-        [Input("galleryImageVersionName", required: true)]
-        public Input<string> GalleryImageVersionName { get; set; } = null!;
+        [Input("galleryImageVersionName")]
+        public Input<string>? GalleryImageVersionName { get; set; }
 
         /// <summary>
         /// The name of the Shared Image Gallery.

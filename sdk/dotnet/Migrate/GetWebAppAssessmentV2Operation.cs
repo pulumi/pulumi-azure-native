@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Web app Assessment arm name.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public string AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public string? AssessmentName { get; set; }
 
         /// <summary>
         /// Group ARM name
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Web app Assessment arm name.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// Group ARM name

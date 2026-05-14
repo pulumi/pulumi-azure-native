@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Customer event.
         /// </summary>
-        [Input("customerEventName", required: true)]
-        public string CustomerEventName { get; set; } = null!;
+        [Input("customerEventName")]
+        public string? CustomerEventName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Customer event.
         /// </summary>
-        [Input("customerEventName", required: true)]
-        public Input<string> CustomerEventName { get; set; } = null!;
+        [Input("customerEventName")]
+        public Input<string>? CustomerEventName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

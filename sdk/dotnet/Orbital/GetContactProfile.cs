@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Contact Profile name.
         /// </summary>
-        [Input("contactProfileName", required: true)]
-        public string ContactProfileName { get; set; } = null!;
+        [Input("contactProfileName")]
+        public string? ContactProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Contact Profile name.
         /// </summary>
-        [Input("contactProfileName", required: true)]
-        public Input<string> ContactProfileName { get; set; } = null!;
+        [Input("contactProfileName")]
+        public Input<string>? ContactProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

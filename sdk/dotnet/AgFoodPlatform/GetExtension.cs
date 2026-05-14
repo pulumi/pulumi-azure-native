@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Id of extension resource.
         /// </summary>
-        [Input("extensionId", required: true)]
-        public string ExtensionId { get; set; } = null!;
+        [Input("extensionId")]
+        public string? ExtensionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Id of extension resource.
         /// </summary>
-        [Input("extensionId", required: true)]
-        public Input<string> ExtensionId { get; set; } = null!;
+        [Input("extensionId")]
+        public Input<string>? ExtensionId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

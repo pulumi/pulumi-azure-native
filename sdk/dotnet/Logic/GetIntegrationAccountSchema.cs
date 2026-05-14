@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account schema name.
         /// </summary>
-        [Input("schemaName", required: true)]
-        public string SchemaName { get; set; } = null!;
+        [Input("schemaName")]
+        public string? SchemaName { get; set; }
 
         public GetIntegrationAccountSchemaArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account schema name.
         /// </summary>
-        [Input("schemaName", required: true)]
-        public Input<string> SchemaName { get; set; } = null!;
+        [Input("schemaName")]
+        public Input<string>? SchemaName { get; set; }
 
         public GetIntegrationAccountSchemaInvokeArgs()
         {
