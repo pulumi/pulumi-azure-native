@@ -739,12 +739,12 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		newRemaining = &diff
 	}
 
-	nextContinuationToken := &listContinuationToken{
-		NextLink:  nextLinkURL,
-		Remaining: newRemaining,
-	}
+	if nextLinkURL != "" {
+		nextContinuationToken := &listContinuationToken{
+			NextLink:  nextLinkURL,
+			Remaining: newRemaining,
+		}
 
-	if !isEmptyListContinuationToken(nextContinuationToken) {
 		encoded, err := encodeListContinuationToken(nextContinuationToken)
 		if err != nil {
 			return fmt.Errorf("encoding continuation token for token %s: %w", token, err)

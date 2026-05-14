@@ -492,16 +492,6 @@ var verbReplacer = strings.NewReplacer(
 	"RetrieveRegistration", "Registration",
 )
 
-// normalizeVerb maps an operation verb to the suffix appended to the resource type name.
-// "List" and any scoped "ListBy*" variant all mean "list this resource type" and produce
-// no suffix — i.e. they resolve to the bare resource name.
-func normalizeVerb(verb string) string {
-	if strings.HasPrefix(verb, "ListBy") || strings.HasPrefix(verb, "listBy") || verb == "ListAll" || verb == "listAll" {
-		return ""
-	}
-	return verbReplacer.Replace(verb)
-}
-
 var wellKnownNames = map[string]string{
 	"AssessmentsMetadata": "AssessmentMetadata",
 	"Caches":              "Cache",
@@ -551,7 +541,7 @@ func createResourceName(operationID, path string, majorVersion uint64) (string, 
 		verb = parts[1]
 	}
 
-	subName := normalizeVerb(verb)
+	subName := verbReplacer.Replace(verb)
 
 	// Sometimes, name or its part is included in the operation name. We want to eliminate obvious duplication
 	// in the resulting resource name.
