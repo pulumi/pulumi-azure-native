@@ -27,7 +27,7 @@ export interface GetDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetDatabaseOutputArgs {
     /**
      * The name of the database.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

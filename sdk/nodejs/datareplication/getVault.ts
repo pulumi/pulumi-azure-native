@@ -30,7 +30,7 @@ export interface GetVaultArgs {
     /**
      * The vault name.
      */
-    vaultName: string;
+    vaultName?: string;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface GetVaultOutputArgs {
     /**
      * The vault name.
      */
-    vaultName: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }

@@ -32,7 +32,7 @@ export interface GetServerEndpointArgs {
     /**
      * Name of Server Endpoint object.
      */
-    serverEndpointName: string;
+    serverEndpointName?: string;
     /**
      * Name of Storage Sync Service resource.
      */
@@ -177,7 +177,7 @@ export interface GetServerEndpointOutputArgs {
     /**
      * Name of Server Endpoint object.
      */
-    serverEndpointName: pulumi.Input<string>;
+    serverEndpointName?: pulumi.Input<string | undefined>;
     /**
      * Name of Storage Sync Service resource.
      */

@@ -121,15 +121,15 @@ export interface PartnerConfigurationArgs {
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The details of authorized partners.
      */
-    partnerAuthorization?: pulumi.Input<inputs.eventgrid.PartnerAuthorizationArgs>;
+    partnerAuthorization?: pulumi.Input<inputs.eventgrid.PartnerAuthorizationArgs | undefined>;
     /**
      * Provisioning state of the partner configuration.
      */
-    provisioningState?: pulumi.Input<string | enums.eventgrid.PartnerConfigurationProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.eventgrid.PartnerConfigurationProvisioningState | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -137,5 +137,5 @@ export interface PartnerConfigurationArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

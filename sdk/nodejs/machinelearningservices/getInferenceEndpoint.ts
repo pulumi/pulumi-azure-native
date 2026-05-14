@@ -26,7 +26,7 @@ export interface GetInferenceEndpointArgs {
     /**
      * InferenceEndpoint name.
      */
-    endpointName: string;
+    endpointName?: string;
     /**
      * InferencePool name.
      */
@@ -106,7 +106,7 @@ export interface GetInferenceEndpointOutputArgs {
     /**
      * InferenceEndpoint name.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * InferencePool name.
      */

@@ -23,7 +23,7 @@ export interface GetNetworkWatcherArgs {
     /**
      * The name of the network watcher.
      */
-    networkWatcherName: string;
+    networkWatcherName?: string;
     /**
      * The name of the resource group.
      */
@@ -86,7 +86,7 @@ export interface GetNetworkWatcherOutputArgs {
     /**
      * The name of the network watcher.
      */
-    networkWatcherName: pulumi.Input<string>;
+    networkWatcherName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

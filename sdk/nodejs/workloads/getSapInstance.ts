@@ -33,7 +33,7 @@ export interface GetSapInstanceArgs {
     /**
      * The name of SAP Instance resource for SAP Migration.
      */
-    sapInstanceName: string;
+    sapInstanceName?: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetSapInstanceOutputArgs {
     /**
      * The name of SAP Instance resource for SAP Migration.
      */
-    sapInstanceName: pulumi.Input<string>;
+    sapInstanceName?: pulumi.Input<string | undefined>;
 }

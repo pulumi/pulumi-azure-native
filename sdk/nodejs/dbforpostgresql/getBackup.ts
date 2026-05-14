@@ -27,7 +27,7 @@ export interface GetBackupArgs {
     /**
      * Name of the backup.
      */
-    backupName: string;
+    backupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetBackupOutputArgs {
     /**
      * Name of the backup.
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

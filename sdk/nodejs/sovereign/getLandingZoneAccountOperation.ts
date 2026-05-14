@@ -24,7 +24,7 @@ export interface GetLandingZoneAccountOperationArgs {
     /**
      * The landing zone account.
      */
-    landingZoneAccountName: string;
+    landingZoneAccountName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetLandingZoneAccountOperationOutputArgs {
     /**
      * The landing zone account.
      */
-    landingZoneAccountName: pulumi.Input<string>;
+    landingZoneAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

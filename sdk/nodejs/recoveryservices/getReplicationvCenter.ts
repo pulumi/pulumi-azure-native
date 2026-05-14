@@ -40,7 +40,7 @@ export interface GetReplicationvCenterArgs {
     /**
      * vcenter name.
      */
-    vcenterName: string;
+    vcenterName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetReplicationvCenterOutputArgs {
     /**
      * vcenter name.
      */
-    vcenterName: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string | undefined>;
 }

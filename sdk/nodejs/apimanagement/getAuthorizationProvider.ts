@@ -27,7 +27,7 @@ export interface GetAuthorizationProviderArgs {
     /**
      * Identifier of the authorization provider.
      */
-    authorizationProviderId: string;
+    authorizationProviderId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetAuthorizationProviderOutputArgs {
     /**
      * Identifier of the authorization provider.
      */
-    authorizationProviderId: pulumi.Input<string>;
+    authorizationProviderId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

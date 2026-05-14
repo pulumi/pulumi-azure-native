@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-10-01-preview.
  */
-export function getSubscriptionRaiPolicy(args: GetSubscriptionRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionRaiPolicyResult> {
+export function getSubscriptionRaiPolicy(args?: GetSubscriptionRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionRaiPolicyResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices:getSubscriptionRaiPolicy", {
         "raiPolicyName": args.raiPolicyName,
@@ -23,7 +24,7 @@ export interface GetSubscriptionRaiPolicyArgs {
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName: string;
+    raiPolicyName?: string;
 }
 
 /**
@@ -68,7 +69,8 @@ export interface GetSubscriptionRaiPolicyResult {
  *
  * Uses Azure REST API version 2025-10-01-preview.
  */
-export function getSubscriptionRaiPolicyOutput(args: GetSubscriptionRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionRaiPolicyResult> {
+export function getSubscriptionRaiPolicyOutput(args?: GetSubscriptionRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionRaiPolicyResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getSubscriptionRaiPolicy", {
         "raiPolicyName": args.raiPolicyName,
@@ -79,5 +81,5 @@ export interface GetSubscriptionRaiPolicyOutputArgs {
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
 }

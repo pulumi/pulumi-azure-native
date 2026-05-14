@@ -35,7 +35,7 @@ export interface GetServiceRegistryArgs {
     /**
      * The name of Service Registry.
      */
-    serviceRegistryName: string;
+    serviceRegistryName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetServiceRegistryOutputArgs {
     /**
      * The name of Service Registry.
      */
-    serviceRegistryName: pulumi.Input<string>;
+    serviceRegistryName?: pulumi.Input<string | undefined>;
 }

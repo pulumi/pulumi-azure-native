@@ -26,7 +26,7 @@ export interface GetNetworkDeviceArgs {
     /**
      * Name of the Network Device.
      */
-    networkDeviceName: string;
+    networkDeviceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -133,7 +133,7 @@ export interface GetNetworkDeviceOutputArgs {
     /**
      * Name of the Network Device.
      */
-    networkDeviceName: pulumi.Input<string>;
+    networkDeviceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

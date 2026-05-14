@@ -31,7 +31,7 @@ export interface GetGalleryArgs {
     /**
      * The name of the gallery.
      */
-    galleryName: string;
+    galleryName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetGalleryOutputArgs {
     /**
      * The name of the gallery.
      */
-    galleryName: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

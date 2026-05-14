@@ -30,7 +30,7 @@ export interface GetSqlServerInstanceArgs {
     /**
      * Name of SQL Server Instance
      */
-    sqlServerInstanceName: string;
+    sqlServerInstanceName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSqlServerInstanceOutputArgs {
     /**
      * Name of SQL Server Instance
      */
-    sqlServerInstanceName: pulumi.Input<string>;
+    sqlServerInstanceName?: pulumi.Input<string | undefined>;
 }

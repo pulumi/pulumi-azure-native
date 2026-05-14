@@ -30,7 +30,7 @@ export interface GetUserAssignedIdentityArgs {
     /**
      * The name of the identity resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetUserAssignedIdentityOutputArgs {
     /**
      * The name of the identity resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

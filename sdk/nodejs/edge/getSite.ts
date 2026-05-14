@@ -30,7 +30,7 @@ export interface GetSiteArgs {
     /**
      * The name of the Site
      */
-    siteName: string;
+    siteName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetSiteOutputArgs {
     /**
      * The name of the Site
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

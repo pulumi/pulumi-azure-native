@@ -33,7 +33,7 @@ export interface GetManagementLockAtResourceLevelArgs {
     /**
      * The name of lock.
      */
-    lockName: string;
+    lockName?: string;
     /**
      * An extra path parameter needed in some services, like SQL Databases.
      */
@@ -119,7 +119,7 @@ export interface GetManagementLockAtResourceLevelOutputArgs {
     /**
      * The name of lock.
      */
-    lockName: pulumi.Input<string>;
+    lockName?: pulumi.Input<string | undefined>;
     /**
      * An extra path parameter needed in some services, like SQL Databases.
      */

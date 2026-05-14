@@ -40,7 +40,7 @@ export interface GetRouteArgs {
     /**
      * Name of the routing rule.
      */
-    routeName: string;
+    routeName?: string;
 }
 
 /**
@@ -154,5 +154,5 @@ export interface GetRouteOutputArgs {
     /**
      * Name of the routing rule.
      */
-    routeName: pulumi.Input<string>;
+    routeName?: pulumi.Input<string | undefined>;
 }

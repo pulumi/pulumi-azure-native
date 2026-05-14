@@ -25,7 +25,7 @@ export interface GetCompoundAssessmentOperationArgs {
     /**
      * Compound Assessment ARM name
      */
-    compoundAssessmentName: string;
+    compoundAssessmentName?: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetCompoundAssessmentOperationOutputArgs {
     /**
      * Compound Assessment ARM name
      */
-    compoundAssessmentName: pulumi.Input<string>;
+    compoundAssessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

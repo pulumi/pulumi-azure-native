@@ -22,7 +22,7 @@ export interface GetConnectorArgs {
     /**
      * The name of the connector.
      */
-    connectorName: string;
+    connectorName?: string;
     /**
      * The name of the hub.
      */
@@ -116,7 +116,7 @@ export interface GetConnectorOutputArgs {
     /**
      * The name of the connector.
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the hub.
      */

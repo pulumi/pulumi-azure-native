@@ -35,7 +35,7 @@ export interface GetWorkloadArgs {
     /**
      * The name of the workloadResource Resource
      */
-    workloadName: string;
+    workloadName?: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetWorkloadOutputArgs {
     /**
      * The name of the workloadResource Resource
      */
-    workloadName: pulumi.Input<string>;
+    workloadName?: pulumi.Input<string | undefined>;
 }

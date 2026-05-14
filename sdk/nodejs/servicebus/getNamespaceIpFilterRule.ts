@@ -22,7 +22,7 @@ export interface GetNamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Rule name.
      */
-    ipFilterRuleName: string;
+    ipFilterRuleName?: string;
     /**
      * The namespace name
      */
@@ -84,7 +84,7 @@ export interface GetNamespaceIpFilterRuleOutputArgs {
     /**
      * The IP Filter Rule name.
      */
-    ipFilterRuleName: pulumi.Input<string>;
+    ipFilterRuleName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */

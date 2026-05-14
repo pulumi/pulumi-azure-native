@@ -27,7 +27,7 @@ export interface GetLoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    backendAddressPoolName: string;
+    backendAddressPoolName?: string;
     /**
      * The name of the load balancer.
      */
@@ -131,7 +131,7 @@ export interface GetLoadBalancerBackendAddressPoolOutputArgs {
     /**
      * The name of the backend address pool.
      */
-    backendAddressPoolName: pulumi.Input<string>;
+    backendAddressPoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the load balancer.
      */

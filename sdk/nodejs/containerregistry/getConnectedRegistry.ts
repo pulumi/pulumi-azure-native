@@ -27,7 +27,7 @@ export interface GetConnectedRegistryArgs {
     /**
      * The name of the connected registry.
      */
-    connectedRegistryName: string;
+    connectedRegistryName?: string;
     /**
      * The name of the container registry.
      */
@@ -135,7 +135,7 @@ export interface GetConnectedRegistryOutputArgs {
     /**
      * The name of the connected registry.
      */
-    connectedRegistryName: pulumi.Input<string>;
+    connectedRegistryName?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */

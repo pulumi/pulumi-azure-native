@@ -28,7 +28,7 @@ export interface GetResourceGuardArgs {
     /**
      * The name of ResourceGuard
      */
-    resourceGuardsName: string;
+    resourceGuardsName?: string;
 }
 
 export interface GetResourceGuardResult {
@@ -90,5 +90,5 @@ export interface GetResourceGuardOutputArgs {
     /**
      * The name of ResourceGuard
      */
-    resourceGuardsName: pulumi.Input<string>;
+    resourceGuardsName?: pulumi.Input<string | undefined>;
 }

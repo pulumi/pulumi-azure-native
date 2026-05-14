@@ -30,7 +30,7 @@ export interface GetMasterSitesControllerArgs {
     /**
      * Site name
      */
-    siteName: string;
+    siteName?: string;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface GetMasterSitesControllerOutputArgs {
     /**
      * Site name
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

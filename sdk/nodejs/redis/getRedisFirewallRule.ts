@@ -30,7 +30,7 @@ export interface GetRedisFirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 /**
@@ -88,5 +88,5 @@ export interface GetRedisFirewallRuleOutputArgs {
     /**
      * The name of the firewall rule.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

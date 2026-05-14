@@ -32,7 +32,7 @@ export interface GetPlacementPolicyArgs {
     /**
      * Name of the placement policy.
      */
-    placementPolicyName: string;
+    placementPolicyName?: string;
     /**
      * Name of the private cloud
      */
@@ -97,7 +97,7 @@ export interface GetPlacementPolicyOutputArgs {
     /**
      * Name of the placement policy.
      */
-    placementPolicyName: pulumi.Input<string>;
+    placementPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

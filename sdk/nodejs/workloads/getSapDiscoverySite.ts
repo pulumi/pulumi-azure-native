@@ -28,7 +28,7 @@ export interface GetSapDiscoverySiteArgs {
     /**
      * The name of the discovery site resource for SAP Migration.
      */
-    sapDiscoverySiteName: string;
+    sapDiscoverySiteName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetSapDiscoverySiteOutputArgs {
     /**
      * The name of the discovery site resource for SAP Migration.
      */
-    sapDiscoverySiteName: pulumi.Input<string>;
+    sapDiscoverySiteName?: pulumi.Input<string | undefined>;
 }

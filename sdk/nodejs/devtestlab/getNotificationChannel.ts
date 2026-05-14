@@ -34,7 +34,7 @@ export interface GetNotificationChannelArgs {
     /**
      * The name of the notification channel.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=webHookUrl)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -133,7 +133,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * The name of the notification channel.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

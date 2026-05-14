@@ -24,7 +24,7 @@ export interface GetEc2VpcEndpointArgs {
     /**
      * Name of Ec2VPCEndpoint
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2VpcEndpointOutputArgs {
     /**
      * Name of Ec2VPCEndpoint
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

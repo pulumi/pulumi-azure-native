@@ -27,7 +27,7 @@ export interface GetWebAppCollectorOperationArgs {
     /**
      * Web app collector ARM name.
      */
-    collectorName: string;
+    collectorName?: string;
     /**
      * Assessment Project Name
      */
@@ -103,7 +103,7 @@ export interface GetWebAppCollectorOperationOutputArgs {
     /**
      * Web app collector ARM name.
      */
-    collectorName: pulumi.Input<string>;
+    collectorName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

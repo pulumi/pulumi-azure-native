@@ -27,7 +27,7 @@ export interface GetAttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName: string;
+    attachedDatabaseConfigurationName?: string;
     /**
      * The name of the Kusto cluster.
      */
@@ -115,7 +115,7 @@ export interface GetAttachedDatabaseConfigurationOutputArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName: pulumi.Input<string>;
+    attachedDatabaseConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto cluster.
      */

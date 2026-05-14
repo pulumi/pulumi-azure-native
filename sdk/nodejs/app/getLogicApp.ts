@@ -31,7 +31,7 @@ export interface GetLogicAppArgs {
     /**
      * Name of the Logic App, the extension resource.
      */
-    logicAppName: string;
+    logicAppName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetLogicAppOutputArgs {
     /**
      * Name of the Logic App, the extension resource.
      */
-    logicAppName: pulumi.Input<string>;
+    logicAppName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

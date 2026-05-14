@@ -26,7 +26,7 @@ export interface GetDiagnosticArgs {
     /**
      * Name of Diagnostic.
      */
-    diagnosticName: string;
+    diagnosticName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetDiagnosticOutputArgs {
     /**
      * Name of Diagnostic.
      */
-    diagnosticName: pulumi.Input<string>;
+    diagnosticName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetAgriServiceArgs {
     /**
      * The name of the AgriService resource.
      */
-    agriServiceResourceName: string;
+    agriServiceResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetAgriServiceOutputArgs {
     /**
      * The name of the AgriService resource.
      */
-    agriServiceResourceName: pulumi.Input<string>;
+    agriServiceResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

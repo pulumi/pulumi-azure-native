@@ -29,7 +29,7 @@ export interface GetIoTRoleArgs {
     /**
      * The role name.
      */
-    name: string;
+    name?: string;
     /**
      * The resource group name.
      */
@@ -120,7 +120,7 @@ export interface GetIoTRoleOutputArgs {
     /**
      * The role name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

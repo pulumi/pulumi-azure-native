@@ -89,7 +89,7 @@ export interface ListNetworkManagerDeploymentStatusOutputArgs {
     /**
      * List of deployment types.
      */
-    deploymentTypes?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    deploymentTypes?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[] | undefined>;
     /**
      * The name of the network manager.
      */
@@ -97,7 +97,7 @@ export interface ListNetworkManagerDeploymentStatusOutputArgs {
     /**
      * List of locations.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group.
      */
@@ -105,9 +105,9 @@ export interface ListNetworkManagerDeploymentStatusOutputArgs {
     /**
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
     /**
      * An optional query parameter which specifies the maximum number of records to be returned by the server.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

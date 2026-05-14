@@ -30,7 +30,7 @@ export interface GetTestBaseAccountArgs {
     /**
      * The resource name of the Test Base Account.
      */
-    testBaseAccountName: string;
+    testBaseAccountName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetTestBaseAccountOutputArgs {
     /**
      * The resource name of the Test Base Account.
      */
-    testBaseAccountName: pulumi.Input<string>;
+    testBaseAccountName?: pulumi.Input<string | undefined>;
 }

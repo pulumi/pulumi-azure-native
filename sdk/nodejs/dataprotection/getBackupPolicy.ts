@@ -24,7 +24,7 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetBackupPolicyArgs {
-    backupPolicyName: string;
+    backupPolicyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -81,7 +81,7 @@ export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pu
 }
 
 export interface GetBackupPolicyOutputArgs {
-    backupPolicyName: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

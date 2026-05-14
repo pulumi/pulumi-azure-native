@@ -33,7 +33,7 @@ export interface GetAFDTargetGroupArgs {
     /**
      * Name of the Target Group under the profile.
      */
-    targetGroupName: string;
+    targetGroupName?: string;
 }
 
 /**
@@ -96,5 +96,5 @@ export interface GetAFDTargetGroupOutputArgs {
     /**
      * Name of the Target Group under the profile.
      */
-    targetGroupName: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
 }

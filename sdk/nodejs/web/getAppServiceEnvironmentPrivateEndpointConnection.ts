@@ -31,7 +31,7 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName: string;
+    privateEndpointConnectionName?: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -100,7 +100,7 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

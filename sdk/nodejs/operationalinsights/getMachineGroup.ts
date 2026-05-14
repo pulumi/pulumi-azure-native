@@ -31,7 +31,7 @@ export interface GetMachineGroupArgs {
     /**
      * Machine Group resource name.
      */
-    machineGroupName: string;
+    machineGroupName?: string;
     /**
      * Resource group name within the specified subscriptionId.
      */
@@ -112,11 +112,11 @@ export interface GetMachineGroupOutputArgs {
     /**
      * UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Machine Group resource name.
      */
-    machineGroupName: pulumi.Input<string>;
+    machineGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource group name within the specified subscriptionId.
      */
@@ -124,7 +124,7 @@ export interface GetMachineGroupOutputArgs {
     /**
      * UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * OMS workspace containing the resources of interest.
      */

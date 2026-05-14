@@ -27,7 +27,7 @@ export interface GetContentPackageArgs {
     /**
      * package Id
      */
-    packageId: string;
+    packageId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -179,7 +179,7 @@ export interface GetContentPackageOutputArgs {
     /**
      * package Id
      */
-    packageId: pulumi.Input<string>;
+    packageId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

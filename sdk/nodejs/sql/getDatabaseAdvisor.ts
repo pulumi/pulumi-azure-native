@@ -28,7 +28,7 @@ export interface GetDatabaseAdvisorArgs {
     /**
      * The name of the Database Advisor.
      */
-    advisorName: string;
+    advisorName?: string;
     /**
      * The name of the database.
      */
@@ -117,7 +117,7 @@ export interface GetDatabaseAdvisorOutputArgs {
     /**
      * The name of the Database Advisor.
      */
-    advisorName: pulumi.Input<string>;
+    advisorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */

@@ -35,7 +35,7 @@ export interface GetWorkbookArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -143,7 +143,7 @@ export interface GetWorkbookOutputArgs {
     /**
      * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
      */
-    canFetchContent?: pulumi.Input<boolean>;
+    canFetchContent?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,5 +151,5 @@ export interface GetWorkbookOutputArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

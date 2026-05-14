@@ -31,7 +31,7 @@ export interface GetCreatorArgs {
     /**
      * The name of the Maps Creator instance.
      */
-    creatorName: string;
+    creatorName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetCreatorOutputArgs {
     /**
      * The name of the Maps Creator instance.
      */
-    creatorName: pulumi.Input<string>;
+    creatorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

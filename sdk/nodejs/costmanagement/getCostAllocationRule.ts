@@ -30,7 +30,7 @@ export interface GetCostAllocationRuleArgs {
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 /**
@@ -81,5 +81,5 @@ export interface GetCostAllocationRuleOutputArgs {
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

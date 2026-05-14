@@ -119,11 +119,11 @@ export interface AppAttachPackageArgs {
     /**
      * The name of the App Attach package
      */
-    appAttachPackageName?: pulumi.Input<string>;
+    appAttachPackageName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Detailed properties for App Attach Package
      */
@@ -135,5 +135,5 @@ export interface AppAttachPackageArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

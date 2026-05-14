@@ -113,11 +113,11 @@ export interface VaultArgs {
     /**
      * Gets or sets the location of the vault.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Vault properties.
      */
-    properties?: pulumi.Input<inputs.datareplication.VaultModelPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datareplication.VaultModelPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,9 +125,9 @@ export interface VaultArgs {
     /**
      * Gets or sets the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The vault name.
      */
-    vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }

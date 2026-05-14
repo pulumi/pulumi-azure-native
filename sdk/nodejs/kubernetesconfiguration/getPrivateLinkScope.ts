@@ -30,7 +30,7 @@ export interface GetPrivateLinkScopeArgs {
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    scopeName: string;
+    scopeName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetPrivateLinkScopeOutputArgs {
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    scopeName: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string | undefined>;
 }

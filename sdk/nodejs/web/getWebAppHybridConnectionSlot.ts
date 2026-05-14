@@ -34,7 +34,7 @@ export interface GetWebAppHybridConnectionSlotArgs {
     /**
      * The relay name for this hybrid connection.
      */
-    relayName: string;
+    relayName?: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -133,7 +133,7 @@ export interface GetWebAppHybridConnectionSlotOutputArgs {
     /**
      * The relay name for this hybrid connection.
      */
-    relayName: pulumi.Input<string>;
+    relayName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

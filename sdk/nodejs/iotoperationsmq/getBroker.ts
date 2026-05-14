@@ -25,7 +25,7 @@ export interface GetBrokerArgs {
     /**
      * Name of MQ broker resource
      */
-    brokerName: string;
+    brokerName?: string;
     /**
      * Name of MQ resource
      */
@@ -143,7 +143,7 @@ export interface GetBrokerOutputArgs {
     /**
      * Name of MQ broker resource
      */
-    brokerName: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */

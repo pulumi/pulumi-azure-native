@@ -29,7 +29,7 @@ export interface GetLabArgs {
     /**
      * The name of the lab.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -169,11 +169,11 @@ export interface GetLabOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

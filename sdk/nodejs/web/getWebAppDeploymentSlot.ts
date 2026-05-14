@@ -25,7 +25,7 @@ export interface GetWebAppDeploymentSlotArgs {
     /**
      * Deployment ID.
      */
-    id: string;
+    id?: string;
     /**
      * Name of the app.
      */
@@ -122,7 +122,7 @@ export interface GetWebAppDeploymentSlotOutputArgs {
     /**
      * Deployment ID.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

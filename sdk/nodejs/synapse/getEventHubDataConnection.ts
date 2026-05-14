@@ -27,7 +27,7 @@ export interface GetEventHubDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName: string;
+    dataConnectionName?: string;
     /**
      * The name of the database in the Kusto pool.
      */
@@ -136,7 +136,7 @@ export interface GetEventHubDataConnectionOutputArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the database in the Kusto pool.
      */

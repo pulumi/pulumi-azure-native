@@ -27,7 +27,7 @@ export interface GetFirewallRuleArgs {
     /**
      * Name of the firewall rule.
      */
-    firewallRuleName: string;
+    firewallRuleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetFirewallRuleOutputArgs {
     /**
      * Name of the firewall rule.
      */
-    firewallRuleName: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

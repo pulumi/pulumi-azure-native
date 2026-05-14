@@ -32,7 +32,7 @@ export interface GetFleetspaceAccountArgs {
     /**
      * Cosmos DB fleetspace account name.
      */
-    fleetspaceAccountName: string;
+    fleetspaceAccountName?: string;
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
@@ -101,7 +101,7 @@ export interface GetFleetspaceAccountOutputArgs {
     /**
      * Cosmos DB fleetspace account name.
      */
-    fleetspaceAccountName: pulumi.Input<string>;
+    fleetspaceAccountName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */

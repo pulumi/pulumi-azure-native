@@ -36,7 +36,7 @@ export interface GetGalleryInVMAccessControlProfileVersionArgs {
     /**
      * The name of the gallery inVMAccessControlProfile version to be retrieved.
      */
-    inVMAccessControlProfileVersionName: string;
+    inVMAccessControlProfileVersionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetGalleryInVMAccessControlProfileVersionOutputArgs {
     /**
      * The name of the gallery inVMAccessControlProfile version to be retrieved.
      */
-    inVMAccessControlProfileVersionName: pulumi.Input<string>;
+    inVMAccessControlProfileVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

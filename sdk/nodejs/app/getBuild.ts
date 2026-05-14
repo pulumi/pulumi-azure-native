@@ -27,7 +27,7 @@ export interface GetBuildArgs {
     /**
      * The name of a build.
      */
-    buildName: string;
+    buildName?: string;
     /**
      * The name of the builder.
      */
@@ -111,7 +111,7 @@ export interface GetBuildOutputArgs {
     /**
      * The name of a build.
      */
-    buildName: pulumi.Input<string>;
+    buildName?: pulumi.Input<string | undefined>;
     /**
      * The name of the builder.
      */

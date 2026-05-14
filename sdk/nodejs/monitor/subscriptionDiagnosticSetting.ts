@@ -133,33 +133,33 @@ export interface SubscriptionDiagnosticSettingArgs {
     /**
      * The resource Id for the event hub authorization rule.
      */
-    eventHubAuthorizationRuleId?: pulumi.Input<string>;
+    eventHubAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * The name of the event hub. If none is specified, the default event hub will be selected.
      */
-    eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string | undefined>;
     /**
      * The list of logs settings.
      */
-    logs?: pulumi.Input<pulumi.Input<inputs.monitor.SubscriptionLogSettingsArgs>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitor.SubscriptionLogSettingsArgs>[] | undefined>;
     /**
      * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
      */
-    marketplacePartnerId?: pulumi.Input<string>;
+    marketplacePartnerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */
-    serviceBusRuleId?: pulumi.Input<string>;
+    serviceBusRuleId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the storage account to which you would like to send Diagnostic Logs.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }

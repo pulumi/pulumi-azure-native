@@ -28,7 +28,7 @@ export interface GetOnlineDeploymentArgs {
     /**
      * Inference Endpoint Deployment name.
      */
-    deploymentName: string;
+    deploymentName?: string;
     /**
      * Online Endpoint name.
      */
@@ -113,7 +113,7 @@ export interface GetOnlineDeploymentOutputArgs {
     /**
      * Inference Endpoint Deployment name.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Online Endpoint name.
      */

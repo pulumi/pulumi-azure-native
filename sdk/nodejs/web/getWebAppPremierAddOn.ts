@@ -28,7 +28,7 @@ export interface GetWebAppPremierAddOnArgs {
     /**
      * Add-on name.
      */
-    premierAddOnName: string;
+    premierAddOnName?: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -112,7 +112,7 @@ export interface GetWebAppPremierAddOnOutputArgs {
     /**
      * Add-on name.
      */
-    premierAddOnName: pulumi.Input<string>;
+    premierAddOnName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

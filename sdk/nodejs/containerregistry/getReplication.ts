@@ -31,7 +31,7 @@ export interface GetReplicationArgs {
     /**
      * The name of the replication.
      */
-    replicationName: string;
+    replicationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetReplicationOutputArgs {
     /**
      * The name of the replication.
      */
-    replicationName: pulumi.Input<string>;
+    replicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

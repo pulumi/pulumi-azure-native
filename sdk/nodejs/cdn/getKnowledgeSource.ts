@@ -25,7 +25,7 @@ export interface GetKnowledgeSourceArgs {
     /**
      * The name of the knowledge source.
      */
-    knowledgeSourceName: string;
+    knowledgeSourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetKnowledgeSourceOutputArgs {
     /**
      * The name of the knowledge source.
      */
-    knowledgeSourceName: pulumi.Input<string>;
+    knowledgeSourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

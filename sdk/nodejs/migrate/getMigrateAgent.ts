@@ -26,7 +26,7 @@ export interface GetMigrateAgentArgs {
     /**
      * MigrateAgent name.
      */
-    agentName: string;
+    agentName?: string;
     /**
      * ModernizeProject name.
      */
@@ -90,7 +90,7 @@ export interface GetMigrateAgentOutputArgs {
     /**
      * MigrateAgent name.
      */
-    agentName: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * ModernizeProject name.
      */
@@ -102,5 +102,5 @@ export interface GetMigrateAgentOutputArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

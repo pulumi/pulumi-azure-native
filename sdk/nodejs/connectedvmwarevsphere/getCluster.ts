@@ -26,7 +26,7 @@ export interface GetClusterArgs {
     /**
      * Name of the cluster.
      */
-    clusterName: string;
+    clusterName?: string;
     /**
      * The Resource Group Name.
      */
@@ -149,7 +149,7 @@ export interface GetClusterOutputArgs {
     /**
      * Name of the cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Group Name.
      */

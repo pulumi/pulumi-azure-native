@@ -24,7 +24,7 @@ export interface GetCustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    customerSubscriptionName: string;
+    customerSubscriptionName?: string;
     /**
      * Name of the Azure Stack registration.
      */
@@ -84,7 +84,7 @@ export interface GetCustomerSubscriptionOutputArgs {
     /**
      * Name of the product.
      */
-    customerSubscriptionName: pulumi.Input<string>;
+    customerSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Stack registration.
      */

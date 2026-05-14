@@ -41,7 +41,7 @@ export interface GetApiVersionArgs {
     /**
      * The name of the API version.
      */
-    versionName: string;
+    versionName?: string;
     /**
      * The name of the workspace.
      */
@@ -115,7 +115,7 @@ export interface GetApiVersionOutputArgs {
     /**
      * The name of the API version.
      */
-    versionName: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

@@ -33,7 +33,7 @@ export interface GetWorkspaceTagArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId: string;
+    tagId?: string;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
@@ -94,7 +94,7 @@ export interface GetWorkspaceTagOutputArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId: pulumi.Input<string>;
+    tagId?: pulumi.Input<string | undefined>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

@@ -30,7 +30,7 @@ export interface GetSqlMigrationServiceArgs {
     /**
      * Name of the SQL Migration Service.
      */
-    sqlMigrationServiceName: string;
+    sqlMigrationServiceName?: string;
 }
 
 /**
@@ -79,5 +79,5 @@ export interface GetSqlMigrationServiceOutputArgs {
     /**
      * Name of the SQL Migration Service.
      */
-    sqlMigrationServiceName: pulumi.Input<string>;
+    sqlMigrationServiceName?: pulumi.Input<string | undefined>;
 }

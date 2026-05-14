@@ -27,7 +27,7 @@ export interface GetAlertRuleResourceArgs {
     /**
      * The alert rule proxy resource name.
      */
-    alertRuleResourceName: string;
+    alertRuleResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetAlertRuleResourceOutputArgs {
     /**
      * The alert rule proxy resource name.
      */
-    alertRuleResourceName: pulumi.Input<string>;
+    alertRuleResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

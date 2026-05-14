@@ -27,7 +27,7 @@ export interface GetReplicationPolicyArgs {
     /**
      * Replication policy name.
      */
-    policyName: string;
+    policyName?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -87,7 +87,7 @@ export interface GetReplicationPolicyOutputArgs {
     /**
      * Replication policy name.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

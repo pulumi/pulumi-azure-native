@@ -37,7 +37,7 @@ export interface GetTransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName: string;
+    tdeName?: string;
 }
 
 /**
@@ -98,5 +98,5 @@ export interface GetTransparentDataEncryptionOutputArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName: pulumi.Input<string>;
+    tdeName?: pulumi.Input<string | undefined>;
 }

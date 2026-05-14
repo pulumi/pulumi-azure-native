@@ -35,7 +35,7 @@ export interface GetTopicSpaceArgs {
     /**
      * Name of the Topic space.
      */
-    topicSpaceName: string;
+    topicSpaceName?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetTopicSpaceOutputArgs {
     /**
      * Name of the Topic space.
      */
-    topicSpaceName: pulumi.Input<string>;
+    topicSpaceName?: pulumi.Input<string | undefined>;
 }

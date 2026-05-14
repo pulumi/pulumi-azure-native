@@ -28,7 +28,7 @@ export interface GetSupercomputerArgs {
     /**
      * The name of the Supercomputer
      */
-    supercomputerName: string;
+    supercomputerName?: string;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface GetSupercomputerOutputArgs {
     /**
      * The name of the Supercomputer
      */
-    supercomputerName: pulumi.Input<string>;
+    supercomputerName?: pulumi.Input<string | undefined>;
 }

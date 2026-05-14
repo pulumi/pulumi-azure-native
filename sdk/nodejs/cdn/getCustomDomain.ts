@@ -28,7 +28,7 @@ export interface GetCustomDomainArgs {
     /**
      * Name of the custom domain within an endpoint.
      */
-    customDomainName: string;
+    customDomainName?: string;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -117,7 +117,7 @@ export interface GetCustomDomainOutputArgs {
     /**
      * Name of the custom domain within an endpoint.
      */
-    customDomainName: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */

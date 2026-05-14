@@ -61,5 +61,5 @@ export interface ListSiteIdentifiersAssignedToHostNameOutputArgs {
     /**
      * Name of the object.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

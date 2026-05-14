@@ -27,7 +27,7 @@ export interface GetGatewayArgs {
     /**
      * The name of Spring Cloud Gateway.
      */
-    gatewayName: string;
+    gatewayName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -91,7 +91,7 @@ export interface GetGatewayOutputArgs {
     /**
      * The name of Spring Cloud Gateway.
      */
-    gatewayName: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

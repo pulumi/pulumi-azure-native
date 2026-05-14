@@ -24,7 +24,7 @@ export interface GetAccountArgs {
     /**
      * The name of the share account.
      */
-    accountName: string;
+    accountName?: string;
     /**
      * The resource group name.
      */
@@ -101,7 +101,7 @@ export interface GetAccountOutputArgs {
     /**
      * The name of the share account.
      */
-    accountName: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

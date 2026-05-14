@@ -30,7 +30,7 @@ export interface GetBotArgs {
     /**
      * The name of the Bot resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetBotOutputArgs {
     /**
      * The name of the Bot resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

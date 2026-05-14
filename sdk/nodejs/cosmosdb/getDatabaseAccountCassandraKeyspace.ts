@@ -28,7 +28,7 @@ export interface GetDatabaseAccountCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName: string;
+    keyspaceName?: string;
     /**
      * Name of an Azure resource group.
      */
@@ -88,7 +88,7 @@ export interface GetDatabaseAccountCassandraKeyspaceOutputArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure resource group.
      */

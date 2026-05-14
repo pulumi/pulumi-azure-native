@@ -24,7 +24,7 @@ export interface GetCloudWatchAlarmArgs {
     /**
      * Name of CloudWatchAlarm
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetCloudWatchAlarmOutputArgs {
     /**
      * Name of CloudWatchAlarm
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

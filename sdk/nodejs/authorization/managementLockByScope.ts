@@ -121,15 +121,15 @@ export interface ManagementLockByScopeArgs {
     /**
      * The name of lock.
      */
-    lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string | undefined>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The owners of the lock.
      */
-    owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[] | undefined>;
     /**
      * The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
      */

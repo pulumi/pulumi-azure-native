@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2020-04-01-preview.
  */
-export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
+export function getConfigurationProfile(args?: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:changeanalysis:getConfigurationProfile", {
         "profileName": args.profileName,
@@ -23,7 +24,7 @@ export interface GetConfigurationProfileArgs {
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
-    profileName: string;
+    profileName?: string;
 }
 
 /**
@@ -68,7 +69,8 @@ export interface GetConfigurationProfileResult {
  *
  * Uses Azure REST API version 2020-04-01-preview.
  */
-export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
+export function getConfigurationProfileOutput(args?: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:changeanalysis:getConfigurationProfile", {
         "profileName": args.profileName,
@@ -79,5 +81,5 @@ export interface GetConfigurationProfileOutputArgs {
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
 }

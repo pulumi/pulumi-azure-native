@@ -104,7 +104,7 @@ export class SqlMigrationService extends pulumi.CustomResource {
  * The set of arguments for constructing a SqlMigrationService resource.
  */
 export interface SqlMigrationServiceArgs {
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -112,6 +112,6 @@ export interface SqlMigrationServiceArgs {
     /**
      * Name of the SQL Migration Service.
      */
-    sqlMigrationServiceName?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sqlMigrationServiceName?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

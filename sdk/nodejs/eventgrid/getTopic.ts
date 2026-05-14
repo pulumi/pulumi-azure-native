@@ -30,7 +30,7 @@ export interface GetTopicArgs {
     /**
      * Name of the topic.
      */
-    topicName: string;
+    topicName?: string;
 }
 
 /**
@@ -143,5 +143,5 @@ export interface GetTopicOutputArgs {
     /**
      * Name of the topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

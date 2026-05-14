@@ -26,7 +26,7 @@ export interface GetNetworkTapArgs {
     /**
      * Name of the Network Tap.
      */
-    networkTapName: string;
+    networkTapName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetNetworkTapOutputArgs {
     /**
      * Name of the Network Tap.
      */
-    networkTapName: pulumi.Input<string>;
+    networkTapName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

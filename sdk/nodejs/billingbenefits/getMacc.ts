@@ -26,7 +26,7 @@ export interface GetMaccArgs {
     /**
      * Name of primary MACC.
      */
-    maccName: string;
+    maccName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -181,7 +181,7 @@ export interface GetMaccOutputArgs {
     /**
      * Name of primary MACC.
      */
-    maccName: pulumi.Input<string>;
+    maccName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

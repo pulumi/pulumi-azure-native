@@ -29,7 +29,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs {
     /**
      * Name of the function app registered with the static site build.
      */
-    functionAppName: string;
+    functionAppName?: string;
     /**
      * Name of the static site.
      */
@@ -102,7 +102,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArg
     /**
      * Name of the function app registered with the static site build.
      */
-    functionAppName: pulumi.Input<string>;
+    functionAppName?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site.
      */

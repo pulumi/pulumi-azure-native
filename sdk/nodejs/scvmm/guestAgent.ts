@@ -144,19 +144,19 @@ export interface GuestAgentArgs {
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    credentials?: pulumi.Input<inputs.scvmm.GuestCredentialArgs>;
+    credentials?: pulumi.Input<inputs.scvmm.GuestCredentialArgs | undefined>;
     /**
      * Name of the guestAgents.
      */
-    guestAgentName?: pulumi.Input<string>;
+    guestAgentName?: pulumi.Input<string | undefined>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    httpProxyConfig?: pulumi.Input<inputs.scvmm.HttpProxyConfigurationArgs>;
+    httpProxyConfig?: pulumi.Input<inputs.scvmm.HttpProxyConfigurationArgs | undefined>;
     /**
      * Gets or sets the guest agent provisioning action.
      */
-    provisioningAction?: pulumi.Input<string | enums.scvmm.ProvisioningAction>;
+    provisioningAction?: pulumi.Input<string | enums.scvmm.ProvisioningAction | undefined>;
     /**
      * The name of the resource group.
      */

@@ -30,7 +30,7 @@ export interface GetSiteArgs {
     /**
      * The name of the network service site.
      */
-    siteName: string;
+    siteName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSiteOutputArgs {
     /**
      * The name of the network service site.
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

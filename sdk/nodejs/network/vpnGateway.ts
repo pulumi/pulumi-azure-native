@@ -165,37 +165,37 @@ export interface VpnGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs>;
+    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs | undefined>;
     /**
      * List of all vpn connections to the gateway.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnectionArgs>[]>;
+    connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnectionArgs>[] | undefined>;
     /**
      * Enable BGP routes translation for NAT on this VpnGateway.
      */
-    enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
+    enableBgpRouteTranslationForNat?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the gateway.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
      */
-    isRoutingPreferenceInternet?: pulumi.Input<boolean>;
+    isRoutingPreferenceInternet?: pulumi.Input<boolean | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * List of all the nat Rules associated with the gateway.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    natRules?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayNatRuleArgs>[]>;
+    natRules?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayNatRuleArgs>[] | undefined>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -203,13 +203,13 @@ export interface VpnGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The scale unit for this vpn gateway.
      */
-    vpnGatewayScaleUnit?: pulumi.Input<number>;
+    vpnGatewayScaleUnit?: pulumi.Input<number | undefined>;
 }

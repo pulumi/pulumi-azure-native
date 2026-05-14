@@ -26,7 +26,7 @@ export interface GetMigrationServiceArgs {
     /**
      * Name of the Migration Service.
      */
-    migrationServiceName: string;
+    migrationServiceName?: string;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -93,7 +93,7 @@ export interface GetMigrationServiceOutputArgs {
     /**
      * Name of the Migration Service.
      */
-    migrationServiceName: pulumi.Input<string>;
+    migrationServiceName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

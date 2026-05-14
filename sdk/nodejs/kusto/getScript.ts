@@ -40,7 +40,7 @@ export interface GetScriptArgs {
     /**
      * The name of the Kusto database script.
      */
-    scriptName: string;
+    scriptName?: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetScriptOutputArgs {
     /**
      * The name of the Kusto database script.
      */
-    scriptName: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string | undefined>;
 }

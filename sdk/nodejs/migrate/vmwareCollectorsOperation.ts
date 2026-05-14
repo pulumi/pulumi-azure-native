@@ -132,11 +132,11 @@ export interface VmwareCollectorsOperationArgs {
     /**
      * Gets or sets the collector agent properties.
      */
-    agentProperties?: pulumi.Input<inputs.migrate.CollectorAgentPropertiesBaseArgs>;
+    agentProperties?: pulumi.Input<inputs.migrate.CollectorAgentPropertiesBaseArgs | undefined>;
     /**
      * Gets the discovery site id.
      */
-    discoverySiteId?: pulumi.Input<string>;
+    discoverySiteId?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */
@@ -144,7 +144,7 @@ export interface VmwareCollectorsOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,5 +152,5 @@ export interface VmwareCollectorsOperationArgs {
     /**
      * VMware collector ARM name
      */
-    vmWareCollectorName?: pulumi.Input<string>;
+    vmWareCollectorName?: pulumi.Input<string | undefined>;
 }

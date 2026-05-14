@@ -28,7 +28,7 @@ export interface GetBrokerAuthenticationArgs {
     /**
      * Name of Instance broker authentication resource
      */
-    authenticationName: string;
+    authenticationName?: string;
     /**
      * Name of broker.
      */
@@ -97,7 +97,7 @@ export interface GetBrokerAuthenticationOutputArgs {
     /**
      * Name of Instance broker authentication resource
      */
-    authenticationName: pulumi.Input<string>;
+    authenticationName?: pulumi.Input<string | undefined>;
     /**
      * Name of broker.
      */

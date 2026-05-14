@@ -29,7 +29,7 @@ export interface GetReplicationLinkArgs {
     /**
      * The name of the replication link.
      */
-    linkId: string;
+    linkId?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -134,7 +134,7 @@ export interface GetReplicationLinkOutputArgs {
     /**
      * The name of the replication link.
      */
-    linkId: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

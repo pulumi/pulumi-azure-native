@@ -26,7 +26,7 @@ export interface GetL2ConnectionArgs {
     /**
      * L2 Connection name.
      */
-    l2ConnectionName: string;
+    l2ConnectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetL2ConnectionOutputArgs {
     /**
      * L2 Connection name.
      */
-    l2ConnectionName: pulumi.Input<string>;
+    l2ConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

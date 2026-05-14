@@ -30,7 +30,7 @@ export interface GetSchedulerArgs {
     /**
      * The name of the Scheduler
      */
-    schedulerName: string;
+    schedulerName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSchedulerOutputArgs {
     /**
      * The name of the Scheduler
      */
-    schedulerName: pulumi.Input<string>;
+    schedulerName?: pulumi.Input<string | undefined>;
 }

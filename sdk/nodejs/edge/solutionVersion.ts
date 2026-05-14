@@ -124,11 +124,11 @@ export interface SolutionVersionArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SolutionVersionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SolutionVersionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,7 +140,7 @@ export interface SolutionVersionArgs {
     /**
      * Name of the solution version
      */
-    solutionVersionName?: pulumi.Input<string>;
+    solutionVersionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the target
      */

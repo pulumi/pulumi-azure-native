@@ -28,7 +28,7 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the Workspace.
      */
-    workspaceName: string;
+    workspaceName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * The name of the Workspace.
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

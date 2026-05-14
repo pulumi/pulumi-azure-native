@@ -40,7 +40,7 @@ export interface GetSchemaVersionArgs {
     /**
      * Schema version name parameter.
      */
-    schemaVersionName: string;
+    schemaVersionName?: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetSchemaVersionOutputArgs {
     /**
      * Schema version name parameter.
      */
-    schemaVersionName: pulumi.Input<string>;
+    schemaVersionName?: pulumi.Input<string | undefined>;
 }

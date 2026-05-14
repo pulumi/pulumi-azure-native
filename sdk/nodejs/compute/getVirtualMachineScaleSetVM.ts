@@ -32,7 +32,7 @@ export interface GetVirtualMachineScaleSetVMArgs {
     /**
      * The instance ID of the virtual machine.
      */
-    instanceId: string;
+    instanceId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -201,11 +201,11 @@ export interface GetVirtualMachineScaleSetVMOutputArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The instance ID of the virtual machine.
      */
-    instanceId: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

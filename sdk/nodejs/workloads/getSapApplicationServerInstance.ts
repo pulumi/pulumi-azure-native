@@ -25,7 +25,7 @@ export interface GetSapApplicationServerInstanceArgs {
     /**
      * The name of SAP Application Server instance resource.
      */
-    applicationInstanceName: string;
+    applicationInstanceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface GetSapApplicationServerInstanceOutputArgs {
     /**
      * The name of SAP Application Server instance resource.
      */
-    applicationInstanceName: pulumi.Input<string>;
+    applicationInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

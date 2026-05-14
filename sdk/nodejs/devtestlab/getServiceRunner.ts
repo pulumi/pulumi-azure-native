@@ -29,7 +29,7 @@ export interface GetServiceRunnerArgs {
     /**
      * The name of the service runner.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetServiceRunnerOutputArgs {
     /**
      * The name of the service runner.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

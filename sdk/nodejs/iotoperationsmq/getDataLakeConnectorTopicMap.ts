@@ -38,7 +38,7 @@ export interface GetDataLakeConnectorTopicMapArgs {
     /**
      * Name of MQ dataLakeConnector/topicMap resource
      */
-    topicMapName: string;
+    topicMapName?: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetDataLakeConnectorTopicMapOutputArgs {
     /**
      * Name of MQ dataLakeConnector/topicMap resource
      */
-    topicMapName: pulumi.Input<string>;
+    topicMapName?: pulumi.Input<string | undefined>;
 }

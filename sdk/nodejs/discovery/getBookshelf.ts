@@ -24,7 +24,7 @@ export interface GetBookshelfArgs {
     /**
      * The name of the Bookshelf
      */
-    bookshelfName: string;
+    bookshelfName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetBookshelfOutputArgs {
     /**
      * The name of the Bookshelf
      */
-    bookshelfName: pulumi.Input<string>;
+    bookshelfName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

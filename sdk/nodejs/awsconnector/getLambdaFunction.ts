@@ -24,7 +24,7 @@ export interface GetLambdaFunctionArgs {
     /**
      * Name of LambdaFunction
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetLambdaFunctionOutputArgs {
     /**
      * Name of LambdaFunction
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

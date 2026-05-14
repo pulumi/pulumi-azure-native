@@ -31,7 +31,7 @@ export interface GetEncryptionSetArgs {
     /**
      * The name of the devcenter encryption set.
      */
-    encryptionSetName: string;
+    encryptionSetName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetEncryptionSetOutputArgs {
     /**
      * The name of the devcenter encryption set.
      */
-    encryptionSetName: pulumi.Input<string>;
+    encryptionSetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

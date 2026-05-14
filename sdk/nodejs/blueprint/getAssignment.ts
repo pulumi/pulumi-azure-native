@@ -24,7 +24,7 @@ export interface GetAssignmentArgs {
     /**
      * Name of the blueprint assignment.
      */
-    assignmentName: string;
+    assignmentName?: string;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
@@ -113,7 +113,7 @@ export interface GetAssignmentOutputArgs {
     /**
      * Name of the blueprint assignment.
      */
-    assignmentName: pulumi.Input<string>;
+    assignmentName?: pulumi.Input<string | undefined>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

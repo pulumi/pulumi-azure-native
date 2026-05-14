@@ -28,7 +28,7 @@ export interface GetHybridConnectionAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName: string;
+    authorizationRuleName?: string;
     /**
      * The hybrid connection name.
      */
@@ -97,7 +97,7 @@ export interface GetHybridConnectionAuthorizationRuleOutputArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string | undefined>;
     /**
      * The hybrid connection name.
      */

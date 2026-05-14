@@ -89,10 +89,10 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.clusterResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.clusterResourcePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.appplatform.skuArgsProvideDefaults(v)) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -122,11 +122,11 @@ export interface ServiceArgs {
     /**
      * The GEO location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of the Service resource
      */
-    properties?: pulumi.Input<inputs.appplatform.ClusterResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.ClusterResourcePropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -134,13 +134,13 @@ export interface ServiceArgs {
     /**
      * The name of the Service resource.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Sku of the Service resource
      */
-    sku?: pulumi.Input<inputs.appplatform.SkuArgs>;
+    sku?: pulumi.Input<inputs.appplatform.SkuArgs | undefined>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

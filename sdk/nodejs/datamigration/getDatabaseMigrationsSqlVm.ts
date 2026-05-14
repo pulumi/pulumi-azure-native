@@ -42,7 +42,7 @@ export interface GetDatabaseMigrationsSqlVmArgs {
     /**
      * The name of the target database.
      */
-    targetDbName: string;
+    targetDbName?: string;
 }
 
 /**
@@ -96,11 +96,11 @@ export interface GetDatabaseMigrationsSqlVmOutputArgs {
     /**
      * Complete migration details be included in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Optional migration operation ID. If this is provided, then details of migration operation for that ID are retrieved. If not provided (default), then details related to most recent or current operation are retrieved.
      */
-    migrationOperationId?: pulumi.Input<string>;
+    migrationOperationId?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -109,5 +109,5 @@ export interface GetDatabaseMigrationsSqlVmOutputArgs {
     /**
      * The name of the target database.
      */
-    targetDbName: pulumi.Input<string>;
+    targetDbName?: pulumi.Input<string | undefined>;
 }

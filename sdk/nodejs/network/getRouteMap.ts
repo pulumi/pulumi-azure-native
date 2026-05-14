@@ -31,7 +31,7 @@ export interface GetRouteMapArgs {
     /**
      * The name of the RouteMap.
      */
-    routeMapName: string;
+    routeMapName?: string;
     /**
      * The name of the VirtualHub containing the RouteMap.
      */
@@ -103,7 +103,7 @@ export interface GetRouteMapOutputArgs {
     /**
      * The name of the RouteMap.
      */
-    routeMapName: pulumi.Input<string>;
+    routeMapName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualHub containing the RouteMap.
      */

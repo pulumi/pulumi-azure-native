@@ -35,7 +35,7 @@ export interface GetScriptExecutionArgs {
     /**
      * Name of the script cmdlet.
      */
-    scriptExecutionName: string;
+    scriptExecutionName?: string;
 }
 
 /**
@@ -153,5 +153,5 @@ export interface GetScriptExecutionOutputArgs {
     /**
      * Name of the script cmdlet.
      */
-    scriptExecutionName: pulumi.Input<string>;
+    scriptExecutionName?: pulumi.Input<string | undefined>;
 }

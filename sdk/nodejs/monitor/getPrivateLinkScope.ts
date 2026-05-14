@@ -30,7 +30,7 @@ export interface GetPrivateLinkScopeArgs {
     /**
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
-    scopeName: string;
+    scopeName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrivateLinkScopeOutputArgs {
     /**
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
-    scopeName: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string | undefined>;
 }

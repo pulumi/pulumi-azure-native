@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The private endpoint connection name of Azure Managed Grafana.
      */
-    privateEndpointConnectionName: string;
+    privateEndpointConnectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The private endpoint connection name of Azure Managed Grafana.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

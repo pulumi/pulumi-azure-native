@@ -26,7 +26,7 @@ export interface GetPostgresInstanceArgs {
     /**
      * Name of Postgres Instance
      */
-    postgresInstanceName: string;
+    postgresInstanceName?: string;
     /**
      * The name of the Azure resource group
      */
@@ -97,7 +97,7 @@ export interface GetPostgresInstanceOutputArgs {
     /**
      * Name of Postgres Instance
      */
-    postgresInstanceName: pulumi.Input<string>;
+    postgresInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group
      */

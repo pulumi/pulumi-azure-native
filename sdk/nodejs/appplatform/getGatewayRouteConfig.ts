@@ -36,7 +36,7 @@ export interface GetGatewayRouteConfigArgs {
     /**
      * The name of the Spring Cloud Gateway route config.
      */
-    routeConfigName: string;
+    routeConfigName?: string;
     /**
      * The name of the Service resource.
      */
@@ -101,7 +101,7 @@ export interface GetGatewayRouteConfigOutputArgs {
     /**
      * The name of the Spring Cloud Gateway route config.
      */
-    routeConfigName: pulumi.Input<string>;
+    routeConfigName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service resource.
      */

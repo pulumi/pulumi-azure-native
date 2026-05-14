@@ -30,7 +30,7 @@ export interface GetFqdnListGlobalRulestackArgs {
     /**
      * fqdn list name
      */
-    name: string;
+    name?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetFqdnListGlobalRulestackOutputArgs {
     /**
      * fqdn list name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

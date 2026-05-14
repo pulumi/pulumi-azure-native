@@ -28,7 +28,7 @@ export interface GetServiceGatewayArgs {
     /**
      * The name of the service gateway.
      */
-    serviceGatewayName: string;
+    serviceGatewayName?: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetServiceGatewayOutputArgs {
     /**
      * The name of the service gateway.
      */
-    serviceGatewayName: pulumi.Input<string>;
+    serviceGatewayName?: pulumi.Input<string | undefined>;
 }

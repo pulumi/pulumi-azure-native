@@ -45,7 +45,7 @@ export interface GetTopicArgs {
     /**
      * Confluent kafka or schema registry topic name
      */
-    topicName: string;
+    topicName?: string;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface GetTopicOutputArgs {
     /**
      * Confluent kafka or schema registry topic name
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

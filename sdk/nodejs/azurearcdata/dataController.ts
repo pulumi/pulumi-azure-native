@@ -94,7 +94,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["dataControllerName"] = args?.dataControllerName;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.dataControllerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.azurearcdata.dataControllerPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -125,15 +125,15 @@ export interface DataControllerArgs {
     /**
      * The name of the data controller
      */
-    dataControllerName?: pulumi.Input<string>;
+    dataControllerName?: pulumi.Input<string | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The data controller's properties
      */
@@ -145,5 +145,5 @@ export interface DataControllerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

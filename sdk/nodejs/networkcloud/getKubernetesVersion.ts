@@ -24,7 +24,7 @@ export interface GetKubernetesVersionArgs {
     /**
      * The name of the Kubernetes version resource.
      */
-    kubernetesVersionName: string;
+    kubernetesVersionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -94,7 +94,7 @@ export interface GetKubernetesVersionOutputArgs {
     /**
      * The name of the Kubernetes version resource.
      */
-    kubernetesVersionName: pulumi.Input<string>;
+    kubernetesVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

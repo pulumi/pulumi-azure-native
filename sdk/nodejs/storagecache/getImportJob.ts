@@ -31,7 +31,7 @@ export interface GetImportJobArgs {
     /**
      * Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    importJobName: string;
+    importJobName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface GetImportJobOutputArgs {
     /**
      * Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    importJobName: pulumi.Input<string>;
+    importJobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

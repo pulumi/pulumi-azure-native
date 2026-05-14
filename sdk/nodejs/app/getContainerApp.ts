@@ -26,7 +26,7 @@ export interface GetContainerAppArgs {
     /**
      * Name of the Container App.
      */
-    containerAppName: string;
+    containerAppName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,7 +161,7 @@ export interface GetContainerAppOutputArgs {
     /**
      * Name of the Container App.
      */
-    containerAppName: pulumi.Input<string>;
+    containerAppName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -27,7 +27,7 @@ export interface GetMigrationEntityGroupArgs {
     /**
      * Migration Entity Group ARM name
      */
-    migrationEntityGroupName: string;
+    migrationEntityGroupName?: string;
     /**
      * Migrate Project Name
      */
@@ -91,7 +91,7 @@ export interface GetMigrationEntityGroupOutputArgs {
     /**
      * Migration Entity Group ARM name
      */
-    migrationEntityGroupName: pulumi.Input<string>;
+    migrationEntityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Migrate Project Name
      */

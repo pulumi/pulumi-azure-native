@@ -28,7 +28,7 @@ export interface GetDataflowGraphArgs {
     /**
      * Name of Instance dataflowEndpoint resource.
      */
-    dataflowGraphName: string;
+    dataflowGraphName?: string;
     /**
      * Name of Instance dataflowProfile resource
      */
@@ -97,7 +97,7 @@ export interface GetDataflowGraphOutputArgs {
     /**
      * Name of Instance dataflowEndpoint resource.
      */
-    dataflowGraphName: pulumi.Input<string>;
+    dataflowGraphName?: pulumi.Input<string | undefined>;
     /**
      * Name of Instance dataflowProfile resource
      */

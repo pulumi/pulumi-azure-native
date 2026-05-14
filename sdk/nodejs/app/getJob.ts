@@ -26,7 +26,7 @@ export interface GetJobArgs {
     /**
      * Job Name
      */
-    jobName: string;
+    jobName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetJobOutputArgs {
     /**
      * Job Name
      */
-    jobName: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

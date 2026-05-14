@@ -26,7 +26,7 @@ export interface GetCommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    communicationServiceName: string;
+    communicationServiceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetCommunicationServiceOutputArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    communicationServiceName: pulumi.Input<string>;
+    communicationServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -30,7 +30,7 @@ export interface GetMaintenanceConfigurationArgs {
     /**
      * The name of the MaintenanceConfiguration
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetMaintenanceConfigurationOutputArgs {
     /**
      * The name of the MaintenanceConfiguration
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

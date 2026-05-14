@@ -43,7 +43,7 @@ export interface GetDefaultUserRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface GetDefaultUserRuleOutputArgs {
     /**
      * The name of the rule.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

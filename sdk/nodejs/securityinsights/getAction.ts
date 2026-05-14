@@ -28,7 +28,7 @@ export interface GetActionArgs {
     /**
      * Action ID
      */
-    actionId: string;
+    actionId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetActionOutputArgs {
     /**
      * Action ID
      */
-    actionId: pulumi.Input<string>;
+    actionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

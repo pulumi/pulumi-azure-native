@@ -26,7 +26,7 @@ export interface GetConditionalCreditArgs {
     /**
      * Name of the conditional credit
      */
-    conditionalCreditName: string;
+    conditionalCreditName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,7 +149,7 @@ export interface GetConditionalCreditOutputArgs {
     /**
      * Name of the conditional credit
      */
-    conditionalCreditName: pulumi.Input<string>;
+    conditionalCreditName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

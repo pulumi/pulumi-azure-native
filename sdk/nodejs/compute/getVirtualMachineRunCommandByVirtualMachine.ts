@@ -36,7 +36,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName: string;
+    runCommandName?: string;
     /**
      * The name of the VirtualMachine
      */
@@ -153,7 +153,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,7 +161,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName: pulumi.Input<string>;
+    runCommandName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualMachine
      */

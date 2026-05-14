@@ -26,7 +26,7 @@ export interface GetInferenceGroupArgs {
     /**
      * InferenceGroup name.
      */
-    groupName: string;
+    groupName?: string;
     /**
      * InferencePool name.
      */
@@ -106,7 +106,7 @@ export interface GetInferenceGroupOutputArgs {
     /**
      * InferenceGroup name.
      */
-    groupName: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * InferencePool name.
      */

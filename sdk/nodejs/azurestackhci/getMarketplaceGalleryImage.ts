@@ -26,7 +26,7 @@ export interface GetMarketplaceGalleryImageArgs {
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName: string;
+    marketplaceGalleryImageName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetMarketplaceGalleryImageOutputArgs {
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName: pulumi.Input<string>;
+    marketplaceGalleryImageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

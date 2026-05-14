@@ -24,7 +24,7 @@ export interface GetCacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    cacheId: string;
+    cacheId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -92,7 +92,7 @@ export interface GetCacheOutputArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    cacheId: pulumi.Input<string>;
+    cacheId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

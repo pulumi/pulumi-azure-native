@@ -26,7 +26,7 @@ export interface GetAccessControlListArgs {
     /**
      * Name of the Access Control List.
      */
-    accessControlListName: string;
+    accessControlListName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetAccessControlListOutputArgs {
     /**
      * Name of the Access Control List.
      */
-    accessControlListName: pulumi.Input<string>;
+    accessControlListName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

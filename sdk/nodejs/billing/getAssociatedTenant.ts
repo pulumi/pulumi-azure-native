@@ -24,7 +24,7 @@ export interface GetAssociatedTenantArgs {
     /**
      * The ID that uniquely identifies a tenant.
      */
-    associatedTenantName: string;
+    associatedTenantName?: string;
     /**
      * The ID that uniquely identifies a billing account.
      */
@@ -81,7 +81,7 @@ export interface GetAssociatedTenantOutputArgs {
     /**
      * The ID that uniquely identifies a tenant.
      */
-    associatedTenantName: pulumi.Input<string>;
+    associatedTenantName?: pulumi.Input<string | undefined>;
     /**
      * The ID that uniquely identifies a billing account.
      */

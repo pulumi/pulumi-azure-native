@@ -26,7 +26,7 @@ export interface GetMapArgs {
     /**
      * Maps resource name
      */
-    mapName: string;
+    mapName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetMapOutputArgs {
     /**
      * Maps resource name
      */
-    mapName: pulumi.Input<string>;
+    mapName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

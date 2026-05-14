@@ -27,7 +27,7 @@ export interface GetAFDOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    originGroupName: string;
+    originGroupName?: string;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -112,7 +112,7 @@ export interface GetAFDOriginGroupOutputArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    originGroupName: pulumi.Input<string>;
+    originGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */

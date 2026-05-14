@@ -31,7 +31,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Name of the Network Interface.
      */
-    networkInterfaceName: string;
+    networkInterfaceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetNetworkInterfaceOutputArgs {
     /**
      * Name of the Network Interface.
      */
-    networkInterfaceName: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

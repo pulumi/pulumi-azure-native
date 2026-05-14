@@ -92,7 +92,7 @@ export interface ListInferenceGroupDeltaModelsAsyncOutputArgs {
     /**
      * Gets or sets number of delta models to return. Default: -1, means that all will be returned.
      */
-    count?: pulumi.Input<number>;
+    count?: pulumi.Input<number | undefined>;
     /**
      * InferenceGroup name.
      */
@@ -108,11 +108,11 @@ export interface ListInferenceGroupDeltaModelsAsyncOutputArgs {
     /**
      * Gets or sets skip token for paginated response.
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets target base model.
      */
-    targetBaseModel?: pulumi.Input<string>;
+    targetBaseModel?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning workspace.
      */

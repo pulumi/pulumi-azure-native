@@ -114,19 +114,19 @@ export interface AuthorizationProviderArgs {
     /**
      * Identifier of the authorization provider.
      */
-    authorizationProviderId?: pulumi.Input<string>;
+    authorizationProviderId?: pulumi.Input<string | undefined>;
     /**
      * Authorization Provider name. Must be 1 to 300 characters long.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Identity provider name. Must be 1 to 300 characters long.
      */
-    identityProvider?: pulumi.Input<string>;
+    identityProvider?: pulumi.Input<string | undefined>;
     /**
      * OAuth2 settings
      */
-    oauth2?: pulumi.Input<inputs.apimanagement.AuthorizationProviderOAuth2SettingsArgs>;
+    oauth2?: pulumi.Input<inputs.apimanagement.AuthorizationProviderOAuth2SettingsArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -25,7 +25,7 @@ export interface GetChatModelDeploymentArgs {
     /**
      * The name of the ChatModelDeployment
      */
-    chatModelDeploymentName: string;
+    chatModelDeploymentName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetChatModelDeploymentOutputArgs {
     /**
      * The name of the ChatModelDeployment
      */
-    chatModelDeploymentName: pulumi.Input<string>;
+    chatModelDeploymentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -25,7 +25,7 @@ export interface GetACSSBackupConnectionArgs {
     /**
      * The name of the backup connection resource of virtual instance for SAP.
      */
-    backupName: string;
+    backupName?: string;
     /**
      * The name of the connector resource
      */
@@ -99,7 +99,7 @@ export interface GetACSSBackupConnectionOutputArgs {
     /**
      * The name of the backup connection resource of virtual instance for SAP.
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector resource
      */

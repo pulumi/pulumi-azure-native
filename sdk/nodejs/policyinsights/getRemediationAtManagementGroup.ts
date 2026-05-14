@@ -35,7 +35,7 @@ export interface GetRemediationAtManagementGroupArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: string;
+    remediationName?: string;
 }
 
 /**
@@ -143,5 +143,5 @@ export interface GetRemediationAtManagementGroupOutputArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
 }

@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-01-01-preview.
  */
-export function getAlertsSuppressionRule(args: GetAlertsSuppressionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsSuppressionRuleResult> {
+export function getAlertsSuppressionRule(args?: GetAlertsSuppressionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsSuppressionRuleResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAlertsSuppressionRule", {
         "alertsSuppressionRuleName": args.alertsSuppressionRuleName,
@@ -23,7 +24,7 @@ export interface GetAlertsSuppressionRuleArgs {
     /**
      * The unique name of the suppression alert rule
      */
-    alertsSuppressionRuleName: string;
+    alertsSuppressionRuleName?: string;
 }
 
 /**
@@ -80,7 +81,8 @@ export interface GetAlertsSuppressionRuleResult {
  *
  * Uses Azure REST API version 2019-01-01-preview.
  */
-export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
+export function getAlertsSuppressionRuleOutput(args?: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAlertsSuppressionRule", {
         "alertsSuppressionRuleName": args.alertsSuppressionRuleName,
@@ -91,5 +93,5 @@ export interface GetAlertsSuppressionRuleOutputArgs {
     /**
      * The unique name of the suppression alert rule
      */
-    alertsSuppressionRuleName: pulumi.Input<string>;
+    alertsSuppressionRuleName?: pulumi.Input<string | undefined>;
 }

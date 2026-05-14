@@ -36,7 +36,7 @@ export interface GetWatchlistItemArgs {
     /**
      * The watchlist item id (GUID)
      */
-    watchlistItemId: string;
+    watchlistItemId?: string;
     /**
      * The name of the workspace.
      */
@@ -141,7 +141,7 @@ export interface GetWatchlistItemOutputArgs {
     /**
      * The watchlist item id (GUID)
      */
-    watchlistItemId: pulumi.Input<string>;
+    watchlistItemId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

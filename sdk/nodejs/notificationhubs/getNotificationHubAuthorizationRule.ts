@@ -28,7 +28,7 @@ export interface GetNotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName: string;
+    authorizationRuleName?: string;
     /**
      * Namespace name
      */
@@ -129,7 +129,7 @@ export interface GetNotificationHubAuthorizationRuleOutputArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string | undefined>;
     /**
      * Namespace name
      */

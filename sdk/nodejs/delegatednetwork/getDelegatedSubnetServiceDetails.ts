@@ -30,7 +30,7 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -106,5 +106,5 @@ export interface GetDelegatedSubnetServiceDetailsOutputArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2018-08-01-preview.
  */
-export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+export function getReport(args?: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getReport", {
         "reportName": args.reportName,
@@ -23,7 +24,7 @@ export interface GetReportArgs {
     /**
      * Report Name.
      */
-    reportName: string;
+    reportName?: string;
 }
 
 /**
@@ -72,7 +73,8 @@ export interface GetReportResult {
  *
  * Uses Azure REST API version 2018-08-01-preview.
  */
-export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
+export function getReportOutput(args?: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getReport", {
         "reportName": args.reportName,
@@ -83,5 +85,5 @@ export interface GetReportOutputArgs {
     /**
      * Report Name.
      */
-    reportName: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
 }

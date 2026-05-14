@@ -24,7 +24,7 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    authenticationName: string;
+    authenticationName?: string;
     /**
      * The name of the managed instance.
      */
@@ -80,7 +80,7 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationOutputArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    authenticationName: pulumi.Input<string>;
+    authenticationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

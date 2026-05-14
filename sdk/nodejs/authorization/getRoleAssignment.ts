@@ -24,7 +24,7 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    roleAssignmentName: string;
+    roleAssignmentName?: string;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
@@ -124,7 +124,7 @@ export interface GetRoleAssignmentOutputArgs {
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    roleAssignmentName: pulumi.Input<string>;
+    roleAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
@@ -132,5 +132,5 @@ export interface GetRoleAssignmentOutputArgs {
     /**
      * Tenant ID for cross-tenant request
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetDeploymentAtManagementGroupScopeArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName: string;
+    deploymentName?: string;
     /**
      * The management group ID.
      */
@@ -85,7 +85,7 @@ export interface GetDeploymentAtManagementGroupScopeOutputArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * The management group ID.
      */

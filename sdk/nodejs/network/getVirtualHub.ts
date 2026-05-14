@@ -30,7 +30,7 @@ export interface GetVirtualHubArgs {
     /**
      * The name of the VirtualHub.
      */
-    virtualHubName: string;
+    virtualHubName?: string;
 }
 
 /**
@@ -181,5 +181,5 @@ export interface GetVirtualHubOutputArgs {
     /**
      * The name of the VirtualHub.
      */
-    virtualHubName: pulumi.Input<string>;
+    virtualHubName?: pulumi.Input<string | undefined>;
 }

@@ -113,15 +113,15 @@ export interface DynamoDbContinuousBackupsDescriptionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of DynamoDBContinuousBackupsDescription
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.DynamoDBContinuousBackupsDescriptionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.awsconnector.DynamoDBContinuousBackupsDescriptionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface DynamoDbContinuousBackupsDescriptionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

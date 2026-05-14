@@ -103,7 +103,7 @@ export interface WebAppMetadataArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -111,7 +111,7 @@ export interface WebAppMetadataArgs {
     /**
      * Settings.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

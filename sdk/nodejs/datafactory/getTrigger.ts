@@ -33,7 +33,7 @@ export interface GetTriggerArgs {
     /**
      * The trigger name.
      */
-    triggerName: string;
+    triggerName?: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetTriggerOutputArgs {
     /**
      * The trigger name.
      */
-    triggerName: pulumi.Input<string>;
+    triggerName?: pulumi.Input<string | undefined>;
 }

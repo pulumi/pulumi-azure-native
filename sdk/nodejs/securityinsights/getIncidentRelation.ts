@@ -32,7 +32,7 @@ export interface GetIncidentRelationArgs {
     /**
      * Relation Name
      */
-    relationName: string;
+    relationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetIncidentRelationOutputArgs {
     /**
      * Relation Name
      */
-    relationName: pulumi.Input<string>;
+    relationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    clusterName: string;
+    clusterName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -205,7 +205,7 @@ export interface GetClusterOutputArgs {
     /**
      * The name of the Kusto cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -35,7 +35,7 @@ export interface GetRunbookArgs {
     /**
      * The runbook name.
      */
-    runbookName: string;
+    runbookName?: string;
 }
 
 /**
@@ -167,5 +167,5 @@ export interface GetRunbookOutputArgs {
     /**
      * The runbook name.
      */
-    runbookName: pulumi.Input<string>;
+    runbookName?: pulumi.Input<string | undefined>;
 }

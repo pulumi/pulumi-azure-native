@@ -28,7 +28,7 @@ export interface GetAuthorizationArgs {
     /**
      * Identifier of the authorization.
      */
-    authorizationId: string;
+    authorizationId?: string;
     /**
      * Identifier of the authorization provider.
      */
@@ -105,7 +105,7 @@ export interface GetAuthorizationOutputArgs {
     /**
      * Identifier of the authorization.
      */
-    authorizationId: pulumi.Input<string>;
+    authorizationId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the authorization provider.
      */

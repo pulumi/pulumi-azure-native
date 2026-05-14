@@ -24,7 +24,7 @@ export interface GetEc2SnapshotArgs {
     /**
      * Name of Ec2Snapshot
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2SnapshotOutputArgs {
     /**
      * Name of Ec2Snapshot
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

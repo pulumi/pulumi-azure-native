@@ -28,7 +28,7 @@ export interface GetWebAppAssessmentV2OperationArgs {
     /**
      * Web app Assessment arm name.
      */
-    assessmentName: string;
+    assessmentName?: string;
     /**
      * Group ARM name
      */
@@ -205,7 +205,7 @@ export interface GetWebAppAssessmentV2OperationOutputArgs {
     /**
      * Web app Assessment arm name.
      */
-    assessmentName: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Group ARM name
      */

@@ -35,7 +35,7 @@ export interface GetCassandraResourceCassandraRoleDefinitionArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId: string;
+    roleDefinitionId?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetCassandraResourceCassandraRoleDefinitionOutputArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
 }

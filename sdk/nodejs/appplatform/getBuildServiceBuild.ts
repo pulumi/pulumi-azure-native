@@ -28,7 +28,7 @@ export interface GetBuildServiceBuildArgs {
     /**
      * The name of the build resource.
      */
-    buildName: string;
+    buildName?: string;
     /**
      * The name of the build service resource.
      */
@@ -93,7 +93,7 @@ export interface GetBuildServiceBuildOutputArgs {
     /**
      * The name of the build resource.
      */
-    buildName: pulumi.Input<string>;
+    buildName?: pulumi.Input<string | undefined>;
     /**
      * The name of the build service resource.
      */

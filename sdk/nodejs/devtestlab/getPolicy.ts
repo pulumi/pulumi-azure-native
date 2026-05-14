@@ -35,7 +35,7 @@ export interface GetPolicyArgs {
     /**
      * The name of the Policy
      */
-    name: string;
+    name?: string;
     /**
      * policysets
      */
@@ -135,7 +135,7 @@ export interface GetPolicyOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=description)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * labs
      */
@@ -143,7 +143,7 @@ export interface GetPolicyOutputArgs {
     /**
      * The name of the Policy
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * policysets
      */

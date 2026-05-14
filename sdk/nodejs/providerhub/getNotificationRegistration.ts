@@ -26,7 +26,7 @@ export interface GetNotificationRegistrationArgs {
     /**
      * The notification registration.
      */
-    notificationRegistrationName: string;
+    notificationRegistrationName?: string;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
@@ -78,7 +78,7 @@ export interface GetNotificationRegistrationOutputArgs {
     /**
      * The notification registration.
      */
-    notificationRegistrationName: pulumi.Input<string>;
+    notificationRegistrationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

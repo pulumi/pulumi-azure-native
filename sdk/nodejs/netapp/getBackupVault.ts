@@ -31,7 +31,7 @@ export interface GetBackupVaultArgs {
     /**
      * The name of the Backup Vault
      */
-    backupVaultName: string;
+    backupVaultName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetBackupVaultOutputArgs {
     /**
      * The name of the Backup Vault
      */
-    backupVaultName: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

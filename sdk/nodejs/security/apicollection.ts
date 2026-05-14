@@ -103,7 +103,7 @@ export interface APICollectionArgs {
     /**
      * A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
      */
-    apiCollectionId?: pulumi.Input<string>;
+    apiCollectionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

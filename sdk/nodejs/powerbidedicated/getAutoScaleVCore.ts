@@ -28,7 +28,7 @@ export interface GetAutoScaleVCoreArgs {
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    vcoreName: string;
+    vcoreName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetAutoScaleVCoreOutputArgs {
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    vcoreName: pulumi.Input<string>;
+    vcoreName?: pulumi.Input<string | undefined>;
 }

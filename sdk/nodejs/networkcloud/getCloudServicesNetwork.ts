@@ -26,7 +26,7 @@ export interface GetCloudServicesNetworkArgs {
     /**
      * The name of the cloud services network.
      */
-    cloudServicesNetworkName: string;
+    cloudServicesNetworkName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,7 +140,7 @@ export interface GetCloudServicesNetworkOutputArgs {
     /**
      * The name of the cloud services network.
      */
-    cloudServicesNetworkName: pulumi.Input<string>;
+    cloudServicesNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

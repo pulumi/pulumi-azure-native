@@ -24,7 +24,7 @@ export interface GetAutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    autoscaleSettingName: string;
+    autoscaleSettingName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetAutoscaleSettingOutputArgs {
     /**
      * The autoscale setting name.
      */
-    autoscaleSettingName: pulumi.Input<string>;
+    autoscaleSettingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

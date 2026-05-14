@@ -27,7 +27,7 @@ export interface GetNamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId: string;
+    namedValueId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetNamedValueOutputArgs {
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId: pulumi.Input<string>;
+    namedValueId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

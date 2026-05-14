@@ -36,7 +36,7 @@ export interface GetServiceFabricScheduleArgs {
     /**
      * The name of the Schedule
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,7 +149,7 @@ export interface GetServiceFabricScheduleOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=status)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * labs
      */
@@ -157,7 +157,7 @@ export interface GetServiceFabricScheduleOutputArgs {
     /**
      * The name of the Schedule
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

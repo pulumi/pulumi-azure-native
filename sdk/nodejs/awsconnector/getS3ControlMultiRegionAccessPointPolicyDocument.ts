@@ -24,7 +24,7 @@ export interface GetS3ControlMultiRegionAccessPointPolicyDocumentArgs {
     /**
      * Name of S3ControlMultiRegionAccessPointPolicyDocument
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetS3ControlMultiRegionAccessPointPolicyDocumentOutputArgs {
     /**
      * Name of S3ControlMultiRegionAccessPointPolicyDocument
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

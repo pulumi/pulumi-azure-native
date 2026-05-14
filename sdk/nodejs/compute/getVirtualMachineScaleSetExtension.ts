@@ -40,7 +40,7 @@ export interface GetVirtualMachineScaleSetExtensionArgs {
     /**
      * The name of the VM scale set extension.
      */
-    vmssExtensionName: string;
+    vmssExtensionName?: string;
 }
 
 /**
@@ -129,7 +129,7 @@ export interface GetVirtualMachineScaleSetExtensionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,5 +141,5 @@ export interface GetVirtualMachineScaleSetExtensionOutputArgs {
     /**
      * The name of the VM scale set extension.
      */
-    vmssExtensionName: pulumi.Input<string>;
+    vmssExtensionName?: pulumi.Input<string | undefined>;
 }

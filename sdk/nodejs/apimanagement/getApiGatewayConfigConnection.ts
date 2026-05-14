@@ -24,7 +24,7 @@ export interface GetApiGatewayConfigConnectionArgs {
     /**
      * The name of the API Management gateway config connection.
      */
-    configConnectionName: string;
+    configConnectionName?: string;
     /**
      * The name of the API Management gateway.
      */
@@ -96,7 +96,7 @@ export interface GetApiGatewayConfigConnectionOutputArgs {
     /**
      * The name of the API Management gateway config connection.
      */
-    configConnectionName: pulumi.Input<string>;
+    configConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management gateway.
      */

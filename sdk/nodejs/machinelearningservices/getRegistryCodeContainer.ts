@@ -27,7 +27,7 @@ export interface GetRegistryCodeContainerArgs {
     /**
      * Container name.
      */
-    codeName: string;
+    codeName?: string;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
@@ -87,7 +87,7 @@ export interface GetRegistryCodeContainerOutputArgs {
     /**
      * Container name.
      */
-    codeName: pulumi.Input<string>;
+    codeName?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */

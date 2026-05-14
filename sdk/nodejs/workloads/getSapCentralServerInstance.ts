@@ -25,7 +25,7 @@ export interface GetSapCentralServerInstanceArgs {
     /**
      * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
-    centralInstanceName: string;
+    centralInstanceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -143,7 +143,7 @@ export interface GetSapCentralServerInstanceOutputArgs {
     /**
      * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
-    centralInstanceName: pulumi.Input<string>;
+    centralInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

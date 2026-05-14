@@ -26,7 +26,7 @@ export interface GetGeoCatalogArgs {
     /**
      * The name of the catalog
      */
-    catalogName: string;
+    catalogName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetGeoCatalogOutputArgs {
     /**
      * The name of the catalog
      */
-    catalogName: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

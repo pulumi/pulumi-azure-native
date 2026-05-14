@@ -28,7 +28,7 @@ export interface GetStaticSiteBuildDatabaseConnectionArgs {
     /**
      * Name of the database connection.
      */
-    databaseConnectionName: string;
+    databaseConnectionName?: string;
     /**
      * The stage site identifier.
      */
@@ -109,7 +109,7 @@ export interface GetStaticSiteBuildDatabaseConnectionOutputArgs {
     /**
      * Name of the database connection.
      */
-    databaseConnectionName: pulumi.Input<string>;
+    databaseConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The stage site identifier.
      */

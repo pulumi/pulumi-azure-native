@@ -30,7 +30,7 @@ export interface GetBrokerListenerArgs {
     /**
      * Name of MQ broker/listener resource
      */
-    listenerName: string;
+    listenerName?: string;
     /**
      * Name of MQ resource
      */
@@ -137,7 +137,7 @@ export interface GetBrokerListenerOutputArgs {
     /**
      * Name of MQ broker/listener resource
      */
-    listenerName: pulumi.Input<string>;
+    listenerName?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */

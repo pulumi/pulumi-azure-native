@@ -35,7 +35,7 @@ export interface GetEnvironmentArgs {
     /**
      * The name of the environment.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -123,7 +123,7 @@ export interface GetEnvironmentOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=deploymentProperties)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -131,7 +131,7 @@ export interface GetEnvironmentOutputArgs {
     /**
      * The name of the environment.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

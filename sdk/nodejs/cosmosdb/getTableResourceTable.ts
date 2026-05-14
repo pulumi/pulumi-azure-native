@@ -35,7 +35,7 @@ export interface GetTableResourceTableArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName: string;
+    tableName?: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetTableResourceTableOutputArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

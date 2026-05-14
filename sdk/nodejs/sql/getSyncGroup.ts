@@ -40,7 +40,7 @@ export interface GetSyncGroupArgs {
     /**
      * The name of the sync group.
      */
-    syncGroupName: string;
+    syncGroupName?: string;
 }
 
 /**
@@ -145,5 +145,5 @@ export interface GetSyncGroupOutputArgs {
     /**
      * The name of the sync group.
      */
-    syncGroupName: pulumi.Input<string>;
+    syncGroupName?: pulumi.Input<string | undefined>;
 }

@@ -33,7 +33,7 @@ export interface GetServerCollectorArgs {
     /**
      * Unique name of a Server collector within a project.
      */
-    serverCollectorName: string;
+    serverCollectorName?: string;
 }
 
 export interface GetServerCollectorResult {
@@ -73,5 +73,5 @@ export interface GetServerCollectorOutputArgs {
     /**
      * Unique name of a Server collector within a project.
      */
-    serverCollectorName: pulumi.Input<string>;
+    serverCollectorName?: pulumi.Input<string | undefined>;
 }

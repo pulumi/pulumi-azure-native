@@ -120,11 +120,11 @@ export interface SqlPoolTransparentDataEncryptionArgs {
     /**
      * The status of the database transparent data encryption.
      */
-    status?: pulumi.Input<string | enums.synapse.TransparentDataEncryptionStatus>;
+    status?: pulumi.Input<string | enums.synapse.TransparentDataEncryptionStatus | undefined>;
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName?: pulumi.Input<string>;
+    transparentDataEncryptionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

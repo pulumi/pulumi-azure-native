@@ -212,11 +212,11 @@ export interface ExtensionArgs {
     /**
      * Identity of the Extension resource in an AKS cluster
      */
-    aksAssignedIdentity?: pulumi.Input<inputs.kubernetesconfiguration.ExtensionAksAssignedIdentityArgs>;
+    aksAssignedIdentity?: pulumi.Input<inputs.kubernetesconfiguration.ExtensionAksAssignedIdentityArgs | undefined>;
     /**
      * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
-    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the kubernetes cluster.
      */
@@ -232,31 +232,31 @@ export interface ExtensionArgs {
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
-    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration settings, as name-value pairs for configuring this extension.
      */
-    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Extension.
      */
-    extensionName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string | undefined>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
-    extensionType?: pulumi.Input<string>;
+    extensionType?: pulumi.Input<string | undefined>;
     /**
      * Identity of the Extension resource
      */
-    identity?: pulumi.Input<inputs.kubernetesconfiguration.IdentityArgs>;
+    identity?: pulumi.Input<inputs.kubernetesconfiguration.IdentityArgs | undefined>;
     /**
      * The plan information.
      */
-    plan?: pulumi.Input<inputs.kubernetesconfiguration.PlanArgs>;
+    plan?: pulumi.Input<inputs.kubernetesconfiguration.PlanArgs | undefined>;
     /**
      * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
-    releaseTrain?: pulumi.Input<string>;
+    releaseTrain?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -264,13 +264,13 @@ export interface ExtensionArgs {
     /**
      * Scope at which the extension is installed.
      */
-    scope?: pulumi.Input<inputs.kubernetesconfiguration.ScopeArgs>;
+    scope?: pulumi.Input<inputs.kubernetesconfiguration.ScopeArgs | undefined>;
     /**
      * Status from this extension.
      */
-    statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.ExtensionStatusArgs>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.ExtensionStatusArgs>[] | undefined>;
     /**
      * User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

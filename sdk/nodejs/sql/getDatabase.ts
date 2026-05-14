@@ -29,7 +29,7 @@ export interface GetDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The child resources to include in the response.
      */
@@ -293,15 +293,15 @@ export interface GetDatabaseOutputArgs {
     /**
      * The name of the database.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * An OData filter expression that filters elements in the collection.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

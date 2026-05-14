@@ -153,15 +153,15 @@ export interface ServerSecurityAlertPolicyArgs {
     /**
      * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
      */
-    disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies that the alert is sent to the account administrators.
      */
-    emailAccountAdmins?: pulumi.Input<boolean>;
+    emailAccountAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of e-mail addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -169,11 +169,11 @@ export interface ServerSecurityAlertPolicyArgs {
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the threat detection policy.
      */
-    securityAlertPolicyName?: pulumi.Input<string>;
+    securityAlertPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the server.
      */
@@ -185,9 +185,9 @@ export interface ServerSecurityAlertPolicyArgs {
     /**
      * Specifies the identifier key of the Threat Detection audit storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

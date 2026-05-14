@@ -27,7 +27,7 @@ export interface GetAdvancedThreatProtectionArgs {
     /**
      * Advanced Threat Protection setting name.
      */
-    settingName: string;
+    settingName?: string;
 }
 
 /**
@@ -78,5 +78,5 @@ export interface GetAdvancedThreatProtectionOutputArgs {
     /**
      * Advanced Threat Protection setting name.
      */
-    settingName: pulumi.Input<string>;
+    settingName?: pulumi.Input<string | undefined>;
 }

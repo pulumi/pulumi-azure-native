@@ -26,7 +26,7 @@ export interface GetAmlFilesystemArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    amlFilesystemName: string;
+    amlFilesystemName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetAmlFilesystemOutputArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    amlFilesystemName: pulumi.Input<string>;
+    amlFilesystemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

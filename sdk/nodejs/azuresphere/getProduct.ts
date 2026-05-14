@@ -29,7 +29,7 @@ export interface GetProductArgs {
     /**
      * Name of product.
      */
-    productName: string;
+    productName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetProductOutputArgs {
     /**
      * Name of product.
      */
-    productName: pulumi.Input<string>;
+    productName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -140,11 +140,11 @@ export interface ControllerDetailsArgs {
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The purpose of the dnc controller resource.
      */
-    purpose?: pulumi.Input<string | enums.delegatednetwork.ControllerPurpose>;
+    purpose?: pulumi.Input<string | enums.delegatednetwork.ControllerPurpose | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,9 +152,9 @@ export interface ControllerDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

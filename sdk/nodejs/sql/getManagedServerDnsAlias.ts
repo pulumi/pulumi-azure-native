@@ -21,7 +21,7 @@ export function getManagedServerDnsAlias(args: GetManagedServerDnsAliasArgs, opt
 }
 
 export interface GetManagedServerDnsAliasArgs {
-    dnsAliasName: string;
+    dnsAliasName?: string;
     /**
      * The name of the managed instance.
      */
@@ -78,7 +78,7 @@ export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOut
 }
 
 export interface GetManagedServerDnsAliasOutputArgs {
-    dnsAliasName: pulumi.Input<string>;
+    dnsAliasName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

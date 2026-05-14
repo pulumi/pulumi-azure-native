@@ -150,7 +150,7 @@ export interface WorkspaceManagerAssignmentArgs {
     /**
      * The name of the workspace manager assignment
      */
-    workspaceManagerAssignmentName?: pulumi.Input<string>;
+    workspaceManagerAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

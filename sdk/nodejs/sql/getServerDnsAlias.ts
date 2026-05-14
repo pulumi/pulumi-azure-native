@@ -24,7 +24,7 @@ export interface GetServerDnsAliasArgs {
     /**
      * The name of the server dns alias.
      */
-    dnsAliasName: string;
+    dnsAliasName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -80,7 +80,7 @@ export interface GetServerDnsAliasOutputArgs {
     /**
      * The name of the server dns alias.
      */
-    dnsAliasName: pulumi.Input<string>;
+    dnsAliasName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

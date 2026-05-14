@@ -158,23 +158,23 @@ export interface AvailabilitySetArgs {
     /**
      * The name of the availability set.
      */
-    availabilitySetName?: pulumi.Input<string>;
+    availabilitySetName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Fault Domain count.
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Update Domain count.
      */
-    platformUpdateDomainCount?: pulumi.Input<number>;
+    platformUpdateDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
      */
-    proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
+    proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -182,17 +182,17 @@ export interface AvailabilitySetArgs {
     /**
      * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
      */
-    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs | undefined>;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
-    sku?: pulumi.Input<inputs.compute.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.SubResourceArgs>[]>;
+    virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.SubResourceArgs>[] | undefined>;
 }

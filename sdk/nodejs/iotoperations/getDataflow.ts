@@ -28,7 +28,7 @@ export interface GetDataflowArgs {
     /**
      * Name of Instance dataflowProfile dataflow resource
      */
-    dataflowName: string;
+    dataflowName?: string;
     /**
      * Name of Instance dataflowProfile resource
      */
@@ -97,7 +97,7 @@ export interface GetDataflowOutputArgs {
     /**
      * Name of Instance dataflowProfile dataflow resource
      */
-    dataflowName: pulumi.Input<string>;
+    dataflowName?: pulumi.Input<string | undefined>;
     /**
      * Name of Instance dataflowProfile resource
      */

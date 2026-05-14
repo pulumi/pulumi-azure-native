@@ -31,7 +31,7 @@ export interface GetAccountCapabilityHostArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName: string;
+    capabilityHostName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetAccountCapabilityHostOutputArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName: pulumi.Input<string>;
+    capabilityHostName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetAssignmentArgs {
     /**
      * The security assignment key - unique key for the standard assignment
      */
-    assignmentId: string;
+    assignmentId?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetAssignmentOutputArgs {
     /**
      * The security assignment key - unique key for the standard assignment
      */
-    assignmentId: pulumi.Input<string>;
+    assignmentId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

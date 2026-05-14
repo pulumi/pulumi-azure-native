@@ -33,7 +33,7 @@ export interface GetReplicationProtectionContainerMappingArgs {
     /**
      * Protection Container mapping name.
      */
-    mappingName: string;
+    mappingName?: string;
     /**
      * Protection container name.
      */
@@ -103,7 +103,7 @@ export interface GetReplicationProtectionContainerMappingOutputArgs {
     /**
      * Protection Container mapping name.
      */
-    mappingName: pulumi.Input<string>;
+    mappingName?: pulumi.Input<string | undefined>;
     /**
      * Protection container name.
      */

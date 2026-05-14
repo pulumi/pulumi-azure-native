@@ -27,7 +27,7 @@ export interface GetMigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    configName: string;
+    configName?: string;
     /**
      * The namespace name
      */
@@ -107,7 +107,7 @@ export interface GetMigrationConfigOutputArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    configName: pulumi.Input<string>;
+    configName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */

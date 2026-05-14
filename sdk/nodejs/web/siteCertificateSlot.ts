@@ -243,35 +243,35 @@ export interface SiteCertificateSlotArgs {
     /**
      * CNAME of the certificate to be issued via free certificate
      */
-    canonicalName?: pulumi.Input<string>;
+    canonicalName?: pulumi.Input<string | undefined>;
     /**
      * Name of the certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Method of domain validation for free cert
      */
-    domainValidationMethod?: pulumi.Input<string>;
+    domainValidationMethod?: pulumi.Input<string | undefined>;
     /**
      * Host names the certificate applies to.
      */
-    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Azure Key Vault Csm resource Id.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * Azure Key Vault secret name.
      */
-    keyVaultSecretName?: pulumi.Input<string>;
+    keyVaultSecretName?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the site.
      */
@@ -279,11 +279,11 @@ export interface SiteCertificateSlotArgs {
     /**
      * Certificate password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Pfx blob.
      */
-    pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -291,7 +291,7 @@ export interface SiteCertificateSlotArgs {
     /**
      * Resource ID of the associated App Service plan.
      */
-    serverFarmId?: pulumi.Input<string>;
+    serverFarmId?: pulumi.Input<string | undefined>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
      */
@@ -299,5 +299,5 @@ export interface SiteCertificateSlotArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

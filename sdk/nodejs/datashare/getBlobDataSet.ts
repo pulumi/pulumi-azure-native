@@ -30,7 +30,7 @@ export interface GetBlobDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName: string;
+    dataSetName?: string;
     /**
      * The resource group name.
      */
@@ -118,7 +118,7 @@ export interface GetBlobDataSetOutputArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

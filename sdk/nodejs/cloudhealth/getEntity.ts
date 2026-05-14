@@ -27,7 +27,7 @@ export interface GetEntityArgs {
     /**
      * Name of the entity. Must be unique within a health model.
      */
-    entityName: string;
+    entityName?: string;
     /**
      * Name of health model resource
      */
@@ -87,7 +87,7 @@ export interface GetEntityOutputArgs {
     /**
      * Name of the entity. Must be unique within a health model.
      */
-    entityName: pulumi.Input<string>;
+    entityName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */

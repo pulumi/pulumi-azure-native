@@ -27,7 +27,7 @@ export interface GetNetworkVirtualApplianceConnectionArgs {
     /**
      * The name of the NVA connection.
      */
-    connectionName: string;
+    connectionName?: string;
     /**
      * The name of the Network Virtual Appliance.
      */
@@ -79,7 +79,7 @@ export interface GetNetworkVirtualApplianceConnectionOutputArgs {
     /**
      * The name of the NVA connection.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Virtual Appliance.
      */

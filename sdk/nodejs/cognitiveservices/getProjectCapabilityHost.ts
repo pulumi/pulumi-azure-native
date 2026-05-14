@@ -32,7 +32,7 @@ export interface GetProjectCapabilityHostArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName: string;
+    capabilityHostName?: string;
     /**
      * The name of Cognitive Services account's project.
      */
@@ -93,7 +93,7 @@ export interface GetProjectCapabilityHostOutputArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName: pulumi.Input<string>;
+    capabilityHostName?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */

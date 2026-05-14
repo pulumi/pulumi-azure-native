@@ -30,7 +30,7 @@ export interface GetSqlVirtualMachineGroupArgs {
     /**
      * Name of the SQL virtual machine group.
      */
-    sqlVirtualMachineGroupName: string;
+    sqlVirtualMachineGroupName?: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSqlVirtualMachineGroupOutputArgs {
     /**
      * Name of the SQL virtual machine group.
      */
-    sqlVirtualMachineGroupName: pulumi.Input<string>;
+    sqlVirtualMachineGroupName?: pulumi.Input<string | undefined>;
 }

@@ -31,7 +31,7 @@ export interface GetNetworkVirtualApplianceArgs {
     /**
      * The name of Network Virtual Appliance.
      */
-    networkVirtualApplianceName: string;
+    networkVirtualApplianceName?: string;
     /**
      * The name of the resource group.
      */
@@ -171,11 +171,11 @@ export interface GetNetworkVirtualApplianceOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of Network Virtual Appliance.
      */
-    networkVirtualApplianceName: pulumi.Input<string>;
+    networkVirtualApplianceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

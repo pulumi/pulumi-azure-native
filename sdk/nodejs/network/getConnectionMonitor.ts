@@ -27,7 +27,7 @@ export interface GetConnectionMonitorArgs {
     /**
      * The name of the connection monitor.
      */
-    connectionMonitorName: string;
+    connectionMonitorName?: string;
     /**
      * The name of the Network Watcher resource.
      */
@@ -143,7 +143,7 @@ export interface GetConnectionMonitorOutputArgs {
     /**
      * The name of the connection monitor.
      */
-    connectionMonitorName: pulumi.Input<string>;
+    connectionMonitorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher resource.
      */

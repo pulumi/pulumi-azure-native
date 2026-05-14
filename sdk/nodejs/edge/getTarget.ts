@@ -30,7 +30,7 @@ export interface GetTargetArgs {
     /**
      * Name of the target
      */
-    targetName: string;
+    targetName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetTargetOutputArgs {
     /**
      * Name of the target
      */
-    targetName: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
 }

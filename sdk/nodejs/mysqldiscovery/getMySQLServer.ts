@@ -29,7 +29,7 @@ export interface GetMySQLServerArgs {
     /**
      * The name of Server
      */
-    serverName: string;
+    serverName?: string;
     /**
      * The name of Site
      */
@@ -135,7 +135,7 @@ export interface GetMySQLServerOutputArgs {
     /**
      * The name of Server
      */
-    serverName: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The name of Site
      */

@@ -27,7 +27,7 @@ export interface GetSqlServerAvailabilityGroupArgs {
     /**
      * Name of SQL Availability Group
      */
-    availabilityGroupName: string;
+    availabilityGroupName?: string;
     /**
      * The name of the Azure resource group
      */
@@ -95,7 +95,7 @@ export interface GetSqlServerAvailabilityGroupOutputArgs {
     /**
      * Name of SQL Availability Group
      */
-    availabilityGroupName: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group
      */

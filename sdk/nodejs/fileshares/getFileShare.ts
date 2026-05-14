@@ -30,7 +30,7 @@ export interface GetFileShareArgs {
     /**
      * The resource name of the file share, as seen by the administrator through Azure Resource Manager.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetFileShareOutputArgs {
     /**
      * The resource name of the file share, as seen by the administrator through Azure Resource Manager.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

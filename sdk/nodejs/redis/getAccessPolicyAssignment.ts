@@ -27,7 +27,7 @@ export interface GetAccessPolicyAssignmentArgs {
     /**
      * The name of the access policy assignment.
      */
-    accessPolicyAssignmentName: string;
+    accessPolicyAssignmentName?: string;
     /**
      * The name of the Redis cache.
      */
@@ -99,7 +99,7 @@ export interface GetAccessPolicyAssignmentOutputArgs {
     /**
      * The name of the access policy assignment.
      */
-    accessPolicyAssignmentName: pulumi.Input<string>;
+    accessPolicyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis cache.
      */

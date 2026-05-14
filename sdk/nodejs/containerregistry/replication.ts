@@ -138,11 +138,11 @@ export interface ReplicationArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
      */
-    regionEndpointEnabled?: pulumi.Input<boolean>;
+    regionEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the container registry.
      */
@@ -150,7 +150,7 @@ export interface ReplicationArgs {
     /**
      * The name of the replication.
      */
-    replicationName?: pulumi.Input<string>;
+    replicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,9 +158,9 @@ export interface ReplicationArgs {
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether or not zone redundancy is enabled for this container registry replication
      */
-    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy>;
+    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy | undefined>;
 }

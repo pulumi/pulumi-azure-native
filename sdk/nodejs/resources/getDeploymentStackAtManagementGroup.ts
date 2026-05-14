@@ -26,7 +26,7 @@ export interface GetDeploymentStackAtManagementGroupArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName: string;
+    deploymentStackName?: string;
     /**
      * The management group ID.
      */
@@ -153,7 +153,7 @@ export interface GetDeploymentStackAtManagementGroupOutputArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName: pulumi.Input<string>;
+    deploymentStackName?: pulumi.Input<string | undefined>;
     /**
      * The management group ID.
      */

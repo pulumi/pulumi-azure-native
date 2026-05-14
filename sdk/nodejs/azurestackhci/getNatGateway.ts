@@ -26,7 +26,7 @@ export interface GetNatGatewayArgs {
     /**
      * Name of the nat gateway
      */
-    natGatewayName: string;
+    natGatewayName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetNatGatewayOutputArgs {
     /**
      * Name of the nat gateway
      */
-    natGatewayName: pulumi.Input<string>;
+    natGatewayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

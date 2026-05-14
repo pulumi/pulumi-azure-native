@@ -27,7 +27,7 @@ export interface GetConsoleArgs {
     /**
      * The name of the virtual machine console.
      */
-    consoleName: string;
+    consoleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,7 +128,7 @@ export interface GetConsoleOutputArgs {
     /**
      * The name of the virtual machine console.
      */
-    consoleName: pulumi.Input<string>;
+    consoleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

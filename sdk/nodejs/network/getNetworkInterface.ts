@@ -31,7 +31,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * The name of the network interface.
      */
-    networkInterfaceName: string;
+    networkInterfaceName?: string;
     /**
      * The name of the resource group.
      */
@@ -187,11 +187,11 @@ export interface GetNetworkInterfaceOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the network interface.
      */
-    networkInterfaceName: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

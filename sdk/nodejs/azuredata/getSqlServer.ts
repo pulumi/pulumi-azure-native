@@ -31,7 +31,7 @@ export interface GetSqlServerArgs {
     /**
      * Name of the SQL Server.
      */
-    sqlServerName: string;
+    sqlServerName?: string;
     /**
      * Name of the SQL Server registration.
      */
@@ -98,7 +98,7 @@ export interface GetSqlServerOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -106,7 +106,7 @@ export interface GetSqlServerOutputArgs {
     /**
      * Name of the SQL Server.
      */
-    sqlServerName: pulumi.Input<string>;
+    sqlServerName?: pulumi.Input<string | undefined>;
     /**
      * Name of the SQL Server registration.
      */

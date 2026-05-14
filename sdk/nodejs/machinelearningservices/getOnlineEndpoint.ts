@@ -27,7 +27,7 @@ export interface GetOnlineEndpointArgs {
     /**
      * Online Endpoint name.
      */
-    endpointName: string;
+    endpointName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetOnlineEndpointOutputArgs {
     /**
      * Online Endpoint name.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

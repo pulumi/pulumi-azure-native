@@ -27,7 +27,7 @@ export interface GetKeyArgs {
     /**
      * The name of the key to be retrieved.
      */
-    keyName: string;
+    keyName?: string;
     /**
      * The name of the resource group which contains the specified key vault.
      */
@@ -120,7 +120,7 @@ export interface GetKeyOutputArgs {
     /**
      * The name of the key to be retrieved.
      */
-    keyName: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group which contains the specified key vault.
      */

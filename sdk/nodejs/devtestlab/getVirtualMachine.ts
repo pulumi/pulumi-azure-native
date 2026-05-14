@@ -34,7 +34,7 @@ export interface GetVirtualMachineArgs {
     /**
      * The name of the virtual machine.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -233,7 +233,7 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -241,7 +241,7 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * The name of the virtual machine.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

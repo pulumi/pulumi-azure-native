@@ -26,7 +26,7 @@ export interface GetNetworkConnectionArgs {
     /**
      * Name of the Network Connection that can be applied to a Pool.
      */
-    networkConnectionName: string;
+    networkConnectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetNetworkConnectionOutputArgs {
     /**
      * Name of the Network Connection that can be applied to a Pool.
      */
-    networkConnectionName: pulumi.Input<string>;
+    networkConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -94,7 +94,7 @@ export class WebAppDiagnosticLogsConfigurationSlot extends pulumi.CustomResource
             if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["applicationLogs"] = args ? (args.applicationLogs ? pulumi.output(args.applicationLogs).apply(inputs.web.applicationLogsConfigArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["applicationLogs"] = args ? pulumi.output(args.applicationLogs).apply(v => v === undefined ? undefined : inputs.web.applicationLogsConfigArgsProvideDefaults(v)) : undefined;
             resourceInputs["detailedErrorMessages"] = args?.detailedErrorMessages;
             resourceInputs["failedRequestsTracing"] = args?.failedRequestsTracing;
             resourceInputs["httpLogs"] = args?.httpLogs;
@@ -128,23 +128,23 @@ export interface WebAppDiagnosticLogsConfigurationSlotArgs {
     /**
      * Application logs configuration.
      */
-    applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfigArgs>;
+    applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfigArgs | undefined>;
     /**
      * Detailed error messages configuration.
      */
-    detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfigArgs>;
+    detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfigArgs | undefined>;
     /**
      * Failed requests tracing configuration.
      */
-    failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfigArgs>;
+    failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfigArgs | undefined>;
     /**
      * HTTP logs configuration.
      */
-    httpLogs?: pulumi.Input<inputs.web.HttpLogsConfigArgs>;
+    httpLogs?: pulumi.Input<inputs.web.HttpLogsConfigArgs | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

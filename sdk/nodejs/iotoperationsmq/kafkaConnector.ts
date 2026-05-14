@@ -129,7 +129,7 @@ export class KafkaConnector extends pulumi.CustomResource {
             resourceInputs["instances"] = args?.instances;
             resourceInputs["kafkaConnection"] = args?.kafkaConnection;
             resourceInputs["kafkaConnectorName"] = args?.kafkaConnectorName;
-            resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["localBrokerConnection"] = args ? pulumi.output(args.localBrokerConnection).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["logLevel"] = (args?.logLevel) ?? "info";
             resourceInputs["mqName"] = args?.mqName;
@@ -172,7 +172,7 @@ export interface KafkaConnectorArgs {
     /**
      * The client id prefix of the dynamically generated client ids.
      */
-    clientIdPrefix?: pulumi.Input<string>;
+    clientIdPrefix?: pulumi.Input<string | undefined>;
     /**
      * Extended Location
      */
@@ -180,11 +180,11 @@ export interface KafkaConnectorArgs {
     /**
      * The details of KafkaConnector Docker Image.
      */
-    image?: pulumi.Input<inputs.iotoperationsmq.ContainerImageArgs>;
+    image?: pulumi.Input<inputs.iotoperationsmq.ContainerImageArgs | undefined>;
     /**
      * The number of KafkaConnector pods to spin up.
      */
-    instances?: pulumi.Input<number>;
+    instances?: pulumi.Input<number | undefined>;
     /**
      * The details for connecting with Remote Kafka Broker.
      */
@@ -192,19 +192,19 @@ export interface KafkaConnectorArgs {
     /**
      * Name of MQ kafkaConnector resource
      */
-    kafkaConnectorName?: pulumi.Input<string>;
+    kafkaConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The details for connecting with Local Broker.
      */
-    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs>;
+    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The log level of the Bridge Connector instances.
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */
@@ -212,7 +212,7 @@ export interface KafkaConnectorArgs {
     /**
      * The Node Tolerations for the Bridge Connector pods.
      */
-    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs>;
+    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -220,5 +220,5 @@ export interface KafkaConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

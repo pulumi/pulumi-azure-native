@@ -28,7 +28,7 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIArgs {
     /**
      * The name of the service instance.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs {
     /**
      * The name of the service instance.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

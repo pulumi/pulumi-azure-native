@@ -27,7 +27,7 @@ export interface GetConnectedEnvironmentsDaprComponentArgs {
     /**
      * Name of the Dapr Component.
      */
-    componentName: string;
+    componentName?: string;
     /**
      * Name of the connected environment.
      */
@@ -127,7 +127,7 @@ export interface GetConnectedEnvironmentsDaprComponentOutputArgs {
     /**
      * Name of the Dapr Component.
      */
-    componentName: pulumi.Input<string>;
+    componentName?: pulumi.Input<string | undefined>;
     /**
      * Name of the connected environment.
      */

@@ -32,7 +32,7 @@ export interface GetWebAppSiteExtensionArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId: string;
+    siteExtensionId?: string;
 }
 
 /**
@@ -165,5 +165,5 @@ export interface GetWebAppSiteExtensionOutputArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId: pulumi.Input<string>;
+    siteExtensionId?: pulumi.Input<string | undefined>;
 }

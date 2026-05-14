@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
+export function getPeerAsn(args?: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
@@ -25,7 +26,7 @@ export interface GetPeerAsnArgs {
     /**
      * The peer ASN name.
      */
-    peerAsnName: string;
+    peerAsnName?: string;
 }
 
 /**
@@ -76,7 +77,8 @@ export interface GetPeerAsnResult {
  *
  * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeerAsnResult> {
+export function getPeerAsnOutput(args?: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeerAsnResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
@@ -87,5 +89,5 @@ export interface GetPeerAsnOutputArgs {
     /**
      * The peer ASN name.
      */
-    peerAsnName: pulumi.Input<string>;
+    peerAsnName?: pulumi.Input<string | undefined>;
 }

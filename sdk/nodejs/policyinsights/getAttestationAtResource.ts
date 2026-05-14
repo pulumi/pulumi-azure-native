@@ -26,7 +26,7 @@ export interface GetAttestationAtResourceArgs {
     /**
      * The name of the attestation.
      */
-    attestationName: string;
+    attestationName?: string;
     /**
      * Resource ID.
      */
@@ -121,7 +121,7 @@ export interface GetAttestationAtResourceOutputArgs {
     /**
      * The name of the attestation.
      */
-    attestationName: pulumi.Input<string>;
+    attestationName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

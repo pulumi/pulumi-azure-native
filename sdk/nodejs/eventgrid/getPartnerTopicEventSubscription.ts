@@ -27,7 +27,7 @@ export interface GetPartnerTopicEventSubscriptionArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName: string;
+    eventSubscriptionName?: string;
     /**
      * Name of the partner topic.
      */
@@ -131,7 +131,7 @@ export interface GetPartnerTopicEventSubscriptionOutputArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the partner topic.
      */

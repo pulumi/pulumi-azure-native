@@ -156,39 +156,39 @@ export interface WebAppDeploymentSlotArgs {
     /**
      * True if deployment is currently active, false if completed and null if not started.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Who authored the deployment.
      */
-    author?: pulumi.Input<string>;
+    author?: pulumi.Input<string | undefined>;
     /**
      * Author email.
      */
-    authorEmail?: pulumi.Input<string>;
+    authorEmail?: pulumi.Input<string | undefined>;
     /**
      * Who performed the deployment.
      */
-    deployer?: pulumi.Input<string>;
+    deployer?: pulumi.Input<string | undefined>;
     /**
      * Details on deployment.
      */
-    details?: pulumi.Input<string>;
+    details?: pulumi.Input<string | undefined>;
     /**
      * End time.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * ID of an existing deployment.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Details about deployment status.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -204,9 +204,9 @@ export interface WebAppDeploymentSlotArgs {
     /**
      * Start time.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * Deployment status.
      */
-    status?: pulumi.Input<number>;
+    status?: pulumi.Input<number | undefined>;
 }

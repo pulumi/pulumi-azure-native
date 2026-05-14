@@ -29,7 +29,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsArgs {
     /**
      * Security ML Analytics Settings resource name
      */
-    settingsResourceName: string;
+    settingsResourceName?: string;
     /**
      * The name of the workspace.
      */
@@ -148,7 +148,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsOutputArgs {
     /**
      * Security ML Analytics Settings resource name
      */
-    settingsResourceName: pulumi.Input<string>;
+    settingsResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

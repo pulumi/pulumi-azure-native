@@ -31,7 +31,7 @@ export interface GetManagedPrivateEndpointArgs {
     /**
      * The name of the managed private endpoint.
      */
-    managedPrivateEndpointName: string;
+    managedPrivateEndpointName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetManagedPrivateEndpointOutputArgs {
     /**
      * The name of the managed private endpoint.
      */
-    managedPrivateEndpointName: pulumi.Input<string>;
+    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

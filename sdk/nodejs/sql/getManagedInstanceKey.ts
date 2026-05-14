@@ -24,7 +24,7 @@ export interface GetManagedInstanceKeyArgs {
     /**
      * The name of the managed instance key to be retrieved.
      */
-    keyName: string;
+    keyName?: string;
     /**
      * The name of the managed instance.
      */
@@ -92,7 +92,7 @@ export interface GetManagedInstanceKeyOutputArgs {
     /**
      * The name of the managed instance key to be retrieved.
      */
-    keyName: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

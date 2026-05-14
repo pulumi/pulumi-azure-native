@@ -31,7 +31,7 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName: string;
+    billingRoleAssignmentName?: string;
     /**
      * The name of the enrollment account.
      */
@@ -95,7 +95,7 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountOutputArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName: pulumi.Input<string>;
+    billingRoleAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the enrollment account.
      */

@@ -26,7 +26,7 @@ export interface GetEdgeMachineArgs {
     /**
      * Name of Device
      */
-    edgeMachineName: string;
+    edgeMachineName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetEdgeMachineOutputArgs {
     /**
      * Name of Device
      */
-    edgeMachineName: pulumi.Input<string>;
+    edgeMachineName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

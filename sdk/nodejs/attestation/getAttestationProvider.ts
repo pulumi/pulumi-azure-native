@@ -24,7 +24,7 @@ export interface GetAttestationProviderArgs {
     /**
      * Name of the attestation provider.
      */
-    providerName: string;
+    providerName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetAttestationProviderOutputArgs {
     /**
      * Name of the attestation provider.
      */
-    providerName: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

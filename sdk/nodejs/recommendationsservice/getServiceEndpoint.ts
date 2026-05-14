@@ -35,7 +35,7 @@ export interface GetServiceEndpointArgs {
     /**
      * The name of the ServiceEndpoint resource.
      */
-    serviceEndpointName: string;
+    serviceEndpointName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetServiceEndpointOutputArgs {
     /**
      * The name of the ServiceEndpoint resource.
      */
-    serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }

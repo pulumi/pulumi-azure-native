@@ -31,7 +31,7 @@ export interface GetBlobContainerArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    containerName: string;
+    containerName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -163,7 +163,7 @@ export interface GetBlobContainerOutputArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    containerName: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

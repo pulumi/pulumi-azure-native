@@ -27,7 +27,7 @@ export interface GetExperimentArgs {
     /**
      * The Experiment identifier associated with the Experiment
      */
-    experimentName: string;
+    experimentName?: string;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
@@ -115,7 +115,7 @@ export interface GetExperimentOutputArgs {
     /**
      * The Experiment identifier associated with the Experiment
      */
-    experimentName: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string | undefined>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */

@@ -24,7 +24,7 @@ export interface GetClientApplicationArgs {
     /**
      * Client Application identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationId: string;
+    clientApplicationId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -100,7 +100,7 @@ export interface GetClientApplicationOutputArgs {
     /**
      * Client Application identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationId: pulumi.Input<string>;
+    clientApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

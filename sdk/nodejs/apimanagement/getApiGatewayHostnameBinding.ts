@@ -29,7 +29,7 @@ export interface GetApiGatewayHostnameBindingArgs {
     /**
      * Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hostnameBindingName: string;
+    hostnameBindingName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetApiGatewayHostnameBindingOutputArgs {
     /**
      * Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hostnameBindingName: pulumi.Input<string>;
+    hostnameBindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

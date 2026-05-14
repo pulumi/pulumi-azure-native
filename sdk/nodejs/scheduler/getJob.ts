@@ -29,7 +29,7 @@ export interface GetJobArgs {
     /**
      * The job name.
      */
-    jobName: string;
+    jobName?: string;
     /**
      * The resource group name.
      */
@@ -80,7 +80,7 @@ export interface GetJobOutputArgs {
     /**
      * The job name.
      */
-    jobName: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

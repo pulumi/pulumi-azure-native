@@ -27,7 +27,7 @@ export interface GetVirtualNetworkGatewayNatRuleArgs {
     /**
      * The name of the nat rule.
      */
-    natRuleName: string;
+    natRuleName?: string;
     /**
      * The resource group name of the Virtual Network Gateway.
      */
@@ -103,7 +103,7 @@ export interface GetVirtualNetworkGatewayNatRuleOutputArgs {
     /**
      * The name of the nat rule.
      */
-    natRuleName: pulumi.Input<string>;
+    natRuleName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the Virtual Network Gateway.
      */

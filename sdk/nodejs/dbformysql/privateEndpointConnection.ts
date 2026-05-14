@@ -126,7 +126,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateEndpointConnection resource.
  */
 export interface PrivateEndpointConnectionArgs {
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

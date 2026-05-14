@@ -37,7 +37,7 @@ export interface GetApiTagDescriptionArgs {
     /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
-    tagDescriptionId: string;
+    tagDescriptionId?: string;
 }
 
 /**
@@ -114,5 +114,5 @@ export interface GetApiTagDescriptionOutputArgs {
     /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
-    tagDescriptionId: pulumi.Input<string>;
+    tagDescriptionId?: pulumi.Input<string | undefined>;
 }

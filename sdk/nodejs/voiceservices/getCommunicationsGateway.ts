@@ -26,7 +26,7 @@ export interface GetCommunicationsGatewayArgs {
     /**
      * Unique identifier for this deployment
      */
-    communicationsGatewayName: string;
+    communicationsGatewayName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,7 +165,7 @@ export interface GetCommunicationsGatewayOutputArgs {
     /**
      * Unique identifier for this deployment
      */
-    communicationsGatewayName: pulumi.Input<string>;
+    communicationsGatewayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -30,7 +30,7 @@ export interface GetApiIssueAttachmentArgs {
     /**
      * Attachment identifier within an Issue. Must be unique in the current Issue.
      */
-    attachmentId: string;
+    attachmentId?: string;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
@@ -104,7 +104,7 @@ export interface GetApiIssueAttachmentOutputArgs {
     /**
      * Attachment identifier within an Issue. Must be unique in the current Issue.
      */
-    attachmentId: pulumi.Input<string>;
+    attachmentId?: pulumi.Input<string | undefined>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */

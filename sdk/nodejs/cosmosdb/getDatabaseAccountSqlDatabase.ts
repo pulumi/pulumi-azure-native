@@ -28,7 +28,7 @@ export interface GetDatabaseAccountSqlDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * Name of an Azure resource group.
      */
@@ -108,7 +108,7 @@ export interface GetDatabaseAccountSqlDatabaseOutputArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure resource group.
      */

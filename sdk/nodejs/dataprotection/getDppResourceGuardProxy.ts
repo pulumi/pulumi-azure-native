@@ -31,7 +31,7 @@ export interface GetDppResourceGuardProxyArgs {
     /**
      * name of the resource guard proxy
      */
-    resourceGuardProxyName: string;
+    resourceGuardProxyName?: string;
     /**
      * The name of the backup vault.
      */
@@ -91,7 +91,7 @@ export interface GetDppResourceGuardProxyOutputArgs {
     /**
      * name of the resource guard proxy
      */
-    resourceGuardProxyName: pulumi.Input<string>;
+    resourceGuardProxyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the backup vault.
      */

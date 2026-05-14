@@ -27,7 +27,7 @@ export interface GetVirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    ipConfigName: string;
+    ipConfigName?: string;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -103,7 +103,7 @@ export interface GetVirtualHubIpConfigurationOutputArgs {
     /**
      * The name of the ipconfig.
      */
-    ipConfigName: pulumi.Input<string>;
+    ipConfigName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the VirtualHub.
      */

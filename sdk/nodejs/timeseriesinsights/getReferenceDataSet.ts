@@ -31,7 +31,7 @@ export interface GetReferenceDataSetArgs {
     /**
      * The name of the Time Series Insights reference data set associated with the specified environment.
      */
-    referenceDataSetName: string;
+    referenceDataSetName?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -107,7 +107,7 @@ export interface GetReferenceDataSetOutputArgs {
     /**
      * The name of the Time Series Insights reference data set associated with the specified environment.
      */
-    referenceDataSetName: pulumi.Input<string>;
+    referenceDataSetName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

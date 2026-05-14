@@ -29,7 +29,7 @@ export interface GetCollectorPolicyArgs {
     /**
      * Collector Policy Name
      */
-    collectorPolicyName: string;
+    collectorPolicyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetCollectorPolicyOutputArgs {
     /**
      * Collector Policy Name
      */
-    collectorPolicyName: pulumi.Input<string>;
+    collectorPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetProfessionalServiceSubscriptionLevelArgs {
     /**
      * The name of the resource.
      */
-    resourceName: string;
+    resourceName?: string;
     /**
      * The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
      */
@@ -87,9 +87,9 @@ export interface GetProfessionalServiceSubscriptionLevelOutputArgs {
     /**
      * The name of the resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

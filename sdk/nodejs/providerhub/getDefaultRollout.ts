@@ -30,7 +30,7 @@ export interface GetDefaultRolloutArgs {
     /**
      * The rollout name.
      */
-    rolloutName: string;
+    rolloutName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetDefaultRolloutOutputArgs {
     /**
      * The rollout name.
      */
-    rolloutName: pulumi.Input<string>;
+    rolloutName?: pulumi.Input<string | undefined>;
 }

@@ -35,7 +35,7 @@ export interface GetCassandraResourceCassandraRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId: string;
+    roleAssignmentId?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetCassandraResourceCassandraRoleAssignmentOutputArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId: pulumi.Input<string>;
+    roleAssignmentId?: pulumi.Input<string | undefined>;
 }

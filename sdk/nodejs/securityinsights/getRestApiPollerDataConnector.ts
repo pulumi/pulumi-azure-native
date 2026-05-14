@@ -25,7 +25,7 @@ export interface GetRestApiPollerDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: string;
+    dataConnectorId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -124,7 +124,7 @@ export interface GetRestApiPollerDataConnectorOutputArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

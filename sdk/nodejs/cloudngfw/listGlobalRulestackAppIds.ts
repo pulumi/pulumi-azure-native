@@ -62,12 +62,12 @@ export function listGlobalRulestackAppIdsOutput(args: ListGlobalRulestackAppIdsO
 }
 
 export interface ListGlobalRulestackAppIdsOutputArgs {
-    appIdVersion?: pulumi.Input<string>;
-    appPrefix?: pulumi.Input<string>;
+    appIdVersion?: pulumi.Input<string | undefined>;
+    appPrefix?: pulumi.Input<string | undefined>;
     /**
      * GlobalRulestack resource name
      */
     globalRulestackName: pulumi.Input<string>;
-    skip?: pulumi.Input<string>;
-    top?: pulumi.Input<number>;
+    skip?: pulumi.Input<string | undefined>;
+    top?: pulumi.Input<number | undefined>;
 }

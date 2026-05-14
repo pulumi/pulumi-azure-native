@@ -26,7 +26,7 @@ export interface GetDnsForwardingRulesetArgs {
     /**
      * The name of the DNS forwarding ruleset.
      */
-    dnsForwardingRulesetName: string;
+    dnsForwardingRulesetName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetDnsForwardingRulesetOutputArgs {
     /**
      * The name of the DNS forwarding ruleset.
      */
-    dnsForwardingRulesetName: pulumi.Input<string>;
+    dnsForwardingRulesetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

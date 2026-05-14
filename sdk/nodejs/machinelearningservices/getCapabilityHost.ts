@@ -27,7 +27,7 @@ export interface GetCapabilityHostArgs {
     /**
      * CapabilityHost name.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetCapabilityHostOutputArgs {
     /**
      * CapabilityHost name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

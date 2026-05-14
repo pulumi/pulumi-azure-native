@@ -95,7 +95,7 @@ export class ManagedHsm extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.keyvault.managedHsmPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.keyvault.managedHsmPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -127,19 +127,19 @@ export interface ManagedHsmArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.keyvault.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.keyvault.ManagedServiceIdentityArgs | undefined>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the managed HSM Pool
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Properties of the managed HSM
      */
-    properties?: pulumi.Input<inputs.keyvault.ManagedHsmPropertiesArgs>;
+    properties?: pulumi.Input<inputs.keyvault.ManagedHsmPropertiesArgs | undefined>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
@@ -147,9 +147,9 @@ export interface ManagedHsmArgs {
     /**
      * SKU details
      */
-    sku?: pulumi.Input<inputs.keyvault.ManagedHsmSkuArgs>;
+    sku?: pulumi.Input<inputs.keyvault.ManagedHsmSkuArgs | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

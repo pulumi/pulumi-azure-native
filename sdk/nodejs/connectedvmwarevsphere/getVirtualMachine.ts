@@ -30,7 +30,7 @@ export interface GetVirtualMachineArgs {
     /**
      * Name of the virtual machine resource.
      */
-    virtualMachineName: string;
+    virtualMachineName?: string;
 }
 
 /**
@@ -194,5 +194,5 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * Name of the virtual machine resource.
      */
-    virtualMachineName: pulumi.Input<string>;
+    virtualMachineName?: pulumi.Input<string | undefined>;
 }

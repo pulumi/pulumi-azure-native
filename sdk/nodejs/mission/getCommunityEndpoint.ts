@@ -27,7 +27,7 @@ export interface GetCommunityEndpointArgs {
     /**
      * The name of the Community Endpoint Resource
      */
-    communityEndpointName: string;
+    communityEndpointName?: string;
     /**
      * The name of the communityResource Resource
      */
@@ -103,7 +103,7 @@ export interface GetCommunityEndpointOutputArgs {
     /**
      * The name of the Community Endpoint Resource
      */
-    communityEndpointName: pulumi.Input<string>;
+    communityEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the communityResource Resource
      */

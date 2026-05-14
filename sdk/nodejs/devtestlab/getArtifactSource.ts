@@ -34,7 +34,7 @@ export interface GetArtifactSourceArgs {
     /**
      * The name of the artifact source.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetArtifactSourceOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=displayName)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -145,7 +145,7 @@ export interface GetArtifactSourceOutputArgs {
     /**
      * The name of the artifact source.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

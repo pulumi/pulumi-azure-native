@@ -32,7 +32,7 @@ export interface GetElasticBackupArgs {
     /**
      * The name of the ElasticBackup
      */
-    backupName: string;
+    backupName?: string;
     /**
      * The name of the ElasticBackupVault
      */
@@ -97,7 +97,7 @@ export interface GetElasticBackupOutputArgs {
     /**
      * The name of the ElasticBackup
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the ElasticBackupVault
      */

@@ -25,7 +25,7 @@ export interface GetWebAppAssessmentV3OperationArgs {
     /**
      * WebApp Assessment ARM name
      */
-    assessmentName: string;
+    assessmentName?: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetWebAppAssessmentV3OperationOutputArgs {
     /**
      * WebApp Assessment ARM name
      */
-    assessmentName: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

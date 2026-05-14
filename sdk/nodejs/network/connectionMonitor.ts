@@ -193,31 +193,31 @@ export interface ConnectionMonitorArgs {
     /**
      * Determines if the connection monitor will start automatically once created.
      */
-    autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the connection monitor.
      */
-    connectionMonitorName?: pulumi.Input<string>;
+    connectionMonitorName?: pulumi.Input<string | undefined>;
     /**
      * Describes the destination of connection monitor.
      */
-    destination?: pulumi.Input<inputs.network.ConnectionMonitorDestinationArgs>;
+    destination?: pulumi.Input<inputs.network.ConnectionMonitorDestinationArgs | undefined>;
     /**
      * List of connection monitor endpoints.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointArgs>[] | undefined>;
     /**
      * Connection monitor location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Value indicating whether connection monitor V1 should be migrated to V2 format.
      */
-    migrate?: pulumi.Input<string>;
+    migrate?: pulumi.Input<string | undefined>;
     /**
      * Monitoring interval in seconds.
      */
-    monitoringIntervalInSeconds?: pulumi.Input<number>;
+    monitoringIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name of the Network Watcher resource.
      */
@@ -225,11 +225,11 @@ export interface ConnectionMonitorArgs {
     /**
      * Optional notes to be associated with the connection monitor.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * List of connection monitor outputs.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutputArgs>[] | undefined>;
     /**
      * The name of the resource group containing Network Watcher.
      */
@@ -237,17 +237,17 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the source of connection monitor.
      */
-    source?: pulumi.Input<inputs.network.ConnectionMonitorSourceArgs>;
+    source?: pulumi.Input<inputs.network.ConnectionMonitorSourceArgs | undefined>;
     /**
      * Connection monitor tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of connection monitor test configurations.
      */
-    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfigurationArgs>[]>;
+    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfigurationArgs>[] | undefined>;
     /**
      * List of connection monitor test groups.
      */
-    testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroupArgs>[]>;
+    testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroupArgs>[] | undefined>;
 }

@@ -32,7 +32,7 @@ export interface GetReachabilityAnalysisRunArgs {
     /**
      * Reachability Analysis Run name.
      */
-    reachabilityAnalysisRunName: string;
+    reachabilityAnalysisRunName?: string;
     /**
      * The name of the resource group.
      */
@@ -97,7 +97,7 @@ export interface GetReachabilityAnalysisRunOutputArgs {
     /**
      * Reachability Analysis Run name.
      */
-    reachabilityAnalysisRunName: pulumi.Input<string>;
+    reachabilityAnalysisRunName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

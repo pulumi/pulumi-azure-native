@@ -30,7 +30,7 @@ export interface GetPostRuleArgs {
     /**
      * Post Rule priority
      */
-    priority: string;
+    priority?: string;
 }
 
 /**
@@ -158,5 +158,5 @@ export interface GetPostRuleOutputArgs {
     /**
      * Post Rule priority
      */
-    priority: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
 }

@@ -35,7 +35,7 @@ export interface GetRouteTableArgs {
     /**
      * The name of the route table.
      */
-    routeTableName: string;
+    routeTableName?: string;
 }
 
 /**
@@ -111,7 +111,7 @@ export interface GetRouteTableOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -119,5 +119,5 @@ export interface GetRouteTableOutputArgs {
     /**
      * The name of the route table.
      */
-    routeTableName: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string | undefined>;
 }

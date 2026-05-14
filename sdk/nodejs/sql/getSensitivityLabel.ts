@@ -44,7 +44,7 @@ export interface GetSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource: string;
+    sensitivityLabelSource?: string;
     /**
      * The name of the server.
      */
@@ -154,7 +154,7 @@ export interface GetSensitivityLabelOutputArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource: pulumi.Input<string>;
+    sensitivityLabelSource?: pulumi.Input<string | undefined>;
     /**
      * The name of the server.
      */

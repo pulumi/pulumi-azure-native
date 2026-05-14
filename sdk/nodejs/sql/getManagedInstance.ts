@@ -31,7 +31,7 @@ export interface GetManagedInstanceArgs {
     /**
      * The name of the managed instance.
      */
-    managedInstanceName: string;
+    managedInstanceName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -240,11 +240,11 @@ export interface GetManagedInstanceOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */
-    managedInstanceName: pulumi.Input<string>;
+    managedInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -31,7 +31,7 @@ export interface GetThroughputPoolAccountArgs {
     /**
      * Cosmos DB global database account in a Throughput Pool
      */
-    throughputPoolAccountName: string;
+    throughputPoolAccountName?: string;
     /**
      * Cosmos DB Throughput Pool name.
      */
@@ -103,7 +103,7 @@ export interface GetThroughputPoolAccountOutputArgs {
     /**
      * Cosmos DB global database account in a Throughput Pool
      */
-    throughputPoolAccountName: pulumi.Input<string>;
+    throughputPoolAccountName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB Throughput Pool name.
      */

@@ -33,7 +33,7 @@ export interface GetArchiveVersionArgs {
     /**
      * The name of the archive version resource.
      */
-    archiveVersionName: string;
+    archiveVersionName?: string;
     /**
      * The type of the package resource.
      */
@@ -107,7 +107,7 @@ export interface GetArchiveVersionOutputArgs {
     /**
      * The name of the archive version resource.
      */
-    archiveVersionName: pulumi.Input<string>;
+    archiveVersionName?: pulumi.Input<string | undefined>;
     /**
      * The type of the package resource.
      */

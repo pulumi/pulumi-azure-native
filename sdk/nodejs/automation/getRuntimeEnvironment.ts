@@ -35,7 +35,7 @@ export interface GetRuntimeEnvironmentArgs {
     /**
      * The name of the Runtime Environment.
      */
-    runtimeEnvironmentName: string;
+    runtimeEnvironmentName?: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetRuntimeEnvironmentOutputArgs {
     /**
      * The name of the Runtime Environment.
      */
-    runtimeEnvironmentName: pulumi.Input<string>;
+    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
 }

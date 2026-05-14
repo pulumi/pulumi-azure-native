@@ -32,7 +32,7 @@ export interface GetRecordSetArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName: string;
+    relativeRecordSetName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -173,7 +173,7 @@ export interface GetRecordSetOutputArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName: pulumi.Input<string>;
+    relativeRecordSetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

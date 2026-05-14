@@ -27,7 +27,7 @@ export interface GetSuppressionArgs {
     /**
      * The name of the suppression.
      */
-    name: string;
+    name?: string;
     /**
      * The recommendation ID.
      */
@@ -95,7 +95,7 @@ export interface GetSuppressionOutputArgs {
     /**
      * The name of the suppression.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The recommendation ID.
      */

@@ -30,7 +30,7 @@ export interface GetOnlineExperimentationWorkspaceArgs {
     /**
      * The name of the OnlineExperimentationWorkspace
      */
-    workspaceName: string;
+    workspaceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetOnlineExperimentationWorkspaceOutputArgs {
     /**
      * The name of the OnlineExperimentationWorkspace
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

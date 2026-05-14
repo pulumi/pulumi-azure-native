@@ -45,7 +45,7 @@ export interface GetTargetArgs {
     /**
      * String that represents a Target resource name.
      */
-    targetName: string;
+    targetName?: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetTargetOutputArgs {
     /**
      * String that represents a Target resource name.
      */
-    targetName: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
 }

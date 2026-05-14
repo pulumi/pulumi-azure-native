@@ -28,7 +28,7 @@ export interface GetArchifeArgs {
     /**
      * The name of the archive resource.
      */
-    archiveName: string;
+    archiveName?: string;
     /**
      * The type of the package resource.
      */
@@ -103,7 +103,7 @@ export interface GetArchifeOutputArgs {
     /**
      * The name of the archive resource.
      */
-    archiveName: pulumi.Input<string>;
+    archiveName?: pulumi.Input<string | undefined>;
     /**
      * The type of the package resource.
      */

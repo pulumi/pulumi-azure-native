@@ -24,7 +24,7 @@ export interface GetDiskPoolArgs {
     /**
      * The name of the Disk Pool.
      */
-    diskPoolName: string;
+    diskPoolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetDiskPoolOutputArgs {
     /**
      * The name of the Disk Pool.
      */
-    diskPoolName: pulumi.Input<string>;
+    diskPoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

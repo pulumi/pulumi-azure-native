@@ -25,7 +25,7 @@ export interface GetModernizeProjectArgs {
     /**
      * Modernize project name.
      */
-    modernizeProjectName: string;
+    modernizeProjectName?: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -89,7 +89,7 @@ export interface GetModernizeProjectOutputArgs {
     /**
      * Modernize project name.
      */
-    modernizeProjectName: pulumi.Input<string>;
+    modernizeProjectName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -97,5 +97,5 @@ export interface GetModernizeProjectOutputArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

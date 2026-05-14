@@ -26,7 +26,7 @@ export interface GetActivityLogAlertArgs {
     /**
      * The name of the Activity Log Alert rule.
      */
-    activityLogAlertName: string;
+    activityLogAlertName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetActivityLogAlertOutputArgs {
     /**
      * The name of the Activity Log Alert rule.
      */
-    activityLogAlertName: pulumi.Input<string>;
+    activityLogAlertName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

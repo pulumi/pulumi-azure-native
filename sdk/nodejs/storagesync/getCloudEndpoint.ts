@@ -28,7 +28,7 @@ export interface GetCloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    cloudEndpointName: string;
+    cloudEndpointName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetCloudEndpointOutputArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    cloudEndpointName: pulumi.Input<string>;
+    cloudEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

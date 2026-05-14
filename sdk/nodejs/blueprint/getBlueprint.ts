@@ -24,7 +24,7 @@ export interface GetBlueprintArgs {
     /**
      * Name of the blueprint definition.
      */
-    blueprintName: string;
+    blueprintName?: string;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
@@ -101,7 +101,7 @@ export interface GetBlueprintOutputArgs {
     /**
      * Name of the blueprint definition.
      */
-    blueprintName: pulumi.Input<string>;
+    blueprintName?: pulumi.Input<string | undefined>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

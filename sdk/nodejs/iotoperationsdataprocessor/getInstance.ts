@@ -24,7 +24,7 @@ export interface GetInstanceArgs {
     /**
      * Name of instance.
      */
-    instanceName: string;
+    instanceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetInstanceOutputArgs {
     /**
      * Name of instance.
      */
-    instanceName: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

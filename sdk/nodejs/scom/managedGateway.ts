@@ -110,7 +110,7 @@ export interface ManagedGatewayArgs {
     /**
      * The gateway resource name.
      */
-    managedGatewayName?: pulumi.Input<string>;
+    managedGatewayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

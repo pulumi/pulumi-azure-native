@@ -32,7 +32,7 @@ export interface GetDatastoreArgs {
     /**
      * Name of the datastore
      */
-    datastoreName: string;
+    datastoreName?: string;
     /**
      * Name of the private cloud
      */
@@ -113,7 +113,7 @@ export interface GetDatastoreOutputArgs {
     /**
      * Name of the datastore
      */
-    datastoreName: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

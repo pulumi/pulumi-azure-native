@@ -159,31 +159,31 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Azure resource name.
      */
-    azureResourceName?: pulumi.Input<string>;
+    azureResourceName?: pulumi.Input<string | undefined>;
     /**
      * Azure resource type.
      */
-    azureResourceType?: pulumi.Input<enums.web.AzureResourceType>;
+    azureResourceType?: pulumi.Input<enums.web.AzureResourceType | undefined>;
     /**
      * Custom DNS record type.
      */
-    customHostNameDnsRecordType?: pulumi.Input<enums.web.CustomHostNameDnsRecordType>;
+    customHostNameDnsRecordType?: pulumi.Input<enums.web.CustomHostNameDnsRecordType | undefined>;
     /**
      * Fully qualified ARM domain resource URI.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * Hostname in the hostname binding.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * Hostname type.
      */
-    hostNameType?: pulumi.Input<enums.web.HostNameType>;
+    hostNameType?: pulumi.Input<enums.web.HostNameType | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -195,7 +195,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * App Service app name.
      */
-    siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
      */
@@ -203,9 +203,9 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * SSL type
      */
-    sslState?: pulumi.Input<enums.web.SslState>;
+    sslState?: pulumi.Input<enums.web.SslState | undefined>;
     /**
      * SSL certificate thumbprint
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }

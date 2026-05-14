@@ -27,7 +27,7 @@ export interface GetJobAgentArgs {
     /**
      * The name of the job agent to be retrieved.
      */
-    jobAgentName: string;
+    jobAgentName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -103,7 +103,7 @@ export interface GetJobAgentOutputArgs {
     /**
      * The name of the job agent to be retrieved.
      */
-    jobAgentName: pulumi.Input<string>;
+    jobAgentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

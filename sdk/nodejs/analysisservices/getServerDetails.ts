@@ -28,7 +28,7 @@ export interface GetServerDetailsArgs {
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    serverName: string;
+    serverName?: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetServerDetailsOutputArgs {
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    serverName: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
 }

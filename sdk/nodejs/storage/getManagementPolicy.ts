@@ -31,7 +31,7 @@ export interface GetManagementPolicyArgs {
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    managementPolicyName: string;
+    managementPolicyName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetManagementPolicyOutputArgs {
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    managementPolicyName: pulumi.Input<string>;
+    managementPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

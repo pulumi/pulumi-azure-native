@@ -25,7 +25,7 @@ export interface GetDraftPackageArgs {
     /**
      * The resource name of the Test Base Draft Package.
      */
-    draftPackageName: string;
+    draftPackageName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,7 +187,7 @@ export interface GetDraftPackageOutputArgs {
     /**
      * The resource name of the Test Base Draft Package.
      */
-    draftPackageName: pulumi.Input<string>;
+    draftPackageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -34,7 +34,7 @@ export interface GetProfileArgs {
     /**
      * The name of the profile.
      */
-    profileName: string;
+    profileName?: string;
     /**
      * The name of the resource group.
      */
@@ -157,11 +157,11 @@ export interface GetProfileOutputArgs {
     /**
      * Locale of profile to retrieve, default is en-us.
      */
-    localeCode?: pulumi.Input<string>;
+    localeCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the profile.
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

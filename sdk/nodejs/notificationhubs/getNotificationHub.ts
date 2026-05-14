@@ -31,7 +31,7 @@ export interface GetNotificationHubArgs {
     /**
      * Notification Hub name
      */
-    notificationHubName: string;
+    notificationHubName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,7 +144,7 @@ export interface GetNotificationHubOutputArgs {
     /**
      * Notification Hub name
      */
-    notificationHubName: pulumi.Input<string>;
+    notificationHubName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

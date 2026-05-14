@@ -24,7 +24,7 @@ export interface GetStaticSiteCustomDomainArgs {
     /**
      * The custom domain name.
      */
-    domainName: string;
+    domainName?: string;
     /**
      * Name of the static site resource to search in.
      */
@@ -97,7 +97,7 @@ export interface GetStaticSiteCustomDomainOutputArgs {
     /**
      * The custom domain name.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site resource to search in.
      */

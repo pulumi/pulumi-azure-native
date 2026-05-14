@@ -30,7 +30,7 @@ export interface GetGraphQueryArgs {
     /**
      * The name of the Graph Query resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetGraphQueryOutputArgs {
     /**
      * The name of the Graph Query resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

@@ -83,7 +83,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerOutputArgs {
     /**
      * Conditional Members.
      */
-    conditionalMembers?: pulumi.Input<string>;
+    conditionalMembers?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
@@ -95,9 +95,9 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerOutputArgs {
     /**
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
     /**
      * An optional query parameter which specifies the maximum number of records to be returned by the server.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

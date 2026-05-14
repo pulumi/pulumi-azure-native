@@ -27,7 +27,7 @@ export interface GetInputArgs {
     /**
      * The name of the input.
      */
-    inputName: string;
+    inputName?: string;
     /**
      * The name of the streaming job.
      */
@@ -83,7 +83,7 @@ export interface GetInputOutputArgs {
     /**
      * The name of the input.
      */
-    inputName: pulumi.Input<string>;
+    inputName?: pulumi.Input<string | undefined>;
     /**
      * The name of the streaming job.
      */

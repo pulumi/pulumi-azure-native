@@ -28,7 +28,7 @@ export interface GetProvisionedClusterArgs {
     /**
      * Parameter for the name of the provisioned cluster
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetProvisionedClusterOutputArgs {
     /**
      * Parameter for the name of the provisioned cluster
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

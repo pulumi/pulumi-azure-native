@@ -24,7 +24,7 @@ export interface GetCapacityReservationGroupArgs {
     /**
      * Group ID
      */
-    groupId: string;
+    groupId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -94,7 +94,7 @@ export interface GetCapacityReservationGroupOutputArgs {
     /**
      * Group ID
      */
-    groupId: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

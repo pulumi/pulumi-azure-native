@@ -35,7 +35,7 @@ export interface GetSecretArgs {
     /**
      * The name of the secret.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetSecretOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=value)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -119,7 +119,7 @@ export interface GetSecretOutputArgs {
     /**
      * The name of the secret.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -36,7 +36,7 @@ export interface GetHybridRunbookWorkerArgs {
     /**
      * The hybrid runbook worker id
      */
-    hybridRunbookWorkerId: string;
+    hybridRunbookWorkerId?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -129,7 +129,7 @@ export interface GetHybridRunbookWorkerOutputArgs {
     /**
      * The hybrid runbook worker id
      */
-    hybridRunbookWorkerId: pulumi.Input<string>;
+    hybridRunbookWorkerId?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

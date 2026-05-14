@@ -38,7 +38,7 @@ export interface GetWorkloadDeploymentArgs {
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName: string;
+    workloadDeploymentName?: string;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface GetWorkloadDeploymentOutputArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName: pulumi.Input<string>;
+    workloadDeploymentName?: pulumi.Input<string | undefined>;
 }

@@ -34,7 +34,7 @@ export interface GetCustomImageArgs {
     /**
      * The name of the CustomImage
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetCustomImageOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=vm)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -149,7 +149,7 @@ export interface GetCustomImageOutputArgs {
     /**
      * The name of the CustomImage
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

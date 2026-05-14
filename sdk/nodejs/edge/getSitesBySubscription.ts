@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getSitesBySubscription(args: GetSitesBySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesBySubscriptionResult> {
+export function getSitesBySubscription(args?: GetSitesBySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesBySubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edge:getSitesBySubscription", {
         "siteName": args.siteName,
@@ -25,7 +26,7 @@ export interface GetSitesBySubscriptionArgs {
     /**
      * The name of the Site
      */
-    siteName: string;
+    siteName?: string;
 }
 
 /**
@@ -64,7 +65,8 @@ export interface GetSitesBySubscriptionResult {
  *
  * Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesBySubscriptionResult> {
+export function getSitesBySubscriptionOutput(args?: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesBySubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edge:getSitesBySubscription", {
         "siteName": args.siteName,
@@ -75,5 +77,5 @@ export interface GetSitesBySubscriptionOutputArgs {
     /**
      * The name of the Site
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

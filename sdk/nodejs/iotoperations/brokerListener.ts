@@ -93,7 +93,7 @@ export class BrokerListener extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["instanceName"] = args?.instanceName;
             resourceInputs["listenerName"] = args?.listenerName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.brokerListenerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.iotoperations.brokerListenerPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -133,11 +133,11 @@ export interface BrokerListenerArgs {
     /**
      * Name of Instance broker listener resource
      */
-    listenerName?: pulumi.Input<string>;
+    listenerName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.BrokerListenerPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.BrokerListenerPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

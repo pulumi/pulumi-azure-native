@@ -27,7 +27,7 @@ export interface GetMaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    configName: string;
+    configName?: string;
     /**
      * The name of the Managed Environment.
      */
@@ -87,7 +87,7 @@ export interface GetMaintenanceConfigurationOutputArgs {
     /**
      * The name of the maintenance configuration.
      */
-    configName: pulumi.Input<string>;
+    configName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Managed Environment.
      */

@@ -27,7 +27,7 @@ export interface GetMachinePoolArgs {
     /**
      * The name of the MachinePool resource.
      */
-    childResourceName: string;
+    childResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetMachinePoolOutputArgs {
     /**
      * The name of the MachinePool resource.
      */
-    childResourceName: pulumi.Input<string>;
+    childResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

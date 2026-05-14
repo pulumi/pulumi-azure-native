@@ -26,7 +26,7 @@ export interface GetPublisherArgs {
     /**
      * The name of the publisher.
      */
-    publisherName: string;
+    publisherName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetPublisherOutputArgs {
     /**
      * The name of the publisher.
      */
-    publisherName: pulumi.Input<string>;
+    publisherName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

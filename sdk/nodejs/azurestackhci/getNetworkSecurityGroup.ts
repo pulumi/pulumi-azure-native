@@ -26,7 +26,7 @@ export interface GetNetworkSecurityGroupArgs {
     /**
      * Name of the network security group
      */
-    networkSecurityGroupName: string;
+    networkSecurityGroupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetNetworkSecurityGroupOutputArgs {
     /**
      * Name of the network security group
      */
-    networkSecurityGroupName: pulumi.Input<string>;
+    networkSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -144,35 +144,35 @@ export interface StandardAssignmentArgs {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    assignedStandard?: pulumi.Input<inputs.security.AssignedStandardItemArgs>;
+    assignedStandard?: pulumi.Input<inputs.security.AssignedStandardItemArgs | undefined>;
     /**
      * Additional data about assignment that has Attest effect
      */
-    attestationData?: pulumi.Input<inputs.security.StandardAssignmentPropertiesAttestationDataArgs>;
+    attestationData?: pulumi.Input<inputs.security.StandardAssignmentPropertiesAttestationDataArgs | undefined>;
     /**
      * Description of the standardAssignment
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name of the standardAssignment
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Expected effect of this assignment (Audit/Exempt/Attest)
      */
-    effect?: pulumi.Input<string | enums.security.Effect>;
+    effect?: pulumi.Input<string | enums.security.Effect | undefined>;
     /**
      * Excluded scopes, filter out the descendants of the scope (on management scopes)
      */
-    excludedScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Additional data about assignment that has Exempt effect
      */
-    exemptionData?: pulumi.Input<inputs.security.StandardAssignmentPropertiesExemptionDataArgs>;
+    exemptionData?: pulumi.Input<inputs.security.StandardAssignmentPropertiesExemptionDataArgs | undefined>;
     /**
      * Expiration date of this assignment as a full ISO date
      */
-    expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the resource.
      */
@@ -180,5 +180,5 @@ export interface StandardAssignmentArgs {
     /**
      * The standard assignments assignment key - unique key for the standard assignment
      */
-    standardAssignmentName?: pulumi.Input<string>;
+    standardAssignmentName?: pulumi.Input<string | undefined>;
 }

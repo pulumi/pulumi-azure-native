@@ -31,7 +31,7 @@ export interface GetRoutingIntentArgs {
     /**
      * The name of the RoutingIntent.
      */
-    routingIntentName: string;
+    routingIntentName?: string;
     /**
      * The name of the VirtualHub.
      */
@@ -95,7 +95,7 @@ export interface GetRoutingIntentOutputArgs {
     /**
      * The name of the RoutingIntent.
      */
-    routingIntentName: pulumi.Input<string>;
+    routingIntentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualHub.
      */

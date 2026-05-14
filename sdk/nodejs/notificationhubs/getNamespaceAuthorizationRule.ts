@@ -27,7 +27,7 @@ export interface GetNamespaceAuthorizationRuleArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName: string;
+    authorizationRuleName?: string;
     /**
      * Namespace name
      */
@@ -123,7 +123,7 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string | undefined>;
     /**
      * Namespace name
      */

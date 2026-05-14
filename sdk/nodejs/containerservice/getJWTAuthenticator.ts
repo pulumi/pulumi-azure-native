@@ -27,7 +27,7 @@ export interface GetJWTAuthenticatorArgs {
     /**
      * The name of the JWT authenticator.
      */
-    jwtAuthenticatorName: string;
+    jwtAuthenticatorName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetJWTAuthenticatorOutputArgs {
     /**
      * The name of the JWT authenticator.
      */
-    jwtAuthenticatorName: pulumi.Input<string>;
+    jwtAuthenticatorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

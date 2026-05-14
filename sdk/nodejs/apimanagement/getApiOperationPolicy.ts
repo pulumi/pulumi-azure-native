@@ -39,7 +39,7 @@ export interface GetApiOperationPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: string;
+    policyId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -106,7 +106,7 @@ export interface GetApiOperationPolicyOutputArgs {
     /**
      * Policy Export Format.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
@@ -114,7 +114,7 @@ export interface GetApiOperationPolicyOutputArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

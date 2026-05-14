@@ -141,27 +141,27 @@ export interface DataExportArgs {
     /**
      * The latest data export rule modification time.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * The data export rule ID.
      */
-    dataExportId?: pulumi.Input<string>;
+    dataExportId?: pulumi.Input<string | undefined>;
     /**
      * The data export rule name.
      */
-    dataExportName?: pulumi.Input<string>;
+    dataExportName?: pulumi.Input<string | undefined>;
     /**
      * Active when enabled.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
      */
-    eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the export was last modified.
      */
-    lastModifiedDate?: pulumi.Input<string>;
+    lastModifiedDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

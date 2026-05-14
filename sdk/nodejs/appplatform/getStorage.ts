@@ -35,7 +35,7 @@ export interface GetStorageArgs {
     /**
      * The name of the storage resource.
      */
-    storageName: string;
+    storageName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetStorageOutputArgs {
     /**
      * The name of the storage resource.
      */
-    storageName: pulumi.Input<string>;
+    storageName?: pulumi.Input<string | undefined>;
 }

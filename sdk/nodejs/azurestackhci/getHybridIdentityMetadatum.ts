@@ -25,7 +25,7 @@ export interface GetHybridIdentityMetadatumArgs {
     /**
      * Name of the HybridIdentityMetadata.
      */
-    metadataName: string;
+    metadataName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetHybridIdentityMetadatumOutputArgs {
     /**
      * Name of the HybridIdentityMetadata.
      */
-    metadataName: pulumi.Input<string>;
+    metadataName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

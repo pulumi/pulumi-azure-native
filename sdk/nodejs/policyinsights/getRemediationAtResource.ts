@@ -26,7 +26,7 @@ export interface GetRemediationAtResourceArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: string;
+    remediationName?: string;
     /**
      * Resource ID.
      */
@@ -129,7 +129,7 @@ export interface GetRemediationAtResourceOutputArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

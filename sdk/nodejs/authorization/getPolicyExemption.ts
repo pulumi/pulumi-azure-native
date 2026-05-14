@@ -26,7 +26,7 @@ export interface GetPolicyExemptionArgs {
     /**
      * The name of the policy exemption to delete.
      */
-    policyExemptionName: string;
+    policyExemptionName?: string;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
@@ -113,7 +113,7 @@ export interface GetPolicyExemptionOutputArgs {
     /**
      * The name of the policy exemption to delete.
      */
-    policyExemptionName: pulumi.Input<string>;
+    policyExemptionName?: pulumi.Input<string | undefined>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

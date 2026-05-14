@@ -28,7 +28,7 @@ export interface GetIncidentCommentArgs {
     /**
      * Incident comment ID
      */
-    incidentCommentId: string;
+    incidentCommentId?: string;
     /**
      * Incident ID
      */
@@ -109,7 +109,7 @@ export interface GetIncidentCommentOutputArgs {
     /**
      * Incident comment ID
      */
-    incidentCommentId: pulumi.Input<string>;
+    incidentCommentId?: pulumi.Input<string | undefined>;
     /**
      * Incident ID
      */

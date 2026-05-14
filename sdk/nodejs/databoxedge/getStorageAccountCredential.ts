@@ -31,7 +31,7 @@ export interface GetStorageAccountCredentialArgs {
     /**
      * The storage account credential name.
      */
-    name: string;
+    name?: string;
     /**
      * The resource group name.
      */
@@ -119,7 +119,7 @@ export interface GetStorageAccountCredentialOutputArgs {
     /**
      * The storage account credential name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

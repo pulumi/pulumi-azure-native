@@ -35,7 +35,7 @@ export interface GetVirtualNetworkLinkArgs {
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName: string;
+    virtualNetworkLinkName?: string;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface GetVirtualNetworkLinkOutputArgs {
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName: pulumi.Input<string>;
+    virtualNetworkLinkName?: pulumi.Input<string | undefined>;
 }

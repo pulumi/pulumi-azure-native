@@ -27,7 +27,7 @@ export interface GetCommitmentPlanAssociationArgs {
     /**
      * The name of the commitment plan association with the Cognitive Services Account
      */
-    commitmentPlanAssociationName: string;
+    commitmentPlanAssociationName?: string;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
@@ -95,7 +95,7 @@ export interface GetCommitmentPlanAssociationOutputArgs {
     /**
      * The name of the commitment plan association with the Cognitive Services Account
      */
-    commitmentPlanAssociationName: pulumi.Input<string>;
+    commitmentPlanAssociationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */

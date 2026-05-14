@@ -187,7 +187,7 @@ export interface CustomImageArgs {
     /**
      * The resource name of the test base custom image.
      */
-    customImageName?: pulumi.Input<string>;
+    customImageName?: pulumi.Input<string | undefined>;
     /**
      * Image definition name.
      */
@@ -211,5 +211,5 @@ export interface CustomImageArgs {
     /**
      * The Id of the associated VHD resource.
      */
-    vhdId?: pulumi.Input<string>;
+    vhdId?: pulumi.Input<string | undefined>;
 }

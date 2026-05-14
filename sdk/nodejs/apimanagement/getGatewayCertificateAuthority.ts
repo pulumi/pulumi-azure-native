@@ -25,7 +25,7 @@ export interface GetGatewayCertificateAuthorityArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId: string;
+    certificateId?: string;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
@@ -86,7 +86,7 @@ export interface GetGatewayCertificateAuthorityOutputArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */

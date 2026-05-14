@@ -114,7 +114,7 @@ export interface ReplicationProtectionClusterArgs {
     /**
      * The custom data.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.ReplicationProtectionClusterPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.ReplicationProtectionClusterPropertiesArgs | undefined>;
     /**
      * Protection container name.
      */
@@ -122,7 +122,7 @@ export interface ReplicationProtectionClusterArgs {
     /**
      * Replication protection cluster name.
      */
-    replicationProtectionClusterName?: pulumi.Input<string>;
+    replicationProtectionClusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

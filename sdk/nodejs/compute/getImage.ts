@@ -31,7 +31,7 @@ export interface GetImageArgs {
     /**
      * The name of the image.
      */
-    imageName: string;
+    imageName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,11 +111,11 @@ export interface GetImageOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the image.
      */
-    imageName: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -37,7 +37,7 @@ export interface GetWorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName: string;
+    workloadGroupName?: string;
 }
 
 /**
@@ -118,5 +118,5 @@ export interface GetWorkloadGroupOutputArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName: pulumi.Input<string>;
+    workloadGroupName?: pulumi.Input<string | undefined>;
 }

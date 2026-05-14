@@ -30,7 +30,7 @@ export interface GetViewByScopeArgs {
     /**
      * View name
      */
-    viewName: string;
+    viewName?: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetViewByScopeOutputArgs {
     /**
      * View name
      */
-    viewName: pulumi.Input<string>;
+    viewName?: pulumi.Input<string | undefined>;
 }

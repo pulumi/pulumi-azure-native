@@ -142,9 +142,9 @@ export interface StaticMemberArgs {
     /**
      * Resource Id.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the static member.
      */
-    staticMemberName?: pulumi.Input<string>;
+    staticMemberName?: pulumi.Input<string | undefined>;
 }

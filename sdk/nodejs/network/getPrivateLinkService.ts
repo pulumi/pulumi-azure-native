@@ -35,7 +35,7 @@ export interface GetPrivateLinkServiceArgs {
     /**
      * The name of the private link service.
      */
-    serviceName: string;
+    serviceName?: string;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface GetPrivateLinkServiceOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -147,5 +147,5 @@ export interface GetPrivateLinkServiceOutputArgs {
     /**
      * The name of the private link service.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
 }

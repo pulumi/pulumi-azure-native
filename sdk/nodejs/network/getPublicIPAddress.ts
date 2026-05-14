@@ -31,7 +31,7 @@ export interface GetPublicIPAddressArgs {
     /**
      * The name of the public IP address.
      */
-    publicIpAddressName: string;
+    publicIpAddressName?: string;
     /**
      * The name of the resource group.
      */
@@ -167,11 +167,11 @@ export interface GetPublicIPAddressOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the public IP address.
      */
-    publicIpAddressName: pulumi.Input<string>;
+    publicIpAddressName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

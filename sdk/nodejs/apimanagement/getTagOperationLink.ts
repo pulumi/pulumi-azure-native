@@ -25,7 +25,7 @@ export interface GetTagOperationLinkArgs {
     /**
      * Tag-operation link identifier. Must be unique in the current API Management service instance.
      */
-    operationLinkId: string;
+    operationLinkId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -86,7 +86,7 @@ export interface GetTagOperationLinkOutputArgs {
     /**
      * Tag-operation link identifier. Must be unique in the current API Management service instance.
      */
-    operationLinkId: pulumi.Input<string>;
+    operationLinkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

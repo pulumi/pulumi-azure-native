@@ -26,7 +26,7 @@ export interface GetEdgeActionArgs {
     /**
      * The name of the Edge Action
      */
-    edgeActionName: string;
+    edgeActionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetEdgeActionOutputArgs {
     /**
      * The name of the Edge Action
      */
-    edgeActionName: pulumi.Input<string>;
+    edgeActionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

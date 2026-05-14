@@ -35,7 +35,7 @@ export interface GetVerifierWorkspaceArgs {
     /**
      * Workspace name.
      */
-    workspaceName: string;
+    workspaceName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetVerifierWorkspaceOutputArgs {
     /**
      * Workspace name.
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

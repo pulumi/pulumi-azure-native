@@ -27,7 +27,7 @@ export interface GetElasticPoolArgs {
     /**
      * The name of the elastic pool.
      */
-    elasticPoolName: string;
+    elasticPoolName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -149,7 +149,7 @@ export interface GetElasticPoolOutputArgs {
     /**
      * The name of the elastic pool.
      */
-    elasticPoolName: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

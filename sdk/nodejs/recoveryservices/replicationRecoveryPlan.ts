@@ -115,7 +115,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * Recovery plan name.
      */
-    recoveryPlanName?: pulumi.Input<string>;
+    recoveryPlanName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

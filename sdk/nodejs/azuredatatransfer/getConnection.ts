@@ -26,7 +26,7 @@ export interface GetConnectionArgs {
     /**
      * The name for the connection that is to be requested.
      */
-    connectionName: string;
+    connectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetConnectionOutputArgs {
     /**
      * The name for the connection that is to be requested.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

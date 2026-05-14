@@ -37,7 +37,7 @@ export interface GetBuildpackBindingArgs {
     /**
      * The name of the Buildpack Binding Name
      */
-    buildpackBindingName: string;
+    buildpackBindingName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -107,7 +107,7 @@ export interface GetBuildpackBindingOutputArgs {
     /**
      * The name of the Buildpack Binding Name
      */
-    buildpackBindingName: pulumi.Input<string>;
+    buildpackBindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

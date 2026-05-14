@@ -31,7 +31,7 @@ export interface GetRegistryEndpointArgs {
     /**
      * Name of RegistryEndpoint resource
      */
-    registryEndpointName: string;
+    registryEndpointName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetRegistryEndpointOutputArgs {
     /**
      * Name of RegistryEndpoint resource
      */
-    registryEndpointName: pulumi.Input<string>;
+    registryEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

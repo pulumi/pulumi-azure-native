@@ -35,7 +35,7 @@ export interface GetSignalDefinitionArgs {
     /**
      * Name of the signal definition. Must be unique within a health model.
      */
-    signalDefinitionName: string;
+    signalDefinitionName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetSignalDefinitionOutputArgs {
     /**
      * Name of the signal definition. Must be unique within a health model.
      */
-    signalDefinitionName: pulumi.Input<string>;
+    signalDefinitionName?: pulumi.Input<string | undefined>;
 }

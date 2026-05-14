@@ -34,7 +34,7 @@ export interface GetApiPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: string;
+    policyId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -100,11 +100,11 @@ export interface GetApiPolicyOutputArgs {
     /**
      * Policy Export Format.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Policy.
      */
-    policyId: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

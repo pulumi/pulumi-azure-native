@@ -21,7 +21,7 @@ export interface GetMultipleActivationKeyArgs {
     /**
      * The name of the MAK key.
      */
-    multipleActivationKeyName: string;
+    multipleActivationKeyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetMultipleActivationKeyOutputArgs {
     /**
      * The name of the MAK key.
      */
-    multipleActivationKeyName: pulumi.Input<string>;
+    multipleActivationKeyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

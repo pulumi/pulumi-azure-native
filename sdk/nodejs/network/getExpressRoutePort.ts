@@ -26,7 +26,7 @@ export interface GetExpressRoutePortArgs {
     /**
      * The name of ExpressRoutePort.
      */
-    expressRoutePortName: string;
+    expressRoutePortName?: string;
     /**
      * The name of the resource group.
      */
@@ -137,7 +137,7 @@ export interface GetExpressRoutePortOutputArgs {
     /**
      * The name of ExpressRoutePort.
      */
-    expressRoutePortName: pulumi.Input<string>;
+    expressRoutePortName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

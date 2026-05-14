@@ -31,7 +31,7 @@ export interface GetTableArgs {
     /**
      * The name of the table.
      */
-    tableName: string;
+    tableName?: string;
     /**
      * The name of the workspace.
      */
@@ -135,7 +135,7 @@ export interface GetTableOutputArgs {
     /**
      * The name of the table.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

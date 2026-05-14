@@ -35,7 +35,7 @@ export interface GetElasticSnapshotPolicyArgs {
     /**
      * The name of the ElasticSnapshotPolicy
      */
-    snapshotPolicyName: string;
+    snapshotPolicyName?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetElasticSnapshotPolicyOutputArgs {
     /**
      * The name of the ElasticSnapshotPolicy
      */
-    snapshotPolicyName: pulumi.Input<string>;
+    snapshotPolicyName?: pulumi.Input<string | undefined>;
 }

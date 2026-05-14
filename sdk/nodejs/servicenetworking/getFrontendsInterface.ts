@@ -27,7 +27,7 @@ export interface GetFrontendsInterfaceArgs {
     /**
      * Frontends
      */
-    frontendName: string;
+    frontendName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetFrontendsInterfaceOutputArgs {
     /**
      * Frontends
      */
-    frontendName: pulumi.Input<string>;
+    frontendName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -31,7 +31,7 @@ export interface GetBlobServicePropertiesArgs {
     /**
      * The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
      */
-    blobServicesName: string;
+    blobServicesName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -123,7 +123,7 @@ export interface GetBlobServicePropertiesOutputArgs {
     /**
      * The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
      */
-    blobServicesName: pulumi.Input<string>;
+    blobServicesName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

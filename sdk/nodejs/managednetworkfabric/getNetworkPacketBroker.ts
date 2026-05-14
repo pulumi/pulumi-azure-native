@@ -26,7 +26,7 @@ export interface GetNetworkPacketBrokerArgs {
     /**
      * Name of the Network Packet Broker.
      */
-    networkPacketBrokerName: string;
+    networkPacketBrokerName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetNetworkPacketBrokerOutputArgs {
     /**
      * Name of the Network Packet Broker.
      */
-    networkPacketBrokerName: pulumi.Input<string>;
+    networkPacketBrokerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetIPv6FirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    firewallRuleName: string;
+    firewallRuleName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -84,7 +84,7 @@ export interface GetIPv6FirewallRuleOutputArgs {
     /**
      * The name of the firewall rule.
      */
-    firewallRuleName: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

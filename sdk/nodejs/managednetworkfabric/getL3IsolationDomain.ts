@@ -26,7 +26,7 @@ export interface GetL3IsolationDomainArgs {
     /**
      * Name of the L3 Isolation Domain.
      */
-    l3IsolationDomainName: string;
+    l3IsolationDomainName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetL3IsolationDomainOutputArgs {
     /**
      * Name of the L3 Isolation Domain.
      */
-    l3IsolationDomainName: pulumi.Input<string>;
+    l3IsolationDomainName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

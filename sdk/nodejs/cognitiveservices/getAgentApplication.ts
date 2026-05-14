@@ -30,7 +30,7 @@ export interface GetAgentApplicationArgs {
     /**
      * Name for the Agent Application.
      */
-    name: string;
+    name?: string;
     /**
      * The name of Cognitive Services account's project.
      */
@@ -93,7 +93,7 @@ export interface GetAgentApplicationOutputArgs {
     /**
      * Name for the Agent Application.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */

@@ -134,11 +134,11 @@ export interface DdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    ddosProtectionPlanName?: pulumi.Input<string>;
+    ddosProtectionPlanName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -146,5 +146,5 @@ export interface DdosProtectionPlanArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

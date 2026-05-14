@@ -27,7 +27,7 @@ export interface GetConnectionArgs {
     /**
      * Connection name
      */
-    connectionName: string;
+    connectionName?: string;
     /**
      * The resource group
      */
@@ -92,7 +92,7 @@ export interface GetConnectionOutputArgs {
     /**
      * Connection name
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The resource group
      */
@@ -100,5 +100,5 @@ export interface GetConnectionOutputArgs {
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

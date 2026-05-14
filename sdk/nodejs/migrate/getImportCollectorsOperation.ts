@@ -27,7 +27,7 @@ export interface GetImportCollectorsOperationArgs {
     /**
      * Import collector ARM name
      */
-    importCollectorName: string;
+    importCollectorName?: string;
     /**
      * Assessment Project Name
      */
@@ -99,7 +99,7 @@ export interface GetImportCollectorsOperationOutputArgs {
     /**
      * Import collector ARM name
      */
-    importCollectorName: pulumi.Input<string>;
+    importCollectorName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

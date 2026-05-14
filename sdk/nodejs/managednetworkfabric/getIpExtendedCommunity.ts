@@ -26,7 +26,7 @@ export interface GetIpExtendedCommunityArgs {
     /**
      * Name of the IP Extended Community.
      */
-    ipExtendedCommunityName: string;
+    ipExtendedCommunityName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetIpExtendedCommunityOutputArgs {
     /**
      * Name of the IP Extended Community.
      */
-    ipExtendedCommunityName: pulumi.Input<string>;
+    ipExtendedCommunityName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

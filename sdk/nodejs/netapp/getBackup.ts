@@ -32,7 +32,7 @@ export interface GetBackupArgs {
     /**
      * The name of the backup
      */
-    backupName: string;
+    backupName?: string;
     /**
      * The name of the Backup Vault
      */
@@ -137,7 +137,7 @@ export interface GetBackupOutputArgs {
     /**
      * The name of the backup
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Backup Vault
      */

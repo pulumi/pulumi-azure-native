@@ -29,7 +29,7 @@ export interface GetScheduledAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId: string;
+    ruleId?: string;
     /**
      * The name of the workspace.
      */
@@ -176,7 +176,7 @@ export interface GetScheduledAlertRuleOutputArgs {
     /**
      * Alert rule ID
      */
-    ruleId: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

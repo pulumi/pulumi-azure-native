@@ -30,7 +30,7 @@ export interface GetManagementGroupNetworkManagerConnectionArgs {
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName: string;
+    networkManagerConnectionName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetManagementGroupNetworkManagerConnectionOutputArgs {
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName: pulumi.Input<string>;
+    networkManagerConnectionName?: pulumi.Input<string | undefined>;
 }

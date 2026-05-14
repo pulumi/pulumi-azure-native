@@ -184,15 +184,15 @@ export interface PowerShell72ModuleArgs {
     /**
      * Sets the location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of module.
      */
-    moduleName?: pulumi.Input<string>;
+    moduleName?: pulumi.Input<string | undefined>;
     /**
      * Sets name of the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -200,5 +200,5 @@ export interface PowerShell72ModuleArgs {
     /**
      * Sets the tags attached to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

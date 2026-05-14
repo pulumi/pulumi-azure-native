@@ -32,7 +32,7 @@ export interface GetGalleryArgs {
     /**
      * The name of the Shared Image Gallery.
      */
-    galleryName: string;
+    galleryName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,11 +125,11 @@ export interface GetGalleryOutputArgs {
     /**
      * The expand query option to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */
-    galleryName: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,5 +137,5 @@ export interface GetGalleryOutputArgs {
     /**
      * The select expression to apply on the operation.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
 }

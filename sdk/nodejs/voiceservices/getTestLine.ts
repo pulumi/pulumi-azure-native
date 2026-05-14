@@ -35,7 +35,7 @@ export interface GetTestLineArgs {
     /**
      * Unique identifier for this test line
      */
-    testLineName: string;
+    testLineName?: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetTestLineOutputArgs {
     /**
      * Unique identifier for this test line
      */
-    testLineName: pulumi.Input<string>;
+    testLineName?: pulumi.Input<string | undefined>;
 }

@@ -32,7 +32,7 @@ export interface GetWorkspaceArgs {
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
-    workspaceId: string;
+    workspaceId?: string;
 }
 
 /**
@@ -92,5 +92,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
-    workspaceId: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }

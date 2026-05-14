@@ -23,7 +23,7 @@ export interface GetDdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    ddosCustomPolicyName: string;
+    ddosCustomPolicyName?: string;
     /**
      * The name of the resource group.
      */
@@ -90,7 +90,7 @@ export interface GetDdosCustomPolicyOutputArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    ddosCustomPolicyName: pulumi.Input<string>;
+    ddosCustomPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

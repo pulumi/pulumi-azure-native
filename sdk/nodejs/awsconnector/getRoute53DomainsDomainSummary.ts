@@ -24,7 +24,7 @@ export interface GetRoute53DomainsDomainSummaryArgs {
     /**
      * Name of Route53DomainsDomainSummary
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetRoute53DomainsDomainSummaryOutputArgs {
     /**
      * Name of Route53DomainsDomainSummary
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

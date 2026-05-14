@@ -31,7 +31,7 @@ export interface GetCommitmentPlanArgs {
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
-    commitmentPlanName: string;
+    commitmentPlanName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetCommitmentPlanOutputArgs {
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
-    commitmentPlanName: pulumi.Input<string>;
+    commitmentPlanName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

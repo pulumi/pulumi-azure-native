@@ -31,7 +31,7 @@ export interface GetWatchlistArgs {
     /**
      * The watchlist alias
      */
-    watchlistAlias: string;
+    watchlistAlias?: string;
     /**
      * The name of the workspace.
      */
@@ -179,7 +179,7 @@ export interface GetWatchlistOutputArgs {
     /**
      * The watchlist alias
      */
-    watchlistAlias: pulumi.Input<string>;
+    watchlistAlias?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

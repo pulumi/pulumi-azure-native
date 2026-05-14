@@ -31,7 +31,7 @@ export interface GetMSIXPackageArgs {
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    msixPackageFullName: string;
+    msixPackageFullName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetMSIXPackageOutputArgs {
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    msixPackageFullName: pulumi.Input<string>;
+    msixPackageFullName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

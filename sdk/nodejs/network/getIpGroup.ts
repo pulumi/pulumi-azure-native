@@ -31,7 +31,7 @@ export interface GetIpGroupArgs {
     /**
      * The name of the ipGroups.
      */
-    ipGroupsName: string;
+    ipGroupsName?: string;
     /**
      * The name of the resource group.
      */
@@ -107,11 +107,11 @@ export interface GetIpGroupOutputArgs {
     /**
      * Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the ipGroups.
      */
-    ipGroupsName: pulumi.Input<string>;
+    ipGroupsName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

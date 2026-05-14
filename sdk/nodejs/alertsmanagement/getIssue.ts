@@ -24,7 +24,7 @@ export interface GetIssueArgs {
     /**
      * The name of the IssueResource
      */
-    issueName: string;
+    issueName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -77,7 +77,7 @@ export interface GetIssueOutputArgs {
     /**
      * The name of the IssueResource
      */
-    issueName: pulumi.Input<string>;
+    issueName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

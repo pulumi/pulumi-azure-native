@@ -31,7 +31,7 @@ export interface GetEncryptionScopeArgs {
     /**
      * The name of the encryptionScope associated with the Cognitive Services Account
      */
-    encryptionScopeName: string;
+    encryptionScopeName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetEncryptionScopeOutputArgs {
     /**
      * The name of the encryptionScope associated with the Cognitive Services Account
      */
-    encryptionScopeName: pulumi.Input<string>;
+    encryptionScopeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

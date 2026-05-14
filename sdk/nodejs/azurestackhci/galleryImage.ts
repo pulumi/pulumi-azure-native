@@ -179,35 +179,35 @@ export interface GalleryImageArgs {
     /**
      * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
      */
-    cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource>;
+    cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource | undefined>;
     /**
      * Storage ContainerID of the storage container to be used for gallery image
      */
-    containerId?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * Name of the gallery image
      */
-    galleryImageName?: pulumi.Input<string>;
+    galleryImageName?: pulumi.Input<string | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */
-    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration | undefined>;
     /**
      * This is the gallery image definition identifier.
      */
-    identifier?: pulumi.Input<inputs.azurestackhci.GalleryImageIdentifierArgs>;
+    identifier?: pulumi.Input<inputs.azurestackhci.GalleryImageIdentifierArgs | undefined>;
     /**
      * location of the image the gallery image should be created from
      */
-    imagePath?: pulumi.Input<string>;
+    imagePath?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
@@ -219,13 +219,13 @@ export interface GalleryImageArgs {
     /**
      * Resource ID of the source virtual machine from whose OS disk the gallery image is created.
      */
-    sourceVirtualMachineId?: pulumi.Input<string>;
+    sourceVirtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies information about the gallery image version that you want to create or update.
      */
-    version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs>;
+    version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs | undefined>;
 }

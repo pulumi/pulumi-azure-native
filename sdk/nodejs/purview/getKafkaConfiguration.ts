@@ -31,7 +31,7 @@ export interface GetKafkaConfigurationArgs {
     /**
      * Name of kafka configuration.
      */
-    kafkaConfigurationName: string;
+    kafkaConfigurationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,7 +115,7 @@ export interface GetKafkaConfigurationOutputArgs {
     /**
      * Name of kafka configuration.
      */
-    kafkaConfigurationName: pulumi.Input<string>;
+    kafkaConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

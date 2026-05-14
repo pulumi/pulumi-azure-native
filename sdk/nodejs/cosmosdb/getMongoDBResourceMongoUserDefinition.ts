@@ -31,7 +31,7 @@ export interface GetMongoDBResourceMongoUserDefinitionArgs {
     /**
      * The ID for the User Definition {dbName.userName}.
      */
-    mongoUserDefinitionId: string;
+    mongoUserDefinitionId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetMongoDBResourceMongoUserDefinitionOutputArgs {
     /**
      * The ID for the User Definition {dbName.userName}.
      */
-    mongoUserDefinitionId: pulumi.Input<string>;
+    mongoUserDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

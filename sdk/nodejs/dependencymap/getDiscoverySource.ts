@@ -35,7 +35,7 @@ export interface GetDiscoverySourceArgs {
     /**
      * discovery source resource
      */
-    sourceName: string;
+    sourceName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetDiscoverySourceOutputArgs {
     /**
      * discovery source resource
      */
-    sourceName: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
 }

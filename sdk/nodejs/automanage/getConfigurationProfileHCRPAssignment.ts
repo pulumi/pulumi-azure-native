@@ -27,7 +27,7 @@ export interface GetConfigurationProfileHCRPAssignmentArgs {
     /**
      * The configuration profile assignment name.
      */
-    configurationProfileAssignmentName: string;
+    configurationProfileAssignmentName?: string;
     /**
      * The name of the Arc machine.
      */
@@ -91,7 +91,7 @@ export interface GetConfigurationProfileHCRPAssignmentOutputArgs {
     /**
      * The configuration profile assignment name.
      */
-    configurationProfileAssignmentName: pulumi.Input<string>;
+    configurationProfileAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Arc machine.
      */

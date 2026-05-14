@@ -30,7 +30,7 @@ export interface GetBusinessProcessArgs {
     /**
      * The name of the business process
      */
-    businessProcessName: string;
+    businessProcessName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetBusinessProcessOutputArgs {
     /**
      * The name of the business process
      */
-    businessProcessName: pulumi.Input<string>;
+    businessProcessName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

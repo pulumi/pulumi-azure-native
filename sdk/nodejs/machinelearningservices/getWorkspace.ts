@@ -30,7 +30,7 @@ export interface GetWorkspaceArgs {
     /**
      * Azure Machine Learning Workspace Name
      */
-    workspaceName: string;
+    workspaceName?: string;
 }
 
 /**
@@ -217,5 +217,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * Azure Machine Learning Workspace Name
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

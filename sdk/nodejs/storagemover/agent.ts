@@ -189,7 +189,7 @@ export interface AgentArgs {
     /**
      * The name of the Agent resource.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified resource ID of the Hybrid Compute resource for the Agent.
      */
@@ -201,7 +201,7 @@ export interface AgentArgs {
     /**
      * A description for the Agent.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -213,5 +213,5 @@ export interface AgentArgs {
     /**
      * The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
      */
-    uploadLimitSchedule?: pulumi.Input<inputs.storagemover.UploadLimitScheduleArgs>;
+    uploadLimitSchedule?: pulumi.Input<inputs.storagemover.UploadLimitScheduleArgs | undefined>;
 }

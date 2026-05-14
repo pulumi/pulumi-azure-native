@@ -135,7 +135,7 @@ export interface AccessPolicyAssignmentArgs {
     /**
      * The name of the access policy assignment.
      */
-    accessPolicyAssignmentName?: pulumi.Input<string>;
+    accessPolicyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the access policy that is being assigned
      */

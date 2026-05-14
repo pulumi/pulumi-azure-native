@@ -27,7 +27,7 @@ export interface GetInstanceFailoverGroupArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName: string;
+    failoverGroupName?: string;
     /**
      * The name of the region where the resource is located.
      */
@@ -107,7 +107,7 @@ export interface GetInstanceFailoverGroupOutputArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName: pulumi.Input<string>;
+    failoverGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the region where the resource is located.
      */

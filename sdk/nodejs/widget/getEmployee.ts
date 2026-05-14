@@ -26,7 +26,7 @@ export interface GetEmployeeArgs {
     /**
      * The name of the Employee
      */
-    employeeName: string;
+    employeeName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetEmployeeOutputArgs {
     /**
      * The name of the Employee
      */
-    employeeName: pulumi.Input<string>;
+    employeeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

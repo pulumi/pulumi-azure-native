@@ -26,7 +26,7 @@ export interface GetGroupQuotaArgs {
     /**
      * The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
      */
-    groupQuotaName: string;
+    groupQuotaName?: string;
     /**
      * Management Group Id.
      */
@@ -78,7 +78,7 @@ export interface GetGroupQuotaOutputArgs {
     /**
      * The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
      */
-    groupQuotaName: pulumi.Input<string>;
+    groupQuotaName?: pulumi.Input<string | undefined>;
     /**
      * Management Group Id.
      */

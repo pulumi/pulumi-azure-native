@@ -24,7 +24,7 @@ export interface GetFactoryArgs {
     /**
      * The factory name.
      */
-    factoryName: string;
+    factoryName?: string;
     /**
      * The resource group name.
      */
@@ -117,7 +117,7 @@ export interface GetFactoryOutputArgs {
     /**
      * The factory name.
      */
-    factoryName: pulumi.Input<string>;
+    factoryName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

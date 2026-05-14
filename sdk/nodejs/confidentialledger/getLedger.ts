@@ -26,7 +26,7 @@ export interface GetLedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    ledgerName: string;
+    ledgerName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetLedgerOutputArgs {
     /**
      * Name of the Confidential Ledger
      */
-    ledgerName: pulumi.Input<string>;
+    ledgerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

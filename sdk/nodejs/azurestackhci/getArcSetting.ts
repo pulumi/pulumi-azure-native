@@ -27,7 +27,7 @@ export interface GetArcSettingArgs {
     /**
      * The name of the proxy resource holding details of HCI ArcSetting information.
      */
-    arcSettingName: string;
+    arcSettingName?: string;
     /**
      * The name of the cluster.
      */
@@ -123,7 +123,7 @@ export interface GetArcSettingOutputArgs {
     /**
      * The name of the proxy resource holding details of HCI ArcSetting information.
      */
-    arcSettingName: pulumi.Input<string>;
+    arcSettingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */

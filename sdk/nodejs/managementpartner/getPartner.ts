@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2018-02-01.
  */
-export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
+export function getPartner(args?: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managementpartner:getPartner", {
         "partnerId": args.partnerId,
@@ -20,7 +21,7 @@ export interface GetPartnerArgs {
     /**
      * Id of the Partner
      */
-    partnerId: string;
+    partnerId?: string;
 }
 
 /**
@@ -81,7 +82,8 @@ export interface GetPartnerResult {
  *
  * Uses Azure REST API version 2018-02-01.
  */
-export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerResult> {
+export function getPartnerOutput(args?: GetPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managementpartner:getPartner", {
         "partnerId": args.partnerId,
@@ -92,5 +94,5 @@ export interface GetPartnerOutputArgs {
     /**
      * Id of the Partner
      */
-    partnerId: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string | undefined>;
 }

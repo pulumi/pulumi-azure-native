@@ -25,7 +25,7 @@ export interface GetKafkaConnectorArgs {
     /**
      * Name of MQ kafkaConnector resource
      */
-    kafkaConnectorName: string;
+    kafkaConnectorName?: string;
     /**
      * Name of MQ resource
      */
@@ -123,7 +123,7 @@ export interface GetKafkaConnectorOutputArgs {
     /**
      * Name of MQ kafkaConnector resource
      */
-    kafkaConnectorName: pulumi.Input<string>;
+    kafkaConnectorName?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */

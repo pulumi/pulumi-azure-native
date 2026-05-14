@@ -27,7 +27,7 @@ export interface GetDicomServiceArgs {
     /**
      * The name of DICOM Service resource.
      */
-    dicomServiceName: string;
+    dicomServiceName?: string;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -139,7 +139,7 @@ export interface GetDicomServiceOutputArgs {
     /**
      * The name of DICOM Service resource.
      */
-    dicomServiceName: pulumi.Input<string>;
+    dicomServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the service instance.
      */

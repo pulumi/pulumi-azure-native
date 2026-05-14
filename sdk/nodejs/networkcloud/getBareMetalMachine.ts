@@ -26,7 +26,7 @@ export interface GetBareMetalMachineArgs {
     /**
      * The name of the bare metal machine.
      */
-    bareMetalMachineName: string;
+    bareMetalMachineName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -218,7 +218,7 @@ export interface GetBareMetalMachineOutputArgs {
     /**
      * The name of the bare metal machine.
      */
-    bareMetalMachineName: pulumi.Input<string>;
+    bareMetalMachineName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

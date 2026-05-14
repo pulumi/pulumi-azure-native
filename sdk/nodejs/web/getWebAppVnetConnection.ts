@@ -35,7 +35,7 @@ export interface GetWebAppVnetConnectionArgs {
     /**
      * Name of the virtual network.
      */
-    vnetName: string;
+    vnetName?: string;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface GetWebAppVnetConnectionOutputArgs {
     /**
      * Name of the virtual network.
      */
-    vnetName: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string | undefined>;
 }

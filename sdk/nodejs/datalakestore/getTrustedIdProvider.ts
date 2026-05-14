@@ -30,7 +30,7 @@ export interface GetTrustedIdProviderArgs {
     /**
      * The name of the trusted identity provider to retrieve.
      */
-    trustedIdProviderName: string;
+    trustedIdProviderName?: string;
 }
 
 /**
@@ -84,5 +84,5 @@ export interface GetTrustedIdProviderOutputArgs {
     /**
      * The name of the trusted identity provider to retrieve.
      */
-    trustedIdProviderName: pulumi.Input<string>;
+    trustedIdProviderName?: pulumi.Input<string | undefined>;
 }

@@ -24,7 +24,7 @@ export interface GetVendorSkusArgs {
     /**
      * The name of the sku.
      */
-    skuName: string;
+    skuName?: string;
     /**
      * The name of the vendor.
      */
@@ -105,7 +105,7 @@ export interface GetVendorSkusOutputArgs {
     /**
      * The name of the sku.
      */
-    skuName: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The name of the vendor.
      */

@@ -26,7 +26,7 @@ export interface GetEdgeSiteArgs {
     /**
      * Edge site name.
      */
-    edgeSiteName: string;
+    edgeSiteName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetEdgeSiteOutputArgs {
     /**
      * Edge site name.
      */
-    edgeSiteName: pulumi.Input<string>;
+    edgeSiteName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

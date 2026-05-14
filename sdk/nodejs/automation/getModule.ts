@@ -31,7 +31,7 @@ export interface GetModuleArgs {
     /**
      * The module name.
      */
-    moduleName: string;
+    moduleName?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -143,7 +143,7 @@ export interface GetModuleOutputArgs {
     /**
      * The module name.
      */
-    moduleName: pulumi.Input<string>;
+    moduleName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

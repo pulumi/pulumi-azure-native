@@ -32,7 +32,7 @@ export interface GetNetworkFunctionDefinitionVersionArgs {
     /**
      * The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkFunctionDefinitionVersionName: string;
+    networkFunctionDefinitionVersionName?: string;
     /**
      * The name of the publisher.
      */
@@ -105,7 +105,7 @@ export interface GetNetworkFunctionDefinitionVersionOutputArgs {
     /**
      * The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkFunctionDefinitionVersionName: pulumi.Input<string>;
+    networkFunctionDefinitionVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the publisher.
      */

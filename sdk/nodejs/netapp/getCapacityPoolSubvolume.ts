@@ -41,7 +41,7 @@ export interface GetCapacityPoolSubvolumeArgs {
     /**
      * The name of the subvolume.
      */
-    subvolumeName: string;
+    subvolumeName?: string;
     /**
      * The name of the volume
      */
@@ -123,7 +123,7 @@ export interface GetCapacityPoolSubvolumeOutputArgs {
     /**
      * The name of the subvolume.
      */
-    subvolumeName: pulumi.Input<string>;
+    subvolumeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the volume
      */

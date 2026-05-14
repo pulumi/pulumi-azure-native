@@ -27,7 +27,7 @@ export interface GetAFDCustomDomainArgs {
     /**
      * Name of the domain under the profile which is unique globally.
      */
-    customDomainName: string;
+    customDomainName?: string;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -120,7 +120,7 @@ export interface GetAFDCustomDomainOutputArgs {
     /**
      * Name of the domain under the profile which is unique globally.
      */
-    customDomainName: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */

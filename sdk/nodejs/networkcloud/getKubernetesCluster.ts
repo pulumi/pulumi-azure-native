@@ -26,7 +26,7 @@ export interface GetKubernetesClusterArgs {
     /**
      * The name of the Kubernetes cluster.
      */
-    kubernetesClusterName: string;
+    kubernetesClusterName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,7 +158,7 @@ export interface GetKubernetesClusterOutputArgs {
     /**
      * The name of the Kubernetes cluster.
      */
-    kubernetesClusterName: pulumi.Input<string>;
+    kubernetesClusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

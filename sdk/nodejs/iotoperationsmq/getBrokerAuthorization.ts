@@ -26,7 +26,7 @@ export interface GetBrokerAuthorizationArgs {
     /**
      * Name of MQ broker/authorization resource
      */
-    authorizationName: string;
+    authorizationName?: string;
     /**
      * Name of MQ broker resource
      */
@@ -109,7 +109,7 @@ export interface GetBrokerAuthorizationOutputArgs {
     /**
      * Name of MQ broker/authorization resource
      */
-    authorizationName: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ broker resource
      */

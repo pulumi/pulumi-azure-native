@@ -27,7 +27,7 @@ export interface GetDpsCertificateArgs {
     /**
      * Name of the certificate to retrieve.
      */
-    certificateName: string;
+    certificateName?: string;
     /**
      * Name of the provisioning service the certificate is associated with.
      */
@@ -91,7 +91,7 @@ export interface GetDpsCertificateOutputArgs {
     /**
      * Name of the certificate to retrieve.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the provisioning service the certificate is associated with.
      */

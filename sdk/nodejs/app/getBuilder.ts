@@ -26,7 +26,7 @@ export interface GetBuilderArgs {
     /**
      * The name of the builder.
      */
-    builderName: string;
+    builderName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetBuilderOutputArgs {
     /**
      * The name of the builder.
      */
-    builderName: pulumi.Input<string>;
+    builderName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

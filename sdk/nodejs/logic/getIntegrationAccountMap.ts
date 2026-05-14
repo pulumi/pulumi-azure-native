@@ -31,7 +31,7 @@ export interface GetIntegrationAccountMapArgs {
     /**
      * The integration account map name.
      */
-    mapName: string;
+    mapName?: string;
     /**
      * The resource group name.
      */
@@ -123,7 +123,7 @@ export interface GetIntegrationAccountMapOutputArgs {
     /**
      * The integration account map name.
      */
-    mapName: pulumi.Input<string>;
+    mapName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

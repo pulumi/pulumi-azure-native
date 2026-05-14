@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-05-01.
  */
-export function getAzureServersSetting(args: GetAzureServersSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureServersSettingResult> {
+export function getAzureServersSetting(args?: GetAzureServersSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureServersSettingResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAzureServersSetting", {
         "settingKind": args.settingKind,
@@ -23,7 +24,7 @@ export interface GetAzureServersSettingArgs {
     /**
      * The kind of the server vulnerability assessments setting
      */
-    settingKind: string;
+    settingKind?: string;
 }
 
 /**
@@ -65,7 +66,8 @@ export interface GetAzureServersSettingResult {
  *
  * Uses Azure REST API version 2023-05-01.
  */
-export function getAzureServersSettingOutput(args: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureServersSettingResult> {
+export function getAzureServersSettingOutput(args?: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureServersSettingResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAzureServersSetting", {
         "settingKind": args.settingKind,
@@ -76,5 +78,5 @@ export interface GetAzureServersSettingOutputArgs {
     /**
      * The kind of the server vulnerability assessments setting
      */
-    settingKind: pulumi.Input<string>;
+    settingKind?: pulumi.Input<string | undefined>;
 }

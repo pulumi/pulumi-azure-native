@@ -27,7 +27,7 @@ export interface GetRegistryEnvironmentContainerArgs {
     /**
      * Container name. This is case-sensitive.
      */
-    environmentName: string;
+    environmentName?: string;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
@@ -87,7 +87,7 @@ export interface GetRegistryEnvironmentContainerOutputArgs {
     /**
      * Container name. This is case-sensitive.
      */
-    environmentName: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */

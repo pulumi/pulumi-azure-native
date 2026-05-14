@@ -26,7 +26,7 @@ export interface GetExperimentArgs {
     /**
      * String that represents a Experiment resource name.
      */
-    experimentName: string;
+    experimentName?: string;
     /**
      * String that represents an Azure resource group.
      */
@@ -93,7 +93,7 @@ export interface GetExperimentOutputArgs {
     /**
      * String that represents a Experiment resource name.
      */
-    experimentName: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string | undefined>;
     /**
      * String that represents an Azure resource group.
      */

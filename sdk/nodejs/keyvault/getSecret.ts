@@ -31,7 +31,7 @@ export interface GetSecretArgs {
     /**
      * The name of the secret.
      */
-    secretName: string;
+    secretName?: string;
     /**
      * The name of the vault.
      */
@@ -95,7 +95,7 @@ export interface GetSecretOutputArgs {
     /**
      * The name of the secret.
      */
-    secretName: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
     /**
      * The name of the vault.
      */

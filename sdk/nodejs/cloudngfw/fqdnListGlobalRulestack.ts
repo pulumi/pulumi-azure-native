@@ -130,11 +130,11 @@ export interface FqdnListGlobalRulestackArgs {
     /**
      * comment for this object
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * fqdn object description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * fqdn list
      */
@@ -146,5 +146,5 @@ export interface FqdnListGlobalRulestackArgs {
     /**
      * fqdn list name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

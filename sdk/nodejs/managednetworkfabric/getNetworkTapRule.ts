@@ -26,7 +26,7 @@ export interface GetNetworkTapRuleArgs {
     /**
      * Name of the Network Tap Rule.
      */
-    networkTapRuleName: string;
+    networkTapRuleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetNetworkTapRuleOutputArgs {
     /**
      * Name of the Network Tap Rule.
      */
-    networkTapRuleName: pulumi.Input<string>;
+    networkTapRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

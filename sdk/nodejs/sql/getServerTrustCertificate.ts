@@ -24,7 +24,7 @@ export interface GetServerTrustCertificateArgs {
     /**
      * Name of of the certificate to get.
      */
-    certificateName: string;
+    certificateName?: string;
     /**
      * The name of the managed instance.
      */
@@ -88,7 +88,7 @@ export interface GetServerTrustCertificateOutputArgs {
     /**
      * Name of of the certificate to get.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

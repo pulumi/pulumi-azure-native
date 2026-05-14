@@ -32,7 +32,7 @@ export interface GetConnectionRaiPolicyArgs {
     /**
      * Name of the Rai Policy.
      */
-    raiPolicyName: string;
+    raiPolicyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetConnectionRaiPolicyOutputArgs {
     /**
      * Name of the Rai Policy.
      */
-    raiPolicyName: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

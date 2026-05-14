@@ -28,7 +28,7 @@ export interface GetBillingProfileArgs {
     /**
      * The ID that uniquely identifies a billing profile.
      */
-    billingProfileName: string;
+    billingProfileName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetBillingProfileOutputArgs {
     /**
      * The ID that uniquely identifies a billing profile.
      */
-    billingProfileName: pulumi.Input<string>;
+    billingProfileName?: pulumi.Input<string | undefined>;
 }

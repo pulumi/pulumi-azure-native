@@ -28,7 +28,7 @@ export interface GetBrokerAuthorizationArgs {
     /**
      * Name of Instance broker authorization resource
      */
-    authorizationName: string;
+    authorizationName?: string;
     /**
      * Name of broker.
      */
@@ -97,7 +97,7 @@ export interface GetBrokerAuthorizationOutputArgs {
     /**
      * Name of Instance broker authorization resource
      */
-    authorizationName: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * Name of broker.
      */

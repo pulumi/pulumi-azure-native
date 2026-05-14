@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-10-01-preview.
  */
-export function getRaiExternalSafetyProvider(args: GetRaiExternalSafetyProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiExternalSafetyProviderResult> {
+export function getRaiExternalSafetyProvider(args?: GetRaiExternalSafetyProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiExternalSafetyProviderResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices:getRaiExternalSafetyProvider", {
         "safetyProviderName": args.safetyProviderName,
@@ -23,7 +24,7 @@ export interface GetRaiExternalSafetyProviderArgs {
     /**
      * The name of the Rai External Safety Provider associated with the Cognitive Services Account
      */
-    safetyProviderName: string;
+    safetyProviderName?: string;
 }
 
 /**
@@ -68,7 +69,8 @@ export interface GetRaiExternalSafetyProviderResult {
  *
  * Uses Azure REST API version 2025-10-01-preview.
  */
-export function getRaiExternalSafetyProviderOutput(args: GetRaiExternalSafetyProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiExternalSafetyProviderResult> {
+export function getRaiExternalSafetyProviderOutput(args?: GetRaiExternalSafetyProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiExternalSafetyProviderResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getRaiExternalSafetyProvider", {
         "safetyProviderName": args.safetyProviderName,
@@ -79,5 +81,5 @@ export interface GetRaiExternalSafetyProviderOutputArgs {
     /**
      * The name of the Rai External Safety Provider associated with the Cognitive Services Account
      */
-    safetyProviderName: pulumi.Input<string>;
+    safetyProviderName?: pulumi.Input<string | undefined>;
 }

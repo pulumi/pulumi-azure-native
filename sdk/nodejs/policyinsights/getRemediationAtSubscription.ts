@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
+export function getRemediationAtSubscription(args?: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:getRemediationAtSubscription", {
         "remediationName": args.remediationName,
@@ -25,7 +26,7 @@ export interface GetRemediationAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: string;
+    remediationName?: string;
 }
 
 /**
@@ -112,7 +113,8 @@ export interface GetRemediationAtSubscriptionResult {
  *
  * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
+export function getRemediationAtSubscriptionOutput(args?: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getRemediationAtSubscription", {
         "remediationName": args.remediationName,
@@ -123,5 +125,5 @@ export interface GetRemediationAtSubscriptionOutputArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
 }

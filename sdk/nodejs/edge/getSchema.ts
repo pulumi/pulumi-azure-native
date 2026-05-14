@@ -30,7 +30,7 @@ export interface GetSchemaArgs {
     /**
      * The name of the Schema
      */
-    schemaName: string;
+    schemaName?: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetSchemaOutputArgs {
     /**
      * The name of the Schema
      */
-    schemaName: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
 }

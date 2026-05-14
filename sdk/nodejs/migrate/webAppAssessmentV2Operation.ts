@@ -278,60 +278,60 @@ export interface WebAppAssessmentV2OperationArgs {
     /**
      * Gets or sets user configurable app service container database settings.
      */
-    appSvcContainerSettings?: pulumi.Input<inputs.migrate.AppSvcContainerSettingsArgs>;
+    appSvcContainerSettings?: pulumi.Input<inputs.migrate.AppSvcContainerSettingsArgs | undefined>;
     /**
      * Gets or sets user configurable app service native settings.
      */
-    appSvcNativeSettings?: pulumi.Input<inputs.migrate.AppSvcNativeSettingsArgs>;
+    appSvcNativeSettings?: pulumi.Input<inputs.migrate.AppSvcNativeSettingsArgs | undefined>;
     /**
      * Web app Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment type of the assessment.
      */
-    assessmentType?: pulumi.Input<string | enums.migrate.AssessmentType>;
+    assessmentType?: pulumi.Input<string | enums.migrate.AssessmentType | undefined>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    azureLocation?: pulumi.Input<string>;
+    azureLocation?: pulumi.Input<string | undefined>;
     /**
      * Azure Offer Code.
      */
-    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
+    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode | undefined>;
     /**
      * Gets or sets a value indicating azure security offering type.
      */
-    azureSecurityOfferingType?: pulumi.Input<string | enums.migrate.AzureSecurityOfferingType>;
+    azureSecurityOfferingType?: pulumi.Input<string | enums.migrate.AzureSecurityOfferingType | undefined>;
     /**
      * Confidence Rating in Percentage.
      */
-    confidenceRatingInPercentage?: pulumi.Input<number>;
+    confidenceRatingInPercentage?: pulumi.Input<number | undefined>;
     /**
      * Currency in which prices should be reported.
      */
-    currency?: pulumi.Input<string | enums.migrate.AzureCurrency>;
+    currency?: pulumi.Input<string | enums.migrate.AzureCurrency | undefined>;
     /**
      * Custom discount percentage.
      */
-    discountPercentage?: pulumi.Input<number>;
+    discountPercentage?: pulumi.Input<number | undefined>;
     /**
      * Gets or sets user configurable discovered entity settings.
      */
-    discoveredEntityLightSummary?: pulumi.Input<inputs.migrate.DiscoveredEntityLightSummaryArgs>;
+    discoveredEntityLightSummary?: pulumi.Input<inputs.migrate.DiscoveredEntityLightSummaryArgs | undefined>;
     /**
      * Gets or sets the Enterprise agreement subscription id.
      */
-    eaSubscriptionId?: pulumi.Input<string>;
+    eaSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the duration for which the entity (Web app, VMs) are up in the
      * on-premises environment.
      */
-    entityUptime?: pulumi.Input<inputs.migrate.EntityUptimeArgs>;
+    entityUptime?: pulumi.Input<inputs.migrate.EntityUptimeArgs | undefined>;
     /**
      * Gets or sets user configurable setting to display the environment type.
      */
-    environmentType?: pulumi.Input<string | enums.migrate.EnvironmentType>;
+    environmentType?: pulumi.Input<string | enums.migrate.EnvironmentType | undefined>;
     /**
      * Group ARM name
      */
@@ -339,20 +339,20 @@ export interface WebAppAssessmentV2OperationArgs {
     /**
      * Gets the group type for the assessment.
      */
-    groupType?: pulumi.Input<string | enums.migrate.GroupType>;
+    groupType?: pulumi.Input<string | enums.migrate.GroupType | undefined>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    percentile?: pulumi.Input<string | enums.migrate.Percentile>;
+    percentile?: pulumi.Input<string | enums.migrate.Percentile | undefined>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    perfDataEndTime?: pulumi.Input<string>;
+    perfDataEndTime?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    perfDataStartTime?: pulumi.Input<string>;
+    perfDataStartTime?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */
@@ -360,7 +360,7 @@ export interface WebAppAssessmentV2OperationArgs {
     /**
      * Reserved instance.
      */
-    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance>;
+    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -369,14 +369,14 @@ export interface WebAppAssessmentV2OperationArgs {
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    scalingFactor?: pulumi.Input<number>;
+    scalingFactor?: pulumi.Input<number | undefined>;
     /**
      * Assessment sizing criterion.
      */
-    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion>;
+    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion | undefined>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    timeRange?: pulumi.Input<string | enums.migrate.TimeRange>;
+    timeRange?: pulumi.Input<string | enums.migrate.TimeRange | undefined>;
 }

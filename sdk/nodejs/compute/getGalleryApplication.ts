@@ -27,7 +27,7 @@ export interface GetGalleryApplicationArgs {
     /**
      * The name of the gallery Application Definition to be retrieved.
      */
-    galleryApplicationName: string;
+    galleryApplicationName?: string;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -119,7 +119,7 @@ export interface GetGalleryApplicationOutputArgs {
     /**
      * The name of the gallery Application Definition to be retrieved.
      */
-    galleryApplicationName: pulumi.Input<string>;
+    galleryApplicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */

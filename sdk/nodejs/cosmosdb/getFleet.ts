@@ -26,7 +26,7 @@ export interface GetFleetArgs {
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
-    fleetName: string;
+    fleetName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetFleetOutputArgs {
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
-    fleetName: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

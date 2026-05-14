@@ -28,7 +28,7 @@ export interface GetAppArgs {
     /**
      * The name of the App resource.
      */
-    appName: string;
+    appName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -101,7 +101,7 @@ export interface GetAppOutputArgs {
     /**
      * The name of the App resource.
      */
-    appName: pulumi.Input<string>;
+    appName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -113,5 +113,5 @@ export interface GetAppOutputArgs {
     /**
      * Indicates whether sync status
      */
-    syncStatus?: pulumi.Input<string>;
+    syncStatus?: pulumi.Input<string | undefined>;
 }

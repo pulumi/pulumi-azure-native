@@ -27,7 +27,7 @@ export interface GetNetworkManagerRoutingConfigurationArgs {
     /**
      * The name of the network manager Routing Configuration.
      */
-    configurationName: string;
+    configurationName?: string;
     /**
      * The name of the network manager.
      */
@@ -99,7 +99,7 @@ export interface GetNetworkManagerRoutingConfigurationOutputArgs {
     /**
      * The name of the network manager Routing Configuration.
      */
-    configurationName: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */

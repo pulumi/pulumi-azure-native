@@ -24,7 +24,7 @@ export interface GetEc2NetworkInterfaceArgs {
     /**
      * Name of Ec2NetworkInterface
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2NetworkInterfaceOutputArgs {
     /**
      * Name of Ec2NetworkInterface
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

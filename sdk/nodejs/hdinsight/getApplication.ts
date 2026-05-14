@@ -27,7 +27,7 @@ export interface GetApplicationArgs {
     /**
      * The constant value for the application name.
      */
-    applicationName: string;
+    applicationName?: string;
     /**
      * The name of the cluster.
      */
@@ -95,7 +95,7 @@ export interface GetApplicationOutputArgs {
     /**
      * The constant value for the application name.
      */
-    applicationName: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */

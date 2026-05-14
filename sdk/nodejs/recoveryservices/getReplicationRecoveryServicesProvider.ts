@@ -32,7 +32,7 @@ export interface GetReplicationRecoveryServicesProviderArgs {
     /**
      * Recovery services provider name.
      */
-    providerName: string;
+    providerName?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -97,7 +97,7 @@ export interface GetReplicationRecoveryServicesProviderOutputArgs {
     /**
      * Recovery services provider name.
      */
-    providerName: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

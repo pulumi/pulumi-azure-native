@@ -30,7 +30,7 @@ export interface GetVariableAtManagementGroupArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName: string;
+    variableName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetVariableAtManagementGroupOutputArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
 }

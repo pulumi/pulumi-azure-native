@@ -31,7 +31,7 @@ export interface GetCapacityPoolBackupArgs {
     /**
      * The name of the backup
      */
-    backupName: string;
+    backupName?: string;
     /**
      * The name of the capacity pool
      */
@@ -135,7 +135,7 @@ export interface GetCapacityPoolBackupOutputArgs {
     /**
      * The name of the backup
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the capacity pool
      */

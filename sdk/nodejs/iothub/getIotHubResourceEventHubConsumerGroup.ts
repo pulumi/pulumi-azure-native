@@ -29,7 +29,7 @@ export interface GetIotHubResourceEventHubConsumerGroupArgs {
     /**
      * The name of the consumer group to retrieve.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -94,7 +94,7 @@ export interface GetIotHubResourceEventHubConsumerGroupOutputArgs {
     /**
      * The name of the consumer group to retrieve.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

@@ -35,7 +35,7 @@ export interface GetTemplateSpecVersionArgs {
     /**
      * The version of the Template Spec.
      */
-    templateSpecVersion: string;
+    templateSpecVersion?: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetTemplateSpecVersionOutputArgs {
     /**
      * The version of the Template Spec.
      */
-    templateSpecVersion: pulumi.Input<string>;
+    templateSpecVersion?: pulumi.Input<string | undefined>;
 }

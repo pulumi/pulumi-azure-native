@@ -26,7 +26,7 @@ export interface GetGroundStationArgs {
     /**
      * Ground Station name.
      */
-    groundStationName: string;
+    groundStationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetGroundStationOutputArgs {
     /**
      * Ground Station name.
      */
-    groundStationName: pulumi.Input<string>;
+    groundStationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

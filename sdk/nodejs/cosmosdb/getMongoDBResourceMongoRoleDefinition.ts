@@ -31,7 +31,7 @@ export interface GetMongoDBResourceMongoRoleDefinitionArgs {
     /**
      * The ID for the Role Definition {dbName.roleName}.
      */
-    mongoRoleDefinitionId: string;
+    mongoRoleDefinitionId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetMongoDBResourceMongoRoleDefinitionOutputArgs {
     /**
      * The ID for the Role Definition {dbName.roleName}.
      */
-    mongoRoleDefinitionId: pulumi.Input<string>;
+    mongoRoleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

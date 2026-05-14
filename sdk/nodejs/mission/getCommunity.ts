@@ -26,7 +26,7 @@ export interface GetCommunityArgs {
     /**
      * The name of the communityResource Resource
      */
-    communityName: string;
+    communityName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetCommunityOutputArgs {
     /**
      * The name of the communityResource Resource
      */
-    communityName: pulumi.Input<string>;
+    communityName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

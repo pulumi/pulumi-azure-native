@@ -27,7 +27,7 @@ export interface GetApplicationAcceleratorArgs {
     /**
      * The name of the application accelerator.
      */
-    applicationAcceleratorName: string;
+    applicationAcceleratorName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -91,7 +91,7 @@ export interface GetApplicationAcceleratorOutputArgs {
     /**
      * The name of the application accelerator.
      */
-    applicationAcceleratorName: pulumi.Input<string>;
+    applicationAcceleratorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

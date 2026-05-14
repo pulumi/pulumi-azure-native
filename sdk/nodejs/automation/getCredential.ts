@@ -31,7 +31,7 @@ export interface GetCredentialArgs {
     /**
      * The name of credential.
      */
-    credentialName: string;
+    credentialName?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -103,7 +103,7 @@ export interface GetCredentialOutputArgs {
     /**
      * The name of credential.
      */
-    credentialName: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

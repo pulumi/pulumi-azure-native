@@ -140,8 +140,8 @@ export class Lab extends pulumi.CustomResource {
             if (args?.virtualMachineProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineProfile'");
             }
-            resourceInputs["autoShutdownProfile"] = args ? (args.autoShutdownProfile ? pulumi.output(args.autoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["connectionProfile"] = args ? (args.connectionProfile ? pulumi.output(args.connectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["autoShutdownProfile"] = args ? pulumi.output(args.autoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined;
+            resourceInputs["connectionProfile"] = args ? pulumi.output(args.connectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined;
             resourceInputs["description"] = args?.description;
             resourceInputs["labName"] = args?.labName;
             resourceInputs["labPlanId"] = args?.labPlanId;
@@ -152,7 +152,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["securityProfile"] = args?.securityProfile;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["title"] = args?.title;
-            resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["virtualMachineProfile"] = args ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -202,23 +202,23 @@ export interface LabArgs {
     /**
      * The description of the lab.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
-    labName?: pulumi.Input<string>;
+    labName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
      */
-    labPlanId?: pulumi.Input<string>;
+    labPlanId?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
      */
-    networkProfile?: pulumi.Input<inputs.labservices.LabNetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.labservices.LabNetworkProfileArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -226,7 +226,7 @@ export interface LabArgs {
     /**
      * The lab user list management profile.
      */
-    rosterProfile?: pulumi.Input<inputs.labservices.RosterProfileArgs>;
+    rosterProfile?: pulumi.Input<inputs.labservices.RosterProfileArgs | undefined>;
     /**
      * The lab security profile.
      */
@@ -234,11 +234,11 @@ export interface LabArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The title of the lab.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The profile used for creating lab virtual machines.
      */

@@ -26,7 +26,7 @@ export interface GetServerGroupClusterArgs {
     /**
      * The name of the cluster.
      */
-    clusterName: string;
+    clusterName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -213,7 +213,7 @@ export interface GetServerGroupClusterOutputArgs {
     /**
      * The name of the cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

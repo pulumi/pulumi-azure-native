@@ -138,19 +138,19 @@ export interface SecurityAdminConfigurationArgs {
     /**
      * Enum list of network intent policy based services.
      */
-    applyOnNetworkIntentPolicyBasedServices?: pulumi.Input<pulumi.Input<string | enums.network.NetworkIntentPolicyBasedService>[]>;
+    applyOnNetworkIntentPolicyBasedServices?: pulumi.Input<pulumi.Input<string | enums.network.NetworkIntentPolicyBasedService>[] | undefined>;
     /**
      * The name of the network manager Security Configuration.
      */
-    configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * A description of the security configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Determine update behavior for changes to network groups referenced within the rules in this configuration.
      */
-    networkGroupAddressSpaceAggregationOption?: pulumi.Input<string | enums.network.AddressSpaceAggregationOption>;
+    networkGroupAddressSpaceAggregationOption?: pulumi.Input<string | enums.network.AddressSpaceAggregationOption | undefined>;
     /**
      * The name of the network manager.
      */

@@ -29,7 +29,7 @@ export interface GetPowerShell72ModuleArgs {
     /**
      * The name of module.
      */
-    moduleName: string;
+    moduleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetPowerShell72ModuleOutputArgs {
     /**
      * The name of module.
      */
-    moduleName: pulumi.Input<string>;
+    moduleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

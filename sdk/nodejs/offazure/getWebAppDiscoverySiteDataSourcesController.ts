@@ -28,7 +28,7 @@ export interface GetWebAppDiscoverySiteDataSourcesControllerArgs {
     /**
      * Data Source ARM name.
      */
-    discoverySiteDataSourceName: string;
+    discoverySiteDataSourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetWebAppDiscoverySiteDataSourcesControllerOutputArgs {
     /**
      * Data Source ARM name.
      */
-    discoverySiteDataSourceName: pulumi.Input<string>;
+    discoverySiteDataSourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetDependencyOfRelationshipArgs {
     /**
      * Name of dependencyOf relationship.
      */
-    name: string;
+    name?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -77,7 +77,7 @@ export interface GetDependencyOfRelationshipOutputArgs {
     /**
      * Name of dependencyOf relationship.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

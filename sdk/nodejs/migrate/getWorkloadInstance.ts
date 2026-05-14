@@ -38,7 +38,7 @@ export interface GetWorkloadInstanceArgs {
     /**
      * Workload instance name.
      */
-    workloadInstanceName: string;
+    workloadInstanceName?: string;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface GetWorkloadInstanceOutputArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Workload instance name.
      */
-    workloadInstanceName: pulumi.Input<string>;
+    workloadInstanceName?: pulumi.Input<string | undefined>;
 }

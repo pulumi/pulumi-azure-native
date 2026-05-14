@@ -26,7 +26,7 @@ export interface GetLicenseArgs {
     /**
      * The name of the license.
      */
-    licenseName: string;
+    licenseName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetLicenseOutputArgs {
     /**
      * The name of the license.
      */
-    licenseName: pulumi.Input<string>;
+    licenseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

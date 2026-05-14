@@ -33,7 +33,7 @@ export interface GetWorkspaceApiDiagnosticArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    diagnosticId: string;
+    diagnosticId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -135,7 +135,7 @@ export interface GetWorkspaceApiDiagnosticOutputArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    diagnosticId: pulumi.Input<string>;
+    diagnosticId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

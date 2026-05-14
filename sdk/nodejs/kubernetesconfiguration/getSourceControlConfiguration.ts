@@ -45,7 +45,7 @@ export interface GetSourceControlConfigurationArgs {
     /**
      * Name of the Source Control Configuration.
      */
-    sourceControlConfigurationName: string;
+    sourceControlConfigurationName?: string;
 }
 
 /**
@@ -163,5 +163,5 @@ export interface GetSourceControlConfigurationOutputArgs {
     /**
      * Name of the Source Control Configuration.
      */
-    sourceControlConfigurationName: pulumi.Input<string>;
+    sourceControlConfigurationName?: pulumi.Input<string | undefined>;
 }

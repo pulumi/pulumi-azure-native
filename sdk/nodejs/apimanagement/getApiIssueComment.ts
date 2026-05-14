@@ -30,7 +30,7 @@ export interface GetApiIssueCommentArgs {
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    commentId: string;
+    commentId?: string;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
@@ -104,7 +104,7 @@ export interface GetApiIssueCommentOutputArgs {
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    commentId: pulumi.Input<string>;
+    commentId?: pulumi.Input<string | undefined>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */

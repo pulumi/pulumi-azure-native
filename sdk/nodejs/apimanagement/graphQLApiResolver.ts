@@ -119,19 +119,19 @@ export interface GraphQLApiResolverArgs {
     /**
      * Description of the resolver. May include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Resolver Name.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Path is type/field being resolved.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */
-    resolverId?: pulumi.Input<string>;
+    resolverId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

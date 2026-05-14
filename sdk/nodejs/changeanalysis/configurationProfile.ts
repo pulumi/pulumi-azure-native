@@ -110,17 +110,17 @@ export interface ConfigurationProfileArgs {
     /**
      * The identity block returned by ARM resource that supports managed identity.
      */
-    identity?: pulumi.Input<inputs.changeanalysis.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.changeanalysis.ResourceIdentityArgs | undefined>;
     /**
      * The location where the resource is to be deployed.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The properties of a configuration profile.
      */
-    properties?: pulumi.Input<inputs.changeanalysis.ConfigurationProfileResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.changeanalysis.ConfigurationProfileResourcePropertiesArgs | undefined>;
 }

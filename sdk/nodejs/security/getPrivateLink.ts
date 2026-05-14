@@ -26,7 +26,7 @@ export interface GetPrivateLinkArgs {
     /**
      * The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
      */
-    privateLinkName: string;
+    privateLinkName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetPrivateLinkOutputArgs {
     /**
      * The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
      */
-    privateLinkName: pulumi.Input<string>;
+    privateLinkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

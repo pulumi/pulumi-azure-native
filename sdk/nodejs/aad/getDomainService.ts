@@ -26,7 +26,7 @@ export interface GetDomainServiceArgs {
     /**
      * The name of the domain service.
      */
-    domainServiceName: string;
+    domainServiceName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -161,7 +161,7 @@ export interface GetDomainServiceOutputArgs {
     /**
      * The name of the domain service.
      */
-    domainServiceName: pulumi.Input<string>;
+    domainServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

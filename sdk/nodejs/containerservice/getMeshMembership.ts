@@ -27,7 +27,7 @@ export interface GetMeshMembershipArgs {
     /**
      * The name of the mesh membership.
      */
-    meshMembershipName: string;
+    meshMembershipName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetMeshMembershipOutputArgs {
     /**
      * The name of the mesh membership.
      */
-    meshMembershipName: pulumi.Input<string>;
+    meshMembershipName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

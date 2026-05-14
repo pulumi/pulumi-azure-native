@@ -141,15 +141,15 @@ export interface ClusterArgs {
     /**
      * Name of the cluster
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The cluster size
      */
-    clusterSize?: pulumi.Input<number>;
+    clusterSize?: pulumi.Input<number | undefined>;
     /**
      * The hosts
      */
-    hosts?: pulumi.Input<pulumi.Input<string>[]>;
+    hosts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the private cloud
      */
@@ -165,5 +165,5 @@ export interface ClusterArgs {
     /**
      * Name of the vsan datastore associated with the cluster
      */
-    vsanDatastoreName?: pulumi.Input<string>;
+    vsanDatastoreName?: pulumi.Input<string | undefined>;
 }

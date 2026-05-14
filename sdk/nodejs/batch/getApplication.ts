@@ -31,7 +31,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the application. This must be unique within the account.
      */
-    applicationName: string;
+    applicationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetApplicationOutputArgs {
     /**
      * The name of the application. This must be unique within the account.
      */
-    applicationName: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

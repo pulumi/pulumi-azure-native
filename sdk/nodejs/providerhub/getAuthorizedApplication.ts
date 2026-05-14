@@ -24,7 +24,7 @@ export interface GetAuthorizedApplicationArgs {
     /**
      * The application ID.
      */
-    applicationId: string;
+    applicationId?: string;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
@@ -74,7 +74,7 @@ export interface GetAuthorizedApplicationOutputArgs {
     /**
      * The application ID.
      */
-    applicationId: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

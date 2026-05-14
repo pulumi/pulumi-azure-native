@@ -27,7 +27,7 @@ export interface GetOpenAIArgs {
     /**
      * OpenAI Integration name
      */
-    integrationName: string;
+    integrationName?: string;
     /**
      * Monitor resource name
      */
@@ -83,7 +83,7 @@ export interface GetOpenAIOutputArgs {
     /**
      * OpenAI Integration name
      */
-    integrationName: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * Monitor resource name
      */

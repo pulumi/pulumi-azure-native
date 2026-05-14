@@ -26,7 +26,7 @@ export interface GetPolicyArgs {
     /**
      * The name of the Web Application Firewall Policy.
      */
-    policyName: string;
+    policyName?: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -118,7 +118,7 @@ export interface GetPolicyOutputArgs {
     /**
      * The name of the Web Application Firewall Policy.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

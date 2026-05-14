@@ -31,7 +31,7 @@ export interface GetTargetArgs {
     /**
      * The target resource name.
      */
-    targetName: string;
+    targetName?: string;
     /**
      * The database watcher name.
      */
@@ -91,7 +91,7 @@ export interface GetTargetOutputArgs {
     /**
      * The target resource name.
      */
-    targetName: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
     /**
      * The database watcher name.
      */

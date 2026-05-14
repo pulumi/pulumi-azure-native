@@ -28,7 +28,7 @@ export interface GetPrivateLinkAssociationArgs {
     /**
      * The ID of the PLA
      */
-    plaId: string;
+    plaId?: string;
 }
 
 export interface GetPrivateLinkAssociationResult {
@@ -74,5 +74,5 @@ export interface GetPrivateLinkAssociationOutputArgs {
     /**
      * The ID of the PLA
      */
-    plaId: pulumi.Input<string>;
+    plaId?: pulumi.Input<string | undefined>;
 }

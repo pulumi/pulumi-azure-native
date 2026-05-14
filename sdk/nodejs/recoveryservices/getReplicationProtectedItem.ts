@@ -37,7 +37,7 @@ export interface GetReplicationProtectedItemArgs {
     /**
      * Replication protected item name.
      */
-    replicatedProtectedItemName: string;
+    replicatedProtectedItemName?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -107,7 +107,7 @@ export interface GetReplicationProtectedItemOutputArgs {
     /**
      * Replication protected item name.
      */
-    replicatedProtectedItemName: pulumi.Input<string>;
+    replicatedProtectedItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

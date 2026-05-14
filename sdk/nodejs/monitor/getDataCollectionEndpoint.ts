@@ -26,7 +26,7 @@ export interface GetDataCollectionEndpointArgs {
     /**
      * The name of the data collection endpoint. The name is case insensitive.
      */
-    dataCollectionEndpointName: string;
+    dataCollectionEndpointName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetDataCollectionEndpointOutputArgs {
     /**
      * The name of the data collection endpoint. The name is case insensitive.
      */
-    dataCollectionEndpointName: pulumi.Input<string>;
+    dataCollectionEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

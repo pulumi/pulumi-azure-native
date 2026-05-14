@@ -153,7 +153,7 @@ export interface AzureKeyVaultSecretProviderClassArgs {
     /**
      * The name of the AzureKeyVaultSecretProviderClass
      */
-    azureKeyVaultSecretProviderClassName?: pulumi.Input<string>;
+    azureKeyVaultSecretProviderClassName?: pulumi.Input<string | undefined>;
     /**
      * The user assigned managed identity client ID that should be used to access the Azure Key Vault.
      */
@@ -161,7 +161,7 @@ export interface AzureKeyVaultSecretProviderClassArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.secretsynccontroller.AzureResourceManagerCommonTypesExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.secretsynccontroller.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
     /**
      * The name of the Azure Key Vault to sync secrets from.
      */
@@ -169,11 +169,11 @@ export interface AzureKeyVaultSecretProviderClassArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Objects defines the desired state of synced K8s secret objects
      */
-    objects?: pulumi.Input<string>;
+    objects?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -181,7 +181,7 @@ export interface AzureKeyVaultSecretProviderClassArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the Azure Key Vault.
      */

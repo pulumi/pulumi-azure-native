@@ -152,27 +152,27 @@ export interface NGroupArgs {
     /**
      * The Container Group Profiles that could be used in the NGroups resource.
      */
-    containerGroupProfiles?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupProfileStubArgs>[]>;
+    containerGroupProfiles?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupProfileStubArgs>[] | undefined>;
     /**
      * The elastic profile.
      */
-    elasticProfile?: pulumi.Input<inputs.containerinstance.ElasticProfileArgs>;
+    elasticProfile?: pulumi.Input<inputs.containerinstance.ElasticProfileArgs | undefined>;
     /**
      * The identity of the NGroup, if configured.
      */
-    identity?: pulumi.Input<inputs.containerinstance.NGroupIdentityArgs>;
+    identity?: pulumi.Input<inputs.containerinstance.NGroupIdentityArgs | undefined>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The NGroups name.
      */
-    ngroupsName?: pulumi.Input<string>;
+    ngroupsName?: pulumi.Input<string | undefined>;
     /**
      * Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
      */
-    placementProfile?: pulumi.Input<inputs.containerinstance.PlacementProfileArgs>;
+    placementProfile?: pulumi.Input<inputs.containerinstance.PlacementProfileArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,13 +180,13 @@ export interface NGroupArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Used by the customer to specify the way to update the Container Groups in NGroup.
      */
-    updateProfile?: pulumi.Input<inputs.containerinstance.UpdateProfileArgs>;
+    updateProfile?: pulumi.Input<inputs.containerinstance.UpdateProfileArgs | undefined>;
     /**
      * The zones for the container group.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

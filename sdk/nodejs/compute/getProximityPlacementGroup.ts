@@ -31,7 +31,7 @@ export interface GetProximityPlacementGroupArgs {
     /**
      * The name of the proximity placement group.
      */
-    proximityPlacementGroupName: string;
+    proximityPlacementGroupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,11 +119,11 @@ export interface GetProximityPlacementGroupOutputArgs {
     /**
      * includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
      */
-    includeColocationStatus?: pulumi.Input<string>;
+    includeColocationStatus?: pulumi.Input<string | undefined>;
     /**
      * The name of the proximity placement group.
      */
-    proximityPlacementGroupName: pulumi.Input<string>;
+    proximityPlacementGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

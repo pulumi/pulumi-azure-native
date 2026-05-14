@@ -240,55 +240,55 @@ export interface QueueArgs {
     /**
      * ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
      */
-    autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
     /**
      * A value that indicates whether this queue has dead letter support when a message expires.
      */
-    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    defaultMessageTimeToLive?: pulumi.Input<string>;
+    defaultMessageTimeToLive?: pulumi.Input<string | undefined>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string | undefined>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    enableBatchedOperations?: pulumi.Input<boolean>;
+    enableBatchedOperations?: pulumi.Input<boolean | undefined>;
     /**
      * A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      */
-    enableExpress?: pulumi.Input<boolean>;
+    enableExpress?: pulumi.Input<boolean | undefined>;
     /**
      * A value that indicates whether the queue is to be partitioned across multiple message brokers.
      */
-    enablePartitioning?: pulumi.Input<boolean>;
+    enablePartitioning?: pulumi.Input<boolean | undefined>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string | undefined>;
     /**
      * Queue/Topic name to forward the messages
      */
-    forwardTo?: pulumi.Input<string>;
+    forwardTo?: pulumi.Input<string | undefined>;
     /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
-    lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string | undefined>;
     /**
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
-    maxDeliveryCount?: pulumi.Input<number>;
+    maxDeliveryCount?: pulumi.Input<number | undefined>;
     /**
      * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
      */
-    maxMessageSizeInKilobytes?: pulumi.Input<number>;
+    maxMessageSizeInKilobytes?: pulumi.Input<number | undefined>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
-    maxSizeInMegabytes?: pulumi.Input<number>;
+    maxSizeInMegabytes?: pulumi.Input<number | undefined>;
     /**
      * The namespace name
      */
@@ -296,15 +296,15 @@ export interface QueueArgs {
     /**
      * The queue name.
      */
-    queueName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string | undefined>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */
-    requiresDuplicateDetection?: pulumi.Input<boolean>;
+    requiresDuplicateDetection?: pulumi.Input<boolean | undefined>;
     /**
      * A value that indicates whether the queue supports the concept of sessions.
      */
-    requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -312,5 +312,5 @@ export interface QueueArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    status?: pulumi.Input<enums.servicebus.EntityStatus>;
+    status?: pulumi.Input<enums.servicebus.EntityStatus | undefined>;
 }

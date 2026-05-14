@@ -32,7 +32,7 @@ export interface GetCustomDomainArgs {
     /**
      * The name of the custom domain resource.
      */
-    domainName: string;
+    domainName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -97,7 +97,7 @@ export interface GetCustomDomainOutputArgs {
     /**
      * The name of the custom domain resource.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

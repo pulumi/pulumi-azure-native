@@ -34,7 +34,7 @@ export interface GetSqlPoolWorkloadClassifierArgs {
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName: string;
+    workloadClassifierName?: string;
     /**
      * The name of the workload group.
      */
@@ -120,7 +120,7 @@ export interface GetSqlPoolWorkloadClassifierOutputArgs {
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workload group.
      */

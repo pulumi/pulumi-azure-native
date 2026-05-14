@@ -30,7 +30,7 @@ export interface GetSqlServerLicenseArgs {
     /**
      * Name of SQL Server License
      */
-    sqlServerLicenseName: string;
+    sqlServerLicenseName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSqlServerLicenseOutputArgs {
     /**
      * Name of SQL Server License
      */
-    sqlServerLicenseName: pulumi.Input<string>;
+    sqlServerLicenseName?: pulumi.Input<string | undefined>;
 }

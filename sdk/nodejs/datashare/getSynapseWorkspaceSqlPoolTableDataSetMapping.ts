@@ -30,7 +30,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs {
     /**
      * The name of the dataSetMapping.
      */
-    dataSetMappingName: string;
+    dataSetMappingName?: string;
     /**
      * The resource group name.
      */
@@ -110,7 +110,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs {
     /**
      * The name of the dataSetMapping.
      */
-    dataSetMappingName: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

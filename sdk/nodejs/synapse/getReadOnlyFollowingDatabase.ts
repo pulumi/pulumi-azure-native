@@ -26,7 +26,7 @@ export interface GetReadOnlyFollowingDatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The name of the Kusto pool.
      */
@@ -122,7 +122,7 @@ export interface GetReadOnlyFollowingDatabaseOutputArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto pool.
      */

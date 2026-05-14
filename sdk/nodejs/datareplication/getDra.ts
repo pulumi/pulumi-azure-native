@@ -25,7 +25,7 @@ export interface GetDraArgs {
     /**
      * The fabric agent (Dra) name.
      */
-    fabricAgentName: string;
+    fabricAgentName?: string;
     /**
      * The fabric name.
      */
@@ -80,7 +80,7 @@ export interface GetDraOutputArgs {
     /**
      * The fabric agent (Dra) name.
      */
-    fabricAgentName: pulumi.Input<string>;
+    fabricAgentName?: pulumi.Input<string | undefined>;
     /**
      * The fabric name.
      */

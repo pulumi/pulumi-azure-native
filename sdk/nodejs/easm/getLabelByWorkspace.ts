@@ -25,7 +25,7 @@ export interface GetLabelByWorkspaceArgs {
     /**
      * The name of the Label.
      */
-    labelName: string;
+    labelName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetLabelByWorkspaceOutputArgs {
     /**
      * The name of the Label.
      */
-    labelName: pulumi.Input<string>;
+    labelName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

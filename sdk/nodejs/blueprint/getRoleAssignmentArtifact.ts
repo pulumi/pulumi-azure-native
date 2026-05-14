@@ -22,7 +22,7 @@ export interface GetRoleAssignmentArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    artifactName: string;
+    artifactName?: string;
     /**
      * Name of the blueprint definition.
      */
@@ -101,7 +101,7 @@ export interface GetRoleAssignmentArtifactOutputArgs {
     /**
      * Name of the blueprint artifact.
      */
-    artifactName: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string | undefined>;
     /**
      * Name of the blueprint definition.
      */

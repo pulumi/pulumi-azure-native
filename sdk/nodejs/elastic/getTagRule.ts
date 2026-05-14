@@ -35,7 +35,7 @@ export interface GetTagRuleArgs {
     /**
      * Tag Rule Set resource name
      */
-    ruleSetName: string;
+    ruleSetName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetTagRuleOutputArgs {
     /**
      * Tag Rule Set resource name
      */
-    ruleSetName: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string | undefined>;
 }

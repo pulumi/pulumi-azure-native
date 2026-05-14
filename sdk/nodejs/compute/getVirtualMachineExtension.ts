@@ -36,7 +36,7 @@ export interface GetVirtualMachineExtensionArgs {
     /**
      * The name of the virtual machine extension.
      */
-    vmExtensionName: string;
+    vmExtensionName?: string;
     /**
      * The name of the virtual machine.
      */
@@ -145,7 +145,7 @@ export interface GetVirtualMachineExtensionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,7 +153,7 @@ export interface GetVirtualMachineExtensionOutputArgs {
     /**
      * The name of the virtual machine extension.
      */
-    vmExtensionName: pulumi.Input<string>;
+    vmExtensionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual machine.
      */

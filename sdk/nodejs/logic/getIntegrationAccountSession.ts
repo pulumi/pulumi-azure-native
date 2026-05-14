@@ -32,7 +32,7 @@ export interface GetIntegrationAccountSessionArgs {
     /**
      * The integration account session name.
      */
-    sessionName: string;
+    sessionName?: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetIntegrationAccountSessionOutputArgs {
     /**
      * The integration account session name.
      */
-    sessionName: pulumi.Input<string>;
+    sessionName?: pulumi.Input<string | undefined>;
 }

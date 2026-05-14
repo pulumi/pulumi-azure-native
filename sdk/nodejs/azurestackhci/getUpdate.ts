@@ -35,7 +35,7 @@ export interface GetUpdateArgs {
     /**
      * The name of the Update
      */
-    updateName: string;
+    updateName?: string;
 }
 
 /**
@@ -167,5 +167,5 @@ export interface GetUpdateOutputArgs {
     /**
      * The name of the Update
      */
-    updateName: pulumi.Input<string>;
+    updateName?: pulumi.Input<string | undefined>;
 }

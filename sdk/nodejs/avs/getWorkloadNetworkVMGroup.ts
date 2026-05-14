@@ -35,7 +35,7 @@ export interface GetWorkloadNetworkVMGroupArgs {
     /**
      * ID of the VM group.
      */
-    vmGroupId: string;
+    vmGroupId?: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetWorkloadNetworkVMGroupOutputArgs {
     /**
      * ID of the VM group.
      */
-    vmGroupId: pulumi.Input<string>;
+    vmGroupId?: pulumi.Input<string | undefined>;
 }

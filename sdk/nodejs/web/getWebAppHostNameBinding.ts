@@ -24,7 +24,7 @@ export interface GetWebAppHostNameBindingArgs {
     /**
      * Hostname in the hostname binding.
      */
-    hostName: string;
+    hostName?: string;
     /**
      * Name of the app.
      */
@@ -116,7 +116,7 @@ export interface GetWebAppHostNameBindingOutputArgs {
     /**
      * Hostname in the hostname binding.
      */
-    hostName: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

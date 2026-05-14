@@ -132,11 +132,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Approval state of the private link connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.PrivateLinkServiceConnectionStateArgs | undefined>;
     /**
      * Name of the resource group that contains the key vault.
      */

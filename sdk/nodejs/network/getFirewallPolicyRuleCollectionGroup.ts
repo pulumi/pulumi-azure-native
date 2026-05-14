@@ -35,7 +35,7 @@ export interface GetFirewallPolicyRuleCollectionGroupArgs {
     /**
      * The name of the FirewallPolicyRuleCollectionGroup.
      */
-    ruleCollectionGroupName: string;
+    ruleCollectionGroupName?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetFirewallPolicyRuleCollectionGroupOutputArgs {
     /**
      * The name of the FirewallPolicyRuleCollectionGroup.
      */
-    ruleCollectionGroupName: pulumi.Input<string>;
+    ruleCollectionGroupName?: pulumi.Input<string | undefined>;
 }

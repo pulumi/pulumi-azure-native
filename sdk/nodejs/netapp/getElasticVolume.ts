@@ -40,7 +40,7 @@ export interface GetElasticVolumeArgs {
     /**
      * The name of the ElasticVolume
      */
-    volumeName: string;
+    volumeName?: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetElasticVolumeOutputArgs {
     /**
      * The name of the ElasticVolume
      */
-    volumeName: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
 }

@@ -31,7 +31,7 @@ export interface GetVirtualHubRouteTableV2Args {
     /**
      * The name of the VirtualHubRouteTableV2.
      */
-    routeTableName: string;
+    routeTableName?: string;
     /**
      * The name of the VirtualHub.
      */
@@ -95,7 +95,7 @@ export interface GetVirtualHubRouteTableV2OutputArgs {
     /**
      * The name of the VirtualHubRouteTableV2.
      */
-    routeTableName: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualHub.
      */

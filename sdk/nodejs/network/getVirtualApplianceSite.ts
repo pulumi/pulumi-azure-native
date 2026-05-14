@@ -35,7 +35,7 @@ export interface GetVirtualApplianceSiteArgs {
     /**
      * The name of the site.
      */
-    siteName: string;
+    siteName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetVirtualApplianceSiteOutputArgs {
     /**
      * The name of the site.
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

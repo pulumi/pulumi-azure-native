@@ -31,7 +31,7 @@ export interface GetDnsSecurityRuleArgs {
     /**
      * The name of the DNS security rule.
      */
-    dnsSecurityRuleName: string;
+    dnsSecurityRuleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetDnsSecurityRuleOutputArgs {
     /**
      * The name of the DNS security rule.
      */
-    dnsSecurityRuleName: pulumi.Input<string>;
+    dnsSecurityRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

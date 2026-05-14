@@ -26,7 +26,7 @@ export interface GetDashboardArgs {
     /**
      * The name of the Azure Managed Dashboard.
      */
-    dashboardName: string;
+    dashboardName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetDashboardOutputArgs {
     /**
      * The name of the Azure Managed Dashboard.
      */
-    dashboardName: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

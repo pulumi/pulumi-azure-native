@@ -31,7 +31,7 @@ export interface GetBackupPolicyArgs {
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    backupPolicyName: string;
+    backupPolicyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetBackupPolicyOutputArgs {
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    backupPolicyName: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

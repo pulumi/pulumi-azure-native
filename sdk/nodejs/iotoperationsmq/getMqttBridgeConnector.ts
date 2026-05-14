@@ -29,7 +29,7 @@ export interface GetMqttBridgeConnectorArgs {
     /**
      * Name of MQ mqttBridgeConnector resource
      */
-    mqttBridgeConnectorName: string;
+    mqttBridgeConnectorName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetMqttBridgeConnectorOutputArgs {
     /**
      * Name of MQ mqttBridgeConnector resource
      */
-    mqttBridgeConnectorName: pulumi.Input<string>;
+    mqttBridgeConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -34,7 +34,7 @@ export interface GetApiIssueArgs {
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    issueId: string;
+    issueId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -116,11 +116,11 @@ export interface GetApiIssueOutputArgs {
     /**
      * Expand the comment attachments. 
      */
-    expandCommentsAttachments?: pulumi.Input<boolean>;
+    expandCommentsAttachments?: pulumi.Input<boolean | undefined>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    issueId: pulumi.Input<string>;
+    issueId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

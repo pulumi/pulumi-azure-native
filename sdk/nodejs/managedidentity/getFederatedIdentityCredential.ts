@@ -27,7 +27,7 @@ export interface GetFederatedIdentityCredentialArgs {
     /**
      * The name of the federated identity credential resource.
      */
-    federatedIdentityCredentialResourceName: string;
+    federatedIdentityCredentialResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetFederatedIdentityCredentialOutputArgs {
     /**
      * The name of the federated identity credential resource.
      */
-    federatedIdentityCredentialResourceName: pulumi.Input<string>;
+    federatedIdentityCredentialResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

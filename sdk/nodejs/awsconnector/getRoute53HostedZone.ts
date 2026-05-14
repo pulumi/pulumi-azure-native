@@ -24,7 +24,7 @@ export interface GetRoute53HostedZoneArgs {
     /**
      * Name of Route53HostedZone
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetRoute53HostedZoneOutputArgs {
     /**
      * Name of Route53HostedZone
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

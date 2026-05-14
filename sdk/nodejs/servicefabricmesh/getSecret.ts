@@ -28,7 +28,7 @@ export interface GetSecretArgs {
     /**
      * The name of the secret resource.
      */
-    secretResourceName: string;
+    secretResourceName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetSecretOutputArgs {
     /**
      * The name of the secret resource.
      */
-    secretResourceName: pulumi.Input<string>;
+    secretResourceName?: pulumi.Input<string | undefined>;
 }

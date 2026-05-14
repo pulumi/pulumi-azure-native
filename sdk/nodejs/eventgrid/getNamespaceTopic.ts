@@ -35,7 +35,7 @@ export interface GetNamespaceTopicArgs {
     /**
      * Name of the namespace topic.
      */
-    topicName: string;
+    topicName?: string;
 }
 
 /**
@@ -108,5 +108,5 @@ export interface GetNamespaceTopicOutputArgs {
     /**
      * Name of the namespace topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

@@ -35,7 +35,7 @@ export interface GetContainerAppsSourceControlArgs {
     /**
      * Name of the Container App SourceControl.
      */
-    sourceControlName: string;
+    sourceControlName?: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetContainerAppsSourceControlOutputArgs {
     /**
      * Name of the Container App SourceControl.
      */
-    sourceControlName: pulumi.Input<string>;
+    sourceControlName?: pulumi.Input<string | undefined>;
 }

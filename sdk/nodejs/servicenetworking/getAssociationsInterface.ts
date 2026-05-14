@@ -27,7 +27,7 @@ export interface GetAssociationsInterfaceArgs {
     /**
      * Name of Association
      */
-    associationName: string;
+    associationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetAssociationsInterfaceOutputArgs {
     /**
      * Name of Association
      */
-    associationName: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetVirtualNetworkApplianceArgs {
     /**
      * The name of the virtual network appliance.
      */
-    virtualNetworkApplianceName: string;
+    virtualNetworkApplianceName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetVirtualNetworkApplianceOutputArgs {
     /**
      * The name of the virtual network appliance.
      */
-    virtualNetworkApplianceName: pulumi.Input<string>;
+    virtualNetworkApplianceName?: pulumi.Input<string | undefined>;
 }

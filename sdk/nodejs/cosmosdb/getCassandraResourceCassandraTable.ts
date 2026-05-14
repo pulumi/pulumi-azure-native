@@ -40,7 +40,7 @@ export interface GetCassandraResourceCassandraTableArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName: string;
+    tableName?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetCassandraResourceCassandraTableOutputArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

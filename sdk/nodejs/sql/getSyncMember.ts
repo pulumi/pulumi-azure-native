@@ -42,7 +42,7 @@ export interface GetSyncMemberArgs {
     /**
      * The name of the sync member.
      */
-    syncMemberName: string;
+    syncMemberName?: string;
 }
 
 /**
@@ -148,5 +148,5 @@ export interface GetSyncMemberOutputArgs {
     /**
      * The name of the sync member.
      */
-    syncMemberName: pulumi.Input<string>;
+    syncMemberName?: pulumi.Input<string | undefined>;
 }

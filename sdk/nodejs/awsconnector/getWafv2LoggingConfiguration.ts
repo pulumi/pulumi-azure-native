@@ -24,7 +24,7 @@ export interface GetWafv2LoggingConfigurationArgs {
     /**
      * Name of Wafv2LoggingConfiguration
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetWafv2LoggingConfigurationOutputArgs {
     /**
      * Name of Wafv2LoggingConfiguration
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -35,7 +35,7 @@ export interface GetTableServicePropertiesArgs {
     /**
      * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
      */
-    tableServiceName: string;
+    tableServiceName?: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetTableServicePropertiesOutputArgs {
     /**
      * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
      */
-    tableServiceName: pulumi.Input<string>;
+    tableServiceName?: pulumi.Input<string | undefined>;
 }

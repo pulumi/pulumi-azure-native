@@ -32,7 +32,7 @@ export interface GetBindingArgs {
     /**
      * The name of the Binding resource.
      */
-    bindingName: string;
+    bindingName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -97,7 +97,7 @@ export interface GetBindingOutputArgs {
     /**
      * The name of the Binding resource.
      */
-    bindingName: pulumi.Input<string>;
+    bindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

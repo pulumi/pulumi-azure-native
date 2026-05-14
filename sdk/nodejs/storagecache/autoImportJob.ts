@@ -270,7 +270,7 @@ export interface AutoImportJobArgs {
     /**
      * The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
      */
-    adminStatus?: pulumi.Input<string | enums.storagecache.AdminStatus>;
+    adminStatus?: pulumi.Input<string | enums.storagecache.AdminStatus | undefined>;
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
@@ -278,27 +278,27 @@ export interface AutoImportJobArgs {
     /**
      * Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoImportJobName?: pulumi.Input<string>;
+    autoImportJobName?: pulumi.Input<string | undefined>;
     /**
      * An array of blob paths/prefixes that get auto imported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths is 100.
      */
-    autoImportPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    autoImportPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * How the auto import job will handle conflicts. For example, if the auto import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the auto import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the auto import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or is currently released. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/blob-integration#conflict-resolution-mode for a thorough explanation of these resolution modes.
      */
-    conflictResolutionMode?: pulumi.Input<string | enums.storagecache.ConflictResolutionMode>;
+    conflictResolutionMode?: pulumi.Input<string | enums.storagecache.ConflictResolutionMode | undefined>;
     /**
      * Whether or not to enable deletions during auto import. This only affects overwrite-dirty.
      */
-    enableDeletions?: pulumi.Input<boolean>;
+    enableDeletions?: pulumi.Input<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Total non-conflict-oriented errors (e.g., OS errors) Import will tolerate before exiting with failure. -1 means infinite. 0 means exit immediately on any error.
      */
-    maximumErrors?: pulumi.Input<number>;
+    maximumErrors?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -306,5 +306,5 @@ export interface AutoImportJobArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

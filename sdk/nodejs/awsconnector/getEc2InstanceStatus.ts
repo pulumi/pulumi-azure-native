@@ -24,7 +24,7 @@ export interface GetEc2InstanceStatusArgs {
     /**
      * Name of Ec2InstanceStatus
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2InstanceStatusOutputArgs {
     /**
      * Name of Ec2InstanceStatus
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

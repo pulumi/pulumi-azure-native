@@ -33,7 +33,7 @@ export interface GetInvoiceSectionArgs {
     /**
      * The ID that uniquely identifies an invoice section.
      */
-    invoiceSectionName: string;
+    invoiceSectionName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetInvoiceSectionOutputArgs {
     /**
      * The ID that uniquely identifies an invoice section.
      */
-    invoiceSectionName: pulumi.Input<string>;
+    invoiceSectionName?: pulumi.Input<string | undefined>;
 }

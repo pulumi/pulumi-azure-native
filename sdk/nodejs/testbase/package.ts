@@ -226,35 +226,35 @@ export interface PackageArgs {
     /**
      * The file path of the package.
      */
-    blobPath?: pulumi.Input<string>;
+    blobPath?: pulumi.Input<string | undefined>;
     /**
      * The id of draft package. Used to create or update this package from a draft package.
      */
-    draftPackageId?: pulumi.Input<string>;
+    draftPackageId?: pulumi.Input<string | undefined>;
     /**
      * The list of first party applications to test along with user application.
      */
-    firstPartyApps?: pulumi.Input<pulumi.Input<inputs.testbase.FirstPartyAppDefinitionArgs>[]>;
+    firstPartyApps?: pulumi.Input<pulumi.Input<inputs.testbase.FirstPartyAppDefinitionArgs>[] | undefined>;
     /**
      * The flighting ring for feature update.
      */
-    flightingRing?: pulumi.Input<string>;
+    flightingRing?: pulumi.Input<string | undefined>;
     /**
      * Specifies the baseline os and target os for inplace upgrade.
      */
-    inplaceUpgradeOSPair?: pulumi.Input<inputs.testbase.InplaceUpgradeOSInfoArgs>;
+    inplaceUpgradeOSPair?: pulumi.Input<inputs.testbase.InplaceUpgradeOSInfoArgs | undefined>;
     /**
      * The metadata of Intune enrollment.
      */
-    intuneEnrollmentMetadata?: pulumi.Input<inputs.testbase.IntuneEnrollmentMetadataArgs>;
+    intuneEnrollmentMetadata?: pulumi.Input<inputs.testbase.IntuneEnrollmentMetadataArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource name of the Test Base Package.
      */
-    packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -262,11 +262,11 @@ export interface PackageArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    targetOSList?: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
+    targetOSList?: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[] | undefined>;
     /**
      * The resource name of the Test Base Account.
      */
@@ -274,7 +274,7 @@ export interface PackageArgs {
     /**
      * The detailed test information.
      */
-    tests?: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
+    tests?: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[] | undefined>;
     /**
      * Application version
      */

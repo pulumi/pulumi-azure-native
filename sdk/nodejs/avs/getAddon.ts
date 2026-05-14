@@ -27,7 +27,7 @@ export interface GetAddonArgs {
     /**
      * Name of the addon.
      */
-    addonName: string;
+    addonName?: string;
     /**
      * Name of the private cloud
      */
@@ -87,7 +87,7 @@ export interface GetAddonOutputArgs {
     /**
      * Name of the addon.
      */
-    addonName: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

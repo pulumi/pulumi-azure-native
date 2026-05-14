@@ -29,7 +29,7 @@ export interface GetHciEdgeDeviceJobArgs {
     /**
      * Name of EdgeDevice Job
      */
-    jobsName: string;
+    jobsName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -92,7 +92,7 @@ export interface GetHciEdgeDeviceJobOutputArgs {
     /**
      * Name of EdgeDevice Job
      */
-    jobsName: pulumi.Input<string>;
+    jobsName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

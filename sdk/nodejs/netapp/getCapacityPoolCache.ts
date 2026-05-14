@@ -32,7 +32,7 @@ export interface GetCapacityPoolCacheArgs {
     /**
      * The name of the cache resource.
      */
-    cacheName: string;
+    cacheName?: string;
     /**
      * The name of the capacity pool
      */
@@ -113,7 +113,7 @@ export interface GetCapacityPoolCacheOutputArgs {
     /**
      * The name of the cache resource.
      */
-    cacheName: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The name of the capacity pool
      */

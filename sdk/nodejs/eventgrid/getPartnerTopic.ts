@@ -26,7 +26,7 @@ export interface GetPartnerTopicArgs {
     /**
      * Name of the partner topic.
      */
-    partnerTopicName: string;
+    partnerTopicName?: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -123,7 +123,7 @@ export interface GetPartnerTopicOutputArgs {
     /**
      * Name of the partner topic.
      */
-    partnerTopicName: pulumi.Input<string>;
+    partnerTopicName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

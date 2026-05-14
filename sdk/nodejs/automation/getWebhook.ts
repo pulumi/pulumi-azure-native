@@ -35,7 +35,7 @@ export interface GetWebhookArgs {
     /**
      * The webhook name.
      */
-    webhookName: string;
+    webhookName?: string;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface GetWebhookOutputArgs {
     /**
      * The webhook name.
      */
-    webhookName: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string | undefined>;
 }

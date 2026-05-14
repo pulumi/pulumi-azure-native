@@ -26,7 +26,7 @@ export interface GetAppAttachPackageArgs {
     /**
      * The name of the App Attach package
      */
-    appAttachPackageName: string;
+    appAttachPackageName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetAppAttachPackageOutputArgs {
     /**
      * The name of the App Attach package
      */
-    appAttachPackageName: pulumi.Input<string>;
+    appAttachPackageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetFirewallArgs {
     /**
      * Firewall resource name
      */
-    firewallName: string;
+    firewallName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +137,7 @@ export interface GetFirewallOutputArgs {
     /**
      * Firewall resource name
      */
-    firewallName: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

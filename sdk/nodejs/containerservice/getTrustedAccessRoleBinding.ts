@@ -35,7 +35,7 @@ export interface GetTrustedAccessRoleBindingArgs {
     /**
      * The name of trusted access role binding.
      */
-    trustedAccessRoleBindingName: string;
+    trustedAccessRoleBindingName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetTrustedAccessRoleBindingOutputArgs {
     /**
      * The name of trusted access role binding.
      */
-    trustedAccessRoleBindingName: pulumi.Input<string>;
+    trustedAccessRoleBindingName?: pulumi.Input<string | undefined>;
 }

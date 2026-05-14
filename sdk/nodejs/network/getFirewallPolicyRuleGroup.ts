@@ -35,7 +35,7 @@ export interface GetFirewallPolicyRuleGroupArgs {
     /**
      * The name of the FirewallPolicyRuleGroup.
      */
-    ruleGroupName: string;
+    ruleGroupName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetFirewallPolicyRuleGroupOutputArgs {
     /**
      * The name of the FirewallPolicyRuleGroup.
      */
-    ruleGroupName: pulumi.Input<string>;
+    ruleGroupName?: pulumi.Input<string | undefined>;
 }

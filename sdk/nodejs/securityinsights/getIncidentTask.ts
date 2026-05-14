@@ -32,7 +32,7 @@ export interface GetIncidentTaskArgs {
     /**
      * Incident task ID
      */
-    incidentTaskId: string;
+    incidentTaskId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetIncidentTaskOutputArgs {
     /**
      * Incident task ID
      */
-    incidentTaskId: pulumi.Input<string>;
+    incidentTaskId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

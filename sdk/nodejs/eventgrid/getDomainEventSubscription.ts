@@ -31,7 +31,7 @@ export interface GetDomainEventSubscriptionArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName: string;
+    eventSubscriptionName?: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -135,7 +135,7 @@ export interface GetDomainEventSubscriptionOutputArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

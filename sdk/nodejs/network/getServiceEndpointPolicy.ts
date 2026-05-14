@@ -35,7 +35,7 @@ export interface GetServiceEndpointPolicyArgs {
     /**
      * The name of the service endpoint policy.
      */
-    serviceEndpointPolicyName: string;
+    serviceEndpointPolicyName?: string;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface GetServiceEndpointPolicyOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -127,5 +127,5 @@ export interface GetServiceEndpointPolicyOutputArgs {
     /**
      * The name of the service endpoint policy.
      */
-    serviceEndpointPolicyName: pulumi.Input<string>;
+    serviceEndpointPolicyName?: pulumi.Input<string | undefined>;
 }

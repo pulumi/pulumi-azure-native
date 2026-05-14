@@ -36,7 +36,7 @@ export interface GetSubscriptionArgs {
     /**
      * The subscription name.
      */
-    subscriptionName: string;
+    subscriptionName?: string;
     /**
      * The topic name.
      */
@@ -177,7 +177,7 @@ export interface GetSubscriptionOutputArgs {
     /**
      * The subscription name.
      */
-    subscriptionName: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string | undefined>;
     /**
      * The topic name.
      */

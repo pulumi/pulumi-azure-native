@@ -31,7 +31,7 @@ export interface GetWorkspaceManagerAssignmentArgs {
     /**
      * The name of the workspace manager assignment
      */
-    workspaceManagerAssignmentName: string;
+    workspaceManagerAssignmentName?: string;
     /**
      * The name of the workspace.
      */
@@ -107,7 +107,7 @@ export interface GetWorkspaceManagerAssignmentOutputArgs {
     /**
      * The name of the workspace manager assignment
      */
-    workspaceManagerAssignmentName: pulumi.Input<string>;
+    workspaceManagerAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

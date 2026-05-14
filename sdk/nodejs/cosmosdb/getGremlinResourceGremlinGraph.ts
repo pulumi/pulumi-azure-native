@@ -36,7 +36,7 @@ export interface GetGremlinResourceGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName: string;
+    graphName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetGremlinResourceGremlinGraphOutputArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName: pulumi.Input<string>;
+    graphName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

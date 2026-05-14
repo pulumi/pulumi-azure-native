@@ -26,7 +26,7 @@ export interface GetConfigurationProfileArgs {
     /**
      * The configuration profile name.
      */
-    configurationProfileName: string;
+    configurationProfileName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetConfigurationProfileOutputArgs {
     /**
      * The configuration profile name.
      */
-    configurationProfileName: pulumi.Input<string>;
+    configurationProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -36,7 +36,7 @@ export interface GetEnvironmentVersionArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version: string;
+    version?: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
@@ -101,7 +101,7 @@ export interface GetEnvironmentVersionOutputArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning workspace.
      */

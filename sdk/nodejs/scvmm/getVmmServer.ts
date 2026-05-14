@@ -30,7 +30,7 @@ export interface GetVmmServerArgs {
     /**
      * Name of the VMMServer.
      */
-    vmmServerName: string;
+    vmmServerName?: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetVmmServerOutputArgs {
     /**
      * Name of the VMMServer.
      */
-    vmmServerName: pulumi.Input<string>;
+    vmmServerName?: pulumi.Input<string | undefined>;
 }

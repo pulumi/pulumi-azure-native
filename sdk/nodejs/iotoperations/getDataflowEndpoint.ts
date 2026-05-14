@@ -27,7 +27,7 @@ export interface GetDataflowEndpointArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */
-    dataflowEndpointName: string;
+    dataflowEndpointName?: string;
     /**
      * Name of instance.
      */
@@ -91,7 +91,7 @@ export interface GetDataflowEndpointOutputArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */
-    dataflowEndpointName: pulumi.Input<string>;
+    dataflowEndpointName?: pulumi.Input<string | undefined>;
     /**
      * Name of instance.
      */

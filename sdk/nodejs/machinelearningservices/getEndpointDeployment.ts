@@ -26,7 +26,7 @@ export interface GetEndpointDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName: string;
+    deploymentName?: string;
     /**
      * Name of the endpoint resource.
      */
@@ -83,7 +83,7 @@ export interface GetEndpointDeploymentOutputArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Name of the endpoint resource.
      */

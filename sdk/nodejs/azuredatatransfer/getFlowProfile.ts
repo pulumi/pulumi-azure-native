@@ -27,7 +27,7 @@ export interface GetFlowProfileArgs {
     /**
      * The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
      */
-    flowProfileName: string;
+    flowProfileName?: string;
     /**
      * The name of the pipeline on which to operate.
      */
@@ -99,7 +99,7 @@ export interface GetFlowProfileOutputArgs {
     /**
      * The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
      */
-    flowProfileName: pulumi.Input<string>;
+    flowProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the pipeline on which to operate.
      */

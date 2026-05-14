@@ -27,7 +27,7 @@ export interface GetExpressRouteConnectionArgs {
     /**
      * The name of the ExpressRoute connection.
      */
-    connectionName: string;
+    connectionName?: string;
     /**
      * The name of the ExpressRoute gateway.
      */
@@ -107,7 +107,7 @@ export interface GetExpressRouteConnectionOutputArgs {
     /**
      * The name of the ExpressRoute connection.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute gateway.
      */

@@ -30,7 +30,7 @@ export interface GetManagedClusterArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -289,5 +289,5 @@ export interface GetManagedClusterOutputArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

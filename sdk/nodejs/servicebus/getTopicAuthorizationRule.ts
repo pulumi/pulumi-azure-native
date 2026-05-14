@@ -28,7 +28,7 @@ export interface GetTopicAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName: string;
+    authorizationRuleName?: string;
     /**
      * The namespace name
      */
@@ -97,7 +97,7 @@ export interface GetTopicAuthorizationRuleOutputArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */

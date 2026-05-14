@@ -40,7 +40,7 @@ export interface GetServiceTaskArgs {
     /**
      * Name of the Task
      */
-    taskName: string;
+    taskName?: string;
 }
 
 /**
@@ -97,7 +97,7 @@ export interface GetServiceTaskOutputArgs {
     /**
      * Expand the response
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group
      */
@@ -109,5 +109,5 @@ export interface GetServiceTaskOutputArgs {
     /**
      * Name of the Task
      */
-    taskName: pulumi.Input<string>;
+    taskName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetIoMAMPolicyByNameArgs {
     /**
      * Unique name for the policy
      */
-    policyName: string;
+    policyName?: string;
     /**
      * select specific fields in entity.
      */
@@ -104,9 +104,9 @@ export interface GetIoMAMPolicyByNameOutputArgs {
     /**
      * Unique name for the policy
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * select specific fields in entity.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
 }

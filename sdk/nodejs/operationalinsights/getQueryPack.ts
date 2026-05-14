@@ -26,7 +26,7 @@ export interface GetQueryPackArgs {
     /**
      * The name of the Log Analytics QueryPack resource.
      */
-    queryPackName: string;
+    queryPackName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetQueryPackOutputArgs {
     /**
      * The name of the Log Analytics QueryPack resource.
      */
-    queryPackName: pulumi.Input<string>;
+    queryPackName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

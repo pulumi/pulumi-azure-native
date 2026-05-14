@@ -35,7 +35,7 @@ export interface GetScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    scheduleName: string;
+    scheduleName?: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetScheduleOutputArgs {
     /**
      * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    scheduleName: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string | undefined>;
 }

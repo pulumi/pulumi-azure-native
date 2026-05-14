@@ -35,7 +35,7 @@ export interface GetSqlSitesControllerArgs {
     /**
      * SQL site name.
      */
-    sqlSiteName: string;
+    sqlSiteName?: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetSqlSitesControllerOutputArgs {
     /**
      * SQL site name.
      */
-    sqlSiteName: pulumi.Input<string>;
+    sqlSiteName?: pulumi.Input<string | undefined>;
 }

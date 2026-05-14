@@ -33,7 +33,7 @@ export interface GetProtectionIntentArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    intentObjectName: string;
+    intentObjectName?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -107,7 +107,7 @@ export interface GetProtectionIntentOutputArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    intentObjectName: pulumi.Input<string>;
+    intentObjectName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -83,7 +83,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["hubName"] = args?.hubName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.webpubsub.webPubSubHubPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.webpubsub.webPubSubHubPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -111,7 +111,7 @@ export interface WebPubSubHubArgs {
     /**
      * The hub name.
      */
-    hubName?: pulumi.Input<string>;
+    hubName?: pulumi.Input<string | undefined>;
     /**
      * Properties of a hub.
      */

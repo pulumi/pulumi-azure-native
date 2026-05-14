@@ -28,7 +28,7 @@ export interface GetNspProfileArgs {
     /**
      * The name of the NSP profile.
      */
-    profileName: string;
+    profileName?: string;
     /**
      * The name of the resource group.
      */
@@ -96,7 +96,7 @@ export interface GetNspProfileOutputArgs {
     /**
      * The name of the NSP profile.
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

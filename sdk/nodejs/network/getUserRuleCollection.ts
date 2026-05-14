@@ -40,7 +40,7 @@ export interface GetUserRuleCollectionArgs {
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    ruleCollectionName: string;
+    ruleCollectionName?: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetUserRuleCollectionOutputArgs {
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    ruleCollectionName: pulumi.Input<string>;
+    ruleCollectionName?: pulumi.Input<string | undefined>;
 }

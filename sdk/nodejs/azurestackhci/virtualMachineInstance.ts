@@ -134,14 +134,14 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             }
             resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
-            resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["hardwareProfile"] = args ? pulumi.output(args.hardwareProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachineInstancePropertiesHardwareProfileArgsProvideDefaults(v)) : undefined;
             resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["networkProfile"] = args?.networkProfile;
-            resourceInputs["osProfile"] = args ? (args.osProfile ? pulumi.output(args.osProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesOsProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["osProfile"] = args ? pulumi.output(args.osProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachineInstancePropertiesOsProfileArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceUid"] = args?.resourceUid;
             resourceInputs["resourceUri"] = args?.resourceUri;
-            resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["securityProfile"] = args ? pulumi.output(args.securityProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachineInstancePropertiesSecurityProfileArgsProvideDefaults(v)) : undefined;
             resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["guestAgentInstallStatus"] = undefined /*out*/;
@@ -187,35 +187,35 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Boolean indicating whether this is an existing local virtual machine or if one should be created.
      */
-    createFromLocal?: pulumi.Input<boolean>;
+    createFromLocal?: pulumi.Input<boolean | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine instance.
      */
-    hardwareProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileArgs>;
+    hardwareProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileArgs | undefined>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    httpProxyConfig?: pulumi.Input<inputs.azurestackhci.HttpProxyConfigurationArgs>;
+    httpProxyConfig?: pulumi.Input<inputs.azurestackhci.HttpProxyConfigurationArgs | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs | undefined>;
     /**
      * NetworkProfile - describes the network configuration the virtual machine instance
      */
-    networkProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileArgs | undefined>;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    osProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileArgs>;
+    osProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileArgs | undefined>;
     /**
      * Unique identifier defined by ARC to identify the guest of the VM.
      */
-    resourceUid?: pulumi.Input<string>;
+    resourceUid?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -223,9 +223,9 @@ export interface VirtualMachineInstanceArgs {
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine instance.
      */
-    securityProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileArgs>;
+    securityProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileArgs | undefined>;
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine instance
      */
-    storageProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileArgs | undefined>;
 }

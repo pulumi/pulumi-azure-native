@@ -26,7 +26,7 @@ export interface GetAvailabilitySetArgs {
     /**
      * Name of the AvailabilitySet.
      */
-    availabilitySetName: string;
+    availabilitySetName?: string;
     /**
      * The name of the resource group.
      */
@@ -101,7 +101,7 @@ export interface GetAvailabilitySetOutputArgs {
     /**
      * Name of the AvailabilitySet.
      */
-    availabilitySetName: pulumi.Input<string>;
+    availabilitySetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

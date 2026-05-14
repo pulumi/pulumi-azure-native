@@ -24,7 +24,7 @@ export interface GetKeyArgs {
     /**
      * The name of the workspace key
      */
-    keyName: string;
+    keyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetKeyOutputArgs {
     /**
      * The name of the workspace key
      */
-    keyName: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

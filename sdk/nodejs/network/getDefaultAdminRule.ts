@@ -43,7 +43,7 @@ export interface GetDefaultAdminRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 /**
@@ -164,5 +164,5 @@ export interface GetDefaultAdminRuleOutputArgs {
     /**
      * The name of the rule.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

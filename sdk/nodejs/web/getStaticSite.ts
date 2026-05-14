@@ -26,7 +26,7 @@ export interface GetStaticSiteArgs {
     /**
      * Name of the static site.
      */
-    name: string;
+    name?: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -165,7 +165,7 @@ export interface GetStaticSiteOutputArgs {
     /**
      * Name of the static site.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

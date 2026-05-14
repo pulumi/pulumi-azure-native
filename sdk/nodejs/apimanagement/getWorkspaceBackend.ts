@@ -28,7 +28,7 @@ export interface GetWorkspaceBackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId: string;
+    backendId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,7 +126,7 @@ export interface GetWorkspaceBackendOutputArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId: pulumi.Input<string>;
+    backendId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

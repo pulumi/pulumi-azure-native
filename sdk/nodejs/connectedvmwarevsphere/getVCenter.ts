@@ -30,7 +30,7 @@ export interface GetVCenterArgs {
     /**
      * Name of the vCenter.
      */
-    vcenterName: string;
+    vcenterName?: string;
 }
 
 /**
@@ -137,5 +137,5 @@ export interface GetVCenterOutputArgs {
     /**
      * Name of the vCenter.
      */
-    vcenterName: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string | undefined>;
 }

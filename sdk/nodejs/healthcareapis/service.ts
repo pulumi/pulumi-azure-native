@@ -137,7 +137,7 @@ export interface ServiceArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    identity?: pulumi.Input<inputs.healthcareapis.ServicesResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.healthcareapis.ServicesResourceIdentityArgs | undefined>;
     /**
      * The kind of the service.
      */
@@ -145,11 +145,11 @@ export interface ServiceArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The common properties of a service.
      */
-    properties?: pulumi.Input<inputs.healthcareapis.ServicesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.healthcareapis.ServicesPropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -157,9 +157,9 @@ export interface ServiceArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

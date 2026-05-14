@@ -31,7 +31,7 @@ export interface GetServerSecurityAlertPolicyArgs {
     /**
      * The name of the security alert policy.
      */
-    securityAlertPolicyName: string;
+    securityAlertPolicyName?: string;
     /**
      * The name of the server.
      */
@@ -119,7 +119,7 @@ export interface GetServerSecurityAlertPolicyOutputArgs {
     /**
      * The name of the security alert policy.
      */
-    securityAlertPolicyName: pulumi.Input<string>;
+    securityAlertPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the server.
      */

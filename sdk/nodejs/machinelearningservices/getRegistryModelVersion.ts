@@ -40,7 +40,7 @@ export interface GetRegistryModelVersionArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version: string;
+    version?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetRegistryModelVersionOutputArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

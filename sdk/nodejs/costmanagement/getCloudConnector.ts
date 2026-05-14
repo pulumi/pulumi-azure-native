@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-03-01-preview.
  */
-export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
+export function getCloudConnector(args?: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getCloudConnector", {
         "connectorName": args.connectorName,
@@ -24,7 +25,7 @@ export interface GetCloudConnectorArgs {
     /**
      * Connector Name.
      */
-    connectorName: string;
+    connectorName?: string;
     /**
      * May be used to expand the collectionInfo property. By default, collectionInfo is not included.
      */
@@ -117,7 +118,8 @@ export interface GetCloudConnectorResult {
  *
  * Uses Azure REST API version 2019-03-01-preview.
  */
-export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
+export function getCloudConnectorOutput(args?: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getCloudConnector", {
         "connectorName": args.connectorName,
@@ -129,9 +131,9 @@ export interface GetCloudConnectorOutputArgs {
     /**
      * Connector Name.
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * May be used to expand the collectionInfo property. By default, collectionInfo is not included.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
 }

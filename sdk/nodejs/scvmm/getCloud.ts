@@ -26,7 +26,7 @@ export interface GetCloudArgs {
     /**
      * Name of the Cloud.
      */
-    cloudName: string;
+    cloudName?: string;
     /**
      * The name of the resource group.
      */
@@ -117,7 +117,7 @@ export interface GetCloudOutputArgs {
     /**
      * Name of the Cloud.
      */
-    cloudName: pulumi.Input<string>;
+    cloudName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

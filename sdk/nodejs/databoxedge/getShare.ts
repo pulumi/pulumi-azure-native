@@ -31,7 +31,7 @@ export interface GetShareArgs {
     /**
      * The share name.
      */
-    name: string;
+    name?: string;
     /**
      * The resource group name.
      */
@@ -127,7 +127,7 @@ export interface GetShareOutputArgs {
     /**
      * The share name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

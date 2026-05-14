@@ -31,7 +31,7 @@ export interface GetDynamicConfigurationArgs {
     /**
      * Name of the dynamic configuration
      */
-    dynamicConfigurationName: string;
+    dynamicConfigurationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetDynamicConfigurationOutputArgs {
     /**
      * Name of the dynamic configuration
      */
-    dynamicConfigurationName: pulumi.Input<string>;
+    dynamicConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

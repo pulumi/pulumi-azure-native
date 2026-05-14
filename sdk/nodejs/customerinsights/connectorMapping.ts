@@ -200,15 +200,15 @@ export interface ConnectorMappingArgs {
     /**
      * Type of connector.
      */
-    connectorType?: pulumi.Input<string | enums.customerinsights.ConnectorTypes>;
+    connectorType?: pulumi.Input<string | enums.customerinsights.ConnectorTypes | undefined>;
     /**
      * The description of the connector mapping.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name for the connector mapping.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Defines which entity type the file should map to.
      */
@@ -224,7 +224,7 @@ export interface ConnectorMappingArgs {
     /**
      * The name of the connector mapping.
      */
-    mappingName?: pulumi.Input<string>;
+    mappingName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the mapping.
      */

@@ -35,7 +35,7 @@ export interface GetSmtpUsernameArgs {
     /**
      * The name of the SmtpUsernameResource.
      */
-    smtpUsername: string;
+    smtpUsername?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetSmtpUsernameOutputArgs {
     /**
      * The name of the SmtpUsernameResource.
      */
-    smtpUsername: pulumi.Input<string>;
+    smtpUsername?: pulumi.Input<string | undefined>;
 }

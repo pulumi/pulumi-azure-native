@@ -27,7 +27,7 @@ export interface GetRegistryModelContainerArgs {
     /**
      * Container name. This is case-sensitive.
      */
-    modelName: string;
+    modelName?: string;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
@@ -87,7 +87,7 @@ export interface GetRegistryModelContainerOutputArgs {
     /**
      * Container name. This is case-sensitive.
      */
-    modelName: pulumi.Input<string>;
+    modelName?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */

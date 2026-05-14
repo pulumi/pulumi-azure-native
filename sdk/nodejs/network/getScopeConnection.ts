@@ -35,7 +35,7 @@ export interface GetScopeConnectionArgs {
     /**
      * Name for the cross-tenant connection.
      */
-    scopeConnectionName: string;
+    scopeConnectionName?: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetScopeConnectionOutputArgs {
     /**
      * Name for the cross-tenant connection.
      */
-    scopeConnectionName: pulumi.Input<string>;
+    scopeConnectionName?: pulumi.Input<string | undefined>;
 }

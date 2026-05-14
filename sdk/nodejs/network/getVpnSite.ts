@@ -30,7 +30,7 @@ export interface GetVpnSiteArgs {
     /**
      * The name of the VpnSite being retrieved.
      */
-    vpnSiteName: string;
+    vpnSiteName?: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetVpnSiteOutputArgs {
     /**
      * The name of the VpnSite being retrieved.
      */
-    vpnSiteName: pulumi.Input<string>;
+    vpnSiteName?: pulumi.Input<string | undefined>;
 }

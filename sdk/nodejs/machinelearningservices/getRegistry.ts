@@ -26,7 +26,7 @@ export interface GetRegistryArgs {
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
-    registryName: string;
+    registryName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,7 +130,7 @@ export interface GetRegistryOutputArgs {
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
-    registryName: pulumi.Input<string>;
+    registryName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

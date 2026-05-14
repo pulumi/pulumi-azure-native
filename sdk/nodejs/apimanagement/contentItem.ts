@@ -103,7 +103,7 @@ export interface ContentItemArgs {
     /**
      * Content item identifier.
      */
-    contentItemId?: pulumi.Input<string>;
+    contentItemId?: pulumi.Input<string | undefined>;
     /**
      * Content type identifier.
      */
@@ -111,7 +111,7 @@ export interface ContentItemArgs {
     /**
      * Properties of the content item.
      */
-    properties?: any;
+    properties?: any | undefined;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetMqArgs {
     /**
      * Name of MQ resource
      */
-    mqName: string;
+    mqName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetMqOutputArgs {
     /**
      * Name of MQ resource
      */
-    mqName: pulumi.Input<string>;
+    mqName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

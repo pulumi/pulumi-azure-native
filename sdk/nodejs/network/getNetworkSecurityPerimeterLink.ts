@@ -24,7 +24,7 @@ export interface GetNetworkSecurityPerimeterLinkArgs {
     /**
      * The name of the NSP link.
      */
-    linkName: string;
+    linkName?: string;
     /**
      * The name of the network security perimeter.
      */
@@ -120,7 +120,7 @@ export interface GetNetworkSecurityPerimeterLinkOutputArgs {
     /**
      * The name of the NSP link.
      */
-    linkName: pulumi.Input<string>;
+    linkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */

@@ -23,7 +23,7 @@ export interface GetApplicationSecurityGroupArgs {
     /**
      * The name of the application security group.
      */
-    applicationSecurityGroupName: string;
+    applicationSecurityGroupName?: string;
     /**
      * The name of the resource group.
      */
@@ -90,7 +90,7 @@ export interface GetApplicationSecurityGroupOutputArgs {
     /**
      * The name of the application security group.
      */
-    applicationSecurityGroupName: pulumi.Input<string>;
+    applicationSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

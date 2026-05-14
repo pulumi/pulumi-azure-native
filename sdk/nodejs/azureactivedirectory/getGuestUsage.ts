@@ -30,7 +30,7 @@ export interface GetGuestUsageArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetGuestUsageOutputArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

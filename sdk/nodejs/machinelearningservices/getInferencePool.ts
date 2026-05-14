@@ -25,7 +25,7 @@ export interface GetInferencePoolArgs {
     /**
      * Name of InferencePool
      */
-    inferencePoolName: string;
+    inferencePoolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -100,7 +100,7 @@ export interface GetInferencePoolOutputArgs {
     /**
      * Name of InferencePool
      */
-    inferencePoolName: pulumi.Input<string>;
+    inferencePoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

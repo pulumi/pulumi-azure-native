@@ -35,7 +35,7 @@ export interface GetSkusArgs {
     /**
      * The SKU.
      */
-    sku: string;
+    sku?: string;
 }
 
 /**
@@ -92,5 +92,5 @@ export interface GetSkusOutputArgs {
     /**
      * The SKU.
      */
-    sku: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
 }

@@ -27,7 +27,7 @@ export interface GetChannelArgs {
     /**
      * The name of the Bot resource.
      */
-    channelName: string;
+    channelName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetChannelOutputArgs {
     /**
      * The name of the Bot resource.
      */
-    channelName: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

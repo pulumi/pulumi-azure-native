@@ -35,7 +35,7 @@ export interface GetUserArgs {
     /**
      * The name of the mongo cluster user.
      */
-    userName: string;
+    userName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetUserOutputArgs {
     /**
      * The name of the mongo cluster user.
      */
-    userName: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

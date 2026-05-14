@@ -27,7 +27,7 @@ export interface GetInternalNetworkArgs {
     /**
      * Name of the Internal Network.
      */
-    internalNetworkName: string;
+    internalNetworkName?: string;
     /**
      * Name of the L3 Isolation Domain.
      */
@@ -155,7 +155,7 @@ export interface GetInternalNetworkOutputArgs {
     /**
      * Name of the Internal Network.
      */
-    internalNetworkName: pulumi.Input<string>;
+    internalNetworkName?: pulumi.Input<string | undefined>;
     /**
      * Name of the L3 Isolation Domain.
      */

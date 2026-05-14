@@ -30,7 +30,7 @@ export interface GetGrafanaArgs {
     /**
      * The workspace name of Azure Managed Grafana.
      */
-    workspaceName: string;
+    workspaceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetGrafanaOutputArgs {
     /**
      * The workspace name of Azure Managed Grafana.
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

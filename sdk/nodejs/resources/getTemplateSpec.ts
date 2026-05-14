@@ -35,7 +35,7 @@ export interface GetTemplateSpecArgs {
     /**
      * Name of the Template Spec.
      */
-    templateSpecName: string;
+    templateSpecName?: string;
 }
 
 /**
@@ -107,7 +107,7 @@ export interface GetTemplateSpecOutputArgs {
     /**
      * Allows for expansion of additional Template Spec details in the response. Optional.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,5 +115,5 @@ export interface GetTemplateSpecOutputArgs {
     /**
      * Name of the Template Spec.
      */
-    templateSpecName: pulumi.Input<string>;
+    templateSpecName?: pulumi.Input<string | undefined>;
 }

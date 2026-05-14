@@ -26,7 +26,7 @@ export interface GetManagedClusterArgs {
     /**
      * The name of the cluster resource.
      */
-    clusterName: string;
+    clusterName?: string;
     /**
      * The name of the resource group.
      */
@@ -249,7 +249,7 @@ export interface GetManagedClusterOutputArgs {
     /**
      * The name of the cluster resource.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

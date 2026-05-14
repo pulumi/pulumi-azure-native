@@ -32,7 +32,7 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionArgs {
     /**
      * The name of the private end point connection.
      */
-    peConnectionName: string;
+    peConnectionName?: string;
     /**
      * The name of the resource group.
      */
@@ -109,11 +109,11 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the private end point connection.
      */
-    peConnectionName: pulumi.Input<string>;
+    peConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

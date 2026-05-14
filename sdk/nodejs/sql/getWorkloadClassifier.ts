@@ -38,7 +38,7 @@ export interface GetWorkloadClassifierArgs {
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName: string;
+    workloadClassifierName?: string;
     /**
      * The name of the workload group from which to receive the classifier from.
      */
@@ -124,7 +124,7 @@ export interface GetWorkloadClassifierOutputArgs {
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workload group from which to receive the classifier from.
      */

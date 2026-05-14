@@ -29,7 +29,7 @@ export interface GetRelationshipArgs {
     /**
      * The name of the relationship.
      */
-    relationshipName: string;
+    relationshipName?: string;
     /**
      * The name of the resource group.
      */
@@ -127,7 +127,7 @@ export interface GetRelationshipOutputArgs {
     /**
      * The name of the relationship.
      */
-    relationshipName: pulumi.Input<string>;
+    relationshipName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

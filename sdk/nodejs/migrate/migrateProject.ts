@@ -114,19 +114,19 @@ export interface MigrateProjectArgs {
     /**
      * Gets or sets the eTag for concurrency control.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the Azure location in which migrate project is created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */
-    migrateProjectName?: pulumi.Input<string>;
+    migrateProjectName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the nested properties.
      */
-    properties?: pulumi.Input<inputs.migrate.MigrateProjectPropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.MigrateProjectPropertiesArgs | undefined>;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */
@@ -134,5 +134,5 @@ export interface MigrateProjectArgs {
     /**
      * Gets or sets the tags.
      */
-    tags?: pulumi.Input<inputs.migrate.MigrateProjectTagsArgs>;
+    tags?: pulumi.Input<inputs.migrate.MigrateProjectTagsArgs | undefined>;
 }

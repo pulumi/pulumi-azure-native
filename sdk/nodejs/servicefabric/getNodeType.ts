@@ -31,7 +31,7 @@ export interface GetNodeTypeArgs {
     /**
      * The name of the node type.
      */
-    nodeTypeName: string;
+    nodeTypeName?: string;
     /**
      * The name of the resource group.
      */
@@ -291,7 +291,7 @@ export interface GetNodeTypeOutputArgs {
     /**
      * The name of the node type.
      */
-    nodeTypeName: pulumi.Input<string>;
+    nodeTypeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

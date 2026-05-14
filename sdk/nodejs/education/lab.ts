@@ -193,7 +193,7 @@ export interface LabArgs {
     /**
      * The type of currency being used for the value.
      */
-    currency?: pulumi.Input<string>;
+    currency?: pulumi.Input<string | undefined>;
     /**
      * Detail description of this lab
      */
@@ -213,5 +213,5 @@ export interface LabArgs {
     /**
      * Amount value.
      */
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }

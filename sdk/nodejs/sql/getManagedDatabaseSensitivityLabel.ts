@@ -48,7 +48,7 @@ export interface GetManagedDatabaseSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource: string;
+    sensitivityLabelSource?: string;
     /**
      * The name of the table.
      */
@@ -158,7 +158,7 @@ export interface GetManagedDatabaseSensitivityLabelOutputArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource: pulumi.Input<string>;
+    sensitivityLabelSource?: pulumi.Input<string | undefined>;
     /**
      * The name of the table.
      */

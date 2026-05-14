@@ -28,7 +28,7 @@ export interface GetAccessPolicyAssignmentArgs {
     /**
      * The name of the Redis Enterprise database access policy assignment.
      */
-    accessPolicyAssignmentName: string;
+    accessPolicyAssignmentName?: string;
     /**
      * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
@@ -97,7 +97,7 @@ export interface GetAccessPolicyAssignmentOutputArgs {
     /**
      * The name of the Redis Enterprise database access policy assignment.
      */
-    accessPolicyAssignmentName: pulumi.Input<string>;
+    accessPolicyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */

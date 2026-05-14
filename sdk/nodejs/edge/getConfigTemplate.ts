@@ -26,7 +26,7 @@ export interface GetConfigTemplateArgs {
     /**
      * The name of the ConfigTemplate
      */
-    configTemplateName: string;
+    configTemplateName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetConfigTemplateOutputArgs {
     /**
      * The name of the ConfigTemplate
      */
-    configTemplateName: pulumi.Input<string>;
+    configTemplateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -103,15 +103,15 @@ export interface SaasSubscriptionLevelArgs {
     /**
      * Resource location. Only value allowed for SaaS is 'global'
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Properties of the SaaS resource that are relevant for creation.
      */
-    properties?: pulumi.Input<inputs.saas.SaasCreationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.saas.SaasCreationPropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -119,9 +119,9 @@ export interface SaasSubscriptionLevelArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

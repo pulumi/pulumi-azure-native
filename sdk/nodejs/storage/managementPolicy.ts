@@ -115,7 +115,7 @@ export interface ManagementPolicyArgs {
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    managementPolicyName?: pulumi.Input<string>;
+    managementPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
      */

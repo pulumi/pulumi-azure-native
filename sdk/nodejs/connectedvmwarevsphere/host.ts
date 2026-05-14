@@ -206,27 +206,27 @@ export interface HostArgs {
     /**
      * Gets or sets the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs | undefined>;
     /**
      * Name of the host.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the inventory Item ID for the host.
      */
-    inventoryItemId?: pulumi.Input<string>;
+    inventoryItemId?: pulumi.Input<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
      */
-    moRefId?: pulumi.Input<string>;
+    moRefId?: pulumi.Input<string | undefined>;
     /**
      * The Resource Group Name.
      */
@@ -234,9 +234,9 @@ export interface HostArgs {
     /**
      * Gets or sets the Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the ARM Id of the vCenter resource in which this host resides.
      */
-    vCenterId?: pulumi.Input<string>;
+    vCenterId?: pulumi.Input<string | undefined>;
 }

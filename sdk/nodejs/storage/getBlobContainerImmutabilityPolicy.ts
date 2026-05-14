@@ -33,7 +33,7 @@ export interface GetBlobContainerImmutabilityPolicyArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    immutabilityPolicyName: string;
+    immutabilityPolicyName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -110,7 +110,7 @@ export interface GetBlobContainerImmutabilityPolicyOutputArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    immutabilityPolicyName: pulumi.Input<string>;
+    immutabilityPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetRegisteredPrefixArgs {
     /**
      * The name of the registered prefix.
      */
-    registeredPrefixName: string;
+    registeredPrefixName?: string;
     /**
      * The name of the resource group.
      */
@@ -100,7 +100,7 @@ export interface GetRegisteredPrefixOutputArgs {
     /**
      * The name of the registered prefix.
      */
-    registeredPrefixName: pulumi.Input<string>;
+    registeredPrefixName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

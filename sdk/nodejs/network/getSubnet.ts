@@ -36,7 +36,7 @@ export interface GetSubnetArgs {
     /**
      * The name of the subnet.
      */
-    subnetName: string;
+    subnetName?: string;
     /**
      * The name of the virtual network.
      */
@@ -177,7 +177,7 @@ export interface GetSubnetOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -185,7 +185,7 @@ export interface GetSubnetOutputArgs {
     /**
      * The name of the subnet.
      */
-    subnetName: pulumi.Input<string>;
+    subnetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual network.
      */

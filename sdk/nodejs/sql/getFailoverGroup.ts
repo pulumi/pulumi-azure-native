@@ -27,7 +27,7 @@ export interface GetFailoverGroupArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName: string;
+    failoverGroupName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -111,7 +111,7 @@ export interface GetFailoverGroupOutputArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName: pulumi.Input<string>;
+    failoverGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

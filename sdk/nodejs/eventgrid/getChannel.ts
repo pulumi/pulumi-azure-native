@@ -27,7 +27,7 @@ export interface GetChannelArgs {
     /**
      * Name of the channel.
      */
-    channelName: string;
+    channelName?: string;
     /**
      * Name of the partner namespace.
      */
@@ -108,7 +108,7 @@ export interface GetChannelOutputArgs {
     /**
      * Name of the channel.
      */
-    channelName: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * Name of the partner namespace.
      */

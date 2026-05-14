@@ -143,7 +143,7 @@ export interface CustomizableConnectorDefinitionArgs {
     /**
      * The UiConfig for 'Customizable' connector definition kind.
      */
-    connectionsConfig?: pulumi.Input<inputs.securityinsights.CustomizableConnectionsConfigArgs>;
+    connectionsConfig?: pulumi.Input<inputs.securityinsights.CustomizableConnectionsConfigArgs | undefined>;
     /**
      * The UiConfig for 'Customizable' connector definition kind.
      */
@@ -151,11 +151,11 @@ export interface CustomizableConnectorDefinitionArgs {
     /**
      * Gets or sets the connector definition created date in UTC format.
      */
-    createdTimeUtc?: pulumi.Input<string>;
+    createdTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * The data connector definition name.
      */
-    dataConnectorDefinitionName?: pulumi.Input<string>;
+    dataConnectorDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The kind of the data connector definitions
      * Expected value is 'Customizable'.
@@ -164,7 +164,7 @@ export interface CustomizableConnectorDefinitionArgs {
     /**
      * Gets or sets the connector definition last modified date in UTC format.
      */
-    lastModifiedUtc?: pulumi.Input<string>;
+    lastModifiedUtc?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

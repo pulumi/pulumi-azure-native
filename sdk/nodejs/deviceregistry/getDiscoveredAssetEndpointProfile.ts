@@ -24,7 +24,7 @@ export interface GetDiscoveredAssetEndpointProfileArgs {
     /**
      * Discovered Asset Endpoint Profile name parameter.
      */
-    discoveredAssetEndpointProfileName: string;
+    discoveredAssetEndpointProfileName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetDiscoveredAssetEndpointProfileOutputArgs {
     /**
      * Discovered Asset Endpoint Profile name parameter.
      */
-    discoveredAssetEndpointProfileName: pulumi.Input<string>;
+    discoveredAssetEndpointProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

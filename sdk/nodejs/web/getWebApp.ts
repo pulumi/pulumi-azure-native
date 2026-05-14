@@ -26,7 +26,7 @@ export interface GetWebAppArgs {
     /**
      * Name of the app.
      */
-    name: string;
+    name?: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -317,7 +317,7 @@ export interface GetWebAppOutputArgs {
     /**
      * Name of the app.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

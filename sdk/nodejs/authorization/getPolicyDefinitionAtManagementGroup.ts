@@ -30,7 +30,7 @@ export interface GetPolicyDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy definition to get.
      */
-    policyDefinitionName: string;
+    policyDefinitionName?: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetPolicyDefinitionAtManagementGroupOutputArgs {
     /**
      * The name of the policy definition to get.
      */
-    policyDefinitionName: pulumi.Input<string>;
+    policyDefinitionName?: pulumi.Input<string | undefined>;
 }

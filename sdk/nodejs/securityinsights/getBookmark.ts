@@ -27,7 +27,7 @@ export interface GetBookmarkArgs {
     /**
      * Bookmark ID
      */
-    bookmarkId: string;
+    bookmarkId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,7 +139,7 @@ export interface GetBookmarkOutputArgs {
     /**
      * Bookmark ID
      */
-    bookmarkId: pulumi.Input<string>;
+    bookmarkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

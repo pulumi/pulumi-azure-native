@@ -24,7 +24,7 @@ export interface GetBgpPeerArgs {
     /**
      * The name of the BgpPeer
      */
-    bgpPeerName: string;
+    bgpPeerName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -89,7 +89,7 @@ export interface GetBgpPeerOutputArgs {
     /**
      * The name of the BgpPeer
      */
-    bgpPeerName: pulumi.Input<string>;
+    bgpPeerName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

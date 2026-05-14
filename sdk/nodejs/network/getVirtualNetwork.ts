@@ -35,7 +35,7 @@ export interface GetVirtualNetworkArgs {
     /**
      * The name of the virtual network.
      */
-    virtualNetworkName: string;
+    virtualNetworkName?: string;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface GetVirtualNetworkOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -163,5 +163,5 @@ export interface GetVirtualNetworkOutputArgs {
     /**
      * The name of the virtual network.
      */
-    virtualNetworkName: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
 }

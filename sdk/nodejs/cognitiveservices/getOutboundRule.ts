@@ -36,7 +36,7 @@ export interface GetOutboundRuleArgs {
     /**
      * Name of the cognitive services account managed network outbound rule
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 export interface GetOutboundRuleResult {
@@ -94,5 +94,5 @@ export interface GetOutboundRuleOutputArgs {
     /**
      * Name of the cognitive services account managed network outbound rule
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

@@ -32,7 +32,7 @@ export interface GetSubscriptionArgs {
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    sid: string;
+    sid?: string;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface GetSubscriptionOutputArgs {
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    sid: pulumi.Input<string>;
+    sid?: pulumi.Input<string | undefined>;
 }

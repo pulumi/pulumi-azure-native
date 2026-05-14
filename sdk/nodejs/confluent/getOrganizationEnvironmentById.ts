@@ -27,7 +27,7 @@ export interface GetOrganizationEnvironmentByIdArgs {
     /**
      * Confluent environment id
      */
-    environmentId: string;
+    environmentId?: string;
     /**
      * Organization resource name
      */
@@ -95,7 +95,7 @@ export interface GetOrganizationEnvironmentByIdOutputArgs {
     /**
      * Confluent environment id
      */
-    environmentId: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Organization resource name
      */

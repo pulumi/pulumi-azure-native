@@ -26,7 +26,7 @@ export interface GetInternetGatewayRuleArgs {
     /**
      * Name of the Internet Gateway rule.
      */
-    internetGatewayRuleName: string;
+    internetGatewayRuleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetInternetGatewayRuleOutputArgs {
     /**
      * Name of the Internet Gateway rule.
      */
-    internetGatewayRuleName: pulumi.Input<string>;
+    internetGatewayRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

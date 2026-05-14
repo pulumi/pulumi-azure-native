@@ -120,7 +120,7 @@ export interface DatabaseAccountCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName?: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

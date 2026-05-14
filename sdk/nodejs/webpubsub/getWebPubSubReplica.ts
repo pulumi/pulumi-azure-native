@@ -27,7 +27,7 @@ export interface GetWebPubSubReplicaArgs {
     /**
      * The name of the replica.
      */
-    replicaName: string;
+    replicaName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -110,7 +110,7 @@ export interface GetWebPubSubReplicaOutputArgs {
     /**
      * The name of the replica.
      */
-    replicaName: pulumi.Input<string>;
+    replicaName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

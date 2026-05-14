@@ -24,7 +24,7 @@ export interface GetManagementConfigurationArgs {
     /**
      * User Management Configuration Name.
      */
-    managementConfigurationName: string;
+    managementConfigurationName?: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
@@ -77,7 +77,7 @@ export interface GetManagementConfigurationOutputArgs {
     /**
      * User Management Configuration Name.
      */
-    managementConfigurationName: pulumi.Input<string>;
+    managementConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */

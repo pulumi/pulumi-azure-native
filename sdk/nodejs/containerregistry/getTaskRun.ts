@@ -35,7 +35,7 @@ export interface GetTaskRunArgs {
     /**
      * The name of the task run.
      */
-    taskRunName: string;
+    taskRunName?: string;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface GetTaskRunOutputArgs {
     /**
      * The name of the task run.
      */
-    taskRunName: pulumi.Input<string>;
+    taskRunName?: pulumi.Input<string | undefined>;
 }

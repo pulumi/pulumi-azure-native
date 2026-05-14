@@ -31,7 +31,7 @@ export interface GetPacketCaptureArgs {
     /**
      * The name of the packet capture session.
      */
-    packetCaptureName: string;
+    packetCaptureName?: string;
     /**
      * The name of the resource group.
      */
@@ -127,7 +127,7 @@ export interface GetPacketCaptureOutputArgs {
     /**
      * The name of the packet capture session.
      */
-    packetCaptureName: pulumi.Input<string>;
+    packetCaptureName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

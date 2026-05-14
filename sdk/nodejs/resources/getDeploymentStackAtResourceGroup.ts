@@ -26,7 +26,7 @@ export interface GetDeploymentStackAtResourceGroupArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName: string;
+    deploymentStackName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,7 +153,7 @@ export interface GetDeploymentStackAtResourceGroupOutputArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName: pulumi.Input<string>;
+    deploymentStackName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

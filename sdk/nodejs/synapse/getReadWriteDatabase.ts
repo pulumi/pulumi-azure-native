@@ -26,7 +26,7 @@ export interface GetReadWriteDatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The name of the Kusto pool.
      */
@@ -114,7 +114,7 @@ export interface GetReadWriteDatabaseOutputArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto pool.
      */

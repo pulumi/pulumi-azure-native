@@ -26,7 +26,7 @@ export interface GetJitRequestArgs {
     /**
      * The name of the JIT request.
      */
-    jitRequestName: string;
+    jitRequestName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetJitRequestOutputArgs {
     /**
      * The name of the JIT request.
      */
-    jitRequestName: pulumi.Input<string>;
+    jitRequestName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

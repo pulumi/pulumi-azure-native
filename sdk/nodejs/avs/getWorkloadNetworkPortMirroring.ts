@@ -27,7 +27,7 @@ export interface GetWorkloadNetworkPortMirroringArgs {
     /**
      * ID of the NSX port mirroring profile.
      */
-    portMirroringId: string;
+    portMirroringId?: string;
     /**
      * Name of the private cloud
      */
@@ -111,7 +111,7 @@ export interface GetWorkloadNetworkPortMirroringOutputArgs {
     /**
      * ID of the NSX port mirroring profile.
      */
-    portMirroringId: pulumi.Input<string>;
+    portMirroringId?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

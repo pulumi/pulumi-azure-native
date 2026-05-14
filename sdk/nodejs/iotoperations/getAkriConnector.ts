@@ -32,7 +32,7 @@ export interface GetAkriConnectorArgs {
     /**
      * Name of AkriConnector resource.
      */
-    connectorName: string;
+    connectorName?: string;
     /**
      * Name of instance.
      */
@@ -101,7 +101,7 @@ export interface GetAkriConnectorOutputArgs {
     /**
      * Name of AkriConnector resource.
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * Name of instance.
      */

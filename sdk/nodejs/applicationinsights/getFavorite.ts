@@ -22,7 +22,7 @@ export interface GetFavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    favoriteId: string;
+    favoriteId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -104,7 +104,7 @@ export interface GetFavoriteOutputArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    favoriteId: pulumi.Input<string>;
+    favoriteId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

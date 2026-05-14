@@ -28,7 +28,7 @@ export interface GetArtifactManifestArgs {
     /**
      * The name of the artifact manifest.
      */
-    artifactManifestName: string;
+    artifactManifestName?: string;
     /**
      * The name of the artifact store.
      */
@@ -101,7 +101,7 @@ export interface GetArtifactManifestOutputArgs {
     /**
      * The name of the artifact manifest.
      */
-    artifactManifestName: pulumi.Input<string>;
+    artifactManifestName?: pulumi.Input<string | undefined>;
     /**
      * The name of the artifact store.
      */

@@ -30,7 +30,7 @@ export interface GetSignalRArgs {
     /**
      * The name of the resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -204,5 +204,5 @@ export interface GetSignalROutputArgs {
     /**
      * The name of the resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

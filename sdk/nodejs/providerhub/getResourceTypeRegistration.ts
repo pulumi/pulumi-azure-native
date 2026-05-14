@@ -30,7 +30,7 @@ export interface GetResourceTypeRegistrationArgs {
     /**
      * The resource type.
      */
-    resourceType: string;
+    resourceType?: string;
 }
 
 /**
@@ -86,5 +86,5 @@ export interface GetResourceTypeRegistrationOutputArgs {
     /**
      * The resource type.
      */
-    resourceType: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }

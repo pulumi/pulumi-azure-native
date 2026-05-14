@@ -31,7 +31,7 @@ export interface GetPermissionBindingArgs {
     /**
      * Name of the permission binding.
      */
-    permissionBindingName: string;
+    permissionBindingName?: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -109,7 +109,7 @@ export interface GetPermissionBindingOutputArgs {
     /**
      * Name of the permission binding.
      */
-    permissionBindingName: pulumi.Input<string>;
+    permissionBindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

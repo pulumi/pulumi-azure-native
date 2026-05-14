@@ -40,7 +40,7 @@ export interface GetUpdateRunArgs {
     /**
      * The name of the Update Run
      */
-    updateRunName: string;
+    updateRunName?: string;
 }
 
 /**
@@ -157,5 +157,5 @@ export interface GetUpdateRunOutputArgs {
     /**
      * The name of the Update Run
      */
-    updateRunName: pulumi.Input<string>;
+    updateRunName?: pulumi.Input<string | undefined>;
 }

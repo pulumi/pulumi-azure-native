@@ -24,7 +24,7 @@ export interface GetOpenIdConnectProviderArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    opid: string;
+    opid?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -104,7 +104,7 @@ export interface GetOpenIdConnectProviderOutputArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    opid: pulumi.Input<string>;
+    opid?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

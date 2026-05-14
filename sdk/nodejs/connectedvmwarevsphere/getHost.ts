@@ -26,7 +26,7 @@ export interface GetHostArgs {
     /**
      * Name of the host.
      */
-    hostName: string;
+    hostName?: string;
     /**
      * The Resource Group Name.
      */
@@ -149,7 +149,7 @@ export interface GetHostOutputArgs {
     /**
      * Name of the host.
      */
-    hostName: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Group Name.
      */

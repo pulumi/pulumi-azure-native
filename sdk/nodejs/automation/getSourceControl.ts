@@ -35,7 +35,7 @@ export interface GetSourceControlArgs {
     /**
      * The name of source control.
      */
-    sourceControlName: string;
+    sourceControlName?: string;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface GetSourceControlOutputArgs {
     /**
      * The name of source control.
      */
-    sourceControlName: pulumi.Input<string>;
+    sourceControlName?: pulumi.Input<string | undefined>;
 }

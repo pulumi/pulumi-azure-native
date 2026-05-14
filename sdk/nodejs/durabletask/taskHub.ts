@@ -116,5 +116,5 @@ export interface TaskHubArgs {
     /**
      * The name of the TaskHub
      */
-    taskHubName?: pulumi.Input<string>;
+    taskHubName?: pulumi.Input<string | undefined>;
 }

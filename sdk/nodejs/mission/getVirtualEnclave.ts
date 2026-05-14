@@ -30,7 +30,7 @@ export interface GetVirtualEnclaveArgs {
     /**
      * The name of the enclaveResource Resource
      */
-    virtualEnclaveName: string;
+    virtualEnclaveName?: string;
 }
 
 /**
@@ -145,5 +145,5 @@ export interface GetVirtualEnclaveOutputArgs {
     /**
      * The name of the enclaveResource Resource
      */
-    virtualEnclaveName: pulumi.Input<string>;
+    virtualEnclaveName?: pulumi.Input<string | undefined>;
 }

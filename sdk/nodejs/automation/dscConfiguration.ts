@@ -188,31 +188,31 @@ export interface DscConfigurationArgs {
     /**
      * The create or update parameters for configuration.
      */
-    configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the description of the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets progress log option.
      */
-    logProgress?: pulumi.Input<boolean>;
+    logProgress?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets verbose log option.
      */
-    logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets name of the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the configuration parameters.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.DscConfigurationParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.DscConfigurationParameterArgs>} | undefined>;
     /**
      * Name of an Azure Resource group.
      */
@@ -224,5 +224,5 @@ export interface DscConfigurationArgs {
     /**
      * Gets or sets the tags attached to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

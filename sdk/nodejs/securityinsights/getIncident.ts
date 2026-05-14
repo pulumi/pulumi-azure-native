@@ -27,7 +27,7 @@ export interface GetIncidentArgs {
     /**
      * Incident ID
      */
-    incidentId: string;
+    incidentId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,7 +163,7 @@ export interface GetIncidentOutputArgs {
     /**
      * Incident ID
      */
-    incidentId: pulumi.Input<string>;
+    incidentId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

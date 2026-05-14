@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionProxyArgs {
     /**
      * The private endpoint connection proxy name.
      */
-    privateEndpointConnectionProxyName: string;
+    privateEndpointConnectionProxyName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetPrivateEndpointConnectionProxyOutputArgs {
     /**
      * The private endpoint connection proxy name.
      */
-    privateEndpointConnectionProxyName: pulumi.Input<string>;
+    privateEndpointConnectionProxyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

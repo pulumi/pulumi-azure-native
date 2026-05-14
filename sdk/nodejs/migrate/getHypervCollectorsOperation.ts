@@ -27,7 +27,7 @@ export interface GetHypervCollectorsOperationArgs {
     /**
      * Hyper-V collector ARM name
      */
-    hypervCollectorName: string;
+    hypervCollectorName?: string;
     /**
      * Assessment Project Name
      */
@@ -103,7 +103,7 @@ export interface GetHypervCollectorsOperationOutputArgs {
     /**
      * Hyper-V collector ARM name
      */
-    hypervCollectorName: pulumi.Input<string>;
+    hypervCollectorName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

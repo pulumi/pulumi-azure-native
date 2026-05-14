@@ -24,7 +24,7 @@ export interface GetManagementLockByScopeArgs {
     /**
      * The name of lock.
      */
-    lockName: string;
+    lockName?: string;
     /**
      * The scope for the lock. 
      */
@@ -85,7 +85,7 @@ export interface GetManagementLockByScopeOutputArgs {
     /**
      * The name of lock.
      */
-    lockName: pulumi.Input<string>;
+    lockName?: pulumi.Input<string | undefined>;
     /**
      * The scope for the lock. 
      */

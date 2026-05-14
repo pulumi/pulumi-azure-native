@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-07-28-preview.
  */
-export function getManagedOp(args: GetManagedOpArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedOpResult> {
+export function getManagedOp(args?: GetManagedOpArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedOpResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedops:getManagedOp", {
         "managedOpsName": args.managedOpsName,
@@ -23,7 +24,7 @@ export interface GetManagedOpArgs {
     /**
      * Name of the resource.
      */
-    managedOpsName: string;
+    managedOpsName?: string;
 }
 
 /**
@@ -60,7 +61,8 @@ export interface GetManagedOpResult {
  *
  * Uses Azure REST API version 2025-07-28-preview.
  */
-export function getManagedOpOutput(args: GetManagedOpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedOpResult> {
+export function getManagedOpOutput(args?: GetManagedOpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedOpResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedops:getManagedOp", {
         "managedOpsName": args.managedOpsName,
@@ -71,5 +73,5 @@ export interface GetManagedOpOutputArgs {
     /**
      * Name of the resource.
      */
-    managedOpsName: pulumi.Input<string>;
+    managedOpsName?: pulumi.Input<string | undefined>;
 }

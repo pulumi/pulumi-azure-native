@@ -27,7 +27,7 @@ export interface GetNspAssociationArgs {
     /**
      * The name of the NSP association.
      */
-    associationName: string;
+    associationName?: string;
     /**
      * The name of the network security perimeter.
      */
@@ -107,7 +107,7 @@ export interface GetNspAssociationOutputArgs {
     /**
      * The name of the NSP association.
      */
-    associationName: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */

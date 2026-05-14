@@ -157,31 +157,31 @@ export interface ConnectorArgs {
     /**
      * Connector Name.
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */
-    credentialsKey?: pulumi.Input<string>;
+    credentialsKey?: pulumi.Input<string | undefined>;
     /**
      * Credentials secret (eg AWS ExternalId)
      */
-    credentialsSecret?: pulumi.Input<string>;
+    credentialsSecret?: pulumi.Input<string | undefined>;
     /**
      * Connector DisplayName (defaults to Name)
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Connector kind (eg aws)
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Connector location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
      */
-    reportId?: pulumi.Input<string>;
+    reportId?: pulumi.Input<string | undefined>;
     /**
      * Azure Resource Group Name.
      */
@@ -189,9 +189,9 @@ export interface ConnectorArgs {
     /**
      * Connector status
      */
-    status?: pulumi.Input<string | enums.costmanagement.ConnectorStatus>;
+    status?: pulumi.Input<string | enums.costmanagement.ConnectorStatus | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetWorkspaceTagProductLinkArgs {
     /**
      * Tag-product link identifier. Must be unique in the current API Management service instance.
      */
-    productLinkId: string;
+    productLinkId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -92,7 +92,7 @@ export interface GetWorkspaceTagProductLinkOutputArgs {
     /**
      * Tag-product link identifier. Must be unique in the current API Management service instance.
      */
-    productLinkId: pulumi.Input<string>;
+    productLinkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

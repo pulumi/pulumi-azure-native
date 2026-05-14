@@ -31,7 +31,7 @@ export interface GetInterfaceEndpointArgs {
     /**
      * The name of the interface endpoint.
      */
-    interfaceEndpointName: string;
+    interfaceEndpointName?: string;
     /**
      * The name of the resource group.
      */
@@ -115,11 +115,11 @@ export interface GetInterfaceEndpointOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the interface endpoint.
      */
-    interfaceEndpointName: pulumi.Input<string>;
+    interfaceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

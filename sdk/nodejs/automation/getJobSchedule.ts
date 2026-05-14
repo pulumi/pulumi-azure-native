@@ -31,7 +31,7 @@ export interface GetJobScheduleArgs {
     /**
      * The job schedule name.
      */
-    jobScheduleId: string;
+    jobScheduleId?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -103,7 +103,7 @@ export interface GetJobScheduleOutputArgs {
     /**
      * The job schedule name.
      */
-    jobScheduleId: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

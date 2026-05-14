@@ -149,7 +149,7 @@ export interface NetworkPacketBrokerArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ARM resource ID of the Network Fabric.
      */
@@ -157,7 +157,7 @@ export interface NetworkPacketBrokerArgs {
     /**
      * Name of the Network Packet Broker.
      */
-    networkPacketBrokerName?: pulumi.Input<string>;
+    networkPacketBrokerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,5 +165,5 @@ export interface NetworkPacketBrokerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -25,7 +25,7 @@ export interface GetJobArgs {
     /**
      * The name of the Job resource.
      */
-    jobName: string;
+    jobName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -83,7 +83,7 @@ export interface GetJobOutputArgs {
     /**
      * The name of the Job resource.
      */
-    jobName: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

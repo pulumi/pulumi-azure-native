@@ -27,7 +27,7 @@ export interface GetFleetAnalyticArgs {
     /**
      * Cosmos DB fleetAnalytics name.
      */
-    fleetAnalyticsName: string;
+    fleetAnalyticsName?: string;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
@@ -95,7 +95,7 @@ export interface GetFleetAnalyticOutputArgs {
     /**
      * Cosmos DB fleetAnalytics name.
      */
-    fleetAnalyticsName: pulumi.Input<string>;
+    fleetAnalyticsName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */

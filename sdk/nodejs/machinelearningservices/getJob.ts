@@ -27,7 +27,7 @@ export interface GetJobArgs {
     /**
      * The name and identifier for the Job. This is case-sensitive.
      */
-    id: string;
+    id?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetJobOutputArgs {
     /**
      * The name and identifier for the Job. This is case-sensitive.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -41,7 +41,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName: string;
+    runCommandName?: string;
     /**
      * The name of the VirtualMachineScaleSet
      */
@@ -159,7 +159,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualMachineScaleSetVM
      */
@@ -171,7 +171,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandOutputArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName: pulumi.Input<string>;
+    runCommandName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualMachineScaleSet
      */

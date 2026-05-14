@@ -26,7 +26,7 @@ export interface GetChannelArgs {
     /**
      * Channel Name
      */
-    channelName: string;
+    channelName?: string;
     /**
      * Resource Group Name
      */
@@ -88,7 +88,7 @@ export interface GetChannelOutputArgs {
     /**
      * Channel Name
      */
-    channelName: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * Resource Group Name
      */

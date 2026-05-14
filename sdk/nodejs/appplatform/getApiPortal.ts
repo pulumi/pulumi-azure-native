@@ -27,7 +27,7 @@ export interface GetApiPortalArgs {
     /**
      * The name of API portal.
      */
-    apiPortalName: string;
+    apiPortalName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -91,7 +91,7 @@ export interface GetApiPortalOutputArgs {
     /**
      * The name of API portal.
      */
-    apiPortalName: pulumi.Input<string>;
+    apiPortalName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

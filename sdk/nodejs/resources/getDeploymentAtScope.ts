@@ -26,7 +26,7 @@ export interface GetDeploymentAtScopeArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName: string;
+    deploymentName?: string;
     /**
      * The resource scope.
      */
@@ -85,7 +85,7 @@ export interface GetDeploymentAtScopeOutputArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * The resource scope.
      */

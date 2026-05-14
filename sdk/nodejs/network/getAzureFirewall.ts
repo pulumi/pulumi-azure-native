@@ -26,7 +26,7 @@ export interface GetAzureFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    azureFirewallName: string;
+    azureFirewallName?: string;
     /**
      * The name of the resource group.
      */
@@ -145,7 +145,7 @@ export interface GetAzureFirewallOutputArgs {
     /**
      * The name of the Azure Firewall.
      */
-    azureFirewallName: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

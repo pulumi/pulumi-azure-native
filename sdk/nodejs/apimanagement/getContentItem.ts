@@ -25,7 +25,7 @@ export interface GetContentItemArgs {
     /**
      * Content item identifier.
      */
-    contentItemId: string;
+    contentItemId?: string;
     /**
      * Content type identifier.
      */
@@ -86,7 +86,7 @@ export interface GetContentItemOutputArgs {
     /**
      * Content item identifier.
      */
-    contentItemId: pulumi.Input<string>;
+    contentItemId?: pulumi.Input<string | undefined>;
     /**
      * Content type identifier.
      */

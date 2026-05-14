@@ -41,7 +41,7 @@ export interface GetScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it.
      */
-    scheduleName: string;
+    scheduleName?: string;
     /**
      * The maximum number of resources to return from the operation. Example: '$top=10'.
      */
@@ -135,9 +135,9 @@ export interface GetScheduleOutputArgs {
     /**
      * The name of the schedule that uniquely identifies it.
      */
-    scheduleName: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of resources to return from the operation. Example: '$top=10'.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

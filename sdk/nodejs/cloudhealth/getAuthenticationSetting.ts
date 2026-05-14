@@ -27,7 +27,7 @@ export interface GetAuthenticationSettingArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName: string;
+    authenticationSettingName?: string;
     /**
      * Name of health model resource
      */
@@ -87,7 +87,7 @@ export interface GetAuthenticationSettingOutputArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName: pulumi.Input<string>;
+    authenticationSettingName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */

@@ -30,7 +30,7 @@ export interface GetSpringbootsiteArgs {
     /**
      * The springbootsites name.
      */
-    springbootsitesName: string;
+    springbootsitesName?: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetSpringbootsiteOutputArgs {
     /**
      * The springbootsites name.
      */
-    springbootsitesName: pulumi.Input<string>;
+    springbootsitesName?: pulumi.Input<string | undefined>;
 }

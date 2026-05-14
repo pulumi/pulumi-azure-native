@@ -130,7 +130,7 @@ export interface MongoMIResourceMongoMIRoleAssignmentArgs {
     /**
      * The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this MongoMI Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,13 +138,13 @@ export interface MongoMIResourceMongoMIRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string>;
+    roleAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the associated Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The data plane resource path for which access is being granted through this MongoMI Role Assignment.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }

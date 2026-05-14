@@ -26,7 +26,7 @@ export interface GetEmailServiceArgs {
     /**
      * The name of the EmailService resource.
      */
-    emailServiceName: string;
+    emailServiceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetEmailServiceOutputArgs {
     /**
      * The name of the EmailService resource.
      */
-    emailServiceName: pulumi.Input<string>;
+    emailServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

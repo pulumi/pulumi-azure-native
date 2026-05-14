@@ -184,15 +184,15 @@ export interface MySQLServerArgs {
     /**
      * mysql server edition.
      */
-    edition?: pulumi.Input<string | enums.mysqldiscovery.Edition>;
+    edition?: pulumi.Input<string | enums.mysqldiscovery.Edition | undefined>;
     /**
      * The list of errors.
      */
-    errors?: pulumi.Input<pulumi.Input<inputs.mysqldiscovery.ErrorArgs>[]>;
+    errors?: pulumi.Input<pulumi.Input<inputs.mysqldiscovery.ErrorArgs>[] | undefined>;
     /**
      * The Server IP/host name.
      */
-    hostIp?: pulumi.Input<pulumi.Input<string>[]>;
+    hostIp?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Server IP/host name.
      */
@@ -200,19 +200,19 @@ export interface MySQLServerArgs {
     /**
      * Resource labels.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * discovery Machine Id
      */
-    machineId?: pulumi.Input<string>;
+    machineId?: pulumi.Input<string | undefined>;
     /**
      * The mysql server version.
      */
-    mysqlVersion?: pulumi.Input<string>;
+    mysqlVersion?: pulumi.Input<string | undefined>;
     /**
      * The number of database.
      */
-    numberOfDatabase?: pulumi.Input<number>;
+    numberOfDatabase?: pulumi.Input<number | undefined>;
     /**
      * MySQL Server port number
      */
@@ -220,7 +220,7 @@ export interface MySQLServerArgs {
     /**
      * Gets or sets the provisioning state.
      */
-    provisioningState?: pulumi.Input<string | enums.mysqldiscovery.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.mysqldiscovery.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -228,7 +228,7 @@ export interface MySQLServerArgs {
     /**
      * The name of Server
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The name of Site
      */
@@ -236,13 +236,13 @@ export interface MySQLServerArgs {
     /**
      * Time when mysql version support end.
      */
-    supportEndIn?: pulumi.Input<string>;
+    supportEndIn?: pulumi.Input<string | undefined>;
     /**
      * mysql version support status.
      */
-    supportStatus?: pulumi.Input<string | enums.mysqldiscovery.SupportStatus>;
+    supportStatus?: pulumi.Input<string | enums.mysqldiscovery.SupportStatus | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetL3NetworkArgs {
     /**
      * The name of the L3 network.
      */
-    l3NetworkName: string;
+    l3NetworkName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,7 +152,7 @@ export interface GetL3NetworkOutputArgs {
     /**
      * The name of the L3 network.
      */
-    l3NetworkName: pulumi.Input<string>;
+    l3NetworkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetReportByBillingAccountArgs {
     /**
      * Report Name.
      */
-    reportName: string;
+    reportName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetReportByBillingAccountOutputArgs {
     /**
      * Report Name.
      */
-    reportName: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
 }

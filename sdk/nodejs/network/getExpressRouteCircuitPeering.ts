@@ -31,7 +31,7 @@ export interface GetExpressRouteCircuitPeeringArgs {
     /**
      * The name of the peering.
      */
-    peeringName: string;
+    peeringName?: string;
     /**
      * The name of the resource group.
      */
@@ -167,7 +167,7 @@ export interface GetExpressRouteCircuitPeeringOutputArgs {
     /**
      * The name of the peering.
      */
-    peeringName: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

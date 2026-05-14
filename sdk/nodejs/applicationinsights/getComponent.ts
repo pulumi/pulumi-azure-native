@@ -30,7 +30,7 @@ export interface GetComponentArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -189,5 +189,5 @@ export interface GetComponentOutputArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

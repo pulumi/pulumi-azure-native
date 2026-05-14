@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01-preview.
  */
-export function getWorkloadImpact(args: GetWorkloadImpactArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadImpactResult> {
+export function getWorkloadImpact(args?: GetWorkloadImpactArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadImpactResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:impact:getWorkloadImpact", {
         "workloadImpactName": args.workloadImpactName,
@@ -23,7 +24,7 @@ export interface GetWorkloadImpactArgs {
     /**
      * workloadImpact resource 
      */
-    workloadImpactName: string;
+    workloadImpactName?: string;
 }
 
 /**
@@ -60,7 +61,8 @@ export interface GetWorkloadImpactResult {
  *
  * Uses Azure REST API version 2024-05-01-preview.
  */
-export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadImpactResult> {
+export function getWorkloadImpactOutput(args?: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadImpactResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:impact:getWorkloadImpact", {
         "workloadImpactName": args.workloadImpactName,
@@ -71,5 +73,5 @@ export interface GetWorkloadImpactOutputArgs {
     /**
      * workloadImpact resource 
      */
-    workloadImpactName: pulumi.Input<string>;
+    workloadImpactName?: pulumi.Input<string | undefined>;
 }

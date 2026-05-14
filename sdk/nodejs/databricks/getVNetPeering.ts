@@ -27,7 +27,7 @@ export interface GetVNetPeeringArgs {
     /**
      * The name of the workspace vNet peering.
      */
-    peeringName: string;
+    peeringName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetVNetPeeringOutputArgs {
     /**
      * The name of the workspace vNet peering.
      */
-    peeringName: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

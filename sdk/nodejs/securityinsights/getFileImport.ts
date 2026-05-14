@@ -27,7 +27,7 @@ export interface GetFileImportArgs {
     /**
      * File import ID
      */
-    fileImportId: string;
+    fileImportId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -135,7 +135,7 @@ export interface GetFileImportOutputArgs {
     /**
      * File import ID
      */
-    fileImportId: pulumi.Input<string>;
+    fileImportId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

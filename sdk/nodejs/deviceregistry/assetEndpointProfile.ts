@@ -127,7 +127,7 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
             }
             resourceInputs["additionalConfiguration"] = args?.additionalConfiguration;
             resourceInputs["assetEndpointProfileName"] = args?.assetEndpointProfileName;
-            resourceInputs["authentication"] = args ? (args.authentication ? pulumi.output(args.authentication).apply(inputs.deviceregistry.authenticationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["authentication"] = args ? pulumi.output(args.authentication).apply(v => v === undefined ? undefined : inputs.deviceregistry.authenticationArgsProvideDefaults(v)) : undefined;
             resourceInputs["discoveredAssetEndpointProfileRef"] = args?.discoveredAssetEndpointProfileRef;
             resourceInputs["endpointProfileType"] = args?.endpointProfileType;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
@@ -173,19 +173,19 @@ export interface AssetEndpointProfileArgs {
     /**
      * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
-    additionalConfiguration?: pulumi.Input<string>;
+    additionalConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Asset Endpoint Profile name parameter.
      */
-    assetEndpointProfileName?: pulumi.Input<string>;
+    assetEndpointProfileName?: pulumi.Input<string | undefined>;
     /**
      * Defines the client authentication mechanism to the server.
      */
-    authentication?: pulumi.Input<inputs.deviceregistry.AuthenticationArgs>;
+    authentication?: pulumi.Input<inputs.deviceregistry.AuthenticationArgs | undefined>;
     /**
      * Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
      */
-    discoveredAssetEndpointProfileRef?: pulumi.Input<string>;
+    discoveredAssetEndpointProfileRef?: pulumi.Input<string | undefined>;
     /**
      * Defines the configuration for the connector type that is being used with the endpoint profile.
      */
@@ -197,7 +197,7 @@ export interface AssetEndpointProfileArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -205,7 +205,7 @@ export interface AssetEndpointProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
      */

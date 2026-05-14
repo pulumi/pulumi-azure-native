@@ -32,7 +32,7 @@ export interface GetSyncAgentArgs {
     /**
      * The name of the sync agent.
      */
-    syncAgentName: string;
+    syncAgentName?: string;
 }
 
 /**
@@ -108,5 +108,5 @@ export interface GetSyncAgentOutputArgs {
     /**
      * The name of the sync agent.
      */
-    syncAgentName: pulumi.Input<string>;
+    syncAgentName?: pulumi.Input<string | undefined>;
 }

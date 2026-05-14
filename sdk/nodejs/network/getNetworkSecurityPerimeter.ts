@@ -23,7 +23,7 @@ export interface GetNetworkSecurityPerimeterArgs {
     /**
      * The name of the network security perimeter.
      */
-    networkSecurityPerimeterName: string;
+    networkSecurityPerimeterName?: string;
     /**
      * The name of the resource group.
      */
@@ -86,7 +86,7 @@ export interface GetNetworkSecurityPerimeterOutputArgs {
     /**
      * The name of the network security perimeter.
      */
-    networkSecurityPerimeterName: pulumi.Input<string>;
+    networkSecurityPerimeterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

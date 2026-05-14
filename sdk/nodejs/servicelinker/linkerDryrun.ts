@@ -122,11 +122,11 @@ export interface LinkerDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The parameters of the dryrun
      */
-    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs>;
+    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */

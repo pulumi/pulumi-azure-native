@@ -29,7 +29,7 @@ export interface GetLinkArgs {
     /**
      * The name of the link.
      */
-    linkName: string;
+    linkName?: string;
     /**
      * The name of the resource group.
      */
@@ -131,7 +131,7 @@ export interface GetLinkOutputArgs {
     /**
      * The name of the link.
      */
-    linkName: pulumi.Input<string>;
+    linkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

@@ -35,7 +35,7 @@ export interface GetLocalUserArgs {
     /**
      * The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
      */
-    username: string;
+    username?: string;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface GetLocalUserOutputArgs {
     /**
      * The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

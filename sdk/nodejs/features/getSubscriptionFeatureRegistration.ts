@@ -24,7 +24,7 @@ export interface GetSubscriptionFeatureRegistrationArgs {
     /**
      * The feature name.
      */
-    featureName: string;
+    featureName?: string;
     /**
      * The provider namespace.
      */
@@ -70,7 +70,7 @@ export interface GetSubscriptionFeatureRegistrationOutputArgs {
     /**
      * The feature name.
      */
-    featureName: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * The provider namespace.
      */

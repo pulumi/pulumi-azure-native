@@ -24,7 +24,7 @@ export interface GetAuthorityArgs {
     /**
      * The ID of the authority
      */
-    authorityName: string;
+    authorityName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetAuthorityOutputArgs {
     /**
      * The ID of the authority
      */
-    authorityName: pulumi.Input<string>;
+    authorityName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

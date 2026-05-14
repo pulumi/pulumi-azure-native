@@ -25,7 +25,7 @@ export interface GetAnalyticsConnectorArgs {
     /**
      * The name of Analytics Connector resource.
      */
-    analyticsConnectorName: string;
+    analyticsConnectorName?: string;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -111,7 +111,7 @@ export interface GetAnalyticsConnectorOutputArgs {
     /**
      * The name of Analytics Connector resource.
      */
-    analyticsConnectorName: pulumi.Input<string>;
+    analyticsConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the service instance.
      */

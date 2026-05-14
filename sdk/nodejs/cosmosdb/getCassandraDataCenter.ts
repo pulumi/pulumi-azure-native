@@ -31,7 +31,7 @@ export interface GetCassandraDataCenterArgs {
     /**
      * Data center name in a managed Cassandra cluster.
      */
-    dataCenterName: string;
+    dataCenterName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetCassandraDataCenterOutputArgs {
     /**
      * Data center name in a managed Cassandra cluster.
      */
-    dataCenterName: pulumi.Input<string>;
+    dataCenterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

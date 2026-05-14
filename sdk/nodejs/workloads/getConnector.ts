@@ -24,7 +24,7 @@ export interface GetConnectorArgs {
     /**
      * The name of the connector resource
      */
-    connectorName: string;
+    connectorName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetConnectorOutputArgs {
     /**
      * The name of the connector resource
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

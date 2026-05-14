@@ -24,7 +24,7 @@ export interface GetCloudConnectionArgs {
     /**
      * The name of the cloud connection resource
      */
-    cloudConnectionName: string;
+    cloudConnectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetCloudConnectionOutputArgs {
     /**
      * The name of the cloud connection resource
      */
-    cloudConnectionName: pulumi.Input<string>;
+    cloudConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

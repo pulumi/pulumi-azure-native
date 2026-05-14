@@ -35,7 +35,7 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    ruleName: string;
+    ruleName?: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetFirewallRuleOutputArgs {
     /**
      * The name of the firewall rule.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

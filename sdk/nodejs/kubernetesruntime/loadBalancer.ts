@@ -140,11 +140,11 @@ export interface LoadBalancerArgs {
     /**
      * The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
      */
-    bgpPeers?: pulumi.Input<pulumi.Input<string>[]>;
+    bgpPeers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the LoadBalancer
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -152,5 +152,5 @@ export interface LoadBalancerArgs {
     /**
      * A dynamic label mapping to select related services. For instance, if you want to create a load balancer only for services with label "a=b", then please specify {"a": "b"} in the field.
      */
-    serviceSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

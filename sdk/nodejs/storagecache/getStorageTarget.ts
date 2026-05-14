@@ -35,7 +35,7 @@ export interface GetStorageTargetArgs {
     /**
      * Name of Storage Target.
      */
-    storageTargetName: string;
+    storageTargetName?: string;
 }
 
 /**
@@ -131,5 +131,5 @@ export interface GetStorageTargetOutputArgs {
     /**
      * Name of Storage Target.
      */
-    storageTargetName: pulumi.Input<string>;
+    storageTargetName?: pulumi.Input<string | undefined>;
 }

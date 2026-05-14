@@ -123,7 +123,7 @@ export interface IpamPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
@@ -131,7 +131,7 @@ export interface IpamPoolArgs {
     /**
      * IP Address Manager Pool resource name.
      */
-    poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * Properties of IpamPool resource properties which are specific to the Pool resource.
      */
@@ -143,5 +143,5 @@ export interface IpamPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

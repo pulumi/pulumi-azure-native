@@ -25,7 +25,7 @@ export interface GetDataFlowArgs {
     /**
      * The data flow name.
      */
-    dataFlowName: string;
+    dataFlowName?: string;
     /**
      * The factory name.
      */
@@ -83,7 +83,7 @@ export interface GetDataFlowOutputArgs {
     /**
      * The data flow name.
      */
-    dataFlowName: pulumi.Input<string>;
+    dataFlowName?: pulumi.Input<string | undefined>;
     /**
      * The factory name.
      */

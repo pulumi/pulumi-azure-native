@@ -103,7 +103,7 @@ export interface GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs {
     /**
      * The high availability type.
      */
-    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType>;
+    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType | undefined>;
     /**
      * The name of the Azure region.
      */

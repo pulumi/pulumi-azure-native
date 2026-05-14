@@ -30,7 +30,7 @@ export interface GetSecurityPartnerProviderArgs {
     /**
      * The name of the Security Partner Provider.
      */
-    securityPartnerProviderName: string;
+    securityPartnerProviderName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetSecurityPartnerProviderOutputArgs {
     /**
      * The name of the Security Partner Provider.
      */
-    securityPartnerProviderName: pulumi.Input<string>;
+    securityPartnerProviderName?: pulumi.Input<string | undefined>;
 }

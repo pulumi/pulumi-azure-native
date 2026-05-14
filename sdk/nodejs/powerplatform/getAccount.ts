@@ -24,7 +24,7 @@ export interface GetAccountArgs {
     /**
      * Name of the account.
      */
-    accountName: string;
+    accountName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetAccountOutputArgs {
     /**
      * Name of the account.
      */
-    accountName: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

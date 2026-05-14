@@ -26,7 +26,7 @@ export interface GetDscpConfigurationArgs {
     /**
      * The name of the resource.
      */
-    dscpConfigurationName: string;
+    dscpConfigurationName?: string;
     /**
      * The name of the resource group.
      */
@@ -129,7 +129,7 @@ export interface GetDscpConfigurationOutputArgs {
     /**
      * The name of the resource.
      */
-    dscpConfigurationName: pulumi.Input<string>;
+    dscpConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

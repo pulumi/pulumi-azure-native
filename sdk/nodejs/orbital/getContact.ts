@@ -25,7 +25,7 @@ export interface GetContactArgs {
     /**
      * Contact name.
      */
-    contactName: string;
+    contactName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -143,7 +143,7 @@ export interface GetContactOutputArgs {
     /**
      * Contact name.
      */
-    contactName: pulumi.Input<string>;
+    contactName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

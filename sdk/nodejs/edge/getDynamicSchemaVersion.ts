@@ -32,7 +32,7 @@ export interface GetDynamicSchemaVersionArgs {
     /**
      * The name of the DynamicSchemaVersion
      */
-    dynamicSchemaVersionName: string;
+    dynamicSchemaVersionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetDynamicSchemaVersionOutputArgs {
     /**
      * The name of the DynamicSchemaVersion
      */
-    dynamicSchemaVersionName: pulumi.Input<string>;
+    dynamicSchemaVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

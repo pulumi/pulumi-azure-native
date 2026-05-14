@@ -30,7 +30,7 @@ export interface GetStandbyVirtualMachinePoolArgs {
     /**
      * Name of the standby virtual machine pool
      */
-    standbyVirtualMachinePoolName: string;
+    standbyVirtualMachinePoolName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetStandbyVirtualMachinePoolOutputArgs {
     /**
      * Name of the standby virtual machine pool
      */
-    standbyVirtualMachinePoolName: pulumi.Input<string>;
+    standbyVirtualMachinePoolName?: pulumi.Input<string | undefined>;
 }

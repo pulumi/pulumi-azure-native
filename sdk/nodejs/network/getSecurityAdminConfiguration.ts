@@ -27,7 +27,7 @@ export interface GetSecurityAdminConfigurationArgs {
     /**
      * The name of the network manager Security Configuration.
      */
-    configurationName: string;
+    configurationName?: string;
     /**
      * The name of the network manager.
      */
@@ -107,7 +107,7 @@ export interface GetSecurityAdminConfigurationOutputArgs {
     /**
      * The name of the network manager Security Configuration.
      */
-    configurationName: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */

@@ -26,7 +26,7 @@ export interface GetPartnerRegistrationArgs {
     /**
      * Name of the partner registration.
      */
-    partnerRegistrationName: string;
+    partnerRegistrationName?: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -94,7 +94,7 @@ export interface GetPartnerRegistrationOutputArgs {
     /**
      * Name of the partner registration.
      */
-    partnerRegistrationName: pulumi.Input<string>;
+    partnerRegistrationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

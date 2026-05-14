@@ -27,7 +27,7 @@ export interface GetDevBoxDefinitionArgs {
     /**
      * The name of the Dev Box definition.
      */
-    devBoxDefinitionName: string;
+    devBoxDefinitionName?: string;
     /**
      * The name of the devcenter.
      */
@@ -127,7 +127,7 @@ export interface GetDevBoxDefinitionOutputArgs {
     /**
      * The name of the Dev Box definition.
      */
-    devBoxDefinitionName: pulumi.Input<string>;
+    devBoxDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter.
      */

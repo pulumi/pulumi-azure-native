@@ -24,7 +24,7 @@ export interface GetAzureTrafficCollectorArgs {
     /**
      * Azure Traffic Collector name
      */
-    azureTrafficCollectorName: string;
+    azureTrafficCollectorName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetAzureTrafficCollectorOutputArgs {
     /**
      * Azure Traffic Collector name
      */
-    azureTrafficCollectorName: pulumi.Input<string>;
+    azureTrafficCollectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

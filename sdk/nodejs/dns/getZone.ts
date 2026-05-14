@@ -30,7 +30,7 @@ export interface GetZoneArgs {
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    zoneName: string;
+    zoneName?: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetZoneOutputArgs {
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    zoneName: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string | undefined>;
 }

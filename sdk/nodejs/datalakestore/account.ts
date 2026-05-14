@@ -216,43 +216,43 @@ export interface AccountArgs {
     /**
      * The name of the Data Lake Store account.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The default owner group for all new folders and files created in the Data Lake Store account.
      */
-    defaultGroup?: pulumi.Input<string>;
+    defaultGroup?: pulumi.Input<string | undefined>;
     /**
      * The Key Vault encryption configuration.
      */
-    encryptionConfig?: pulumi.Input<inputs.datalakestore.EncryptionConfigArgs>;
+    encryptionConfig?: pulumi.Input<inputs.datalakestore.EncryptionConfigArgs | undefined>;
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    encryptionState?: pulumi.Input<enums.datalakestore.EncryptionState>;
+    encryptionState?: pulumi.Input<enums.datalakestore.EncryptionState | undefined>;
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    firewallAllowAzureIps?: pulumi.Input<enums.datalakestore.FirewallAllowAzureIpsState>;
+    firewallAllowAzureIps?: pulumi.Input<enums.datalakestore.FirewallAllowAzureIpsState | undefined>;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
-    firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateFirewallRuleWithAccountParametersArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateFirewallRuleWithAccountParametersArgs>[] | undefined>;
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    firewallState?: pulumi.Input<enums.datalakestore.FirewallState>;
+    firewallState?: pulumi.Input<enums.datalakestore.FirewallState | undefined>;
     /**
      * The Key Vault encryption identity, if any.
      */
-    identity?: pulumi.Input<inputs.datalakestore.EncryptionIdentityArgs>;
+    identity?: pulumi.Input<inputs.datalakestore.EncryptionIdentityArgs | undefined>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The commitment tier to use for next month.
      */
-    newTier?: pulumi.Input<enums.datalakestore.TierType>;
+    newTier?: pulumi.Input<enums.datalakestore.TierType | undefined>;
     /**
      * The name of the Azure resource group.
      */
@@ -260,17 +260,17 @@ export interface AccountArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    trustedIdProviderState?: pulumi.Input<enums.datalakestore.TrustedIdProviderState>;
+    trustedIdProviderState?: pulumi.Input<enums.datalakestore.TrustedIdProviderState | undefined>;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */
-    trustedIdProviders?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateTrustedIdProviderWithAccountParametersArgs>[]>;
+    trustedIdProviders?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateTrustedIdProviderWithAccountParametersArgs>[] | undefined>;
     /**
      * The list of virtual network rules associated with this Data Lake Store account.
      */
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateVirtualNetworkRuleWithAccountParametersArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.CreateVirtualNetworkRuleWithAccountParametersArgs>[] | undefined>;
 }

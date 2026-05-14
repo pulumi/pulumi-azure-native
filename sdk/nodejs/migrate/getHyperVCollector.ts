@@ -25,7 +25,7 @@ export interface GetHyperVCollectorArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    hyperVCollectorName: string;
+    hyperVCollectorName?: string;
     /**
      * Name of the Azure Migrate project.
      */
@@ -65,7 +65,7 @@ export interface GetHyperVCollectorOutputArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    hyperVCollectorName: pulumi.Input<string>;
+    hyperVCollectorName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */

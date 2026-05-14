@@ -27,7 +27,7 @@ export interface GetCustomIPPrefixArgs {
     /**
      * The name of the custom IP prefix.
      */
-    customIpPrefixName: string;
+    customIpPrefixName?: string;
     /**
      * Expands referenced resources.
      */
@@ -159,11 +159,11 @@ export interface GetCustomIPPrefixOutputArgs {
     /**
      * The name of the custom IP prefix.
      */
-    customIpPrefixName: pulumi.Input<string>;
+    customIpPrefixName?: pulumi.Input<string | undefined>;
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

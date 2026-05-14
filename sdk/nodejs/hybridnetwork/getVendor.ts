@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-01-01-preview.
  */
-export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
+export function getVendor(args?: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendor", {
         "vendorName": args.vendorName,
@@ -23,7 +24,7 @@ export interface GetVendorArgs {
     /**
      * The name of the vendor.
      */
-    vendorName: string;
+    vendorName?: string;
 }
 
 /**
@@ -64,7 +65,8 @@ export interface GetVendorResult {
  *
  * Uses Azure REST API version 2022-01-01-preview.
  */
-export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
+export function getVendorOutput(args?: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendor", {
         "vendorName": args.vendorName,
@@ -75,5 +77,5 @@ export interface GetVendorOutputArgs {
     /**
      * The name of the vendor.
      */
-    vendorName: pulumi.Input<string>;
+    vendorName?: pulumi.Input<string | undefined>;
 }

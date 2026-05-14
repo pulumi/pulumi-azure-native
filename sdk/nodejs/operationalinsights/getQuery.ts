@@ -27,7 +27,7 @@ export interface GetQueryArgs {
     /**
      * The id of a specific query defined in the Log Analytics QueryPack
      */
-    id: string;
+    id?: string;
     /**
      * The name of the Log Analytics QueryPack resource.
      */
@@ -119,7 +119,7 @@ export interface GetQueryOutputArgs {
     /**
      * The id of a specific query defined in the Log Analytics QueryPack
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the Log Analytics QueryPack resource.
      */

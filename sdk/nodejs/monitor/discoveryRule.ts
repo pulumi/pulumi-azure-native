@@ -114,7 +114,7 @@ export interface DiscoveryRuleArgs {
     /**
      * Name of the discovery rule. Must be unique within a health model.
      */
-    discoveryRuleName?: pulumi.Input<string>;
+    discoveryRuleName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */
@@ -122,7 +122,7 @@ export interface DiscoveryRuleArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.ApplicationInsightsTopologyDiscoveryRulePropertiesArgs | inputs.monitor.ResourceGraphQueryDiscoveryRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.monitor.ApplicationInsightsTopologyDiscoveryRulePropertiesArgs | inputs.monitor.ResourceGraphQueryDiscoveryRulePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

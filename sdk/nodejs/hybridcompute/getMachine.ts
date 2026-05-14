@@ -31,7 +31,7 @@ export interface GetMachineArgs {
     /**
      * The name of the hybrid machine.
      */
-    machineName: string;
+    machineName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -227,11 +227,11 @@ export interface GetMachineOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the hybrid machine.
      */
-    machineName: pulumi.Input<string>;
+    machineName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

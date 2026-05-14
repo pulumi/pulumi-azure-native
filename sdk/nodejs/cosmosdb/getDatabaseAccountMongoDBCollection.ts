@@ -32,7 +32,7 @@ export interface GetDatabaseAccountMongoDBCollectionArgs {
     /**
      * Cosmos DB collection name.
      */
-    collectionName: string;
+    collectionName?: string;
     /**
      * Cosmos DB database name.
      */
@@ -105,7 +105,7 @@ export interface GetDatabaseAccountMongoDBCollectionOutputArgs {
     /**
      * Cosmos DB collection name.
      */
-    collectionName: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB database name.
      */

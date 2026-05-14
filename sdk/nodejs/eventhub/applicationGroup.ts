@@ -129,7 +129,7 @@ export interface ApplicationGroupArgs {
     /**
      * The Application Group name 
      */
-    applicationGroupName?: pulumi.Input<string>;
+    applicationGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
      */
@@ -137,7 +137,7 @@ export interface ApplicationGroupArgs {
     /**
      * Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Namespace name
      */
@@ -145,7 +145,7 @@ export interface ApplicationGroupArgs {
     /**
      * List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
      */
-    policies?: pulumi.Input<pulumi.Input<inputs.eventhub.ThrottlingPolicyArgs>[]>;
+    policies?: pulumi.Input<pulumi.Input<inputs.eventhub.ThrottlingPolicyArgs>[] | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */

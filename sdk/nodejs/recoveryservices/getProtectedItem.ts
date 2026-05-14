@@ -43,7 +43,7 @@ export interface GetProtectedItemArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    protectedItemName: string;
+    protectedItemName?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -123,11 +123,11 @@ export interface GetProtectedItemOutputArgs {
     /**
      * OData filter options.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Backed up item name whose details are to be fetched.
      */
-    protectedItemName: pulumi.Input<string>;
+    protectedItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -26,7 +26,7 @@ export interface GetApplicationGroupArgs {
     /**
      * The name of the application group
      */
-    applicationGroupName: string;
+    applicationGroupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,7 +132,7 @@ export interface GetApplicationGroupOutputArgs {
     /**
      * The name of the application group
      */
-    applicationGroupName: pulumi.Input<string>;
+    applicationGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -30,7 +30,7 @@ export interface GetSshPublicKeyArgs {
     /**
      * The name of the SSH public key.
      */
-    sshPublicKeyName: string;
+    sshPublicKeyName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSshPublicKeyOutputArgs {
     /**
      * The name of the SSH public key.
      */
-    sshPublicKeyName: pulumi.Input<string>;
+    sshPublicKeyName?: pulumi.Input<string | undefined>;
 }

@@ -36,7 +36,7 @@ export interface GetPolicySetDefinitionVersionAtManagementGroupArgs {
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion: string;
+    policyDefinitionVersion?: string;
     /**
      * The name of the policy set definition.
      */
@@ -121,7 +121,7 @@ export interface GetPolicySetDefinitionVersionAtManagementGroupOutputArgs {
     /**
      * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the management group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetPolicySetDefinitionVersionAtManagementGroupOutputArgs {
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion: pulumi.Input<string>;
+    policyDefinitionVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy set definition.
      */

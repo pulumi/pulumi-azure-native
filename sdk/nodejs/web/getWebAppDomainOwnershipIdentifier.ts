@@ -24,7 +24,7 @@ export interface GetWebAppDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
      */
-    domainOwnershipIdentifierName: string;
+    domainOwnershipIdentifierName?: string;
     /**
      * Name of the app.
      */
@@ -84,7 +84,7 @@ export interface GetWebAppDomainOwnershipIdentifierOutputArgs {
     /**
      * Name of domain ownership identifier.
      */
-    domainOwnershipIdentifierName: pulumi.Input<string>;
+    domainOwnershipIdentifierName?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

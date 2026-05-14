@@ -27,7 +27,7 @@ export interface GetPipelineRunArgs {
     /**
      * The name of the pipeline run.
      */
-    pipelineRunName: string;
+    pipelineRunName?: string;
     /**
      * The name of the container registry.
      */
@@ -99,7 +99,7 @@ export interface GetPipelineRunOutputArgs {
     /**
      * The name of the pipeline run.
      */
-    pipelineRunName: pulumi.Input<string>;
+    pipelineRunName?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */

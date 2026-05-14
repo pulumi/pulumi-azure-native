@@ -35,7 +35,7 @@ export interface GetVirtualMachineArgs {
     /**
      * The name of the virtual machine.
      */
-    vmName: string;
+    vmName?: string;
 }
 
 /**
@@ -231,7 +231,7 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -239,5 +239,5 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * The name of the virtual machine.
      */
-    vmName: pulumi.Input<string>;
+    vmName?: pulumi.Input<string | undefined>;
 }

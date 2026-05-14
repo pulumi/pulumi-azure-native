@@ -24,7 +24,7 @@ export interface GetScopeAccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId: string;
+    scheduleDefinitionId?: string;
     /**
      * The scope of the resource.
      */
@@ -165,7 +165,7 @@ export interface GetScopeAccessReviewScheduleDefinitionByIdOutputArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId: pulumi.Input<string>;
+    scheduleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The scope of the resource.
      */

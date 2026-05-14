@@ -196,11 +196,11 @@ export interface SapCentralServerInstanceArgs {
     /**
      * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
-    centralInstanceName?: pulumi.Input<string>;
+    centralInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -212,5 +212,5 @@ export interface SapCentralServerInstanceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

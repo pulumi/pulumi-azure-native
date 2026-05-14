@@ -31,7 +31,7 @@ export interface GetMHSMPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the managed hsm pool.
      */
-    privateEndpointConnectionName: string;
+    privateEndpointConnectionName?: string;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
@@ -119,7 +119,7 @@ export interface GetMHSMPrivateEndpointConnectionOutputArgs {
     /**
      * Name of the private endpoint connection associated with the managed hsm pool.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */

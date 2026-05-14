@@ -168,19 +168,19 @@ export interface VcenterControllerArgs {
     /**
      * Gets or sets the FQDN/IPAddress of the vCenter.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the friendly name of the vCenter.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the port of the vCenter.
      */
-    port?: pulumi.Input<string>;
+    port?: pulumi.Input<string | undefined>;
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -188,7 +188,7 @@ export interface VcenterControllerArgs {
     /**
      * Gets or sets the run as account ID of the vCenter.
      */
-    runAsAccountId?: pulumi.Input<string>;
+    runAsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Site name
      */
@@ -196,5 +196,5 @@ export interface VcenterControllerArgs {
     /**
      *  VCenters name
      */
-    vcenterName?: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string | undefined>;
 }

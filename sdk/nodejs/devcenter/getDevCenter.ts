@@ -26,7 +26,7 @@ export interface GetDevCenterArgs {
     /**
      * The name of the devcenter.
      */
-    devCenterName: string;
+    devCenterName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetDevCenterOutputArgs {
     /**
      * The name of the devcenter.
      */
-    devCenterName: pulumi.Input<string>;
+    devCenterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

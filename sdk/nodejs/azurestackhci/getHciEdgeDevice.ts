@@ -24,7 +24,7 @@ export interface GetHciEdgeDeviceArgs {
     /**
      * Name of Device
      */
-    edgeDeviceName: string;
+    edgeDeviceName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -82,7 +82,7 @@ export interface GetHciEdgeDeviceOutputArgs {
     /**
      * Name of Device
      */
-    edgeDeviceName: pulumi.Input<string>;
+    edgeDeviceName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

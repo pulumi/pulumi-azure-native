@@ -45,7 +45,7 @@ export interface GetTaskArgs {
     /**
      * Name of the Task
      */
-    taskName: string;
+    taskName?: string;
 }
 
 /**
@@ -103,7 +103,7 @@ export interface GetTaskOutputArgs {
     /**
      * Expand the response
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group
      */
@@ -119,5 +119,5 @@ export interface GetTaskOutputArgs {
     /**
      * Name of the Task
      */
-    taskName: pulumi.Input<string>;
+    taskName?: pulumi.Input<string | undefined>;
 }

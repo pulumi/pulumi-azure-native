@@ -27,7 +27,7 @@ export interface GetCosmosDbDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName: string;
+    dataConnectionName?: string;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -127,7 +127,7 @@ export interface GetCosmosDbDataConnectionOutputArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the database in the Kusto cluster.
      */

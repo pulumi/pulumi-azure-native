@@ -40,7 +40,7 @@ export interface GetManagedClusterApplicationTypeVersionArgs {
     /**
      * The application type version.
      */
-    version: string;
+    version?: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetManagedClusterApplicationTypeVersionOutputArgs {
     /**
      * The application type version.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

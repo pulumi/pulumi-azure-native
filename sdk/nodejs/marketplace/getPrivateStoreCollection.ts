@@ -26,7 +26,7 @@ export interface GetPrivateStoreCollectionArgs {
     /**
      * The collection ID
      */
-    collectionId: string;
+    collectionId?: string;
     /**
      * The store ID - must use the tenant ID
      */
@@ -117,7 +117,7 @@ export interface GetPrivateStoreCollectionOutputArgs {
     /**
      * The collection ID
      */
-    collectionId: pulumi.Input<string>;
+    collectionId?: pulumi.Input<string | undefined>;
     /**
      * The store ID - must use the tenant ID
      */

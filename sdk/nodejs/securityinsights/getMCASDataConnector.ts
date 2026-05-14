@@ -25,7 +25,7 @@ export interface GetMCASDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: string;
+    dataConnectorId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -96,7 +96,7 @@ export interface GetMCASDataConnectorOutputArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -30,7 +30,7 @@ export interface GetStandbyContainerGroupPoolArgs {
     /**
      * Name of the standby container group pool
      */
-    standbyContainerGroupPoolName: string;
+    standbyContainerGroupPoolName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetStandbyContainerGroupPoolOutputArgs {
     /**
      * Name of the standby container group pool
      */
-    standbyContainerGroupPoolName: pulumi.Input<string>;
+    standbyContainerGroupPoolName?: pulumi.Input<string | undefined>;
 }

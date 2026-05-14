@@ -35,7 +35,7 @@ export interface GetScopeMapArgs {
     /**
      * The name of the scope map.
      */
-    scopeMapName: string;
+    scopeMapName?: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetScopeMapOutputArgs {
     /**
      * The name of the scope map.
      */
-    scopeMapName: pulumi.Input<string>;
+    scopeMapName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetActionGroupArgs {
     /**
      * The name of the action group.
      */
-    actionGroupName: string;
+    actionGroupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetActionGroupOutputArgs {
     /**
      * The name of the action group.
      */
-    actionGroupName: pulumi.Input<string>;
+    actionGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

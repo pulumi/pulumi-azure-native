@@ -45,7 +45,7 @@ export interface GetCapacityPoolVolumeQuotaRuleArgs {
     /**
      * The name of volume quota rule
      */
-    volumeQuotaRuleName: string;
+    volumeQuotaRuleName?: string;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface GetCapacityPoolVolumeQuotaRuleOutputArgs {
     /**
      * The name of volume quota rule
      */
-    volumeQuotaRuleName: pulumi.Input<string>;
+    volumeQuotaRuleName?: pulumi.Input<string | undefined>;
 }

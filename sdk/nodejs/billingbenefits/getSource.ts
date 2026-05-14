@@ -35,7 +35,7 @@ export interface GetSourceArgs {
     /**
      * Name of the credit source
      */
-    sourceName: string;
+    sourceName?: string;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface GetSourceOutputArgs {
     /**
      * Name of the credit source
      */
-    sourceName: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
 }

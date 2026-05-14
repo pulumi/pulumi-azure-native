@@ -24,7 +24,7 @@ export interface GetServerBlobAuditingPolicyArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName: string;
+    blobAuditingPolicyName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -196,7 +196,7 @@ export interface GetServerBlobAuditingPolicyOutputArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

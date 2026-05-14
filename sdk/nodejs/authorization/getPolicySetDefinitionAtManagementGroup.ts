@@ -35,7 +35,7 @@ export interface GetPolicySetDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy set definition to get.
      */
-    policySetDefinitionName: string;
+    policySetDefinitionName?: string;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {
     /**
      * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The ID of the management group.
      */
@@ -127,5 +127,5 @@ export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {
     /**
      * The name of the policy set definition to get.
      */
-    policySetDefinitionName: pulumi.Input<string>;
+    policySetDefinitionName?: pulumi.Input<string | undefined>;
 }

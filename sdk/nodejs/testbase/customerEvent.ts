@@ -120,7 +120,7 @@ export interface CustomerEventArgs {
     /**
      * The resource name of the Test Base Customer event.
      */
-    customerEventName?: pulumi.Input<string>;
+    customerEventName?: pulumi.Input<string | undefined>;
     /**
      * The name of the event subscribed to.
      */

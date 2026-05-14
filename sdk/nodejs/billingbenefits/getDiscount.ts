@@ -26,7 +26,7 @@ export interface GetDiscountArgs {
     /**
      * Name of the discount
      */
-    discountName: string;
+    discountName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetDiscountOutputArgs {
     /**
      * Name of the discount
      */
-    discountName: pulumi.Input<string>;
+    discountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -27,7 +27,7 @@ export interface GetBigDataPoolArgs {
     /**
      * Big Data pool name
      */
-    bigDataPoolName: string;
+    bigDataPoolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,7 +163,7 @@ export interface GetBigDataPoolOutputArgs {
     /**
      * Big Data pool name
      */
-    bigDataPoolName: pulumi.Input<string>;
+    bigDataPoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

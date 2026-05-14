@@ -155,7 +155,7 @@ export interface KustoPoolAttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName?: pulumi.Input<string>;
+    attachedDatabaseConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
@@ -175,7 +175,7 @@ export interface KustoPoolAttachedDatabaseConfigurationArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -183,7 +183,7 @@ export interface KustoPoolAttachedDatabaseConfigurationArgs {
     /**
      * Table level sharing specifications
      */
-    tableLevelSharingProperties?: pulumi.Input<inputs.synapse.TableLevelSharingPropertiesArgs>;
+    tableLevelSharingProperties?: pulumi.Input<inputs.synapse.TableLevelSharingPropertiesArgs | undefined>;
     /**
      * The name of the workspace.
      */

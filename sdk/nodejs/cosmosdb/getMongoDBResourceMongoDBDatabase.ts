@@ -31,7 +31,7 @@ export interface GetMongoDBResourceMongoDBDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetMongoDBResourceMongoDBDatabaseOutputArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

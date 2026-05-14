@@ -35,7 +35,7 @@ export interface GetManagedEnvironmentsStorageArgs {
     /**
      * Name of the storage.
      */
-    storageName: string;
+    storageName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetManagedEnvironmentsStorageOutputArgs {
     /**
      * Name of the storage.
      */
-    storageName: pulumi.Input<string>;
+    storageName?: pulumi.Input<string | undefined>;
 }

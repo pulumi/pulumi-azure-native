@@ -40,7 +40,7 @@ export interface GetJobTargetGroupArgs {
     /**
      * The name of the target group.
      */
-    targetGroupName: string;
+    targetGroupName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetJobTargetGroupOutputArgs {
     /**
      * The name of the target group.
      */
-    targetGroupName: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
 }

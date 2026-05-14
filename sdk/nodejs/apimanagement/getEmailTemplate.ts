@@ -35,7 +35,7 @@ export interface GetEmailTemplateArgs {
     /**
      * Email Template Name Identifier.
      */
-    templateName: string;
+    templateName?: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetEmailTemplateOutputArgs {
     /**
      * Email Template Name Identifier.
      */
-    templateName: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
 }

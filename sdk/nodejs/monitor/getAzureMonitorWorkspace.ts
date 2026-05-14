@@ -26,7 +26,7 @@ export interface GetAzureMonitorWorkspaceArgs {
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */
-    azureMonitorWorkspaceName: string;
+    azureMonitorWorkspaceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetAzureMonitorWorkspaceOutputArgs {
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */
-    azureMonitorWorkspaceName: pulumi.Input<string>;
+    azureMonitorWorkspaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

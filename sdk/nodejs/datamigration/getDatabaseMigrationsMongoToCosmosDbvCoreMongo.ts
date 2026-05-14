@@ -27,7 +27,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * Name of the migration.
      */
-    migrationName: string;
+    migrationName?: string;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -136,7 +136,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs {
     /**
      * Name of the migration.
      */
-    migrationName: pulumi.Input<string>;
+    migrationName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

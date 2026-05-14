@@ -26,7 +26,7 @@ export interface GetMoveCollectionArgs {
     /**
      * The Move Collection Name.
      */
-    moveCollectionName: string;
+    moveCollectionName?: string;
     /**
      * The Resource Group Name.
      */
@@ -97,7 +97,7 @@ export interface GetMoveCollectionOutputArgs {
     /**
      * The Move Collection Name.
      */
-    moveCollectionName: pulumi.Input<string>;
+    moveCollectionName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Group Name.
      */

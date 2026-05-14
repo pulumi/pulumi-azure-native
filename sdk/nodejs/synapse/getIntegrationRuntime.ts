@@ -27,7 +27,7 @@ export interface GetIntegrationRuntimeArgs {
     /**
      * Integration runtime name
      */
-    integrationRuntimeName: string;
+    integrationRuntimeName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetIntegrationRuntimeOutputArgs {
     /**
      * Integration runtime name
      */
-    integrationRuntimeName: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

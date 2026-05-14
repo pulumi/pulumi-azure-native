@@ -28,7 +28,7 @@ export interface GetDatabaseAccountGremlinDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * Name of an Azure resource group.
      */
@@ -100,7 +100,7 @@ export interface GetDatabaseAccountGremlinDatabaseOutputArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure resource group.
      */

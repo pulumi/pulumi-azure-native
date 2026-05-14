@@ -26,7 +26,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the managed application.
      */
-    applicationName: string;
+    applicationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,7 +165,7 @@ export interface GetApplicationOutputArgs {
     /**
      * The name of the managed application.
      */
-    applicationName: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

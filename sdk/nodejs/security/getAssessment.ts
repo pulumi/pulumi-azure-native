@@ -27,7 +27,7 @@ export interface GetAssessmentArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentName: string;
+    assessmentName?: string;
     /**
      * OData expand. Optional.
      */
@@ -107,11 +107,11 @@ export interface GetAssessmentOutputArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentName: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * OData expand. Optional.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the resource.
      */

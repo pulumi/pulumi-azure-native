@@ -35,7 +35,7 @@ export interface GetRouteFilterArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName: string;
+    routeFilterName?: string;
 }
 
 /**
@@ -107,7 +107,7 @@ export interface GetRouteFilterOutputArgs {
     /**
      * Expands referenced express route bgp peering resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -115,5 +115,5 @@ export interface GetRouteFilterOutputArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName: pulumi.Input<string>;
+    routeFilterName?: pulumi.Input<string | undefined>;
 }

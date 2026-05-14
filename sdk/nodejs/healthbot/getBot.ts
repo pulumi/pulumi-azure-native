@@ -26,7 +26,7 @@ export interface GetBotArgs {
     /**
      * The name of the Bot resource.
      */
-    botName: string;
+    botName?: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -97,7 +97,7 @@ export interface GetBotOutputArgs {
     /**
      * The name of the Bot resource.
      */
-    botName: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

@@ -30,7 +30,7 @@ export interface GetContainerAppsSessionPoolArgs {
     /**
      * Name of the session pool.
      */
-    sessionPoolName: string;
+    sessionPoolName?: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetContainerAppsSessionPoolOutputArgs {
     /**
      * Name of the session pool.
      */
-    sessionPoolName: pulumi.Input<string>;
+    sessionPoolName?: pulumi.Input<string | undefined>;
 }

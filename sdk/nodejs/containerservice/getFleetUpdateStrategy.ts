@@ -35,7 +35,7 @@ export interface GetFleetUpdateStrategyArgs {
     /**
      * The name of the UpdateStrategy resource.
      */
-    updateStrategyName: string;
+    updateStrategyName?: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetFleetUpdateStrategyOutputArgs {
     /**
      * The name of the UpdateStrategy resource.
      */
-    updateStrategyName: pulumi.Input<string>;
+    updateStrategyName?: pulumi.Input<string | undefined>;
 }

@@ -31,7 +31,7 @@ export interface GetSavedSearchArgs {
     /**
      * The id of the saved search.
      */
-    savedSearchId: string;
+    savedSearchId?: string;
     /**
      * The name of the workspace.
      */
@@ -115,7 +115,7 @@ export interface GetSavedSearchOutputArgs {
     /**
      * The id of the saved search.
      */
-    savedSearchId: pulumi.Input<string>;
+    savedSearchId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

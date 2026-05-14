@@ -30,7 +30,7 @@ export interface GetVirtualHardDiskArgs {
     /**
      * Name of the virtual hard disk
      */
-    virtualHardDiskName: string;
+    virtualHardDiskName?: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetVirtualHardDiskOutputArgs {
     /**
      * Name of the virtual hard disk
      */
-    virtualHardDiskName: pulumi.Input<string>;
+    virtualHardDiskName?: pulumi.Input<string | undefined>;
 }

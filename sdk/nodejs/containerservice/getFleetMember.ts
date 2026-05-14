@@ -27,7 +27,7 @@ export interface GetFleetMemberArgs {
     /**
      * The name of the Fleet member resource.
      */
-    fleetMemberName: string;
+    fleetMemberName?: string;
     /**
      * The name of the Fleet resource.
      */
@@ -99,7 +99,7 @@ export interface GetFleetMemberOutputArgs {
     /**
      * The name of the Fleet member resource.
      */
-    fleetMemberName: pulumi.Input<string>;
+    fleetMemberName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fleet resource.
      */

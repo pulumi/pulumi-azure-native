@@ -27,7 +27,7 @@ export interface GetAgentArgs {
     /**
      * The name of the Agent resource.
      */
-    agentName: string;
+    agentName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,7 +136,7 @@ export interface GetAgentOutputArgs {
     /**
      * The name of the Agent resource.
      */
-    agentName: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

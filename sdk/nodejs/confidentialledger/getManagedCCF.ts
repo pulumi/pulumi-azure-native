@@ -26,7 +26,7 @@ export interface GetManagedCCFArgs {
     /**
      * Name of the Managed CCF
      */
-    appName: string;
+    appName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetManagedCCFOutputArgs {
     /**
      * Name of the Managed CCF
      */
-    appName: pulumi.Input<string>;
+    appName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetCloudTrailTrailArgs {
     /**
      * Name of CloudTrailTrail
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetCloudTrailTrailOutputArgs {
     /**
      * Name of CloudTrailTrail
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

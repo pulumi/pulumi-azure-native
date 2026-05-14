@@ -27,7 +27,7 @@ export interface GetGuestConfigurationAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName: string;
+    guestConfigurationAssignmentName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetGuestConfigurationAssignmentOutputArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName: pulumi.Input<string>;
+    guestConfigurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
+export function getAccessReviewHistoryDefinitionById(args?: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,
@@ -25,7 +26,7 @@ export interface GetAccessReviewHistoryDefinitionByIdArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId: string;
+    historyDefinitionId?: string;
 }
 
 /**
@@ -112,7 +113,8 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
  *
  * Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
+export function getAccessReviewHistoryDefinitionByIdOutput(args?: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,
@@ -123,5 +125,5 @@ export interface GetAccessReviewHistoryDefinitionByIdOutputArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId: pulumi.Input<string>;
+    historyDefinitionId?: pulumi.Input<string | undefined>;
 }

@@ -31,7 +31,7 @@ export interface GetForwardingRuleArgs {
     /**
      * The name of the forwarding rule.
      */
-    forwardingRuleName: string;
+    forwardingRuleName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetForwardingRuleOutputArgs {
     /**
      * The name of the forwarding rule.
      */
-    forwardingRuleName: pulumi.Input<string>;
+    forwardingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

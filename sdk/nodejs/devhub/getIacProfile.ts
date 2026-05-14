@@ -26,7 +26,7 @@ export interface GetIacProfileArgs {
     /**
      * The name of the IacProfile.
      */
-    iacProfileName: string;
+    iacProfileName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -135,7 +135,7 @@ export interface GetIacProfileOutputArgs {
     /**
      * The name of the IacProfile.
      */
-    iacProfileName: pulumi.Input<string>;
+    iacProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

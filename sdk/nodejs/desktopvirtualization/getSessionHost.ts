@@ -33,7 +33,7 @@ export interface GetSessionHostArgs {
     /**
      * The name of the session host within the specified host pool
      */
-    sessionHostName: string;
+    sessionHostName?: string;
 }
 
 /**
@@ -175,5 +175,5 @@ export interface GetSessionHostOutputArgs {
     /**
      * The name of the session host within the specified host pool
      */
-    sessionHostName: pulumi.Input<string>;
+    sessionHostName?: pulumi.Input<string | undefined>;
 }

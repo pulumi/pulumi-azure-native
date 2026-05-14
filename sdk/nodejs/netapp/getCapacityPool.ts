@@ -31,7 +31,7 @@ export interface GetCapacityPoolArgs {
     /**
      * The name of the capacity pool
      */
-    poolName: string;
+    poolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -135,7 +135,7 @@ export interface GetCapacityPoolOutputArgs {
     /**
      * The name of the capacity pool
      */
-    poolName: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

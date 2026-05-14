@@ -27,7 +27,7 @@ export interface GetClientGroupArgs {
     /**
      * Name of the client group.
      */
-    clientGroupName: string;
+    clientGroupName?: string;
     /**
      * Name of the namespace.
      */
@@ -96,7 +96,7 @@ export interface GetClientGroupOutputArgs {
     /**
      * Name of the client group.
      */
-    clientGroupName: pulumi.Input<string>;
+    clientGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */

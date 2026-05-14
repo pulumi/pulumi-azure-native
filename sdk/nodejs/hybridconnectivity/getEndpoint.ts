@@ -26,7 +26,7 @@ export interface GetEndpointArgs {
     /**
      * The endpoint name.
      */
-    endpointName: string;
+    endpointName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -85,7 +85,7 @@ export interface GetEndpointOutputArgs {
     /**
      * The endpoint name.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

@@ -28,7 +28,7 @@ export interface GetExtensionArgs {
     /**
      * The name of the cluster extension.
      */
-    extensionName: string;
+    extensionName?: string;
     /**
      * The name of the resource group.
      */
@@ -76,7 +76,7 @@ export interface GetExtensionOutputArgs {
     /**
      * The name of the cluster extension.
      */
-    extensionName: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

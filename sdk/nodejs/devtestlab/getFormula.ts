@@ -34,7 +34,7 @@ export interface GetFormulaArgs {
     /**
      * The name of the formula.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetFormulaOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=description)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -133,7 +133,7 @@ export interface GetFormulaOutputArgs {
     /**
      * The name of the formula.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

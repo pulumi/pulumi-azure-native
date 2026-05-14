@@ -30,7 +30,7 @@ export interface GetSingleServerVirtualNetworkRuleArgs {
     /**
      * The name of the virtual network rule.
      */
-    virtualNetworkRuleName: string;
+    virtualNetworkRuleName?: string;
 }
 
 /**
@@ -92,5 +92,5 @@ export interface GetSingleServerVirtualNetworkRuleOutputArgs {
     /**
      * The name of the virtual network rule.
      */
-    virtualNetworkRuleName: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
 }

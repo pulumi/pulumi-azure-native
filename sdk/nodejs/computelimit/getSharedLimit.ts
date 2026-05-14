@@ -28,7 +28,7 @@ export interface GetSharedLimitArgs {
     /**
      * The name of the SharedLimit
      */
-    name: string;
+    name?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSharedLimitOutputArgs {
     /**
      * The name of the SharedLimit
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

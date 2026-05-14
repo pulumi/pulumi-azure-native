@@ -30,7 +30,7 @@ export interface GetServiceArgs {
     /**
      * The name of Azure API Center service.
      */
-    serviceName: string;
+    serviceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetServiceOutputArgs {
     /**
      * The name of Azure API Center service.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
 }

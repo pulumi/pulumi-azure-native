@@ -30,7 +30,7 @@ export interface GetServiceArgs {
     /**
      * The name of the Service resource.
      */
-    serviceName: string;
+    serviceName?: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetServiceOutputArgs {
     /**
      * The name of the Service resource.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
 }

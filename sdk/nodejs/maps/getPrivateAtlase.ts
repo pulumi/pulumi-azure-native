@@ -29,7 +29,7 @@ export interface GetPrivateAtlaseArgs {
     /**
      * The name of the Private Atlas instance.
      */
-    privateAtlasName: string;
+    privateAtlasName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetPrivateAtlaseOutputArgs {
     /**
      * The name of the Private Atlas instance.
      */
-    privateAtlasName: pulumi.Input<string>;
+    privateAtlasName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

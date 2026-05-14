@@ -177,37 +177,37 @@ export interface CloudConnectorArgs {
     /**
      * Connector billing model
      */
-    billingModel?: pulumi.Input<string | enums.costmanagement.ConnectorBillingModel>;
+    billingModel?: pulumi.Input<string | enums.costmanagement.ConnectorBillingModel | undefined>;
     /**
      * Connector Name.
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */
-    credentialsKey?: pulumi.Input<string>;
+    credentialsKey?: pulumi.Input<string | undefined>;
     /**
      * Credentials secret (eg AWS ExternalId)
      */
-    credentialsSecret?: pulumi.Input<string>;
+    credentialsSecret?: pulumi.Input<string | undefined>;
     /**
      * Default ManagementGroupId
      */
-    defaultManagementGroupId?: pulumi.Input<string>;
+    defaultManagementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Connector DisplayName
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Connector kind (eg aws)
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
      */
-    reportId?: pulumi.Input<string>;
+    reportId?: pulumi.Input<string | undefined>;
     /**
      * Billing SubscriptionId
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

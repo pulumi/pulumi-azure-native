@@ -24,7 +24,7 @@ export interface GetIdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    identityProviderName: string;
+    identityProviderName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -116,7 +116,7 @@ export interface GetIdentityProviderOutputArgs {
     /**
      * Identity Provider Type identifier.
      */
-    identityProviderName: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

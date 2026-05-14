@@ -35,7 +35,7 @@ export interface GetSpringbootserverArgs {
     /**
      * The springbootservers name.
      */
-    springbootserversName: string;
+    springbootserversName?: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetSpringbootserverOutputArgs {
     /**
      * The springbootservers name.
      */
-    springbootserversName: pulumi.Input<string>;
+    springbootserversName?: pulumi.Input<string | undefined>;
 }

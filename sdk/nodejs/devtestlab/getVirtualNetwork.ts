@@ -34,7 +34,7 @@ export interface GetVirtualNetworkArgs {
     /**
      * The name of the virtual network.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetVirtualNetworkOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=externalSubnets)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */
@@ -133,7 +133,7 @@ export interface GetVirtualNetworkOutputArgs {
     /**
      * The name of the virtual network.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

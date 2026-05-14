@@ -27,7 +27,7 @@ export interface GetPoolArgs {
     /**
      * Name of the pool.
      */
-    poolName: string;
+    poolName?: string;
     /**
      * The name of the project.
      */
@@ -143,7 +143,7 @@ export interface GetPoolOutputArgs {
     /**
      * Name of the pool.
      */
-    poolName: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */

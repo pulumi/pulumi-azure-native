@@ -27,7 +27,7 @@ export interface GetSyncSetArgs {
     /**
      * The name of the SyncSet resource.
      */
-    childResourceName: string;
+    childResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetSyncSetOutputArgs {
     /**
      * The name of the SyncSet resource.
      */
-    childResourceName: pulumi.Input<string>;
+    childResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

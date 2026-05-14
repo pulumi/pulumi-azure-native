@@ -34,7 +34,7 @@ export interface GetApiDefinitionArgs {
     /**
      * The name of the API definition.
      */
-    definitionName: string;
+    definitionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetApiDefinitionOutputArgs {
     /**
      * The name of the API definition.
      */
-    definitionName: pulumi.Input<string>;
+    definitionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

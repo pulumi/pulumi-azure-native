@@ -29,7 +29,7 @@ export interface GetEventHubEventSourceArgs {
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    eventSourceName: string;
+    eventSourceName?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -132,7 +132,7 @@ export interface GetEventHubEventSourceOutputArgs {
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    eventSourceName: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

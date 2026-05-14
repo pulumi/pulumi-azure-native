@@ -24,7 +24,7 @@ export interface GetContainerGroupProfileArgs {
     /**
      * The name of the container group profile.
      */
-    containerGroupProfileName: string;
+    containerGroupProfileName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,7 +140,7 @@ export interface GetContainerGroupProfileOutputArgs {
     /**
      * The name of the container group profile.
      */
-    containerGroupProfileName: pulumi.Input<string>;
+    containerGroupProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

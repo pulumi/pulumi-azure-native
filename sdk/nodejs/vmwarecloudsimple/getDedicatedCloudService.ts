@@ -21,7 +21,7 @@ export interface GetDedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    dedicatedCloudServiceName: string;
+    dedicatedCloudServiceName?: string;
     /**
      * The name of the resource group
      */
@@ -90,7 +90,7 @@ export interface GetDedicatedCloudServiceOutputArgs {
     /**
      * dedicated cloud Service name
      */
-    dedicatedCloudServiceName: pulumi.Input<string>;
+    dedicatedCloudServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group
      */

@@ -25,7 +25,7 @@ export interface GetDatasetArgs {
     /**
      * Name of dataset.
      */
-    datasetName: string;
+    datasetName?: string;
     /**
      * Name of instance.
      */
@@ -115,7 +115,7 @@ export interface GetDatasetOutputArgs {
     /**
      * Name of dataset.
      */
-    datasetName: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * Name of instance.
      */

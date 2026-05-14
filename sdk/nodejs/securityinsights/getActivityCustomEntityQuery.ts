@@ -25,7 +25,7 @@ export interface GetActivityCustomEntityQueryArgs {
     /**
      * entity query ID
      */
-    entityQueryId: string;
+    entityQueryId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,7 +132,7 @@ export interface GetActivityCustomEntityQueryOutputArgs {
     /**
      * entity query ID
      */
-    entityQueryId: pulumi.Input<string>;
+    entityQueryId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

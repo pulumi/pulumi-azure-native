@@ -31,7 +31,7 @@ export interface GetRegisteredServerArgs {
     /**
      * GUID identifying the on-premises server.
      */
-    serverId: string;
+    serverId?: string;
     /**
      * Name of Storage Sync Service resource.
      */
@@ -195,7 +195,7 @@ export interface GetRegisteredServerOutputArgs {
     /**
      * GUID identifying the on-premises server.
      */
-    serverId: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * Name of Storage Sync Service resource.
      */

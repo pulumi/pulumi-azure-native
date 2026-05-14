@@ -27,7 +27,7 @@ export interface GetNetworkServiceDesignGroupArgs {
     /**
      * The name of the network service design group.
      */
-    networkServiceDesignGroupName: string;
+    networkServiceDesignGroupName?: string;
     /**
      * The name of the publisher.
      */
@@ -95,7 +95,7 @@ export interface GetNetworkServiceDesignGroupOutputArgs {
     /**
      * The name of the network service design group.
      */
-    networkServiceDesignGroupName: pulumi.Input<string>;
+    networkServiceDesignGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the publisher.
      */

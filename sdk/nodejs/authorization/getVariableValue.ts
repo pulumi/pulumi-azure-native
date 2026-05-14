@@ -30,7 +30,7 @@ export interface GetVariableValueArgs {
     /**
      * The name of the variable value to operate on.
      */
-    variableValueName: string;
+    variableValueName?: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetVariableValueOutputArgs {
     /**
      * The name of the variable value to operate on.
      */
-    variableValueName: pulumi.Input<string>;
+    variableValueName?: pulumi.Input<string | undefined>;
 }

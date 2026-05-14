@@ -35,7 +35,7 @@ export interface GetServerArgs {
     /**
      * The name of the server.
      */
-    serverName: string;
+    serverName?: string;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface GetServerOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -163,5 +163,5 @@ export interface GetServerOutputArgs {
     /**
      * The name of the server.
      */
-    serverName: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetPeeringServiceArgs {
     /**
      * The name of the peering.
      */
-    peeringServiceName: string;
+    peeringServiceName?: string;
     /**
      * The name of the resource group.
      */
@@ -109,7 +109,7 @@ export interface GetPeeringServiceOutputArgs {
     /**
      * The name of the peering.
      */
-    peeringServiceName: pulumi.Input<string>;
+    peeringServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

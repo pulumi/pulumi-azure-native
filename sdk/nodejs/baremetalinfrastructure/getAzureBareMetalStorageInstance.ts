@@ -26,7 +26,7 @@ export interface GetAzureBareMetalStorageInstanceArgs {
     /**
      * Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
      */
-    azureBareMetalStorageInstanceName: string;
+    azureBareMetalStorageInstanceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetAzureBareMetalStorageInstanceOutputArgs {
     /**
      * Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
      */
-    azureBareMetalStorageInstanceName: pulumi.Input<string>;
+    azureBareMetalStorageInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -38,7 +38,7 @@ export interface GetScheduledSynchronizationSettingArgs {
     /**
      * The name of the synchronizationSetting.
      */
-    synchronizationSettingName: string;
+    synchronizationSettingName?: string;
 }
 
 /**
@@ -122,5 +122,5 @@ export interface GetScheduledSynchronizationSettingOutputArgs {
     /**
      * The name of the synchronizationSetting.
      */
-    synchronizationSettingName: pulumi.Input<string>;
+    synchronizationSettingName?: pulumi.Input<string | undefined>;
 }

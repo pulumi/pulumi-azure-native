@@ -33,7 +33,7 @@ export interface GetPublishedBlueprintArgs {
     /**
      * Version of the published blueprint definition.
      */
-    versionId: string;
+    versionId?: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetPublishedBlueprintOutputArgs {
     /**
      * Version of the published blueprint definition.
      */
-    versionId: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

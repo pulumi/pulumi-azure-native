@@ -24,7 +24,7 @@ export interface GetPoolArgs {
     /**
      * Pool Object
      */
-    poolName: string;
+    poolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetPoolOutputArgs {
     /**
      * Pool Object
      */
-    poolName: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

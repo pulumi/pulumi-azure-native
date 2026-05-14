@@ -24,7 +24,7 @@ export interface GetConnectionMonitorTestArgs {
     /**
      * The name of the connection monitor test
      */
-    connectionMonitorTestName: string;
+    connectionMonitorTestName?: string;
     /**
      * The name of the peering service.
      */
@@ -104,7 +104,7 @@ export interface GetConnectionMonitorTestOutputArgs {
     /**
      * The name of the connection monitor test
      */
-    connectionMonitorTestName: pulumi.Input<string>;
+    connectionMonitorTestName?: pulumi.Input<string | undefined>;
     /**
      * The name of the peering service.
      */

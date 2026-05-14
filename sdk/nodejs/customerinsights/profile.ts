@@ -202,27 +202,27 @@ export interface ProfileArgs {
     /**
      * The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
      */
-    apiEntitySetName?: pulumi.Input<string>;
+    apiEntitySetName?: pulumi.Input<string | undefined>;
     /**
      * The attributes for the Type.
      */
-    attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Localized descriptions for the property.
      */
-    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Localized display names for the property.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of entity.
      */
-    entityType?: pulumi.Input<enums.customerinsights.EntityTypes>;
+    entityType?: pulumi.Input<enums.customerinsights.EntityTypes | undefined>;
     /**
      * The properties of the Profile.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[] | undefined>;
     /**
      * The name of the hub.
      */
@@ -230,23 +230,23 @@ export interface ProfileArgs {
     /**
      * The instance count.
      */
-    instancesCount?: pulumi.Input<number>;
+    instancesCount?: pulumi.Input<number | undefined>;
     /**
      * Large Image associated with the Property or EntityType.
      */
-    largeImage?: pulumi.Input<string>;
+    largeImage?: pulumi.Input<string | undefined>;
     /**
      * Any custom localized attributes for the Type.
      */
-    localizedAttributes?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    localizedAttributes?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
     /**
      * Medium Image associated with the Property or EntityType.
      */
-    mediumImage?: pulumi.Input<string>;
+    mediumImage?: pulumi.Input<string | undefined>;
     /**
      * The name of the profile.
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -254,21 +254,21 @@ export interface ProfileArgs {
     /**
      * The schema org link. This helps ACI identify and suggest semantic models.
      */
-    schemaItemTypeLink?: pulumi.Input<string>;
+    schemaItemTypeLink?: pulumi.Input<string | undefined>;
     /**
      * Small Image associated with the Property or EntityType.
      */
-    smallImage?: pulumi.Input<string>;
+    smallImage?: pulumi.Input<string | undefined>;
     /**
      * The strong IDs.
      */
-    strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.StrongIdArgs>[]>;
+    strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.StrongIdArgs>[] | undefined>;
     /**
      * The timestamp property name. Represents the time when the interaction or profile update happened.
      */
-    timestampFieldName?: pulumi.Input<string>;
+    timestampFieldName?: pulumi.Input<string | undefined>;
     /**
      * The name of the entity.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
 }

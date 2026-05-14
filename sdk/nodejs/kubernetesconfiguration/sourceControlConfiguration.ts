@@ -200,39 +200,39 @@ export interface SourceControlConfigurationArgs {
     /**
      * Name-value pairs of protected configuration settings for the configuration
      */
-    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Option to enable Helm Operator for this git configuration.
      */
-    enableHelmOperator?: pulumi.Input<boolean>;
+    enableHelmOperator?: pulumi.Input<boolean | undefined>;
     /**
      * Properties for Helm operator.
      */
-    helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.HelmOperatorPropertiesArgs>;
+    helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.HelmOperatorPropertiesArgs | undefined>;
     /**
      * Instance name of the operator - identifying the specific configuration.
      */
-    operatorInstanceName?: pulumi.Input<string>;
+    operatorInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
      */
-    operatorNamespace?: pulumi.Input<string>;
+    operatorNamespace?: pulumi.Input<string | undefined>;
     /**
      * Any Parameters for the Operator instance in string format.
      */
-    operatorParams?: pulumi.Input<string>;
+    operatorParams?: pulumi.Input<string | undefined>;
     /**
      * Scope at which the operator will be installed.
      */
-    operatorScope?: pulumi.Input<string | enums.kubernetesconfiguration.OperatorScopeType>;
+    operatorScope?: pulumi.Input<string | enums.kubernetesconfiguration.OperatorScopeType | undefined>;
     /**
      * Type of the operator
      */
-    operatorType?: pulumi.Input<string | enums.kubernetesconfiguration.OperatorType>;
+    operatorType?: pulumi.Input<string | enums.kubernetesconfiguration.OperatorType | undefined>;
     /**
      * Url of the SourceControl Repository.
      */
-    repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -240,9 +240,9 @@ export interface SourceControlConfigurationArgs {
     /**
      * Name of the Source Control Configuration.
      */
-    sourceControlConfigurationName?: pulumi.Input<string>;
+    sourceControlConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
      */
-    sshKnownHostsContents?: pulumi.Input<string>;
+    sshKnownHostsContents?: pulumi.Input<string | undefined>;
 }

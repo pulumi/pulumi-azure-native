@@ -31,7 +31,7 @@ export interface GetAppResiliencyArgs {
     /**
      * Name of the resiliency policy.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetAppResiliencyOutputArgs {
     /**
      * Name of the resiliency policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

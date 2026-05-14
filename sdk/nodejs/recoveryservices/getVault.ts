@@ -30,7 +30,7 @@ export interface GetVaultArgs {
     /**
      * The name of the recovery services vault.
      */
-    vaultName: string;
+    vaultName?: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetVaultOutputArgs {
     /**
      * The name of the recovery services vault.
      */
-    vaultName: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }

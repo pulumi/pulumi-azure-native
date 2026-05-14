@@ -120,15 +120,15 @@ export interface ApplicationSecurityGroupArgs {
     /**
      * The name of the application security group.
      */
-    applicationSecurityGroupName?: pulumi.Input<string>;
+    applicationSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -136,5 +136,5 @@ export interface ApplicationSecurityGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

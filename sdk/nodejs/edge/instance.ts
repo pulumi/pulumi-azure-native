@@ -124,15 +124,15 @@ export interface InstanceArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
     /**
      * Name of the instance
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.InstancePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.InstancePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

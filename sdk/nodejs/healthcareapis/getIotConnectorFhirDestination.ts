@@ -28,7 +28,7 @@ export interface GetIotConnectorFhirDestinationArgs {
     /**
      * The name of IoT Connector FHIR destination resource.
      */
-    fhirDestinationName: string;
+    fhirDestinationName?: string;
     /**
      * The name of IoT Connector resource.
      */
@@ -109,7 +109,7 @@ export interface GetIotConnectorFhirDestinationOutputArgs {
     /**
      * The name of IoT Connector FHIR destination resource.
      */
-    fhirDestinationName: pulumi.Input<string>;
+    fhirDestinationName?: pulumi.Input<string | undefined>;
     /**
      * The name of IoT Connector resource.
      */

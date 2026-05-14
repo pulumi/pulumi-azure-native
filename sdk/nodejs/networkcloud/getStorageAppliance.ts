@@ -30,7 +30,7 @@ export interface GetStorageApplianceArgs {
     /**
      * The name of the storage appliance.
      */
-    storageApplianceName: string;
+    storageApplianceName?: string;
 }
 
 export interface GetStorageApplianceResult {
@@ -166,5 +166,5 @@ export interface GetStorageApplianceOutputArgs {
     /**
      * The name of the storage appliance.
      */
-    storageApplianceName: pulumi.Input<string>;
+    storageApplianceName?: pulumi.Input<string | undefined>;
 }

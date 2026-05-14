@@ -24,7 +24,7 @@ export interface GetRoute53ResourceRecordSetArgs {
     /**
      * Name of Route53ResourceRecordSet
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetRoute53ResourceRecordSetOutputArgs {
     /**
      * Name of Route53ResourceRecordSet
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -25,7 +25,7 @@ export interface GetAkriServiceArgs {
     /**
      * Name of AkriService resource.
      */
-    akriServiceName: string;
+    akriServiceName?: string;
     /**
      * Name of instance.
      */
@@ -87,7 +87,7 @@ export interface GetAkriServiceOutputArgs {
     /**
      * Name of AkriService resource.
      */
-    akriServiceName: pulumi.Input<string>;
+    akriServiceName?: pulumi.Input<string | undefined>;
     /**
      * Name of instance.
      */

@@ -26,7 +26,7 @@ export interface GetDnsResolverDomainListArgs {
     /**
      * The name of the DNS resolver domain list.
      */
-    dnsResolverDomainListName: string;
+    dnsResolverDomainListName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetDnsResolverDomainListOutputArgs {
     /**
      * The name of the DNS resolver domain list.
      */
-    dnsResolverDomainListName: pulumi.Input<string>;
+    dnsResolverDomainListName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

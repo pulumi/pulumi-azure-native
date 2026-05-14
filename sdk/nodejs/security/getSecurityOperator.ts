@@ -28,7 +28,7 @@ export interface GetSecurityOperatorArgs {
     /**
      * name of the securityOperator
      */
-    securityOperatorName: string;
+    securityOperatorName?: string;
 }
 
 /**
@@ -77,5 +77,5 @@ export interface GetSecurityOperatorOutputArgs {
     /**
      * name of the securityOperator
      */
-    securityOperatorName: pulumi.Input<string>;
+    securityOperatorName?: pulumi.Input<string | undefined>;
 }

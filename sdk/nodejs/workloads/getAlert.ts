@@ -25,7 +25,7 @@ export interface GetAlertArgs {
     /**
      * Name of the SAP monitor alert resource.
      */
-    alertName: string;
+    alertName?: string;
     /**
      * Name of the SAP monitor resource.
      */
@@ -107,7 +107,7 @@ export interface GetAlertOutputArgs {
     /**
      * Name of the SAP monitor alert resource.
      */
-    alertName: pulumi.Input<string>;
+    alertName?: pulumi.Input<string | undefined>;
     /**
      * Name of the SAP monitor resource.
      */

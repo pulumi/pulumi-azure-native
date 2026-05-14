@@ -25,7 +25,7 @@ export interface GetCustomImageArgs {
     /**
      * The resource name of the test base custom image.
      */
-    customImageName: string;
+    customImageName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetCustomImageOutputArgs {
     /**
      * The resource name of the test base custom image.
      */
-    customImageName: pulumi.Input<string>;
+    customImageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

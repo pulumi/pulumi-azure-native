@@ -25,7 +25,7 @@ export interface GetChangeDataCaptureArgs {
     /**
      * The change data capture name.
      */
-    changeDataCaptureName: string;
+    changeDataCaptureName?: string;
     /**
      * The factory name.
      */
@@ -107,7 +107,7 @@ export interface GetChangeDataCaptureOutputArgs {
     /**
      * The change data capture name.
      */
-    changeDataCaptureName: pulumi.Input<string>;
+    changeDataCaptureName?: pulumi.Input<string | undefined>;
     /**
      * The factory name.
      */

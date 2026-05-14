@@ -29,7 +29,7 @@ export interface GetGraphQLApiResolverArgs {
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */
-    resolverId: string;
+    resolverId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -98,7 +98,7 @@ export interface GetGraphQLApiResolverOutputArgs {
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */
-    resolverId: pulumi.Input<string>;
+    resolverId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

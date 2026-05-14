@@ -35,7 +35,7 @@ export interface GetVirtualRouterArgs {
     /**
      * The name of the Virtual Router.
      */
-    virtualRouterName: string;
+    virtualRouterName?: string;
 }
 
 /**
@@ -115,7 +115,7 @@ export interface GetVirtualRouterOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -123,5 +123,5 @@ export interface GetVirtualRouterOutputArgs {
     /**
      * The name of the Virtual Router.
      */
-    virtualRouterName: pulumi.Input<string>;
+    virtualRouterName?: pulumi.Input<string | undefined>;
 }

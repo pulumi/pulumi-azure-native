@@ -144,19 +144,19 @@ export interface CloudConnectionArgs {
     /**
      * The name of the cloud connection resource
      */
-    cloudConnectionName?: pulumi.Input<string>;
+    cloudConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The cloud connector which discovered the remote resource.
      */
-    cloudConnector?: pulumi.Input<inputs.hybridcloud.ResourceReferenceArgs>;
+    cloudConnector?: pulumi.Input<inputs.hybridcloud.ResourceReferenceArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the remote cloud resource
      */
-    remoteResourceId?: pulumi.Input<string>;
+    remoteResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,13 +164,13 @@ export interface CloudConnectionArgs {
     /**
      * Shared key of the cloud connection.
      */
-    sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The virtualHub to which the cloud connection belongs.
      */
-    virtualHub?: pulumi.Input<inputs.hybridcloud.ResourceReferenceArgs>;
+    virtualHub?: pulumi.Input<inputs.hybridcloud.ResourceReferenceArgs | undefined>;
 }

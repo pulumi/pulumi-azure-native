@@ -28,7 +28,7 @@ export interface GetConnectorDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName: string;
+    dryrunName?: string;
     /**
      * The name of Azure region.
      */
@@ -105,7 +105,7 @@ export interface GetConnectorDryrunOutputArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The name of Azure region.
      */
@@ -117,5 +117,5 @@ export interface GetConnectorDryrunOutputArgs {
     /**
      * The ID of the target subscription.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

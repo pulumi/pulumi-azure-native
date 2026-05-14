@@ -25,7 +25,7 @@ export interface GetNodePoolArgs {
     /**
      * The name of the NodePool
      */
-    nodePoolName: string;
+    nodePoolName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetNodePoolOutputArgs {
     /**
      * The name of the NodePool
      */
-    nodePoolName: pulumi.Input<string>;
+    nodePoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

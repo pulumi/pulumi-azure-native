@@ -29,7 +29,7 @@ export interface GetRaiToolLabelArgs {
     /**
      * The name of the Rai Tool Label
      */
-    raiToolConnectionName: string;
+    raiToolConnectionName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetRaiToolLabelOutputArgs {
     /**
      * The name of the Rai Tool Label
      */
-    raiToolConnectionName: pulumi.Input<string>;
+    raiToolConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

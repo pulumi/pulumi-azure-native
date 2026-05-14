@@ -28,7 +28,7 @@ export interface GetProtectionContainerArgs {
     /**
      * Name of the container whose details need to be fetched.
      */
-    containerName: string;
+    containerName?: string;
     /**
      * Name of the fabric where the container belongs.
      */
@@ -101,7 +101,7 @@ export interface GetProtectionContainerOutputArgs {
     /**
      * Name of the container whose details need to be fetched.
      */
-    containerName: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Name of the fabric where the container belongs.
      */

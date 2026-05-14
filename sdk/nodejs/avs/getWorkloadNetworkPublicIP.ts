@@ -31,7 +31,7 @@ export interface GetWorkloadNetworkPublicIPArgs {
     /**
      * ID of the DNS zone.
      */
-    publicIPId: string;
+    publicIPId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetWorkloadNetworkPublicIPOutputArgs {
     /**
      * ID of the DNS zone.
      */
-    publicIPId: pulumi.Input<string>;
+    publicIPId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

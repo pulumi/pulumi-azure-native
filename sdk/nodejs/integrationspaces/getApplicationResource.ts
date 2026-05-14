@@ -34,7 +34,7 @@ export interface GetApplicationResourceArgs {
     /**
      * The name of the application resource.
      */
-    resourceName: string;
+    resourceName?: string;
     /**
      * The name of the space
      */
@@ -109,7 +109,7 @@ export interface GetApplicationResourceOutputArgs {
     /**
      * The name of the application resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the space
      */

@@ -36,7 +36,7 @@ export interface GetSolutionVersionArgs {
     /**
      * Name of the solution version
      */
-    solutionVersionName: string;
+    solutionVersionName?: string;
     /**
      * Name of the target
      */
@@ -109,7 +109,7 @@ export interface GetSolutionVersionOutputArgs {
     /**
      * Name of the solution version
      */
-    solutionVersionName: pulumi.Input<string>;
+    solutionVersionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the target
      */

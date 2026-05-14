@@ -26,7 +26,7 @@ export interface GetDeviceArgs {
     /**
      * The device name.
      */
-    deviceName: string;
+    deviceName?: string;
     /**
      * The resource group name.
      */
@@ -173,7 +173,7 @@ export interface GetDeviceOutputArgs {
     /**
      * The device name.
      */
-    deviceName: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

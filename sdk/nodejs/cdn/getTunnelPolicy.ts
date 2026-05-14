@@ -33,7 +33,7 @@ export interface GetTunnelPolicyArgs {
     /**
      * Name of the Tunnel Policy under the profile.
      */
-    tunnelPolicyName: string;
+    tunnelPolicyName?: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetTunnelPolicyOutputArgs {
     /**
      * Name of the Tunnel Policy under the profile.
      */
-    tunnelPolicyName: pulumi.Input<string>;
+    tunnelPolicyName?: pulumi.Input<string | undefined>;
 }

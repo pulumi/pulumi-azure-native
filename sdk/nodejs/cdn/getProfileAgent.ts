@@ -25,7 +25,7 @@ export interface GetProfileAgentArgs {
     /**
      * Name of the web agent association.
      */
-    agentName: string;
+    agentName?: string;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -91,7 +91,7 @@ export interface GetProfileAgentOutputArgs {
     /**
      * Name of the web agent association.
      */
-    agentName: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */

@@ -31,7 +31,7 @@ export interface GetHttpRouteConfigArgs {
     /**
      * Name of the Http Route Config Resource.
      */
-    httpRouteName: string;
+    httpRouteName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetHttpRouteConfigOutputArgs {
     /**
      * Name of the Http Route Config Resource.
      */
-    httpRouteName: pulumi.Input<string>;
+    httpRouteName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

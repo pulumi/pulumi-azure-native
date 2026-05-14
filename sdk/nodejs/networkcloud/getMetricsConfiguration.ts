@@ -31,7 +31,7 @@ export interface GetMetricsConfigurationArgs {
     /**
      * The name of the metrics configuration for the cluster.
      */
-    metricsConfigurationName: string;
+    metricsConfigurationName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -124,7 +124,7 @@ export interface GetMetricsConfigurationOutputArgs {
     /**
      * The name of the metrics configuration for the cluster.
      */
-    metricsConfigurationName: pulumi.Input<string>;
+    metricsConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

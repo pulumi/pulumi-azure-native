@@ -25,7 +25,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    apiName: string;
+    apiName?: string;
     /**
      * The integration service environment name.
      */
@@ -135,7 +135,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiOutputArgs {
     /**
      * The api name.
      */
-    apiName: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * The integration service environment name.
      */

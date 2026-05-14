@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-01-01-preview.
  */
-export function getAssessmentsMetadataSubscription(args: GetAssessmentsMetadataSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsMetadataSubscriptionResult> {
+export function getAssessmentsMetadataSubscription(args?: GetAssessmentsMetadataSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsMetadataSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAssessmentsMetadataSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
@@ -20,7 +21,7 @@ export interface GetAssessmentsMetadataSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName: string;
+    assessmentMetadataName?: string;
 }
 
 /**
@@ -87,7 +88,8 @@ export interface GetAssessmentsMetadataSubscriptionResult {
  *
  * Uses Azure REST API version 2019-01-01-preview.
  */
-export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
+export function getAssessmentsMetadataSubscriptionOutput(args?: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAssessmentsMetadataSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
@@ -98,5 +100,5 @@ export interface GetAssessmentsMetadataSubscriptionOutputArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName: pulumi.Input<string>;
+    assessmentMetadataName?: pulumi.Input<string | undefined>;
 }

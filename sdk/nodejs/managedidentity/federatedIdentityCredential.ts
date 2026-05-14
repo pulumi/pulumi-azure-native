@@ -133,7 +133,7 @@ export interface FederatedIdentityCredentialArgs {
     /**
      * The name of the federated identity credential resource.
      */
-    federatedIdentityCredentialResourceName?: pulumi.Input<string>;
+    federatedIdentityCredentialResourceName?: pulumi.Input<string | undefined>;
     /**
      * The URL of the issuer to be trusted.
      */

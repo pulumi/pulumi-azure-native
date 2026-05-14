@@ -24,7 +24,7 @@ export interface GetApplicationArgs {
     /**
      * The identity of the application.
      */
-    applicationResourceName: string;
+    applicationResourceName?: string;
     /**
      * Azure resource group name
      */
@@ -117,7 +117,7 @@ export interface GetApplicationOutputArgs {
     /**
      * The identity of the application.
      */
-    applicationResourceName: pulumi.Input<string>;
+    applicationResourceName?: pulumi.Input<string | undefined>;
     /**
      * Azure resource group name
      */

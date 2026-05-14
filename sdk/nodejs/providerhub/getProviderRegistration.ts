@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
+export function getProviderRegistration(args?: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
@@ -25,7 +26,7 @@ export interface GetProviderRegistrationArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    providerNamespace: string;
+    providerNamespace?: string;
 }
 
 /**
@@ -65,7 +66,8 @@ export interface GetProviderRegistrationResult {
  *
  * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderRegistrationResult> {
+export function getProviderRegistrationOutput(args?: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderRegistrationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
@@ -76,5 +78,5 @@ export interface GetProviderRegistrationOutputArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    providerNamespace: pulumi.Input<string>;
+    providerNamespace?: pulumi.Input<string | undefined>;
 }

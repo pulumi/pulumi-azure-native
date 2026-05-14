@@ -24,7 +24,7 @@ export interface GetCacheNodesOperationArgs {
     /**
      * Name of the Customer resource
      */
-    customerResourceName: string;
+    customerResourceName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetCacheNodesOperationOutputArgs {
     /**
      * Name of the Customer resource
      */
-    customerResourceName: pulumi.Input<string>;
+    customerResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

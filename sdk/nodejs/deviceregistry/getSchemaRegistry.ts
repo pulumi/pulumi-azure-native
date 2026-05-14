@@ -30,7 +30,7 @@ export interface GetSchemaRegistryArgs {
     /**
      * Schema registry name parameter.
      */
-    schemaRegistryName: string;
+    schemaRegistryName?: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSchemaRegistryOutputArgs {
     /**
      * Schema registry name parameter.
      */
-    schemaRegistryName: pulumi.Input<string>;
+    schemaRegistryName?: pulumi.Input<string | undefined>;
 }

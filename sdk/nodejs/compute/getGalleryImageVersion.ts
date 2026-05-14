@@ -37,7 +37,7 @@ export interface GetGalleryImageVersionArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName: string;
+    galleryImageVersionName?: string;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -135,7 +135,7 @@ export interface GetGalleryImageVersionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the gallery image definition to be retrieved.
      */
@@ -143,7 +143,7 @@ export interface GetGalleryImageVersionOutputArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName: pulumi.Input<string>;
+    galleryImageVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */

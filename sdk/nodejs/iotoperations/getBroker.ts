@@ -27,7 +27,7 @@ export interface GetBrokerArgs {
     /**
      * Name of broker.
      */
-    brokerName: string;
+    brokerName?: string;
     /**
      * Name of instance.
      */
@@ -91,7 +91,7 @@ export interface GetBrokerOutputArgs {
     /**
      * Name of broker.
      */
-    brokerName: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string | undefined>;
     /**
      * Name of instance.
      */

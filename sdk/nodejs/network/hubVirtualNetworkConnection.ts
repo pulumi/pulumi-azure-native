@@ -133,31 +133,31 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
      */
-    allowHubToRemoteVnetTransit?: pulumi.Input<boolean>;
+    allowHubToRemoteVnetTransit?: pulumi.Input<boolean | undefined>;
     /**
      * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
      */
-    allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean>;
+    allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the HubVirtualNetworkConnection.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Enable internet security.
      */
-    enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Reference to the remote virtual network.
      */
-    remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
+    remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The resource group name of the HubVirtualNetworkConnection.
      */
@@ -165,7 +165,7 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
+    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs | undefined>;
     /**
      * The name of the VirtualHub.
      */

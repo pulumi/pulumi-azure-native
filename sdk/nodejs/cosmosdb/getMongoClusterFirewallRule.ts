@@ -27,7 +27,7 @@ export interface GetMongoClusterFirewallRuleArgs {
     /**
      * The name of the mongo cluster firewall rule.
      */
-    firewallRuleName: string;
+    firewallRuleName?: string;
     /**
      * The name of the mongo cluster.
      */
@@ -95,7 +95,7 @@ export interface GetMongoClusterFirewallRuleOutputArgs {
     /**
      * The name of the mongo cluster firewall rule.
      */
-    firewallRuleName: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the mongo cluster.
      */

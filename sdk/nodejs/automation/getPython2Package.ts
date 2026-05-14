@@ -31,7 +31,7 @@ export interface GetPython2PackageArgs {
     /**
      * The python package name.
      */
-    packageName: string;
+    packageName?: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -143,7 +143,7 @@ export interface GetPython2PackageOutputArgs {
     /**
      * The python package name.
      */
-    packageName: pulumi.Input<string>;
+    packageName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

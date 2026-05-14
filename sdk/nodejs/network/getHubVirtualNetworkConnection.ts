@@ -27,7 +27,7 @@ export interface GetHubVirtualNetworkConnectionArgs {
     /**
      * The name of the vpn connection.
      */
-    connectionName: string;
+    connectionName?: string;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -103,7 +103,7 @@ export interface GetHubVirtualNetworkConnectionOutputArgs {
     /**
      * The name of the vpn connection.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the VirtualHub.
      */

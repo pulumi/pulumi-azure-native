@@ -220,35 +220,35 @@ export interface BlobContainerArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Default the container to use specified encryption scope for all writes.
      */
-    defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string | undefined>;
     /**
      * Block override of encryption scope from the container default.
      */
-    denyEncryptionScopeOverride?: pulumi.Input<boolean>;
+    denyEncryptionScopeOverride?: pulumi.Input<boolean | undefined>;
     /**
      * Enable NFSv3 all squash on blob container.
      */
-    enableNfsV3AllSquash?: pulumi.Input<boolean>;
+    enableNfsV3AllSquash?: pulumi.Input<boolean | undefined>;
     /**
      * Enable NFSv3 root squash on blob container.
      */
-    enableNfsV3RootSquash?: pulumi.Input<boolean>;
+    enableNfsV3RootSquash?: pulumi.Input<boolean | undefined>;
     /**
      * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
      */
-    immutableStorageWithVersioning?: pulumi.Input<inputs.storage.ImmutableStorageWithVersioningArgs>;
+    immutableStorageWithVersioning?: pulumi.Input<inputs.storage.ImmutableStorageWithVersioningArgs | undefined>;
     /**
      * A name-value pair to associate with the container as metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    publicAccess?: pulumi.Input<enums.storage.PublicAccess>;
+    publicAccess?: pulumi.Input<enums.storage.PublicAccess | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

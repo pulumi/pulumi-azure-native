@@ -26,7 +26,7 @@ export interface GetFleetDatabaseArgs {
     /**
      * Name of the database.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * Name of the database fleet.
      */
@@ -89,7 +89,7 @@ export interface GetFleetDatabaseOutputArgs {
     /**
      * Name of the database.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Name of the database fleet.
      */

@@ -142,5 +142,5 @@ export interface TrustedAccessRoleBindingArgs {
     /**
      * The name of trusted access role binding.
      */
-    trustedAccessRoleBindingName?: pulumi.Input<string>;
+    trustedAccessRoleBindingName?: pulumi.Input<string | undefined>;
 }

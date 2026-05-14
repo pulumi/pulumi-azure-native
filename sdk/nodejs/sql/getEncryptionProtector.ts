@@ -24,7 +24,7 @@ export interface GetEncryptionProtectorArgs {
     /**
      * The name of the encryption protector to be retrieved.
      */
-    encryptionProtectorName: string;
+    encryptionProtectorName?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -108,7 +108,7 @@ export interface GetEncryptionProtectorOutputArgs {
     /**
      * The name of the encryption protector to be retrieved.
      */
-    encryptionProtectorName: pulumi.Input<string>;
+    encryptionProtectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

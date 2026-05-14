@@ -24,7 +24,7 @@ export interface GetEc2AccountAttributeArgs {
     /**
      * Name of Ec2AccountAttribute
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2AccountAttributeOutputArgs {
     /**
      * Name of Ec2AccountAttribute
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

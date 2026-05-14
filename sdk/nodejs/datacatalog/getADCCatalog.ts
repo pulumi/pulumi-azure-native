@@ -24,7 +24,7 @@ export interface GetADCCatalogArgs {
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    catalogName: string;
+    catalogName?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetADCCatalogOutputArgs {
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    catalogName: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

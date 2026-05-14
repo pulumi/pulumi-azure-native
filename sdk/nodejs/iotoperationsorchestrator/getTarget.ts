@@ -24,7 +24,7 @@ export interface GetTargetArgs {
     /**
      * Name of target.
      */
-    name: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetTargetOutputArgs {
     /**
      * Name of target.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

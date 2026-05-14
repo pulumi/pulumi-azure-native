@@ -35,7 +35,7 @@ export interface GetTaskArgs {
     /**
      * The name of the container registry task.
      */
-    taskName: string;
+    taskName?: string;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface GetTaskOutputArgs {
     /**
      * The name of the container registry task.
      */
-    taskName: pulumi.Input<string>;
+    taskName?: pulumi.Input<string | undefined>;
 }

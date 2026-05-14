@@ -31,7 +31,7 @@ export interface GetFlowArgs {
     /**
      * The name for the flow that is to be onboarded.
      */
-    flowName: string;
+    flowName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetFlowOutputArgs {
     /**
      * The name for the flow that is to be onboarded.
      */
-    flowName: pulumi.Input<string>;
+    flowName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

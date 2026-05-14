@@ -27,7 +27,7 @@ export interface GetProjectArgs {
     /**
      * The name of the Project resource.
      */
-    projectName: string;
+    projectName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetProjectOutputArgs {
     /**
      * The name of the Project resource.
      */
-    projectName: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

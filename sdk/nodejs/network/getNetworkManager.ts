@@ -26,7 +26,7 @@ export interface GetNetworkManagerArgs {
     /**
      * The name of the network manager.
      */
-    networkManagerName: string;
+    networkManagerName?: string;
     /**
      * The name of the resource group.
      */
@@ -109,7 +109,7 @@ export interface GetNetworkManagerOutputArgs {
     /**
      * The name of the network manager.
      */
-    networkManagerName: pulumi.Input<string>;
+    networkManagerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

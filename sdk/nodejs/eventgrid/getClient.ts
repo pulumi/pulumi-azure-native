@@ -27,7 +27,7 @@ export interface GetClientArgs {
     /**
      * Name of the client.
      */
-    clientName: string;
+    clientName?: string;
     /**
      * Name of the namespace.
      */
@@ -109,7 +109,7 @@ export interface GetClientOutputArgs {
     /**
      * Name of the client.
      */
-    clientName: pulumi.Input<string>;
+    clientName?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */

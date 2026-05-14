@@ -32,7 +32,7 @@ export interface GetInboundNatRuleArgs {
     /**
      * The name of the inbound NAT rule.
      */
-    inboundNatRuleName: string;
+    inboundNatRuleName?: string;
     /**
      * The name of the load balancer.
      */
@@ -137,11 +137,11 @@ export interface GetInboundNatRuleOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the inbound NAT rule.
      */
-    inboundNatRuleName: pulumi.Input<string>;
+    inboundNatRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the load balancer.
      */

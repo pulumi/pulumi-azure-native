@@ -27,7 +27,7 @@ export interface GetIntegrationAccountAgreementArgs {
     /**
      * The integration account agreement name.
      */
-    agreementName: string;
+    agreementName?: string;
     /**
      * The integration account name.
      */
@@ -123,7 +123,7 @@ export interface GetIntegrationAccountAgreementOutputArgs {
     /**
      * The integration account agreement name.
      */
-    agreementName: pulumi.Input<string>;
+    agreementName?: pulumi.Input<string | undefined>;
     /**
      * The integration account name.
      */

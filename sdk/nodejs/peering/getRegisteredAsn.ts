@@ -28,7 +28,7 @@ export interface GetRegisteredAsnArgs {
     /**
      * The name of the registered ASN.
      */
-    registeredAsnName: string;
+    registeredAsnName?: string;
     /**
      * The name of the resource group.
      */
@@ -92,7 +92,7 @@ export interface GetRegisteredAsnOutputArgs {
     /**
      * The name of the registered ASN.
      */
-    registeredAsnName: pulumi.Input<string>;
+    registeredAsnName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

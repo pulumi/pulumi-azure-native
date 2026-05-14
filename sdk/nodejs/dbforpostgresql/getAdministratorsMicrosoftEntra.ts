@@ -27,7 +27,7 @@ export interface GetAdministratorsMicrosoftEntraArgs {
     /**
      * Object identifier of the Microsoft Entra principal.
      */
-    objectId: string;
+    objectId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetAdministratorsMicrosoftEntraOutputArgs {
     /**
      * Object identifier of the Microsoft Entra principal.
      */
-    objectId: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetConnectorArgs {
     /**
      * The name of resource.
      */
-    connectorName: string;
+    connectorName?: string;
     /**
      * The name of Azure region.
      */
@@ -125,7 +125,7 @@ export interface GetConnectorOutputArgs {
     /**
      * The name of resource.
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of Azure region.
      */
@@ -137,5 +137,5 @@ export interface GetConnectorOutputArgs {
     /**
      * The ID of the target subscription.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

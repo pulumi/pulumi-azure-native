@@ -27,7 +27,7 @@ export interface GetCaCertificateArgs {
     /**
      * Name of the CA certificate.
      */
-    caCertificateName: string;
+    caCertificateName?: string;
     /**
      * Name of the namespace.
      */
@@ -103,7 +103,7 @@ export interface GetCaCertificateOutputArgs {
     /**
      * Name of the CA certificate.
      */
-    caCertificateName: pulumi.Input<string>;
+    caCertificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */

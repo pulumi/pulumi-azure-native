@@ -29,7 +29,7 @@ export interface GetReadOnlyFollowingDatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    databaseName: string;
+    databaseName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,7 +132,7 @@ export interface GetReadOnlyFollowingDatabaseOutputArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

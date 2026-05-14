@@ -84,7 +84,7 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
             }
             resourceInputs["activeDirectoryConnectorName"] = args?.activeDirectoryConnectorName;
             resourceInputs["dataControllerName"] = args?.dataControllerName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.activeDirectoryConnectorPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.azurearcdata.activeDirectoryConnectorPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -111,7 +111,7 @@ export interface ActiveDirectoryConnectorArgs {
     /**
      * The name of the Active Directory connector instance
      */
-    activeDirectoryConnectorName?: pulumi.Input<string>;
+    activeDirectoryConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the data controller
      */

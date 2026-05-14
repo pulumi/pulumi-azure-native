@@ -28,7 +28,7 @@ export interface GetPrivateLinkServicesForM365SecurityCenterArgs {
     /**
      * The name of the service instance.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrivateLinkServicesForM365SecurityCenterOutputArgs {
     /**
      * The name of the service instance.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

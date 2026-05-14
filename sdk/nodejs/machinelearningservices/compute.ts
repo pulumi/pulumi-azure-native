@@ -132,19 +132,19 @@ export interface ComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    computeName?: pulumi.Input<string>;
+    computeName?: pulumi.Input<string | undefined>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.machinelearningservices.AKSArgs | inputs.machinelearningservices.AmlComputeArgs | inputs.machinelearningservices.ComputeInstanceArgs | inputs.machinelearningservices.DataFactoryArgs | inputs.machinelearningservices.DataLakeAnalyticsArgs | inputs.machinelearningservices.DatabricksArgs | inputs.machinelearningservices.HDInsightArgs | inputs.machinelearningservices.KubernetesArgs | inputs.machinelearningservices.SynapseSparkArgs | inputs.machinelearningservices.VirtualMachineArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.AKSArgs | inputs.machinelearningservices.AmlComputeArgs | inputs.machinelearningservices.ComputeInstanceArgs | inputs.machinelearningservices.DataFactoryArgs | inputs.machinelearningservices.DataLakeAnalyticsArgs | inputs.machinelearningservices.DatabricksArgs | inputs.machinelearningservices.HDInsightArgs | inputs.machinelearningservices.KubernetesArgs | inputs.machinelearningservices.SynapseSparkArgs | inputs.machinelearningservices.VirtualMachineArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,11 +152,11 @@ export interface ComputeArgs {
     /**
      * The sku of the workspace.
      */
-    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs | undefined>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Azure Machine Learning Workspace Name
      */

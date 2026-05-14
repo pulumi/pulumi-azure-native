@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Unique name of a private endpoint connection within a project.
      */
-    privateEndpointConnectionName: string;
+    privateEndpointConnectionName?: string;
     /**
      * Name of the Azure Migrate project.
      */
@@ -83,7 +83,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * Unique name of a private endpoint connection within a project.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */

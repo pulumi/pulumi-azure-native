@@ -38,7 +38,7 @@ export interface GetKafkaConnectorTopicMapArgs {
     /**
      * Name of MQ kafka/topicMap resource
      */
-    topicMapName: string;
+    topicMapName?: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetKafkaConnectorTopicMapOutputArgs {
     /**
      * Name of MQ kafka/topicMap resource
      */
-    topicMapName: pulumi.Input<string>;
+    topicMapName?: pulumi.Input<string | undefined>;
 }

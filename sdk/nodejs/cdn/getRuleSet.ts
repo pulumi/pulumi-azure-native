@@ -35,7 +35,7 @@ export interface GetRuleSetArgs {
     /**
      * Name of the rule set under the profile which is unique globally.
      */
-    ruleSetName: string;
+    ruleSetName?: string;
 }
 
 /**
@@ -100,5 +100,5 @@ export interface GetRuleSetOutputArgs {
     /**
      * Name of the rule set under the profile which is unique globally.
      */
-    ruleSetName: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string | undefined>;
 }

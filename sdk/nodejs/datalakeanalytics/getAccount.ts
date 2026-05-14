@@ -24,7 +24,7 @@ export interface GetAccountArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    accountName: string;
+    accountName?: string;
     /**
      * The name of the Azure resource group.
      */
@@ -197,7 +197,7 @@ export interface GetAccountOutputArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    accountName: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group.
      */

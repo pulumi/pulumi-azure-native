@@ -27,7 +27,7 @@ export interface GetComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    computeName: string;
+    computeName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetComputeOutputArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    computeName: pulumi.Input<string>;
+    computeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -110,7 +110,7 @@ export interface ClientApplicationProductLinkArgs {
     /**
      * Client Application Product Link identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationProductLinkId?: pulumi.Input<string>;
+    clientApplicationProductLinkId?: pulumi.Input<string | undefined>;
     /**
      * The unique resource identifier of the Product.
      */

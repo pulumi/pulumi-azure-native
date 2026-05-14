@@ -133,7 +133,7 @@ export interface SignalRCustomDomainArgs {
     /**
      * Custom domain name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

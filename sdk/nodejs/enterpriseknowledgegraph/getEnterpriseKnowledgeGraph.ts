@@ -28,7 +28,7 @@ export interface GetEnterpriseKnowledgeGraphArgs {
     /**
      * The name of the EnterpriseKnowledgeGraph resource.
      */
-    resourceName: string;
+    resourceName?: string;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface GetEnterpriseKnowledgeGraphOutputArgs {
     /**
      * The name of the EnterpriseKnowledgeGraph resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }

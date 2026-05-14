@@ -23,7 +23,7 @@ export interface GetNetworkExperimentProfileArgs {
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    profileName: string;
+    profileName?: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -90,7 +90,7 @@ export interface GetNetworkExperimentProfileOutputArgs {
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

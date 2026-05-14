@@ -26,7 +26,7 @@ export interface GetLinkerDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName: string;
+    dryrunName?: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
@@ -93,7 +93,7 @@ export interface GetLinkerDryrunOutputArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */

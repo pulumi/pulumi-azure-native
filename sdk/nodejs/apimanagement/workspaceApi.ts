@@ -240,63 +240,63 @@ export interface WorkspaceApiArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
-    apiRevision?: pulumi.Input<string>;
+    apiRevision?: pulumi.Input<string | undefined>;
     /**
      * Description of the API Revision.
      */
-    apiRevisionDescription?: pulumi.Input<string>;
+    apiRevisionDescription?: pulumi.Input<string | undefined>;
     /**
      * Type of API.
      */
-    apiType?: pulumi.Input<string | enums.apimanagement.ApiType>;
+    apiType?: pulumi.Input<string | enums.apimanagement.ApiType | undefined>;
     /**
      * Indicates the version identifier of the API if the API is versioned
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * Description of the API Version.
      */
-    apiVersionDescription?: pulumi.Input<string>;
+    apiVersionDescription?: pulumi.Input<string | undefined>;
     /**
      * Version set details
      */
-    apiVersionSet?: pulumi.Input<inputs.apimanagement.ApiVersionSetContractDetailsArgs>;
+    apiVersionSet?: pulumi.Input<inputs.apimanagement.ApiVersionSetContractDetailsArgs | undefined>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
-    apiVersionSetId?: pulumi.Input<string>;
+    apiVersionSetId?: pulumi.Input<string | undefined>;
     /**
      * Collection of authentication settings included into this API.
      */
-    authenticationSettings?: pulumi.Input<inputs.apimanagement.AuthenticationSettingsContractArgs>;
+    authenticationSettings?: pulumi.Input<inputs.apimanagement.AuthenticationSettingsContractArgs | undefined>;
     /**
      * Contact information for the API.
      */
-    contact?: pulumi.Input<inputs.apimanagement.ApiContactInformationArgs>;
+    contact?: pulumi.Input<inputs.apimanagement.ApiContactInformationArgs | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * API name. Must be 1 to 300 characters long.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Format of the Content in which the API is getting imported. New formats can be added in the future
      */
-    format?: pulumi.Input<string | enums.apimanagement.ContentFormat>;
+    format?: pulumi.Input<string | enums.apimanagement.ContentFormat | undefined>;
     /**
      * Indicates if API revision is current api revision.
      */
-    isCurrent?: pulumi.Input<boolean>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
     /**
      * License information for the API.
      */
-    license?: pulumi.Input<inputs.apimanagement.ApiLicenseInformationArgs>;
+    license?: pulumi.Input<inputs.apimanagement.ApiLicenseInformationArgs | undefined>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
@@ -304,7 +304,7 @@ export interface WorkspaceApiArgs {
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    protocols?: pulumi.Input<pulumi.Input<string | enums.apimanagement.Protocol>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string | enums.apimanagement.Protocol>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -316,7 +316,7 @@ export interface WorkspaceApiArgs {
     /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */
-    serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string | undefined>;
     /**
      * Type of API to create. 
      *  * `http` creates a REST API 
@@ -325,31 +325,31 @@ export interface WorkspaceApiArgs {
      *  * `graphql` creates GraphQL API. 
      *  New types can be added in the future.
      */
-    soapApiType?: pulumi.Input<string | enums.apimanagement.SoapApiType>;
+    soapApiType?: pulumi.Input<string | enums.apimanagement.SoapApiType | undefined>;
     /**
      * API identifier of the source API.
      */
-    sourceApiId?: pulumi.Input<string>;
+    sourceApiId?: pulumi.Input<string | undefined>;
     /**
      * Protocols over which API is made available.
      */
-    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.SubscriptionKeyParameterNamesContractArgs>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.SubscriptionKeyParameterNamesContractArgs | undefined>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
-    subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean | undefined>;
     /**
      *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    termsOfServiceUrl?: pulumi.Input<string>;
+    termsOfServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
      */
-    translateRequiredQueryParametersConduct?: pulumi.Input<string | enums.apimanagement.TranslateRequiredQueryParametersConduct>;
+    translateRequiredQueryParametersConduct?: pulumi.Input<string | enums.apimanagement.TranslateRequiredQueryParametersConduct | undefined>;
     /**
      * Content value when Importing an API.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
@@ -357,5 +357,5 @@ export interface WorkspaceApiArgs {
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    wsdlSelector?: pulumi.Input<inputs.apimanagement.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
+    wsdlSelector?: pulumi.Input<inputs.apimanagement.ApiCreateOrUpdatePropertiesWsdlSelectorArgs | undefined>;
 }

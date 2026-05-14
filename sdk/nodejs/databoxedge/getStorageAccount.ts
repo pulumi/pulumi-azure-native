@@ -35,7 +35,7 @@ export interface GetStorageAccountArgs {
     /**
      * The storage account name.
      */
-    storageAccountName: string;
+    storageAccountName?: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetStorageAccountOutputArgs {
     /**
      * The storage account name.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }

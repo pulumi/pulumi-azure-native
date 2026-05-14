@@ -33,7 +33,7 @@ export interface GetSqlPoolWorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName: string;
+    workloadGroupName?: string;
     /**
      * The name of the workspace.
      */
@@ -114,7 +114,7 @@ export interface GetSqlPoolWorkloadGroupOutputArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName: pulumi.Input<string>;
+    workloadGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

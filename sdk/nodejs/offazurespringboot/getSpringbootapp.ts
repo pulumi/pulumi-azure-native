@@ -33,7 +33,7 @@ export interface GetSpringbootappArgs {
     /**
      * The springbootapps name.
      */
-    springbootappsName: string;
+    springbootappsName?: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetSpringbootappOutputArgs {
     /**
      * The springbootapps name.
      */
-    springbootappsName: pulumi.Input<string>;
+    springbootappsName?: pulumi.Input<string | undefined>;
 }

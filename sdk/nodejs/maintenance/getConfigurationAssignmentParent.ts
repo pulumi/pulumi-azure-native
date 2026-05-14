@@ -31,7 +31,7 @@ export interface GetConfigurationAssignmentParentArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName: string;
+    configurationAssignmentName?: string;
     /**
      * Resource provider name
      */
@@ -123,7 +123,7 @@ export interface GetConfigurationAssignmentParentOutputArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName: pulumi.Input<string>;
+    configurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Resource provider name
      */

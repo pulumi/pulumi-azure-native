@@ -134,11 +134,11 @@ export interface ReportByResourceGroupNameArgs {
     /**
      * The format of the report being delivered.
      */
-    format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.FormatType | undefined>;
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
     /**
      * Azure Resource Group Name.
      */
@@ -146,5 +146,5 @@ export interface ReportByResourceGroupNameArgs {
     /**
      * Has schedule information for the report.
      */
-    schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs | undefined>;
 }

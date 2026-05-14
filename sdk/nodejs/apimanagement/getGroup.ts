@@ -24,7 +24,7 @@ export interface GetGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    groupId: string;
+    groupId?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -92,7 +92,7 @@ export interface GetGroupOutputArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    groupId: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

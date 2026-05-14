@@ -31,7 +31,7 @@ export interface GetDedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName: string;
+    hostGroupName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,11 +115,11 @@ export interface GetDedicatedHostGroupOutputArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName: pulumi.Input<string>;
+    hostGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

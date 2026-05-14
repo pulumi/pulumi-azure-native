@@ -27,7 +27,7 @@ export interface GetSignalRCustomCertificateArgs {
     /**
      * Custom certificate name
      */
-    certificateName: string;
+    certificateName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetSignalRCustomCertificateOutputArgs {
     /**
      * Custom certificate name
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

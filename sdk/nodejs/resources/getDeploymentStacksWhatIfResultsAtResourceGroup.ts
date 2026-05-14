@@ -24,7 +24,7 @@ export interface GetDeploymentStacksWhatIfResultsAtResourceGroupArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName: string;
+    deploymentStacksWhatIfResultName?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetDeploymentStacksWhatIfResultsAtResourceGroupOutputArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName: pulumi.Input<string>;
+    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

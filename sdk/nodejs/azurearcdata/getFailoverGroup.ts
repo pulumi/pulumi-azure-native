@@ -27,7 +27,7 @@ export interface GetFailoverGroupArgs {
     /**
      * The name of the Failover Group
      */
-    failoverGroupName: string;
+    failoverGroupName?: string;
     /**
      * The name of the Azure resource group
      */
@@ -87,7 +87,7 @@ export interface GetFailoverGroupOutputArgs {
     /**
      * The name of the Failover Group
      */
-    failoverGroupName: pulumi.Input<string>;
+    failoverGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group
      */
