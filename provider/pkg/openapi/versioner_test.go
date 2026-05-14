@@ -83,6 +83,7 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
 					},
 				},
+				ListOperations: map[ResourceName]*ListOperationSpec{},
 			},
 			"version2": {
 				Resources: map[ResourceName]*ResourceSpec{
@@ -93,7 +94,8 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				Invokes: map[InvokeName]*ResourceSpec{},
+				Invokes:        map[InvokeName]*ResourceSpec{},
+				ListOperations: map[ResourceName]*ListOperationSpec{},
 			},
 		},
 	}
@@ -117,6 +119,7 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
 					},
 				},
+				ListOperations: map[ResourceName]*ListOperationSpec{},
 			},
 			"version2": {
 				Resources: map[ResourceName]*ResourceSpec{
@@ -127,7 +130,8 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				Invokes: map[InvokeName]*ResourceSpec{},
+				Invokes:        map[InvokeName]*ResourceSpec{},
+				ListOperations: map[ResourceName]*ListOperationSpec{},
 			},
 		},
 	}
