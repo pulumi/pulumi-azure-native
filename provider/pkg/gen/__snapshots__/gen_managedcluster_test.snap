@@ -1174,19 +1174,21 @@
  "apiVersion": "2025-10-01",
  "defaultBody": null,
  "deleteAsyncStyle": "azure-async-operation",
- "isListable": true,
- "listMethod": "GET",
- "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters",
- "listParameters": [
-  {
-   "location": "path",
-   "name": "subscriptionId",
-   "required": true,
-   "value": {
-    "type": "string"
+ "listMetadata": {
+  "method": "GET",
+  "nextLinkName": "nextLink",
+  "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters",
+  "parameters": [
+   {
+    "location": "path",
+    "name": "subscriptionId",
+    "required": true,
+    "value": {
+     "type": "string"
+    }
    }
-  }
- ],
+  ]
+ },
  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
  "putAsyncStyle": "azure-async-operation",
  "response": {

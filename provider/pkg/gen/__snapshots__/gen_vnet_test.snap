@@ -59870,67 +59870,69 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "configurationName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "ruleCollectionName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "configurationName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "ruleCollectionName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}",
    "response": {
     "appliesToGroups": {
@@ -60312,27 +60314,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -60696,35 +60700,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "applicationGatewayName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "applicationGatewayName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -60809,27 +60815,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups/{applicationSecurityGroupName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -61006,27 +61014,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -61263,19 +61273,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/bastionHosts",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/bastionHosts",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -61614,35 +61626,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkWatcherName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkWatcherName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}",
    "putAsyncStyle": "azure-async-operation",
    "requiredContainers": [
@@ -61851,59 +61865,61 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "configurationName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "configurationName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName}",
    "response": {
     "appliesToGroups": {
@@ -62093,27 +62109,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes/{customIpPrefixName}",
    "putAsyncStyle": "location",
    "response": {
@@ -62349,19 +62367,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ddosProtectionPlans",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ddosProtectionPlans",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ddosProtectionPlans/{ddosProtectionPlanName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -62695,27 +62715,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations/{dscpConfigurationName}",
    "putAsyncStyle": "location",
    "response": {
@@ -62960,27 +62982,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -63156,35 +63180,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "circuitName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "circuitName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations/{authorizationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -63305,43 +63331,45 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "circuitName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "peeringName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "circuitName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "peeringName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -63551,35 +63579,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "circuitName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "circuitName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -63973,35 +64003,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "crossConnectionName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "crossConnectionName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -64311,19 +64343,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ExpressRoutePorts",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ExpressRoutePorts",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ExpressRoutePorts/{expressRoutePortName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -64465,35 +64499,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "expressRoutePortName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "expressRoutePortName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations/{authorizationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -64656,27 +64692,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -64867,35 +64905,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "firewallPolicyName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "firewallPolicyName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65030,35 +65070,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkWatcherName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkWatcherName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs/{flowLogName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65191,35 +65233,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables/{routeTableName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65354,35 +65398,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65540,35 +65586,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "loadBalancerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "loadBalancerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules/{inboundNatRuleName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65734,19 +65782,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/IpAllocations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/IpAllocations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/IpAllocations/{ipAllocationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -65865,19 +65915,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ipGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ipGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ipGroups/{ipGroupsName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -66057,27 +66109,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -66267,35 +66321,37 @@
    "autoLocationDisabled": true,
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "loadBalancerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "loadBalancerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -66466,27 +66522,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways/{localNetworkGatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "requiredContainers": [
@@ -66583,43 +66641,45 @@
    ],
    "apiVersion": "2023-02-01",
    "defaultBody": null,
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "managementGroupId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "managementGroupId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerConnectionName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerConnectionName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}",
    "response": {
     "description": {
@@ -66730,27 +66790,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways/{natGatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -67024,59 +67086,61 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}",
    "response": {
     "description": {
@@ -67239,27 +67303,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -67467,35 +67533,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkInterfaceName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkInterfaceName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations/{tapConfigurationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -67595,51 +67663,53 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}",
    "response": {
     "description": {
@@ -67749,27 +67819,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles/{networkProfileName}",
    "response": {
     "containerNetworkInterfaceConfigurations": {
@@ -67882,27 +67954,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -68104,19 +68178,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkVirtualAppliances",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkVirtualAppliances",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -68311,36 +68387,38 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkVirtualApplianceName",
+      "required": true,
+      "value": {
+       "pattern": "^[A-Za-z0-9_]+",
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkVirtualApplianceName",
-     "required": true,
-     "value": {
-      "pattern": "^[A-Za-z0-9_]+",
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -68404,27 +68482,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}",
    "response": {
     "etag": {},
@@ -68545,19 +68625,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/p2svpnGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/p2svpnGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -68739,35 +68821,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkWatcherName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkWatcherName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
    "putAsyncStyle": "azure-async-operation",
    "requiredContainers": [
@@ -68900,35 +68984,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "privateEndpointName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "privateEndpointName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups/{privateDnsZoneGroupName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -69072,27 +69158,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -69287,27 +69375,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -69653,27 +69743,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -69894,27 +69986,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIpPrefixName}",
    "putAsyncStyle": "location",
    "response": {
@@ -70087,35 +70181,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "routeTableName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "routeTableName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes/{routeName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -70217,19 +70313,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/routeFilters",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/routeFilters",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -70473,35 +70571,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -70611,27 +70711,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -70745,35 +70847,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent/{routingIntentName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -70863,59 +70967,61 @@
    ],
    "apiVersion": "2023-02-01",
    "defaultBody": null,
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "scopeConnectionName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "scopeConnectionName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections/{scopeConnectionName}",
    "response": {
     "description": {
@@ -71006,59 +71112,61 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "configurationName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "configurationName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}",
    "response": {
     "applyOnNetworkIntentPolicyBasedServices": {
@@ -71159,19 +71267,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/securityPartnerProviders",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/securityPartnerProviders",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/securityPartnerProviders/{securityPartnerProviderName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -71382,35 +71492,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkSecurityGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkSecurityGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules/{securityRuleName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -71599,19 +71711,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ServiceEndpointPolicies",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ServiceEndpointPolicies",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceEndpointPolicies/{serviceEndpointPolicyName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -71842,67 +71956,69 @@
    ],
    "apiVersion": "2023-02-01",
    "defaultBody": null,
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "staticMemberName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "staticMemberName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers/{staticMemberName}",
    "response": {
     "etag": {},
@@ -72087,35 +72203,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualNetworkName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "virtualNetworkName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -72312,43 +72430,45 @@
    ],
    "apiVersion": "2023-02-01",
    "defaultBody": null,
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$top",
+      "value": {
+       "sdkName": "top",
+       "type": "integer"
+      }
+     },
+     {
+      "location": "query",
+      "name": "$skipToken",
+      "value": {
+       "sdkName": "skipToken",
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkManagerConnectionName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "query",
-     "name": "$top",
-     "value": {
-      "sdkName": "top",
-      "type": "integer"
-     }
-    },
-    {
-     "location": "query",
-     "name": "$skipToken",
-     "value": {
-      "sdkName": "skipToken",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "networkManagerConnectionName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}",
    "response": {
     "description": {
@@ -72438,35 +72558,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "networkVirtualApplianceName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "networkVirtualApplianceName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites/{siteName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -72668,19 +72790,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualHubs",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualHubs",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -72910,35 +73034,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -73055,35 +73181,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations/{ipConfigName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -73194,35 +73322,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualHubName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "virtualHubName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables/{routeTableName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -73398,27 +73528,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -73731,27 +73863,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "requiredContainers": [
@@ -74119,27 +74253,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}",
    "putAsyncStyle": "azure-async-operation",
    "requiredContainers": [
@@ -74593,35 +74729,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualNetworkName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "virtualNetworkName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -74914,19 +75052,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualRouters",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualRouters",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -75050,35 +75190,37 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "virtualRouterName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "virtualRouterName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings/{peeringName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -75184,19 +75326,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualWans",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualWans",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{VirtualWANName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -75641,19 +75785,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnGateways",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnGateways",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -75788,19 +75934,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnServerConfigurations",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnServerConfigurations",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -75938,19 +76086,21 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnSites",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnSites",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnSites/{vpnSiteName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
@@ -76106,27 +76256,29 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "deleteAsyncStyle": "location",
-   "isListable": true,
-   "listMethod": "GET",
-   "listOperationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-   "listParameters": [
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "type": "string"
+   "listMetadata": {
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
      }
-    },
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    }
-   ],
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/{policyName}",
    "response": {
     "applicationGateways": {
