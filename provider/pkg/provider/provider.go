@@ -569,7 +569,6 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 	}
 
 	if resourceAPI.ListMetadata == nil {
-		// TODO: consider returning an empty list instead
 		return fmt.Errorf("resource for token %s is not listable", token)
 	}
 
