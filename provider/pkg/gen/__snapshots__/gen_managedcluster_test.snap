@@ -1175,6 +1175,7 @@
  "defaultBody": null,
  "deleteAsyncStyle": "azure-async-operation",
  "listMetadata": {
+  "itemName": "value",
   "method": "GET",
   "nextLinkName": "nextLink",
   "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters",

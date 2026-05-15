@@ -1266,6 +1266,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 			Method:        resource.listOperation.Method,
 			OperationPath: resource.listOperation.Path,
 			NextLinkName:  resource.listOperation.NextLinkName,
+			ItemName:      resource.listOperation.ItemName,
 		}
 	}
 

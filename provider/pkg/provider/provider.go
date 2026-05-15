@@ -480,22 +480,38 @@ func hasParameter(name string, params []resources.AzureAPIParameter) bool {
 }
 
 // given an object response such as { "value": [ { ... }, { ... } ] }
-// returns the array of elements from "value"
+// returns the array of elements from the specified key in the response metadata
 // assumes there is _one_ key in the response which is the array of objects returned
-func extractObjectElementsFromListResponse(response map[string]any) ([]map[string]any, error) {
+func extractObjectElementsFromListResponse(response map[string]any, itemName string) ([]map[string]any, error) {
 	// find the first element in the response that is an array
 	// extract items in that array that are objects
 	var result []map[string]any
+	keys := []string{}
+	foundElements := false
+	if itemName == "" {
+		// the field "value" in an Azure REST API default
+		// see https://github.com/Azure/autorest/blob/main/docs/extensions/readme.md#x-ms-pageable
+		itemName = "value"
+	}
+
 	for key, value := range response {
-		if elements, ok := value.([]any); ok {
-			for _, element := range elements {
-				if elementMap, ok := element.(map[string]any); ok {
-					result = append(result, elementMap)
-				} else {
-					return nil, fmt.Errorf("unexpected element type in list response array for key %s: expected object, got %T", key, element)
+		keys = append(keys, key)
+		if key == itemName {
+			foundElements = true
+			if elements, ok := value.([]any); ok {
+				for _, element := range elements {
+					if elementMap, ok := element.(map[string]any); ok {
+						result = append(result, elementMap)
+					} else {
+						return nil, fmt.Errorf("unexpected element type in list response array for key %s: expected object, got %T", key, element)
+					}
 				}
 			}
 		}
+	}
+
+	if !foundElements {
+		return nil, fmt.Errorf("could not find array of elements in list response. Searched keys: %v", keys)
 	}
 
 	return result, nil
@@ -701,7 +717,7 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 		return fmt.Errorf("unsupported HTTP method %s for list operation for token %s", resourceAPI.ListMetadata.Method, token)
 	}
 
-	elements, err := extractObjectElementsFromListResponse(response)
+	elements, err := extractObjectElementsFromListResponse(response, resourceAPI.ListMetadata.ItemName)
 	if err != nil {
 		return fmt.Errorf("extracting elements from the List response for token %s: %w", token, err)
 	}

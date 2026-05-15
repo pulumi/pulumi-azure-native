@@ -1447,6 +1447,7 @@
    "apiVersion": "2020-03-01",
    "defaultBody": null,
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd",

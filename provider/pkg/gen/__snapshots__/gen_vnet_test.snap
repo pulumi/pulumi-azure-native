@@ -59873,6 +59873,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections",
@@ -60317,6 +60318,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways",
@@ -60703,6 +60705,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections",
@@ -60818,6 +60821,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups",
@@ -61017,6 +61021,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls",
@@ -61276,6 +61281,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/bastionHosts",
@@ -61629,6 +61635,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors",
@@ -61868,6 +61875,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations",
@@ -62112,6 +62120,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes",
@@ -62370,6 +62379,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ddosProtectionPlans",
@@ -62718,6 +62728,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations",
@@ -62985,6 +62996,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits",
@@ -63183,6 +63195,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations",
@@ -63334,6 +63347,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections",
@@ -63582,6 +63596,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings",
@@ -64006,6 +64021,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings",
@@ -64346,6 +64362,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ExpressRoutePorts",
@@ -64502,6 +64519,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations",
@@ -64695,6 +64713,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies",
@@ -64908,6 +64927,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups",
@@ -65073,6 +65093,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs",
@@ -65236,6 +65257,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables",
@@ -65401,6 +65423,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections",
@@ -65589,6 +65612,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules",
@@ -65785,6 +65809,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/IpAllocations",
@@ -65918,6 +65943,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ipGroups",
@@ -66112,6 +66138,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers",
@@ -66324,6 +66351,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools",
@@ -66525,6 +66553,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways",
@@ -66644,6 +66673,7 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections",
@@ -66793,6 +66823,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways",
@@ -67089,6 +67120,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups",
@@ -67306,6 +67338,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces",
@@ -67536,6 +67569,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations",
@@ -67666,6 +67700,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers",
@@ -67822,6 +67857,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles",
@@ -67957,6 +67993,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups",
@@ -68181,6 +68218,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkVirtualAppliances",
@@ -68390,6 +68428,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections",
@@ -68485,6 +68524,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers",
@@ -68628,6 +68668,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/p2svpnGateways",
@@ -68824,6 +68865,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures",
@@ -68987,6 +69029,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups",
@@ -69161,6 +69204,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints",
@@ -69378,6 +69422,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices",
@@ -69746,6 +69791,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses",
@@ -69989,6 +70035,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes",
@@ -70184,6 +70231,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes",
@@ -70316,6 +70364,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/routeFilters",
@@ -70574,6 +70623,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps",
@@ -70714,6 +70764,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables",
@@ -70850,6 +70901,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent",
@@ -70970,6 +71022,7 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections",
@@ -71115,6 +71168,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations",
@@ -71270,6 +71324,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/securityPartnerProviders",
@@ -71495,6 +71550,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules",
@@ -71714,6 +71770,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/ServiceEndpointPolicies",
@@ -71959,6 +72016,7 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers",
@@ -72206,6 +72264,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets",
@@ -72433,6 +72492,7 @@
    "apiVersion": "2023-02-01",
    "defaultBody": null,
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections",
@@ -72561,6 +72621,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites",
@@ -72793,6 +72854,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualHubs",
@@ -73037,6 +73099,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections",
@@ -73184,6 +73247,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations",
@@ -73325,6 +73389,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables",
@@ -73531,6 +73596,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks",
@@ -73866,6 +73932,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways",
@@ -74256,6 +74323,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections",
@@ -74732,6 +74800,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings",
@@ -75055,6 +75124,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualRouters",
@@ -75193,6 +75263,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings",
@@ -75329,6 +75400,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualWans",
@@ -75788,6 +75860,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnGateways",
@@ -75937,6 +76010,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnServerConfigurations",
@@ -76089,6 +76163,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/vpnSites",
@@ -76259,6 +76334,7 @@
    "defaultBody": null,
    "deleteAsyncStyle": "location",
    "listMetadata": {
+    "itemName": "value",
     "method": "GET",
     "nextLinkName": "nextLink",
     "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",

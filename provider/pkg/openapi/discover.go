@@ -257,6 +257,9 @@ type ListOperationSpec struct {
 	Method string
 	// The property name in the List response object that contains the link to the next page of results, if any (e.g. "nextLink")
 	NextLinkName string
+	// The property name in the List response object that contains the array of resources, if any (e.g. "value"). This defaults to "value" if not specified in the Open API Spec.
+	// See https://github.com/Azure/autorest/blob/main/docs/extensions/readme.md#x-ms-pageable
+	ItemName string
 }
 
 // ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
@@ -655,10 +658,14 @@ func findListOperation(path string, pathItem spec.PathItem) *ListOperationSpec {
 		extensions := operation.VendorExtensible.Extensions
 		if pageable, ok := extensions["x-ms-pageable"]; ok {
 			nextLinkName := "nextLink"
+			itemName := "value"
 			if pageableMap, ok := pageable.(map[string]interface{}); ok {
 				// the default nextLinkName is "nextLink", but it can be overridden in the extension, so check for that.
 				if nextLink, ok := pageableMap["nextLinkName"].(string); ok {
 					nextLinkName = nextLink
+				}
+				if item, ok := pageableMap["itemName"].(string); ok {
+					itemName = item
 				}
 			}
 
@@ -667,6 +674,7 @@ func findListOperation(path string, pathItem spec.PathItem) *ListOperationSpec {
 				Path:         path,
 				Method:       method,
 				NextLinkName: nextLinkName,
+				ItemName:     itemName,
 			}
 		}
 	}

@@ -106,6 +106,8 @@ type AzureAPIListMetadata struct {
 	Method string `json:"method,omitempty"`
 	// The property name in the response data which includes the link
 	NextLinkName string `json:"nextLinkName,omitempty"`
+	// The property name in the response data which includes the array of resources
+	ItemName string `json:"itemName,omitempty"`
 }
 
 // AzureAPIResource is a resource in Azure REST API.
