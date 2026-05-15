@@ -22,24 +22,25 @@ __all__ = ['SapDiscoverySiteArgs', 'SapDiscoverySite']
 class SapDiscoverySiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 sap_discovery_site_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  master_site_id: pulumi.Input[Optional[_builtins.str]] = None,
                  migrate_project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapDiscoverySite resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] sap_discovery_site_name: The name of the discovery site resource for SAP Migration.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location definition.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] master_site_id: The master site ID from Azure Migrate.
         :param pulumi.Input[_builtins.str] migrate_project_id: The migrate project ID from Azure Migrate.
-        :param pulumi.Input[_builtins.str] sap_discovery_site_name: The name of the discovery site resource for SAP Migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sap_discovery_site_name", sap_discovery_site_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
@@ -48,8 +49,6 @@ class SapDiscoverySiteArgs:
             pulumi.set(__self__, "master_site_id", master_site_id)
         if migrate_project_id is not None:
             pulumi.set(__self__, "migrate_project_id", migrate_project_id)
-        if sap_discovery_site_name is not None:
-            pulumi.set(__self__, "sap_discovery_site_name", sap_discovery_site_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +63,18 @@ class SapDiscoverySiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sapDiscoverySiteName")
+    def sap_discovery_site_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the discovery site resource for SAP Migration.
+        """
+        return pulumi.get(self, "sap_discovery_site_name")
+
+    @sap_discovery_site_name.setter
+    def sap_discovery_site_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sap_discovery_site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -112,18 +123,6 @@ class SapDiscoverySiteArgs:
     @migrate_project_id.setter
     def migrate_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migrate_project_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sapDiscoverySiteName")
-    def sap_discovery_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the discovery site resource for SAP Migration.
-        """
-        return pulumi.get(self, "sap_discovery_site_name")
-
-    @sap_discovery_site_name.setter
-    def sap_discovery_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sap_discovery_site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +217,8 @@ class SapDiscoverySite(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sap_discovery_site_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sap_discovery_site_name'")
             __props__.__dict__["sap_discovery_site_name"] = sap_discovery_site_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

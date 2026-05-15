@@ -23,29 +23,28 @@ __all__ = ['ExecutionArgs', 'Execution']
 class ExecutionArgs:
     def __init__(__self__, *,
                  context_name: pulumi.Input[_builtins.str],
+                 execution_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version_name: pulumi.Input[_builtins.str],
                  workflow_name: pulumi.Input[_builtins.str],
-                 execution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  properties: pulumi.Input[Optional['ExecutionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Execution resource.
 
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
+        :param pulumi.Input[_builtins.str] execution_name: The name of the Execution.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version_name: The name of the workflowVersion.
         :param pulumi.Input[_builtins.str] workflow_name: Name of the workflow
-        :param pulumi.Input[_builtins.str] execution_name: The name of the Execution.
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ExecutionPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "context_name", context_name)
+        pulumi.set(__self__, "execution_name", execution_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version_name", version_name)
         pulumi.set(__self__, "workflow_name", workflow_name)
-        if execution_name is not None:
-            pulumi.set(__self__, "execution_name", execution_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
@@ -62,6 +61,18 @@ class ExecutionArgs:
     @context_name.setter
     def context_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "context_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executionName")
+    def execution_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Execution.
+        """
+        return pulumi.get(self, "execution_name")
+
+    @execution_name.setter
+    def execution_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "execution_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -98,18 +109,6 @@ class ExecutionArgs:
     @workflow_name.setter
     def workflow_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workflow_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="executionName")
-    def execution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Execution.
-        """
-        return pulumi.get(self, "execution_name")
-
-    @execution_name.setter
-    def execution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "execution_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -216,6 +215,8 @@ class Execution(pulumi.CustomResource):
             if context_name is None and not opts.urn:
                 raise TypeError("Missing required property 'context_name'")
             __props__.__dict__["context_name"] = context_name
+            if execution_name is None and not opts.urn:
+                raise TypeError("Missing required property 'execution_name'")
             __props__.__dict__["execution_name"] = execution_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["properties"] = properties

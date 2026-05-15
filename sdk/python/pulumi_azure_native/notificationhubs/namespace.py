@@ -22,11 +22,11 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
+                 namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  data_center: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_type: pulumi.Input[Optional[Union[_builtins.str, 'NamespaceType']]] = None,
                  network_acls: pulumi.Input[Optional['NetworkAclsArgs']] = None,
                  pns_credentials: pulumi.Input[Optional['PnsCredentialsArgs']] = None,
@@ -40,11 +40,11 @@ class NamespaceArgs:
         """
         The set of arguments for constructing a Namespace resource.
 
+        :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The Sku description for a namespace
         :param pulumi.Input[_builtins.str] data_center: Deprecated.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[Union[_builtins.str, 'NamespaceType']] namespace_type: Defines values for NamespaceType.
         :param pulumi.Input['NetworkAclsArgs'] network_acls: A collection of network authorization rules.
         :param pulumi.Input['PnsCredentialsArgs'] pns_credentials: Collection of Notification Hub or Notification Hub Namespace PNS credentials.
@@ -56,14 +56,13 @@ class NamespaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'ZoneRedundancyPreference']] zone_redundancy: Namespace SKU name.
         """
+        pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if data_center is not None:
             pulumi.set(__self__, "data_center", data_center)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if namespace_type is not None:
             pulumi.set(__self__, "namespace_type", namespace_type)
         if network_acls is not None:
@@ -88,6 +87,18 @@ class NamespaceArgs:
             zone_redundancy = 'Disabled'
         if zone_redundancy is not None:
             pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -136,18 +147,6 @@ class NamespaceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Namespace name
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceType")
@@ -373,6 +372,8 @@ class Namespace(pulumi.CustomResource):
 
             __props__.__dict__["data_center"] = data_center
             __props__.__dict__["location"] = location
+            if namespace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["namespace_type"] = namespace_type
             __props__.__dict__["network_acls"] = network_acls

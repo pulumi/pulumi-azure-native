@@ -22,6 +22,7 @@ class DatabaseThreatDetectionPolicyArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 security_alert_policy_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyState']],
                  disabled_alerts: pulumi.Input[Optional[_builtins.str]] = None,
@@ -29,7 +30,6 @@ class DatabaseThreatDetectionPolicyArgs:
                  email_addresses: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  use_server_default: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None):
@@ -38,6 +38,7 @@ class DatabaseThreatDetectionPolicyArgs:
 
         :param pulumi.Input[_builtins.str] database_name: The name of the database for which database Threat Detection policy is defined.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] security_alert_policy_name: The name of the security alert policy.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyState']] state: Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
         :param pulumi.Input[_builtins.str] disabled_alerts: Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
@@ -45,13 +46,13 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[_builtins.str] email_addresses: Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param pulumi.Input[_builtins.str] security_alert_policy_name: The name of the security alert policy.
         :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
         :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
         :param pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']] use_server_default: Specifies whether to use the default server policy.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_alert_policy_name", security_alert_policy_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "state", state)
         if disabled_alerts is not None:
@@ -64,8 +65,6 @@ class DatabaseThreatDetectionPolicyArgs:
             pulumi.set(__self__, "location", location)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
-        if security_alert_policy_name is not None:
-            pulumi.set(__self__, "security_alert_policy_name", security_alert_policy_name)
         if storage_account_access_key is not None:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
@@ -96,6 +95,18 @@ class DatabaseThreatDetectionPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityAlertPolicyName")
+    def security_alert_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the security alert policy.
+        """
+        return pulumi.get(self, "security_alert_policy_name")
+
+    @security_alert_policy_name.setter
+    def security_alert_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_alert_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
@@ -180,18 +191,6 @@ class DatabaseThreatDetectionPolicyArgs:
     @retention_days.setter
     def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityAlertPolicyName")
-    def security_alert_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the security alert policy.
-        """
-        return pulumi.get(self, "security_alert_policy_name")
-
-    @security_alert_policy_name.setter
-    def security_alert_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_alert_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
@@ -332,6 +331,8 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_days"] = retention_days
+            if security_alert_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_alert_policy_name'")
             __props__.__dict__["security_alert_policy_name"] = security_alert_policy_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

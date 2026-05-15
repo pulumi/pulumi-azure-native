@@ -21,22 +21,21 @@ class ComponentLinkedStorageAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 linked_storage_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_type: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_type: pulumi.Input[_builtins.str],
+                 linked_storage_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComponentLinkedStorageAccount resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
-        :param pulumi.Input[_builtins.str] linked_storage_account: Linked storage account resource ID
         :param pulumi.Input[_builtins.str] storage_type: The type of the Application Insights component data source for the linked storage account.
+        :param pulumi.Input[_builtins.str] linked_storage_account: Linked storage account resource ID
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "storage_type", storage_type)
         if linked_storage_account is not None:
             pulumi.set(__self__, "linked_storage_account", linked_storage_account)
-        if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,6 +62,18 @@ class ComponentLinkedStorageAccountArgs:
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the Application Insights component data source for the linked storage account.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="linkedStorageAccount")
     def linked_storage_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -73,18 +84,6 @@ class ComponentLinkedStorageAccountArgs:
     @linked_storage_account.setter
     def linked_storage_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_storage_account", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The type of the Application Insights component data source for the linked storage account.
-        """
-        return pulumi.get(self, "storage_type")
-
-    @storage_type.setter
-    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_type", value)
 
 
 @pulumi.type_token("azure-native:applicationinsights:ComponentLinkedStorageAccount")
@@ -158,6 +157,8 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            if storage_type is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_type'")
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

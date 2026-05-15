@@ -25,20 +25,21 @@ class RelationshipArgs:
                  hub_name: pulumi.Input[_builtins.str],
                  profile_type: pulumi.Input[_builtins.str],
                  related_profile_type: pulumi.Input[_builtins.str],
+                 relationship_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  cardinality: pulumi.Input[Optional['CardinalityTypes']] = None,
                  description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  expiry_date_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  fields: pulumi.Input[Optional[Sequence[pulumi.Input['PropertyDefinitionArgs']]]] = None,
-                 lookup_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]]] = None,
-                 relationship_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 lookup_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]]] = None):
         """
         The set of arguments for constructing a Relationship resource.
 
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] profile_type: Profile type.
         :param pulumi.Input[_builtins.str] related_profile_type: Related profile being referenced.
+        :param pulumi.Input[_builtins.str] relationship_name: The name of the Relationship.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['CardinalityTypes'] cardinality: The Relationship Cardinality.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] description: Localized descriptions for the Relationship.
@@ -46,11 +47,11 @@ class RelationshipArgs:
         :param pulumi.Input[_builtins.str] expiry_date_time_utc: The expiry date time in UTC.
         :param pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]] fields: The properties of the Relationship.
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
-        :param pulumi.Input[_builtins.str] relationship_name: The name of the Relationship.
         """
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "profile_type", profile_type)
         pulumi.set(__self__, "related_profile_type", related_profile_type)
+        pulumi.set(__self__, "relationship_name", relationship_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cardinality is not None:
             pulumi.set(__self__, "cardinality", cardinality)
@@ -64,8 +65,6 @@ class RelationshipArgs:
             pulumi.set(__self__, "fields", fields)
         if lookup_mappings is not None:
             pulumi.set(__self__, "lookup_mappings", lookup_mappings)
-        if relationship_name is not None:
-            pulumi.set(__self__, "relationship_name", relationship_name)
 
     @_builtins.property
     @pulumi.getter(name="hubName")
@@ -102,6 +101,18 @@ class RelationshipArgs:
     @related_profile_type.setter
     def related_profile_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "related_profile_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipName")
+    def relationship_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Relationship.
+        """
+        return pulumi.get(self, "relationship_name")
+
+    @relationship_name.setter
+    def relationship_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "relationship_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -186,18 +197,6 @@ class RelationshipArgs:
     @lookup_mappings.setter
     def lookup_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]]]):
         pulumi.set(self, "lookup_mappings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relationshipName")
-    def relationship_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Relationship.
-        """
-        return pulumi.get(self, "relationship_name")
-
-    @relationship_name.setter
-    def relationship_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "relationship_name", value)
 
 
 @pulumi.type_token("azure-native:customerinsights:Relationship")
@@ -300,6 +299,8 @@ class Relationship(pulumi.CustomResource):
             if related_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_type'")
             __props__.__dict__["related_profile_type"] = related_profile_type
+            if relationship_name is None and not opts.urn:
+                raise TypeError("Missing required property 'relationship_name'")
             __props__.__dict__["relationship_name"] = relationship_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

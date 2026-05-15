@@ -22,12 +22,12 @@ __all__ = ['PolicyDefinitionArgs', 'PolicyDefinition']
 @pulumi.input_type
 class PolicyDefinitionArgs:
     def __init__(__self__, *,
+                 policy_definition_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
-                 policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_rule: Optional[Any] = None,
                  policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,17 +35,18 @@ class PolicyDefinitionArgs:
         """
         The set of arguments for constructing a PolicyDefinition resource.
 
+        :param pulumi.Input[_builtins.str] policy_definition_name: The name of the policy definition to create.
         :param pulumi.Input[_builtins.str] description: The policy definition description.
         :param pulumi.Input[_builtins.str] display_name: The display name of the policy definition.
         :param Any metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[_builtins.str] mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-        :param pulumi.Input[_builtins.str] policy_definition_name: The name of the policy definition to create.
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[_builtins.str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param pulumi.Input[_builtins.str] version: The policy definition version in #.#.# format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] versions: A list of available versions for this policy definition.
         """
+        pulumi.set(__self__, "policy_definition_name", policy_definition_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -58,8 +59,6 @@ class PolicyDefinitionArgs:
             pulumi.set(__self__, "mode", mode)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if policy_definition_name is not None:
-            pulumi.set(__self__, "policy_definition_name", policy_definition_name)
         if policy_rule is not None:
             pulumi.set(__self__, "policy_rule", policy_rule)
         if policy_type is not None:
@@ -68,6 +67,18 @@ class PolicyDefinitionArgs:
             pulumi.set(__self__, "version", version)
         if versions is not None:
             pulumi.set(__self__, "versions", versions)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDefinitionName")
+    def policy_definition_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the policy definition to create.
+        """
+        return pulumi.get(self, "policy_definition_name")
+
+    @policy_definition_name.setter
+    def policy_definition_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,18 +139,6 @@ class PolicyDefinitionArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]]):
         pulumi.set(self, "parameters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyDefinitionName")
-    def policy_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the policy definition to create.
-        """
-        return pulumi.get(self, "policy_definition_name")
-
-    @policy_definition_name.setter
-    def policy_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyRule")
@@ -232,7 +231,7 @@ class PolicyDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PolicyDefinitionArgs] = None,
+                 args: PolicyDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy definition.
@@ -283,6 +282,8 @@ class PolicyDefinition(pulumi.CustomResource):
                 mode = 'Indexed'
             __props__.__dict__["mode"] = mode
             __props__.__dict__["parameters"] = parameters
+            if policy_definition_name is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_definition_name'")
             __props__.__dict__["policy_definition_name"] = policy_definition_name
             __props__.__dict__["policy_rule"] = policy_rule
             __props__.__dict__["policy_type"] = policy_type

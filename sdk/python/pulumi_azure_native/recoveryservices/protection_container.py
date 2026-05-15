@@ -22,10 +22,10 @@ __all__ = ['ProtectionContainerArgs', 'ProtectionContainer']
 @pulumi.input_type
 class ProtectionContainerArgs:
     def __init__(__self__, *,
+                 container_name: pulumi.Input[_builtins.str],
                  fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AzureBackupServerContainerArgs', 'AzureIaaSClassicComputeVMContainerArgs', 'AzureIaaSComputeVMContainerArgs', 'AzureSQLAGWorkloadContainerProtectionContainerArgs', 'AzureSqlContainerArgs', 'AzureStorageContainerArgs', 'AzureVMAppContainerProtectionContainerArgs', 'AzureWorkloadContainerArgs', 'DpmContainerArgs', 'GenericContainerArgs', 'IaaSVMContainerArgs', 'MabContainerArgs']]] = None,
@@ -33,20 +33,19 @@ class ProtectionContainerArgs:
         """
         The set of arguments for constructing a ProtectionContainer resource.
 
+        :param pulumi.Input[_builtins.str] container_name: Name of the container to be registered.
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name associated with the container.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] vault_name: The name of the recovery services vault.
-        :param pulumi.Input[_builtins.str] container_name: Name of the container to be registered.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union['AzureBackupServerContainerArgs', 'AzureIaaSClassicComputeVMContainerArgs', 'AzureIaaSComputeVMContainerArgs', 'AzureSQLAGWorkloadContainerProtectionContainerArgs', 'AzureSqlContainerArgs', 'AzureStorageContainerArgs', 'AzureVMAppContainerProtectionContainerArgs', 'AzureWorkloadContainerArgs', 'DpmContainerArgs', 'GenericContainerArgs', 'IaaSVMContainerArgs', 'MabContainerArgs']] properties: ProtectionContainerResource properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if location is not None:
@@ -55,6 +54,18 @@ class ProtectionContainerArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the container to be registered.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -91,18 +102,6 @@ class ProtectionContainerArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the container to be registered.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -233,6 +232,8 @@ class ProtectionContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProtectionContainerArgs.__new__(ProtectionContainerArgs)
 
+            if container_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["e_tag"] = e_tag
             if fabric_name is None and not opts.urn:

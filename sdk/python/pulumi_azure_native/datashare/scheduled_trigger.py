@@ -27,8 +27,8 @@ class ScheduledTriggerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_subscription_name: pulumi.Input[_builtins.str],
                  synchronization_time: pulumi.Input[_builtins.str],
-                 synchronization_mode: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]] = None,
-                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 trigger_name: pulumi.Input[_builtins.str],
+                 synchronization_mode: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]] = None):
         """
         The set of arguments for constructing a ScheduledTrigger resource.
 
@@ -39,8 +39,8 @@ class ScheduledTriggerArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         :param pulumi.Input[_builtins.str] synchronization_time: Synchronization time
-        :param pulumi.Input[Union[_builtins.str, 'SynchronizationMode']] synchronization_mode: Synchronization mode
         :param pulumi.Input[_builtins.str] trigger_name: The name of the trigger.
+        :param pulumi.Input[Union[_builtins.str, 'SynchronizationMode']] synchronization_mode: Synchronization mode
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'ScheduleBased')
@@ -48,10 +48,9 @@ class ScheduledTriggerArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
         pulumi.set(__self__, "synchronization_time", synchronization_time)
+        pulumi.set(__self__, "trigger_name", trigger_name)
         if synchronization_mode is not None:
             pulumi.set(__self__, "synchronization_mode", synchronization_mode)
-        if trigger_name is not None:
-            pulumi.set(__self__, "trigger_name", trigger_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -127,6 +126,18 @@ class ScheduledTriggerArgs:
         pulumi.set(self, "synchronization_time", value)
 
     @_builtins.property
+    @pulumi.getter(name="triggerName")
+    def trigger_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the trigger.
+        """
+        return pulumi.get(self, "trigger_name")
+
+    @trigger_name.setter
+    def trigger_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "trigger_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="synchronizationMode")
     def synchronization_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]]:
         """
@@ -137,18 +148,6 @@ class ScheduledTriggerArgs:
     @synchronization_mode.setter
     def synchronization_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]]):
         pulumi.set(self, "synchronization_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the trigger.
-        """
-        return pulumi.get(self, "trigger_name")
-
-    @trigger_name.setter
-    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "trigger_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:ScheduledTrigger")
@@ -247,6 +246,8 @@ class ScheduledTrigger(pulumi.CustomResource):
             if synchronization_time is None and not opts.urn:
                 raise TypeError("Missing required property 'synchronization_time'")
             __props__.__dict__["synchronization_time"] = synchronization_time
+            if trigger_name is None and not opts.urn:
+                raise TypeError("Missing required property 'trigger_name'")
             __props__.__dict__["trigger_name"] = trigger_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None

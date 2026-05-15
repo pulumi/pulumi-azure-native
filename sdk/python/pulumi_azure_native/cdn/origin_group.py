@@ -23,10 +23,10 @@ __all__ = ['OriginGroupArgs', 'OriginGroup']
 class OriginGroupArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[_builtins.str],
+                 origin_group_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  health_probe_settings: pulumi.Input[Optional['HealthProbeParametersArgs']] = None,
-                 origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  origins: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  response_based_origin_error_detection_settings: pulumi.Input[Optional['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
@@ -34,21 +34,20 @@ class OriginGroupArgs:
         The set of arguments for constructing a OriginGroup resource.
 
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
+        :param pulumi.Input[_builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
-        :param pulumi.Input[_builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[_builtins.int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "origin_group_name", origin_group_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if health_probe_settings is not None:
             pulumi.set(__self__, "health_probe_settings", health_probe_settings)
-        if origin_group_name is not None:
-            pulumi.set(__self__, "origin_group_name", origin_group_name)
         if origins is not None:
             pulumi.set(__self__, "origins", origins)
         if response_based_origin_error_detection_settings is not None:
@@ -67,6 +66,18 @@ class OriginGroupArgs:
     @endpoint_name.setter
     def endpoint_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "endpoint_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originGroupName")
+    def origin_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the origin group which is unique within the endpoint.
+        """
+        return pulumi.get(self, "origin_group_name")
+
+    @origin_group_name.setter
+    def origin_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "origin_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -103,18 +114,6 @@ class OriginGroupArgs:
     @health_probe_settings.setter
     def health_probe_settings(self, value: pulumi.Input[Optional['HealthProbeParametersArgs']]):
         pulumi.set(self, "health_probe_settings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="originGroupName")
-    def origin_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the origin group which is unique within the endpoint.
-        """
-        return pulumi.get(self, "origin_group_name")
-
-    @origin_group_name.setter
-    def origin_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "origin_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,6 +236,8 @@ class OriginGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["health_probe_settings"] = health_probe_settings
+            if origin_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'origin_group_name'")
             __props__.__dict__["origin_group_name"] = origin_group_name
             __props__.__dict__["origins"] = origins
             if profile_name is None and not opts.urn:

@@ -25,6 +25,7 @@ class ScheduledQueryRuleArgs:
                  criteria: pulumi.Input['ScheduledQueryRuleCriteriaArgs'],
                  enabled: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  actions: pulumi.Input[Optional['ActionsArgs']] = None,
                  auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -38,7 +39,6 @@ class ScheduledQueryRuleArgs:
                  mute_actions_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  override_query_time_range: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_configuration: pulumi.Input[Optional['RuleResolveConfigurationArgs']] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  severity: pulumi.Input[Optional[_builtins.float]] = None,
                  skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -50,6 +50,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input['ScheduledQueryRuleCriteriaArgs'] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[_builtins.bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input['ActionsArgs'] actions: Actions to invoke when the alert fires.
         :param pulumi.Input[_builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
@@ -63,7 +64,6 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[_builtins.str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[_builtins.str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
         :param pulumi.Input['RuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[_builtins.float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[_builtins.bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -73,6 +73,7 @@ class ScheduledQueryRuleArgs:
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "scopes", scopes)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -98,8 +99,6 @@ class ScheduledQueryRuleArgs:
             pulumi.set(__self__, "override_query_time_range", override_query_time_range)
         if resolve_configuration is not None:
             pulumi.set(__self__, "resolve_configuration", resolve_configuration)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if skip_query_validation is not None:
@@ -146,6 +145,18 @@ class ScheduledQueryRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -302,18 +313,6 @@ class ScheduledQueryRuleArgs:
     @resolve_configuration.setter
     def resolve_configuration(self, value: pulumi.Input[Optional['RuleResolveConfigurationArgs']]):
         pulumi.set(self, "resolve_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -519,6 +518,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

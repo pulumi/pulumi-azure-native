@@ -21,20 +21,31 @@ __all__ = ['GroupQuotaArgs', 'GroupQuota']
 @pulumi.input_type
 class GroupQuotaArgs:
     def __init__(__self__, *,
+                 group_quota_name: pulumi.Input[_builtins.str],
                  management_group_id: pulumi.Input[_builtins.str],
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GroupQuota resource.
 
-        :param pulumi.Input[_builtins.str] management_group_id: Management Group Id.
         :param pulumi.Input[_builtins.str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
+        :param pulumi.Input[_builtins.str] management_group_id: Management Group Id.
         """
+        pulumi.set(__self__, "group_quota_name", group_quota_name)
         pulumi.set(__self__, "management_group_id", management_group_id)
-        if group_quota_name is not None:
-            pulumi.set(__self__, "group_quota_name", group_quota_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="groupQuotaName")
+    def group_quota_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
+        """
+        return pulumi.get(self, "group_quota_name")
+
+    @group_quota_name.setter
+    def group_quota_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "group_quota_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
@@ -47,18 +58,6 @@ class GroupQuotaArgs:
     @management_group_id.setter
     def management_group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "management_group_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="groupQuotaName")
-    def group_quota_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-        """
-        return pulumi.get(self, "group_quota_name")
-
-    @group_quota_name.setter
-    def group_quota_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "group_quota_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -134,6 +133,8 @@ class GroupQuota(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupQuotaArgs.__new__(GroupQuotaArgs)
 
+            if group_quota_name is None and not opts.urn:
+                raise TypeError("Missing required property 'group_quota_name'")
             __props__.__dict__["group_quota_name"] = group_quota_name
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")

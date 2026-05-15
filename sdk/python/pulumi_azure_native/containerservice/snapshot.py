@@ -23,28 +23,27 @@ __all__ = ['SnapshotArgs', 'Snapshot']
 class SnapshotArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  creation_data: pulumi.Input[Optional['CreationDataArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_type: pulumi.Input[Optional[Union[_builtins.str, 'SnapshotType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input['CreationDataArgs'] creation_data: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[Union[_builtins.str, 'SnapshotType']] snapshot_type: The type of a snapshot. The default is NodePool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if creation_data is not None:
             pulumi.set(__self__, "creation_data", creation_data)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if snapshot_type is not None:
             pulumi.set(__self__, "snapshot_type", snapshot_type)
         if tags is not None:
@@ -61,6 +60,18 @@ class SnapshotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the managed cluster resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="creationData")
@@ -85,18 +96,6 @@ class SnapshotArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the managed cluster resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotType")
@@ -202,6 +201,8 @@ class Snapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["snapshot_type"] = snapshot_type
             __props__.__dict__["tags"] = tags

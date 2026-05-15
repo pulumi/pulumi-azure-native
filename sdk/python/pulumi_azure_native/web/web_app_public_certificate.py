@@ -21,22 +21,23 @@ __all__ = ['WebAppPublicCertificateArgs', 'WebAppPublicCertificate']
 class WebAppPublicCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 public_certificate_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  blob: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_certificate_location: pulumi.Input[Optional['PublicCertificateLocation']] = None,
-                 public_certificate_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 public_certificate_location: pulumi.Input[Optional['PublicCertificateLocation']] = None):
         """
         The set of arguments for constructing a WebAppPublicCertificate resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] public_certificate_name: Public certificate name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] blob: Public Certificate byte array
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input['PublicCertificateLocation'] public_certificate_location: Public Certificate Location
-        :param pulumi.Input[_builtins.str] public_certificate_name: Public certificate name.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_certificate_name", public_certificate_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if blob is not None:
             pulumi.set(__self__, "blob", blob)
@@ -44,8 +45,6 @@ class WebAppPublicCertificateArgs:
             pulumi.set(__self__, "kind", kind)
         if public_certificate_location is not None:
             pulumi.set(__self__, "public_certificate_location", public_certificate_location)
-        if public_certificate_name is not None:
-            pulumi.set(__self__, "public_certificate_name", public_certificate_name)
 
     @_builtins.property
     @pulumi.getter
@@ -58,6 +57,18 @@ class WebAppPublicCertificateArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicCertificateName")
+    def public_certificate_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Public certificate name.
+        """
+        return pulumi.get(self, "public_certificate_name")
+
+    @public_certificate_name.setter
+    def public_certificate_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "public_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,18 +117,6 @@ class WebAppPublicCertificateArgs:
     @public_certificate_location.setter
     def public_certificate_location(self, value: pulumi.Input[Optional['PublicCertificateLocation']]):
         pulumi.set(self, "public_certificate_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicCertificateName")
-    def public_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Public certificate name.
-        """
-        return pulumi.get(self, "public_certificate_name")
-
-    @public_certificate_name.setter
-    def public_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "public_certificate_name", value)
 
 
 @pulumi.type_token("azure-native:web:WebAppPublicCertificate")
@@ -200,6 +199,8 @@ class WebAppPublicCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["public_certificate_location"] = public_certificate_location
+            if public_certificate_name is None and not opts.urn:
+                raise TypeError("Missing required property 'public_certificate_name'")
             __props__.__dict__["public_certificate_name"] = public_certificate_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

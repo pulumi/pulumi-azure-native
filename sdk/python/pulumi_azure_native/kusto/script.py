@@ -24,12 +24,12 @@ class ScriptArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 script_name: pulumi.Input[_builtins.str],
                  continue_on_errors: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_permissions_action: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalPermissionsAction']]] = None,
                  script_content: pulumi.Input[Optional[_builtins.str]] = None,
                  script_level: pulumi.Input[Optional[Union[_builtins.str, 'ScriptLevel']]] = None,
-                 script_name: pulumi.Input[Optional[_builtins.str]] = None,
                  script_url: pulumi.Input[Optional[_builtins.str]] = None,
                  script_url_sas_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -38,18 +38,19 @@ class ScriptArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] script_name: The name of the Kusto database script.
         :param pulumi.Input[_builtins.bool] continue_on_errors: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[_builtins.str] force_update_tag: A unique string. If changed the script will be applied again.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalPermissionsAction']] principal_permissions_action: Indicates if the permissions for the script caller are kept following completion of the script.
         :param pulumi.Input[_builtins.str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
         :param pulumi.Input[Union[_builtins.str, 'ScriptLevel']] script_level: Differentiates between the type of script commands included - Database or Cluster. The default is Database.
-        :param pulumi.Input[_builtins.str] script_name: The name of the Kusto database script.
         :param pulumi.Input[_builtins.str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
         :param pulumi.Input[_builtins.str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "script_name", script_name)
         if continue_on_errors is None:
             continue_on_errors = False
         if continue_on_errors is not None:
@@ -62,8 +63,6 @@ class ScriptArgs:
             pulumi.set(__self__, "script_content", script_content)
         if script_level is not None:
             pulumi.set(__self__, "script_level", script_level)
-        if script_name is not None:
-            pulumi.set(__self__, "script_name", script_name)
         if script_url is not None:
             pulumi.set(__self__, "script_url", script_url)
         if script_url_sas_token is not None:
@@ -104,6 +103,18 @@ class ScriptArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptName")
+    def script_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Kusto database script.
+        """
+        return pulumi.get(self, "script_name")
+
+    @script_name.setter
+    def script_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "script_name", value)
 
     @_builtins.property
     @pulumi.getter(name="continueOnErrors")
@@ -164,18 +175,6 @@ class ScriptArgs:
     @script_level.setter
     def script_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScriptLevel']]]):
         pulumi.set(self, "script_level", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scriptName")
-    def script_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Kusto database script.
-        """
-        return pulumi.get(self, "script_name")
-
-    @script_name.setter
-    def script_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "script_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptUrl")
@@ -307,6 +306,8 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["script_content"] = script_content
             __props__.__dict__["script_level"] = script_level
+            if script_name is None and not opts.urn:
+                raise TypeError("Missing required property 'script_name'")
             __props__.__dict__["script_name"] = script_name
             __props__.__dict__["script_url"] = script_url
             __props__.__dict__["script_url_sas_token"] = script_url_sas_token

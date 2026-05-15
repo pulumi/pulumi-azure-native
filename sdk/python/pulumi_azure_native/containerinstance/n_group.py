@@ -22,12 +22,12 @@ __all__ = ['NGroupArgs', 'NGroup']
 @pulumi.input_type
 class NGroupArgs:
     def __init__(__self__, *,
+                 ngroups_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  container_group_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupProfileStubArgs']]]] = None,
                  elastic_profile: pulumi.Input[Optional['ElasticProfileArgs']] = None,
                  identity: pulumi.Input[Optional['NGroupIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 ngroups_name: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_profile: pulumi.Input[Optional['PlacementProfileArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  update_profile: pulumi.Input[Optional['UpdateProfileArgs']] = None,
@@ -35,17 +35,18 @@ class NGroupArgs:
         """
         The set of arguments for constructing a NGroup resource.
 
+        :param pulumi.Input[_builtins.str] ngroups_name: The NGroups name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupProfileStubArgs']]] container_group_profiles: The Container Group Profiles that could be used in the NGroups resource.
         :param pulumi.Input['ElasticProfileArgs'] elastic_profile: The elastic profile.
         :param pulumi.Input['NGroupIdentityArgs'] identity: The identity of the NGroup, if configured.
         :param pulumi.Input[_builtins.str] location: The resource location.
-        :param pulumi.Input[_builtins.str] ngroups_name: The NGroups name.
         :param pulumi.Input['PlacementProfileArgs'] placement_profile: Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         :param pulumi.Input['UpdateProfileArgs'] update_profile: Used by the customer to specify the way to update the Container Groups in NGroup.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The zones for the container group.
         """
+        pulumi.set(__self__, "ngroups_name", ngroups_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if container_group_profiles is not None:
             pulumi.set(__self__, "container_group_profiles", container_group_profiles)
@@ -55,8 +56,6 @@ class NGroupArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if ngroups_name is not None:
-            pulumi.set(__self__, "ngroups_name", ngroups_name)
         if placement_profile is not None:
             pulumi.set(__self__, "placement_profile", placement_profile)
         if tags is not None:
@@ -65,6 +64,18 @@ class NGroupArgs:
             pulumi.set(__self__, "update_profile", update_profile)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="ngroupsName")
+    def ngroups_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The NGroups name.
+        """
+        return pulumi.get(self, "ngroups_name")
+
+    @ngroups_name.setter
+    def ngroups_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ngroups_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -125,18 +136,6 @@ class NGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ngroupsName")
-    def ngroups_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The NGroups name.
-        """
-        return pulumi.get(self, "ngroups_name")
-
-    @ngroups_name.setter
-    def ngroups_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "ngroups_name", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProfile")
@@ -277,6 +276,8 @@ class NGroup(pulumi.CustomResource):
             __props__.__dict__["elastic_profile"] = elastic_profile
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if ngroups_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ngroups_name'")
             __props__.__dict__["ngroups_name"] = ngroups_name
             __props__.__dict__["placement_profile"] = placement_profile
             if resource_group_name is None and not opts.urn:

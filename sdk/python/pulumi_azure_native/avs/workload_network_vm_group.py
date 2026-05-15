@@ -22,30 +22,29 @@ class WorkloadNetworkVMGroupArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 vm_group_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 vm_group_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 revision: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkVMGroup resource.
 
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] vm_group_id: ID of the VM group.
         :param pulumi.Input[_builtins.str] display_name: Display name of the VM group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: Virtual machine members of this group.
         :param pulumi.Input[_builtins.float] revision: NSX revision number.
-        :param pulumi.Input[_builtins.str] vm_group_id: ID of the VM group.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vm_group_id", vm_group_id)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if members is not None:
             pulumi.set(__self__, "members", members)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
-        if vm_group_id is not None:
-            pulumi.set(__self__, "vm_group_id", vm_group_id)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -70,6 +69,18 @@ class WorkloadNetworkVMGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmGroupId")
+    def vm_group_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the VM group.
+        """
+        return pulumi.get(self, "vm_group_id")
+
+    @vm_group_id.setter
+    def vm_group_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vm_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -106,18 +117,6 @@ class WorkloadNetworkVMGroupArgs:
     @revision.setter
     def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "revision", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmGroupId")
-    def vm_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ID of the VM group.
-        """
-        return pulumi.get(self, "vm_group_id")
-
-    @vm_group_id.setter
-    def vm_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vm_group_id", value)
 
 
 @pulumi.type_token("azure-native:avs:WorkloadNetworkVMGroup")
@@ -203,6 +202,8 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["revision"] = revision
+            if vm_group_id is None and not opts.urn:
+                raise TypeError("Missing required property 'vm_group_id'")
             __props__.__dict__["vm_group_id"] = vm_group_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

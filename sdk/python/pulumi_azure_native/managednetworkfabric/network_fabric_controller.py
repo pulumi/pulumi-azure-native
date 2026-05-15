@@ -22,6 +22,7 @@ __all__ = ['NetworkFabricControllerArgs', 'NetworkFabricController']
 @pulumi.input_type
 class NetworkFabricControllerArgs:
     def __init__(__self__, *,
+                 network_fabric_controller_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_express_route_connections: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]]] = None,
@@ -30,13 +31,13 @@ class NetworkFabricControllerArgs:
                  is_workload_management_network_enabled: pulumi.Input[Optional[Union[_builtins.str, 'IsWorkloadManagementNetworkEnabled']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
-                 network_fabric_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
                  nfc_sku: pulumi.Input[Optional[Union[_builtins.str, 'NfcSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workload_express_route_connections: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkFabricController resource.
 
+        :param pulumi.Input[_builtins.str] network_fabric_controller_name: Name of the Network Fabric Controller.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]] infrastructure_express_route_connections: As part of an update, the Infrastructure ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Infrastructure services. (This is a Mandatory attribute)
@@ -45,11 +46,11 @@ class NetworkFabricControllerArgs:
         :param pulumi.Input[Union[_builtins.str, 'IsWorkloadManagementNetworkEnabled']] is_workload_management_network_enabled: A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: Managed Resource Group configuration properties.
-        :param pulumi.Input[_builtins.str] network_fabric_controller_name: Name of the Network Fabric Controller.
         :param pulumi.Input[Union[_builtins.str, 'NfcSku']] nfc_sku: Network Fabric Controller SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]] workload_express_route_connections: As part of an update, the workload ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Workload services. (This is a Mandatory attribute).
         """
+        pulumi.set(__self__, "network_fabric_controller_name", network_fabric_controller_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
@@ -71,8 +72,6 @@ class NetworkFabricControllerArgs:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_configuration is not None:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
-        if network_fabric_controller_name is not None:
-            pulumi.set(__self__, "network_fabric_controller_name", network_fabric_controller_name)
         if nfc_sku is None:
             nfc_sku = 'Standard'
         if nfc_sku is not None:
@@ -81,6 +80,18 @@ class NetworkFabricControllerArgs:
             pulumi.set(__self__, "tags", tags)
         if workload_express_route_connections is not None:
             pulumi.set(__self__, "workload_express_route_connections", workload_express_route_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="networkFabricControllerName")
+    def network_fabric_controller_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Network Fabric Controller.
+        """
+        return pulumi.get(self, "network_fabric_controller_name")
+
+    @network_fabric_controller_name.setter
+    def network_fabric_controller_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_fabric_controller_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -177,18 +188,6 @@ class NetworkFabricControllerArgs:
     @managed_resource_group_configuration.setter
     def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkFabricControllerName")
-    def network_fabric_controller_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Network Fabric Controller.
-        """
-        return pulumi.get(self, "network_fabric_controller_name")
-
-    @network_fabric_controller_name.setter
-    def network_fabric_controller_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_fabric_controller_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nfcSku")
@@ -332,6 +331,8 @@ class NetworkFabricController(pulumi.CustomResource):
             __props__.__dict__["is_workload_management_network_enabled"] = is_workload_management_network_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            if network_fabric_controller_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_fabric_controller_name'")
             __props__.__dict__["network_fabric_controller_name"] = network_fabric_controller_name
             if nfc_sku is None:
                 nfc_sku = 'Standard'

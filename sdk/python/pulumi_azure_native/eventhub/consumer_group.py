@@ -20,27 +20,38 @@ __all__ = ['ConsumerGroupArgs', 'ConsumerGroup']
 @pulumi.input_type
 class ConsumerGroupArgs:
     def __init__(__self__, *,
+                 consumer_group_name: pulumi.Input[_builtins.str],
                  event_hub_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsumerGroup resource.
 
+        :param pulumi.Input[_builtins.str] consumer_group_name: The consumer group name
         :param pulumi.Input[_builtins.str] event_hub_name: The Event Hub name
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[_builtins.str] consumer_group_name: The consumer group name
         :param pulumi.Input[_builtins.str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         pulumi.set(__self__, "event_hub_name", event_hub_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         if user_metadata is not None:
             pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The consumer group name
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @consumer_group_name.setter
+    def consumer_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
@@ -77,18 +88,6 @@ class ConsumerGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="consumerGroupName")
-    def consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The consumer group name
-        """
-        return pulumi.get(self, "consumer_group_name")
-
-    @consumer_group_name.setter
-    def consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
@@ -174,6 +173,8 @@ class ConsumerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConsumerGroupArgs.__new__(ConsumerGroupArgs)
 
+            if consumer_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'consumer_group_name'")
             __props__.__dict__["consumer_group_name"] = consumer_group_name
             if event_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_name'")

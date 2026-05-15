@@ -22,8 +22,8 @@ __all__ = ['DataManagerForAgricultureResourceArgs', 'DataManagerForAgricultureRe
 @pulumi.input_type
 class DataManagerForAgricultureResourceArgs:
     def __init__(__self__, *,
+                 data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -32,17 +32,16 @@ class DataManagerForAgricultureResourceArgs:
         """
         The set of arguments for constructing a DataManagerForAgricultureResource resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
         :param pulumi.Input['SensorIntegrationArgs'] sensor_integration: Sensor integration request model.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_manager_for_agriculture_resource_name is not None:
-            pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -55,6 +54,18 @@ class DataManagerForAgricultureResourceArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="dataManagerForAgricultureResourceName")
+    def data_manager_for_agriculture_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        DataManagerForAgriculture resource name.
+        """
+        return pulumi.get(self, "data_manager_for_agriculture_resource_name")
+
+    @data_manager_for_agriculture_resource_name.setter
+    def data_manager_for_agriculture_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_manager_for_agriculture_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -65,18 +76,6 @@ class DataManagerForAgricultureResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataManagerForAgricultureResourceName")
-    def data_manager_for_agriculture_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        DataManagerForAgriculture resource name.
-        """
-        return pulumi.get(self, "data_manager_for_agriculture_resource_name")
-
-    @data_manager_for_agriculture_resource_name.setter
-    def data_manager_for_agriculture_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_manager_for_agriculture_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +211,8 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataManagerForAgricultureResourceArgs.__new__(DataManagerForAgricultureResourceArgs)
 
+            if data_manager_for_agriculture_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")
             __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

@@ -20,13 +20,13 @@ __all__ = ['WebAppHostNameBindingArgs', 'WebAppHostNameBinding']
 @pulumi.input_type
 class WebAppHostNameBindingArgs:
     def __init__(__self__, *,
+                 host_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_resource_type: pulumi.Input[Optional['AzureResourceType']] = None,
                  custom_host_name_dns_record_type: pulumi.Input[Optional['CustomHostNameDnsRecordType']] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  host_name_type: pulumi.Input[Optional['HostNameType']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  site_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,19 +35,20 @@ class WebAppHostNameBindingArgs:
         """
         The set of arguments for constructing a WebAppHostNameBinding resource.
 
+        :param pulumi.Input[_builtins.str] host_name: Hostname in the hostname binding.
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] azure_resource_name: Azure resource name.
         :param pulumi.Input['AzureResourceType'] azure_resource_type: Azure resource type.
         :param pulumi.Input['CustomHostNameDnsRecordType'] custom_host_name_dns_record_type: Custom DNS record type.
         :param pulumi.Input[_builtins.str] domain_id: Fully qualified ARM domain resource URI.
-        :param pulumi.Input[_builtins.str] host_name: Hostname in the hostname binding.
         :param pulumi.Input['HostNameType'] host_name_type: Hostname type.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] site_name: App Service app name.
         :param pulumi.Input['SslState'] ssl_state: SSL type
         :param pulumi.Input[_builtins.str] thumbprint: SSL certificate thumbprint
         """
+        pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_resource_name is not None:
@@ -58,8 +59,6 @@ class WebAppHostNameBindingArgs:
             pulumi.set(__self__, "custom_host_name_dns_record_type", custom_host_name_dns_record_type)
         if domain_id is not None:
             pulumi.set(__self__, "domain_id", domain_id)
-        if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
         if host_name_type is not None:
             pulumi.set(__self__, "host_name_type", host_name_type)
         if kind is not None:
@@ -70,6 +69,18 @@ class WebAppHostNameBindingArgs:
             pulumi.set(__self__, "ssl_state", ssl_state)
         if thumbprint is not None:
             pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Hostname in the hostname binding.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -142,18 +153,6 @@ class WebAppHostNameBindingArgs:
     @domain_id.setter
     def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Hostname in the hostname binding.
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNameType")
@@ -312,6 +311,8 @@ class WebAppHostNameBinding(pulumi.CustomResource):
             __props__.__dict__["azure_resource_type"] = azure_resource_type
             __props__.__dict__["custom_host_name_dns_record_type"] = custom_host_name_dns_record_type
             __props__.__dict__["domain_id"] = domain_id
+            if host_name is None and not opts.urn:
+                raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["host_name_type"] = host_name_type
             __props__.__dict__["kind"] = kind

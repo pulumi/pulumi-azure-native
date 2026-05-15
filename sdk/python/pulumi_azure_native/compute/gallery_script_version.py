@@ -24,8 +24,8 @@ class GalleryScriptVersionArgs:
     def __init__(__self__, *,
                  gallery_name: pulumi.Input[_builtins.str],
                  gallery_script_name: pulumi.Input[_builtins.str],
+                 gallery_script_version_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 gallery_script_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GalleryScriptVersionPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,17 +34,16 @@ class GalleryScriptVersionArgs:
 
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] gallery_script_name: The name of the gallery Script Definition to be retrieved.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] gallery_script_version_name: The name of the gallery Script Version to be retrieved.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['GalleryScriptVersionPropertiesArgs'] properties: Describes the properties of a gallery Script Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "gallery_script_name", gallery_script_name)
+        pulumi.set(__self__, "gallery_script_version_name", gallery_script_version_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if gallery_script_version_name is not None:
-            pulumi.set(__self__, "gallery_script_version_name", gallery_script_version_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -77,6 +76,18 @@ class GalleryScriptVersionArgs:
         pulumi.set(self, "gallery_script_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="galleryScriptVersionName")
+    def gallery_script_version_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the gallery Script Version to be retrieved.
+        """
+        return pulumi.get(self, "gallery_script_version_name")
+
+    @gallery_script_version_name.setter
+    def gallery_script_version_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gallery_script_version_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -87,18 +98,6 @@ class GalleryScriptVersionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryScriptVersionName")
-    def gallery_script_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the gallery Script Version to be retrieved.
-        """
-        return pulumi.get(self, "gallery_script_version_name")
-
-    @gallery_script_version_name.setter
-    def gallery_script_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gallery_script_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,6 +215,8 @@ class GalleryScriptVersion(pulumi.CustomResource):
             if gallery_script_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_script_name'")
             __props__.__dict__["gallery_script_name"] = gallery_script_name
+            if gallery_script_version_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gallery_script_version_name'")
             __props__.__dict__["gallery_script_version_name"] = gallery_script_version_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

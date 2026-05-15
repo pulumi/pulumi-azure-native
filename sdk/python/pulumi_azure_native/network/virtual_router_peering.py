@@ -19,24 +19,25 @@ __all__ = ['VirtualRouterPeeringArgs', 'VirtualRouterPeering']
 @pulumi.input_type
 class VirtualRouterPeeringArgs:
     def __init__(__self__, *,
+                 peering_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_router_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualRouterPeering resource.
 
+        :param pulumi.Input[_builtins.str] peering_name: The name of the Virtual Router Peering.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] virtual_router_name: The name of the Virtual Router.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: Name of the virtual router peering that is unique within a virtual router.
         :param pulumi.Input[_builtins.float] peer_asn: Peer ASN.
         :param pulumi.Input[_builtins.str] peer_ip: Peer IP.
-        :param pulumi.Input[_builtins.str] peering_name: The name of the Virtual Router Peering.
         """
+        pulumi.set(__self__, "peering_name", peering_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_router_name", virtual_router_name)
         if id is not None:
@@ -47,8 +48,18 @@ class VirtualRouterPeeringArgs:
             pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_ip is not None:
             pulumi.set(__self__, "peer_ip", peer_ip)
-        if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Virtual Router Peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -121,18 +132,6 @@ class VirtualRouterPeeringArgs:
     @peer_ip.setter
     def peer_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peeringName")
-    def peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Virtual Router Peering.
-        """
-        return pulumi.get(self, "peering_name")
-
-    @peering_name.setter
-    def peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "peering_name", value)
 
 
 @pulumi.type_token("azure-native:network:VirtualRouterPeering")
@@ -216,6 +215,8 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_asn"] = peer_asn
             __props__.__dict__["peer_ip"] = peer_ip
+            if peering_name is None and not opts.urn:
+                raise TypeError("Missing required property 'peering_name'")
             __props__.__dict__["peering_name"] = peering_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

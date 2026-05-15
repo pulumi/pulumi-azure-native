@@ -22,24 +22,35 @@ __all__ = ['DevToolPortalArgs', 'DevToolPortal']
 @pulumi.input_type
 class DevToolPortalArgs:
     def __init__(__self__, *,
+                 dev_tool_portal_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DevToolPortalPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevToolPortal resource.
 
+        :param pulumi.Input[_builtins.str] dev_tool_portal_name: The name of Dev Tool Portal.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] dev_tool_portal_name: The name of Dev Tool Portal.
         :param pulumi.Input['DevToolPortalPropertiesArgs'] properties: Dev Tool Portal properties payload
         """
+        pulumi.set(__self__, "dev_tool_portal_name", dev_tool_portal_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if dev_tool_portal_name is not None:
-            pulumi.set(__self__, "dev_tool_portal_name", dev_tool_portal_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="devToolPortalName")
+    def dev_tool_portal_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Dev Tool Portal.
+        """
+        return pulumi.get(self, "dev_tool_portal_name")
+
+    @dev_tool_portal_name.setter
+    def dev_tool_portal_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dev_tool_portal_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +75,6 @@ class DevToolPortalArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="devToolPortalName")
-    def dev_tool_portal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Dev Tool Portal.
-        """
-        return pulumi.get(self, "dev_tool_portal_name")
-
-    @dev_tool_portal_name.setter
-    def dev_tool_portal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dev_tool_portal_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class DevToolPortal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DevToolPortalArgs.__new__(DevToolPortalArgs)
 
+            if dev_tool_portal_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dev_tool_portal_name'")
             __props__.__dict__["dev_tool_portal_name"] = dev_tool_portal_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

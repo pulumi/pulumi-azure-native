@@ -22,20 +22,31 @@ __all__ = ['SubscriptionFeatureRegistrationArgs', 'SubscriptionFeatureRegistrati
 @pulumi.input_type
 class SubscriptionFeatureRegistrationArgs:
     def __init__(__self__, *,
+                 feature_name: pulumi.Input[_builtins.str],
                  provider_namespace: pulumi.Input[_builtins.str],
-                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SubscriptionFeatureRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a SubscriptionFeatureRegistration resource.
 
-        :param pulumi.Input[_builtins.str] provider_namespace: The provider namespace.
         :param pulumi.Input[_builtins.str] feature_name: The feature name.
+        :param pulumi.Input[_builtins.str] provider_namespace: The provider namespace.
         """
+        pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
-        if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The feature name.
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
@@ -48,18 +59,6 @@ class SubscriptionFeatureRegistrationArgs:
     @provider_namespace.setter
     def provider_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_namespace", value)
-
-    @_builtins.property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The feature name.
-        """
-        return pulumi.get(self, "feature_name")
-
-    @feature_name.setter
-    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -131,6 +130,8 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubscriptionFeatureRegistrationArgs.__new__(SubscriptionFeatureRegistrationArgs)
 
+            if feature_name is None and not opts.urn:
+                raise TypeError("Missing required property 'feature_name'")
             __props__.__dict__["feature_name"] = feature_name
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:

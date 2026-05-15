@@ -22,6 +22,7 @@ __all__ = ['EventHubDataConnectionArgs', 'EventHubDataConnection']
 class EventHubDataConnectionArgs:
     def __init__(__self__, *,
                  consumer_group: pulumi.Input[_builtins.str],
+                 data_connection_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  event_hub_resource_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
@@ -29,7 +30,6 @@ class EventHubDataConnectionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  compression: pulumi.Input[Optional[Union[_builtins.str, 'Compression']]] = None,
-                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_format: pulumi.Input[Optional[Union[_builtins.str, 'EventHubDataFormat']]] = None,
                  event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +40,7 @@ class EventHubDataConnectionArgs:
         The set of arguments for constructing a EventHubDataConnection resource.
 
         :param pulumi.Input[_builtins.str] consumer_group: The event hub consumer group.
+        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The resource ID of the event hub to be used to create a data connection.
         :param pulumi.Input[_builtins.str] kind: Kind of the endpoint for the data connection
@@ -48,7 +49,6 @@ class EventHubDataConnectionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[_builtins.str, 'Compression']] compression: The event hub messages compression type
-        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[_builtins.str, 'EventHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_system_properties: System properties of the event hub
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -57,6 +57,7 @@ class EventHubDataConnectionArgs:
         :param pulumi.Input[_builtins.str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "data_connection_name", data_connection_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
         pulumi.set(__self__, "kind", 'EventHub')
@@ -65,8 +66,6 @@ class EventHubDataConnectionArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
-        if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
         if event_system_properties is not None:
@@ -91,6 +90,18 @@ class EventHubDataConnectionArgs:
     @consumer_group.setter
     def consumer_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "consumer_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectionName")
+    def data_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data connection.
+        """
+        return pulumi.get(self, "data_connection_name")
+
+    @data_connection_name.setter
+    def data_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -176,18 +187,6 @@ class EventHubDataConnectionArgs:
     @compression.setter
     def compression(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Compression']]]):
         pulumi.set(self, "compression", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data connection.
-        """
-        return pulumi.get(self, "data_connection_name")
-
-    @data_connection_name.setter
-    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
@@ -364,6 +363,8 @@ class EventHubDataConnection(pulumi.CustomResource):
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__.__dict__["consumer_group"] = consumer_group
+            if data_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connection_name'")
             __props__.__dict__["data_connection_name"] = data_connection_name
             __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:

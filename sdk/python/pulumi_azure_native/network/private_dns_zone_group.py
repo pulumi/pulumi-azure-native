@@ -21,22 +21,23 @@ __all__ = ['PrivateDnsZoneGroupArgs', 'PrivateDnsZoneGroup']
 @pulumi.input_type
 class PrivateDnsZoneGroupArgs:
     def __init__(__self__, *,
+                 private_dns_zone_group_name: pulumi.Input[_builtins.str],
                  private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None,
-                 private_dns_zone_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None):
         """
         The set of arguments for constructing a PrivateDnsZoneGroup resource.
 
+        :param pulumi.Input[_builtins.str] private_dns_zone_group_name: The name of the private dns zone group.
         :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
-        :param pulumi.Input[_builtins.str] private_dns_zone_group_name: The name of the private dns zone group.
         """
+        pulumi.set(__self__, "private_dns_zone_group_name", private_dns_zone_group_name)
         pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
@@ -45,8 +46,18 @@ class PrivateDnsZoneGroupArgs:
             pulumi.set(__self__, "name", name)
         if private_dns_zone_configs is not None:
             pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
-        if private_dns_zone_group_name is not None:
-            pulumi.set(__self__, "private_dns_zone_group_name", private_dns_zone_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsZoneGroupName")
+    def private_dns_zone_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the private dns zone group.
+        """
+        return pulumi.get(self, "private_dns_zone_group_name")
+
+    @private_dns_zone_group_name.setter
+    def private_dns_zone_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_dns_zone_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointName")
@@ -107,18 +118,6 @@ class PrivateDnsZoneGroupArgs:
     @private_dns_zone_configs.setter
     def private_dns_zone_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]]):
         pulumi.set(self, "private_dns_zone_configs", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateDnsZoneGroupName")
-    def private_dns_zone_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the private dns zone group.
-        """
-        return pulumi.get(self, "private_dns_zone_group_name")
-
-    @private_dns_zone_group_name.setter
-    def private_dns_zone_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_dns_zone_group_name", value)
 
 
 @pulumi.type_token("azure-native:network:PrivateDnsZoneGroup")
@@ -198,6 +197,8 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["private_dns_zone_configs"] = private_dns_zone_configs
+            if private_dns_zone_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_dns_zone_group_name'")
             __props__.__dict__["private_dns_zone_group_name"] = private_dns_zone_group_name
             if private_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_name'")

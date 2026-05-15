@@ -22,11 +22,11 @@ __all__ = ['ServerGroupClusterArgs', 'ServerGroupCluster']
 @pulumi.input_type
 class ServerGroupClusterArgs:
     def __init__(__self__, *,
+                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
                  auth_config: pulumi.Input[Optional['ServerGroupClusterAuthConfigArgs']] = None,
                  citus_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  coordinator_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  coordinator_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
                  coordinator_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
@@ -53,11 +53,11 @@ class ServerGroupClusterArgs:
         """
         The set of arguments for constructing a ServerGroupCluster resource.
 
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. Required for creation.
         :param pulumi.Input['ServerGroupClusterAuthConfigArgs'] auth_config: Authentication configuration of a cluster.
         :param pulumi.Input[_builtins.str] citus_version: The Citus extension version on all cluster servers.
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.bool] coordinator_enable_public_ip_access: If public access is enabled on coordinator.
         :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         :param pulumi.Input[_builtins.int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
@@ -82,6 +82,7 @@ class ServerGroupClusterArgs:
         :param pulumi.Input[_builtins.str] source_resource_id: The resource id of source cluster for read replica clusters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -89,8 +90,6 @@ class ServerGroupClusterArgs:
             pulumi.set(__self__, "auth_config", auth_config)
         if citus_version is not None:
             pulumi.set(__self__, "citus_version", citus_version)
-        if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
         if coordinator_enable_public_ip_access is not None:
             pulumi.set(__self__, "coordinator_enable_public_ip_access", coordinator_enable_public_ip_access)
         if coordinator_server_edition is not None:
@@ -139,6 +138,18 @@ class ServerGroupClusterArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -185,18 +196,6 @@ class ServerGroupClusterArgs:
     @citus_version.setter
     def citus_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "citus_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="coordinatorEnablePublicIpAccess")
@@ -618,6 +617,8 @@ class ServerGroupCluster(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["auth_config"] = auth_config
             __props__.__dict__["citus_version"] = citus_version
+            if cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["coordinator_enable_public_ip_access"] = coordinator_enable_public_ip_access
             __props__.__dict__["coordinator_server_edition"] = coordinator_server_edition

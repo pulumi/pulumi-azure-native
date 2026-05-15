@@ -21,32 +21,43 @@ __all__ = ['ChatModelDeploymentArgs', 'ChatModelDeployment']
 @pulumi.input_type
 class ChatModelDeploymentArgs:
     def __init__(__self__, *,
+                 chat_model_deployment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 chat_model_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ChatModelDeploymentPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ChatModelDeployment resource.
 
+        :param pulumi.Input[_builtins.str] chat_model_deployment_name: The name of the ChatModelDeployment
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the Workspace
-        :param pulumi.Input[_builtins.str] chat_model_deployment_name: The name of the ChatModelDeployment
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ChatModelDeploymentPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "chat_model_deployment_name", chat_model_deployment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if chat_model_deployment_name is not None:
-            pulumi.set(__self__, "chat_model_deployment_name", chat_model_deployment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="chatModelDeploymentName")
+    def chat_model_deployment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ChatModelDeployment
+        """
+        return pulumi.get(self, "chat_model_deployment_name")
+
+    @chat_model_deployment_name.setter
+    def chat_model_deployment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "chat_model_deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +82,6 @@ class ChatModelDeploymentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="chatModelDeploymentName")
-    def chat_model_deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ChatModelDeployment
-        """
-        return pulumi.get(self, "chat_model_deployment_name")
-
-    @chat_model_deployment_name.setter
-    def chat_model_deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "chat_model_deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -191,6 +190,8 @@ class ChatModelDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChatModelDeploymentArgs.__new__(ChatModelDeploymentArgs)
 
+            if chat_model_deployment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'chat_model_deployment_name'")
             __props__.__dict__["chat_model_deployment_name"] = chat_model_deployment_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

@@ -22,23 +22,22 @@ __all__ = ['PrivateEndpointArgs', 'PrivateEndpoint']
 class PrivateEndpointArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
+                 private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
-                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None):
         """
         The set of arguments for constructing a PrivateEndpoint resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
+        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
-        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if manual_private_link_service_connections is not None:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
-        if private_endpoint_name is not None:
-            pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -51,6 +50,18 @@ class PrivateEndpointArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_name")
+
+    @private_endpoint_name.setter
+    def private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,18 +86,6 @@ class PrivateEndpointArgs:
     @manual_private_link_service_connections.setter
     def manual_private_link_service_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
         pulumi.set(self, "manual_private_link_service_connections", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the private endpoint.
-        """
-        return pulumi.get(self, "private_endpoint_name")
-
-    @private_endpoint_name.setter
-    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:streamanalytics:PrivateEndpoint")
@@ -157,6 +156,8 @@ class PrivateEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["manual_private_link_service_connections"] = manual_private_link_service_connections
+            if private_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_name'")
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

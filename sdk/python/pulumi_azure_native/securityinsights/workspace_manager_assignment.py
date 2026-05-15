@@ -24,23 +24,22 @@ class WorkspaceManagerAssignmentArgs:
                  items: pulumi.Input[Sequence[pulumi.Input['AssignmentItemArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_resource_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 workspace_manager_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_manager_assignment_name: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceManagerAssignment resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentItemArgs']]] items: List of resources included in this workspace manager assignment
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] target_resource_name: The resource name of the workspace manager group targeted by the workspace manager assignment
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] workspace_manager_assignment_name: The name of the workspace manager assignment
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        pulumi.set(__self__, "workspace_manager_assignment_name", workspace_manager_assignment_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if workspace_manager_assignment_name is not None:
-            pulumi.set(__self__, "workspace_manager_assignment_name", workspace_manager_assignment_name)
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +78,18 @@ class WorkspaceManagerAssignmentArgs:
         pulumi.set(self, "target_resource_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="workspaceManagerAssignmentName")
+    def workspace_manager_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace manager assignment
+        """
+        return pulumi.get(self, "workspace_manager_assignment_name")
+
+    @workspace_manager_assignment_name.setter
+    def workspace_manager_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_manager_assignment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -89,18 +100,6 @@ class WorkspaceManagerAssignmentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceManagerAssignmentName")
-    def workspace_manager_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace manager assignment
-        """
-        return pulumi.get(self, "workspace_manager_assignment_name")
-
-    @workspace_manager_assignment_name.setter
-    def workspace_manager_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_manager_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:WorkspaceManagerAssignment")
@@ -183,6 +182,8 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
             if target_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_name'")
             __props__.__dict__["target_resource_name"] = target_resource_name
+            if workspace_manager_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_manager_assignment_name'")
             __props__.__dict__["workspace_manager_assignment_name"] = workspace_manager_assignment_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

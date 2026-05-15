@@ -23,6 +23,7 @@ __all__ = ['SubnetInitArgs', 'Subnet']
 class SubnetInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 subnet_name: pulumi.Input[_builtins.str],
                  virtual_network_name: pulumi.Input[_builtins.str],
                  address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -41,12 +42,12 @@ class SubnetInitArgs:
                  service_endpoint_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
                  sharing_scope: pulumi.Input[Optional[Union[_builtins.str, 'SharingScope']]] = None,
-                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subnet resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] subnet_name: The name of the subnet.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[_builtins.str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: List of address prefixes for the subnet.
@@ -65,10 +66,10 @@ class SubnetInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[Union[_builtins.str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
-        :param pulumi.Input[_builtins.str] subnet_name: The name of the subnet.
         :param pulumi.Input[_builtins.str] type: Resource type.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subnet_name", subnet_name)
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
@@ -108,8 +109,6 @@ class SubnetInitArgs:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
         if sharing_scope is not None:
             pulumi.set(__self__, "sharing_scope", sharing_scope)
-        if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -124,6 +123,18 @@ class SubnetInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the subnet.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @subnet_name.setter
+    def subnet_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkName")
@@ -342,18 +353,6 @@ class SubnetInitArgs:
         pulumi.set(self, "sharing_scope", value)
 
     @_builtins.property
-    @pulumi.getter(name="subnetName")
-    def subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the subnet.
-        """
-        return pulumi.get(self, "subnet_name")
-
-    @subnet_name.setter
-    def subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "subnet_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -509,6 +508,8 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_policies"] = service_endpoint_policies
             __props__.__dict__["service_endpoints"] = service_endpoints
             __props__.__dict__["sharing_scope"] = sharing_scope
+            if subnet_name is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_name'")
             __props__.__dict__["subnet_name"] = subnet_name
             __props__.__dict__["type"] = type
             if virtual_network_name is None and not opts.urn:

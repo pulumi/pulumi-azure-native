@@ -22,32 +22,43 @@ __all__ = ['NetworkVirtualApplianceConnectionArgs', 'NetworkVirtualApplianceConn
 @pulumi.input_type
 class NetworkVirtualApplianceConnectionArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  network_virtual_appliance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NetworkVirtualApplianceConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NetworkVirtualApplianceConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: The name of the NVA connection.
         :param pulumi.Input[_builtins.str] network_virtual_appliance_name: The name of the Network Virtual Appliance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] connection_name: The name of the NVA connection.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource.
         :param pulumi.Input['NetworkVirtualApplianceConnectionPropertiesArgs'] properties: Properties of the express route connection.
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the NVA connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkVirtualApplianceName")
@@ -72,18 +83,6 @@ class NetworkVirtualApplianceConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the NVA connection.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,6 +195,8 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkVirtualApplianceConnectionArgs.__new__(NetworkVirtualApplianceConnectionArgs)
 
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name

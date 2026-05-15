@@ -20,23 +20,34 @@ __all__ = ['MachinePoolArgs', 'MachinePool']
 @pulumi.input_type
 class MachinePoolArgs:
     def __init__(__self__, *,
+                 child_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resources: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MachinePool resource.
 
+        :param pulumi.Input[_builtins.str] child_resource_name: The name of the MachinePool resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the OpenShift cluster resource.
-        :param pulumi.Input[_builtins.str] child_resource_name: The name of the MachinePool resource.
         """
+        pulumi.set(__self__, "child_resource_name", child_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        if child_resource_name is not None:
-            pulumi.set(__self__, "child_resource_name", child_resource_name)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="childResourceName")
+    def child_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the MachinePool resource.
+        """
+        return pulumi.get(self, "child_resource_name")
+
+    @child_resource_name.setter
+    def child_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "child_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class MachinePoolArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="childResourceName")
-    def child_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the MachinePool resource.
-        """
-        return pulumi.get(self, "child_resource_name")
-
-    @child_resource_name.setter
-    def child_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "child_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -151,6 +150,8 @@ class MachinePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MachinePoolArgs.__new__(MachinePoolArgs)
 
+            if child_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'child_resource_name'")
             __props__.__dict__["child_resource_name"] = child_resource_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

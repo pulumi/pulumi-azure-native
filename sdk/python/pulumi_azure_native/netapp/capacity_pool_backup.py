@@ -21,10 +21,10 @@ __all__ = ['CapacityPoolBackupArgs', 'CapacityPoolBackup']
 class CapacityPoolBackupArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 backup_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  use_existing_snapshot: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -32,20 +32,19 @@ class CapacityPoolBackupArgs:
         The set of arguments for constructing a CapacityPoolBackup resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
+        :param pulumi.Input[_builtins.str] backup_name: The name of the backup
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] volume_name: The name of the volume
-        :param pulumi.Input[_builtins.str] backup_name: The name of the backup
         :param pulumi.Input[_builtins.str] label: Label for backup
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[_builtins.bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "backup_name", backup_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "volume_name", volume_name)
-        if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if location is not None:
@@ -66,6 +65,18 @@ class CapacityPoolBackupArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the backup
+        """
+        return pulumi.get(self, "backup_name")
+
+    @backup_name.setter
+    def backup_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
@@ -102,18 +113,6 @@ class CapacityPoolBackupArgs:
     @volume_name.setter
     def volume_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "volume_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backupName")
-    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the backup
-        """
-        return pulumi.get(self, "backup_name")
-
-    @backup_name.setter
-    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -231,6 +230,8 @@ class CapacityPoolBackup(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if backup_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_name'")
             __props__.__dict__["backup_name"] = backup_name
             __props__.__dict__["label"] = label
             __props__.__dict__["location"] = location

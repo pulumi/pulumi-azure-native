@@ -22,32 +22,31 @@ class ApiTagDescriptionArgs:
                  api_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 tag_description_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  external_docs_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_description_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 external_docs_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiTagDescription resource.
 
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         :param pulumi.Input[_builtins.str] description: Description of the Tag.
         :param pulumi.Input[_builtins.str] external_docs_description: Description of the external resources describing the tag.
         :param pulumi.Input[_builtins.str] external_docs_url: Absolute URL of external resources describing the tag.
-        :param pulumi.Input[_builtins.str] tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "tag_description_id", tag_description_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if external_docs_description is not None:
             pulumi.set(__self__, "external_docs_description", external_docs_description)
         if external_docs_url is not None:
             pulumi.set(__self__, "external_docs_url", external_docs_url)
-        if tag_description_id is not None:
-            pulumi.set(__self__, "tag_description_id", tag_description_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -86,6 +85,18 @@ class ApiTagDescriptionArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagDescriptionId")
+    def tag_description_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+        """
+        return pulumi.get(self, "tag_description_id")
+
+    @tag_description_id.setter
+    def tag_description_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tag_description_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -120,18 +131,6 @@ class ApiTagDescriptionArgs:
     @external_docs_url.setter
     def external_docs_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_docs_url", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tagDescriptionId")
-    def tag_description_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-        """
-        return pulumi.get(self, "tag_description_id")
-
-    @tag_description_id.setter
-    def tag_description_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tag_description_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:ApiTagDescription")
@@ -223,6 +222,8 @@ class ApiTagDescription(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if tag_description_id is None and not opts.urn:
+                raise TypeError("Missing required property 'tag_description_id'")
             __props__.__dict__["tag_description_id"] = tag_description_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["display_name"] = None

@@ -22,8 +22,8 @@ __all__ = ['DataCollectionEndpointArgs', 'DataCollectionEndpoint']
 @pulumi.input_type
 class DataCollectionEndpointArgs:
     def __init__(__self__, *,
+                 data_collection_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_collection_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['DataCollectionEndpointResourceIdentityArgs']] = None,
                  immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,8 +34,8 @@ class DataCollectionEndpointArgs:
         """
         The set of arguments for constructing a DataCollectionEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of the data collection endpoint.
         :param pulumi.Input['DataCollectionEndpointResourceIdentityArgs'] identity: Managed service identity of the resource.
         :param pulumi.Input[_builtins.str] immutable_id: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
@@ -44,9 +44,8 @@ class DataCollectionEndpointArgs:
         :param pulumi.Input['DataCollectionEndpointNetworkAclsArgs'] network_acls: Network access control rules for the endpoints.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "data_collection_endpoint_name", data_collection_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_collection_endpoint_name is not None:
-            pulumi.set(__self__, "data_collection_endpoint_name", data_collection_endpoint_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if identity is not None:
@@ -63,6 +62,18 @@ class DataCollectionEndpointArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="dataCollectionEndpointName")
+    def data_collection_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data collection endpoint. The name is case insensitive.
+        """
+        return pulumi.get(self, "data_collection_endpoint_name")
+
+    @data_collection_endpoint_name.setter
+    def data_collection_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_collection_endpoint_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -73,18 +84,6 @@ class DataCollectionEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataCollectionEndpointName")
-    def data_collection_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data collection endpoint. The name is case insensitive.
-        """
-        return pulumi.get(self, "data_collection_endpoint_name")
-
-    @data_collection_endpoint_name.setter
-    def data_collection_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_collection_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +253,8 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataCollectionEndpointArgs.__new__(DataCollectionEndpointArgs)
 
+            if data_collection_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_collection_endpoint_name'")
             __props__.__dict__["data_collection_endpoint_name"] = data_collection_endpoint_name
             __props__.__dict__["description"] = description
             __props__.__dict__["identity"] = identity

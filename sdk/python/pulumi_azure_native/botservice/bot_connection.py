@@ -22,9 +22,9 @@ __all__ = ['BotConnectionArgs', 'BotConnection']
 @pulumi.input_type
 class BotConnectionArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConnectionSettingPropertiesArgs']] = None,
@@ -33,19 +33,18 @@ class BotConnectionArgs:
         """
         The set of arguments for constructing a BotConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: The name of the Bot Service Connection Setting resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
-        :param pulumi.Input[_builtins.str] connection_name: The name of the Bot Service Connection Setting resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input['ConnectionSettingPropertiesArgs'] properties: The set of properties specific to bot channel resource
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -56,6 +55,18 @@ class BotConnectionArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Bot Service Connection Setting resource.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class BotConnectionArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Bot Service Connection Setting resource.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -234,6 +233,8 @@ class BotConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BotConnectionArgs.__new__(BotConnectionArgs)
 
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

@@ -21,7 +21,7 @@ class SyncAgentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 sync_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_agent_name: pulumi.Input[_builtins.str],
                  sync_database_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncAgent resource.
@@ -33,8 +33,7 @@ class SyncAgentArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if sync_agent_name is not None:
-            pulumi.set(__self__, "sync_agent_name", sync_agent_name)
+        pulumi.set(__self__, "sync_agent_name", sync_agent_name)
         if sync_database_id is not None:
             pulumi.set(__self__, "sync_database_id", sync_database_id)
 
@@ -64,14 +63,14 @@ class SyncAgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="syncAgentName")
-    def sync_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sync_agent_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the sync agent.
         """
         return pulumi.get(self, "sync_agent_name")
 
     @sync_agent_name.setter
-    def sync_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sync_agent_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sync_agent_name", value)
 
     @_builtins.property
@@ -161,6 +160,8 @@ class SyncAgent(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            if sync_agent_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sync_agent_name'")
             __props__.__dict__["sync_agent_name"] = sync_agent_name
             __props__.__dict__["sync_database_id"] = sync_database_id
             __props__.__dict__["azure_api_version"] = None

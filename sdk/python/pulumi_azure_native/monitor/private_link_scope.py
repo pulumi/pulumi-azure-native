@@ -24,24 +24,23 @@ class PrivateLinkScopeArgs:
     def __init__(__self__, *,
                  access_mode_settings: pulumi.Input['AccessModeSettingsArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 scope_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
 
         :param pulumi.Input['AccessModeSettingsArgs'] access_mode_settings: Access mode settings
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "access_mode_settings", access_mode_settings)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scope_name", scope_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if scope_name is not None:
-            pulumi.set(__self__, "scope_name", scope_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +69,18 @@ class PrivateLinkScopeArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="scopeName")
+    def scope_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure Monitor PrivateLinkScope resource.
+        """
+        return pulumi.get(self, "scope_name")
+
+    @scope_name.setter
+    def scope_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -80,18 +91,6 @@ class PrivateLinkScopeArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scopeName")
-    def scope_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Azure Monitor PrivateLinkScope resource.
-        """
-        return pulumi.get(self, "scope_name")
-
-    @scope_name.setter
-    def scope_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "scope_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -184,6 +183,8 @@ class PrivateLinkScope(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scope_name is None and not opts.urn:
+                raise TypeError("Missing required property 'scope_name'")
             __props__.__dict__["scope_name"] = scope_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

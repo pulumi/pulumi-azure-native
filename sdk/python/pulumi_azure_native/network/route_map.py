@@ -23,24 +23,25 @@ __all__ = ['RouteMapArgs', 'RouteMap']
 class RouteMapArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_map_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
                  associated_inbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  associated_outbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RouteMap resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the RouteMap's resource group.
+        :param pulumi.Input[_builtins.str] route_map_name: The name of the RouteMap.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub containing the RouteMap.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_inbound_connections: List of connections which have this RoutMap associated for inbound traffic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_outbound_connections: List of connections which have this RoutMap associated for outbound traffic.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input[_builtins.str] route_map_name: The name of the RouteMap.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]] rules: List of RouteMap rules to be applied.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_map_name", route_map_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if associated_inbound_connections is not None:
             pulumi.set(__self__, "associated_inbound_connections", associated_inbound_connections)
@@ -48,8 +49,6 @@ class RouteMapArgs:
             pulumi.set(__self__, "associated_outbound_connections", associated_outbound_connections)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if route_map_name is not None:
-            pulumi.set(__self__, "route_map_name", route_map_name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -64,6 +63,18 @@ class RouteMapArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeMapName")
+    def route_map_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RouteMap.
+        """
+        return pulumi.get(self, "route_map_name")
+
+    @route_map_name.setter
+    def route_map_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_map_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubName")
@@ -112,18 +123,6 @@ class RouteMapArgs:
     @id.setter
     def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeMapName")
-    def route_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RouteMap.
-        """
-        return pulumi.get(self, "route_map_name")
-
-    @route_map_name.setter
-    def route_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_map_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -221,6 +220,8 @@ class RouteMap(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_map_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_map_name'")
             __props__.__dict__["route_map_name"] = route_map_name
             __props__.__dict__["rules"] = rules
             if virtual_hub_name is None and not opts.urn:

@@ -22,7 +22,7 @@ __all__ = ['BillingProfileArgs', 'BillingProfile']
 class BillingProfileArgs:
     def __init__(__self__, *,
                  billing_account_name: pulumi.Input[_builtins.str],
-                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['BillingProfilePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -34,8 +34,7 @@ class BillingProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         pulumi.set(__self__, "billing_account_name", billing_account_name)
-        if billing_profile_name is not None:
-            pulumi.set(__self__, "billing_profile_name", billing_profile_name)
+        pulumi.set(__self__, "billing_profile_name", billing_profile_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -55,14 +54,14 @@ class BillingProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingProfileName")
-    def billing_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def billing_profile_name(self) -> pulumi.Input[_builtins.str]:
         """
         The ID that uniquely identifies a billing profile.
         """
         return pulumi.get(self, "billing_profile_name")
 
     @billing_profile_name.setter
-    def billing_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def billing_profile_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "billing_profile_name", value)
 
     @_builtins.property
@@ -157,6 +156,8 @@ class BillingProfile(pulumi.CustomResource):
             if billing_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_name'")
             __props__.__dict__["billing_account_name"] = billing_account_name
+            if billing_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'billing_profile_name'")
             __props__.__dict__["billing_profile_name"] = billing_profile_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags

@@ -20,37 +20,48 @@ __all__ = ['PrivateStoreCollectionArgs', 'PrivateStoreCollection']
 @pulumi.input_type
 class PrivateStoreCollectionArgs:
     def __init__(__self__, *,
+                 collection_id: pulumi.Input[_builtins.str],
                  private_store_id: pulumi.Input[_builtins.str],
                  all_subscriptions: pulumi.Input[Optional[_builtins.bool]] = None,
                  claim: pulumi.Input[Optional[_builtins.str]] = None,
-                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscriptions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateStoreCollection resource.
 
+        :param pulumi.Input[_builtins.str] collection_id: The collection ID
         :param pulumi.Input[_builtins.str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[_builtins.bool] all_subscriptions: Indicating whether all subscriptions are selected (=true) or not (=false).
         :param pulumi.Input[_builtins.str] claim: Gets or sets the association with Commercial's Billing Account.
-        :param pulumi.Input[_builtins.str] collection_id: The collection ID
         :param pulumi.Input[_builtins.str] collection_name: Gets or sets collection name.
         :param pulumi.Input[_builtins.bool] enabled: Indicating whether the collection is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscriptions_list: Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
         """
+        pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "private_store_id", private_store_id)
         if all_subscriptions is not None:
             pulumi.set(__self__, "all_subscriptions", all_subscriptions)
         if claim is not None:
             pulumi.set(__self__, "claim", claim)
-        if collection_id is not None:
-            pulumi.set(__self__, "collection_id", collection_id)
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if subscriptions_list is not None:
             pulumi.set(__self__, "subscriptions_list", subscriptions_list)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The collection ID
+        """
+        return pulumi.get(self, "collection_id")
+
+    @collection_id.setter
+    def collection_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "collection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateStoreId")
@@ -87,18 +98,6 @@ class PrivateStoreCollectionArgs:
     @claim.setter
     def claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim", value)
-
-    @_builtins.property
-    @pulumi.getter(name="collectionId")
-    def collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The collection ID
-        """
-        return pulumi.get(self, "collection_id")
-
-    @collection_id.setter
-    def collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "collection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
@@ -216,6 +215,8 @@ class PrivateStoreCollection(pulumi.CustomResource):
 
             __props__.__dict__["all_subscriptions"] = all_subscriptions
             __props__.__dict__["claim"] = claim
+            if collection_id is None and not opts.urn:
+                raise TypeError("Missing required property 'collection_id'")
             __props__.__dict__["collection_id"] = collection_id
             __props__.__dict__["collection_name"] = collection_name
             __props__.__dict__["enabled"] = enabled

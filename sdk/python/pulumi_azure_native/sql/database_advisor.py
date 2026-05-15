@@ -21,26 +21,37 @@ __all__ = ['DatabaseAdvisorArgs', 'DatabaseAdvisor']
 @pulumi.input_type
 class DatabaseAdvisorArgs:
     def __init__(__self__, *,
+                 advisor_name: pulumi.Input[_builtins.str],
                  auto_execute_status: pulumi.Input['AutoExecuteStatus'],
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
-                 advisor_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DatabaseAdvisor resource.
 
+        :param pulumi.Input[_builtins.str] advisor_name: The name of the Database Advisor.
         :param pulumi.Input['AutoExecuteStatus'] auto_execute_status: Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] advisor_name: The name of the Database Advisor.
         """
+        pulumi.set(__self__, "advisor_name", advisor_name)
         pulumi.set(__self__, "auto_execute_status", auto_execute_status)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if advisor_name is not None:
-            pulumi.set(__self__, "advisor_name", advisor_name)
+
+    @_builtins.property
+    @pulumi.getter(name="advisorName")
+    def advisor_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Database Advisor.
+        """
+        return pulumi.get(self, "advisor_name")
+
+    @advisor_name.setter
+    def advisor_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "advisor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoExecuteStatus")
@@ -89,18 +100,6 @@ class DatabaseAdvisorArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="advisorName")
-    def advisor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Database Advisor.
-        """
-        return pulumi.get(self, "advisor_name")
-
-    @advisor_name.setter
-    def advisor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "advisor_name", value)
 
 
 @pulumi.type_token("azure-native:sql:DatabaseAdvisor")
@@ -174,6 +173,8 @@ class DatabaseAdvisor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatabaseAdvisorArgs.__new__(DatabaseAdvisorArgs)
 
+            if advisor_name is None and not opts.urn:
+                raise TypeError("Missing required property 'advisor_name'")
             __props__.__dict__["advisor_name"] = advisor_name
             if auto_execute_status is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_execute_status'")

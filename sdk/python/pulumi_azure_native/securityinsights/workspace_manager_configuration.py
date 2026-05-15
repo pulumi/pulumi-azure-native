@@ -23,21 +23,20 @@ class WorkspaceManagerConfigurationArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[Union[_builtins.str, 'Mode']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 workspace_manager_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_manager_configuration_name: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceManagerConfiguration resource.
 
         :param pulumi.Input[Union[_builtins.str, 'Mode']] mode: The current mode of the workspace manager configuration
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] workspace_manager_configuration_name: The name of the workspace manager configuration
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_manager_configuration_name", workspace_manager_configuration_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if workspace_manager_configuration_name is not None:
-            pulumi.set(__self__, "workspace_manager_configuration_name", workspace_manager_configuration_name)
 
     @_builtins.property
     @pulumi.getter
@@ -64,6 +63,18 @@ class WorkspaceManagerConfigurationArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="workspaceManagerConfigurationName")
+    def workspace_manager_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace manager configuration
+        """
+        return pulumi.get(self, "workspace_manager_configuration_name")
+
+    @workspace_manager_configuration_name.setter
+    def workspace_manager_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_manager_configuration_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -74,18 +85,6 @@ class WorkspaceManagerConfigurationArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceManagerConfigurationName")
-    def workspace_manager_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace manager configuration
-        """
-        return pulumi.get(self, "workspace_manager_configuration_name")
-
-    @workspace_manager_configuration_name.setter
-    def workspace_manager_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_manager_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:WorkspaceManagerConfiguration")
@@ -162,6 +161,8 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if workspace_manager_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_manager_configuration_name'")
             __props__.__dict__["workspace_manager_configuration_name"] = workspace_manager_configuration_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

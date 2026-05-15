@@ -21,32 +21,43 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
+                 project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ProjectPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
+        :param pulumi.Input[_builtins.str] project_name: The name of the Project
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the Workspace
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] project_name: The name of the Project
         :param pulumi.Input['ProjectPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Project
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class ProjectArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Project
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -192,6 +191,8 @@ class Project(pulumi.CustomResource):
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
             __props__.__dict__["location"] = location
+            if project_name is None and not opts.urn:
+                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

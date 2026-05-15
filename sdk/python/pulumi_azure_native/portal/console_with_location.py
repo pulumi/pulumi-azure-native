@@ -20,17 +20,28 @@ __all__ = ['ConsoleWithLocationArgs', 'ConsoleWithLocation']
 @pulumi.input_type
 class ConsoleWithLocationArgs:
     def __init__(__self__, *,
-                 location: pulumi.Input[_builtins.str],
-                 console_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 console_name: pulumi.Input[_builtins.str],
+                 location: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ConsoleWithLocation resource.
 
-        :param pulumi.Input[_builtins.str] location: The provider location
         :param pulumi.Input[_builtins.str] console_name: The name of the console
+        :param pulumi.Input[_builtins.str] location: The provider location
         """
+        pulumi.set(__self__, "console_name", console_name)
         pulumi.set(__self__, "location", location)
-        if console_name is not None:
-            pulumi.set(__self__, "console_name", console_name)
+
+    @_builtins.property
+    @pulumi.getter(name="consoleName")
+    def console_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the console
+        """
+        return pulumi.get(self, "console_name")
+
+    @console_name.setter
+    def console_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "console_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -43,18 +54,6 @@ class ConsoleWithLocationArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="consoleName")
-    def console_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the console
-        """
-        return pulumi.get(self, "console_name")
-
-    @console_name.setter
-    def console_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "console_name", value)
 
 
 @pulumi.type_token("azure-native:portal:ConsoleWithLocation")
@@ -115,6 +114,8 @@ class ConsoleWithLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConsoleWithLocationArgs.__new__(ConsoleWithLocationArgs)
 
+            if console_name is None and not opts.urn:
+                raise TypeError("Missing required property 'console_name'")
             __props__.__dict__["console_name"] = console_name
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")

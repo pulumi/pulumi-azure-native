@@ -23,24 +23,25 @@ __all__ = ['VpnServerConfigurationArgs', 'VpnServerConfiguration']
 class VpnServerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 vpn_server_configuration_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['VpnServerConfigurationPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnServerConfiguration resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VpnServerConfiguration.
+        :param pulumi.Input[_builtins.str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['VpnServerConfigurationPropertiesArgs'] properties: Properties of the P2SVpnServer configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vpn_server_configuration_name", vpn_server_configuration_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -51,8 +52,6 @@ class VpnServerConfigurationArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpn_server_configuration_name is not None:
-            pulumi.set(__self__, "vpn_server_configuration_name", vpn_server_configuration_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,6 +64,18 @@ class VpnServerConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpnServerConfigurationName")
+    def vpn_server_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the VpnServerConfiguration being created or updated.
+        """
+        return pulumi.get(self, "vpn_server_configuration_name")
+
+    @vpn_server_configuration_name.setter
+    def vpn_server_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpn_server_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,18 +136,6 @@ class VpnServerConfigurationArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpnServerConfigurationName")
-    def vpn_server_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the VpnServerConfiguration being created or updated.
-        """
-        return pulumi.get(self, "vpn_server_configuration_name")
-
-    @vpn_server_configuration_name.setter
-    def vpn_server_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vpn_server_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:network:VpnServerConfiguration")
@@ -224,6 +223,8 @@ class VpnServerConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if vpn_server_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vpn_server_configuration_name'")
             __props__.__dict__["vpn_server_configuration_name"] = vpn_server_configuration_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

@@ -20,17 +20,18 @@ __all__ = ['ArcAddonArgs', 'ArcAddon']
 @pulumi.input_type
 class ArcAddonArgs:
     def __init__(__self__, *,
+                 addon_name: pulumi.Input[_builtins.str],
                  device_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_location: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  role_name: pulumi.Input[_builtins.str],
-                 subscription_id: pulumi.Input[_builtins.str],
-                 addon_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 subscription_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ArcAddon resource.
 
+        :param pulumi.Input[_builtins.str] addon_name: The addon name.
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] kind: Addon type.
                Expected value is 'ArcForKubernetes'.
@@ -39,8 +40,8 @@ class ArcAddonArgs:
         :param pulumi.Input[_builtins.str] resource_name: Arc resource Name
         :param pulumi.Input[_builtins.str] role_name: The role name.
         :param pulumi.Input[_builtins.str] subscription_id: Arc resource subscription Id
-        :param pulumi.Input[_builtins.str] addon_name: The addon name.
         """
+        pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "kind", 'ArcForKubernetes')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -48,8 +49,18 @@ class ArcAddonArgs:
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "role_name", role_name)
         pulumi.set(__self__, "subscription_id", subscription_id)
-        if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+
+    @_builtins.property
+    @pulumi.getter(name="addonName")
+    def addon_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The addon name.
+        """
+        return pulumi.get(self, "addon_name")
+
+    @addon_name.setter
+    def addon_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
@@ -136,18 +147,6 @@ class ArcAddonArgs:
     def subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subscription_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="addonName")
-    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The addon name.
-        """
-        return pulumi.get(self, "addon_name")
-
-    @addon_name.setter
-    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "addon_name", value)
-
 
 @pulumi.type_token("azure-native:databoxedge:ArcAddon")
 class ArcAddon(pulumi.CustomResource):
@@ -226,6 +225,8 @@ class ArcAddon(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArcAddonArgs.__new__(ArcAddonArgs)
 
+            if addon_name is None and not opts.urn:
+                raise TypeError("Missing required property 'addon_name'")
             __props__.__dict__["addon_name"] = addon_name
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")

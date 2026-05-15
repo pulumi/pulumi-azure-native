@@ -24,6 +24,7 @@ class FileShareArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 share_name: pulumi.Input[_builtins.str],
                  access_tier: pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]] = None,
                  enabled_protocols: pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]] = None,
                  expand: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,7 +33,6 @@ class FileShareArgs:
                  provisioned_bandwidth_mibps: pulumi.Input[Optional[_builtins.int]] = None,
                  provisioned_iops: pulumi.Input[Optional[_builtins.int]] = None,
                  root_squash: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]] = None,
-                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
                  share_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['SignedIdentifierArgs']]]] = None):
         """
@@ -40,6 +40,7 @@ class FileShareArgs:
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[Union[_builtins.str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[Union[_builtins.str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
         :param pulumi.Input[_builtins.str] expand: Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
@@ -48,12 +49,12 @@ class FileShareArgs:
         :param pulumi.Input[_builtins.int] provisioned_bandwidth_mibps: The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
         :param pulumi.Input[_builtins.int] provisioned_iops: The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
         :param pulumi.Input[Union[_builtins.str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
-        :param pulumi.Input[_builtins.str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[_builtins.int] share_quota: The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         :param pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the share.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "share_name", share_name)
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
         if enabled_protocols is not None:
@@ -70,8 +71,6 @@ class FileShareArgs:
             pulumi.set(__self__, "provisioned_iops", provisioned_iops)
         if root_squash is not None:
             pulumi.set(__self__, "root_squash", root_squash)
-        if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
         if share_quota is not None:
             pulumi.set(__self__, "share_quota", share_quota)
         if signed_identifiers is not None:
@@ -100,6 +99,18 @@ class FileShareArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
@@ -196,18 +207,6 @@ class FileShareArgs:
     @root_squash.setter
     def root_squash(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]]):
         pulumi.set(self, "root_squash", value)
-
-    @_builtins.property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        """
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareQuota")
@@ -343,6 +342,8 @@ class FileShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["root_squash"] = root_squash
+            if share_name is None and not opts.urn:
+                raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
             __props__.__dict__["share_quota"] = share_quota
             __props__.__dict__["signed_identifiers"] = signed_identifiers

@@ -22,9 +22,9 @@ __all__ = ['ConnectorArgs', 'Connector']
 @pulumi.input_type
 class ConnectorArgs:
     def __init__(__self__, *,
+                 connector_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['UserAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_configuration: pulumi.Input[Optional['ManagedRGConfigurationArgs']] = None,
@@ -32,18 +32,17 @@ class ConnectorArgs:
         """
         The set of arguments for constructing a Connector resource.
 
+        :param pulumi.Input[_builtins.str] connector_name: The name of the connector resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source_resource_id: Defines the ID of the connector's source resource.
-        :param pulumi.Input[_builtins.str] connector_name: The name of the connector resource
         :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -52,6 +51,18 @@ class ConnectorArgs:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the connector resource
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -76,18 +87,6 @@ class ConnectorArgs:
     @source_resource_id.setter
     def source_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the connector resource
-        """
-        return pulumi.get(self, "connector_name")
-
-    @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -211,6 +210,8 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
+            if connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

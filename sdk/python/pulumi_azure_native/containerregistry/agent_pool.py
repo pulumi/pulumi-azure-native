@@ -21,9 +21,9 @@ __all__ = ['AgentPoolArgs', 'AgentPool']
 @pulumi.input_type
 class AgentPoolArgs:
     def __init__(__self__, *,
+                 agent_pool_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  count: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  os: pulumi.Input[Optional[Union[_builtins.str, 'OS']]] = None,
@@ -33,9 +33,9 @@ class AgentPoolArgs:
         """
         The set of arguments for constructing a AgentPool resource.
 
+        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[_builtins.int] count: The count of agent machine
         :param pulumi.Input[_builtins.str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[Union[_builtins.str, 'OS']] os: The OS of agent machine
@@ -43,10 +43,9 @@ class AgentPoolArgs:
         :param pulumi.Input[_builtins.str] tier: The Tier of agent machine
         :param pulumi.Input[_builtins.str] virtual_network_subnet_resource_id: The Virtual Network Subnet Resource Id of the agent machine
         """
+        pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if count is not None:
             pulumi.set(__self__, "count", count)
         if location is not None:
@@ -59,6 +58,18 @@ class AgentPoolArgs:
             pulumi.set(__self__, "tier", tier)
         if virtual_network_subnet_resource_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_resource_id", virtual_network_subnet_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -83,18 +94,6 @@ class AgentPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the agent pool.
-        """
-        return pulumi.get(self, "agent_pool_name")
-
-    @agent_pool_name.setter
-    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +253,8 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
+            if agent_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_pool_name'")
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["count"] = count
             __props__.__dict__["location"] = location

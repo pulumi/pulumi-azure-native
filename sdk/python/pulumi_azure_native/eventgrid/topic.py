@@ -23,6 +23,7 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_name: pulumi.Input[_builtins.str],
                  data_residency_boundary: pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_type_info: pulumi.Input[Optional['EventTypeInfoArgs']] = None,
@@ -33,12 +34,12 @@ class TopicArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[_builtins.str] topic_name: Name of the topic.
         :param pulumi.Input[Union[_builtins.str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
         :param pulumi.Input[_builtins.bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
         :param pulumi.Input['EventTypeInfoArgs'] event_type_info: Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
@@ -52,9 +53,9 @@ class TopicArgs:
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
-        :param pulumi.Input[_builtins.str] topic_name: Name of the topic.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if data_residency_boundary is not None:
             pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
         if disable_local_auth is None:
@@ -83,8 +84,6 @@ class TopicArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -97,6 +96,18 @@ class TopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataResidencyBoundary")
@@ -232,18 +243,6 @@ class TopicArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the topic.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_name", value)
-
 
 @pulumi.type_token("azure-native:eventgrid:Topic")
 class Topic(pulumi.CustomResource):
@@ -362,6 +361,8 @@ class Topic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if topic_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["endpoint"] = None

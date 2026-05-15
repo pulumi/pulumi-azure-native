@@ -22,9 +22,9 @@ __all__ = ['ApplicationDefinitionArgs', 'ApplicationDefinition']
 @pulumi.input_type
 class ApplicationDefinitionArgs:
     def __init__(__self__, *,
+                 application_definition_name: pulumi.Input[_builtins.str],
                  lock_level: pulumi.Input['ApplicationLockLevel'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]] = None,
                  authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]] = None,
                  create_ui_definition: Optional[Any] = None,
@@ -46,9 +46,9 @@ class ApplicationDefinitionArgs:
         """
         The set of arguments for constructing a ApplicationDefinition resource.
 
+        :param pulumi.Input[_builtins.str] application_definition_name: The name of the managed application definition.
         :param pulumi.Input['ApplicationLockLevel'] lock_level: The managed application lock level.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] application_definition_name: The name of the managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]] authorizations: The managed application provider authorizations.
         :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
@@ -68,10 +68,9 @@ class ApplicationDefinitionArgs:
         :param pulumi.Input[_builtins.str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "application_definition_name", application_definition_name)
         pulumi.set(__self__, "lock_level", lock_level)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if application_definition_name is not None:
-            pulumi.set(__self__, "application_definition_name", application_definition_name)
         if artifacts is not None:
             pulumi.set(__self__, "artifacts", artifacts)
         if authorizations is not None:
@@ -110,6 +109,18 @@ class ApplicationDefinitionArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="applicationDefinitionName")
+    def application_definition_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the managed application definition.
+        """
+        return pulumi.get(self, "application_definition_name")
+
+    @application_definition_name.setter
+    def application_definition_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_definition_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="lockLevel")
     def lock_level(self) -> pulumi.Input['ApplicationLockLevel']:
         """
@@ -132,18 +143,6 @@ class ApplicationDefinitionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationDefinitionName")
-    def application_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the managed application definition.
-        """
-        return pulumi.get(self, "application_definition_name")
-
-    @application_definition_name.setter
-    def application_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -481,6 +480,8 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationDefinitionArgs.__new__(ApplicationDefinitionArgs)
 
+            if application_definition_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_definition_name'")
             __props__.__dict__["application_definition_name"] = application_definition_name
             __props__.__dict__["artifacts"] = artifacts
             __props__.__dict__["authorizations"] = authorizations

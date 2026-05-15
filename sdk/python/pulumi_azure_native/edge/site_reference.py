@@ -23,22 +23,21 @@ class SiteReferenceArgs:
     def __init__(__self__, *,
                  context_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SiteReferencePropertiesArgs']] = None,
-                 site_reference_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 site_reference_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['SiteReferencePropertiesArgs']] = None):
         """
         The set of arguments for constructing a SiteReference resource.
 
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SiteReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] site_reference_name: The name of the SiteReference
+        :param pulumi.Input['SiteReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "context_name", context_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_reference_name", site_reference_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if site_reference_name is not None:
-            pulumi.set(__self__, "site_reference_name", site_reference_name)
 
     @_builtins.property
     @pulumi.getter(name="contextName")
@@ -65,6 +64,18 @@ class SiteReferenceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="siteReferenceName")
+    def site_reference_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SiteReference
+        """
+        return pulumi.get(self, "site_reference_name")
+
+    @site_reference_name.setter
+    def site_reference_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_reference_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SiteReferencePropertiesArgs']]:
         """
@@ -75,18 +86,6 @@ class SiteReferenceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SiteReferencePropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteReferenceName")
-    def site_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the SiteReference
-        """
-        return pulumi.get(self, "site_reference_name")
-
-    @site_reference_name.setter
-    def site_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_reference_name", value)
 
 
 @pulumi.type_token("azure-native:edge:SiteReference")
@@ -164,6 +163,8 @@ class SiteReference(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_reference_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_reference_name'")
             __props__.__dict__["site_reference_name"] = site_reference_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

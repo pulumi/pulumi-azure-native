@@ -22,9 +22,9 @@ class EnclaveConnectionArgs:
     def __init__(__self__, *,
                  community_resource_id: pulumi.Input[_builtins.str],
                  destination_endpoint_id: pulumi.Input[_builtins.str],
+                 enclave_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 enclave_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  source_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -33,19 +33,18 @@ class EnclaveConnectionArgs:
 
         :param pulumi.Input[_builtins.str] community_resource_id: Community Resource Id.
         :param pulumi.Input[_builtins.str] destination_endpoint_id: Destination Endpoint Resource Id.
+        :param pulumi.Input[_builtins.str] enclave_connection_name: The name of the Enclave Connection Resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source_resource_id: Source Resource Id.
-        :param pulumi.Input[_builtins.str] enclave_connection_name: The name of the Enclave Connection Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] source_cidr: Source CIDR.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "community_resource_id", community_resource_id)
         pulumi.set(__self__, "destination_endpoint_id", destination_endpoint_id)
+        pulumi.set(__self__, "enclave_connection_name", enclave_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if enclave_connection_name is not None:
-            pulumi.set(__self__, "enclave_connection_name", enclave_connection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if source_cidr is not None:
@@ -78,6 +77,18 @@ class EnclaveConnectionArgs:
         pulumi.set(self, "destination_endpoint_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="enclaveConnectionName")
+    def enclave_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Enclave Connection Resource
+        """
+        return pulumi.get(self, "enclave_connection_name")
+
+    @enclave_connection_name.setter
+    def enclave_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "enclave_connection_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,18 +111,6 @@ class EnclaveConnectionArgs:
     @source_resource_id.setter
     def source_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enclaveConnectionName")
-    def enclave_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Enclave Connection Resource
-        """
-        return pulumi.get(self, "enclave_connection_name")
-
-    @enclave_connection_name.setter
-    def enclave_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "enclave_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,6 +235,8 @@ class EnclaveConnection(pulumi.CustomResource):
             if destination_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_endpoint_id'")
             __props__.__dict__["destination_endpoint_id"] = destination_endpoint_id
+            if enclave_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'enclave_connection_name'")
             __props__.__dict__["enclave_connection_name"] = enclave_connection_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

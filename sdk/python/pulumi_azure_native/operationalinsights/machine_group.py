@@ -24,11 +24,11 @@ class MachineGroupArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
+                 machine_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  count: pulumi.Input[Optional[_builtins.int]] = None,
                  group_type: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]] = None,
-                 machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  machines: pulumi.Input[Optional[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
         """
         The set of arguments for constructing a MachineGroup resource.
@@ -36,23 +36,22 @@ class MachineGroupArgs:
         :param pulumi.Input[_builtins.str] display_name: User defined name for the group
         :param pulumi.Input[_builtins.str] kind: Additional resource type qualifier.
                Expected value is 'machineGroup'.
+        :param pulumi.Input[_builtins.str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group name within the specified subscriptionId.
         :param pulumi.Input[_builtins.str] workspace_name: OMS workspace containing the resources of interest.
         :param pulumi.Input[_builtins.int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         :param pulumi.Input[Union[_builtins.str, 'MachineGroupType']] group_type: Type of the machine group
-        :param pulumi.Input[_builtins.str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "kind", 'machineGroup')
+        pulumi.set(__self__, "machine_group_name", machine_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if count is not None:
             pulumi.set(__self__, "count", count)
         if group_type is not None:
             pulumi.set(__self__, "group_type", group_type)
-        if machine_group_name is not None:
-            pulumi.set(__self__, "machine_group_name", machine_group_name)
         if machines is not None:
             pulumi.set(__self__, "machines", machines)
 
@@ -80,6 +79,18 @@ class MachineGroupArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="machineGroupName")
+    def machine_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Machine Group resource name.
+        """
+        return pulumi.get(self, "machine_group_name")
+
+    @machine_group_name.setter
+    def machine_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "machine_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -128,18 +139,6 @@ class MachineGroupArgs:
     @group_type.setter
     def group_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]]):
         pulumi.set(self, "group_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="machineGroupName")
-    def machine_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Machine Group resource name.
-        """
-        return pulumi.get(self, "machine_group_name")
-
-    @machine_group_name.setter
-    def machine_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "machine_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -239,6 +238,8 @@ class MachineGroup(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'machineGroup'
+            if machine_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'machine_group_name'")
             __props__.__dict__["machine_group_name"] = machine_group_name
             __props__.__dict__["machines"] = machines
             if resource_group_name is None and not opts.urn:

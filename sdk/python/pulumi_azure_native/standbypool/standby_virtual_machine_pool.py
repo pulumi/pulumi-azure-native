@@ -23,24 +23,25 @@ __all__ = ['StandbyVirtualMachinePoolArgs', 'StandbyVirtualMachinePool']
 class StandbyVirtualMachinePoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 standby_virtual_machine_pool_name: pulumi.Input[_builtins.str],
                  virtual_machine_state: pulumi.Input[Union[_builtins.str, 'VirtualMachineState']],
                  attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  elasticity_profile: pulumi.Input[Optional['StandbyVirtualMachinePoolElasticityProfileArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 standby_virtual_machine_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StandbyVirtualMachinePool resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] standby_virtual_machine_pool_name: Name of the standby virtual machine pool
         :param pulumi.Input[Union[_builtins.str, 'VirtualMachineState']] virtual_machine_state: Specifies the desired state of virtual machines in the pool.
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         :param pulumi.Input['StandbyVirtualMachinePoolElasticityProfileArgs'] elasticity_profile: Specifies the elasticity profile of the standby virtual machine pools.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] standby_virtual_machine_pool_name: Name of the standby virtual machine pool
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "standby_virtual_machine_pool_name", standby_virtual_machine_pool_name)
         pulumi.set(__self__, "virtual_machine_state", virtual_machine_state)
         if attached_virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "attached_virtual_machine_scale_set_id", attached_virtual_machine_scale_set_id)
@@ -48,8 +49,6 @@ class StandbyVirtualMachinePoolArgs:
             pulumi.set(__self__, "elasticity_profile", elasticity_profile)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if standby_virtual_machine_pool_name is not None:
-            pulumi.set(__self__, "standby_virtual_machine_pool_name", standby_virtual_machine_pool_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +63,18 @@ class StandbyVirtualMachinePoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standbyVirtualMachinePoolName")
+    def standby_virtual_machine_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the standby virtual machine pool
+        """
+        return pulumi.get(self, "standby_virtual_machine_pool_name")
+
+    @standby_virtual_machine_pool_name.setter
+    def standby_virtual_machine_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "standby_virtual_machine_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineState")
@@ -112,18 +123,6 @@ class StandbyVirtualMachinePoolArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="standbyVirtualMachinePoolName")
-    def standby_virtual_machine_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the standby virtual machine pool
-        """
-        return pulumi.get(self, "standby_virtual_machine_pool_name")
-
-    @standby_virtual_machine_pool_name.setter
-    def standby_virtual_machine_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "standby_virtual_machine_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -221,6 +220,8 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if standby_virtual_machine_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'standby_virtual_machine_pool_name'")
             __props__.__dict__["standby_virtual_machine_pool_name"] = standby_virtual_machine_pool_name
             __props__.__dict__["tags"] = tags
             if virtual_machine_state is None and not opts.urn:

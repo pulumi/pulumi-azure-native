@@ -19,27 +19,38 @@ __all__ = ['GatewayCertificateAuthorityArgs', 'GatewayCertificateAuthority']
 @pulumi.input_type
 class GatewayCertificateAuthorityArgs:
     def __init__(__self__, *,
+                 certificate_id: pulumi.Input[_builtins.str],
                  gateway_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_trusted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayCertificateAuthority resource.
 
+        :param pulumi.Input[_builtins.str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.bool] is_trusted: Determines whether certificate authority is trusted.
         """
+        pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
         if is_trusted is not None:
             pulumi.set(__self__, "is_trusted", is_trusted)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the certificate entity. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
@@ -76,18 +87,6 @@ class GatewayCertificateAuthorityArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the certificate entity. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "certificate_id")
-
-    @certificate_id.setter
-    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isTrusted")
@@ -173,6 +172,8 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayCertificateAuthorityArgs.__new__(GatewayCertificateAuthorityArgs)
 
+            if certificate_id is None and not opts.urn:
+                raise TypeError("Missing required property 'certificate_id'")
             __props__.__dict__["certificate_id"] = certificate_id
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")

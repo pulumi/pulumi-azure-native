@@ -23,6 +23,7 @@ __all__ = ['SqlPoolArgs', 'SqlPool']
 class SqlPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 sql_pool_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  collation: pulumi.Input[Optional[_builtins.str]] = None,
                  create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
@@ -34,13 +35,13 @@ class SqlPoolArgs:
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
                  source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlPool resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] sql_pool_name: SQL pool name
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] collation: Collation mode
         :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Specifies the mode of sql pool creation.
@@ -60,11 +61,11 @@ class SqlPoolArgs:
         :param pulumi.Input['SkuArgs'] sku: SQL pool SKU
         :param pulumi.Input[_builtins.str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[_builtins.str] source_database_id: Source database to create from
-        :param pulumi.Input[_builtins.str] sql_pool_name: SQL pool name
         :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if collation is None:
             collation = ''
@@ -88,8 +89,6 @@ class SqlPoolArgs:
             pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
             pulumi.set(__self__, "source_database_id", source_database_id)
-        if sql_pool_name is not None:
-            pulumi.set(__self__, "sql_pool_name", sql_pool_name)
         if storage_account_type is None:
             storage_account_type = 'GRS'
         if storage_account_type is not None:
@@ -108,6 +107,18 @@ class SqlPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlPoolName")
+    def sql_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        SQL pool name
+        """
+        return pulumi.get(self, "sql_pool_name")
+
+    @sql_pool_name.setter
+    def sql_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -248,18 +259,6 @@ class SqlPoolArgs:
     @source_database_id.setter
     def source_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlPoolName")
-    def sql_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        SQL pool name
-        """
-        return pulumi.get(self, "sql_pool_name")
-
-    @sql_pool_name.setter
-    def sql_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sql_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
@@ -410,6 +409,8 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
+            if sql_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sql_pool_name'")
             __props__.__dict__["sql_pool_name"] = sql_pool_name
             if storage_account_type is None:
                 storage_account_type = 'GRS'

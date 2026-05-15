@@ -24,26 +24,27 @@ class RuleArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[_builtins.str],
                  rule_set_name: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]] = None,
                  conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
                  match_processing_behavior: pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
-                 order: pulumi.Input[Optional[_builtins.int]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Rule resource.
 
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the delivery rule which is unique within the endpoint.
         :param pulumi.Input[_builtins.str] rule_set_name: Name of the rule set under the profile which is unique globally.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
         :param pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         :param pulumi.Input[_builtins.int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the delivery rule which is unique within the endpoint.
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "rule_set_name", rule_set_name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -55,8 +56,6 @@ class RuleArgs:
             pulumi.set(__self__, "match_processing_behavior", match_processing_behavior)
         if order is not None:
             pulumi.set(__self__, "order", order)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -81,6 +80,18 @@ class RuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the delivery rule which is unique within the endpoint.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
@@ -141,18 +152,6 @@ class RuleArgs:
     @order.setter
     def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the delivery rule which is unique within the endpoint.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:Rule")
@@ -247,6 +246,8 @@ class Rule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")

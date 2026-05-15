@@ -23,30 +23,29 @@ __all__ = ['SnapshotArgs', 'Snapshot']
 class SnapshotArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 snapshot_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SnapshotPropertiesArgs']] = None,
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of the snapshot
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SnapshotPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] snapshot_name: Name of the snapshot
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "snapshot_name", snapshot_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,6 +60,18 @@ class SnapshotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the snapshot
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -97,18 +108,6 @@ class SnapshotArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SnapshotPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the snapshot
-        """
-        return pulumi.get(self, "snapshot_name")
-
-    @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,6 +198,8 @@ class Snapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if snapshot_name is None and not opts.urn:
+                raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

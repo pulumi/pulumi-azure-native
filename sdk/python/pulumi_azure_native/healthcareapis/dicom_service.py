@@ -22,10 +22,10 @@ __all__ = ['DicomServiceArgs', 'DicomService']
 @pulumi.input_type
 class DicomServiceArgs:
     def __init__(__self__, *,
+                 dicom_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  cors_configuration: pulumi.Input[Optional['CorsConfigurationArgs']] = None,
-                 dicom_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_data_partitions: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
                  identity: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']] = None,
@@ -35,10 +35,10 @@ class DicomServiceArgs:
         """
         The set of arguments for constructing a DicomService resource.
 
+        :param pulumi.Input[_builtins.str] dicom_service_name: The name of DICOM Service resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[_builtins.str] workspace_name: The name of workspace resource.
         :param pulumi.Input['CorsConfigurationArgs'] cors_configuration: Dicom Service Cors configuration.
-        :param pulumi.Input[_builtins.str] dicom_service_name: The name of DICOM Service resource.
         :param pulumi.Input[_builtins.bool] enable_data_partitions: If data partitions is enabled or not.
         :param pulumi.Input['EncryptionArgs'] encryption: The encryption settings of the DICOM service
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -46,12 +46,11 @@ class DicomServiceArgs:
         :param pulumi.Input['StorageConfigurationArgs'] storage_configuration: The configuration of external storage account
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "dicom_service_name", dicom_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
-        if dicom_service_name is not None:
-            pulumi.set(__self__, "dicom_service_name", dicom_service_name)
         if enable_data_partitions is not None:
             pulumi.set(__self__, "enable_data_partitions", enable_data_partitions)
         if encryption is not None:
@@ -64,6 +63,18 @@ class DicomServiceArgs:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dicomServiceName")
+    def dicom_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of DICOM Service resource.
+        """
+        return pulumi.get(self, "dicom_service_name")
+
+    @dicom_service_name.setter
+    def dicom_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dicom_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +111,6 @@ class DicomServiceArgs:
     @cors_configuration.setter
     def cors_configuration(self, value: pulumi.Input[Optional['CorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dicomServiceName")
-    def dicom_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of DICOM Service resource.
-        """
-        return pulumi.get(self, "dicom_service_name")
-
-    @dicom_service_name.setter
-    def dicom_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dicom_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDataPartitions")
@@ -273,6 +272,8 @@ class DicomService(pulumi.CustomResource):
             __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
 
             __props__.__dict__["cors_configuration"] = cors_configuration
+            if dicom_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dicom_service_name'")
             __props__.__dict__["dicom_service_name"] = dicom_service_name
             __props__.__dict__["enable_data_partitions"] = enable_data_partitions
             __props__.__dict__["encryption"] = encryption

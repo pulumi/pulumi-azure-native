@@ -20,23 +20,22 @@ __all__ = ['QueueArgs', 'Queue']
 class QueueArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 queue_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 queue_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[_builtins.str] queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A name-value pair that represents queue metadata.
-        :param pulumi.Input[_builtins.str] queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -49,6 +48,18 @@ class QueueArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "queue_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -73,18 +84,6 @@ class QueueArgs:
     @metadata.setter
     def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
-
-    @_builtins.property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
-        """
-        return pulumi.get(self, "queue_name")
-
-    @queue_name.setter
-    def queue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "queue_name", value)
 
 
 @pulumi.type_token("azure-native:storage:Queue")
@@ -155,6 +154,8 @@ class Queue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["metadata"] = metadata
+            if queue_name is None and not opts.urn:
+                raise TypeError("Missing required property 'queue_name'")
             __props__.__dict__["queue_name"] = queue_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

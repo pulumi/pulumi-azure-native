@@ -24,6 +24,7 @@ class GovernanceRuleArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  owner_source: pulumi.Input['GovernanceRuleOwnerSourceArgs'],
+                 rule_id: pulumi.Input[_builtins.str],
                  rule_priority: pulumi.Input[_builtins.int],
                  rule_type: pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']],
                  scope: pulumi.Input[_builtins.str],
@@ -34,13 +35,13 @@ class GovernanceRuleArgs:
                  include_member_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
-                 remediation_timeframe: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 remediation_timeframe: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GovernanceRule resource.
 
         :param pulumi.Input[_builtins.str] display_name: Display name of the governance rule
         :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        :param pulumi.Input[_builtins.str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         :param pulumi.Input[_builtins.int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         :param pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
         :param pulumi.Input[_builtins.str] scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -52,10 +53,10 @@ class GovernanceRuleArgs:
         :param pulumi.Input[_builtins.bool] is_disabled: Defines whether the rule is active/inactive
         :param pulumi.Input[_builtins.bool] is_grace_period: Defines whether there is a grace period on the governance rule
         :param pulumi.Input[_builtins.str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
-        :param pulumi.Input[_builtins.str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "owner_source", owner_source)
+        pulumi.set(__self__, "rule_id", rule_id)
         pulumi.set(__self__, "rule_priority", rule_priority)
         pulumi.set(__self__, "rule_type", rule_type)
         pulumi.set(__self__, "scope", scope)
@@ -74,8 +75,6 @@ class GovernanceRuleArgs:
             pulumi.set(__self__, "is_grace_period", is_grace_period)
         if remediation_timeframe is not None:
             pulumi.set(__self__, "remediation_timeframe", remediation_timeframe)
-        if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -100,6 +99,18 @@ class GovernanceRuleArgs:
     @owner_source.setter
     def owner_source(self, value: pulumi.Input['GovernanceRuleOwnerSourceArgs']):
         pulumi.set(self, "owner_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The governance rule key - unique key for the standard governance rule (GUID)
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rulePriority")
@@ -233,18 +244,6 @@ class GovernanceRuleArgs:
     def remediation_timeframe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_timeframe", value)
 
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The governance rule key - unique key for the standard governance rule (GUID)
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_id", value)
-
 
 @pulumi.type_token("azure-native:security:GovernanceRule")
 class GovernanceRule(pulumi.CustomResource):
@@ -353,6 +352,8 @@ class GovernanceRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'owner_source'")
             __props__.__dict__["owner_source"] = owner_source
             __props__.__dict__["remediation_timeframe"] = remediation_timeframe
+            if rule_id is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_id'")
             __props__.__dict__["rule_id"] = rule_id
             if rule_priority is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_priority'")

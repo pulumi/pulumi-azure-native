@@ -22,12 +22,12 @@ __all__ = ['FirmwareArgs', 'Firmware']
 @pulumi.input_type
 class FirmwareArgs:
     def __init__(__self__, *,
+                 firmware_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  file_name: pulumi.Input[Optional[_builtins.str]] = None,
                  file_size: pulumi.Input[Optional[_builtins.float]] = None,
-                 firmware_id: pulumi.Input[Optional[_builtins.str]] = None,
                  model: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
                  status_messages: pulumi.Input[Optional[Sequence[pulumi.Input['StatusMessageArgs']]]] = None,
@@ -36,18 +36,19 @@ class FirmwareArgs:
         """
         The set of arguments for constructing a Firmware resource.
 
+        :param pulumi.Input[_builtins.str] firmware_id: The id of the firmware.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the firmware analysis workspace.
         :param pulumi.Input[_builtins.str] description: User-specified description of the firmware.
         :param pulumi.Input[_builtins.str] file_name: File name for a firmware that user uploaded.
         :param pulumi.Input[_builtins.float] file_size: File size of the uploaded firmware image.
-        :param pulumi.Input[_builtins.str] firmware_id: The id of the firmware.
         :param pulumi.Input[_builtins.str] model: Firmware model.
         :param pulumi.Input[Union[_builtins.str, 'Status']] status: The status of firmware scan.
         :param pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]] status_messages: A list of errors or other messages generated during firmware analysis
         :param pulumi.Input[_builtins.str] vendor: Firmware vendor.
         :param pulumi.Input[_builtins.str] version: Firmware version.
         """
+        pulumi.set(__self__, "firmware_id", firmware_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
@@ -56,8 +57,6 @@ class FirmwareArgs:
             pulumi.set(__self__, "file_name", file_name)
         if file_size is not None:
             pulumi.set(__self__, "file_size", file_size)
-        if firmware_id is not None:
-            pulumi.set(__self__, "firmware_id", firmware_id)
         if model is not None:
             pulumi.set(__self__, "model", model)
         if status is None:
@@ -70,6 +69,18 @@ class FirmwareArgs:
             pulumi.set(__self__, "vendor", vendor)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="firmwareId")
+    def firmware_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The id of the firmware.
+        """
+        return pulumi.get(self, "firmware_id")
+
+    @firmware_id.setter
+    def firmware_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "firmware_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -130,18 +141,6 @@ class FirmwareArgs:
     @file_size.setter
     def file_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "file_size", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firmwareId")
-    def firmware_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The id of the firmware.
-        """
-        return pulumi.get(self, "firmware_id")
-
-    @firmware_id.setter
-    def firmware_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "firmware_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -296,6 +295,8 @@ class Firmware(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["file_name"] = file_name
             __props__.__dict__["file_size"] = file_size
+            if firmware_id is None and not opts.urn:
+                raise TypeError("Missing required property 'firmware_id'")
             __props__.__dict__["firmware_id"] = firmware_id
             __props__.__dict__["model"] = model
             if resource_group_name is None and not opts.urn:

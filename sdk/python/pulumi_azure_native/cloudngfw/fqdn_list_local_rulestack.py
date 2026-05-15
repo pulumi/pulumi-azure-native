@@ -22,29 +22,28 @@ class FqdnListLocalRulestackArgs:
     def __init__(__self__, *,
                  fqdn_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  local_rulestack_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FqdnListLocalRulestack resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdn_list: fqdn list
         :param pulumi.Input[_builtins.str] local_rulestack_name: LocalRulestack resource name
+        :param pulumi.Input[_builtins.str] name: fqdn list name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
         :param pulumi.Input[_builtins.str] description: fqdn object description
-        :param pulumi.Input[_builtins.str] name: fqdn list name
         """
         pulumi.set(__self__, "fqdn_list", fqdn_list)
         pulumi.set(__self__, "local_rulestack_name", local_rulestack_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if audit_comment is not None:
             pulumi.set(__self__, "audit_comment", audit_comment)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="fqdnList")
@@ -69,6 +68,18 @@ class FqdnListLocalRulestackArgs:
     @local_rulestack_name.setter
     def local_rulestack_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "local_rulestack_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        fqdn list name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +116,6 @@ class FqdnListLocalRulestackArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        fqdn list name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:cloudngfw:FqdnListLocalRulestack")
@@ -201,6 +200,8 @@ class FqdnListLocalRulestack(pulumi.CustomResource):
             if local_rulestack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'local_rulestack_name'")
             __props__.__dict__["local_rulestack_name"] = local_rulestack_name
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

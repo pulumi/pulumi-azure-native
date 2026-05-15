@@ -23,27 +23,26 @@ __all__ = ['ModelingArgs', 'Modeling']
 class ModelingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 modeling_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 modeling_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ModelingResourcePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Modeling resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the RecommendationsService Account resource.
+        :param pulumi.Input[_builtins.str] modeling_name: The name of the Modeling resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] modeling_name: The name of the Modeling resource.
         :param pulumi.Input['ModelingResourcePropertiesArgs'] properties: Modeling resource properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "modeling_name", modeling_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if modeling_name is not None:
-            pulumi.set(__self__, "modeling_name", modeling_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -60,6 +59,18 @@ class ModelingArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelingName")
+    def modeling_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Modeling resource.
+        """
+        return pulumi.get(self, "modeling_name")
+
+    @modeling_name.setter
+    def modeling_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "modeling_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,18 +95,6 @@ class ModelingArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="modelingName")
-    def modeling_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Modeling resource.
-        """
-        return pulumi.get(self, "modeling_name")
-
-    @modeling_name.setter
-    def modeling_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "modeling_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class Modeling(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["location"] = location
+            if modeling_name is None and not opts.urn:
+                raise TypeError("Missing required property 'modeling_name'")
             __props__.__dict__["modeling_name"] = modeling_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

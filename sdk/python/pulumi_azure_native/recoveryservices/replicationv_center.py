@@ -24,24 +24,23 @@ class ReplicationvCenterArgs:
                  fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['AddVCenterRequestPropertiesArgs']] = None,
-                 vcenter_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vcenter_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['AddVCenterRequestPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationvCenter resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
-        :param pulumi.Input['AddVCenterRequestPropertiesArgs'] properties: The properties of an add vCenter request.
         :param pulumi.Input[_builtins.str] vcenter_name: vcenter name.
+        :param pulumi.Input['AddVCenterRequestPropertiesArgs'] properties: The properties of an add vCenter request.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "vcenter_name", vcenter_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if vcenter_name is not None:
-            pulumi.set(__self__, "vcenter_name", vcenter_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -80,6 +79,18 @@ class ReplicationvCenterArgs:
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="vcenterName")
+    def vcenter_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        vcenter name.
+        """
+        return pulumi.get(self, "vcenter_name")
+
+    @vcenter_name.setter
+    def vcenter_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vcenter_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['AddVCenterRequestPropertiesArgs']]:
         """
@@ -90,18 +101,6 @@ class ReplicationvCenterArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['AddVCenterRequestPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vcenterName")
-    def vcenter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        vcenter name.
-        """
-        return pulumi.get(self, "vcenter_name")
-
-    @vcenter_name.setter
-    def vcenter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vcenter_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationvCenter")
@@ -185,6 +184,8 @@ class ReplicationvCenter(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            if vcenter_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vcenter_name'")
             __props__.__dict__["vcenter_name"] = vcenter_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None

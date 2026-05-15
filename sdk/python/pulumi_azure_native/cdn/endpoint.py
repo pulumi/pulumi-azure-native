@@ -22,13 +22,13 @@ __all__ = ['EndpointArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[_builtins.str],
                  origins: pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  content_types_to_compress: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_origin_group: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  delivery_policy: pulumi.Input[Optional['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input['GeoFilterArgs']]]] = None,
                  is_compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_http_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -46,13 +46,13 @@ class EndpointArgs:
         """
         The set of arguments for constructing a Endpoint resource.
 
+        :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]] origins: The source of the content being delivered via CDN.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param pulumi.Input['ResourceReferenceArgs'] default_origin_group: A reference to the origin group.
         :param pulumi.Input['EndpointPropertiesUpdateParametersDeliveryPolicyArgs'] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[Sequence[pulumi.Input['GeoFilterArgs']]] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
@@ -68,6 +68,7 @@ class EndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UrlSigningKeyArgs']]] url_signing_keys: List of keys used to validate the signed URL hashes.
         :param pulumi.Input['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs'] web_application_firewall_policy_link: Defines the Web Application Firewall policy for the endpoint (if applicable)
         """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "origins", origins)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -77,8 +78,6 @@ class EndpointArgs:
             pulumi.set(__self__, "default_origin_group", default_origin_group)
         if delivery_policy is not None:
             pulumi.set(__self__, "delivery_policy", delivery_policy)
-        if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if geo_filters is not None:
             pulumi.set(__self__, "geo_filters", geo_filters)
         if is_compression_enabled is not None:
@@ -113,6 +112,18 @@ class EndpointArgs:
             pulumi.set(__self__, "url_signing_keys", url_signing_keys)
         if web_application_firewall_policy_link is not None:
             pulumi.set(__self__, "web_application_firewall_policy_link", web_application_firewall_policy_link)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the endpoint under the profile which is unique globally.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -185,18 +196,6 @@ class EndpointArgs:
     @delivery_policy.setter
     def delivery_policy(self, value: pulumi.Input[Optional['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']]):
         pulumi.set(self, "delivery_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the endpoint under the profile which is unique globally.
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="geoFilters")
@@ -489,6 +488,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["content_types_to_compress"] = content_types_to_compress
             __props__.__dict__["default_origin_group"] = default_origin_group
             __props__.__dict__["delivery_policy"] = delivery_policy
+            if endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["geo_filters"] = geo_filters
             __props__.__dict__["is_compression_enabled"] = is_compression_enabled

@@ -21,29 +21,40 @@ __all__ = ['PrivateAccessArgs', 'PrivateAccess']
 @pulumi.input_type
 class PrivateAccessArgs:
     def __init__(__self__, *,
+                 private_access_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_access_name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessOption']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateAccess resource.
 
+        :param pulumi.Input[_builtins.str] private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[_builtins.str] resource_group_name: String that represents an Azure resource group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOption']] public_network_access: Public Network Access Control for PrivateAccess resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "private_access_name", private_access_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if private_access_name is not None:
-            pulumi.set(__self__, "private_access_name", private_access_name)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="privateAccessName")
+    def private_access_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        """
+        return pulumi.get(self, "private_access_name")
+
+    @private_access_name.setter
+    def private_access_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_access_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +79,6 @@ class PrivateAccessArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateAccessName")
-    def private_access_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-        """
-        return pulumi.get(self, "private_access_name")
-
-    @private_access_name.setter
-    def private_access_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_access_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
@@ -178,6 +177,8 @@ class PrivateAccess(pulumi.CustomResource):
             __props__ = PrivateAccessArgs.__new__(PrivateAccessArgs)
 
             __props__.__dict__["location"] = location
+            if private_access_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_access_name'")
             __props__.__dict__["private_access_name"] = private_access_name
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:

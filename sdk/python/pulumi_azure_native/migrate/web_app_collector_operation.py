@@ -21,28 +21,39 @@ __all__ = ['WebAppCollectorOperationArgs', 'WebAppCollectorOperation']
 @pulumi.input_type
 class WebAppCollectorOperationArgs:
     def __init__(__self__, *,
+                 collector_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
-                 collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCollectorOperation resource.
 
+        :param pulumi.Input[_builtins.str] collector_name: Web app collector ARM name.
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CollectorAgentPropertiesBaseArgs'] agent_properties: Gets or sets the collector agent properties.
-        :param pulumi.Input[_builtins.str] collector_name: Web app collector ARM name.
         :param pulumi.Input[_builtins.str] discovery_site_id: Gets the discovery site id.
         """
+        pulumi.set(__self__, "collector_name", collector_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if agent_properties is not None:
             pulumi.set(__self__, "agent_properties", agent_properties)
-        if collector_name is not None:
-            pulumi.set(__self__, "collector_name", collector_name)
         if discovery_site_id is not None:
             pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+
+    @_builtins.property
+    @pulumi.getter(name="collectorName")
+    def collector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Web app collector ARM name.
+        """
+        return pulumi.get(self, "collector_name")
+
+    @collector_name.setter
+    def collector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -79,18 +90,6 @@ class WebAppCollectorOperationArgs:
     @agent_properties.setter
     def agent_properties(self, value: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]):
         pulumi.set(self, "agent_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="collectorName")
-    def collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Web app collector ARM name.
-        """
-        return pulumi.get(self, "collector_name")
-
-    @collector_name.setter
-    def collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
@@ -177,6 +176,8 @@ class WebAppCollectorOperation(pulumi.CustomResource):
             __props__ = WebAppCollectorOperationArgs.__new__(WebAppCollectorOperationArgs)
 
             __props__.__dict__["agent_properties"] = agent_properties
+            if collector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'collector_name'")
             __props__.__dict__["collector_name"] = collector_name
             __props__.__dict__["discovery_site_id"] = discovery_site_id
             if project_name is None and not opts.urn:

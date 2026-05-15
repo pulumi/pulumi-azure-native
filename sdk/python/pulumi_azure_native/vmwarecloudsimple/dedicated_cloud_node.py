@@ -22,13 +22,13 @@ __all__ = ['DedicatedCloudNodeArgs', 'DedicatedCloudNode']
 class DedicatedCloudNodeArgs:
     def __init__(__self__, *,
                  availability_zone_id: pulumi.Input[_builtins.str],
+                 dedicated_cloud_node_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  nodes_count: pulumi.Input[_builtins.int],
                  placement_group_id: pulumi.Input[_builtins.str],
                  purchase_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dedicated_cloud_node_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -36,26 +36,25 @@ class DedicatedCloudNodeArgs:
         The set of arguments for constructing a DedicatedCloudNode resource.
 
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability Zone id, e.g. "az1"
+        :param pulumi.Input[_builtins.str] dedicated_cloud_node_name: dedicated cloud node name
         :param pulumi.Input[_builtins.str] id: SKU's id
         :param pulumi.Input[_builtins.str] name: SKU's name
         :param pulumi.Input[_builtins.int] nodes_count: count of nodes to create
         :param pulumi.Input[_builtins.str] placement_group_id: Placement Group id, e.g. "n1"
         :param pulumi.Input[_builtins.str] purchase_id: purchase id
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group
-        :param pulumi.Input[_builtins.str] dedicated_cloud_node_name: dedicated cloud node name
         :param pulumi.Input[_builtins.str] location: Azure region
         :param pulumi.Input['SkuArgs'] sku: Dedicated Cloud Nodes SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Dedicated Cloud Nodes tags
         """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        pulumi.set(__self__, "dedicated_cloud_node_name", dedicated_cloud_node_name)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "nodes_count", nodes_count)
         pulumi.set(__self__, "placement_group_id", placement_group_id)
         pulumi.set(__self__, "purchase_id", purchase_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if dedicated_cloud_node_name is not None:
-            pulumi.set(__self__, "dedicated_cloud_node_name", dedicated_cloud_node_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -74,6 +73,18 @@ class DedicatedCloudNodeArgs:
     @availability_zone_id.setter
     def availability_zone_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "availability_zone_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedCloudNodeName")
+    def dedicated_cloud_node_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        dedicated cloud node name
+        """
+        return pulumi.get(self, "dedicated_cloud_node_name")
+
+    @dedicated_cloud_node_name.setter
+    def dedicated_cloud_node_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dedicated_cloud_node_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -146,18 +157,6 @@ class DedicatedCloudNodeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dedicatedCloudNodeName")
-    def dedicated_cloud_node_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        dedicated cloud node name
-        """
-        return pulumi.get(self, "dedicated_cloud_node_name")
-
-    @dedicated_cloud_node_name.setter
-    def dedicated_cloud_node_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dedicated_cloud_node_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -284,6 +283,8 @@ class DedicatedCloudNode(pulumi.CustomResource):
             if availability_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone_id'")
             __props__.__dict__["availability_zone_id"] = availability_zone_id
+            if dedicated_cloud_node_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dedicated_cloud_node_name'")
             __props__.__dict__["dedicated_cloud_node_name"] = dedicated_cloud_node_name
             if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")

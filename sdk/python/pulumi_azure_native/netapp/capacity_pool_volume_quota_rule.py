@@ -25,12 +25,12 @@ class CapacityPoolVolumeQuotaRuleArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
+                 volume_quota_rule_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  quota_size_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
                  quota_target: pulumi.Input[Optional[_builtins.str]] = None,
                  quota_type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_quota_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityPoolVolumeQuotaRule resource.
 
@@ -38,17 +38,18 @@ class CapacityPoolVolumeQuotaRuleArgs:
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] volume_name: The name of the volume
+        :param pulumi.Input[_builtins.str] volume_quota_rule_name: The name of volume quota rule
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.float] quota_size_in_ki_bs: Size of quota
         :param pulumi.Input[_builtins.str] quota_target: UserID/GroupID/SID based on the quota target type. UserID and groupID can be found by running ‘id’ or ‘getent’ command for the user or group and SID can be found by running <wmic useraccount where name='user-name' get sid>
         :param pulumi.Input[Union[_builtins.str, 'Type']] quota_type: Type of quota
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] volume_quota_rule_name: The name of volume quota rule
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "volume_name", volume_name)
+        pulumi.set(__self__, "volume_quota_rule_name", volume_quota_rule_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if quota_size_in_ki_bs is not None:
@@ -59,8 +60,6 @@ class CapacityPoolVolumeQuotaRuleArgs:
             pulumi.set(__self__, "quota_type", quota_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if volume_quota_rule_name is not None:
-            pulumi.set(__self__, "volume_quota_rule_name", volume_quota_rule_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -109,6 +108,18 @@ class CapacityPoolVolumeQuotaRuleArgs:
     @volume_name.setter
     def volume_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "volume_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeQuotaRuleName")
+    def volume_quota_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of volume quota rule
+        """
+        return pulumi.get(self, "volume_quota_rule_name")
+
+    @volume_quota_rule_name.setter
+    def volume_quota_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_quota_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -169,18 +180,6 @@ class CapacityPoolVolumeQuotaRuleArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeQuotaRuleName")
-    def volume_quota_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of volume quota rule
-        """
-        return pulumi.get(self, "volume_quota_rule_name")
-
-    @volume_quota_rule_name.setter
-    def volume_quota_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "volume_quota_rule_name", value)
 
 
 @pulumi.type_token("azure-native:netapp:CapacityPoolVolumeQuotaRule")
@@ -286,6 +285,8 @@ class CapacityPoolVolumeQuotaRule(pulumi.CustomResource):
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
+            if volume_quota_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_quota_rule_name'")
             __props__.__dict__["volume_quota_rule_name"] = volume_quota_rule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

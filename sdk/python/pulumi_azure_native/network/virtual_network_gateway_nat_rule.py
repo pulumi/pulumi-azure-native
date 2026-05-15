@@ -22,6 +22,7 @@ __all__ = ['VirtualNetworkGatewayNatRuleInitArgs', 'VirtualNetworkGatewayNatRule
 @pulumi.input_type
 class VirtualNetworkGatewayNatRuleInitArgs:
     def __init__(__self__, *,
+                 nat_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_gateway_name: pulumi.Input[_builtins.str],
                  external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
@@ -30,11 +31,11 @@ class VirtualNetworkGatewayNatRuleInitArgs:
                  ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
 
+        :param pulumi.Input[_builtins.str] nat_rule_name: The name of the nat rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the Virtual Network Gateway.
         :param pulumi.Input[_builtins.str] virtual_network_gateway_name: The name of the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] external_mappings: The private IP address external mapping for NAT.
@@ -43,9 +44,9 @@ class VirtualNetworkGatewayNatRuleInitArgs:
         :param pulumi.Input[_builtins.str] ip_configuration_id: The IP Configuration ID this NAT rule applies to.
         :param pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']] mode: The Source NAT direction of a VPN NAT.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[_builtins.str] nat_rule_name: The name of the nat rule.
         :param pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
         """
+        pulumi.set(__self__, "nat_rule_name", nat_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network_gateway_name", virtual_network_gateway_name)
         if external_mappings is not None:
@@ -60,10 +61,20 @@ class VirtualNetworkGatewayNatRuleInitArgs:
             pulumi.set(__self__, "mode", mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if nat_rule_name is not None:
-            pulumi.set(__self__, "nat_rule_name", nat_rule_name)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="natRuleName")
+    def nat_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the nat rule.
+        """
+        return pulumi.get(self, "nat_rule_name")
+
+    @nat_rule_name.setter
+    def nat_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "nat_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -160,18 +171,6 @@ class VirtualNetworkGatewayNatRuleInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="natRuleName")
-    def nat_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the nat rule.
-        """
-        return pulumi.get(self, "nat_rule_name")
-
-    @nat_rule_name.setter
-    def nat_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "nat_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -278,6 +277,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             __props__.__dict__["ip_configuration_id"] = ip_configuration_id
             __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
+            if nat_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'nat_rule_name'")
             __props__.__dict__["nat_rule_name"] = nat_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

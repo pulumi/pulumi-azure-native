@@ -22,10 +22,10 @@ __all__ = ['ActionGroupInitArgs', 'ActionGroup']
 @pulumi.input_type
 class ActionGroupInitArgs:
     def __init__(__self__, *,
+                 action_group_name: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_short_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['ArmRoleReceiverArgs']]]] = None,
                  automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRunbookReceiverArgs']]]] = None,
                  azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]] = None,
@@ -44,10 +44,10 @@ class ActionGroupInitArgs:
         """
         The set of arguments for constructing a ActionGroup resource.
 
+        :param pulumi.Input[_builtins.str] action_group_name: The name of the action group.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] action_group_name: The name of the action group.
         :param pulumi.Input[Sequence[pulumi.Input['ArmRoleReceiverArgs']]] arm_role_receivers: The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRunbookReceiverArgs']]] automation_runbook_receivers: The list of AutomationRunbook receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this action group.
@@ -64,13 +64,12 @@ class ActionGroupInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
+        pulumi.set(__self__, "action_group_name", action_group_name)
         if enabled is None:
             enabled = True
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "group_short_name", group_short_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if action_group_name is not None:
-            pulumi.set(__self__, "action_group_name", action_group_name)
         if arm_role_receivers is not None:
             pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
         if automation_runbook_receivers is not None:
@@ -101,6 +100,18 @@ class ActionGroupInitArgs:
             pulumi.set(__self__, "voice_receivers", voice_receivers)
         if webhook_receivers is not None:
             pulumi.set(__self__, "webhook_receivers", webhook_receivers)
+
+    @_builtins.property
+    @pulumi.getter(name="actionGroupName")
+    def action_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the action group.
+        """
+        return pulumi.get(self, "action_group_name")
+
+    @action_group_name.setter
+    def action_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -137,18 +148,6 @@ class ActionGroupInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="actionGroupName")
-    def action_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the action group.
-        """
-        return pulumi.get(self, "action_group_name")
-
-    @action_group_name.setter
-    def action_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "action_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="armRoleReceivers")
@@ -444,6 +443,8 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionGroupInitArgs.__new__(ActionGroupInitArgs)
 
+            if action_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'action_group_name'")
             __props__.__dict__["action_group_name"] = action_group_name
             __props__.__dict__["arm_role_receivers"] = arm_role_receivers
             __props__.__dict__["automation_runbook_receivers"] = automation_runbook_receivers

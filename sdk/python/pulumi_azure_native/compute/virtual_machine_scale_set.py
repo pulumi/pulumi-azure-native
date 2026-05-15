@@ -23,6 +23,7 @@ __all__ = ['VirtualMachineScaleSetArgs', 'VirtualMachineScaleSet']
 class VirtualMachineScaleSetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 vm_scale_set_name: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional['AdditionalCapabilitiesArgs']] = None,
                  automatic_repairs_policy: pulumi.Input[Optional['AutomaticRepairsPolicyArgs']] = None,
                  constrained_maximum_capacity: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -47,7 +48,6 @@ class VirtualMachineScaleSetArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  upgrade_policy: pulumi.Input[Optional['UpgradePolicyArgs']] = None,
                  virtual_machine_profile: pulumi.Input[Optional['VirtualMachineScaleSetVMProfileArgs']] = None,
-                 vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  zonal_platform_fault_domain_align_mode: pulumi.Input[Optional[Union[_builtins.str, 'ZonalPlatformFaultDomainAlignMode']]] = None,
                  zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -55,6 +55,7 @@ class VirtualMachineScaleSetArgs:
         The set of arguments for constructing a VirtualMachineScaleSet resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         :param pulumi.Input['AutomaticRepairsPolicyArgs'] automatic_repairs_policy: Policy for automatic repairs.
         :param pulumi.Input[_builtins.bool] constrained_maximum_capacity: Optional property which must either be set to True or omitted.
@@ -79,12 +80,12 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: The upgrade policy.
         :param pulumi.Input['VirtualMachineScaleSetVMProfileArgs'] virtual_machine_profile: The virtual machine profile.
-        :param pulumi.Input[_builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input[Union[_builtins.str, 'ZonalPlatformFaultDomainAlignMode']] zonal_platform_fault_domain_align_mode: Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
         :param pulumi.Input[_builtins.bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if automatic_repairs_policy is not None:
@@ -133,8 +134,6 @@ class VirtualMachineScaleSetArgs:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if virtual_machine_profile is not None:
             pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
-        if vm_scale_set_name is not None:
-            pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
         if zonal_platform_fault_domain_align_mode is not None:
             pulumi.set(__self__, "zonal_platform_fault_domain_align_mode", zonal_platform_fault_domain_align_mode)
         if zone_balance is not None:
@@ -153,6 +152,18 @@ class VirtualMachineScaleSetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmScaleSetName")
+    def vm_scale_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the VM scale set.
+        """
+        return pulumi.get(self, "vm_scale_set_name")
+
+    @vm_scale_set_name.setter
+    def vm_scale_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vm_scale_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
@@ -443,18 +454,6 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "virtual_machine_profile", value)
 
     @_builtins.property
-    @pulumi.getter(name="vmScaleSetName")
-    def vm_scale_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the VM scale set.
-        """
-        return pulumi.get(self, "vm_scale_set_name")
-
-    @vm_scale_set_name.setter
-    def vm_scale_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vm_scale_set_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="zonalPlatformFaultDomainAlignMode")
     def zonal_platform_fault_domain_align_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZonalPlatformFaultDomainAlignMode']]]:
         """
@@ -661,6 +660,8 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
+            if vm_scale_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
             __props__.__dict__["zonal_platform_fault_domain_align_mode"] = zonal_platform_fault_domain_align_mode
             __props__.__dict__["zone_balance"] = zone_balance

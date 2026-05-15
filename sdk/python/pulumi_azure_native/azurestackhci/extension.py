@@ -22,10 +22,10 @@ class ExtensionArgs:
     def __init__(__self__, *,
                  arc_setting_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
+                 extension_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,10 +37,10 @@ class ExtensionArgs:
 
         :param pulumi.Input[_builtins.str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
+        :param pulumi.Input[_builtins.str] extension_name: The name of the machine extension.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[_builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
-        :param pulumi.Input[_builtins.str] extension_name: The name of the machine extension.
         :param pulumi.Input[_builtins.str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param Any protected_settings: Protected settings (may contain secrets).
         :param pulumi.Input[_builtins.str] publisher: The name of the extension handler publisher.
@@ -50,13 +50,12 @@ class ExtensionArgs:
         """
         pulumi.set(__self__, "arc_setting_name", arc_setting_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "extension_name", extension_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if enable_automatic_upgrade is not None:
             pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
-        if extension_name is not None:
-            pulumi.set(__self__, "extension_name", extension_name)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
@@ -95,6 +94,18 @@ class ExtensionArgs:
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the machine extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "extension_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -129,18 +140,6 @@ class ExtensionArgs:
     @enable_automatic_upgrade.setter
     def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the machine extension.
-        """
-        return pulumi.get(self, "extension_name")
-
-    @extension_name.setter
-    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
@@ -315,6 +314,8 @@ class Extension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
+            if extension_name is None and not opts.urn:
+                raise TypeError("Missing required property 'extension_name'")
             __props__.__dict__["extension_name"] = extension_name
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["protected_settings"] = protected_settings

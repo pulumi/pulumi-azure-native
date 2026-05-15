@@ -22,8 +22,8 @@ __all__ = ['DevicePoolArgs', 'DevicePool']
 @pulumi.input_type
 class DevicePoolArgs:
     def __init__(__self__, *,
+                 device_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 device_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DevicePoolPropertiesArgs']] = None,
@@ -31,16 +31,15 @@ class DevicePoolArgs:
         """
         The set of arguments for constructing a DevicePool resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] device_pool_name: The name of the DevicePool
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['DevicePoolPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "device_pool_name", device_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if device_pool_name is not None:
-            pulumi.set(__self__, "device_pool_name", device_pool_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -49,6 +48,18 @@ class DevicePoolArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="devicePoolName")
+    def device_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the DevicePool
+        """
+        return pulumi.get(self, "device_pool_name")
+
+    @device_pool_name.setter
+    def device_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "device_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class DevicePoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="devicePoolName")
-    def device_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the DevicePool
-        """
-        return pulumi.get(self, "device_pool_name")
-
-    @device_pool_name.setter
-    def device_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "device_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +192,8 @@ class DevicePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DevicePoolArgs.__new__(DevicePoolArgs)
 
+            if device_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'device_pool_name'")
             __props__.__dict__["device_pool_name"] = device_pool_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

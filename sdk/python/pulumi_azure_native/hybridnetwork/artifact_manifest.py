@@ -22,35 +22,46 @@ __all__ = ['ArtifactManifestArgs', 'ArtifactManifest']
 @pulumi.input_type
 class ArtifactManifestArgs:
     def __init__(__self__, *,
+                 artifact_manifest_name: pulumi.Input[_builtins.str],
                  artifact_store_name: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 artifact_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ArtifactManifestPropertiesFormatArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ArtifactManifest resource.
 
+        :param pulumi.Input[_builtins.str] artifact_manifest_name: The name of the artifact manifest.
         :param pulumi.Input[_builtins.str] artifact_store_name: The name of the artifact store.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] artifact_manifest_name: The name of the artifact manifest.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ArtifactManifestPropertiesFormatArgs'] properties: Artifact manifest properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "artifact_manifest_name", artifact_manifest_name)
         pulumi.set(__self__, "artifact_store_name", artifact_store_name)
         pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if artifact_manifest_name is not None:
-            pulumi.set(__self__, "artifact_manifest_name", artifact_manifest_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactManifestName")
+    def artifact_manifest_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the artifact manifest.
+        """
+        return pulumi.get(self, "artifact_manifest_name")
+
+    @artifact_manifest_name.setter
+    def artifact_manifest_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "artifact_manifest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStoreName")
@@ -87,18 +98,6 @@ class ArtifactManifestArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="artifactManifestName")
-    def artifact_manifest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the artifact manifest.
-        """
-        return pulumi.get(self, "artifact_manifest_name")
-
-    @artifact_manifest_name.setter
-    def artifact_manifest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "artifact_manifest_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,6 +213,8 @@ class ArtifactManifest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArtifactManifestArgs.__new__(ArtifactManifestArgs)
 
+            if artifact_manifest_name is None and not opts.urn:
+                raise TypeError("Missing required property 'artifact_manifest_name'")
             __props__.__dict__["artifact_manifest_name"] = artifact_manifest_name
             if artifact_store_name is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_store_name'")

@@ -21,20 +21,19 @@ __all__ = ['ResourceManagementPrivateLinkArgs', 'ResourceManagementPrivateLink']
 class ResourceManagementPrivateLinkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 rmpl_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rmpl_name: pulumi.Input[_builtins.str],
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceManagementPrivateLink resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] location: the region to create private link association.
         :param pulumi.Input[_builtins.str] rmpl_name: The name of the resource management private link.
+        :param pulumi.Input[_builtins.str] location: the region to create private link association.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rmpl_name", rmpl_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if rmpl_name is not None:
-            pulumi.set(__self__, "rmpl_name", rmpl_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -49,6 +48,18 @@ class ResourceManagementPrivateLinkArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rmplName")
+    def rmpl_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the resource management private link.
+        """
+        return pulumi.get(self, "rmpl_name")
+
+    @rmpl_name.setter
+    def rmpl_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rmpl_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -59,18 +70,6 @@ class ResourceManagementPrivateLinkArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="rmplName")
-    def rmpl_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the resource management private link.
-        """
-        return pulumi.get(self, "rmpl_name")
-
-    @rmpl_name.setter
-    def rmpl_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rmpl_name", value)
 
 
 @pulumi.type_token("azure-native:authorization:ResourceManagementPrivateLink")
@@ -134,6 +133,8 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rmpl_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rmpl_name'")
             __props__.__dict__["rmpl_name"] = rmpl_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

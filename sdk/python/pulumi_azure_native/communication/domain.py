@@ -22,9 +22,9 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  domain_management: pulumi.Input[Union[_builtins.str, 'DomainManagement']],
+                 domain_name: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_engagement_tracking: pulumi.Input[Optional[Union[_builtins.str, 'UserEngagementTracking']]] = None):
@@ -32,18 +32,17 @@ class DomainArgs:
         The set of arguments for constructing a Domain resource.
 
         :param pulumi.Input[Union[_builtins.str, 'DomainManagement']] domain_management: Describes how a Domains resource is being managed.
+        :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UserEngagementTracking']] user_engagement_tracking: Describes whether user engagement tracking is enabled or disabled.
         """
         pulumi.set(__self__, "domain_management", domain_management)
+        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "email_service_name", email_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -62,6 +61,18 @@ class DomainArgs:
     @domain_management.setter
     def domain_management(self, value: pulumi.Input[Union[_builtins.str, 'DomainManagement']]):
         pulumi.set(self, "domain_management", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Domains resource.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emailServiceName")
@@ -86,18 +97,6 @@ class DomainArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Domains resource.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -220,6 +219,8 @@ class Domain(pulumi.CustomResource):
             if domain_management is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_management'")
             __props__.__dict__["domain_management"] = domain_management
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             if email_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'email_service_name'")

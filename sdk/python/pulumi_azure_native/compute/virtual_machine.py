@@ -23,6 +23,7 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 class VirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 vm_name: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional['AdditionalCapabilitiesArgs']] = None,
                  application_profile: pulumi.Input[Optional['ApplicationProfileArgs']] = None,
                  availability_set: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -52,12 +53,12 @@ class VirtualMachineArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set: pulumi.Input[Optional['SubResourceArgs']] = None,
-                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] vm_name: The name of the virtual machine.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
         :param pulumi.Input['ApplicationProfileArgs'] application_profile: Specifies the gallery applications that should be made available to the VM/VMSS.
         :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
@@ -87,10 +88,10 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         :param pulumi.Input['SubResourceArgs'] virtual_machine_scale_set: Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. This property cannot exist along with a non-null properties.availabilitySet reference. Minimum api‐version: 2019‐03‐01.
-        :param pulumi.Input[_builtins.str] vm_name: The name of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vm_name", vm_name)
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if application_profile is not None:
@@ -149,8 +150,6 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set is not None:
             pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
-        if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -165,6 +164,18 @@ class VirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmName")
+    def vm_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual machine.
+        """
+        return pulumi.get(self, "vm_name")
+
+    @vm_name.setter
+    def vm_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
@@ -515,18 +526,6 @@ class VirtualMachineArgs:
         pulumi.set(self, "virtual_machine_scale_set", value)
 
     @_builtins.property
-    @pulumi.getter(name="vmName")
-    def vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the virtual machine.
-        """
-        return pulumi.get(self, "vm_name")
-
-    @vm_name.setter
-    def vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vm_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -723,6 +722,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set"] = virtual_machine_scale_set
+            if vm_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["zones"] = zones
             __props__.__dict__["azure_api_version"] = None

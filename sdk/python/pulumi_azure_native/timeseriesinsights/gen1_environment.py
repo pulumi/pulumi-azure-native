@@ -23,10 +23,10 @@ __all__ = ['Gen1EnvironmentArgs', 'Gen1Environment']
 class Gen1EnvironmentArgs:
     def __init__(__self__, *,
                  data_retention_time: pulumi.Input[_builtins.str],
+                 environment_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_key_properties: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]] = None,
                  storage_limit_exceeded_behavior: pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
@@ -35,22 +35,21 @@ class Gen1EnvironmentArgs:
         The set of arguments for constructing a Gen1Environment resource.
 
         :param pulumi.Input[_builtins.str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        :param pulumi.Input[_builtins.str] environment_name: Name of the environment
         :param pulumi.Input[_builtins.str] kind: The kind of the environment.
                Expected value is 'Gen1'.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['SkuArgs'] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param pulumi.Input[_builtins.str] environment_name: Name of the environment
         :param pulumi.Input[_builtins.str] location: The location of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
         :param pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of additional properties for the resource.
         """
         pulumi.set(__self__, "data_retention_time", data_retention_time)
+        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "kind", 'Gen1')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if partition_key_properties is not None:
@@ -71,6 +70,18 @@ class Gen1EnvironmentArgs:
     @data_retention_time.setter
     def data_retention_time(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "data_retention_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the environment
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -108,18 +119,6 @@ class Gen1EnvironmentArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the environment
-        """
-        return pulumi.get(self, "environment_name")
-
-    @environment_name.setter
-    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,6 +252,8 @@ class Gen1Environment(pulumi.CustomResource):
             if data_retention_time is None and not opts.urn:
                 raise TypeError("Missing required property 'data_retention_time'")
             __props__.__dict__["data_retention_time"] = data_retention_time
+            if environment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

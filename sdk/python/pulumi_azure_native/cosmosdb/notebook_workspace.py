@@ -20,19 +20,18 @@ __all__ = ['NotebookWorkspaceArgs', 'NotebookWorkspace']
 class NotebookWorkspaceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 notebook_workspace_name: pulumi.Input[_builtins.str],
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NotebookWorkspace resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] notebook_workspace_name: The name of the notebook workspace resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "notebook_workspace_name", notebook_workspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if notebook_workspace_name is not None:
-            pulumi.set(__self__, "notebook_workspace_name", notebook_workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -47,6 +46,18 @@ class NotebookWorkspaceArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="notebookWorkspaceName")
+    def notebook_workspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the notebook workspace resource.
+        """
+        return pulumi.get(self, "notebook_workspace_name")
+
+    @notebook_workspace_name.setter
+    def notebook_workspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "notebook_workspace_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -57,18 +68,6 @@ class NotebookWorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="notebookWorkspaceName")
-    def notebook_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the notebook workspace resource.
-        """
-        return pulumi.get(self, "notebook_workspace_name")
-
-    @notebook_workspace_name.setter
-    def notebook_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "notebook_workspace_name", value)
 
 
 @pulumi.type_token("azure-native:cosmosdb:NotebookWorkspace")
@@ -139,6 +138,8 @@ class NotebookWorkspace(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if notebook_workspace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'notebook_workspace_name'")
             __props__.__dict__["notebook_workspace_name"] = notebook_workspace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

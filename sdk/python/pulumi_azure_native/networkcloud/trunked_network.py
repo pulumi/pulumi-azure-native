@@ -25,28 +25,29 @@ class TrunkedNetworkArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  isolation_domain_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 trunked_network_name: pulumi.Input[_builtins.str],
                  vlans: pulumi.Input[Sequence[pulumi.Input[_builtins.float]]],
                  hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
                  interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trunked_network_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrunkedNetwork resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] trunked_network_name: The name of the trunked network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.float]]] vlans: The list of vlans that are selected from the isolation domains for trunking.
         :param pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[_builtins.str] interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] trunked_network_name: The name of the trunked network.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "isolation_domain_ids", isolation_domain_ids)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "trunked_network_name", trunked_network_name)
         pulumi.set(__self__, "vlans", vlans)
         if hybrid_aks_plugin_type is None:
             hybrid_aks_plugin_type = 'SRIOV'
@@ -58,8 +59,6 @@ class TrunkedNetworkArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trunked_network_name is not None:
-            pulumi.set(__self__, "trunked_network_name", trunked_network_name)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -96,6 +95,18 @@ class TrunkedNetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trunkedNetworkName")
+    def trunked_network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the trunked network.
+        """
+        return pulumi.get(self, "trunked_network_name")
+
+    @trunked_network_name.setter
+    def trunked_network_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "trunked_network_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,18 +167,6 @@ class TrunkedNetworkArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trunkedNetworkName")
-    def trunked_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the trunked network.
-        """
-        return pulumi.get(self, "trunked_network_name")
-
-    @trunked_network_name.setter
-    def trunked_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "trunked_network_name", value)
 
 
 @pulumi.type_token("azure-native:networkcloud:TrunkedNetwork")
@@ -264,6 +263,8 @@ class TrunkedNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if trunked_network_name is None and not opts.urn:
+                raise TypeError("Missing required property 'trunked_network_name'")
             __props__.__dict__["trunked_network_name"] = trunked_network_name
             if vlans is None and not opts.urn:
                 raise TypeError("Missing required property 'vlans'")

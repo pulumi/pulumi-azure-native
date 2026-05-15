@@ -22,6 +22,7 @@ __all__ = ['AppServiceEnvironmentArgs', 'AppServiceEnvironment']
 @pulumi.input_type
 class AppServiceEnvironmentArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network: pulumi.Input['VirtualNetworkProfileArgs'],
                  cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
@@ -34,7 +35,6 @@ class AppServiceEnvironmentArgs:
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  networking_configuration: pulumi.Input[Optional['AseV3NetworkingConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  upgrade_preference: pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]] = None,
@@ -43,6 +43,7 @@ class AppServiceEnvironmentArgs:
         """
         The set of arguments for constructing a AppServiceEnvironment resource.
 
+        :param pulumi.Input[_builtins.str] name: Name of the App Service Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
@@ -55,13 +56,13 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.str] multi_size: Front-end VM size, e.g. "Medium", "Large".
-        :param pulumi.Input[_builtins.str] name: Name of the App Service Environment.
         :param pulumi.Input['AseV3NetworkingConfigurationArgs'] networking_configuration: Full view of networking configuration for an ASE.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UpgradePreference']] upgrade_preference: Upgrade Preference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network", virtual_network)
         if cluster_settings is not None:
@@ -84,8 +85,6 @@ class AppServiceEnvironmentArgs:
             pulumi.set(__self__, "location", location)
         if multi_size is not None:
             pulumi.set(__self__, "multi_size", multi_size)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if networking_configuration is not None:
             pulumi.set(__self__, "networking_configuration", networking_configuration)
         if tags is not None:
@@ -98,6 +97,18 @@ class AppServiceEnvironmentArgs:
             pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -242,18 +253,6 @@ class AppServiceEnvironmentArgs:
     @multi_size.setter
     def multi_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_size", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the App Service Environment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkingConfiguration")
@@ -436,6 +435,8 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["multi_size"] = multi_size
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["networking_configuration"] = networking_configuration
             if resource_group_name is None and not opts.urn:

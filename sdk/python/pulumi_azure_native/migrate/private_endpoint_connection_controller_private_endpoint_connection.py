@@ -23,25 +23,24 @@ __all__ = ['PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs', '
 class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  migrate_project_name: pulumi.Input[_builtins.str],
+                 pe_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConnectionStateRequestBodyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionControllerPrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] migrate_project_name: Migrate project name.
+        :param pulumi.Input[_builtins.str] pe_connection_name: Private endpoint connection name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] e_tag: Gets the tag for optimistic concurrency control.
-        :param pulumi.Input[_builtins.str] pe_connection_name: Private endpoint connection name.
         :param pulumi.Input['ConnectionStateRequestBodyPropertiesArgs'] properties: Properties of Connection state request.
         """
         pulumi.set(__self__, "migrate_project_name", migrate_project_name)
+        pulumi.set(__self__, "pe_connection_name", pe_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-        if pe_connection_name is not None:
-            pulumi.set(__self__, "pe_connection_name", pe_connection_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -56,6 +55,18 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
     @migrate_project_name.setter
     def migrate_project_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "migrate_project_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peConnectionName")
+    def pe_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Private endpoint connection name.
+        """
+        return pulumi.get(self, "pe_connection_name")
+
+    @pe_connection_name.setter
+    def pe_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peConnectionName")
-    def pe_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Private endpoint connection name.
-        """
-        return pulumi.get(self, "pe_connection_name")
-
-    @pe_connection_name.setter
-    def pe_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +180,8 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
             if migrate_project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'migrate_project_name'")
             __props__.__dict__["migrate_project_name"] = migrate_project_name
+            if pe_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'pe_connection_name'")
             __props__.__dict__["pe_connection_name"] = pe_connection_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

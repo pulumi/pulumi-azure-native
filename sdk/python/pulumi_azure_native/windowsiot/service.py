@@ -19,10 +19,10 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  admin_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  billing_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  quantity: pulumi.Input[Optional[_builtins.float]] = None,
@@ -30,22 +30,21 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
 
+        :param pulumi.Input[_builtins.str] device_name: The name of the Windows IoT Device Service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
         :param pulumi.Input[_builtins.str] admin_domain_name: Windows IoT Device Service OEM AAD domain
         :param pulumi.Input[_builtins.str] billing_domain_name: Windows IoT Device Service ODM AAD domain
-        :param pulumi.Input[_builtins.str] device_name: The name of the Windows IoT Device Service.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the resource lives
         :param pulumi.Input[_builtins.str] notes: Windows IoT Device Service notes.
         :param pulumi.Input[_builtins.float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_domain_name is not None:
             pulumi.set(__self__, "admin_domain_name", admin_domain_name)
         if billing_domain_name is not None:
             pulumi.set(__self__, "billing_domain_name", billing_domain_name)
-        if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if notes is not None:
@@ -54,6 +53,18 @@ class ServiceArgs:
             pulumi.set(__self__, "quantity", quantity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Windows IoT Device Service.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,18 +101,6 @@ class ServiceArgs:
     @billing_domain_name.setter
     def billing_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_domain_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Windows IoT Device Service.
-        """
-        return pulumi.get(self, "device_name")
-
-    @device_name.setter
-    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -230,6 +229,8 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["admin_domain_name"] = admin_domain_name
             __props__.__dict__["billing_domain_name"] = billing_domain_name
+            if device_name is None and not opts.urn:
+                raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["location"] = location
             __props__.__dict__["notes"] = notes

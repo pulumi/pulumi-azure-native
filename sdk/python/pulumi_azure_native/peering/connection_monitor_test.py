@@ -19,9 +19,9 @@ __all__ = ['ConnectionMonitorTestArgs', 'ConnectionMonitorTest']
 @pulumi.input_type
 class ConnectionMonitorTestArgs:
     def __init__(__self__, *,
+                 connection_monitor_test_name: pulumi.Input[_builtins.str],
                  peering_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port: pulumi.Input[Optional[_builtins.int]] = None,
                  source_agent: pulumi.Input[Optional[_builtins.str]] = None,
@@ -29,18 +29,17 @@ class ConnectionMonitorTestArgs:
         """
         The set of arguments for constructing a ConnectionMonitorTest resource.
 
+        :param pulumi.Input[_builtins.str] connection_monitor_test_name: The name of the connection monitor test
         :param pulumi.Input[_builtins.str] peering_service_name: The name of the peering service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] connection_monitor_test_name: The name of the connection monitor test
         :param pulumi.Input[_builtins.str] destination: The Connection Monitor test destination
         :param pulumi.Input[_builtins.int] destination_port: The Connection Monitor test destination port
         :param pulumi.Input[_builtins.str] source_agent: The Connection Monitor test source agent
         :param pulumi.Input[_builtins.int] test_frequency_in_sec: The Connection Monitor test frequency in seconds
         """
+        pulumi.set(__self__, "connection_monitor_test_name", connection_monitor_test_name)
         pulumi.set(__self__, "peering_service_name", peering_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connection_monitor_test_name is not None:
-            pulumi.set(__self__, "connection_monitor_test_name", connection_monitor_test_name)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if destination_port is not None:
@@ -49,6 +48,18 @@ class ConnectionMonitorTestArgs:
             pulumi.set(__self__, "source_agent", source_agent)
         if test_frequency_in_sec is not None:
             pulumi.set(__self__, "test_frequency_in_sec", test_frequency_in_sec)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionMonitorTestName")
+    def connection_monitor_test_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the connection monitor test
+        """
+        return pulumi.get(self, "connection_monitor_test_name")
+
+    @connection_monitor_test_name.setter
+    def connection_monitor_test_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_monitor_test_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringServiceName")
@@ -73,18 +84,6 @@ class ConnectionMonitorTestArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionMonitorTestName")
-    def connection_monitor_test_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the connection monitor test
-        """
-        return pulumi.get(self, "connection_monitor_test_name")
-
-    @connection_monitor_test_name.setter
-    def connection_monitor_test_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_monitor_test_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +211,8 @@ class ConnectionMonitorTest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionMonitorTestArgs.__new__(ConnectionMonitorTestArgs)
 
+            if connection_monitor_test_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_monitor_test_name'")
             __props__.__dict__["connection_monitor_test_name"] = connection_monitor_test_name
             __props__.__dict__["destination"] = destination
             __props__.__dict__["destination_port"] = destination_port

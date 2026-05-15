@@ -22,6 +22,7 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
+                 network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auxiliary_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  auxiliary_sku: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
@@ -34,7 +35,6 @@ class NetworkInterfaceArgs:
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_phase: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_security_group: pulumi.Input[Optional['NetworkSecurityGroupArgs']] = None,
                  nic_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
                  private_link_service: pulumi.Input[Optional['PrivateLinkServiceArgs']] = None,
@@ -43,6 +43,7 @@ class NetworkInterfaceArgs:
         """
         The set of arguments for constructing a NetworkInterface resource.
 
+        :param pulumi.Input[_builtins.str] network_interface_name: The name of the network interface.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']] auxiliary_sku: Auxiliary sku of Network Interface resource.
@@ -55,13 +56,13 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']] migration_phase: Migration phase of Network Interface resource.
-        :param pulumi.Input[_builtins.str] network_interface_name: The name of the network interface.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference to the NetworkSecurityGroup resource.
         :param pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
         :param pulumi.Input['PrivateLinkServiceArgs'] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
+        pulumi.set(__self__, "network_interface_name", network_interface_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
@@ -85,8 +86,6 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "location", location)
         if migration_phase is not None:
             pulumi.set(__self__, "migration_phase", migration_phase)
-        if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if nic_type is not None:
@@ -97,6 +96,18 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "tags", tags)
         if workload_type is not None:
             pulumi.set(__self__, "workload_type", workload_type)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the network interface.
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @network_interface_name.setter
+    def network_interface_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -241,18 +252,6 @@ class NetworkInterfaceArgs:
     @migration_phase.setter
     def migration_phase(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]]):
         pulumi.set(self, "migration_phase", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the network interface.
-        """
-        return pulumi.get(self, "network_interface_name")
-
-    @network_interface_name.setter
-    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroup")
@@ -436,6 +435,8 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["migration_phase"] = migration_phase
+            if network_interface_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_interface_name'")
             __props__.__dict__["network_interface_name"] = network_interface_name
             __props__.__dict__["network_security_group"] = network_security_group
             __props__.__dict__["nic_type"] = nic_type

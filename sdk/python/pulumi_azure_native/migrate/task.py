@@ -24,22 +24,21 @@ class TaskArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['TaskPropertiesArgs']] = None,
-                 task_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 task_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['TaskPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
 
         :param pulumi.Input[_builtins.str] project_name: Migrate Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['TaskPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] task_name: Task ARM name
+        :param pulumi.Input['TaskPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "task_name", task_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if task_name is not None:
-            pulumi.set(__self__, "task_name", task_name)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -66,6 +65,18 @@ class TaskArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="taskName")
+    def task_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Task ARM name
+        """
+        return pulumi.get(self, "task_name")
+
+    @task_name.setter
+    def task_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "task_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['TaskPropertiesArgs']]:
         """
@@ -76,18 +87,6 @@ class TaskArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['TaskPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskName")
-    def task_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Task ARM name
-        """
-        return pulumi.get(self, "task_name")
-
-    @task_name.setter
-    def task_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "task_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:Task")
@@ -165,6 +164,8 @@ class Task(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if task_name is None and not opts.urn:
+                raise TypeError("Missing required property 'task_name'")
             __props__.__dict__["task_name"] = task_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

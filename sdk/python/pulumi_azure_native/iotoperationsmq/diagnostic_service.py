@@ -22,12 +22,12 @@ __all__ = ['DiagnosticServiceArgs', 'DiagnosticService']
 @pulumi.input_type
 class DiagnosticServiceArgs:
     def __init__(__self__, *,
+                 diagnostic_service_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  image: pulumi.Input['ContainerImageArgs'],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  data_export_frequency_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 diagnostic_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  log_format: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,12 +39,12 @@ class DiagnosticServiceArgs:
         """
         The set of arguments for constructing a DiagnosticService resource.
 
+        :param pulumi.Input[_builtins.str] diagnostic_service_name: Name of MQ diagnostic resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of Diagnostic Service Docker Image.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] data_export_frequency_seconds: The frequency at which the data will be exported.
-        :param pulumi.Input[_builtins.str] diagnostic_service_name: Name of MQ diagnostic resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] log_format: The format for the logs generated.
         :param pulumi.Input[_builtins.str] log_level: The format for the logs generated.
@@ -54,6 +54,7 @@ class DiagnosticServiceArgs:
         :param pulumi.Input[_builtins.int] stale_data_timeout_seconds: Metric inactivity timeout.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "diagnostic_service_name", diagnostic_service_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "mq_name", mq_name)
@@ -62,8 +63,6 @@ class DiagnosticServiceArgs:
             data_export_frequency_seconds = 10
         if data_export_frequency_seconds is not None:
             pulumi.set(__self__, "data_export_frequency_seconds", data_export_frequency_seconds)
-        if diagnostic_service_name is not None:
-            pulumi.set(__self__, "diagnostic_service_name", diagnostic_service_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if log_format is None:
@@ -90,6 +89,18 @@ class DiagnosticServiceArgs:
             pulumi.set(__self__, "stale_data_timeout_seconds", stale_data_timeout_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="diagnosticServiceName")
+    def diagnostic_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ diagnostic resource
+        """
+        return pulumi.get(self, "diagnostic_service_name")
+
+    @diagnostic_service_name.setter
+    def diagnostic_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "diagnostic_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -150,18 +161,6 @@ class DiagnosticServiceArgs:
     @data_export_frequency_seconds.setter
     def data_export_frequency_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_export_frequency_seconds", value)
-
-    @_builtins.property
-    @pulumi.getter(name="diagnosticServiceName")
-    def diagnostic_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ diagnostic resource
-        """
-        return pulumi.get(self, "diagnostic_service_name")
-
-    @diagnostic_service_name.setter
-    def diagnostic_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "diagnostic_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -357,6 +356,8 @@ class DiagnosticService(pulumi.CustomResource):
             if data_export_frequency_seconds is None:
                 data_export_frequency_seconds = 10
             __props__.__dict__["data_export_frequency_seconds"] = data_export_frequency_seconds
+            if diagnostic_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'diagnostic_service_name'")
             __props__.__dict__["diagnostic_service_name"] = diagnostic_service_name
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")

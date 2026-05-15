@@ -22,9 +22,9 @@ __all__ = ['ApprovalArgs', 'Approval']
 @pulumi.input_type
 class ApprovalArgs:
     def __init__(__self__, *,
+                 approval_name: pulumi.Input[_builtins.str],
                  request_metadata: pulumi.Input['RequestMetadataArgs'],
                  resource_uri: pulumi.Input[_builtins.str],
-                 approval_name: pulumi.Input[Optional[_builtins.str]] = None,
                  approvers: pulumi.Input[Optional[Sequence[pulumi.Input['ApproverArgs']]]] = None,
                  created_at: pulumi.Input[Optional[_builtins.str]] = None,
                  grandparent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,9 +34,9 @@ class ApprovalArgs:
         """
         The set of arguments for constructing a Approval resource.
 
+        :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
         :param pulumi.Input['RequestMetadataArgs'] request_metadata: Request metadata for the approval request.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
-        :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApproverArgs']]] approvers: List of approvers for the approval request
         :param pulumi.Input[_builtins.str] created_at: Approval request creation time
         :param pulumi.Input[_builtins.str] grandparent_resource_id: Parameter for optimizing query results
@@ -44,10 +44,9 @@ class ApprovalArgs:
         :param pulumi.Input[_builtins.str] state_changed_at: Approval request state change time, time at which approval request state changed from pending to approved or rejected.
         :param pulumi.Input[_builtins.str] ticket_id: Ticket ID for the approval request
         """
+        pulumi.set(__self__, "approval_name", approval_name)
         pulumi.set(__self__, "request_metadata", request_metadata)
         pulumi.set(__self__, "resource_uri", resource_uri)
-        if approval_name is not None:
-            pulumi.set(__self__, "approval_name", approval_name)
         if approvers is not None:
             pulumi.set(__self__, "approvers", approvers)
         if created_at is not None:
@@ -60,6 +59,18 @@ class ApprovalArgs:
             pulumi.set(__self__, "state_changed_at", state_changed_at)
         if ticket_id is not None:
             pulumi.set(__self__, "ticket_id", ticket_id)
+
+    @_builtins.property
+    @pulumi.getter(name="approvalName")
+    def approval_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the approvals resource.
+        """
+        return pulumi.get(self, "approval_name")
+
+    @approval_name.setter
+    def approval_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "approval_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMetadata")
@@ -84,18 +95,6 @@ class ApprovalArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="approvalName")
-    def approval_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the approvals resource.
-        """
-        return pulumi.get(self, "approval_name")
-
-    @approval_name.setter
-    def approval_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "approval_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,6 +252,8 @@ class Approval(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApprovalArgs.__new__(ApprovalArgs)
 
+            if approval_name is None and not opts.urn:
+                raise TypeError("Missing required property 'approval_name'")
             __props__.__dict__["approval_name"] = approval_name
             __props__.__dict__["approvers"] = approvers
             __props__.__dict__["created_at"] = created_at

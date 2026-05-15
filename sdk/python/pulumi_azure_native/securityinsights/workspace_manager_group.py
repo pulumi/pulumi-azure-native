@@ -23,27 +23,26 @@ class WorkspaceManagerGroupArgs:
                  display_name: pulumi.Input[_builtins.str],
                  member_resource_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workspace_manager_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_manager_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceManagerGroup resource.
 
         :param pulumi.Input[_builtins.str] display_name: The display name of the workspace manager group
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_resource_names: The names of the workspace manager members participating in this group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] workspace_manager_group_name: The name of the workspace manager group
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] description: The description of the workspace manager group
-        :param pulumi.Input[_builtins.str] workspace_manager_group_name: The name of the workspace manager group
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_resource_names", member_resource_names)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_manager_group_name", workspace_manager_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if workspace_manager_group_name is not None:
-            pulumi.set(__self__, "workspace_manager_group_name", workspace_manager_group_name)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -82,6 +81,18 @@ class WorkspaceManagerGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="workspaceManagerGroupName")
+    def workspace_manager_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace manager group
+        """
+        return pulumi.get(self, "workspace_manager_group_name")
+
+    @workspace_manager_group_name.setter
+    def workspace_manager_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_manager_group_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -104,18 +115,6 @@ class WorkspaceManagerGroupArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceManagerGroupName")
-    def workspace_manager_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace manager group
-        """
-        return pulumi.get(self, "workspace_manager_group_name")
-
-    @workspace_manager_group_name.setter
-    def workspace_manager_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_manager_group_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:WorkspaceManagerGroup")
@@ -202,6 +201,8 @@ class WorkspaceManagerGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if workspace_manager_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_manager_group_name'")
             __props__.__dict__["workspace_manager_group_name"] = workspace_manager_group_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

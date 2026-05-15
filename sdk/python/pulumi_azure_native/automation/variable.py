@@ -23,32 +23,31 @@ class VariableArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 variable_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 value: pulumi.Input[Optional[_builtins.str]] = None,
-                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Variable resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the variable.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] variable_name: The variable name.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the variable.
         :param pulumi.Input[_builtins.bool] is_encrypted: Gets or sets the encrypted flag of the variable.
         :param pulumi.Input[_builtins.str] value: Gets or sets the value of the variable.
-        :param pulumi.Input[_builtins.str] variable_name: The variable name.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "variable_name", variable_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_encrypted is not None:
             pulumi.set(__self__, "is_encrypted", is_encrypted)
         if value is not None:
             pulumi.set(__self__, "value", value)
-        if variable_name is not None:
-            pulumi.set(__self__, "variable_name", variable_name)
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
@@ -87,6 +86,18 @@ class VariableArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The variable name.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @variable_name.setter
+    def variable_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "variable_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -121,18 +132,6 @@ class VariableArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="variableName")
-    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The variable name.
-        """
-        return pulumi.get(self, "variable_name")
-
-    @variable_name.setter
-    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "variable_name", value)
 
 
 @pulumi.type_token("azure-native:automation:Variable")
@@ -224,6 +223,8 @@ class Variable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["value"] = value
+            if variable_name is None and not opts.urn:
+                raise TypeError("Missing required property 'variable_name'")
             __props__.__dict__["variable_name"] = variable_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None

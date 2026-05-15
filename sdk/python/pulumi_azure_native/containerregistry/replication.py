@@ -22,24 +22,25 @@ __all__ = ['ReplicationArgs', 'Replication']
 class ReplicationArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
+                 replication_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  region_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replication_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         The set of arguments for constructing a Replication resource.
 
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
+        :param pulumi.Input[_builtins.str] replication_name: The name of the replication.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[_builtins.bool] region_endpoint_enabled: Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
-        :param pulumi.Input[_builtins.str] replication_name: The name of the replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry replication
         """
         pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "replication_name", replication_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -47,8 +48,6 @@ class ReplicationArgs:
             region_endpoint_enabled = True
         if region_endpoint_enabled is not None:
             pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
-        if replication_name is not None:
-            pulumi.set(__self__, "replication_name", replication_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy is None:
@@ -67,6 +66,18 @@ class ReplicationArgs:
     @registry_name.setter
     def registry_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "registry_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationName")
+    def replication_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the replication.
+        """
+        return pulumi.get(self, "replication_name")
+
+    @replication_name.setter
+    def replication_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "replication_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,18 +114,6 @@ class ReplicationArgs:
     @region_endpoint_enabled.setter
     def region_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "region_endpoint_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="replicationName")
-    def replication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the replication.
-        """
-        return pulumi.get(self, "replication_name")
-
-    @replication_name.setter
-    def replication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "replication_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -225,6 +224,8 @@ class Replication(pulumi.CustomResource):
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
+            if replication_name is None and not opts.urn:
+                raise TypeError("Missing required property 'replication_name'")
             __props__.__dict__["replication_name"] = replication_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

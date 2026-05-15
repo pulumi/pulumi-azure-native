@@ -22,8 +22,8 @@ __all__ = ['BastionHostArgs', 'BastionHost']
 @pulumi.input_type
 class BastionHostArgs:
     def __init__(__self__, *,
+                 bastion_host_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_copy_paste: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_file_copy: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -45,8 +45,8 @@ class BastionHostArgs:
         """
         The set of arguments for constructing a BastionHost resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] bastion_host_name: The name of the Bastion Host.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.bool] disable_copy_paste: Enable/Disable Copy/Paste feature of the Bastion Host resource.
         :param pulumi.Input[_builtins.str] dns_name: FQDN for the endpoint on which bastion host is accessible.
         :param pulumi.Input[_builtins.bool] enable_file_copy: Enable/Disable File Copy feature of the Bastion Host resource.
@@ -65,9 +65,8 @@ class BastionHostArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
+        pulumi.set(__self__, "bastion_host_name", bastion_host_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if bastion_host_name is not None:
-            pulumi.set(__self__, "bastion_host_name", bastion_host_name)
         if disable_copy_paste is None:
             disable_copy_paste = False
         if disable_copy_paste is not None:
@@ -122,6 +121,18 @@ class BastionHostArgs:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
+    @pulumi.getter(name="bastionHostName")
+    def bastion_host_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Bastion Host.
+        """
+        return pulumi.get(self, "bastion_host_name")
+
+    @bastion_host_name.setter
+    def bastion_host_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bastion_host_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -132,18 +143,6 @@ class BastionHostArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bastionHostName")
-    def bastion_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Bastion Host.
-        """
-        return pulumi.get(self, "bastion_host_name")
-
-    @bastion_host_name.setter
-    def bastion_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "bastion_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disableCopyPaste")
@@ -474,6 +473,8 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BastionHostArgs.__new__(BastionHostArgs)
 
+            if bastion_host_name is None and not opts.urn:
+                raise TypeError("Missing required property 'bastion_host_name'")
             __props__.__dict__["bastion_host_name"] = bastion_host_name
             if disable_copy_paste is None:
                 disable_copy_paste = False

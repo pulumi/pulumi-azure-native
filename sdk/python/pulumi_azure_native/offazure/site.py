@@ -22,23 +22,24 @@ __all__ = ['SiteArgs', 'Site']
 class SiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 site_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SitePropertiesArgs']] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Site resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] site_name: Site name.
         :param pulumi.Input[_builtins.str] e_tag: eTag for concurrency control.
         :param pulumi.Input[_builtins.str] location: Azure location in which Sites is created.
         :param pulumi.Input[_builtins.str] name: Name of the VMware site.
         :param pulumi.Input['SitePropertiesArgs'] properties: Nested properties of VMWare site.
-        :param pulumi.Input[_builtins.str] site_name: Site name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_name", site_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if location is not None:
@@ -47,8 +48,6 @@ class SiteArgs:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -63,6 +62,18 @@ class SiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Site name.
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -111,18 +122,6 @@ class SiteArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SitePropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Site name.
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,6 +212,8 @@ class Site(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

@@ -23,26 +23,27 @@ class VirtualMachineTemplateArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_machine_template_name: pulumi.Input[_builtins.str],
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  uuid: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_machine_template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineTemplate resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] virtual_machine_template_name: Name of the VirtualMachineTemplate.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.str] uuid: Unique ID of the virtual machine template.
-        :param pulumi.Input[_builtins.str] virtual_machine_template_name: Name of the VirtualMachineTemplate.
         :param pulumi.Input[_builtins.str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_machine_template_name", virtual_machine_template_name)
         if inventory_item_id is not None:
             pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if location is not None:
@@ -51,8 +52,6 @@ class VirtualMachineTemplateArgs:
             pulumi.set(__self__, "tags", tags)
         if uuid is not None:
             pulumi.set(__self__, "uuid", uuid)
-        if virtual_machine_template_name is not None:
-            pulumi.set(__self__, "virtual_machine_template_name", virtual_machine_template_name)
         if vmm_server_id is not None:
             pulumi.set(__self__, "vmm_server_id", vmm_server_id)
 
@@ -79,6 +78,18 @@ class VirtualMachineTemplateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualMachineTemplateName")
+    def virtual_machine_template_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the VirtualMachineTemplate.
+        """
+        return pulumi.get(self, "virtual_machine_template_name")
+
+    @virtual_machine_template_name.setter
+    def virtual_machine_template_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_machine_template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemId")
@@ -127,18 +138,6 @@ class VirtualMachineTemplateArgs:
     @uuid.setter
     def uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uuid", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineTemplateName")
-    def virtual_machine_template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the VirtualMachineTemplate.
-        """
-        return pulumi.get(self, "virtual_machine_template_name")
-
-    @virtual_machine_template_name.setter
-    def virtual_machine_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_machine_template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmmServerId")
@@ -243,6 +242,8 @@ class VirtualMachineTemplate(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uuid"] = uuid
+            if virtual_machine_template_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_machine_template_name'")
             __props__.__dict__["virtual_machine_template_name"] = virtual_machine_template_name
             __props__.__dict__["vmm_server_id"] = vmm_server_id
             __props__.__dict__["azure_api_version"] = None

@@ -23,28 +23,29 @@ __all__ = ['TableArgs', 'Table']
 class TableArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 table_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
                  restored_logs: pulumi.Input[Optional['RestoredLogsArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  schema: pulumi.Input[Optional['SchemaArgs']] = None,
                  search_results: pulumi.Input[Optional['SearchResultsArgs']] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Table resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] table_name: The name of the table.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[_builtins.str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
         :param pulumi.Input['RestoredLogsArgs'] restored_logs: Parameters of the restore operation that initiated this table.
         :param pulumi.Input[_builtins.int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         :param pulumi.Input['SchemaArgs'] schema: Table schema.
         :param pulumi.Input['SearchResultsArgs'] search_results: Parameters of the search job that initiated this table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
         :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
@@ -56,8 +57,6 @@ class TableArgs:
             pulumi.set(__self__, "schema", schema)
         if search_results is not None:
             pulumi.set(__self__, "search_results", search_results)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
         if total_retention_in_days is not None:
             pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
 
@@ -72,6 +71,18 @@ class TableArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -144,18 +155,6 @@ class TableArgs:
     @search_results.setter
     def search_results(self, value: pulumi.Input[Optional['SearchResultsArgs']]):
         pulumi.set(self, "search_results", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the table.
-        """
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
@@ -261,6 +260,8 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["schema"] = schema
             __props__.__dict__["search_results"] = search_results
+            if table_name is None and not opts.urn:
+                raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["total_retention_in_days"] = total_retention_in_days
             if workspace_name is None and not opts.urn:

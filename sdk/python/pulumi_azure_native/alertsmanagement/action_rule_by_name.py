@@ -22,29 +22,40 @@ __all__ = ['ActionRuleByNameArgs', 'ActionRuleByName']
 @pulumi.input_type
 class ActionRuleByNameArgs:
     def __init__(__self__, *,
+                 action_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 action_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['ActionGroupArgs', 'DiagnosticsArgs', 'SuppressionArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActionRuleByName resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Resource group name where the resource is created.
         :param pulumi.Input[_builtins.str] action_rule_name: The name of action rule that needs to be created/updated
+        :param pulumi.Input[_builtins.str] resource_group_name: Resource group name where the resource is created.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[Union['ActionGroupArgs', 'DiagnosticsArgs', 'SuppressionArgs']] properties: action rule properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "action_rule_name", action_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if action_rule_name is not None:
-            pulumi.set(__self__, "action_rule_name", action_rule_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="actionRuleName")
+    def action_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of action rule that needs to be created/updated
+        """
+        return pulumi.get(self, "action_rule_name")
+
+    @action_rule_name.setter
+    def action_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +68,6 @@ class ActionRuleByNameArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="actionRuleName")
-    def action_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of action rule that needs to be created/updated
-        """
-        return pulumi.get(self, "action_rule_name")
-
-    @action_rule_name.setter
-    def action_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "action_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +173,8 @@ class ActionRuleByName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionRuleByNameArgs.__new__(ActionRuleByNameArgs)
 
+            if action_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'action_rule_name'")
             __props__.__dict__["action_rule_name"] = action_rule_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

@@ -23,24 +23,23 @@ class StaticMemberArgs:
                  network_group_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 static_member_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 static_member_name: pulumi.Input[_builtins.str],
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticMember resource.
 
         :param pulumi.Input[_builtins.str] network_group_name: The name of the network group.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] resource_id: Resource Id.
         :param pulumi.Input[_builtins.str] static_member_name: The name of the static member.
+        :param pulumi.Input[_builtins.str] resource_id: Resource Id.
         """
         pulumi.set(__self__, "network_group_name", network_group_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "static_member_name", static_member_name)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-        if static_member_name is not None:
-            pulumi.set(__self__, "static_member_name", static_member_name)
 
     @_builtins.property
     @pulumi.getter(name="networkGroupName")
@@ -79,6 +78,18 @@ class StaticMemberArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="staticMemberName")
+    def static_member_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the static member.
+        """
+        return pulumi.get(self, "static_member_name")
+
+    @static_member_name.setter
+    def static_member_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "static_member_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -89,18 +100,6 @@ class StaticMemberArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="staticMemberName")
-    def static_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the static member.
-        """
-        return pulumi.get(self, "static_member_name")
-
-    @static_member_name.setter
-    def static_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "static_member_name", value)
 
 
 @pulumi.type_token("azure-native:network:StaticMember")
@@ -184,6 +183,8 @@ class StaticMember(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_id"] = resource_id
+            if static_member_name is None and not opts.urn:
+                raise TypeError("Missing required property 'static_member_name'")
             __props__.__dict__["static_member_name"] = static_member_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

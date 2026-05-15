@@ -24,6 +24,7 @@ class ComponentArgs:
                  application_type: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]] = None,
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  flow_type: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]] = None,
@@ -35,7 +36,6 @@ class ComponentArgs:
                  public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
                  public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
                  request_source: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -46,6 +46,7 @@ class ComponentArgs:
         :param pulumi.Input[Union[_builtins.str, 'ApplicationType']] application_type: Type of application being monitored.
         :param pulumi.Input[_builtins.str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.bool] disable_ip_masking: Disable IP masking.
         :param pulumi.Input[_builtins.bool] disable_local_auth: Disable Non-AAD based Auth.
         :param pulumi.Input[Union[_builtins.str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
@@ -57,7 +58,6 @@ class ComponentArgs:
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Application Insights ingestion.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Application Insights query.
         :param pulumi.Input[Union[_builtins.str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.int] retention_in_days: Retention period in days.
         :param pulumi.Input[_builtins.float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
@@ -68,6 +68,7 @@ class ComponentArgs:
         pulumi.set(__self__, "application_type", application_type)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if disable_local_auth is not None:
@@ -96,8 +97,6 @@ class ComponentArgs:
             request_source = 'rest'
         if request_source is not None:
             pulumi.set(__self__, "request_source", request_source)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sampling_percentage is not None:
@@ -142,6 +141,18 @@ class ComponentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disableIpMasking")
@@ -274,18 +285,6 @@ class ComponentArgs:
     @request_source.setter
     def request_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]]):
         pulumi.set(self, "request_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Application Insights component resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
@@ -477,6 +476,8 @@ class Component(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["sampling_percentage"] = sampling_percentage

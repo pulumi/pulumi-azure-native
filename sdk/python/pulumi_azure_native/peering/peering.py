@@ -23,28 +23,29 @@ __all__ = ['PeeringArgs', 'Peering']
 class PeeringArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[Union[_builtins.str, 'Kind']],
+                 peering_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['PeeringSkuArgs'],
                  direct: pulumi.Input[Optional['PeeringPropertiesDirectArgs']] = None,
                  exchange: pulumi.Input[Optional['PeeringPropertiesExchangeArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Peering resource.
 
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: The kind of the peering.
+        :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PeeringSkuArgs'] sku: The SKU that defines the tier and kind of the peering.
         :param pulumi.Input['PeeringPropertiesDirectArgs'] direct: The properties that define a direct peering.
         :param pulumi.Input['PeeringPropertiesExchangeArgs'] exchange: The properties that define an exchange peering.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
         :param pulumi.Input[_builtins.str] peering_location: The location of the peering.
-        :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "peering_name", peering_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if direct is not None:
@@ -55,8 +56,6 @@ class PeeringArgs:
             pulumi.set(__self__, "location", location)
         if peering_location is not None:
             pulumi.set(__self__, "peering_location", peering_location)
-        if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -71,6 +70,18 @@ class PeeringArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Union[_builtins.str, 'Kind']]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -143,18 +154,6 @@ class PeeringArgs:
     @peering_location.setter
     def peering_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peeringName")
-    def peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the peering.
-        """
-        return pulumi.get(self, "peering_name")
-
-    @peering_name.setter
-    def peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -259,6 +258,8 @@ class Peering(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["peering_location"] = peering_location
+            if peering_name is None and not opts.urn:
+                raise TypeError("Missing required property 'peering_name'")
             __props__.__dict__["peering_name"] = peering_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

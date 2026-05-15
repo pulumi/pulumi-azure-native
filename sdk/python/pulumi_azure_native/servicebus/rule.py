@@ -24,28 +24,29 @@ class RuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[_builtins.str],
                  subscription_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
                  action: pulumi.Input[Optional['ActionArgs']] = None,
                  correlation_filter: pulumi.Input[Optional['CorrelationFilterArgs']] = None,
                  filter_type: pulumi.Input[Optional['FilterType']] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_filter: pulumi.Input[Optional['SqlFilterArgs']] = None):
         """
         The set of arguments for constructing a Rule resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] rule_name: The rule name.
         :param pulumi.Input[_builtins.str] subscription_name: The subscription name.
         :param pulumi.Input[_builtins.str] topic_name: The topic name.
         :param pulumi.Input['ActionArgs'] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         :param pulumi.Input['CorrelationFilterArgs'] correlation_filter: Properties of correlationFilter
         :param pulumi.Input['FilterType'] filter_type: Filter type that is evaluated against a BrokeredMessage.
-        :param pulumi.Input[_builtins.str] rule_name: The rule name.
         :param pulumi.Input['SqlFilterArgs'] sql_filter: Properties of sqlFilter
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "subscription_name", subscription_name)
         pulumi.set(__self__, "topic_name", topic_name)
         if action is not None:
@@ -54,8 +55,6 @@ class RuleArgs:
             pulumi.set(__self__, "correlation_filter", correlation_filter)
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
         if sql_filter is not None:
             pulumi.set(__self__, "sql_filter", sql_filter)
 
@@ -82,6 +81,18 @@ class RuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The rule name.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionName")
@@ -142,18 +153,6 @@ class RuleArgs:
     @filter_type.setter
     def filter_type(self, value: pulumi.Input[Optional['FilterType']]):
         pulumi.set(self, "filter_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The rule name.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlFilter")
@@ -260,6 +259,8 @@ class Rule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["sql_filter"] = sql_filter
             if subscription_name is None and not opts.urn:

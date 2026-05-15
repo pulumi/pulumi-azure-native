@@ -22,12 +22,12 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_residency_boundary: pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_type_info: pulumi.Input[Optional['EventTypeInfoArgs']] = None,
                  identity: pulumi.Input[Optional['IdentityInfoArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
@@ -40,6 +40,7 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
 
+        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
                In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
@@ -57,7 +58,6 @@ class DomainArgs:
                resources by the user.
         :param pulumi.Input[Union[_builtins.str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
         :param pulumi.Input[_builtins.bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input['EventTypeInfoArgs'] event_type_info: Event Type Information for the domain. This information is provided by the publisher and can be used by the 
                subscriber to view different types of events that are published.
         :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the Event Grid Domain resource.
@@ -70,6 +70,7 @@ class DomainArgs:
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         """
+        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_create_topic_with_first_subscription is None:
             auto_create_topic_with_first_subscription = True
@@ -85,8 +86,6 @@ class DomainArgs:
             disable_local_auth = False
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
         if event_type_info is not None:
             pulumi.set(__self__, "event_type_info", event_type_info)
         if identity is not None:
@@ -109,6 +108,18 @@ class DomainArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -181,18 +192,6 @@ class DomainArgs:
     @disable_local_auth.setter
     def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
-
-    @_builtins.property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the domain.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypeInfo")
@@ -430,6 +429,8 @@ class Domain(pulumi.CustomResource):
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["event_type_info"] = event_type_info
             __props__.__dict__["identity"] = identity

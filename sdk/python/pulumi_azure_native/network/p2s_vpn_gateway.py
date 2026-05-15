@@ -22,9 +22,9 @@ __all__ = ['P2sVpnGatewayArgs', 'P2sVpnGateway']
 @pulumi.input_type
 class P2sVpnGatewayArgs:
     def __init__(__self__, *,
+                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  custom_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_routing_preference_internet: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,9 +36,9 @@ class P2sVpnGatewayArgs:
         """
         The set of arguments for constructing a P2sVpnGateway resource.
 
+        :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_dns_servers: List of all customer specified DNS servers IP addresses.
-        :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -48,11 +48,10 @@ class P2sVpnGatewayArgs:
         :param pulumi.Input[_builtins.int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         :param pulumi.Input['SubResourceArgs'] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
+        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_dns_servers is not None:
             pulumi.set(__self__, "custom_dns_servers", custom_dns_servers)
-        if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_routing_preference_internet is not None:
@@ -69,6 +68,18 @@ class P2sVpnGatewayArgs:
             pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
         if vpn_server_configuration is not None:
             pulumi.set(__self__, "vpn_server_configuration", vpn_server_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -93,18 +104,6 @@ class P2sVpnGatewayArgs:
     @custom_dns_servers.setter
     def custom_dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_dns_servers", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -293,6 +292,8 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__ = P2sVpnGatewayArgs.__new__(P2sVpnGatewayArgs)
 
             __props__.__dict__["custom_dns_servers"] = custom_dns_servers
+            if gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["is_routing_preference_internet"] = is_routing_preference_internet

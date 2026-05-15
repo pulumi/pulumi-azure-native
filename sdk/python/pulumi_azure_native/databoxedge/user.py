@@ -23,26 +23,25 @@ __all__ = ['UserArgs', 'User']
 class UserArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_type: pulumi.Input[Union[_builtins.str, 'UserType']],
-                 encrypted_password: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 encrypted_password: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None):
         """
         The set of arguments for constructing a User resource.
 
         :param pulumi.Input[_builtins.str] device_name: The device name.
+        :param pulumi.Input[_builtins.str] name: The user name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[_builtins.str, 'UserType']] user_type: Type of the user.
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encrypted_password: The password details.
-        :param pulumi.Input[_builtins.str] name: The user name.
         """
         pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_type", user_type)
         if encrypted_password is not None:
             pulumi.set(__self__, "encrypted_password", encrypted_password)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
@@ -55,6 +54,18 @@ class UserArgs:
     @device_name.setter
     def device_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "device_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,18 +102,6 @@ class UserArgs:
     @encrypted_password.setter
     def encrypted_password(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "encrypted_password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The user name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:databoxedge:User")
@@ -180,6 +179,8 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["encrypted_password"] = encrypted_password
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -22,6 +22,7 @@ __all__ = ['InternalNetworkArgs', 'InternalNetwork']
 @pulumi.input_type
 class InternalNetworkArgs:
     def __init__(__self__, *,
+                 internal_network_name: pulumi.Input[_builtins.str],
                  l3_isolation_domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan_id: pulumi.Input[_builtins.int],
@@ -36,13 +37,13 @@ class InternalNetworkArgs:
                  import_route_policy: pulumi.Input[Optional['ImportRoutePolicyArgs']] = None,
                  import_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ingress_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 internal_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_monitoring_enabled: pulumi.Input[Optional[Union[_builtins.str, 'IsMonitoringEnabled']]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  static_route_configuration: pulumi.Input[Optional['InternalNetworkPropertiesStaticRouteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a InternalNetwork resource.
 
+        :param pulumi.Input[_builtins.str] internal_network_name: Name of the Internal Network.
         :param pulumi.Input[_builtins.str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] vlan_id: Vlan identifier. Example: 1001.
@@ -57,11 +58,11 @@ class InternalNetworkArgs:
         :param pulumi.Input['ImportRoutePolicyArgs'] import_route_policy: Import Route Policy either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] import_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[_builtins.str] ingress_acl_id: Ingress Acl. ARM resource ID of Access Control Lists.
-        :param pulumi.Input[_builtins.str] internal_network_name: Name of the Internal Network.
         :param pulumi.Input[Union[_builtins.str, 'IsMonitoringEnabled']] is_monitoring_enabled: To check whether monitoring of internal network is enabled or not.
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input['InternalNetworkPropertiesStaticRouteConfigurationArgs'] static_route_configuration: Static Route Configuration properties.
         """
+        pulumi.set(__self__, "internal_network_name", internal_network_name)
         pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vlan_id", vlan_id)
@@ -89,8 +90,6 @@ class InternalNetworkArgs:
             pulumi.set(__self__, "import_route_policy_id", import_route_policy_id)
         if ingress_acl_id is not None:
             pulumi.set(__self__, "ingress_acl_id", ingress_acl_id)
-        if internal_network_name is not None:
-            pulumi.set(__self__, "internal_network_name", internal_network_name)
         if is_monitoring_enabled is None:
             is_monitoring_enabled = 'False'
         if is_monitoring_enabled is not None:
@@ -101,6 +100,18 @@ class InternalNetworkArgs:
             pulumi.set(__self__, "mtu", mtu)
         if static_route_configuration is not None:
             pulumi.set(__self__, "static_route_configuration", static_route_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="internalNetworkName")
+    def internal_network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Internal Network.
+        """
+        return pulumi.get(self, "internal_network_name")
+
+    @internal_network_name.setter
+    def internal_network_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "internal_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="l3IsolationDomainName")
@@ -271,18 +282,6 @@ class InternalNetworkArgs:
         pulumi.set(self, "ingress_acl_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="internalNetworkName")
-    def internal_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Internal Network.
-        """
-        return pulumi.get(self, "internal_network_name")
-
-    @internal_network_name.setter
-    def internal_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "internal_network_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="isMonitoringEnabled")
     def is_monitoring_enabled(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IsMonitoringEnabled']]]:
         """
@@ -442,6 +441,8 @@ class InternalNetwork(pulumi.CustomResource):
             __props__.__dict__["import_route_policy"] = import_route_policy
             __props__.__dict__["import_route_policy_id"] = import_route_policy_id
             __props__.__dict__["ingress_acl_id"] = ingress_acl_id
+            if internal_network_name is None and not opts.urn:
+                raise TypeError("Missing required property 'internal_network_name'")
             __props__.__dict__["internal_network_name"] = internal_network_name
             if is_monitoring_enabled is None:
                 is_monitoring_enabled = 'False'

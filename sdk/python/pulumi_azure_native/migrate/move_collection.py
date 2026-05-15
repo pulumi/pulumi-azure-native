@@ -22,33 +22,44 @@ __all__ = ['MoveCollectionArgs', 'MoveCollection']
 @pulumi.input_type
 class MoveCollectionArgs:
     def __init__(__self__, *,
+                 move_collection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 move_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MoveCollectionPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MoveCollection resource.
 
+        :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['IdentityArgs'] identity: Defines the MSI properties of the Move Collection.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives.
-        :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
         :param pulumi.Input['MoveCollectionPropertiesArgs'] properties: Defines the move collection properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "move_collection_name", move_collection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if move_collection_name is not None:
-            pulumi.set(__self__, "move_collection_name", move_collection_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="moveCollectionName")
+    def move_collection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Move Collection Name.
+        """
+        return pulumi.get(self, "move_collection_name")
+
+    @move_collection_name.setter
+    def move_collection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "move_collection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,18 +96,6 @@ class MoveCollectionArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="moveCollectionName")
-    def move_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Move Collection Name.
-        """
-        return pulumi.get(self, "move_collection_name")
-
-    @move_collection_name.setter
-    def move_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "move_collection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,6 +198,8 @@ class MoveCollection(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if move_collection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'move_collection_name'")
             __props__.__dict__["move_collection_name"] = move_collection_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

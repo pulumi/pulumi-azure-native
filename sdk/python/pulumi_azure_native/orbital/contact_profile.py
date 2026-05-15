@@ -22,11 +22,11 @@ __all__ = ['ContactProfileArgs', 'ContactProfile']
 @pulumi.input_type
 class ContactProfileArgs:
     def __init__(__self__, *,
+                 contact_profile_name: pulumi.Input[_builtins.str],
                  links: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]],
                  network_configuration: pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_tracking_configuration: pulumi.Input[Optional['AutoTrackingConfiguration']] = None,
-                 contact_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_elevation_degrees: pulumi.Input[Optional[_builtins.float]] = None,
@@ -36,11 +36,11 @@ class ContactProfileArgs:
         """
         The set of arguments for constructing a ContactProfile resource.
 
+        :param pulumi.Input[_builtins.str] contact_profile_name: Contact Profile name.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
-        :param pulumi.Input[_builtins.str] contact_profile_name: Contact Profile name.
         :param pulumi.Input[_builtins.str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -48,13 +48,12 @@ class ContactProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileThirdPartyConfigurationArgs']]] third_party_configurations: Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
+        pulumi.set(__self__, "contact_profile_name", contact_profile_name)
         pulumi.set(__self__, "links", links)
         pulumi.set(__self__, "network_configuration", network_configuration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_tracking_configuration is not None:
             pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
-        if contact_profile_name is not None:
-            pulumi.set(__self__, "contact_profile_name", contact_profile_name)
         if event_hub_uri is not None:
             pulumi.set(__self__, "event_hub_uri", event_hub_uri)
         if location is not None:
@@ -67,6 +66,18 @@ class ContactProfileArgs:
             pulumi.set(__self__, "tags", tags)
         if third_party_configurations is not None:
             pulumi.set(__self__, "third_party_configurations", third_party_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="contactProfileName")
+    def contact_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Contact Profile name.
+        """
+        return pulumi.get(self, "contact_profile_name")
+
+    @contact_profile_name.setter
+    def contact_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "contact_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -115,18 +126,6 @@ class ContactProfileArgs:
     @auto_tracking_configuration.setter
     def auto_tracking_configuration(self, value: pulumi.Input[Optional['AutoTrackingConfiguration']]):
         pulumi.set(self, "auto_tracking_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contactProfileName")
-    def contact_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Contact Profile name.
-        """
-        return pulumi.get(self, "contact_profile_name")
-
-    @contact_profile_name.setter
-    def contact_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "contact_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubUri")
@@ -287,6 +286,8 @@ class ContactProfile(pulumi.CustomResource):
             __props__ = ContactProfileArgs.__new__(ContactProfileArgs)
 
             __props__.__dict__["auto_tracking_configuration"] = auto_tracking_configuration
+            if contact_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'contact_profile_name'")
             __props__.__dict__["contact_profile_name"] = contact_profile_name
             __props__.__dict__["event_hub_uri"] = event_hub_uri
             if links is None and not opts.urn:

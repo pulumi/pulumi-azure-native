@@ -22,28 +22,29 @@ class RouteInitArgs:
     def __init__(__self__, *,
                  next_hop_type: pulumi.Input[Union[_builtins.str, 'RouteNextHopType']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_name: pulumi.Input[_builtins.str],
                  route_table_name: pulumi.Input[_builtins.str],
                  address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  next_hop_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
         :param pulumi.Input[Union[_builtins.str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] route_name: The name of the route.
         :param pulumi.Input[_builtins.str] route_table_name: The name of the route table.
         :param pulumi.Input[_builtins.str] address_prefix: The destination CIDR to which the route applies.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[_builtins.str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        :param pulumi.Input[_builtins.str] route_name: The name of the route.
         :param pulumi.Input[_builtins.str] type: The type of the resource.
         """
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_name", route_name)
         pulumi.set(__self__, "route_table_name", route_table_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
@@ -53,8 +54,6 @@ class RouteInitArgs:
             pulumi.set(__self__, "name", name)
         if next_hop_ip_address is not None:
             pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
-        if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -81,6 +80,18 @@ class RouteInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeName")
+    def route_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the route.
+        """
+        return pulumi.get(self, "route_name")
+
+    @route_name.setter
+    def route_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableName")
@@ -141,18 +152,6 @@ class RouteInitArgs:
     @next_hop_ip_address.setter
     def next_hop_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeName")
-    def route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the route.
-        """
-        return pulumi.get(self, "route_name")
-
-    @route_name.setter
-    def route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,6 +259,8 @@ class Route(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_name'")
             __props__.__dict__["route_name"] = route_name
             if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")

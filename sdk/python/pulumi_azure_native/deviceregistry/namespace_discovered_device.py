@@ -22,13 +22,13 @@ __all__ = ['NamespaceDiscoveredDeviceArgs', 'NamespaceDiscoveredDevice']
 @pulumi.input_type
 class NamespaceDiscoveredDeviceArgs:
     def __init__(__self__, *,
+                 discovered_device_name: pulumi.Input[_builtins.str],
                  discovery_id: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.float],
                  attributes: Optional[Any] = None,
-                 discovered_device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoints: pulumi.Input[Optional['DiscoveredMessagingEndpointsArgs']] = None,
                  external_device_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,13 +40,13 @@ class NamespaceDiscoveredDeviceArgs:
         """
         The set of arguments for constructing a NamespaceDiscoveredDevice resource.
 
+        :param pulumi.Input[_builtins.str] discovered_device_name: The name of the discovered device.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the discovered device.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] version: An integer that is incremented each time the resource is modified.
         :param Any attributes: A set of key-value pairs that contain custom attributes.
-        :param pulumi.Input[_builtins.str] discovered_device_name: The name of the discovered device.
         :param pulumi.Input['DiscoveredMessagingEndpointsArgs'] endpoints: Endpoints for discovered devices.
         :param pulumi.Input[_builtins.str] external_device_id: A device ID that represents the device in a system external to Azure. Unique within scope of an Azure tenant.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -56,6 +56,7 @@ class NamespaceDiscoveredDeviceArgs:
         :param pulumi.Input[_builtins.str] operating_system_version: Device operating system version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "discovered_device_name", discovered_device_name)
         pulumi.set(__self__, "discovery_id", discovery_id)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -63,8 +64,6 @@ class NamespaceDiscoveredDeviceArgs:
         pulumi.set(__self__, "version", version)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
-        if discovered_device_name is not None:
-            pulumi.set(__self__, "discovered_device_name", discovered_device_name)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if external_device_id is not None:
@@ -81,6 +80,18 @@ class NamespaceDiscoveredDeviceArgs:
             pulumi.set(__self__, "operating_system_version", operating_system_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveredDeviceName")
+    def discovered_device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the discovered device.
+        """
+        return pulumi.get(self, "discovered_device_name")
+
+    @discovered_device_name.setter
+    def discovered_device_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovered_device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryId")
@@ -153,18 +164,6 @@ class NamespaceDiscoveredDeviceArgs:
     @attributes.setter
     def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveredDeviceName")
-    def discovered_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the discovered device.
-        """
-        return pulumi.get(self, "discovered_device_name")
-
-    @discovered_device_name.setter
-    def discovered_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "discovered_device_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -365,6 +364,8 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
             __props__ = NamespaceDiscoveredDeviceArgs.__new__(NamespaceDiscoveredDeviceArgs)
 
             __props__.__dict__["attributes"] = attributes
+            if discovered_device_name is None and not opts.urn:
+                raise TypeError("Missing required property 'discovered_device_name'")
             __props__.__dict__["discovered_device_name"] = discovered_device_name
             if discovery_id is None and not opts.urn:
                 raise TypeError("Missing required property 'discovery_id'")

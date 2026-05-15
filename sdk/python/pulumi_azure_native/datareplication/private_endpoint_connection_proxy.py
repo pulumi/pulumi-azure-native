@@ -22,24 +22,35 @@ __all__ = ['PrivateEndpointConnectionProxyArgs', 'PrivateEndpointConnectionProxy
 @pulumi.input_type
 class PrivateEndpointConnectionProxyArgs:
     def __init__(__self__, *,
+                 private_endpoint_connection_proxy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['PrivateEndpointConnectionProxyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionProxy resource.
 
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_proxy_name: The private endpoint connection proxy name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The vault name.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_proxy_name: The private endpoint connection proxy name.
         :param pulumi.Input['PrivateEndpointConnectionProxyPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "private_endpoint_connection_proxy_name", private_endpoint_connection_proxy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if private_endpoint_connection_proxy_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_proxy_name", private_endpoint_connection_proxy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionProxyName")
+    def private_endpoint_connection_proxy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The private endpoint connection proxy name.
+        """
+        return pulumi.get(self, "private_endpoint_connection_proxy_name")
+
+    @private_endpoint_connection_proxy_name.setter
+    def private_endpoint_connection_proxy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_connection_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +75,6 @@ class PrivateEndpointConnectionProxyArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionProxyName")
-    def private_endpoint_connection_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The private endpoint connection proxy name.
-        """
-        return pulumi.get(self, "private_endpoint_connection_proxy_name")
-
-    @private_endpoint_connection_proxy_name.setter
-    def private_endpoint_connection_proxy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +153,8 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionProxyArgs.__new__(PrivateEndpointConnectionProxyArgs)
 
+            if private_endpoint_connection_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_connection_proxy_name'")
             __props__.__dict__["private_endpoint_connection_proxy_name"] = private_endpoint_connection_proxy_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

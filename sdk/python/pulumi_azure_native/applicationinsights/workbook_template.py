@@ -23,28 +23,29 @@ class WorkbookTemplateArgs:
     def __init__(__self__, *,
                  galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  template_data: Any,
                  author: pulumi.Input[Optional[_builtins.str]] = None,
                  localized: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateLocalizedGalleryArgs']]]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WorkbookTemplate resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param Any template_data: Valid JSON object containing workbook template payload.
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateLocalizedGalleryArgs']]]]] localized: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[_builtins.int] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
         pulumi.set(__self__, "galleries", galleries)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "template_data", template_data)
         if author is not None:
             pulumi.set(__self__, "author", author)
@@ -54,8 +55,6 @@ class WorkbookTemplateArgs:
             pulumi.set(__self__, "location", location)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -82,6 +81,18 @@ class WorkbookTemplateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="templateData")
@@ -142,18 +153,6 @@ class WorkbookTemplateArgs:
     @priority.setter
     def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Application Insights component resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -261,6 +260,8 @@ class WorkbookTemplate(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             if template_data is None and not opts.urn:

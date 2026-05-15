@@ -19,20 +19,31 @@ __all__ = ['DisasterRecoveryConfigurationArgs', 'DisasterRecoveryConfiguration']
 @pulumi.input_type
 class DisasterRecoveryConfigurationArgs:
     def __init__(__self__, *,
+                 disaster_recovery_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
-                 disaster_recovery_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DisasterRecoveryConfiguration resource.
 
+        :param pulumi.Input[_builtins.str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
         """
+        pulumi.set(__self__, "disaster_recovery_configuration_name", disaster_recovery_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if disaster_recovery_configuration_name is not None:
-            pulumi.set(__self__, "disaster_recovery_configuration_name", disaster_recovery_configuration_name)
+
+    @_builtins.property
+    @pulumi.getter(name="disasterRecoveryConfigurationName")
+    def disaster_recovery_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the disaster recovery configuration to be created/updated.
+        """
+        return pulumi.get(self, "disaster_recovery_configuration_name")
+
+    @disaster_recovery_configuration_name.setter
+    def disaster_recovery_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "disaster_recovery_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +68,6 @@ class DisasterRecoveryConfigurationArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="disasterRecoveryConfigurationName")
-    def disaster_recovery_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the disaster recovery configuration to be created/updated.
-        """
-        return pulumi.get(self, "disaster_recovery_configuration_name")
-
-    @disaster_recovery_configuration_name.setter
-    def disaster_recovery_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "disaster_recovery_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:sql:DisasterRecoveryConfiguration")
@@ -132,6 +131,8 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DisasterRecoveryConfigurationArgs.__new__(DisasterRecoveryConfigurationArgs)
 
+            if disaster_recovery_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'disaster_recovery_configuration_name'")
             __props__.__dict__["disaster_recovery_configuration_name"] = disaster_recovery_configuration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

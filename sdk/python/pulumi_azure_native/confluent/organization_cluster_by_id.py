@@ -22,10 +22,10 @@ __all__ = ['OrganizationClusterByIdArgs', 'OrganizationClusterById']
 @pulumi.input_type
 class OrganizationClusterByIdArgs:
     def __init__(__self__, *,
+                 cluster_id: pulumi.Input[_builtins.str],
                  environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional['SCMetadataEntityArgs']] = None,
                  spec: pulumi.Input[Optional['SCClusterSpecEntityArgs']] = None,
@@ -33,20 +33,19 @@ class OrganizationClusterByIdArgs:
         """
         The set of arguments for constructing a OrganizationClusterById resource.
 
+        :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
         :param pulumi.Input[_builtins.str] kind: Type of cluster
         :param pulumi.Input['SCMetadataEntityArgs'] metadata: Metadata of the record
         :param pulumi.Input['SCClusterSpecEntityArgs'] spec: Specification of the cluster
         :param pulumi.Input['ClusterStatusEntityArgs'] status: Specification of the cluster status
         """
+        pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if metadata is not None:
@@ -55,6 +54,18 @@ class OrganizationClusterByIdArgs:
             pulumi.set(__self__, "spec", spec)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Confluent kafka or schema registry cluster id
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
@@ -91,18 +102,6 @@ class OrganizationClusterByIdArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Confluent kafka or schema registry cluster id
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @cluster_id.setter
-    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,6 +232,8 @@ class OrganizationClusterById(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationClusterByIdArgs.__new__(OrganizationClusterByIdArgs)
 
+            if cluster_id is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")

@@ -22,10 +22,10 @@ __all__ = ['AuthorizationArgs', 'Authorization']
 @pulumi.input_type
 class AuthorizationArgs:
     def __init__(__self__, *,
+                 authorization_id: pulumi.Input[_builtins.str],
                  authorization_provider_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
                  authorization_type: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]] = None,
                  error: pulumi.Input[Optional['AuthorizationErrorArgs']] = None,
                  o_auth2_grant_type: pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]] = None,
@@ -34,21 +34,20 @@ class AuthorizationArgs:
         """
         The set of arguments for constructing a Authorization resource.
 
+        :param pulumi.Input[_builtins.str] authorization_id: Identifier of the authorization.
         :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] authorization_id: Identifier of the authorization.
         :param pulumi.Input[Union[_builtins.str, 'AuthorizationType']] authorization_type: Authorization type options
         :param pulumi.Input['AuthorizationErrorArgs'] error: Authorization error details.
         :param pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']] o_auth2_grant_type: OAuth2 grant type options
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Authorization parameters
         :param pulumi.Input[_builtins.str] status: Status of the Authorization
         """
+        pulumi.set(__self__, "authorization_id", authorization_id)
         pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if authorization_id is not None:
-            pulumi.set(__self__, "authorization_id", authorization_id)
         if authorization_type is not None:
             pulumi.set(__self__, "authorization_type", authorization_type)
         if error is not None:
@@ -59,6 +58,18 @@ class AuthorizationArgs:
             pulumi.set(__self__, "parameters", parameters)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationId")
+    def authorization_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the authorization.
+        """
+        return pulumi.get(self, "authorization_id")
+
+    @authorization_id.setter
+    def authorization_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationProviderId")
@@ -95,18 +106,6 @@ class AuthorizationArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationId")
-    def authorization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the authorization.
-        """
-        return pulumi.get(self, "authorization_id")
-
-    @authorization_id.setter
-    def authorization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authorization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
@@ -252,6 +251,8 @@ class Authorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthorizationArgs.__new__(AuthorizationArgs)
 
+            if authorization_id is None and not opts.urn:
+                raise TypeError("Missing required property 'authorization_id'")
             __props__.__dict__["authorization_id"] = authorization_id
             if authorization_provider_id is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_provider_id'")

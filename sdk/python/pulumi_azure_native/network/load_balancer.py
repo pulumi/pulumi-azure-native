@@ -22,6 +22,7 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 @pulumi.input_type
 class LoadBalancerArgs:
     def __init__(__self__, *,
+                 load_balancer_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolArgs']]]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
@@ -29,7 +30,6 @@ class LoadBalancerArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  inbound_nat_pools: pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatPoolArgs']]]] = None,
                  inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None,
-                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleArgs']]]] = None,
@@ -39,6 +39,7 @@ class LoadBalancerArgs:
         """
         The set of arguments for constructing a LoadBalancer resource.
 
+        :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]] backend_address_pools: Collection of backend address pools used by a load balancer.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -48,7 +49,6 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         :param pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleArgs']]] outbound_rules: The outbound rules.
@@ -56,6 +56,7 @@ class LoadBalancerArgs:
         :param pulumi.Input['LoadBalancerSkuArgs'] sku: The load balancer SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backend_address_pools is not None:
             pulumi.set(__self__, "backend_address_pools", backend_address_pools)
@@ -69,8 +70,6 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
         if inbound_nat_rules is not None:
             pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
-        if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if load_balancing_rules is not None:
             pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
         if location is not None:
@@ -83,6 +82,18 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -169,18 +180,6 @@ class LoadBalancerArgs:
     @inbound_nat_rules.setter
     def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the load balancer.
-        """
-        return pulumi.get(self, "load_balancer_name")
-
-    @load_balancer_name.setter
-    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingRules")
@@ -361,6 +360,8 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["inbound_nat_pools"] = inbound_nat_pools
             __props__.__dict__["inbound_nat_rules"] = inbound_nat_rules
+            if load_balancer_name is None and not opts.urn:
+                raise TypeError("Missing required property 'load_balancer_name'")
             __props__.__dict__["load_balancer_name"] = load_balancer_name
             __props__.__dict__["load_balancing_rules"] = load_balancing_rules
             __props__.__dict__["location"] = location

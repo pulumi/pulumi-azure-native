@@ -22,28 +22,27 @@ __all__ = ['RaiBlocklistItemArgs', 'RaiBlocklistItem']
 class RaiBlocklistItemArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 rai_blocklist_item_name: pulumi.Input[_builtins.str],
                  rai_blocklist_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['RaiBlocklistItemPropertiesArgs']] = None,
-                 rai_blocklist_item_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiBlocklistItem resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
+        :param pulumi.Input[_builtins.str] rai_blocklist_item_name: The name of the RaiBlocklist Item associated with the custom blocklist
         :param pulumi.Input[_builtins.str] rai_blocklist_name: The name of the RaiBlocklist associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RaiBlocklistItemPropertiesArgs'] properties: Properties of Cognitive Services RaiBlocklist Item.
-        :param pulumi.Input[_builtins.str] rai_blocklist_item_name: The name of the RaiBlocklist Item associated with the custom blocklist
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "rai_blocklist_item_name", rai_blocklist_item_name)
         pulumi.set(__self__, "rai_blocklist_name", rai_blocklist_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if rai_blocklist_item_name is not None:
-            pulumi.set(__self__, "rai_blocklist_item_name", rai_blocklist_item_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +57,18 @@ class RaiBlocklistItemArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="raiBlocklistItemName")
+    def rai_blocklist_item_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RaiBlocklist Item associated with the custom blocklist
+        """
+        return pulumi.get(self, "rai_blocklist_item_name")
+
+    @rai_blocklist_item_name.setter
+    def rai_blocklist_item_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rai_blocklist_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="raiBlocklistName")
@@ -94,18 +105,6 @@ class RaiBlocklistItemArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RaiBlocklistItemPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="raiBlocklistItemName")
-    def rai_blocklist_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RaiBlocklist Item associated with the custom blocklist
-        """
-        return pulumi.get(self, "rai_blocklist_item_name")
-
-    @rai_blocklist_item_name.setter
-    def rai_blocklist_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rai_blocklist_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class RaiBlocklistItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["properties"] = properties
+            if rai_blocklist_item_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rai_blocklist_item_name'")
             __props__.__dict__["rai_blocklist_item_name"] = rai_blocklist_item_name
             if rai_blocklist_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rai_blocklist_name'")

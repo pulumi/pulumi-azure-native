@@ -22,33 +22,44 @@ __all__ = ['NatGatewayArgs', 'NatGateway']
 @pulumi.input_type
 class NatGatewayArgs:
     def __init__(__self__, *,
+                 nat_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 nat_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NatGatewayPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
 
+        :param pulumi.Input[_builtins.str] nat_gateway_name: Name of the nat gateway
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] nat_gateway_name: Name of the nat gateway
         :param pulumi.Input['NatGatewayPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if nat_gateway_name is not None:
-            pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayName")
+    def nat_gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the nat gateway
+        """
+        return pulumi.get(self, "nat_gateway_name")
+
+    @nat_gateway_name.setter
+    def nat_gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "nat_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,18 +96,6 @@ class NatGatewayArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="natGatewayName")
-    def nat_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the nat gateway
-        """
-        return pulumi.get(self, "nat_gateway_name")
-
-    @nat_gateway_name.setter
-    def nat_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "nat_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,6 +198,8 @@ class NatGateway(pulumi.CustomResource):
 
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if nat_gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'nat_gateway_name'")
             __props__.__dict__["nat_gateway_name"] = nat_gateway_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

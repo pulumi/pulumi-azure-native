@@ -23,6 +23,7 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 class VirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_machine_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  firmware_type: pulumi.Input[Optional[Union[_builtins.str, 'FirmwareType']]] = None,
                  guest_agent_profile: pulumi.Input[Optional['GuestAgentProfileArgs']] = None,
@@ -41,12 +42,12 @@ class VirtualMachineArgs:
                  storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 v_center_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 v_center_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
+        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the virtual machine resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[Union[_builtins.str, 'FirmwareType']] firmware_type: Firmware type
         :param pulumi.Input['GuestAgentProfileArgs'] guest_agent_profile: Guest agent status properties.
@@ -67,9 +68,9 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[_builtins.str] template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
         :param pulumi.Input[_builtins.str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the virtual machine resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if firmware_type is not None:
@@ -108,8 +109,6 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "template_id", template_id)
         if v_center_id is not None:
             pulumi.set(__self__, "v_center_id", v_center_id)
-        if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -122,6 +121,18 @@ class VirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the virtual machine resource.
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -352,18 +363,6 @@ class VirtualMachineArgs:
     def v_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "v_center_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the virtual machine resource.
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_machine_name", value)
-
 
 @pulumi.type_token("azure-native:connectedvmwarevsphere:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
@@ -507,6 +506,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["v_center_id"] = v_center_id
+            if virtual_machine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["custom_resource_name"] = None

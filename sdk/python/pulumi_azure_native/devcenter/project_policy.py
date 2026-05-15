@@ -22,23 +22,22 @@ __all__ = ['ProjectPolicyArgs', 'ProjectPolicy']
 class ProjectPolicyArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[_builtins.str],
+                 project_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 project_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyArgs']]]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProjectPolicy resource.
 
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] project_policy_name: The name of the project policy.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyArgs']]] resource_policies: Resource policies that are a part of this project policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Resources that have access to the shared resources that are a part of this project policy.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
+        pulumi.set(__self__, "project_policy_name", project_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if project_policy_name is not None:
-            pulumi.set(__self__, "project_policy_name", project_policy_name)
         if resource_policies is not None:
             pulumi.set(__self__, "resource_policies", resource_policies)
         if scopes is not None:
@@ -57,6 +56,18 @@ class ProjectPolicyArgs:
         pulumi.set(self, "dev_center_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectPolicyName")
+    def project_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the project policy.
+        """
+        return pulumi.get(self, "project_policy_name")
+
+    @project_policy_name.setter
+    def project_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_policy_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -67,18 +78,6 @@ class ProjectPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="projectPolicyName")
-    def project_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the project policy.
-        """
-        return pulumi.get(self, "project_policy_name")
-
-    @project_policy_name.setter
-    def project_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "project_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicies")
@@ -179,6 +178,8 @@ class ProjectPolicy(pulumi.CustomResource):
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
+            if project_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'project_policy_name'")
             __props__.__dict__["project_policy_name"] = project_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

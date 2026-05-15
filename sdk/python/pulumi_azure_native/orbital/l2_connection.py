@@ -24,10 +24,10 @@ class L2ConnectionArgs:
                  edge_site: pulumi.Input['L2ConnectionsPropertiesEdgeSiteArgs'],
                  ground_station: pulumi.Input['L2ConnectionsPropertiesGroundStationArgs'],
                  ground_station_partner_router: pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs'],
+                 l2_connection_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan_id: pulumi.Input[_builtins.int],
-                 l2_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -36,21 +36,20 @@ class L2ConnectionArgs:
         :param pulumi.Input['L2ConnectionsPropertiesEdgeSiteArgs'] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
         :param pulumi.Input['L2ConnectionsPropertiesGroundStationArgs'] ground_station: A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
         :param pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs'] ground_station_partner_router: The name of the partner router to establish a connection to within the ground station.
+        :param pulumi.Input[_builtins.str] l2_connection_name: L2 Connection name.
         :param pulumi.Input[_builtins.str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] vlan_id: The VLAN ID for the L2 connection.
-        :param pulumi.Input[_builtins.str] l2_connection_name: L2 Connection name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "edge_site", edge_site)
         pulumi.set(__self__, "ground_station", ground_station)
         pulumi.set(__self__, "ground_station_partner_router", ground_station_partner_router)
+        pulumi.set(__self__, "l2_connection_name", l2_connection_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vlan_id", vlan_id)
-        if l2_connection_name is not None:
-            pulumi.set(__self__, "l2_connection_name", l2_connection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -93,6 +92,18 @@ class L2ConnectionArgs:
         pulumi.set(self, "ground_station_partner_router", value)
 
     @_builtins.property
+    @pulumi.getter(name="l2ConnectionName")
+    def l2_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        L2 Connection name.
+        """
+        return pulumi.get(self, "l2_connection_name")
+
+    @l2_connection_name.setter
+    def l2_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "l2_connection_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -127,18 +138,6 @@ class L2ConnectionArgs:
     @vlan_id.setter
     def vlan_id(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "vlan_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="l2ConnectionName")
-    def l2_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        L2 Connection name.
-        """
-        return pulumi.get(self, "l2_connection_name")
-
-    @l2_connection_name.setter
-    def l2_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "l2_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -257,6 +256,8 @@ class L2Connection(pulumi.CustomResource):
             if ground_station_partner_router is None and not opts.urn:
                 raise TypeError("Missing required property 'ground_station_partner_router'")
             __props__.__dict__["ground_station_partner_router"] = ground_station_partner_router
+            if l2_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'l2_connection_name'")
             __props__.__dict__["l2_connection_name"] = l2_connection_name
             __props__.__dict__["location"] = location
             if name is None and not opts.urn:

@@ -24,22 +24,21 @@ class TableServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
-                 table_service_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_service_name: pulumi.Input[_builtins.str],
+                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None):
         """
         The set of arguments for constructing a TableServiceProperties resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
         :param pulumi.Input[_builtins.str] table_service_name: The name of the Table Service within the specified storage account. Table Service Name must be 'default'
+        :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "table_service_name", table_service_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
-        if table_service_name is not None:
-            pulumi.set(__self__, "table_service_name", table_service_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -66,6 +65,18 @@ class TableServicePropertiesArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tableServiceName")
+    def table_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Table Service within the specified storage account. Table Service Name must be 'default'
+        """
+        return pulumi.get(self, "table_service_name")
+
+    @table_service_name.setter
+    def table_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_service_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
         """
@@ -76,18 +87,6 @@ class TableServicePropertiesArgs:
     @cors.setter
     def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tableServiceName")
-    def table_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Table Service within the specified storage account. Table Service Name must be 'default'
-        """
-        return pulumi.get(self, "table_service_name")
-
-    @table_service_name.setter
-    def table_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "table_service_name", value)
 
 
 @pulumi.type_token("azure-native:storage:TableServiceProperties")
@@ -165,6 +164,8 @@ class TableServiceProperties(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if table_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'table_service_name'")
             __props__.__dict__["table_service_name"] = table_service_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

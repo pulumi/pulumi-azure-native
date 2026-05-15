@@ -20,33 +20,32 @@ __all__ = ['ApiIssueCommentArgs', 'ApiIssueComment']
 class ApiIssueCommentArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
+                 comment_id: pulumi.Input[_builtins.str],
                  issue_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  text: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
-                 comment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  created_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIssueComment resource.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[_builtins.str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] text: Comment text.
         :param pulumi.Input[_builtins.str] user_id: A resource identifier for the user who left the comment.
-        :param pulumi.Input[_builtins.str] comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[_builtins.str] created_date: Date and time when the comment was created.
         """
         pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "comment_id", comment_id)
         pulumi.set(__self__, "issue_id", issue_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "user_id", user_id)
-        if comment_id is not None:
-            pulumi.set(__self__, "comment_id", comment_id)
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
 
@@ -61,6 +60,18 @@ class ApiIssueCommentArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="commentId")
+    def comment_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Comment identifier within an Issue. Must be unique in the current Issue.
+        """
+        return pulumi.get(self, "comment_id")
+
+    @comment_id.setter
+    def comment_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="issueId")
@@ -121,18 +132,6 @@ class ApiIssueCommentArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="commentId")
-    def comment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Comment identifier within an Issue. Must be unique in the current Issue.
-        """
-        return pulumi.get(self, "comment_id")
-
-    @comment_id.setter
-    def comment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "comment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
@@ -230,6 +229,8 @@ class ApiIssueComment(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
+            if comment_id is None and not opts.urn:
+                raise TypeError("Missing required property 'comment_id'")
             __props__.__dict__["comment_id"] = comment_id
             __props__.__dict__["created_date"] = created_date
             if issue_id is None and not opts.urn:

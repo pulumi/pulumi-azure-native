@@ -21,24 +21,35 @@ __all__ = ['AddonArgs', 'Addon']
 @pulumi.input_type
 class AddonArgs:
     def __init__(__self__, *,
+                 addon_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Addon resource.
 
+        :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
         :param pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="addonName")
+    def addon_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the addon.
+        """
+        return pulumi.get(self, "addon_name")
+
+    @addon_name.setter
+    def addon_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -63,18 +74,6 @@ class AddonArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addonName")
-    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the addon.
-        """
-        return pulumi.get(self, "addon_name")
-
-    @addon_name.setter
-    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class Addon(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AddonArgs.__new__(AddonArgs)
 
+            if addon_name is None and not opts.urn:
+                raise TypeError("Missing required property 'addon_name'")
             __props__.__dict__["addon_name"] = addon_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

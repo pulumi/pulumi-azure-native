@@ -20,20 +20,31 @@ __all__ = ['VendorSkuPreviewArgs', 'VendorSkuPreview']
 @pulumi.input_type
 class VendorSkuPreviewArgs:
     def __init__(__self__, *,
+                 preview_subscription: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 vendor_name: pulumi.Input[_builtins.str],
-                 preview_subscription: pulumi.Input[Optional[_builtins.str]] = None):
+                 vendor_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a VendorSkuPreview resource.
 
+        :param pulumi.Input[_builtins.str] preview_subscription: Preview subscription ID.
         :param pulumi.Input[_builtins.str] sku_name: The name of the vendor sku.
         :param pulumi.Input[_builtins.str] vendor_name: The name of the vendor.
-        :param pulumi.Input[_builtins.str] preview_subscription: Preview subscription ID.
         """
+        pulumi.set(__self__, "preview_subscription", preview_subscription)
         pulumi.set(__self__, "sku_name", sku_name)
         pulumi.set(__self__, "vendor_name", vendor_name)
-        if preview_subscription is not None:
-            pulumi.set(__self__, "preview_subscription", preview_subscription)
+
+    @_builtins.property
+    @pulumi.getter(name="previewSubscription")
+    def preview_subscription(self) -> pulumi.Input[_builtins.str]:
+        """
+        Preview subscription ID.
+        """
+        return pulumi.get(self, "preview_subscription")
+
+    @preview_subscription.setter
+    def preview_subscription(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "preview_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
@@ -58,18 +69,6 @@ class VendorSkuPreviewArgs:
     @vendor_name.setter
     def vendor_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vendor_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="previewSubscription")
-    def preview_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Preview subscription ID.
-        """
-        return pulumi.get(self, "preview_subscription")
-
-    @preview_subscription.setter
-    def preview_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "preview_subscription", value)
 
 
 @pulumi.type_token("azure-native:hybridnetwork:VendorSkuPreview")
@@ -133,6 +132,8 @@ class VendorSkuPreview(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VendorSkuPreviewArgs.__new__(VendorSkuPreviewArgs)
 
+            if preview_subscription is None and not opts.urn:
+                raise TypeError("Missing required property 'preview_subscription'")
             __props__.__dict__["preview_subscription"] = preview_subscription
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")

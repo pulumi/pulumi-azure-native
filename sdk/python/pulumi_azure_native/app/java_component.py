@@ -22,21 +22,20 @@ __all__ = ['JavaComponentArgs', 'JavaComponent']
 class JavaComponentArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]] = None):
         """
         The set of arguments for constructing a JavaComponent resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] name: Name of the Java Component.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']] properties: Java Component resource specific properties
         """
         pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,6 +52,18 @@ class JavaComponentArgs:
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Java Component.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -63,18 +74,6 @@ class JavaComponentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Java Component.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,6 +159,8 @@ class JavaComponent(pulumi.CustomResource):
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

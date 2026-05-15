@@ -22,29 +22,28 @@ __all__ = ['NeighborGroupArgs', 'NeighborGroup']
 class NeighborGroupArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['NeighborGroupDestinationArgs'],
+                 neighbor_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 neighbor_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NeighborGroup resource.
 
         :param pulumi.Input['NeighborGroupDestinationArgs'] destination: An array of destination IPv4 Addresses or IPv6 Addresses.
+        :param pulumi.Input[_builtins.str] neighbor_group_name: Name of the Neighbor Group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] neighbor_group_name: Name of the Neighbor Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "neighbor_group_name", neighbor_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if neighbor_group_name is not None:
-            pulumi.set(__self__, "neighbor_group_name", neighbor_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -59,6 +58,18 @@ class NeighborGroupArgs:
     @destination.setter
     def destination(self, value: pulumi.Input['NeighborGroupDestinationArgs']):
         pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="neighborGroupName")
+    def neighbor_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Neighbor Group.
+        """
+        return pulumi.get(self, "neighbor_group_name")
+
+    @neighbor_group_name.setter
+    def neighbor_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "neighbor_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,18 +106,6 @@ class NeighborGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="neighborGroupName")
-    def neighbor_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Neighbor Group.
-        """
-        return pulumi.get(self, "neighbor_group_name")
-
-    @neighbor_group_name.setter
-    def neighbor_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "neighbor_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class NeighborGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["location"] = location
+            if neighbor_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'neighbor_group_name'")
             __props__.__dict__["neighbor_group_name"] = neighbor_group_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

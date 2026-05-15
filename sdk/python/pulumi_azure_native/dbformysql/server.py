@@ -23,6 +23,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_name: pulumi.Input[_builtins.str],
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,7 +38,6 @@ class ServerArgs:
                  network: pulumi.Input[Optional['NetworkArgs']] = None,
                  replication_role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]] = None,
                  restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['MySQLServerSkuArgs']] = None,
                  source_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage: pulumi.Input[Optional['StorageArgs']] = None,
@@ -47,6 +47,7 @@ class ServerArgs:
         The set of arguments for constructing a Server resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login (required for server creation).
         :param pulumi.Input[_builtins.str] availability_zone: availability Zone information of the server.
@@ -61,7 +62,6 @@ class ServerArgs:
         :param pulumi.Input['NetworkArgs'] network: Network related properties of a server.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationRole']] replication_role: The replication role.
         :param pulumi.Input[_builtins.str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
-        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['MySQLServerSkuArgs'] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[_builtins.str] source_server_resource_id: The source MySQL server id.
         :param pulumi.Input['StorageArgs'] storage: Storage related properties of a server.
@@ -69,6 +69,7 @@ class ServerArgs:
         :param pulumi.Input[Union[_builtins.str, 'ServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
@@ -97,8 +98,6 @@ class ServerArgs:
             pulumi.set(__self__, "replication_role", replication_role)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if source_server_resource_id is not None:
@@ -121,6 +120,18 @@ class ServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
@@ -289,18 +300,6 @@ class ServerArgs:
     @restore_point_in_time.setter
     def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the server.
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -499,6 +498,8 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_server_resource_id"] = source_server_resource_id

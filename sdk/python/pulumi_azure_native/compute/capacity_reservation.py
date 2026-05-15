@@ -22,9 +22,9 @@ __all__ = ['CapacityReservationArgs', 'CapacityReservation']
 class CapacityReservationArgs:
     def __init__(__self__, *,
                  capacity_reservation_group_name: pulumi.Input[_builtins.str],
+                 capacity_reservation_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 capacity_reservation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -32,18 +32,17 @@ class CapacityReservationArgs:
         The set of arguments for constructing a CapacityReservation resource.
 
         :param pulumi.Input[_builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
+        :param pulumi.Input[_builtins.str] capacity_reservation_name: The name of the capacity reservation.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: SKU of the resource for which capacity needs be reserved. The SKU name and capacity is required to be set.  For Block capacity reservations, sku.capacity can only accept values 1, 2, 4, 8, 16, 32, 64. Currently VM Skus with the capability called 'CapacityReservationSupported' set to true are supported. When 'CapacityReservationSupported' is true, the SKU capability also specifies the 'SupportedCapacityReservationTypes', which lists the types of capacity reservations (such as Targeted or Block) that the SKU supports. Refer to List Microsoft.Compute SKUs in a region (https://docs.microsoft.com/rest/api/compute/resourceskus/list) for supported values.
-        :param pulumi.Input[_builtins.str] capacity_reservation_name: The name of the capacity reservation.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "capacity_reservation_group_name", capacity_reservation_group_name)
+        pulumi.set(__self__, "capacity_reservation_name", capacity_reservation_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if capacity_reservation_name is not None:
-            pulumi.set(__self__, "capacity_reservation_name", capacity_reservation_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -62,6 +61,18 @@ class CapacityReservationArgs:
     @capacity_reservation_group_name.setter
     def capacity_reservation_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "capacity_reservation_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationName")
+    def capacity_reservation_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the capacity reservation.
+        """
+        return pulumi.get(self, "capacity_reservation_name")
+
+    @capacity_reservation_name.setter
+    def capacity_reservation_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_reservation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,18 +97,6 @@ class CapacityReservationArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityReservationName")
-    def capacity_reservation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the capacity reservation.
-        """
-        return pulumi.get(self, "capacity_reservation_name")
-
-    @capacity_reservation_name.setter
-    def capacity_reservation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "capacity_reservation_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,6 +215,8 @@ class CapacityReservation(pulumi.CustomResource):
             if capacity_reservation_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity_reservation_group_name'")
             __props__.__dict__["capacity_reservation_group_name"] = capacity_reservation_group_name
+            if capacity_reservation_name is None and not opts.urn:
+                raise TypeError("Missing required property 'capacity_reservation_name'")
             __props__.__dict__["capacity_reservation_name"] = capacity_reservation_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

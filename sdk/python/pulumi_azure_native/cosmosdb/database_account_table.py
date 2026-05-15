@@ -25,7 +25,7 @@ class DatabaseAccountTableArgs:
                  options: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input['TableResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DatabaseAccountTable resource.
 
@@ -39,8 +39,7 @@ class DatabaseAccountTableArgs:
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "table_name", table_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -92,14 +91,14 @@ class DatabaseAccountTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[_builtins.str]:
         """
         Cosmos DB table name.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
 
 
@@ -186,6 +185,8 @@ class DatabaseAccountTable(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if table_name is None and not opts.urn:
+                raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None

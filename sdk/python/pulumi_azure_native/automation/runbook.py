@@ -24,6 +24,7 @@ class RunbookArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 runbook_name: pulumi.Input[_builtins.str],
                  runbook_type: pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  draft: pulumi.Input[Optional['RunbookDraftArgs']] = None,
@@ -33,7 +34,6 @@ class RunbookArgs:
                  log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish_content_link: pulumi.Input[Optional['ContentLinkArgs']] = None,
-                 runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_environment: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -41,6 +41,7 @@ class RunbookArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] runbook_name: The runbook name.
         :param pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the runbook.
         :param pulumi.Input['RunbookDraftArgs'] draft: Gets or sets the draft runbook properties.
@@ -50,12 +51,12 @@ class RunbookArgs:
         :param pulumi.Input[_builtins.bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
         :param pulumi.Input['ContentLinkArgs'] publish_content_link: Gets or sets the published runbook content link.
-        :param pulumi.Input[_builtins.str] runbook_name: The runbook name.
         :param pulumi.Input[_builtins.str] runtime_environment: Environment of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "runbook_name", runbook_name)
         pulumi.set(__self__, "runbook_type", runbook_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -73,8 +74,6 @@ class RunbookArgs:
             pulumi.set(__self__, "name", name)
         if publish_content_link is not None:
             pulumi.set(__self__, "publish_content_link", publish_content_link)
-        if runbook_name is not None:
-            pulumi.set(__self__, "runbook_name", runbook_name)
         if runtime_environment is not None:
             pulumi.set(__self__, "runtime_environment", runtime_environment)
         if tags is not None:
@@ -103,6 +102,18 @@ class RunbookArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runbookName")
+    def runbook_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The runbook name.
+        """
+        return pulumi.get(self, "runbook_name")
+
+    @runbook_name.setter
+    def runbook_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "runbook_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookType")
@@ -211,18 +222,6 @@ class RunbookArgs:
     @publish_content_link.setter
     def publish_content_link(self, value: pulumi.Input[Optional['ContentLinkArgs']]):
         pulumi.set(self, "publish_content_link", value)
-
-    @_builtins.property
-    @pulumi.getter(name="runbookName")
-    def runbook_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The runbook name.
-        """
-        return pulumi.get(self, "runbook_name")
-
-    @runbook_name.setter
-    def runbook_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "runbook_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironment")
@@ -361,6 +360,8 @@ class Runbook(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if runbook_name is None and not opts.urn:
+                raise TypeError("Missing required property 'runbook_name'")
             __props__.__dict__["runbook_name"] = runbook_name
             if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")

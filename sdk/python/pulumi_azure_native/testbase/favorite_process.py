@@ -21,25 +21,24 @@ __all__ = ['FavoriteProcessArgs', 'FavoriteProcess']
 class FavoriteProcessArgs:
     def __init__(__self__, *,
                  actual_process_name: pulumi.Input[_builtins.str],
+                 favorite_process_resource_name: pulumi.Input[_builtins.str],
                  package_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 test_base_account_name: pulumi.Input[_builtins.str],
-                 favorite_process_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 test_base_account_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FavoriteProcess resource.
 
         :param pulumi.Input[_builtins.str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
+        :param pulumi.Input[_builtins.str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         :param pulumi.Input[_builtins.str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
-        :param pulumi.Input[_builtins.str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         """
         pulumi.set(__self__, "actual_process_name", actual_process_name)
+        pulumi.set(__self__, "favorite_process_resource_name", favorite_process_resource_name)
         pulumi.set(__self__, "package_name", package_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        if favorite_process_resource_name is not None:
-            pulumi.set(__self__, "favorite_process_resource_name", favorite_process_resource_name)
 
     @_builtins.property
     @pulumi.getter(name="actualProcessName")
@@ -52,6 +51,18 @@ class FavoriteProcessArgs:
     @actual_process_name.setter
     def actual_process_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "actual_process_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="favoriteProcessResourceName")
+    def favorite_process_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+        """
+        return pulumi.get(self, "favorite_process_resource_name")
+
+    @favorite_process_resource_name.setter
+    def favorite_process_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "favorite_process_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageName")
@@ -88,18 +99,6 @@ class FavoriteProcessArgs:
     @test_base_account_name.setter
     def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "test_base_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="favoriteProcessResourceName")
-    def favorite_process_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
-        """
-        return pulumi.get(self, "favorite_process_resource_name")
-
-    @favorite_process_resource_name.setter
-    def favorite_process_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "favorite_process_resource_name", value)
 
 
 @pulumi.type_token("azure-native:testbase:FavoriteProcess")
@@ -176,6 +175,8 @@ class FavoriteProcess(pulumi.CustomResource):
             if actual_process_name is None and not opts.urn:
                 raise TypeError("Missing required property 'actual_process_name'")
             __props__.__dict__["actual_process_name"] = actual_process_name
+            if favorite_process_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'favorite_process_resource_name'")
             __props__.__dict__["favorite_process_resource_name"] = favorite_process_resource_name
             if package_name is None and not opts.urn:
                 raise TypeError("Missing required property 'package_name'")

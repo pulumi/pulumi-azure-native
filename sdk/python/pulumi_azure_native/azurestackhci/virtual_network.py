@@ -23,28 +23,29 @@ __all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
 class VirtualNetworkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_network_name: pulumi.Input[_builtins.str],
                  dhcp_options: pulumi.Input[Optional['VirtualNetworkPropertiesDhcpOptionsArgs']] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkTypeEnum']]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesSubnetsArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vm_switch_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network
         :param pulumi.Input['VirtualNetworkPropertiesDhcpOptionsArgs'] dhcp_options: DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'NetworkTypeEnum']] network_type: Type of the network
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesSubnetsArgs']]] subnets: Subnet - list of subnets under the virtual network
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network
         :param pulumi.Input[_builtins.str] vm_switch_name: name of the network switch to be used for VMs
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if dhcp_options is not None:
             pulumi.set(__self__, "dhcp_options", dhcp_options)
         if extended_location is not None:
@@ -57,8 +58,6 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_name is not None:
-            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if vm_switch_name is not None:
             pulumi.set(__self__, "vm_switch_name", vm_switch_name)
 
@@ -73,6 +72,18 @@ class VirtualNetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the virtual network
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dhcpOptions")
@@ -145,18 +156,6 @@ class VirtualNetworkArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the virtual network
-        """
-        return pulumi.get(self, "virtual_network_name")
-
-    @virtual_network_name.setter
-    def virtual_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSwitchName")
@@ -263,6 +262,8 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            if virtual_network_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["vm_switch_name"] = vm_switch_name
             __props__.__dict__["azure_api_version"] = None

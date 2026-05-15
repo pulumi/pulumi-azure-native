@@ -22,32 +22,43 @@ __all__ = ['SqlCollectorOperationArgs', 'SqlCollectorOperation']
 @pulumi.input_type
 class SqlCollectorOperationArgs:
     def __init__(__self__, *,
+                 collector_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
-                 collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         The set of arguments for constructing a SqlCollectorOperation resource.
 
+        :param pulumi.Input[_builtins.str] collector_name: Sql collector ARM name.
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CollectorAgentPropertiesBaseArgs'] agent_properties: Gets or sets the collector agent properties.
-        :param pulumi.Input[_builtins.str] collector_name: Sql collector ARM name.
         :param pulumi.Input[_builtins.str] discovery_site_id: Gets the discovery site id.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         """
+        pulumi.set(__self__, "collector_name", collector_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if agent_properties is not None:
             pulumi.set(__self__, "agent_properties", agent_properties)
-        if collector_name is not None:
-            pulumi.set(__self__, "collector_name", collector_name)
         if discovery_site_id is not None:
             pulumi.set(__self__, "discovery_site_id", discovery_site_id)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="collectorName")
+    def collector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Sql collector ARM name.
+        """
+        return pulumi.get(self, "collector_name")
+
+    @collector_name.setter
+    def collector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -84,18 +95,6 @@ class SqlCollectorOperationArgs:
     @agent_properties.setter
     def agent_properties(self, value: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]):
         pulumi.set(self, "agent_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="collectorName")
-    def collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Sql collector ARM name.
-        """
-        return pulumi.get(self, "collector_name")
-
-    @collector_name.setter
-    def collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
@@ -197,6 +196,8 @@ class SqlCollectorOperation(pulumi.CustomResource):
             __props__ = SqlCollectorOperationArgs.__new__(SqlCollectorOperationArgs)
 
             __props__.__dict__["agent_properties"] = agent_properties
+            if collector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'collector_name'")
             __props__.__dict__["collector_name"] = collector_name
             __props__.__dict__["discovery_site_id"] = discovery_site_id
             if project_name is None and not opts.urn:

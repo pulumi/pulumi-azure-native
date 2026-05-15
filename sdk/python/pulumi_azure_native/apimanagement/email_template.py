@@ -23,26 +23,27 @@ class EmailTemplateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 template_name: pulumi.Input[_builtins.str],
                  body: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateParametersContractPropertiesArgs']]]] = None,
                  subject: pulumi.Input[Optional[_builtins.str]] = None,
-                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailTemplate resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] template_name: Email Template Name Identifier.
         :param pulumi.Input[_builtins.str] body: Email Template Body. This should be a valid XDocument
         :param pulumi.Input[_builtins.str] description: Description of the Email Template.
         :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateParametersContractPropertiesArgs']]] parameters: Email Template Parameter values.
         :param pulumi.Input[_builtins.str] subject: Subject of the Template.
-        :param pulumi.Input[_builtins.str] template_name: Email Template Name Identifier.
         :param pulumi.Input[_builtins.str] title: Title of the Template.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "template_name", template_name)
         if body is not None:
             pulumi.set(__self__, "body", body)
         if description is not None:
@@ -51,8 +52,6 @@ class EmailTemplateArgs:
             pulumi.set(__self__, "parameters", parameters)
         if subject is not None:
             pulumi.set(__self__, "subject", subject)
-        if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
         if title is not None:
             pulumi.set(__self__, "title", title)
 
@@ -79,6 +78,18 @@ class EmailTemplateArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Email Template Name Identifier.
+        """
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -127,18 +138,6 @@ class EmailTemplateArgs:
     @subject.setter
     def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
-
-    @_builtins.property
-    @pulumi.getter(name="templateName")
-    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Email Template Name Identifier.
-        """
-        return pulumi.get(self, "template_name")
-
-    @template_name.setter
-    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -243,6 +242,8 @@ class EmailTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["subject"] = subject
+            if template_name is None and not opts.urn:
+                raise TypeError("Missing required property 'template_name'")
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["title"] = title
             __props__.__dict__["azure_api_version"] = None

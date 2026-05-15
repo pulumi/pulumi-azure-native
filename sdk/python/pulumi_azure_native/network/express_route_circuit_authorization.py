@@ -20,36 +20,47 @@ __all__ = ['ExpressRouteCircuitAuthorizationInitArgs', 'ExpressRouteCircuitAutho
 @pulumi.input_type
 class ExpressRouteCircuitAuthorizationInitArgs:
     def __init__(__self__, *,
+                 authorization_name: pulumi.Input[_builtins.str],
                  circuit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  authorization_use_status: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationUseStatus']]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 
+        :param pulumi.Input[_builtins.str] authorization_name: The name of the authorization.
         :param pulumi.Input[_builtins.str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key.
-        :param pulumi.Input[_builtins.str] authorization_name: The name of the authorization.
         :param pulumi.Input[Union[_builtins.str, 'AuthorizationUseStatus']] authorization_use_status: The authorization use status.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
+        pulumi.set(__self__, "authorization_name", authorization_name)
         pulumi.set(__self__, "circuit_name", circuit_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if authorization_name is not None:
-            pulumi.set(__self__, "authorization_name", authorization_name)
         if authorization_use_status is not None:
             pulumi.set(__self__, "authorization_use_status", authorization_use_status)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationName")
+    def authorization_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the authorization.
+        """
+        return pulumi.get(self, "authorization_name")
+
+    @authorization_name.setter
+    def authorization_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitName")
@@ -86,18 +97,6 @@ class ExpressRouteCircuitAuthorizationInitArgs:
     @authorization_key.setter
     def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the authorization.
-        """
-        return pulumi.get(self, "authorization_name")
-
-    @authorization_name.setter
-    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationUseStatus")
@@ -214,6 +213,8 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             __props__ = ExpressRouteCircuitAuthorizationInitArgs.__new__(ExpressRouteCircuitAuthorizationInitArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
+            if authorization_name is None and not opts.urn:
+                raise TypeError("Missing required property 'authorization_name'")
             __props__.__dict__["authorization_name"] = authorization_name
             __props__.__dict__["authorization_use_status"] = authorization_use_status
             if circuit_name is None and not opts.urn:

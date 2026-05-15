@@ -22,8 +22,8 @@ __all__ = ['IntegrationAccountArgs', 'IntegrationAccount']
 @pulumi.input_type
 class IntegrationAccountArgs:
     def __init__(__self__, *,
+                 integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_service_environment: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['IntegrationAccountSkuArgs']] = None,
@@ -32,17 +32,16 @@ class IntegrationAccountArgs:
         """
         The set of arguments for constructing a IntegrationAccount resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['ResourceReferenceArgs'] integration_service_environment: The integration service environment.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input['IntegrationAccountSkuArgs'] sku: The sku.
         :param pulumi.Input[Union[_builtins.str, 'WorkflowState']] state: The workflow state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if integration_account_name is not None:
-            pulumi.set(__self__, "integration_account_name", integration_account_name)
         if integration_service_environment is not None:
             pulumi.set(__self__, "integration_service_environment", integration_service_environment)
         if location is not None:
@@ -55,6 +54,18 @@ class IntegrationAccountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="integrationAccountName")
+    def integration_account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The integration account name.
+        """
+        return pulumi.get(self, "integration_account_name")
+
+    @integration_account_name.setter
+    def integration_account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "integration_account_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -65,18 +76,6 @@ class IntegrationAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The integration account name.
-        """
-        return pulumi.get(self, "integration_account_name")
-
-    @integration_account_name.setter
-    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironment")
@@ -216,6 +215,8 @@ class IntegrationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountArgs.__new__(IntegrationAccountArgs)
 
+            if integration_account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["integration_service_environment"] = integration_service_environment
             __props__.__dict__["location"] = location

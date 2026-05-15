@@ -24,10 +24,10 @@ class DeploymentStackAtSubscriptionArgs:
     def __init__(__self__, *,
                  action_on_unmanage: pulumi.Input['ActionOnUnmanageArgs'],
                  deny_settings: pulumi.Input['DenySettingsArgs'],
+                 deployment_stack_name: pulumi.Input[_builtins.str],
                  bypass_stack_out_of_sync_error: pulumi.Input[Optional[_builtins.bool]] = None,
                  debug_setting: pulumi.Input[Optional['DeploymentStacksDebugSettingArgs']] = None,
                  deployment_scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
@@ -40,10 +40,10 @@ class DeploymentStackAtSubscriptionArgs:
 
         :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
+        :param pulumi.Input[_builtins.str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[_builtins.bool] bypass_stack_out_of_sync_error: Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
         :param pulumi.Input['DeploymentStacksDebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input[_builtins.str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
-        :param pulumi.Input[_builtins.str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[_builtins.str] description: Deployment stack description. Max length of 4096 characters.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
@@ -54,14 +54,13 @@ class DeploymentStackAtSubscriptionArgs:
         """
         pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
         pulumi.set(__self__, "deny_settings", deny_settings)
+        pulumi.set(__self__, "deployment_stack_name", deployment_stack_name)
         if bypass_stack_out_of_sync_error is not None:
             pulumi.set(__self__, "bypass_stack_out_of_sync_error", bypass_stack_out_of_sync_error)
         if debug_setting is not None:
             pulumi.set(__self__, "debug_setting", debug_setting)
         if deployment_scope is not None:
             pulumi.set(__self__, "deployment_scope", deployment_scope)
-        if deployment_stack_name is not None:
-            pulumi.set(__self__, "deployment_stack_name", deployment_stack_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
@@ -102,6 +101,18 @@ class DeploymentStackAtSubscriptionArgs:
         pulumi.set(self, "deny_settings", value)
 
     @_builtins.property
+    @pulumi.getter(name="deploymentStackName")
+    def deployment_stack_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the deployment stack.
+        """
+        return pulumi.get(self, "deployment_stack_name")
+
+    @deployment_stack_name.setter
+    def deployment_stack_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_stack_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="bypassStackOutOfSyncError")
     def bypass_stack_out_of_sync_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -136,18 +147,6 @@ class DeploymentStackAtSubscriptionArgs:
     @deployment_scope.setter
     def deployment_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentStackName")
-    def deployment_stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the deployment stack.
-        """
-        return pulumi.get(self, "deployment_stack_name")
-
-    @deployment_stack_name.setter
-    def deployment_stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "deployment_stack_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -338,6 +337,8 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'deny_settings'")
             __props__.__dict__["deny_settings"] = deny_settings
             __props__.__dict__["deployment_scope"] = deployment_scope
+            if deployment_stack_name is None and not opts.urn:
+                raise TypeError("Missing required property 'deployment_stack_name'")
             __props__.__dict__["deployment_stack_name"] = deployment_stack_name
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

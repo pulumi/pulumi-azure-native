@@ -22,28 +22,27 @@ __all__ = ['ImageDefinitionArgs', 'ImageDefinition']
 class ImageDefinitionArgs:
     def __init__(__self__, *,
                  architecture: pulumi.Input[Union[_builtins.str, 'ImageArchitecture']],
+                 image_definition_name: pulumi.Input[_builtins.str],
                  os_state: pulumi.Input[Union[_builtins.str, 'ImageOSState']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_type: pulumi.Input[Union[_builtins.str, 'ImageSecurityType']],
-                 test_base_account_name: pulumi.Input[_builtins.str],
-                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 test_base_account_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ImageDefinition resource.
 
         :param pulumi.Input[Union[_builtins.str, 'ImageArchitecture']] architecture: Custom image architecture.
+        :param pulumi.Input[_builtins.str] image_definition_name: The resource name of the test base image definition.
         :param pulumi.Input[Union[_builtins.str, 'ImageOSState']] os_state: Custom image OS state.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ImageSecurityType']] security_type: Custom image security type.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
-        :param pulumi.Input[_builtins.str] image_definition_name: The resource name of the test base image definition.
         """
         pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "image_definition_name", image_definition_name)
         pulumi.set(__self__, "os_state", os_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "security_type", security_type)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        if image_definition_name is not None:
-            pulumi.set(__self__, "image_definition_name", image_definition_name)
 
     @_builtins.property
     @pulumi.getter
@@ -56,6 +55,18 @@ class ImageDefinitionArgs:
     @architecture.setter
     def architecture(self, value: pulumi.Input[Union[_builtins.str, 'ImageArchitecture']]):
         pulumi.set(self, "architecture", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageDefinitionName")
+    def image_definition_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource name of the test base image definition.
+        """
+        return pulumi.get(self, "image_definition_name")
+
+    @image_definition_name.setter
+    def image_definition_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osState")
@@ -104,18 +115,6 @@ class ImageDefinitionArgs:
     @test_base_account_name.setter
     def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "test_base_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="imageDefinitionName")
-    def image_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The resource name of the test base image definition.
-        """
-        return pulumi.get(self, "image_definition_name")
-
-    @image_definition_name.setter
-    def image_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "image_definition_name", value)
 
 
 @pulumi.type_token("azure-native:testbase:ImageDefinition")
@@ -191,6 +190,8 @@ class ImageDefinition(pulumi.CustomResource):
             if architecture is None and not opts.urn:
                 raise TypeError("Missing required property 'architecture'")
             __props__.__dict__["architecture"] = architecture
+            if image_definition_name is None and not opts.urn:
+                raise TypeError("Missing required property 'image_definition_name'")
             __props__.__dict__["image_definition_name"] = image_definition_name
             if os_state is None and not opts.urn:
                 raise TypeError("Missing required property 'os_state'")

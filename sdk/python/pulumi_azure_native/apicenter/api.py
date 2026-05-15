@@ -22,12 +22,12 @@ __all__ = ['ApiArgs', 'Api']
 @pulumi.input_type
 class ApiArgs:
     def __init__(__self__, *,
+                 api_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Union[_builtins.str, 'ApiKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
                  contacts: pulumi.Input[Optional[Sequence[pulumi.Input['ContactArgs']]]] = None,
                  custom_properties: Optional[Any] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,12 +38,12 @@ class ApiArgs:
         """
         The set of arguments for constructing a Api resource.
 
+        :param pulumi.Input[_builtins.str] api_name: The name of the API.
         :param pulumi.Input[Union[_builtins.str, 'ApiKind']] kind: Kind of API. For example, REST or GraphQL.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] title: API title.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] api_name: The name of the API.
         :param pulumi.Input[Sequence[pulumi.Input['ContactArgs']]] contacts: The set of contacts
         :param Any custom_properties: The custom metadata defined for API catalog entities.
         :param pulumi.Input[_builtins.str] description: Description of the API.
@@ -52,13 +52,12 @@ class ApiArgs:
         :param pulumi.Input[_builtins.str] summary: Short description of the API.
         :param pulumi.Input['TermsOfServiceArgs'] terms_of_service: Terms of service for the API.
         """
+        pulumi.set(__self__, "api_name", api_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if api_name is not None:
-            pulumi.set(__self__, "api_name", api_name)
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
         if custom_properties is not None:
@@ -73,6 +72,18 @@ class ApiArgs:
             pulumi.set(__self__, "summary", summary)
         if terms_of_service is not None:
             pulumi.set(__self__, "terms_of_service", terms_of_service)
+
+    @_builtins.property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the API.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -133,18 +144,6 @@ class ApiArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiName")
-    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the API.
-        """
-        return pulumi.get(self, "api_name")
-
-    @api_name.setter
-    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -326,6 +325,8 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiArgs.__new__(ApiArgs)
 
+            if api_name is None and not opts.urn:
+                raise TypeError("Missing required property 'api_name'")
             __props__.__dict__["api_name"] = api_name
             __props__.__dict__["contacts"] = contacts
             __props__.__dict__["custom_properties"] = custom_properties

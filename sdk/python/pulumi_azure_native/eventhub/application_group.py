@@ -22,31 +22,42 @@ __all__ = ['ApplicationGroupArgs', 'ApplicationGroup']
 @pulumi.input_type
 class ApplicationGroupArgs:
     def __init__(__self__, *,
+                 application_group_name: pulumi.Input[_builtins.str],
                  client_app_group_identifier: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  policies: pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationGroup resource.
 
+        :param pulumi.Input[_builtins.str] application_group_name: The Application Group name 
         :param pulumi.Input[_builtins.str] client_app_group_identifier: The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[_builtins.str] application_group_name: The Application Group name 
         :param pulumi.Input[_builtins.bool] is_enabled: Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
         :param pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]] policies: List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
         """
+        pulumi.set(__self__, "application_group_name", application_group_name)
         pulumi.set(__self__, "client_app_group_identifier", client_app_group_identifier)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if application_group_name is not None:
-            pulumi.set(__self__, "application_group_name", application_group_name)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationGroupName")
+    def application_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Application Group name 
+        """
+        return pulumi.get(self, "application_group_name")
+
+    @application_group_name.setter
+    def application_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAppGroupIdentifier")
@@ -83,18 +94,6 @@ class ApplicationGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationGroupName")
-    def application_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Application Group name 
-        """
-        return pulumi.get(self, "application_group_name")
-
-    @application_group_name.setter
-    def application_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
@@ -195,6 +194,8 @@ class ApplicationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
+            if application_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_group_name'")
             __props__.__dict__["application_group_name"] = application_group_name
             if client_app_group_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'client_app_group_identifier'")

@@ -23,24 +23,25 @@ __all__ = ['IotHubResourceArgs', 'IotHubResource']
 class IotHubResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['IotHubSkuInfoArgs'],
                  identity: pulumi.Input[Optional['ArmIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['IotHubPropertiesArgs']] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IotHubResource resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the IoT hub.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the IoT hub.
         :param pulumi.Input['IotHubSkuInfoArgs'] sku: IotHub SKU info
         :param pulumi.Input['ArmIdentityArgs'] identity: The managed identities for the IotHub.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input['IotHubPropertiesArgs'] properties: IotHub properties
-        :param pulumi.Input[_builtins.str] resource_name: The name of the IoT hub.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "sku", sku)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -48,8 +49,6 @@ class IotHubResourceArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +63,18 @@ class IotHubResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the IoT hub.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,18 +123,6 @@ class IotHubResourceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['IotHubPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the IoT hub.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -221,6 +220,8 @@ class IotHubResource(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

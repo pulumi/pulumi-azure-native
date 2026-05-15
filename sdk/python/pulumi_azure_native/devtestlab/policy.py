@@ -22,6 +22,7 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  policy_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -29,7 +30,6 @@ class PolicyArgs:
                  fact_data: pulumi.Input[Optional[_builtins.str]] = None,
                  fact_name: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  threshold: pulumi.Input[Optional[_builtins.str]] = None):
@@ -37,6 +37,7 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
 
         :param pulumi.Input[_builtins.str] lab_name: labs
+        :param pulumi.Input[_builtins.str] name: The name of the Policy
         :param pulumi.Input[_builtins.str] policy_set_name: policysets
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of the policy.
@@ -44,12 +45,12 @@ class PolicyArgs:
         :param pulumi.Input[_builtins.str] fact_data: The fact data of the policy.
         :param pulumi.Input[Union[_builtins.str, 'PolicyFactName']] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Policy
         :param pulumi.Input[Union[_builtins.str, 'PolicyStatus']] status: The status of the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[_builtins.str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_set_name", policy_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -62,8 +63,6 @@ class PolicyArgs:
             pulumi.set(__self__, "fact_name", fact_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -82,6 +81,18 @@ class PolicyArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySetName")
@@ -166,18 +177,6 @@ class PolicyArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Policy
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -312,6 +311,8 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if policy_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_set_name'")

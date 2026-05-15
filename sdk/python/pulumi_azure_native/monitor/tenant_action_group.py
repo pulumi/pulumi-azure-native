@@ -24,12 +24,12 @@ class TenantActionGroupArgs:
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_short_name: pulumi.Input[_builtins.str],
                  management_group_id: pulumi.Input[_builtins.str],
+                 tenant_action_group_name: pulumi.Input[_builtins.str],
                  azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]] = None,
                  email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['SmsReceiverArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceReceiverArgs']]]] = None,
                  webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None):
         """
@@ -38,12 +38,12 @@ class TenantActionGroupArgs:
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this tenant action group is enabled. If a tenant action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[_builtins.str] management_group_id: The management group id.
+        :param pulumi.Input[_builtins.str] tenant_action_group_name: The name of the action group.
         :param pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this tenant action group.
         :param pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]] email_receivers: The list of email receivers that are part of this tenant action group.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]] sms_receivers: The list of SMS receivers that are part of this tenant action group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
-        :param pulumi.Input[_builtins.str] tenant_action_group_name: The name of the action group.
         :param pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]] voice_receivers: The list of voice receivers that are part of this tenant action group.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]] webhook_receivers: The list of webhook receivers that are part of this tenant action group.
         """
@@ -52,6 +52,7 @@ class TenantActionGroupArgs:
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "group_short_name", group_short_name)
         pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "tenant_action_group_name", tenant_action_group_name)
         if azure_app_push_receivers is not None:
             pulumi.set(__self__, "azure_app_push_receivers", azure_app_push_receivers)
         if email_receivers is not None:
@@ -62,8 +63,6 @@ class TenantActionGroupArgs:
             pulumi.set(__self__, "sms_receivers", sms_receivers)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tenant_action_group_name is not None:
-            pulumi.set(__self__, "tenant_action_group_name", tenant_action_group_name)
         if voice_receivers is not None:
             pulumi.set(__self__, "voice_receivers", voice_receivers)
         if webhook_receivers is not None:
@@ -104,6 +103,18 @@ class TenantActionGroupArgs:
     @management_group_id.setter
     def management_group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "management_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantActionGroupName")
+    def tenant_action_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the action group.
+        """
+        return pulumi.get(self, "tenant_action_group_name")
+
+    @tenant_action_group_name.setter
+    def tenant_action_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_action_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureAppPushReceivers")
@@ -164,18 +175,6 @@ class TenantActionGroupArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantActionGroupName")
-    def tenant_action_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the action group.
-        """
-        return pulumi.get(self, "tenant_action_group_name")
-
-    @tenant_action_group_name.setter
-    def tenant_action_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tenant_action_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceReceivers")
@@ -303,6 +302,8 @@ class TenantActionGroup(pulumi.CustomResource):
             __props__.__dict__["management_group_id"] = management_group_id
             __props__.__dict__["sms_receivers"] = sms_receivers
             __props__.__dict__["tags"] = tags
+            if tenant_action_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'tenant_action_group_name'")
             __props__.__dict__["tenant_action_group_name"] = tenant_action_group_name
             __props__.__dict__["voice_receivers"] = voice_receivers
             __props__.__dict__["webhook_receivers"] = webhook_receivers

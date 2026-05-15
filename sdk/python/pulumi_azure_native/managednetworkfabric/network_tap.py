@@ -24,10 +24,10 @@ class NetworkTapArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['NetworkTapPropertiesDestinationsArgs']]],
                  network_packet_broker_id: pulumi.Input[_builtins.str],
+                 network_tap_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_tap_name: pulumi.Input[Optional[_builtins.str]] = None,
                  polling_type: pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -35,22 +35,21 @@ class NetworkTapArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input['NetworkTapPropertiesDestinationsArgs']]] destinations: List of destinations to send the filter traffic.
         :param pulumi.Input[_builtins.str] network_packet_broker_id: ARM resource ID of the Network Packet Broker.
+        :param pulumi.Input[_builtins.str] network_tap_name: Name of the Network Tap.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] network_tap_name: Name of the Network Tap.
         :param pulumi.Input[Union[_builtins.str, 'PollingType']] polling_type: Polling type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "network_packet_broker_id", network_packet_broker_id)
+        pulumi.set(__self__, "network_tap_name", network_tap_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_tap_name is not None:
-            pulumi.set(__self__, "network_tap_name", network_tap_name)
         if polling_type is None:
             polling_type = 'Pull'
         if polling_type is not None:
@@ -81,6 +80,18 @@ class NetworkTapArgs:
     @network_packet_broker_id.setter
     def network_packet_broker_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_packet_broker_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkTapName")
+    def network_tap_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Network Tap.
+        """
+        return pulumi.get(self, "network_tap_name")
+
+    @network_tap_name.setter
+    def network_tap_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_tap_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -117,18 +128,6 @@ class NetworkTapArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkTapName")
-    def network_tap_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Network Tap.
-        """
-        return pulumi.get(self, "network_tap_name")
-
-    @network_tap_name.setter
-    def network_tap_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_tap_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingType")
@@ -243,6 +242,8 @@ class NetworkTap(pulumi.CustomResource):
             if network_packet_broker_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_packet_broker_id'")
             __props__.__dict__["network_packet_broker_id"] = network_packet_broker_id
+            if network_tap_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_tap_name'")
             __props__.__dict__["network_tap_name"] = network_tap_name
             if polling_type is None:
                 polling_type = 'Pull'

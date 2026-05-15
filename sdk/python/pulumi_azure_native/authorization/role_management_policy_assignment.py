@@ -20,25 +20,36 @@ __all__ = ['RoleManagementPolicyAssignmentArgs', 'RoleManagementPolicyAssignment
 @pulumi.input_type
 class RoleManagementPolicyAssignmentArgs:
     def __init__(__self__, *,
+                 role_management_policy_assignment_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_management_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleManagementPolicyAssignment resource.
 
+        :param pulumi.Input[_builtins.str] role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to upsert.
         :param pulumi.Input[_builtins.str] scope: The role management policy scope.
         :param pulumi.Input[_builtins.str] policy_id: The policy id role management policy assignment.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition of management policy assignment.
-        :param pulumi.Input[_builtins.str] role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to upsert.
         """
+        pulumi.set(__self__, "role_management_policy_assignment_name", role_management_policy_assignment_name)
         pulumi.set(__self__, "scope", scope)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
         if role_definition_id is not None:
             pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if role_management_policy_assignment_name is not None:
-            pulumi.set(__self__, "role_management_policy_assignment_name", role_management_policy_assignment_name)
+
+    @_builtins.property
+    @pulumi.getter(name="roleManagementPolicyAssignmentName")
+    def role_management_policy_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of format {guid_guid} the role management policy assignment to upsert.
+        """
+        return pulumi.get(self, "role_management_policy_assignment_name")
+
+    @role_management_policy_assignment_name.setter
+    def role_management_policy_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_management_policy_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class RoleManagementPolicyAssignmentArgs:
     @role_definition_id.setter
     def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleManagementPolicyAssignmentName")
-    def role_management_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of format {guid_guid} the role management policy assignment to upsert.
-        """
-        return pulumi.get(self, "role_management_policy_assignment_name")
-
-    @role_management_policy_assignment_name.setter
-    def role_management_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "role_management_policy_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:authorization:RoleManagementPolicyAssignment")
@@ -159,6 +158,8 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["role_definition_id"] = role_definition_id
+            if role_management_policy_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'role_management_policy_assignment_name'")
             __props__.__dict__["role_management_policy_assignment_name"] = role_management_policy_assignment_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

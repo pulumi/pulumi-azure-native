@@ -22,6 +22,7 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
+                 environment_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Union[_builtins.str, 'EnvironmentKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
@@ -29,12 +30,12 @@ class EnvironmentArgs:
                  workspace_name: pulumi.Input[_builtins.str],
                  custom_properties: Optional[Any] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  onboarding: pulumi.Input[Optional['OnboardingArgs']] = None,
                  server: pulumi.Input[Optional['EnvironmentServerArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
 
+        :param pulumi.Input[_builtins.str] environment_name: The name of the environment.
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentKind']] kind: Environment kind.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
@@ -42,10 +43,10 @@ class EnvironmentArgs:
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param Any custom_properties: The custom metadata defined for API catalog entities.
         :param pulumi.Input[_builtins.str] description: The environment description.
-        :param pulumi.Input[_builtins.str] environment_name: The name of the environment.
         :param pulumi.Input['OnboardingArgs'] onboarding: Environment onboarding information
         :param pulumi.Input['EnvironmentServerArgs'] server: Server information of the environment.
         """
+        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -55,12 +56,22 @@ class EnvironmentArgs:
             pulumi.set(__self__, "custom_properties", custom_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
         if onboarding is not None:
             pulumi.set(__self__, "onboarding", onboarding)
         if server is not None:
             pulumi.set(__self__, "server", server)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -145,18 +156,6 @@ class EnvironmentArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the environment.
-        """
-        return pulumi.get(self, "environment_name")
-
-    @environment_name.setter
-    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -271,6 +270,8 @@ class Environment(pulumi.CustomResource):
 
             __props__.__dict__["custom_properties"] = custom_properties
             __props__.__dict__["description"] = description
+            if environment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

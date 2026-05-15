@@ -25,10 +25,10 @@ class ElasticVolumeArgs:
                  account_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 volume_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ElasticVolumePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticVolume resource.
@@ -36,23 +36,22 @@ class ElasticVolumeArgs:
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] pool_name: The name of the ElasticCapacityPool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] volume_name: The name of the ElasticVolume
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ElasticVolumePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] volume_name: The name of the ElasticVolume
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "volume_name", volume_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -93,6 +92,18 @@ class ElasticVolumeArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ElasticVolume
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -127,18 +138,6 @@ class ElasticVolumeArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ElasticVolume
-        """
-        return pulumi.get(self, "volume_name")
-
-    @volume_name.setter
-    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "volume_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -245,6 +244,8 @@ class ElasticVolume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if volume_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["zones"] = zones
             __props__.__dict__["azure_api_version"] = None

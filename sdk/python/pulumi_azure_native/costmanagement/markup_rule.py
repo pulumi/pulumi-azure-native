@@ -24,28 +24,29 @@ class MarkupRuleArgs:
                  billing_account_id: pulumi.Input[_builtins.str],
                  billing_profile_id: pulumi.Input[_builtins.str],
                  customer_details: pulumi.Input['CustomerMetadataArgs'],
+                 name: pulumi.Input[_builtins.str],
                  percentage: pulumi.Input[_builtins.float],
                  start_date: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MarkupRule resource.
 
         :param pulumi.Input[_builtins.str] billing_account_id: BillingAccount ID
         :param pulumi.Input[_builtins.str] billing_profile_id: BillingProfile ID
         :param pulumi.Input['CustomerMetadataArgs'] customer_details: Customer information for the markup rule.
+        :param pulumi.Input[_builtins.str] name: Markup rule name.
         :param pulumi.Input[_builtins.float] percentage: The markup percentage of the rule.
         :param pulumi.Input[_builtins.str] start_date: Starting date of the markup rule.
         :param pulumi.Input[_builtins.str] description: The description of the markup rule.
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[_builtins.str] end_date: Ending date of the markup rule.
-        :param pulumi.Input[_builtins.str] name: Markup rule name.
         """
         pulumi.set(__self__, "billing_account_id", billing_account_id)
         pulumi.set(__self__, "billing_profile_id", billing_profile_id)
         pulumi.set(__self__, "customer_details", customer_details)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "percentage", percentage)
         pulumi.set(__self__, "start_date", start_date)
         if description is not None:
@@ -54,8 +55,6 @@ class MarkupRuleArgs:
             pulumi.set(__self__, "e_tag", e_tag)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="billingAccountId")
@@ -92,6 +91,18 @@ class MarkupRuleArgs:
     @customer_details.setter
     def customer_details(self, value: pulumi.Input['CustomerMetadataArgs']):
         pulumi.set(self, "customer_details", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Markup rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -152,18 +163,6 @@ class MarkupRuleArgs:
     @end_date.setter
     def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Markup rule name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:costmanagement:MarkupRule")
@@ -257,6 +256,8 @@ class MarkupRule(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["end_date"] = end_date
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if percentage is None and not opts.urn:
                 raise TypeError("Missing required property 'percentage'")

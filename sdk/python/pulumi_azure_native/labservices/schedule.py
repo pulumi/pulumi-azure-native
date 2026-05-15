@@ -24,34 +24,33 @@ class ScheduleArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 schedule_name: pulumi.Input[_builtins.str],
                  stop_at: pulumi.Input[_builtins.str],
                  time_zone_id: pulumi.Input[_builtins.str],
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  recurrence_pattern: pulumi.Input[Optional['RecurrencePatternArgs']] = None,
-                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         :param pulumi.Input[_builtins.str] stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
         :param pulumi.Input[_builtins.str] time_zone_id: The IANA timezone id for the schedule.
         :param pulumi.Input[_builtins.str] notes: Notes for this schedule.
         :param pulumi.Input['RecurrencePatternArgs'] recurrence_pattern: The recurrence pattern of the scheduled actions.
-        :param pulumi.Input[_builtins.str] schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         :param pulumi.Input[_builtins.str] start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
         """
         pulumi.set(__self__, "lab_name", lab_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schedule_name", schedule_name)
         pulumi.set(__self__, "stop_at", stop_at)
         pulumi.set(__self__, "time_zone_id", time_zone_id)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if recurrence_pattern is not None:
             pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
-        if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
         if start_at is not None:
             pulumi.set(__self__, "start_at", start_at)
 
@@ -78,6 +77,18 @@ class ScheduleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleName")
+    def schedule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
+        """
+        return pulumi.get(self, "schedule_name")
+
+    @schedule_name.setter
+    def schedule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stopAt")
@@ -126,18 +137,6 @@ class ScheduleArgs:
     @recurrence_pattern.setter
     def recurrence_pattern(self, value: pulumi.Input[Optional['RecurrencePatternArgs']]):
         pulumi.set(self, "recurrence_pattern", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
-        """
-        return pulumi.get(self, "schedule_name")
-
-    @schedule_name.setter
-    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startAt")
@@ -240,6 +239,8 @@ class Schedule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if schedule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'schedule_name'")
             __props__.__dict__["schedule_name"] = schedule_name
             __props__.__dict__["start_at"] = start_at
             if stop_at is None and not opts.urn:

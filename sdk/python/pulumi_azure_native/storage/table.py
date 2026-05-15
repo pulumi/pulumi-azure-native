@@ -23,22 +23,21 @@ class TableArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['TableSignedIdentifierArgs']]]] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_name: pulumi.Input[_builtins.str],
+                 signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['TableSignedIdentifierArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['TableSignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the table.
         :param pulumi.Input[_builtins.str] table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the table.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "table_name", table_name)
         if signed_identifiers is not None:
             pulumi.set(__self__, "signed_identifiers", signed_identifiers)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -65,6 +64,18 @@ class TableArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="signedIdentifiers")
     def signed_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSignedIdentifierArgs']]]]:
         """
@@ -75,18 +86,6 @@ class TableArgs:
     @signed_identifiers.setter
     def signed_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableSignedIdentifierArgs']]]]):
         pulumi.set(self, "signed_identifiers", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-        """
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "table_name", value)
 
 
 @pulumi.type_token("azure-native:storage:Table")
@@ -164,6 +163,8 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["signed_identifiers"] = signed_identifiers
+            if table_name is None and not opts.urn:
+                raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

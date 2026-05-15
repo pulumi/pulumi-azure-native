@@ -22,23 +22,34 @@ __all__ = ['DataFlowArgs', 'DataFlow']
 @pulumi.input_type
 class DataFlowArgs:
     def __init__(__self__, *,
+                 data_flow_name: pulumi.Input[_builtins.str],
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['FlowletArgs', 'MappingDataFlowArgs', 'WranglingDataFlowArgs']],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 data_flow_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DataFlow resource.
 
+        :param pulumi.Input[_builtins.str] data_flow_name: The data flow name.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['FlowletArgs', 'MappingDataFlowArgs', 'WranglingDataFlowArgs']] properties: Data flow properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] data_flow_name: The data flow name.
         """
+        pulumi.set(__self__, "data_flow_name", data_flow_name)
         pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_flow_name is not None:
-            pulumi.set(__self__, "data_flow_name", data_flow_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFlowName")
+    def data_flow_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The data flow name.
+        """
+        return pulumi.get(self, "data_flow_name")
+
+    @data_flow_name.setter
+    def data_flow_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_flow_name", value)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -75,18 +86,6 @@ class DataFlowArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataFlowName")
-    def data_flow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The data flow name.
-        """
-        return pulumi.get(self, "data_flow_name")
-
-    @data_flow_name.setter
-    def data_flow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_flow_name", value)
 
 
 @pulumi.type_token("azure-native:datafactory:DataFlow")
@@ -153,6 +152,8 @@ class DataFlow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataFlowArgs.__new__(DataFlowArgs)
 
+            if data_flow_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_flow_name'")
             __props__.__dict__["data_flow_name"] = data_flow_name
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")

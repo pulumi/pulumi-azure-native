@@ -22,11 +22,11 @@ __all__ = ['BigDataPoolArgs', 'BigDataPool']
 @pulumi.input_type
 class BigDataPoolArgs:
     def __init__(__self__, *,
+                 big_data_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  auto_pause: pulumi.Input[Optional['AutoPausePropertiesArgs']] = None,
                  auto_scale: pulumi.Input[Optional['AutoScalePropertiesArgs']] = None,
-                 big_data_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cache_size: pulumi.Input[Optional[_builtins.int]] = None,
                  custom_libraries: pulumi.Input[Optional[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
                  default_spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
@@ -48,11 +48,11 @@ class BigDataPoolArgs:
         """
         The set of arguments for constructing a BigDataPool resource.
 
+        :param pulumi.Input[_builtins.str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['AutoPausePropertiesArgs'] auto_pause: Auto-pausing properties
         :param pulumi.Input['AutoScalePropertiesArgs'] auto_scale: Auto-scaling properties
-        :param pulumi.Input[_builtins.str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[_builtins.int] cache_size: The cache size
         :param pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[_builtins.str] default_spark_log_folder: The default folder where Spark logs will be written.
@@ -72,14 +72,13 @@ class BigDataPoolArgs:
         :param pulumi.Input[_builtins.str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "big_data_pool_name", big_data_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
-        if big_data_pool_name is not None:
-            pulumi.set(__self__, "big_data_pool_name", big_data_pool_name)
         if cache_size is not None:
             pulumi.set(__self__, "cache_size", cache_size)
         if custom_libraries is not None:
@@ -116,6 +115,18 @@ class BigDataPoolArgs:
             pulumi.set(__self__, "spark_version", spark_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="bigDataPoolName")
+    def big_data_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Big Data pool name
+        """
+        return pulumi.get(self, "big_data_pool_name")
+
+    @big_data_pool_name.setter
+    def big_data_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "big_data_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -164,18 +175,6 @@ class BigDataPoolArgs:
     @auto_scale.setter
     def auto_scale(self, value: pulumi.Input[Optional['AutoScalePropertiesArgs']]):
         pulumi.set(self, "auto_scale", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bigDataPoolName")
-    def big_data_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Big Data pool name
-        """
-        return pulumi.get(self, "big_data_pool_name")
-
-    @big_data_pool_name.setter
-    def big_data_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "big_data_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
@@ -521,6 +520,8 @@ class BigDataPool(pulumi.CustomResource):
 
             __props__.__dict__["auto_pause"] = auto_pause
             __props__.__dict__["auto_scale"] = auto_scale
+            if big_data_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'big_data_pool_name'")
             __props__.__dict__["big_data_pool_name"] = big_data_pool_name
             __props__.__dict__["cache_size"] = cache_size
             __props__.__dict__["custom_libraries"] = custom_libraries

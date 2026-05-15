@@ -23,31 +23,30 @@ __all__ = ['AutomationRuleArgs', 'AutomationRule']
 class AutomationRuleArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
+                 automation_rule_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 automation_rule_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AutomationRule resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered.
+        :param pulumi.Input[_builtins.str] automation_rule_id: Automation rule ID
         :param pulumi.Input[_builtins.str] display_name: The display name of the automation rule.
         :param pulumi.Input[_builtins.int] order: The order of execution of the automation rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: Describes automation rule triggering logic.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] automation_rule_id: Automation rule ID
         """
         pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "automation_rule_id", automation_rule_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "triggering_logic", triggering_logic)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if automation_rule_id is not None:
-            pulumi.set(__self__, "automation_rule_id", automation_rule_id)
 
     @_builtins.property
     @pulumi.getter
@@ -60,6 +59,18 @@ class AutomationRuleArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automationRuleId")
+    def automation_rule_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Automation rule ID
+        """
+        return pulumi.get(self, "automation_rule_id")
+
+    @automation_rule_id.setter
+    def automation_rule_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "automation_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -120,18 +131,6 @@ class AutomationRuleArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="automationRuleId")
-    def automation_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Automation rule ID
-        """
-        return pulumi.get(self, "automation_rule_id")
-
-    @automation_rule_id.setter
-    def automation_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "automation_rule_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:AutomationRule")
@@ -210,6 +209,8 @@ class AutomationRule(pulumi.CustomResource):
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
+            if automation_rule_id is None and not opts.urn:
+                raise TypeError("Missing required property 'automation_rule_id'")
             __props__.__dict__["automation_rule_id"] = automation_rule_id
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")

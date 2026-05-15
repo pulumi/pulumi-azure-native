@@ -20,26 +20,37 @@ __all__ = ['CustomDomainArgs', 'CustomDomain']
 @pulumi.input_type
 class CustomDomainArgs:
     def __init__(__self__, *,
+                 custom_domain_name: pulumi.Input[_builtins.str],
                  endpoint_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CustomDomain resource.
 
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain within an endpoint.
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[_builtins.str] host_name: The host name of the custom domain. Must be a domain name.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain within an endpoint.
         """
+        pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+
+    @_builtins.property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the custom domain within an endpoint.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @custom_domain_name.setter
+    def custom_domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
@@ -88,18 +99,6 @@ class CustomDomainArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the custom domain within an endpoint.
-        """
-        return pulumi.get(self, "custom_domain_name")
-
-    @custom_domain_name.setter
-    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "custom_domain_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:CustomDomain")
@@ -173,6 +172,8 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
+            if custom_domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'custom_domain_name'")
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")

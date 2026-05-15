@@ -21,29 +21,28 @@ __all__ = ['KustoDatabaseDataSetArgs', 'KustoDatabaseDataSet']
 class KustoDatabaseDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  kusto_database_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 share_name: pulumi.Input[_builtins.str],
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 share_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a KustoDatabaseDataSet resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
+        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
                Expected value is 'KustoDatabase'.
         :param pulumi.Input[_builtins.str] kusto_database_resource_id: Resource id of the kusto database.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "data_set_name", data_set_name)
         pulumi.set(__self__, "kind", 'KustoDatabase')
         pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -56,6 +55,18 @@ class KustoDatabaseDataSetArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the dataSet.
+        """
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -105,18 +116,6 @@ class KustoDatabaseDataSetArgs:
     @share_name.setter
     def share_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "share_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the dataSet.
-        """
-        return pulumi.get(self, "data_set_name")
-
-    @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:KustoDatabaseDataSet")
@@ -193,6 +192,8 @@ class KustoDatabaseDataSet(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if data_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_name'")
             __props__.__dict__["data_set_name"] = data_set_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

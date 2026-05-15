@@ -22,9 +22,9 @@ __all__ = ['DataCollectionRuleArgs', 'DataCollectionRule']
 @pulumi.input_type
 class DataCollectionRuleArgs:
     def __init__(__self__, *,
+                 data_collection_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_collection_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_flows: pulumi.Input[Optional[Sequence[pulumi.Input['DataFlowArgs']]]] = None,
                  data_sources: pulumi.Input[Optional['DataCollectionRuleDataSourcesArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,9 +37,9 @@ class DataCollectionRuleArgs:
         """
         The set of arguments for constructing a DataCollectionRule resource.
 
+        :param pulumi.Input[_builtins.str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
-        :param pulumi.Input[_builtins.str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowArgs']]] data_flows: The specification of data flows.
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: The specification of data sources. 
                This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -51,11 +51,10 @@ class DataCollectionRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]] stream_declarations: Declaration of custom streams used in this rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "data_collection_rule_name", data_collection_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_collection_endpoint_id is not None:
             pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
-        if data_collection_rule_name is not None:
-            pulumi.set(__self__, "data_collection_rule_name", data_collection_rule_name)
         if data_flows is not None:
             pulumi.set(__self__, "data_flows", data_flows)
         if data_sources is not None:
@@ -74,6 +73,18 @@ class DataCollectionRuleArgs:
             pulumi.set(__self__, "stream_declarations", stream_declarations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCollectionRuleName")
+    def data_collection_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data collection rule. The name is case insensitive.
+        """
+        return pulumi.get(self, "data_collection_rule_name")
+
+    @data_collection_rule_name.setter
+    def data_collection_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_collection_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -98,18 +109,6 @@ class DataCollectionRuleArgs:
     @data_collection_endpoint_id.setter
     def data_collection_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_endpoint_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataCollectionRuleName")
-    def data_collection_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data collection rule. The name is case insensitive.
-        """
-        return pulumi.get(self, "data_collection_rule_name")
-
-    @data_collection_rule_name.setter
-    def data_collection_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_collection_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFlows")
@@ -315,6 +314,8 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__ = DataCollectionRuleArgs.__new__(DataCollectionRuleArgs)
 
             __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
+            if data_collection_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_collection_rule_name'")
             __props__.__dict__["data_collection_rule_name"] = data_collection_rule_name
             __props__.__dict__["data_flows"] = data_flows
             __props__.__dict__["data_sources"] = data_sources

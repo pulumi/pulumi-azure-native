@@ -21,23 +21,22 @@ __all__ = ['SentinelOnboardingStateArgs', 'SentinelOnboardingState']
 class SentinelOnboardingStateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 sentinel_onboarding_state_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 customer_managed_key: pulumi.Input[Optional[_builtins.bool]] = None,
-                 sentinel_onboarding_state_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 customer_managed_key: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SentinelOnboardingState resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.bool] customer_managed_key: Flag that indicates the status of the CMK setting
-        :param pulumi.Input[_builtins.str] sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sentinel_onboarding_state_name", sentinel_onboarding_state_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
-        if sentinel_onboarding_state_name is not None:
-            pulumi.set(__self__, "sentinel_onboarding_state_name", sentinel_onboarding_state_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -50,6 +49,18 @@ class SentinelOnboardingStateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sentinelOnboardingStateName")
+    def sentinel_onboarding_state_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Sentinel onboarding state name. Supports - default
+        """
+        return pulumi.get(self, "sentinel_onboarding_state_name")
+
+    @sentinel_onboarding_state_name.setter
+    def sentinel_onboarding_state_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sentinel_onboarding_state_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -74,18 +85,6 @@ class SentinelOnboardingStateArgs:
     @customer_managed_key.setter
     def customer_managed_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sentinelOnboardingStateName")
-    def sentinel_onboarding_state_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Sentinel onboarding state name. Supports - default
-        """
-        return pulumi.get(self, "sentinel_onboarding_state_name")
-
-    @sentinel_onboarding_state_name.setter
-    def sentinel_onboarding_state_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sentinel_onboarding_state_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:SentinelOnboardingState")
@@ -160,6 +159,8 @@ class SentinelOnboardingState(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sentinel_onboarding_state_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sentinel_onboarding_state_name'")
             __props__.__dict__["sentinel_onboarding_state_name"] = sentinel_onboarding_state_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

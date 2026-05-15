@@ -23,8 +23,8 @@ class SecuritySettingArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 security_settings_name: pulumi.Input[_builtins.str],
                  secured_core_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 security_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
                  smb_encryption_for_intra_cluster_traffic_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
                  wdac_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None):
         """
@@ -32,19 +32,18 @@ class SecuritySettingArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']] secured_core_compliance_assignment: Secured Core Compliance Assignment
         :param pulumi.Input[_builtins.str] security_settings_name: Name of security setting
+        :param pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']] secured_core_compliance_assignment: Secured Core Compliance Assignment
         :param pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']] smb_encryption_for_intra_cluster_traffic_compliance_assignment: SMB encryption for intra-cluster traffic Compliance Assignment
         :param pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']] wdac_compliance_assignment: WDAC Compliance Assignment
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_settings_name", security_settings_name)
         if secured_core_compliance_assignment is None:
             secured_core_compliance_assignment = 'Audit'
         if secured_core_compliance_assignment is not None:
             pulumi.set(__self__, "secured_core_compliance_assignment", secured_core_compliance_assignment)
-        if security_settings_name is not None:
-            pulumi.set(__self__, "security_settings_name", security_settings_name)
         if smb_encryption_for_intra_cluster_traffic_compliance_assignment is None:
             smb_encryption_for_intra_cluster_traffic_compliance_assignment = 'Audit'
         if smb_encryption_for_intra_cluster_traffic_compliance_assignment is not None:
@@ -79,6 +78,18 @@ class SecuritySettingArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="securitySettingsName")
+    def security_settings_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of security setting
+        """
+        return pulumi.get(self, "security_settings_name")
+
+    @security_settings_name.setter
+    def security_settings_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_settings_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="securedCoreComplianceAssignment")
     def secured_core_compliance_assignment(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]:
         """
@@ -89,18 +100,6 @@ class SecuritySettingArgs:
     @secured_core_compliance_assignment.setter
     def secured_core_compliance_assignment(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]):
         pulumi.set(self, "secured_core_compliance_assignment", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securitySettingsName")
-    def security_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of security setting
-        """
-        return pulumi.get(self, "security_settings_name")
-
-    @security_settings_name.setter
-    def security_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="smbEncryptionForIntraClusterTrafficComplianceAssignment")
@@ -210,6 +209,8 @@ class SecuritySetting(pulumi.CustomResource):
             if secured_core_compliance_assignment is None:
                 secured_core_compliance_assignment = 'Audit'
             __props__.__dict__["secured_core_compliance_assignment"] = secured_core_compliance_assignment
+            if security_settings_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_settings_name'")
             __props__.__dict__["security_settings_name"] = security_settings_name
             if smb_encryption_for_intra_cluster_traffic_compliance_assignment is None:
                 smb_encryption_for_intra_cluster_traffic_compliance_assignment = 'Audit'

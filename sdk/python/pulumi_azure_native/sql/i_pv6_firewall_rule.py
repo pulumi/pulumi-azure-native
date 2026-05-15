@@ -19,32 +19,43 @@ __all__ = ['IPv6FirewallRuleArgs', 'IPv6FirewallRule']
 @pulumi.input_type
 class IPv6FirewallRuleArgs:
     def __init__(__self__, *,
+                 firewall_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  end_i_pv6_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_i_pv6_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IPv6FirewallRule resource.
 
+        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
-        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[_builtins.str] name: Resource name.
         :param pulumi.Input[_builtins.str] start_i_pv6_address: The start IP address of the firewall rule. Must be IPv6 format.
         """
+        pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if end_i_pv6_address is not None:
             pulumi.set(__self__, "end_i_pv6_address", end_i_pv6_address)
-        if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if start_i_pv6_address is not None:
             pulumi.set(__self__, "start_i_pv6_address", start_i_pv6_address)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallRuleName")
+    def firewall_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the firewall rule.
+        """
+        return pulumi.get(self, "firewall_rule_name")
+
+    @firewall_rule_name.setter
+    def firewall_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -81,18 +92,6 @@ class IPv6FirewallRuleArgs:
     @end_i_pv6_address.setter
     def end_i_pv6_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_i_pv6_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the firewall rule.
-        """
-        return pulumi.get(self, "firewall_rule_name")
-
-    @firewall_rule_name.setter
-    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,6 +193,8 @@ class IPv6FirewallRule(pulumi.CustomResource):
             __props__ = IPv6FirewallRuleArgs.__new__(IPv6FirewallRuleArgs)
 
             __props__.__dict__["end_i_pv6_address"] = end_i_pv6_address
+            if firewall_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_rule_name'")
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

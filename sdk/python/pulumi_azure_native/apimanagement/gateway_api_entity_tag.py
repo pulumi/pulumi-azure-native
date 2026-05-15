@@ -21,27 +21,38 @@ __all__ = ['GatewayApiEntityTagArgs', 'GatewayApiEntityTag']
 @pulumi.input_type
 class GatewayApiEntityTagArgs:
     def __init__(__self__, *,
+                 api_id: pulumi.Input[_builtins.str],
                  gateway_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional['ProvisioningState']] = None):
         """
         The set of arguments for constructing a GatewayApiEntityTag resource.
 
+        :param pulumi.Input[_builtins.str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['ProvisioningState'] provisioning_state: Provisioning state.
         """
+        pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        API identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
@@ -78,18 +89,6 @@ class GatewayApiEntityTagArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiId")
-    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        API identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "api_id")
-
-    @api_id.setter
-    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -175,6 +174,8 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayApiEntityTagArgs.__new__(GatewayApiEntityTagArgs)
 
+            if api_id is None and not opts.urn:
+                raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")

@@ -25,12 +25,12 @@ class WebhookArgs:
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_uri: pulumi.Input[_builtins.str],
+                 webhook_name: pulumi.Input[_builtins.str],
                  custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 webhook_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
@@ -38,17 +38,18 @@ class WebhookArgs:
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_uri: The service URI for the webhook to post notifications.
+        :param pulumi.Input[_builtins.str] webhook_name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[_builtins.str] location: The location of the webhook. This cannot be changed after the resource is created.
         :param pulumi.Input[_builtins.str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
         :param pulumi.Input[Union[_builtins.str, 'WebhookStatus']] status: The status of the webhook at the time the operation was called.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the webhook.
-        :param pulumi.Input[_builtins.str] webhook_name: The name of the webhook.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_uri", service_uri)
+        pulumi.set(__self__, "webhook_name", webhook_name)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if location is not None:
@@ -59,8 +60,6 @@ class WebhookArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if webhook_name is not None:
-            pulumi.set(__self__, "webhook_name", webhook_name)
 
     @_builtins.property
     @pulumi.getter
@@ -109,6 +108,18 @@ class WebhookArgs:
     @service_uri.setter
     def service_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookName")
+    def webhook_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the webhook.
+        """
+        return pulumi.get(self, "webhook_name")
+
+    @webhook_name.setter
+    def webhook_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "webhook_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
@@ -169,18 +180,6 @@ class WebhookArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webhookName")
-    def webhook_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the webhook.
-        """
-        return pulumi.get(self, "webhook_name")
-
-    @webhook_name.setter
-    def webhook_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "webhook_name", value)
 
 
 @pulumi.type_token("azure-native:containerregistry:Webhook")
@@ -286,6 +285,8 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["service_uri"] = service_uri
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            if webhook_name is None and not opts.urn:
+                raise TypeError("Missing required property 'webhook_name'")
             __props__.__dict__["webhook_name"] = webhook_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

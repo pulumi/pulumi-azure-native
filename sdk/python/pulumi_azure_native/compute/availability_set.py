@@ -21,8 +21,8 @@ __all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
 @pulumi.input_type
 class AvailabilitySetArgs:
     def __init__(__self__, *,
+                 availability_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
                  platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -34,8 +34,8 @@ class AvailabilitySetArgs:
         """
         The set of arguments for constructing a AvailabilitySet resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] availability_set_name: The name of the availability set.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[_builtins.int] platform_update_domain_count: Update Domain count.
@@ -45,9 +45,8 @@ class AvailabilitySetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
+        pulumi.set(__self__, "availability_set_name", availability_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if platform_fault_domain_count is not None:
@@ -66,6 +65,18 @@ class AvailabilitySetArgs:
             pulumi.set(__self__, "virtual_machines", virtual_machines)
 
     @_builtins.property
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the availability set.
+        """
+        return pulumi.get(self, "availability_set_name")
+
+    @availability_set_name.setter
+    def availability_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_set_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -76,18 +87,6 @@ class AvailabilitySetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the availability set.
-        """
-        return pulumi.get(self, "availability_set_name")
-
-    @availability_set_name.setter
-    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -272,6 +271,8 @@ class AvailabilitySet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
 
+            if availability_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'availability_set_name'")
             __props__.__dict__["availability_set_name"] = availability_set_name
             __props__.__dict__["location"] = location
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count

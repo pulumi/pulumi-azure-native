@@ -21,6 +21,7 @@ __all__ = ['RegisteredServerArgs', 'RegisteredServer']
 class RegisteredServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_id: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
                  agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,13 +31,13 @@ class RegisteredServerArgs:
                  identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_heart_beat: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  server_os_version: pulumi.Input[Optional[_builtins.str]] = None,
                  server_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegisteredServer resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] server_id: Registered Server serverId
         :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[_builtins.str] agent_version: Registered Server Agent Version
         :param pulumi.Input[_builtins.str] application_id: Server ServicePrincipal Id
@@ -46,11 +47,11 @@ class RegisteredServerArgs:
         :param pulumi.Input[_builtins.bool] identity: Apply server with newly discovered ApplicationId if available.
         :param pulumi.Input[_builtins.str] last_heart_beat: Registered Server last heart beat
         :param pulumi.Input[_builtins.str] server_certificate: Registered Server Certificate
-        :param pulumi.Input[_builtins.str] server_id: Registered Server serverId
         :param pulumi.Input[_builtins.str] server_os_version: Registered Server OS Version
         :param pulumi.Input[_builtins.str] server_role: Registered Server serverRole
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_id", server_id)
         pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -68,8 +69,6 @@ class RegisteredServerArgs:
             pulumi.set(__self__, "last_heart_beat", last_heart_beat)
         if server_certificate is not None:
             pulumi.set(__self__, "server_certificate", server_certificate)
-        if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
         if server_os_version is not None:
             pulumi.set(__self__, "server_os_version", server_os_version)
         if server_role is not None:
@@ -86,6 +85,18 @@ class RegisteredServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Registered Server serverId
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncServiceName")
@@ -194,18 +205,6 @@ class RegisteredServerArgs:
     @server_certificate.setter
     def server_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Registered Server serverId
-        """
-        return pulumi.get(self, "server_id")
-
-    @server_id.setter
-    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverOSVersion")
@@ -338,6 +337,8 @@ class RegisteredServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["server_certificate"] = server_certificate
+            if server_id is None and not opts.urn:
+                raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["server_os_version"] = server_os_version
             __props__.__dict__["server_role"] = server_role

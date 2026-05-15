@@ -24,28 +24,29 @@ class SpacecraftArgs:
     def __init__(__self__, *,
                  links: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 spacecraft_name: pulumi.Input[_builtins.str],
                  title_line: pulumi.Input[_builtins.str],
                  tle_line1: pulumi.Input[_builtins.str],
                  tle_line2: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  norad_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 spacecraft_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Spacecraft resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: Immutable list of Spacecraft links.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] spacecraft_name: Spacecraft ID.
         :param pulumi.Input[_builtins.str] title_line: Title line of the two-line element set (TLE).
         :param pulumi.Input[_builtins.str] tle_line1: Line 1 of the two-line element set (TLE).
         :param pulumi.Input[_builtins.str] tle_line2: Line 2 of the two-line element set (TLE).
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] norad_id: NORAD ID of the spacecraft.
-        :param pulumi.Input[_builtins.str] spacecraft_name: Spacecraft ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "links", links)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "spacecraft_name", spacecraft_name)
         pulumi.set(__self__, "title_line", title_line)
         pulumi.set(__self__, "tle_line1", tle_line1)
         pulumi.set(__self__, "tle_line2", tle_line2)
@@ -53,8 +54,6 @@ class SpacecraftArgs:
             pulumi.set(__self__, "location", location)
         if norad_id is not None:
             pulumi.set(__self__, "norad_id", norad_id)
-        if spacecraft_name is not None:
-            pulumi.set(__self__, "spacecraft_name", spacecraft_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,6 +80,18 @@ class SpacecraftArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spacecraftName")
+    def spacecraft_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Spacecraft ID.
+        """
+        return pulumi.get(self, "spacecraft_name")
+
+    @spacecraft_name.setter
+    def spacecraft_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "spacecraft_name", value)
 
     @_builtins.property
     @pulumi.getter(name="titleLine")
@@ -141,18 +152,6 @@ class SpacecraftArgs:
     @norad_id.setter
     def norad_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "norad_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="spacecraftName")
-    def spacecraft_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Spacecraft ID.
-        """
-        return pulumi.get(self, "spacecraft_name")
-
-    @spacecraft_name.setter
-    def spacecraft_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "spacecraft_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +253,8 @@ class Spacecraft(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if spacecraft_name is None and not opts.urn:
+                raise TypeError("Missing required property 'spacecraft_name'")
             __props__.__dict__["spacecraft_name"] = spacecraft_name
             __props__.__dict__["tags"] = tags
             if title_line is None and not opts.urn:

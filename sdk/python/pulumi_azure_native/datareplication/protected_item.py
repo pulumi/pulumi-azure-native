@@ -23,22 +23,21 @@ __all__ = ['ProtectedItemArgs', 'ProtectedItem']
 class ProtectedItemArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['ProtectedItemModelPropertiesArgs'],
+                 protected_item_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vault_name: pulumi.Input[_builtins.str],
-                 protected_item_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vault_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProtectedItem resource.
 
         :param pulumi.Input['ProtectedItemModelPropertiesArgs'] properties: Protected item model properties.
+        :param pulumi.Input[_builtins.str] protected_item_name: The protected item name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The vault name.
-        :param pulumi.Input[_builtins.str] protected_item_name: The protected item name.
         """
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "protected_item_name", protected_item_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if protected_item_name is not None:
-            pulumi.set(__self__, "protected_item_name", protected_item_name)
 
     @_builtins.property
     @pulumi.getter
@@ -51,6 +50,18 @@ class ProtectedItemArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['ProtectedItemModelPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectedItemName")
+    def protected_item_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The protected item name.
+        """
+        return pulumi.get(self, "protected_item_name")
+
+    @protected_item_name.setter
+    def protected_item_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "protected_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,18 +86,6 @@ class ProtectedItemArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="protectedItemName")
-    def protected_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The protected item name.
-        """
-        return pulumi.get(self, "protected_item_name")
-
-    @protected_item_name.setter
-    def protected_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "protected_item_name", value)
 
 
 @pulumi.type_token("azure-native:datareplication:ProtectedItem")
@@ -160,6 +159,8 @@ class ProtectedItem(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            if protected_item_name is None and not opts.urn:
+                raise TypeError("Missing required property 'protected_item_name'")
             __props__.__dict__["protected_item_name"] = protected_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

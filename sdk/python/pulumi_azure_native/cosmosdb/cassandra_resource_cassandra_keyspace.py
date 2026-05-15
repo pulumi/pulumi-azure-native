@@ -22,9 +22,9 @@ __all__ = ['CassandraResourceCassandraKeyspaceArgs', 'CassandraResourceCassandra
 class CassandraResourceCassandraKeyspaceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 keyspace_name: pulumi.Input[_builtins.str],
                  resource: pulumi.Input['CassandraKeyspaceResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional['CreateUpdateOptionsArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -32,18 +32,17 @@ class CassandraResourceCassandraKeyspaceArgs:
         The set of arguments for constructing a CassandraResourceCassandraKeyspace resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[_builtins.str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input['CassandraKeyspaceResourceArgs'] resource: The standard JSON format of a Cassandra keyspace
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input[_builtins.str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "keyspace_name", keyspace_name)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if keyspace_name is not None:
-            pulumi.set(__self__, "keyspace_name", keyspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if options is not None:
@@ -62,6 +61,18 @@ class CassandraResourceCassandraKeyspaceArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyspaceName")
+    def keyspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cosmos DB keyspace name.
+        """
+        return pulumi.get(self, "keyspace_name")
+
+    @keyspace_name.setter
+    def keyspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -86,18 +97,6 @@ class CassandraResourceCassandraKeyspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyspaceName")
-    def keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cosmos DB keyspace name.
-        """
-        return pulumi.get(self, "keyspace_name")
-
-    @keyspace_name.setter
-    def keyspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,6 +215,8 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if keyspace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["location"] = location
             __props__.__dict__["options"] = options

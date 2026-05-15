@@ -23,26 +23,25 @@ class VirtualEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
+                 virtual_endpoint_name: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualEndpoint resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[_builtins.str] virtual_endpoint_name: Base name of the virtual endpoints.
         :param pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']] endpoint_type: Type of endpoint for the virtual endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of servers that one of the virtual endpoints can refer to.
-        :param pulumi.Input[_builtins.str] virtual_endpoint_name: Base name of the virtual endpoints.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "virtual_endpoint_name", virtual_endpoint_name)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
         if members is not None:
             pulumi.set(__self__, "members", members)
-        if virtual_endpoint_name is not None:
-            pulumi.set(__self__, "virtual_endpoint_name", virtual_endpoint_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -69,6 +68,18 @@ class VirtualEndpointArgs:
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="virtualEndpointName")
+    def virtual_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Base name of the virtual endpoints.
+        """
+        return pulumi.get(self, "virtual_endpoint_name")
+
+    @virtual_endpoint_name.setter
+    def virtual_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_endpoint_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]]:
         """
@@ -91,18 +102,6 @@ class VirtualEndpointArgs:
     @members.setter
     def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualEndpointName")
-    def virtual_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Base name of the virtual endpoints.
-        """
-        return pulumi.get(self, "virtual_endpoint_name")
-
-    @virtual_endpoint_name.setter
-    def virtual_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:VirtualEndpoint")
@@ -184,6 +183,8 @@ class VirtualEndpoint(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            if virtual_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_endpoint_name'")
             __props__.__dict__["virtual_endpoint_name"] = virtual_endpoint_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

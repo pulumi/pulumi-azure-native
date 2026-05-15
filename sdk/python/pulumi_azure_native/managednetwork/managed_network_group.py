@@ -22,11 +22,11 @@ __all__ = ['ManagedNetworkGroupArgs', 'ManagedNetworkGroup']
 @pulumi.input_type
 class ManagedNetworkGroupArgs:
     def __init__(__self__, *,
+                 managed_network_group_name: pulumi.Input[_builtins.str],
                  managed_network_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  management_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
                  subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
@@ -34,24 +34,23 @@ class ManagedNetworkGroupArgs:
         """
         The set of arguments for constructing a ManagedNetworkGroup resource.
 
+        :param pulumi.Input[_builtins.str] managed_network_group_name: The name of the Managed Network Group.
         :param pulumi.Input[_builtins.str] managed_network_name: The name of the Managed Network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Responsibility role under which this Managed Network Group will be created
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] managed_network_group_name: The name of the Managed Network Group.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] management_groups: The collection of management groups covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subnets: The collection of  subnets covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subscriptions: The collection of subscriptions covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
+        pulumi.set(__self__, "managed_network_group_name", managed_network_group_name)
         pulumi.set(__self__, "managed_network_name", managed_network_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_network_group_name is not None:
-            pulumi.set(__self__, "managed_network_group_name", managed_network_group_name)
         if management_groups is not None:
             pulumi.set(__self__, "management_groups", management_groups)
         if subnets is not None:
@@ -60,6 +59,18 @@ class ManagedNetworkGroupArgs:
             pulumi.set(__self__, "subscriptions", subscriptions)
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetworkGroupName")
+    def managed_network_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Managed Network Group.
+        """
+        return pulumi.get(self, "managed_network_group_name")
+
+    @managed_network_group_name.setter
+    def managed_network_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "managed_network_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedNetworkName")
@@ -108,18 +119,6 @@ class ManagedNetworkGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedNetworkGroupName")
-    def managed_network_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Managed Network Group.
-        """
-        return pulumi.get(self, "managed_network_group_name")
-
-    @managed_network_group_name.setter
-    def managed_network_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_network_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroups")
@@ -251,6 +250,8 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if managed_network_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'managed_network_group_name'")
             __props__.__dict__["managed_network_group_name"] = managed_network_group_name
             if managed_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_name'")

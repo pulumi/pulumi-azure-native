@@ -22,19 +22,20 @@ class BlobFolderDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  container_name: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  prefix: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 subscription_id: pulumi.Input[_builtins.str],
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 subscription_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BlobFolderDataSet resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] container_name: Container that has the file path.
+        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
                Expected value is 'BlobFolder'.
         :param pulumi.Input[_builtins.str] prefix: Prefix for blob folder
@@ -43,10 +44,10 @@ class BlobFolderDataSetArgs:
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[_builtins.str] storage_account_name: Storage account name of the source data set
         :param pulumi.Input[_builtins.str] subscription_id: Subscription id of storage account
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_name", data_set_name)
         pulumi.set(__self__, "kind", 'BlobFolder')
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "resource_group", resource_group)
@@ -54,8 +55,6 @@ class BlobFolderDataSetArgs:
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "subscription_id", subscription_id)
-        if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -80,6 +79,18 @@ class BlobFolderDataSetArgs:
     @container_name.setter
     def container_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "container_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the dataSet.
+        """
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -165,18 +176,6 @@ class BlobFolderDataSetArgs:
     @subscription_id.setter
     def subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subscription_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the dataSet.
-        """
-        return pulumi.get(self, "data_set_name")
-
-    @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:BlobFolderDataSet")
@@ -268,6 +267,8 @@ class BlobFolderDataSet(pulumi.CustomResource):
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
+            if data_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_name'")
             __props__.__dict__["data_set_name"] = data_set_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

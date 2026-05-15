@@ -19,12 +19,12 @@ __all__ = ['RoleAssignmentArtifactArgs', 'RoleAssignmentArtifact']
 @pulumi.input_type
 class RoleAssignmentArtifactArgs:
     def __init__(__self__, *,
+                 artifact_name: pulumi.Input[_builtins.str],
                  blueprint_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  principal_ids: Any,
                  resource_scope: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
-                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,25 +32,24 @@ class RoleAssignmentArtifactArgs:
         """
         The set of arguments for constructing a RoleAssignmentArtifact resource.
 
+        :param pulumi.Input[_builtins.str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'roleAssignment'.
         :param Any principal_ids: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[_builtins.str] role_definition_id: Azure resource ID of the RoleDefinition.
-        :param pulumi.Input[_builtins.str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
         :param pulumi.Input[_builtins.str] description: Multi-line explain this resource.
         :param pulumi.Input[_builtins.str] display_name: One-liner string explain this resource.
         :param pulumi.Input[_builtins.str] resource_group: RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
         """
+        pulumi.set(__self__, "artifact_name", artifact_name)
         pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "kind", 'roleAssignment')
         pulumi.set(__self__, "principal_ids", principal_ids)
         pulumi.set(__self__, "resource_scope", resource_scope)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if artifact_name is not None:
-            pulumi.set(__self__, "artifact_name", artifact_name)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -59,6 +58,18 @@ class RoleAssignmentArtifactArgs:
             pulumi.set(__self__, "display_name", display_name)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the blueprint artifact.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @artifact_name.setter
+    def artifact_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="blueprintName")
@@ -120,18 +131,6 @@ class RoleAssignmentArtifactArgs:
     @role_definition_id.setter
     def role_definition_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_definition_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="artifactName")
-    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the blueprint artifact.
-        """
-        return pulumi.get(self, "artifact_name")
-
-    @artifact_name.setter
-    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
@@ -265,6 +264,8 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleAssignmentArtifactArgs.__new__(RoleAssignmentArtifactArgs)
 
+            if artifact_name is None and not opts.urn:
+                raise TypeError("Missing required property 'artifact_name'")
             __props__.__dict__["artifact_name"] = artifact_name
             if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")

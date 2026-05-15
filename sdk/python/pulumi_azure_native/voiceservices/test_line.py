@@ -25,9 +25,9 @@ class TestLineArgs:
                  phone_number: pulumi.Input[_builtins.str],
                  purpose: pulumi.Input[Union[_builtins.str, 'TestLinePurpose']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 test_line_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_line_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TestLine resource.
 
@@ -35,20 +35,19 @@ class TestLineArgs:
         :param pulumi.Input[_builtins.str] phone_number: The phone number
         :param pulumi.Input[Union[_builtins.str, 'TestLinePurpose']] purpose: Purpose of this test line, e.g. automated or manual testing
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] test_line_name: Unique identifier for this test line
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] test_line_name: Unique identifier for this test line
         """
         pulumi.set(__self__, "communications_gateway_name", communications_gateway_name)
         pulumi.set(__self__, "phone_number", phone_number)
         pulumi.set(__self__, "purpose", purpose)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "test_line_name", test_line_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if test_line_name is not None:
-            pulumi.set(__self__, "test_line_name", test_line_name)
 
     @_builtins.property
     @pulumi.getter(name="communicationsGatewayName")
@@ -99,6 +98,18 @@ class TestLineArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="testLineName")
+    def test_line_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique identifier for this test line
+        """
+        return pulumi.get(self, "test_line_name")
+
+    @test_line_name.setter
+    def test_line_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "test_line_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -121,18 +132,6 @@ class TestLineArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="testLineName")
-    def test_line_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Unique identifier for this test line
-        """
-        return pulumi.get(self, "test_line_name")
-
-    @test_line_name.setter
-    def test_line_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "test_line_name", value)
 
 
 @pulumi.type_token("azure-native:voiceservices:TestLine")
@@ -226,6 +225,8 @@ class TestLine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if test_line_name is None and not opts.urn:
+                raise TypeError("Missing required property 'test_line_name'")
             __props__.__dict__["test_line_name"] = test_line_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

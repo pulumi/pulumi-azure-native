@@ -22,22 +22,23 @@ __all__ = ['RoleManagementPolicyArgs', 'RoleManagementPolicy']
 @pulumi.input_type
 class RoleManagementPolicyArgs:
     def __init__(__self__, *,
+                 role_management_policy_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_organization_default: pulumi.Input[Optional[_builtins.bool]] = None,
-                 role_management_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleManagementPolicyApprovalRuleArgs', 'RoleManagementPolicyAuthenticationContextRuleArgs', 'RoleManagementPolicyEnablementRuleArgs', 'RoleManagementPolicyExpirationRuleArgs', 'RoleManagementPolicyNotificationRuleArgs', 'RoleManagementPolicyPimOnlyModeRuleArgs']]]]] = None):
         """
         The set of arguments for constructing a RoleManagementPolicy resource.
 
+        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to upsert.
         :param pulumi.Input[_builtins.str] scope: The role management policy scope.
         :param pulumi.Input[_builtins.str] description: The role management policy description.
         :param pulumi.Input[_builtins.str] display_name: The role management policy display name.
         :param pulumi.Input[_builtins.bool] is_organization_default: The role management policy is default policy.
-        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to upsert.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoleManagementPolicyApprovalRuleArgs', 'RoleManagementPolicyAuthenticationContextRuleArgs', 'RoleManagementPolicyEnablementRuleArgs', 'RoleManagementPolicyExpirationRuleArgs', 'RoleManagementPolicyNotificationRuleArgs', 'RoleManagementPolicyPimOnlyModeRuleArgs']]]] rules: The rule applied to the policy.
         """
+        pulumi.set(__self__, "role_management_policy_name", role_management_policy_name)
         pulumi.set(__self__, "scope", scope)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -45,10 +46,20 @@ class RoleManagementPolicyArgs:
             pulumi.set(__self__, "display_name", display_name)
         if is_organization_default is not None:
             pulumi.set(__self__, "is_organization_default", is_organization_default)
-        if role_management_policy_name is not None:
-            pulumi.set(__self__, "role_management_policy_name", role_management_policy_name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter(name="roleManagementPolicyName")
+    def role_management_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name (guid) of the role management policy to upsert.
+        """
+        return pulumi.get(self, "role_management_policy_name")
+
+    @role_management_policy_name.setter
+    def role_management_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_management_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -97,18 +108,6 @@ class RoleManagementPolicyArgs:
     @is_organization_default.setter
     def is_organization_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_organization_default", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleManagementPolicyName")
-    def role_management_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name (guid) of the role management policy to upsert.
-        """
-        return pulumi.get(self, "role_management_policy_name")
-
-    @role_management_policy_name.setter
-    def role_management_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "role_management_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class RoleManagementPolicy(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["is_organization_default"] = is_organization_default
+            if role_management_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'role_management_policy_name'")
             __props__.__dict__["role_management_policy_name"] = role_management_policy_name
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:

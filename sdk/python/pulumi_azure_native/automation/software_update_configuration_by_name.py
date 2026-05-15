@@ -25,9 +25,9 @@ class SoftwareUpdateConfigurationByNameArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_info: pulumi.Input['SUCSchedulePropertiesArgs'],
+                 software_update_configuration_name: pulumi.Input[_builtins.str],
                  update_configuration: pulumi.Input['UpdateConfigurationArgs'],
                  error: pulumi.Input[Optional['ErrorResponseArgs']] = None,
-                 software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tasks: pulumi.Input[Optional['SoftwareUpdateConfigurationTasksArgs']] = None):
         """
         The set of arguments for constructing a SoftwareUpdateConfigurationByName resource.
@@ -35,19 +35,18 @@ class SoftwareUpdateConfigurationByNameArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['SUCSchedulePropertiesArgs'] schedule_info: Schedule information for the Software update configuration
+        :param pulumi.Input[_builtins.str] software_update_configuration_name: The name of the software update configuration to be created.
         :param pulumi.Input['UpdateConfigurationArgs'] update_configuration: update specific properties for the Software update configuration
         :param pulumi.Input['ErrorResponseArgs'] error: Details of provisioning error
-        :param pulumi.Input[_builtins.str] software_update_configuration_name: The name of the software update configuration to be created.
         :param pulumi.Input['SoftwareUpdateConfigurationTasksArgs'] tasks: Tasks information for the Software update configuration.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schedule_info", schedule_info)
+        pulumi.set(__self__, "software_update_configuration_name", software_update_configuration_name)
         pulumi.set(__self__, "update_configuration", update_configuration)
         if error is not None:
             pulumi.set(__self__, "error", error)
-        if software_update_configuration_name is not None:
-            pulumi.set(__self__, "software_update_configuration_name", software_update_configuration_name)
         if tasks is not None:
             pulumi.set(__self__, "tasks", tasks)
 
@@ -88,6 +87,18 @@ class SoftwareUpdateConfigurationByNameArgs:
         pulumi.set(self, "schedule_info", value)
 
     @_builtins.property
+    @pulumi.getter(name="softwareUpdateConfigurationName")
+    def software_update_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the software update configuration to be created.
+        """
+        return pulumi.get(self, "software_update_configuration_name")
+
+    @software_update_configuration_name.setter
+    def software_update_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "software_update_configuration_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="updateConfiguration")
     def update_configuration(self) -> pulumi.Input['UpdateConfigurationArgs']:
         """
@@ -110,18 +121,6 @@ class SoftwareUpdateConfigurationByNameArgs:
     @error.setter
     def error(self, value: pulumi.Input[Optional['ErrorResponseArgs']]):
         pulumi.set(self, "error", value)
-
-    @_builtins.property
-    @pulumi.getter(name="softwareUpdateConfigurationName")
-    def software_update_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the software update configuration to be created.
-        """
-        return pulumi.get(self, "software_update_configuration_name")
-
-    @software_update_configuration_name.setter
-    def software_update_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "software_update_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -223,6 +222,8 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             if schedule_info is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_info'")
             __props__.__dict__["schedule_info"] = schedule_info
+            if software_update_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'software_update_configuration_name'")
             __props__.__dict__["software_update_configuration_name"] = software_update_configuration_name
             __props__.__dict__["tasks"] = tasks
             if update_configuration is None and not opts.urn:

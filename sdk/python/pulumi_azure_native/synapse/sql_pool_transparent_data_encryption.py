@@ -22,25 +22,24 @@ class SqlPoolTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_pool_name: pulumi.Input[_builtins.str],
+                 transparent_data_encryption_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None):
         """
         The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sql_pool_name: SQL pool name
+        :param pulumi.Input[_builtins.str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
-        :param pulumi.Input[_builtins.str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+        pulumi.set(__self__, "transparent_data_encryption_name", transparent_data_encryption_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if transparent_data_encryption_name is not None:
-            pulumi.set(__self__, "transparent_data_encryption_name", transparent_data_encryption_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,6 +66,18 @@ class SqlPoolTransparentDataEncryptionArgs:
         pulumi.set(self, "sql_pool_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="transparentDataEncryptionName")
+    def transparent_data_encryption_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the transparent data encryption configuration.
+        """
+        return pulumi.get(self, "transparent_data_encryption_name")
+
+    @transparent_data_encryption_name.setter
+    def transparent_data_encryption_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transparent_data_encryption_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -89,18 +100,6 @@ class SqlPoolTransparentDataEncryptionArgs:
     @status.setter
     def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]):
         pulumi.set(self, "status", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentDataEncryptionName")
-    def transparent_data_encryption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the transparent data encryption configuration.
-        """
-        return pulumi.get(self, "transparent_data_encryption_name")
-
-    @transparent_data_encryption_name.setter
-    def transparent_data_encryption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_data_encryption_name", value)
 
 
 @pulumi.type_token("azure-native:synapse:SqlPoolTransparentDataEncryption")
@@ -181,6 +180,8 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__.__dict__["sql_pool_name"] = sql_pool_name
             __props__.__dict__["status"] = status
+            if transparent_data_encryption_name is None and not opts.urn:
+                raise TypeError("Missing required property 'transparent_data_encryption_name'")
             __props__.__dict__["transparent_data_encryption_name"] = transparent_data_encryption_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

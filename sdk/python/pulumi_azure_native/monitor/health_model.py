@@ -23,8 +23,8 @@ __all__ = ['HealthModelArgs', 'HealthModel']
 class HealthModelArgs:
     def __init__(__self__, *,
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
+                 health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['HealthModelPropertiesArgs']] = None,
@@ -33,17 +33,16 @@ class HealthModelArgs:
         The set of arguments for constructing a HealthModel resource.
 
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['HealthModelPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
+        pulumi.set(__self__, "health_model_name", health_model_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if health_model_name is not None:
-            pulumi.set(__self__, "health_model_name", health_model_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -66,6 +65,18 @@ class HealthModelArgs:
         pulumi.set(self, "azure_monitor_workspace_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="healthModelName")
+    def health_model_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of health model resource
+        """
+        return pulumi.get(self, "health_model_name")
+
+    @health_model_name.setter
+    def health_model_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "health_model_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -76,18 +87,6 @@ class HealthModelArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="healthModelName")
-    def health_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of health model resource
-        """
-        return pulumi.get(self, "health_model_name")
-
-    @health_model_name.setter
-    def health_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "health_model_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,6 +213,8 @@ class HealthModel(pulumi.CustomResource):
             if azure_monitor_workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_monitor_workspace_name'")
             __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
+            if health_model_name is None and not opts.urn:
+                raise TypeError("Missing required property 'health_model_name'")
             __props__.__dict__["health_model_name"] = health_model_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

@@ -23,30 +23,31 @@ class TemplateSpecVersionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  template_spec_name: pulumi.Input[_builtins.str],
+                 template_spec_version: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_templates: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_form_definition: Optional[Any] = None):
         """
         The set of arguments for constructing a TemplateSpecVersion resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] template_spec_name: Name of the Template Spec.
+        :param pulumi.Input[_builtins.str] template_spec_version: The version of the Template Spec.
         :param pulumi.Input[_builtins.str] description: Template Spec version description.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]] linked_templates: An array of linked template artifacts.
         :param pulumi.Input[_builtins.str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param Any main_template: The main Azure Resource Manager template content.
         :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] template_spec_version: The version of the Template Spec.
         :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "template_spec_name", template_spec_name)
+        pulumi.set(__self__, "template_spec_version", template_spec_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if linked_templates is not None:
@@ -59,8 +60,6 @@ class TemplateSpecVersionArgs:
             pulumi.set(__self__, "metadata", metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if template_spec_version is not None:
-            pulumi.set(__self__, "template_spec_version", template_spec_version)
         if ui_form_definition is not None:
             pulumi.set(__self__, "ui_form_definition", ui_form_definition)
 
@@ -87,6 +86,18 @@ class TemplateSpecVersionArgs:
     @template_spec_name.setter
     def template_spec_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "template_spec_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateSpecVersion")
+    def template_spec_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The version of the Template Spec.
+        """
+        return pulumi.get(self, "template_spec_version")
+
+    @template_spec_version.setter
+    def template_spec_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "template_spec_version", value)
 
     @_builtins.property
     @pulumi.getter
@@ -159,18 +170,6 @@ class TemplateSpecVersionArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="templateSpecVersion")
-    def template_spec_version(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The version of the Template Spec.
-        """
-        return pulumi.get(self, "template_spec_version")
-
-    @template_spec_version.setter
-    def template_spec_version(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "template_spec_version", value)
 
     @_builtins.property
     @pulumi.getter(name="uiFormDefinition")
@@ -283,6 +282,8 @@ class TemplateSpecVersion(pulumi.CustomResource):
             if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__.__dict__["template_spec_name"] = template_spec_name
+            if template_spec_version is None and not opts.urn:
+                raise TypeError("Missing required property 'template_spec_version'")
             __props__.__dict__["template_spec_version"] = template_spec_version
             __props__.__dict__["ui_form_definition"] = ui_form_definition
             __props__.__dict__["azure_api_version"] = None

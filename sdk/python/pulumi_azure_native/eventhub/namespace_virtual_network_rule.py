@@ -21,7 +21,7 @@ class NamespaceVirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_rule_name: pulumi.Input[_builtins.str],
                  virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceVirtualNetworkRule resource.
@@ -33,8 +33,7 @@ class NamespaceVirtualNetworkRuleArgs:
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if virtual_network_rule_name is not None:
-            pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
+        pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -64,14 +63,14 @@ class NamespaceVirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_network_rule_name(self) -> pulumi.Input[_builtins.str]:
         """
         The Virtual Network Rule name.
         """
         return pulumi.get(self, "virtual_network_rule_name")
 
     @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_network_rule_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_network_rule_name", value)
 
     @_builtins.property
@@ -157,6 +156,8 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if virtual_network_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_network_rule_name'")
             __props__.__dict__["virtual_network_rule_name"] = virtual_network_rule_name
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["azure_api_version"] = None

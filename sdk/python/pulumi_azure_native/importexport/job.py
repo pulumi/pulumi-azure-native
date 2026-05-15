@@ -22,29 +22,40 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
+                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['JobDetailsArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Job resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param pulumi.Input[_builtins.str] job_name: The name of the import/export job.
+        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the job should be created
         :param pulumi.Input['JobDetailsArgs'] properties: Specifies the job properties
         :param Any tags: Specifies the tags that will be assigned to the job.
         """
+        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the import/export job.
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +68,6 @@ class JobArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the import/export job.
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +173,8 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
+            if job_name is None and not opts.urn:
+                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

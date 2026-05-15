@@ -24,7 +24,7 @@ class CustomRolloutArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['CustomRolloutPropertiesArgs'],
                  provider_namespace: pulumi.Input[_builtins.str],
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rollout_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CustomRollout resource.
 
@@ -34,8 +34,7 @@ class CustomRolloutArgs:
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
-        if rollout_name is not None:
-            pulumi.set(__self__, "rollout_name", rollout_name)
+        pulumi.set(__self__, "rollout_name", rollout_name)
 
     @_builtins.property
     @pulumi.getter
@@ -63,14 +62,14 @@ class CustomRolloutArgs:
 
     @_builtins.property
     @pulumi.getter(name="rolloutName")
-    def rollout_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rollout_name(self) -> pulumi.Input[_builtins.str]:
         """
         The rollout name.
         """
         return pulumi.get(self, "rollout_name")
 
     @rollout_name.setter
-    def rollout_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rollout_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "rollout_name", value)
 
 
@@ -141,6 +140,8 @@ class CustomRollout(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
+            if rollout_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rollout_name'")
             __props__.__dict__["rollout_name"] = rollout_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

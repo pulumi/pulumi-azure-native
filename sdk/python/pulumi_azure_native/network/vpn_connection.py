@@ -22,10 +22,10 @@ __all__ = ['VpnConnectionInitArgs', 'VpnConnection']
 @pulumi.input_type
 class VpnConnectionInitArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  connection_bandwidth: pulumi.Input[Optional[_builtins.int]] = None,
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -45,10 +45,10 @@ class VpnConnectionInitArgs:
         """
         The set of arguments for constructing a VpnConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[_builtins.int] connection_bandwidth: Expected bandwidth in MBPS.
-        :param pulumi.Input[_builtins.str] connection_name: The name of the connection.
         :param pulumi.Input[_builtins.int] dpd_timeout_seconds: DPD timeout in seconds for vpn connection.
         :param pulumi.Input[_builtins.bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[_builtins.bool] enable_internet_security: Enable internet security.
@@ -66,12 +66,11 @@ class VpnConnectionInitArgs:
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkConnectionArgs']]] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if enable_bgp is not None:
@@ -104,6 +103,18 @@ class VpnConnectionInitArgs:
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
         if vpn_link_connections is not None:
             pulumi.set(__self__, "vpn_link_connections", vpn_link_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
@@ -140,18 +151,6 @@ class VpnConnectionInitArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_bandwidth", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the connection.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dpdTimeoutSeconds")
@@ -463,6 +462,8 @@ class VpnConnection(pulumi.CustomResource):
             __props__ = VpnConnectionInitArgs.__new__(VpnConnectionInitArgs)
 
             __props__.__dict__["connection_bandwidth"] = connection_bandwidth
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["enable_bgp"] = enable_bgp

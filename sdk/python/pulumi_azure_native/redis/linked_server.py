@@ -23,27 +23,26 @@ class LinkedServerArgs:
     def __init__(__self__, *,
                  linked_redis_cache_id: pulumi.Input[_builtins.str],
                  linked_redis_cache_location: pulumi.Input[_builtins.str],
+                 linked_server_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_role: pulumi.Input['ReplicationRole'],
-                 linked_server_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_role: pulumi.Input['ReplicationRole']):
         """
         The set of arguments for constructing a LinkedServer resource.
 
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[_builtins.str] linked_redis_cache_location: Location of the linked redis cache.
+        :param pulumi.Input[_builtins.str] linked_server_name: The name of the RedisLinkedServerWithProperties
         :param pulumi.Input[_builtins.str] name: The name of the redis cache.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
-        :param pulumi.Input[_builtins.str] linked_server_name: The name of the RedisLinkedServerWithProperties
         """
         pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
         pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
+        pulumi.set(__self__, "linked_server_name", linked_server_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_role", server_role)
-        if linked_server_name is not None:
-            pulumi.set(__self__, "linked_server_name", linked_server_name)
 
     @_builtins.property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -68,6 +67,18 @@ class LinkedServerArgs:
     @linked_redis_cache_location.setter
     def linked_redis_cache_location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "linked_redis_cache_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServerName")
+    def linked_server_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RedisLinkedServerWithProperties
+        """
+        return pulumi.get(self, "linked_server_name")
+
+    @linked_server_name.setter
+    def linked_server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "linked_server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -104,18 +115,6 @@ class LinkedServerArgs:
     @server_role.setter
     def server_role(self, value: pulumi.Input['ReplicationRole']):
         pulumi.set(self, "server_role", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServerName")
-    def linked_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RedisLinkedServerWithProperties
-        """
-        return pulumi.get(self, "linked_server_name")
-
-    @linked_server_name.setter
-    def linked_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "linked_server_name", value)
 
 
 @pulumi.type_token("azure-native:redis:LinkedServer")
@@ -198,6 +197,8 @@ class LinkedServer(pulumi.CustomResource):
             if linked_redis_cache_location is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_location'")
             __props__.__dict__["linked_redis_cache_location"] = linked_redis_cache_location
+            if linked_server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'linked_server_name'")
             __props__.__dict__["linked_server_name"] = linked_server_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

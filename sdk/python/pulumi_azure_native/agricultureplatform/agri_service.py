@@ -22,8 +22,8 @@ __all__ = ['AgriServiceArgs', 'AgriService']
 @pulumi.input_type
 class AgriServiceArgs:
     def __init__(__self__, *,
+                 agri_service_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agri_service_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['AgriServiceResourcePropertiesArgs']] = None,
@@ -32,17 +32,16 @@ class AgriServiceArgs:
         """
         The set of arguments for constructing a AgriService resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] agri_service_resource_name: The name of the AgriService resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AgriServiceResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "agri_service_resource_name", agri_service_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if agri_service_resource_name is not None:
-            pulumi.set(__self__, "agri_service_resource_name", agri_service_resource_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -55,6 +54,18 @@ class AgriServiceArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="agriServiceResourceName")
+    def agri_service_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the AgriService resource.
+        """
+        return pulumi.get(self, "agri_service_resource_name")
+
+    @agri_service_resource_name.setter
+    def agri_service_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agri_service_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -65,18 +76,6 @@ class AgriServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agriServiceResourceName")
-    def agri_service_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the AgriService resource.
-        """
-        return pulumi.get(self, "agri_service_resource_name")
-
-    @agri_service_resource_name.setter
-    def agri_service_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "agri_service_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +211,8 @@ class AgriService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgriServiceArgs.__new__(AgriServiceArgs)
 
+            if agri_service_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'agri_service_resource_name'")
             __props__.__dict__["agri_service_resource_name"] = agri_service_resource_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

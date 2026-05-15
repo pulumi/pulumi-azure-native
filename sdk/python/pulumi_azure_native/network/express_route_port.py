@@ -22,11 +22,11 @@ __all__ = ['ExpressRoutePortArgs', 'ExpressRoutePort']
 @pulumi.input_type
 class ExpressRoutePortArgs:
     def __init__(__self__, *,
+                 express_route_port_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
                  billing_type: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
-                 express_route_port_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  links: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]] = None,
@@ -36,11 +36,11 @@ class ExpressRoutePortArgs:
         """
         The set of arguments for constructing a ExpressRoutePort resource.
 
+        :param pulumi.Input[_builtins.str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
         :param pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']] billing_type: The billing type of the ExpressRoutePort resource.
         :param pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
-        :param pulumi.Input[_builtins.str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of ExpressRoutePort, if configured.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteLinkArgs']]] links: The set of physical links of the ExpressRoutePort resource.
@@ -48,6 +48,7 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[_builtins.str] peering_location: The name of the peering location that the ExpressRoutePort is mapped to physically.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "express_route_port_name", express_route_port_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
@@ -55,8 +56,6 @@ class ExpressRoutePortArgs:
             pulumi.set(__self__, "billing_type", billing_type)
         if encapsulation is not None:
             pulumi.set(__self__, "encapsulation", encapsulation)
-        if express_route_port_name is not None:
-            pulumi.set(__self__, "express_route_port_name", express_route_port_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if identity is not None:
@@ -69,6 +68,18 @@ class ExpressRoutePortArgs:
             pulumi.set(__self__, "peering_location", peering_location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="expressRoutePortName")
+    def express_route_port_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "express_route_port_name")
+
+    @express_route_port_name.setter
+    def express_route_port_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "express_route_port_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -117,18 +128,6 @@ class ExpressRoutePortArgs:
     @encapsulation.setter
     def encapsulation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]]):
         pulumi.set(self, "encapsulation", value)
-
-    @_builtins.property
-    @pulumi.getter(name="expressRoutePortName")
-    def express_route_port_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ExpressRoutePort resource.
-        """
-        return pulumi.get(self, "express_route_port_name")
-
-    @express_route_port_name.setter
-    def express_route_port_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "express_route_port_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -295,6 +294,8 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["billing_type"] = billing_type
             __props__.__dict__["encapsulation"] = encapsulation
+            if express_route_port_name is None and not opts.urn:
+                raise TypeError("Missing required property 'express_route_port_name'")
             __props__.__dict__["express_route_port_name"] = express_route_port_name
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity

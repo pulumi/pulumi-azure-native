@@ -29,6 +29,7 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
                  is_default_settings: pulumi.Input[_builtins.bool],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 settings_resource_name: pulumi.Input[_builtins.str],
                  settings_status: pulumi.Input[Union[_builtins.str, 'SettingsStatus']],
                  workspace_name: pulumi.Input[_builtins.str],
                  anomaly_settings_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -36,7 +37,6 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]] = None,
                  settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
                  techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -50,6 +50,7 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         :param pulumi.Input[_builtins.str] kind: The kind of security ML analytics settings
                Expected value is 'Anomaly'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] settings_resource_name: Security ML Analytics Settings resource name
         :param pulumi.Input[Union[_builtins.str, 'SettingsStatus']] settings_status: The anomaly SecurityMLAnalyticsSettings status
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.int] anomaly_settings_version: The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
@@ -57,7 +58,6 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         :param pulumi.Input[_builtins.str] description: The description of the SecurityMLAnalyticsSettings.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]] required_data_connectors: The required data sources for this SecurityMLAnalyticsSettings
         :param pulumi.Input[_builtins.str] settings_definition_id: The anomaly settings definition Id
-        :param pulumi.Input[_builtins.str] settings_resource_name: Security ML Analytics Settings resource name
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]] tactics: The tactics of the SecurityMLAnalyticsSettings
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] techniques: The techniques of the SecurityMLAnalyticsSettings
         """
@@ -68,6 +68,7 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         pulumi.set(__self__, "is_default_settings", is_default_settings)
         pulumi.set(__self__, "kind", 'Anomaly')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "settings_resource_name", settings_resource_name)
         pulumi.set(__self__, "settings_status", settings_status)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if anomaly_settings_version is not None:
@@ -80,8 +81,6 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
             pulumi.set(__self__, "required_data_connectors", required_data_connectors)
         if settings_definition_id is not None:
             pulumi.set(__self__, "settings_definition_id", settings_definition_id)
-        if settings_resource_name is not None:
-            pulumi.set(__self__, "settings_resource_name", settings_resource_name)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
         if techniques is not None:
@@ -173,6 +172,18 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="settingsResourceName")
+    def settings_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Security ML Analytics Settings resource name
+        """
+        return pulumi.get(self, "settings_resource_name")
+
+    @settings_resource_name.setter
+    def settings_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "settings_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="settingsStatus")
     def settings_status(self) -> pulumi.Input[Union[_builtins.str, 'SettingsStatus']]:
         """
@@ -255,18 +266,6 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
     @settings_definition_id.setter
     def settings_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_definition_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="settingsResourceName")
-    def settings_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Security ML Analytics Settings resource name
-        """
-        return pulumi.get(self, "settings_resource_name")
-
-    @settings_resource_name.setter
-    def settings_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "settings_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -423,6 +422,8 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["settings_definition_id"] = settings_definition_id
+            if settings_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'settings_resource_name'")
             __props__.__dict__["settings_resource_name"] = settings_resource_name
             if settings_status is None and not opts.urn:
                 raise TypeError("Missing required property 'settings_status'")

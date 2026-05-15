@@ -23,25 +23,24 @@ __all__ = ['ProjectConnectionArgs', 'ProjectConnection']
 class ProjectConnectionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 connection_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AADAuthTypeConnectionPropertiesArgs', 'AccessKeyAuthTypeConnectionPropertiesArgs', 'AccountKeyAuthTypeConnectionPropertiesArgs', 'ApiKeyAuthConnectionPropertiesArgs', 'CustomKeysConnectionPropertiesArgs', 'ManagedIdentityAuthTypeConnectionPropertiesArgs', 'NoneAuthTypeConnectionPropertiesArgs', 'OAuth2AuthTypeConnectionPropertiesArgs', 'PATAuthTypeConnectionPropertiesArgs', 'SASAuthTypeConnectionPropertiesArgs', 'ServicePrincipalAuthTypeConnectionPropertiesArgs', 'UsernamePasswordAuthTypeConnectionPropertiesArgs']],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProjectConnection resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
+        :param pulumi.Input[_builtins.str] connection_name: Friendly name of the connection
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input[Union['AADAuthTypeConnectionPropertiesArgs', 'AccessKeyAuthTypeConnectionPropertiesArgs', 'AccountKeyAuthTypeConnectionPropertiesArgs', 'ApiKeyAuthConnectionPropertiesArgs', 'CustomKeysConnectionPropertiesArgs', 'ManagedIdentityAuthTypeConnectionPropertiesArgs', 'NoneAuthTypeConnectionPropertiesArgs', 'OAuth2AuthTypeConnectionPropertiesArgs', 'PATAuthTypeConnectionPropertiesArgs', 'SASAuthTypeConnectionPropertiesArgs', 'ServicePrincipalAuthTypeConnectionPropertiesArgs', 'UsernamePasswordAuthTypeConnectionPropertiesArgs']] properties: Connection property base schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] connection_name: Friendly name of the connection
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -54,6 +53,18 @@ class ProjectConnectionArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Friendly name of the connection
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -90,18 +101,6 @@ class ProjectConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Friendly name of the connection
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
 
 @pulumi.type_token("azure-native:cognitiveservices:ProjectConnection")
@@ -178,6 +177,8 @@ class ProjectConnection(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

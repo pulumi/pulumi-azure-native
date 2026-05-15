@@ -20,25 +20,36 @@ __all__ = ['GatewayArgs', 'Gateway']
 @pulumi.input_type
 class GatewayArgs:
     def __init__(__self__, *,
+                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] gateway_name: Azure Programmable Connectivity Gateway Name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure Programmable Connectivity Gateway Name.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -51,18 +62,6 @@ class GatewayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Azure Programmable Connectivity Gateway Name.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
+            if gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

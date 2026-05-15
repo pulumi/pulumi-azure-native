@@ -25,6 +25,7 @@ class ResourceArgs:
                  api_version: pulumi.Input[_builtins.str],
                  parent_resource_path: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  resource_provider_namespace: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
@@ -34,7 +35,6 @@ class ResourceArgs:
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
                  properties: Optional[Any] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -43,6 +43,7 @@ class ResourceArgs:
         :param pulumi.Input[_builtins.str] api_version: The API version to use for the operation.
         :param pulumi.Input[_builtins.str] parent_resource_path: The parent resource identity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group for the resource. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource to create.
         :param pulumi.Input[_builtins.str] resource_provider_namespace: The namespace of the resource provider.
         :param pulumi.Input[_builtins.str] resource_type: The resource type of the resource to create.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Resource extended location.
@@ -52,13 +53,13 @@ class ResourceArgs:
         :param pulumi.Input[_builtins.str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input['PlanArgs'] plan: The plan of the resource.
         :param Any properties: The resource properties.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource to create.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
         pulumi.set(__self__, "api_version", api_version)
         pulumi.set(__self__, "parent_resource_path", parent_resource_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
         if extended_location is not None:
@@ -75,8 +76,6 @@ class ResourceArgs:
             pulumi.set(__self__, "plan", plan)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -117,6 +116,18 @@ class ResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the resource to create.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderNamespace")
@@ -225,18 +236,6 @@ class ResourceArgs:
     @properties.setter
     def properties(self, value: Optional[Any]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the resource to create.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -380,6 +379,8 @@ class Resource(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if resource_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_provider_namespace'")

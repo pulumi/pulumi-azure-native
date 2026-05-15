@@ -22,26 +22,27 @@ __all__ = ['LogicalNetworkArgs', 'LogicalNetwork']
 @pulumi.input_type
 class LogicalNetworkArgs:
     def __init__(__self__, *,
+                 logical_network_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  dhcp_options: pulumi.Input[Optional['LogicalNetworkPropertiesDhcpOptionsArgs']] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logical_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vm_switch_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogicalNetwork resource.
 
+        :param pulumi.Input[_builtins.str] logical_network_name: Name of the logical network
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['LogicalNetworkPropertiesDhcpOptionsArgs'] dhcp_options: DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] logical_network_name: Name of the logical network
         :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: Subnet - list of subnets under the logical network
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vm_switch_name: name of the network switch to be used for VMs
         """
+        pulumi.set(__self__, "logical_network_name", logical_network_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dhcp_options is not None:
             pulumi.set(__self__, "dhcp_options", dhcp_options)
@@ -49,14 +50,24 @@ class LogicalNetworkArgs:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if logical_network_name is not None:
-            pulumi.set(__self__, "logical_network_name", logical_network_name)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vm_switch_name is not None:
             pulumi.set(__self__, "vm_switch_name", vm_switch_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalNetworkName")
+    def logical_network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the logical network
+        """
+        return pulumi.get(self, "logical_network_name")
+
+    @logical_network_name.setter
+    def logical_network_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "logical_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +116,6 @@ class LogicalNetworkArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="logicalNetworkName")
-    def logical_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the logical network
-        """
-        return pulumi.get(self, "logical_network_name")
-
-    @logical_network_name.setter
-    def logical_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "logical_network_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,6 +237,8 @@ class LogicalNetwork(pulumi.CustomResource):
             __props__.__dict__["dhcp_options"] = dhcp_options
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if logical_network_name is None and not opts.urn:
+                raise TypeError("Missing required property 'logical_network_name'")
             __props__.__dict__["logical_network_name"] = logical_network_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -29,6 +29,7 @@ class VirtualMachineArgs:
                  memory_size_gb: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_profile: pulumi.Input['StorageProfileArgs'],
+                 virtual_machine_name: pulumi.Input[_builtins.str],
                  vm_image: pulumi.Input[_builtins.str],
                  boot_method: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
                  console_extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
@@ -41,7 +42,6 @@ class VirtualMachineArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtio_interface: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
-                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vm_device_model: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
                  vm_image_repository_credentials: pulumi.Input[Optional['ImageRepositoryCredentialsArgs']] = None):
         """
@@ -54,6 +54,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.float] memory_size_gb: The memory size of the virtual machine. Allocations are measured in gibibytes.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        :param pulumi.Input[_builtins.str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[_builtins.str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
         :param pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
         :param pulumi.Input['ExtendedLocationArgs'] console_extended_location: The extended location to use for creation of a VM console resource.
@@ -66,7 +67,6 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_data: The Base64 encoded cloud-init user data.
         :param pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']] virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-        :param pulumi.Input[_builtins.str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
         :param pulumi.Input['ImageRepositoryCredentialsArgs'] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
         """
@@ -77,6 +77,7 @@ class VirtualMachineArgs:
         pulumi.set(__self__, "memory_size_gb", memory_size_gb)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_profile", storage_profile)
+        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         pulumi.set(__self__, "vm_image", vm_image)
         if boot_method is None:
             boot_method = 'UEFI'
@@ -106,8 +107,6 @@ class VirtualMachineArgs:
             virtio_interface = 'Modern'
         if virtio_interface is not None:
             pulumi.set(__self__, "virtio_interface", virtio_interface)
-        if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if vm_device_model is None:
             vm_device_model = 'T2'
         if vm_device_model is not None:
@@ -198,6 +197,18 @@ class VirtualMachineArgs:
     @storage_profile.setter
     def storage_profile(self, value: pulumi.Input['StorageProfileArgs']):
         pulumi.set(self, "storage_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual machine.
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImage")
@@ -342,18 +353,6 @@ class VirtualMachineArgs:
     @virtio_interface.setter
     def virtio_interface(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]]):
         pulumi.set(self, "virtio_interface", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the virtual machine.
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmDeviceModel")
@@ -536,6 +535,8 @@ class VirtualMachine(pulumi.CustomResource):
             if virtio_interface is None:
                 virtio_interface = 'Modern'
             __props__.__dict__["virtio_interface"] = virtio_interface
+            if virtual_machine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             if vm_device_model is None:
                 vm_device_model = 'T2'

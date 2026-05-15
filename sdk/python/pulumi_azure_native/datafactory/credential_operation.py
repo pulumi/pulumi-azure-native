@@ -22,23 +22,34 @@ __all__ = ['CredentialOperationArgs', 'CredentialOperation']
 @pulumi.input_type
 class CredentialOperationArgs:
     def __init__(__self__, *,
+                 credential_name: pulumi.Input[_builtins.str],
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CredentialOperation resource.
 
+        :param pulumi.Input[_builtins.str] credential_name: Credential name
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']] properties: Properties of credentials.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] credential_name: Credential name
         """
+        pulumi.set(__self__, "credential_name", credential_name)
         pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if credential_name is not None:
-            pulumi.set(__self__, "credential_name", credential_name)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Credential name
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -75,18 +86,6 @@ class CredentialOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Credential name
-        """
-        return pulumi.get(self, "credential_name")
-
-    @credential_name.setter
-    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "credential_name", value)
 
 
 @pulumi.type_token("azure-native:datafactory:CredentialOperation")
@@ -153,6 +152,8 @@ class CredentialOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CredentialOperationArgs.__new__(CredentialOperationArgs)
 
+            if credential_name is None and not opts.urn:
+                raise TypeError("Missing required property 'credential_name'")
             __props__.__dict__["credential_name"] = credential_name
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")

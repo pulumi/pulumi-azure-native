@@ -22,6 +22,7 @@ __all__ = ['PolicyAssignmentArgs', 'PolicyAssignment']
 @pulumi.input_type
 class PolicyAssignmentArgs:
     def __init__(__self__, *,
+                 policy_assignment_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  assignment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentType']]] = None,
                  definition_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,12 +36,12 @@ class PolicyAssignmentArgs:
                  not_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  overrides: pulumi.Input[Optional[Sequence[pulumi.Input['OverrideArgs']]]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
-                 policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyAssignment resource.
 
+        :param pulumi.Input[_builtins.str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[_builtins.str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[Union[_builtins.str, 'AssignmentType']] assignment_type: The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
         :param pulumi.Input[_builtins.str] definition_version: The version of the policy definition to use.
@@ -54,10 +55,10 @@ class PolicyAssignmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: The policy's excluded scopes.
         :param pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]] overrides: The policy property value override.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
-        :param pulumi.Input[_builtins.str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
+        pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
         pulumi.set(__self__, "scope", scope)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
@@ -85,12 +86,22 @@ class PolicyAssignmentArgs:
             pulumi.set(__self__, "overrides", overrides)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if policy_assignment_name is not None:
-            pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if resource_selectors is not None:
             pulumi.set(__self__, "resource_selectors", resource_selectors)
+
+    @_builtins.property
+    @pulumi.getter(name="policyAssignmentName")
+    def policy_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the policy assignment.
+        """
+        return pulumi.get(self, "policy_assignment_name")
+
+    @policy_assignment_name.setter
+    def policy_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -249,18 +260,6 @@ class PolicyAssignmentArgs:
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
-    @pulumi.getter(name="policyAssignmentName")
-    def policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the policy assignment.
-        """
-        return pulumi.get(self, "policy_assignment_name")
-
-    @policy_assignment_name.setter
-    def policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_assignment_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -403,6 +402,8 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["not_scopes"] = not_scopes
             __props__.__dict__["overrides"] = overrides
             __props__.__dict__["parameters"] = parameters
+            if policy_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_assignment_name'")
             __props__.__dict__["policy_assignment_name"] = policy_assignment_name
             __props__.__dict__["policy_definition_id"] = policy_definition_id
             __props__.__dict__["resource_selectors"] = resource_selectors

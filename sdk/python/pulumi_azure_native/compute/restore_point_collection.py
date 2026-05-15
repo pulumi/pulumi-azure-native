@@ -22,24 +22,23 @@ __all__ = ['RestorePointCollectionArgs', 'RestorePointCollection']
 class RestorePointCollectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 restore_point_collection_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional['RestorePointCollectionSourcePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] restore_point_collection_name: The name of the restore point collection.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['RestorePointCollectionSourcePropertiesArgs'] source: The properties of the source resource that this restore point collection is created from.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "restore_point_collection_name", restore_point_collection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if restore_point_collection_name is not None:
-            pulumi.set(__self__, "restore_point_collection_name", restore_point_collection_name)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
@@ -58,6 +57,18 @@ class RestorePointCollectionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="restorePointCollectionName")
+    def restore_point_collection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the restore point collection.
+        """
+        return pulumi.get(self, "restore_point_collection_name")
+
+    @restore_point_collection_name.setter
+    def restore_point_collection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "restore_point_collection_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -68,18 +79,6 @@ class RestorePointCollectionArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="restorePointCollectionName")
-    def restore_point_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the restore point collection.
-        """
-        return pulumi.get(self, "restore_point_collection_name")
-
-    @restore_point_collection_name.setter
-    def restore_point_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "restore_point_collection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +180,8 @@ class RestorePointCollection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if restore_point_collection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'restore_point_collection_name'")
             __props__.__dict__["restore_point_collection_name"] = restore_point_collection_name
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags

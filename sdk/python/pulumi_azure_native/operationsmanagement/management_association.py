@@ -21,34 +21,45 @@ __all__ = ['ManagementAssociationArgs', 'ManagementAssociation']
 @pulumi.input_type
 class ManagementAssociationArgs:
     def __init__(__self__, *,
+                 management_association_name: pulumi.Input[_builtins.str],
                  provider_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ManagementAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagementAssociation resource.
 
+        :param pulumi.Input[_builtins.str] management_association_name: User ManagementAssociation Name.
         :param pulumi.Input[_builtins.str] provider_name: Provider name for the parent resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: Parent resource name.
         :param pulumi.Input[_builtins.str] resource_type: Resource type for the parent resource
         :param pulumi.Input[_builtins.str] location: Resource location
-        :param pulumi.Input[_builtins.str] management_association_name: User ManagementAssociation Name.
         :param pulumi.Input['ManagementAssociationPropertiesArgs'] properties: Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         """
+        pulumi.set(__self__, "management_association_name", management_association_name)
         pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "resource_type", resource_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if management_association_name is not None:
-            pulumi.set(__self__, "management_association_name", management_association_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="managementAssociationName")
+    def management_association_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        User ManagementAssociation Name.
+        """
+        return pulumi.get(self, "management_association_name")
+
+    @management_association_name.setter
+    def management_association_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "management_association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
@@ -109,18 +120,6 @@ class ManagementAssociationArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managementAssociationName")
-    def management_association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        User ManagementAssociation Name.
-        """
-        return pulumi.get(self, "management_association_name")
-
-    @management_association_name.setter
-    def management_association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "management_association_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -209,6 +208,8 @@ class ManagementAssociation(pulumi.CustomResource):
             __props__ = ManagementAssociationArgs.__new__(ManagementAssociationArgs)
 
             __props__.__dict__["location"] = location
+            if management_association_name is None and not opts.urn:
+                raise TypeError("Missing required property 'management_association_name'")
             __props__.__dict__["management_association_name"] = management_association_name
             __props__.__dict__["properties"] = properties
             if provider_name is None and not opts.urn:

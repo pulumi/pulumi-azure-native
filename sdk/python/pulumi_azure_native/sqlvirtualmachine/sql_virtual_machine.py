@@ -23,6 +23,7 @@ __all__ = ['SqlVirtualMachineArgs', 'SqlVirtualMachine']
 class SqlVirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 sql_virtual_machine_name: pulumi.Input[_builtins.str],
                  assessment_settings: pulumi.Input[Optional['AssessmentSettingsArgs']] = None,
                  auto_backup_settings: pulumi.Input[Optional['AutoBackupSettingsArgs']] = None,
                  auto_patching_settings: pulumi.Input[Optional['AutoPatchingSettingsArgs']] = None,
@@ -37,7 +38,6 @@ class SqlVirtualMachineArgs:
                  sql_management: pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]] = None,
                  sql_server_license_type: pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
                  sql_virtual_machine_group_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_configuration_settings: pulumi.Input[Optional['StorageConfigurationSettingsArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_machine_identity_settings: pulumi.Input[Optional['VirtualMachineIdentityArgs']] = None,
@@ -48,6 +48,7 @@ class SqlVirtualMachineArgs:
         The set of arguments for constructing a SqlVirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] sql_virtual_machine_name: Name of the SQL virtual machine.
         :param pulumi.Input['AssessmentSettingsArgs'] assessment_settings: SQL best practices Assessment Settings.
         :param pulumi.Input['AutoBackupSettingsArgs'] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input['AutoPatchingSettingsArgs'] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -62,7 +63,6 @@ class SqlVirtualMachineArgs:
         :param pulumi.Input[Union[_builtins.str, 'SqlManagementMode']] sql_management: SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         :param pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']] sql_server_license_type: SQL Server license type.
         :param pulumi.Input[_builtins.str] sql_virtual_machine_group_resource_id: ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
-        :param pulumi.Input[_builtins.str] sql_virtual_machine_name: Name of the SQL virtual machine.
         :param pulumi.Input['StorageConfigurationSettingsArgs'] storage_configuration_settings: Storage Configuration Settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['VirtualMachineIdentityArgs'] virtual_machine_identity_settings: Virtual Machine Identity details used for Sql IaaS extension configurations.
@@ -71,6 +71,7 @@ class SqlVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] wsfc_static_ip: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sql_virtual_machine_name", sql_virtual_machine_name)
         if assessment_settings is not None:
             pulumi.set(__self__, "assessment_settings", assessment_settings)
         if auto_backup_settings is not None:
@@ -103,8 +104,6 @@ class SqlVirtualMachineArgs:
             pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
         if sql_virtual_machine_group_resource_id is not None:
             pulumi.set(__self__, "sql_virtual_machine_group_resource_id", sql_virtual_machine_group_resource_id)
-        if sql_virtual_machine_name is not None:
-            pulumi.set(__self__, "sql_virtual_machine_name", sql_virtual_machine_name)
         if storage_configuration_settings is not None:
             pulumi.set(__self__, "storage_configuration_settings", storage_configuration_settings)
         if tags is not None:
@@ -129,6 +128,18 @@ class SqlVirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlVirtualMachineName")
+    def sql_virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the SQL virtual machine.
+        """
+        return pulumi.get(self, "sql_virtual_machine_name")
+
+    @sql_virtual_machine_name.setter
+    def sql_virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentSettings")
@@ -297,18 +308,6 @@ class SqlVirtualMachineArgs:
     @sql_virtual_machine_group_resource_id.setter
     def sql_virtual_machine_group_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_virtual_machine_group_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlVirtualMachineName")
-    def sql_virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the SQL virtual machine.
-        """
-        return pulumi.get(self, "sql_virtual_machine_name")
-
-    @sql_virtual_machine_name.setter
-    def sql_virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sql_virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfigurationSettings")
@@ -526,6 +525,8 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["sql_management"] = sql_management
             __props__.__dict__["sql_server_license_type"] = sql_server_license_type
             __props__.__dict__["sql_virtual_machine_group_resource_id"] = sql_virtual_machine_group_resource_id
+            if sql_virtual_machine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sql_virtual_machine_name'")
             __props__.__dict__["sql_virtual_machine_name"] = sql_virtual_machine_name
             __props__.__dict__["storage_configuration_settings"] = storage_configuration_settings
             __props__.__dict__["tags"] = tags

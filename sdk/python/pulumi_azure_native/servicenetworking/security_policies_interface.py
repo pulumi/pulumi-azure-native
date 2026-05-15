@@ -22,27 +22,26 @@ __all__ = ['SecurityPoliciesInterfaceArgs', 'SecurityPoliciesInterface']
 class SecurityPoliciesInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 security_policy_name: pulumi.Input[_builtins.str],
                  traffic_controller_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  waf_policy: pulumi.Input[Optional['WafPolicyArgs']] = None):
         """
         The set of arguments for constructing a SecurityPoliciesInterface resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] security_policy_name: SecurityPolicy
         :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] security_policy_name: SecurityPolicy
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['WafPolicyArgs'] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_policy_name", security_policy_name)
         pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if security_policy_name is not None:
-            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if waf_policy is not None:
@@ -59,6 +58,18 @@ class SecurityPoliciesInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        SecurityPolicy
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficControllerName")
@@ -83,18 +94,6 @@ class SecurityPoliciesInterfaceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        SecurityPolicy
-        """
-        return pulumi.get(self, "security_policy_name")
-
-    @security_policy_name.setter
-    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,6 +198,8 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_policy_name'")
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
             if traffic_controller_name is None and not opts.urn:

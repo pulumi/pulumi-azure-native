@@ -24,28 +24,27 @@ class ReplicationProtectionClusterArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
                  protection_container_name: pulumi.Input[_builtins.str],
+                 replication_protection_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']] = None,
-                 replication_protection_cluster_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationProtectionCluster resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
         :param pulumi.Input[_builtins.str] protection_container_name: Protection container name.
+        :param pulumi.Input[_builtins.str] replication_protection_cluster_name: Replication protection cluster name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
         :param pulumi.Input['ReplicationProtectionClusterPropertiesArgs'] properties: The custom data.
-        :param pulumi.Input[_builtins.str] replication_protection_cluster_name: Replication protection cluster name.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "protection_container_name", protection_container_name)
+        pulumi.set(__self__, "replication_protection_cluster_name", replication_protection_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if replication_protection_cluster_name is not None:
-            pulumi.set(__self__, "replication_protection_cluster_name", replication_protection_cluster_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -70,6 +69,18 @@ class ReplicationProtectionClusterArgs:
     @protection_container_name.setter
     def protection_container_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "protection_container_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationProtectionClusterName")
+    def replication_protection_cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Replication protection cluster name.
+        """
+        return pulumi.get(self, "replication_protection_cluster_name")
+
+    @replication_protection_cluster_name.setter
+    def replication_protection_cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "replication_protection_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,18 +117,6 @@ class ReplicationProtectionClusterArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="replicationProtectionClusterName")
-    def replication_protection_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Replication protection cluster name.
-        """
-        return pulumi.get(self, "replication_protection_cluster_name")
-
-    @replication_protection_cluster_name.setter
-    def replication_protection_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "replication_protection_cluster_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationProtectionCluster")
@@ -201,6 +200,8 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
             if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")
             __props__.__dict__["protection_container_name"] = protection_container_name
+            if replication_protection_cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'replication_protection_cluster_name'")
             __props__.__dict__["replication_protection_cluster_name"] = replication_protection_cluster_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -23,6 +23,7 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 class VirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_machine_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  hardware_profile: pulumi.Input[Optional['VirtualMachinePropertiesHardwareProfileArgs']] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
@@ -31,12 +32,12 @@ class VirtualMachineArgs:
                  os_profile: pulumi.Input[Optional['VirtualMachinePropertiesOsProfileArgs']] = None,
                  security_profile: pulumi.Input[Optional['VirtualMachinePropertiesSecurityProfileArgs']] = None,
                  storage_profile: pulumi.Input[Optional['VirtualMachinePropertiesStorageProfileArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the virtual machine
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualMachinePropertiesHardwareProfileArgs'] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
@@ -46,9 +47,9 @@ class VirtualMachineArgs:
         :param pulumi.Input['VirtualMachinePropertiesSecurityProfileArgs'] security_profile: SecurityProfile - Specifies the security settings for the virtual machine.
         :param pulumi.Input['VirtualMachinePropertiesStorageProfileArgs'] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the virtual machine
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if hardware_profile is not None:
@@ -67,8 +68,6 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -81,6 +80,18 @@ class VirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the virtual machine
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -190,18 +201,6 @@ class VirtualMachineArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the virtual machine
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_machine_name", value)
-
 
 @pulumi.type_token("azure-native:azurestackhci:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
@@ -300,6 +299,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
+            if virtual_machine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["guest_agent_profile"] = None

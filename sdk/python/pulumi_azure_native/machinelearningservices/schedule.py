@@ -22,23 +22,34 @@ __all__ = ['ScheduleArgs', 'Schedule']
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['SchedulePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Schedule resource.
 
+        :param pulumi.Input[_builtins.str] name: Schedule name.
         :param pulumi.Input['SchedulePropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] name: Schedule name.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Schedule name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class ScheduleArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Schedule name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:Schedule")
@@ -157,6 +156,8 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

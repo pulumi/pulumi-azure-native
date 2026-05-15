@@ -22,24 +22,35 @@ __all__ = ['BusinessCaseOperationArgs', 'BusinessCaseOperation']
 @pulumi.input_type
 class BusinessCaseOperationArgs:
     def __init__(__self__, *,
+                 business_case_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 business_case_name: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional['SettingsArgs']] = None):
         """
         The set of arguments for constructing a BusinessCaseOperation resource.
 
+        :param pulumi.Input[_builtins.str] business_case_name: Business case ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] business_case_name: Business case ARM name
         :param pulumi.Input['SettingsArgs'] settings: Business case settings.
         """
+        pulumi.set(__self__, "business_case_name", business_case_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if business_case_name is not None:
-            pulumi.set(__self__, "business_case_name", business_case_name)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
+
+    @_builtins.property
+    @pulumi.getter(name="businessCaseName")
+    def business_case_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Business case ARM name
+        """
+        return pulumi.get(self, "business_case_name")
+
+    @business_case_name.setter
+    def business_case_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "business_case_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -64,18 +75,6 @@ class BusinessCaseOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="businessCaseName")
-    def business_case_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Business case ARM name
-        """
-        return pulumi.get(self, "business_case_name")
-
-    @business_case_name.setter
-    def business_case_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "business_case_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class BusinessCaseOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BusinessCaseOperationArgs.__new__(BusinessCaseOperationArgs)
 
+            if business_case_name is None and not opts.urn:
+                raise TypeError("Missing required property 'business_case_name'")
             __props__.__dict__["business_case_name"] = business_case_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

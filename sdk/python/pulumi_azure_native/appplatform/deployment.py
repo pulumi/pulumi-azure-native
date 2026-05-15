@@ -23,26 +23,25 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  app_name: pulumi.Input[_builtins.str],
+                 deployment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DeploymentResourcePropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
         :param pulumi.Input[_builtins.str] app_name: The name of the App resource.
+        :param pulumi.Input[_builtins.str] deployment_name: The name of the Deployment resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] deployment_name: The name of the Deployment resource.
         :param pulumi.Input['DeploymentResourcePropertiesArgs'] properties: Properties of the Deployment resource
         :param pulumi.Input['SkuArgs'] sku: Sku of the Deployment resource
         """
         pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if sku is not None:
@@ -59,6 +58,18 @@ class DeploymentArgs:
     @app_name.setter
     def app_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "app_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Deployment resource.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class DeploymentArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Deployment resource.
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class Deployment(pulumi.CustomResource):
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
             __props__.__dict__["app_name"] = app_name
+            if deployment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

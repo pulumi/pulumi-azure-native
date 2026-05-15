@@ -22,9 +22,9 @@ __all__ = ['BotArgs', 'Bot']
 @pulumi.input_type
 class BotArgs:
     def __init__(__self__, *,
+                 bot_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['HealthBotPropertiesArgs']] = None,
@@ -32,18 +32,17 @@ class BotArgs:
         """
         The set of arguments for constructing a Bot resource.
 
+        :param pulumi.Input[_builtins.str] bot_name: The name of the Bot resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input['SkuArgs'] sku: SKU of the Azure Health Bot.
-        :param pulumi.Input[_builtins.str] bot_name: The name of the Bot resource.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the Azure Health Bot.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['HealthBotPropertiesArgs'] properties: The set of properties specific to Azure Health Bot resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -52,6 +51,18 @@ class BotArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="botName")
+    def bot_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Bot resource.
+        """
+        return pulumi.get(self, "bot_name")
+
+    @bot_name.setter
+    def bot_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -76,18 +87,6 @@ class BotArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="botName")
-    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Bot resource.
-        """
-        return pulumi.get(self, "bot_name")
-
-    @bot_name.setter
-    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -215,6 +214,8 @@ class Bot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BotArgs.__new__(BotArgs)
 
+            if bot_name is None and not opts.urn:
+                raise TypeError("Missing required property 'bot_name'")
             __props__.__dict__["bot_name"] = bot_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

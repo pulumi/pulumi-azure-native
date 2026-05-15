@@ -23,26 +23,25 @@ __all__ = ['InboundEndpointArgs', 'InboundEndpoint']
 class InboundEndpointArgs:
     def __init__(__self__, *,
                  dns_resolver_name: pulumi.Input[_builtins.str],
+                 inbound_endpoint_name: pulumi.Input[_builtins.str],
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 inbound_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InboundEndpoint resource.
 
         :param pulumi.Input[_builtins.str] dns_resolver_name: The name of the DNS resolver.
+        :param pulumi.Input[_builtins.str] inbound_endpoint_name: The name of the inbound endpoint for the DNS resolver.
         :param pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]] ip_configurations: IP configurations for the inbound endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] inbound_endpoint_name: The name of the inbound endpoint for the DNS resolver.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
+        pulumi.set(__self__, "inbound_endpoint_name", inbound_endpoint_name)
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if inbound_endpoint_name is not None:
-            pulumi.set(__self__, "inbound_endpoint_name", inbound_endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -59,6 +58,18 @@ class InboundEndpointArgs:
     @dns_resolver_name.setter
     def dns_resolver_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dns_resolver_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundEndpointName")
+    def inbound_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the inbound endpoint for the DNS resolver.
+        """
+        return pulumi.get(self, "inbound_endpoint_name")
+
+    @inbound_endpoint_name.setter
+    def inbound_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -83,18 +94,6 @@ class InboundEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundEndpointName")
-    def inbound_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the inbound endpoint for the DNS resolver.
-        """
-        return pulumi.get(self, "inbound_endpoint_name")
-
-    @inbound_endpoint_name.setter
-    def inbound_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "inbound_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class InboundEndpoint(pulumi.CustomResource):
             if dns_resolver_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_resolver_name'")
             __props__.__dict__["dns_resolver_name"] = dns_resolver_name
+            if inbound_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'inbound_endpoint_name'")
             __props__.__dict__["inbound_endpoint_name"] = inbound_endpoint_name
             if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")

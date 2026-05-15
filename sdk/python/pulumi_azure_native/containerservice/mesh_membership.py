@@ -21,28 +21,39 @@ __all__ = ['MeshMembershipArgs', 'MeshMembership']
 @pulumi.input_type
 class MeshMembershipArgs:
     def __init__(__self__, *,
+                 mesh_membership_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 mesh_membership_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MeshMembershipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MeshMembership resource.
 
+        :param pulumi.Input[_builtins.str] mesh_membership_name: The name of the mesh membership.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[_builtins.str] mesh_membership_name: The name of the mesh membership.
         :param pulumi.Input['MeshMembershipPropertiesArgs'] properties: Mesh membership properties of a managed cluster.
         """
+        pulumi.set(__self__, "mesh_membership_name", mesh_membership_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
-        if mesh_membership_name is not None:
-            pulumi.set(__self__, "mesh_membership_name", mesh_membership_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="meshMembershipName")
+    def mesh_membership_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the mesh membership.
+        """
+        return pulumi.get(self, "mesh_membership_name")
+
+    @mesh_membership_name.setter
+    def mesh_membership_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mesh_membership_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,18 +90,6 @@ class MeshMembershipArgs:
     @managed_by.setter
     def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
-
-    @_builtins.property
-    @pulumi.getter(name="meshMembershipName")
-    def mesh_membership_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the mesh membership.
-        """
-        return pulumi.get(self, "mesh_membership_name")
-
-    @mesh_membership_name.setter
-    def mesh_membership_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mesh_membership_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class MeshMembership(pulumi.CustomResource):
             __props__ = MeshMembershipArgs.__new__(MeshMembershipArgs)
 
             __props__.__dict__["managed_by"] = managed_by
+            if mesh_membership_name is None and not opts.urn:
+                raise TypeError("Missing required property 'mesh_membership_name'")
             __props__.__dict__["mesh_membership_name"] = mesh_membership_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

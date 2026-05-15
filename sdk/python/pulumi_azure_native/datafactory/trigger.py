@@ -25,7 +25,7 @@ class TriggerArgs:
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['BlobEventsTriggerArgs', 'BlobTriggerArgs', 'ChainingTriggerArgs', 'CustomEventsTriggerArgs', 'MultiplePipelineTriggerArgs', 'RerunTumblingWindowTriggerArgs', 'ScheduleTriggerArgs', 'TumblingWindowTriggerArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 trigger_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Trigger resource.
 
@@ -37,8 +37,7 @@ class TriggerArgs:
         pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if trigger_name is not None:
-            pulumi.set(__self__, "trigger_name", trigger_name)
+        pulumi.set(__self__, "trigger_name", trigger_name)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -78,14 +77,14 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trigger_name(self) -> pulumi.Input[_builtins.str]:
         """
         The trigger name.
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trigger_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "trigger_name", value)
 
 
@@ -162,6 +161,8 @@ class Trigger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if trigger_name is None and not opts.urn:
+                raise TypeError("Missing required property 'trigger_name'")
             __props__.__dict__["trigger_name"] = trigger_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

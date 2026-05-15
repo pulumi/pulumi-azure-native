@@ -23,22 +23,21 @@ class SolutionArgs:
     def __init__(__self__, *,
                  migrate_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None,
-                 solution_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 solution_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Solution resource.
 
         :param pulumi.Input[_builtins.str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
-        :param pulumi.Input['SolutionPropertiesArgs'] properties: Gets or sets the properties of the solution.
         :param pulumi.Input[_builtins.str] solution_name: Unique name of a migration solution within a migrate project.
+        :param pulumi.Input['SolutionPropertiesArgs'] properties: Gets or sets the properties of the solution.
         """
         pulumi.set(__self__, "migrate_project_name", migrate_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "solution_name", solution_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if solution_name is not None:
-            pulumi.set(__self__, "solution_name", solution_name)
 
     @_builtins.property
     @pulumi.getter(name="migrateProjectName")
@@ -65,6 +64,18 @@ class SolutionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="solutionName")
+    def solution_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique name of a migration solution within a migrate project.
+        """
+        return pulumi.get(self, "solution_name")
+
+    @solution_name.setter
+    def solution_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SolutionPropertiesArgs']]:
         """
@@ -75,18 +86,6 @@ class SolutionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SolutionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionName")
-    def solution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Unique name of a migration solution within a migrate project.
-        """
-        return pulumi.get(self, "solution_name")
-
-    @solution_name.setter
-    def solution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:Solution")
@@ -160,6 +159,8 @@ class Solution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if solution_name is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_name'")
             __props__.__dict__["solution_name"] = solution_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

@@ -23,6 +23,7 @@ __all__ = ['VirtualHardDiskArgs', 'VirtualHardDisk']
 class VirtualHardDiskArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_hard_disk_name: pulumi.Input[_builtins.str],
                  block_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
                  container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -35,12 +36,12 @@ class VirtualHardDiskArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  logical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
                  physical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hard_disk_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualHardDisk resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] virtual_hard_disk_name: Name of the virtual hard disk
         :param pulumi.Input[_builtins.int] block_size_bytes: Block size in bytes
         :param pulumi.Input[_builtins.str] container_id: Storage ContainerID of the storage container to be used for VHD
         :param pulumi.Input[_builtins.bool] create_from_local: Boolean indicating whether it is an existing local hard disk or if one should be created.
@@ -54,9 +55,9 @@ class VirtualHardDiskArgs:
         :param pulumi.Input[_builtins.int] logical_sector_bytes: Logical sector in bytes
         :param pulumi.Input[_builtins.int] physical_sector_bytes: Physical sector in bytes
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_hard_disk_name: Name of the virtual hard disk
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_hard_disk_name", virtual_hard_disk_name)
         if block_size_bytes is not None:
             pulumi.set(__self__, "block_size_bytes", block_size_bytes)
         if container_id is not None:
@@ -85,8 +86,6 @@ class VirtualHardDiskArgs:
             pulumi.set(__self__, "physical_sector_bytes", physical_sector_bytes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_hard_disk_name is not None:
-            pulumi.set(__self__, "virtual_hard_disk_name", virtual_hard_disk_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,6 +98,18 @@ class VirtualHardDiskArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualHardDiskName")
+    def virtual_hard_disk_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the virtual hard disk
+        """
+        return pulumi.get(self, "virtual_hard_disk_name")
+
+    @virtual_hard_disk_name.setter
+    def virtual_hard_disk_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_hard_disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="blockSizeBytes")
@@ -256,18 +267,6 @@ class VirtualHardDiskArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="virtualHardDiskName")
-    def virtual_hard_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the virtual hard disk
-        """
-        return pulumi.get(self, "virtual_hard_disk_name")
-
-    @virtual_hard_disk_name.setter
-    def virtual_hard_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_hard_disk_name", value)
-
 
 @pulumi.type_token("azure-native:azurestackhci:VirtualHardDisk")
 class VirtualHardDisk(pulumi.CustomResource):
@@ -388,6 +387,8 @@ class VirtualHardDisk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if virtual_hard_disk_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_hard_disk_name'")
             __props__.__dict__["virtual_hard_disk_name"] = virtual_hard_disk_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

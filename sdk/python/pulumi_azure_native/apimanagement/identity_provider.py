@@ -22,12 +22,12 @@ class IdentityProviderArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
+                 identity_provider_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authority: pulumi.Input[Optional[_builtins.str]] = None,
                  client_library: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  password_reset_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_editing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  signin_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,12 +39,12 @@ class IdentityProviderArgs:
 
         :param pulumi.Input[_builtins.str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         :param pulumi.Input[_builtins.str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        :param pulumi.Input[_builtins.str] identity_provider_name: Identity Provider Type identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
         :param pulumi.Input[_builtins.str] authority: OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
         :param pulumi.Input[_builtins.str] client_library: The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
-        :param pulumi.Input[_builtins.str] identity_provider_name: Identity Provider Type identifier.
         :param pulumi.Input[_builtins.str] password_reset_policy_name: Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[_builtins.str] profile_editing_policy_name: Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[_builtins.str] signin_policy_name: Signin Policy Name. Only applies to AAD B2C Identity Provider.
@@ -54,6 +54,7 @@ class IdentityProviderArgs:
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "identity_provider_name", identity_provider_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if allowed_tenants is not None:
@@ -62,8 +63,6 @@ class IdentityProviderArgs:
             pulumi.set(__self__, "authority", authority)
         if client_library is not None:
             pulumi.set(__self__, "client_library", client_library)
-        if identity_provider_name is not None:
-            pulumi.set(__self__, "identity_provider_name", identity_provider_name)
         if password_reset_policy_name is not None:
             pulumi.set(__self__, "password_reset_policy_name", password_reset_policy_name)
         if profile_editing_policy_name is not None:
@@ -100,6 +99,18 @@ class IdentityProviderArgs:
     @client_secret.setter
     def client_secret(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderName")
+    def identity_provider_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identity Provider Type identifier.
+        """
+        return pulumi.get(self, "identity_provider_name")
+
+    @identity_provider_name.setter
+    def identity_provider_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -160,18 +171,6 @@ class IdentityProviderArgs:
     @client_library.setter
     def client_library(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_library", value)
-
-    @_builtins.property
-    @pulumi.getter(name="identityProviderName")
-    def identity_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identity Provider Type identifier.
-        """
-        return pulumi.get(self, "identity_provider_name")
-
-    @identity_provider_name.setter
-    def identity_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "identity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetPolicyName")
@@ -353,6 +352,8 @@ class IdentityProvider(pulumi.CustomResource):
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = client_secret
+            if identity_provider_name is None and not opts.urn:
+                raise TypeError("Missing required property 'identity_provider_name'")
             __props__.__dict__["identity_provider_name"] = identity_provider_name
             __props__.__dict__["password_reset_policy_name"] = password_reset_policy_name
             __props__.__dict__["profile_editing_policy_name"] = profile_editing_policy_name

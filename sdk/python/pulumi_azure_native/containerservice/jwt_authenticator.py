@@ -21,23 +21,34 @@ __all__ = ['JWTAuthenticatorArgs', 'JWTAuthenticator']
 @pulumi.input_type
 class JWTAuthenticatorArgs:
     def __init__(__self__, *,
+                 jwt_authenticator_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['JWTAuthenticatorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
-                 jwt_authenticator_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a JWTAuthenticator resource.
 
+        :param pulumi.Input[_builtins.str] jwt_authenticator_name: The name of the JWT authenticator.
         :param pulumi.Input['JWTAuthenticatorPropertiesArgs'] properties: The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
-        :param pulumi.Input[_builtins.str] jwt_authenticator_name: The name of the JWT authenticator.
         """
+        pulumi.set(__self__, "jwt_authenticator_name", jwt_authenticator_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        if jwt_authenticator_name is not None:
-            pulumi.set(__self__, "jwt_authenticator_name", jwt_authenticator_name)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtAuthenticatorName")
+    def jwt_authenticator_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the JWT authenticator.
+        """
+        return pulumi.get(self, "jwt_authenticator_name")
+
+    @jwt_authenticator_name.setter
+    def jwt_authenticator_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "jwt_authenticator_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,18 +85,6 @@ class JWTAuthenticatorArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jwtAuthenticatorName")
-    def jwt_authenticator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the JWT authenticator.
-        """
-        return pulumi.get(self, "jwt_authenticator_name")
-
-    @jwt_authenticator_name.setter
-    def jwt_authenticator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "jwt_authenticator_name", value)
 
 
 @pulumi.type_token("azure-native:containerservice:JWTAuthenticator")
@@ -156,6 +155,8 @@ class JWTAuthenticator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JWTAuthenticatorArgs.__new__(JWTAuthenticatorArgs)
 
+            if jwt_authenticator_name is None and not opts.urn:
+                raise TypeError("Missing required property 'jwt_authenticator_name'")
             __props__.__dict__["jwt_authenticator_name"] = jwt_authenticator_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

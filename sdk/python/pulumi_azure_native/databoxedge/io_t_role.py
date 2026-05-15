@@ -27,11 +27,11 @@ class IoTRoleArgs:
                  io_t_device_details: pulumi.Input['IoTDeviceInfoArgs'],
                  io_t_edge_device_details: pulumi.Input['IoTDeviceInfoArgs'],
                  kind: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']],
                  compute_resource: pulumi.Input[Optional['ComputeResourceArgs']] = None,
                  io_t_edge_agent_info: pulumi.Input[Optional['IoTEdgeAgentInfoArgs']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  share_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
         """
         The set of arguments for constructing a IoTRole resource.
@@ -42,11 +42,11 @@ class IoTRoleArgs:
         :param pulumi.Input['IoTDeviceInfoArgs'] io_t_edge_device_details: IoT edge device to which the IoT role needs to be configured.
         :param pulumi.Input[_builtins.str] kind: Role type.
                Expected value is 'IOT'.
+        :param pulumi.Input[_builtins.str] name: The role name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[_builtins.str, 'RoleStatus']] role_status: Role status.
         :param pulumi.Input['ComputeResourceArgs'] compute_resource: Resource allocation
         :param pulumi.Input['IoTEdgeAgentInfoArgs'] io_t_edge_agent_info: Iot edge agent details to download the agent and bootstrap iot runtime.
-        :param pulumi.Input[_builtins.str] name: The role name.
         :param pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]] share_mappings: Mount points of shares in role(s).
         """
         pulumi.set(__self__, "device_name", device_name)
@@ -54,14 +54,13 @@ class IoTRoleArgs:
         pulumi.set(__self__, "io_t_device_details", io_t_device_details)
         pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
         pulumi.set(__self__, "kind", 'IOT')
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role_status", role_status)
         if compute_resource is not None:
             pulumi.set(__self__, "compute_resource", compute_resource)
         if io_t_edge_agent_info is not None:
             pulumi.set(__self__, "io_t_edge_agent_info", io_t_edge_agent_info)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if share_mappings is not None:
             pulumi.set(__self__, "share_mappings", share_mappings)
 
@@ -127,6 +126,18 @@ class IoTRoleArgs:
         pulumi.set(self, "kind", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -173,18 +184,6 @@ class IoTRoleArgs:
     @io_t_edge_agent_info.setter
     def io_t_edge_agent_info(self, value: pulumi.Input[Optional['IoTEdgeAgentInfoArgs']]):
         pulumi.set(self, "io_t_edge_agent_info", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The role name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareMappings")
@@ -302,6 +301,8 @@ class IoTRole(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'IOT'
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

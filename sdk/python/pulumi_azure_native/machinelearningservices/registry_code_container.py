@@ -21,23 +21,34 @@ __all__ = ['RegistryCodeContainerArgs', 'RegistryCodeContainer']
 @pulumi.input_type
 class RegistryCodeContainerArgs:
     def __init__(__self__, *,
+                 code_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['CodeContainerPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 code_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RegistryCodeContainer resource.
 
+        :param pulumi.Input[_builtins.str] code_name: Container name.
         :param pulumi.Input['CodeContainerPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] code_name: Container name.
         """
+        pulumi.set(__self__, "code_name", code_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if code_name is not None:
-            pulumi.set(__self__, "code_name", code_name)
+
+    @_builtins.property
+    @pulumi.getter(name="codeName")
+    def code_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Container name.
+        """
+        return pulumi.get(self, "code_name")
+
+    @code_name.setter
+    def code_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,18 +85,6 @@ class RegistryCodeContainerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="codeName")
-    def code_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Container name.
-        """
-        return pulumi.get(self, "code_name")
-
-    @code_name.setter
-    def code_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "code_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:RegistryCodeContainer")
@@ -156,6 +155,8 @@ class RegistryCodeContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryCodeContainerArgs.__new__(RegistryCodeContainerArgs)
 
+            if code_name is None and not opts.urn:
+                raise TypeError("Missing required property 'code_name'")
             __props__.__dict__["code_name"] = code_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

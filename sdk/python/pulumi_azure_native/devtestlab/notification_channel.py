@@ -23,12 +23,12 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 class NotificationChannelArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recipient: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input['EventArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_locale: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  web_hook_url: pulumi.Input[Optional[_builtins.str]] = None):
@@ -36,17 +36,18 @@ class NotificationChannelArgs:
         The set of arguments for constructing a NotificationChannel resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
+        :param pulumi.Input[_builtins.str] name: The name of the notification channel.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of notification.
         :param pulumi.Input[_builtins.str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] name: The name of the notification channel.
         :param pulumi.Input[_builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] web_hook_url: The webhook URL to send notifications to.
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -56,8 +57,6 @@ class NotificationChannelArgs:
             pulumi.set(__self__, "events", events)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if notification_locale is not None:
             pulumi.set(__self__, "notification_locale", notification_locale)
         if tags is not None:
@@ -76,6 +75,18 @@ class NotificationChannelArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the notification channel.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -136,18 +147,6 @@ class NotificationChannelArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the notification channel.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationLocale")
@@ -275,6 +274,8 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_locale"] = notification_locale
             if resource_group_name is None and not opts.urn:

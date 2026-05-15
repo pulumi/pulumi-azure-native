@@ -21,29 +21,40 @@ __all__ = ['InstanceDetailsArgs', 'InstanceDetails']
 @pulumi.input_type
 class InstanceDetailsArgs:
     def __init__(__self__, *,
+                 instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  administration: pulumi.Input[Optional['DFPInstanceAdministratorsArgs']] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceDetails resource.
 
+        :param pulumi.Input[_builtins.str] instance_name: The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input['DFPInstanceAdministratorsArgs'] administration: A collection of DFP instance administrators
-        :param pulumi.Input[_builtins.str] instance_name: The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] location: Location of the DFP resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
+        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administration is not None:
             pulumi.set(__self__, "administration", administration)
-        if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +79,6 @@ class InstanceDetailsArgs:
     @administration.setter
     def administration(self, value: pulumi.Input[Optional['DFPInstanceAdministratorsArgs']]):
         pulumi.set(self, "administration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +173,8 @@ class InstanceDetails(pulumi.CustomResource):
             __props__ = InstanceDetailsArgs.__new__(InstanceDetailsArgs)
 
             __props__.__dict__["administration"] = administration
+            if instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

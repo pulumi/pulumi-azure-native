@@ -22,20 +22,19 @@ __all__ = ['DefenderForStorageArgs', 'DefenderForStorage']
 class DefenderForStorageArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['DefenderForStorageSettingPropertiesArgs']] = None,
-                 setting_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 setting_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['DefenderForStorageSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DefenderForStorage resource.
 
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
-        :param pulumi.Input['DefenderForStorageSettingPropertiesArgs'] properties: Defender for Storage resource properties.
         :param pulumi.Input[_builtins.str] setting_name: Defender for Storage setting name.
+        :param pulumi.Input['DefenderForStorageSettingPropertiesArgs'] properties: Defender for Storage resource properties.
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "setting_name", setting_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -50,6 +49,18 @@ class DefenderForStorageArgs:
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defender for Storage setting name.
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "setting_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['DefenderForStorageSettingPropertiesArgs']]:
         """
@@ -60,18 +71,6 @@ class DefenderForStorageArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['DefenderForStorageSettingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="settingName")
-    def setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Defender for Storage setting name.
-        """
-        return pulumi.get(self, "setting_name")
-
-    @setting_name.setter
-    def setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "setting_name", value)
 
 
 @pulumi.type_token("azure-native:security:DefenderForStorage")
@@ -143,6 +142,8 @@ class DefenderForStorage(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            if setting_name is None and not opts.urn:
+                raise TypeError("Missing required property 'setting_name'")
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

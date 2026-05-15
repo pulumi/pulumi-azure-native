@@ -25,6 +25,7 @@ class RouteArgs:
                  endpoint_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_name: pulumi.Input[_builtins.str],
                  cache_configuration: pulumi.Input[Optional['AfdRouteCacheConfigurationArgs']] = None,
                  custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
                  enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
@@ -34,7 +35,6 @@ class RouteArgs:
                  origin_group: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  origin_path: pulumi.Input[Optional[_builtins.str]] = None,
                  patterns_to_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None):
         """
@@ -43,6 +43,7 @@ class RouteArgs:
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] route_name: Name of the routing rule.
         :param pulumi.Input['AfdRouteCacheConfigurationArgs'] cache_configuration: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[_builtins.str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -52,13 +53,13 @@ class RouteArgs:
         :param pulumi.Input['ResourceReferenceArgs'] origin_group: A reference to the origin group.
         :param pulumi.Input[_builtins.str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns_to_match: The route patterns of the rule.
-        :param pulumi.Input[_builtins.str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] rule_sets: rule sets referenced by this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_name", route_name)
         if cache_configuration is not None:
             pulumi.set(__self__, "cache_configuration", cache_configuration)
         if custom_domains is not None:
@@ -83,8 +84,6 @@ class RouteArgs:
             pulumi.set(__self__, "origin_path", origin_path)
         if patterns_to_match is not None:
             pulumi.set(__self__, "patterns_to_match", patterns_to_match)
-        if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
         if rule_sets is not None:
             pulumi.set(__self__, "rule_sets", rule_sets)
         if supported_protocols is not None:
@@ -125,6 +124,18 @@ class RouteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeName")
+    def route_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the routing rule.
+        """
+        return pulumi.get(self, "route_name")
+
+    @route_name.setter
+    def route_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheConfiguration")
@@ -233,18 +244,6 @@ class RouteArgs:
     @patterns_to_match.setter
     def patterns_to_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_to_match", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeName")
-    def route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the routing rule.
-        """
-        return pulumi.get(self, "route_name")
-
-    @route_name.setter
-    def route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSets")
@@ -396,6 +395,8 @@ class Route(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_name'")
             __props__.__dict__["route_name"] = route_name
             __props__.__dict__["rule_sets"] = rule_sets
             __props__.__dict__["supported_protocols"] = supported_protocols

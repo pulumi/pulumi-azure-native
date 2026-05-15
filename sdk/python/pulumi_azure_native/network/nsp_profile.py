@@ -20,24 +20,25 @@ __all__ = ['NspProfileArgs', 'NspProfile']
 class NspProfileArgs:
     def __init__(__self__, *,
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
+                 profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NspProfile resource.
 
         :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
+        :param pulumi.Input[_builtins.str] profile_name: The name of the NSP profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] name: The name of the profile resource that is unique within a perimeter. This name can be used to access the resource.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the NSP profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
+        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -45,8 +46,6 @@ class NspProfileArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,6 +60,18 @@ class NspProfileArgs:
     @network_security_perimeter_name.setter
     def network_security_perimeter_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_security_perimeter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the NSP profile.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -109,18 +120,6 @@ class NspProfileArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the NSP profile.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +217,8 @@ class NspProfile(pulumi.CustomResource):
             if network_security_perimeter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_perimeter_name'")
             __props__.__dict__["network_security_perimeter_name"] = network_security_perimeter_name
+            if profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

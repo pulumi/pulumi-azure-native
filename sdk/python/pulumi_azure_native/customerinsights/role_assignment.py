@@ -22,11 +22,11 @@ __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
 @pulumi.input_type
 class RoleAssignmentArgs:
     def __init__(__self__, *,
+                 assignment_name: pulumi.Input[_builtins.str],
                  hub_name: pulumi.Input[_builtins.str],
                  principals: pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input['RoleTypes'],
-                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  conflation_policies: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
                  connectors: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
                  description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -45,11 +45,11 @@ class RoleAssignmentArgs:
         """
         The set of arguments for constructing a RoleAssignment resource.
 
+        :param pulumi.Input[_builtins.str] assignment_name: The assignment name
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]] principals: The principals being assigned to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['RoleTypes'] role: Type of roles.
-        :param pulumi.Input[_builtins.str] assignment_name: The assignment name
         :param pulumi.Input['ResourceSetDescriptionArgs'] conflation_policies: Widget types set for the assignment.
         :param pulumi.Input['ResourceSetDescriptionArgs'] connectors: Connectors set for the assignment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] description: Localized description for the metadata.
@@ -66,12 +66,11 @@ class RoleAssignmentArgs:
         :param pulumi.Input['ResourceSetDescriptionArgs'] views: Views set for the assignment.
         :param pulumi.Input['ResourceSetDescriptionArgs'] widget_types: Widget types set for the assignment.
         """
+        pulumi.set(__self__, "assignment_name", assignment_name)
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "principals", principals)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role", role)
-        if assignment_name is not None:
-            pulumi.set(__self__, "assignment_name", assignment_name)
         if conflation_policies is not None:
             pulumi.set(__self__, "conflation_policies", conflation_policies)
         if connectors is not None:
@@ -102,6 +101,18 @@ class RoleAssignmentArgs:
             pulumi.set(__self__, "views", views)
         if widget_types is not None:
             pulumi.set(__self__, "widget_types", widget_types)
+
+    @_builtins.property
+    @pulumi.getter(name="assignmentName")
+    def assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The assignment name
+        """
+        return pulumi.get(self, "assignment_name")
+
+    @assignment_name.setter
+    def assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hubName")
@@ -150,18 +161,6 @@ class RoleAssignmentArgs:
     @role.setter
     def role(self, value: pulumi.Input['RoleTypes']):
         pulumi.set(self, "role", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assignmentName")
-    def assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The assignment name
-        """
-        return pulumi.get(self, "assignment_name")
-
-    @assignment_name.setter
-    def assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="conflationPolicies")
@@ -456,6 +455,8 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
+            if assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assignment_name'")
             __props__.__dict__["assignment_name"] = assignment_name
             __props__.__dict__["conflation_policies"] = conflation_policies
             __props__.__dict__["connectors"] = connectors

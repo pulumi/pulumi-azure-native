@@ -25,6 +25,7 @@ class SyncGroupArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
+                 sync_group_name: pulumi.Input[_builtins.str],
                  conflict_logging_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  conflict_resolution_policy: pulumi.Input[Optional[Union[_builtins.str, 'SyncConflictResolutionPolicy']]] = None,
                  enable_conflict_logging: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -34,7 +35,6 @@ class SyncGroupArgs:
                  schema: pulumi.Input[Optional['SyncGroupSchemaArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  sync_database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  use_private_link_connection: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SyncGroup resource.
@@ -42,6 +42,7 @@ class SyncGroupArgs:
         :param pulumi.Input[_builtins.str] database_name: The name of the database on which the sync group is hosted.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[_builtins.str] sync_group_name: The name of the sync group.
         :param pulumi.Input[_builtins.int] conflict_logging_retention_in_days: Conflict logging retention period.
         :param pulumi.Input[Union[_builtins.str, 'SyncConflictResolutionPolicy']] conflict_resolution_policy: Conflict resolution policy of the sync group.
         :param pulumi.Input[_builtins.bool] enable_conflict_logging: If conflict logging is enabled.
@@ -51,12 +52,12 @@ class SyncGroupArgs:
         :param pulumi.Input['SyncGroupSchemaArgs'] schema: Sync schema of the sync group.
         :param pulumi.Input['SkuArgs'] sku: The name and capacity of the SKU.
         :param pulumi.Input[_builtins.str] sync_database_id: ARM resource id of the sync database in the sync group.
-        :param pulumi.Input[_builtins.str] sync_group_name: The name of the sync group.
         :param pulumi.Input[_builtins.bool] use_private_link_connection: If use private link connection is enabled.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "sync_group_name", sync_group_name)
         if conflict_logging_retention_in_days is not None:
             pulumi.set(__self__, "conflict_logging_retention_in_days", conflict_logging_retention_in_days)
         if conflict_resolution_policy is not None:
@@ -75,8 +76,6 @@ class SyncGroupArgs:
             pulumi.set(__self__, "sku", sku)
         if sync_database_id is not None:
             pulumi.set(__self__, "sync_database_id", sync_database_id)
-        if sync_group_name is not None:
-            pulumi.set(__self__, "sync_group_name", sync_group_name)
         if use_private_link_connection is not None:
             pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
 
@@ -115,6 +114,18 @@ class SyncGroupArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syncGroupName")
+    def sync_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the sync group.
+        """
+        return pulumi.get(self, "sync_group_name")
+
+    @sync_group_name.setter
+    def sync_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sync_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictLoggingRetentionInDays")
@@ -223,18 +234,6 @@ class SyncGroupArgs:
     @sync_database_id.setter
     def sync_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_database_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="syncGroupName")
-    def sync_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the sync group.
-        """
-        return pulumi.get(self, "sync_group_name")
-
-    @sync_group_name.setter
-    def sync_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sync_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivateLinkConnection")
@@ -365,6 +364,8 @@ class SyncGroup(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sync_database_id"] = sync_database_id
+            if sync_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["use_private_link_connection"] = use_private_link_connection
             __props__.__dict__["azure_api_version"] = None

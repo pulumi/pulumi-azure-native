@@ -20,7 +20,7 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[_builtins.str],
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  workload_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -32,8 +32,7 @@ class AssessmentArgs:
         :param pulumi.Input[_builtins.str] type_id: Assessment Type Id.
         :param pulumi.Input[_builtins.str] workload_id: Workload Id.
         """
-        if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+        pulumi.set(__self__, "assessment_name", assessment_name)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
         if type_id is not None:
@@ -43,14 +42,14 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[_builtins.str]:
         """
         Advisor assessment name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
@@ -120,7 +119,7 @@ class Assessment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AssessmentArgs] = None,
+                 args: AssessmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Advisor assessment result data structure.
@@ -158,6 +157,8 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
+            if assessment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["locale"] = locale
             __props__.__dict__["type_id"] = type_id

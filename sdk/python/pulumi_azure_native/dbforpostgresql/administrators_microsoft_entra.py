@@ -21,32 +21,43 @@ __all__ = ['AdministratorsMicrosoftEntraArgs', 'AdministratorsMicrosoftEntra']
 @pulumi.input_type
 class AdministratorsMicrosoftEntraArgs:
     def __init__(__self__, *,
+                 object_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdministratorsMicrosoftEntra resource.
 
+        :param pulumi.Input[_builtins.str] object_id: Object identifier of the Microsoft Entra principal.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] object_id: Object identifier of the Microsoft Entra principal.
         :param pulumi.Input[_builtins.str] principal_name: Name of the Microsoft Entra principal.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: Type of Microsoft Entra principal to which the server administrator is associated.
         :param pulumi.Input[_builtins.str] tenant_id: Identifier of the tenant in which the Microsoft Entra principal exists.
         """
+        pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
         if principal_name is not None:
             pulumi.set(__self__, "principal_name", principal_name)
         if principal_type is not None:
             pulumi.set(__self__, "principal_type", principal_type)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Object identifier of the Microsoft Entra principal.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +82,6 @@ class AdministratorsMicrosoftEntraArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Object identifier of the Microsoft Entra principal.
-        """
-        return pulumi.get(self, "object_id")
-
-    @object_id.setter
-    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
@@ -195,6 +194,8 @@ class AdministratorsMicrosoftEntra(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AdministratorsMicrosoftEntraArgs.__new__(AdministratorsMicrosoftEntraArgs)
 
+            if object_id is None and not opts.urn:
+                raise TypeError("Missing required property 'object_id'")
             __props__.__dict__["object_id"] = object_id
             __props__.__dict__["principal_name"] = principal_name
             __props__.__dict__["principal_type"] = principal_type

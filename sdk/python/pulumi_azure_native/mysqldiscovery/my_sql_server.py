@@ -25,6 +25,7 @@ class MySQLServerArgs:
                  host_name: pulumi.Input[_builtins.str],
                  port_number: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
                  edition: pulumi.Input[Optional[Union[_builtins.str, 'Edition']]] = None,
                  errors: pulumi.Input[Optional[Sequence[pulumi.Input['ErrorArgs']]]] = None,
@@ -34,7 +35,6 @@ class MySQLServerArgs:
                  mysql_version: pulumi.Input[Optional[_builtins.str]] = None,
                  number_of_database: pulumi.Input[Optional[_builtins.float]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  support_end_in: pulumi.Input[Optional[_builtins.str]] = None,
                  support_status: pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -44,6 +44,7 @@ class MySQLServerArgs:
         :param pulumi.Input[_builtins.str] host_name: The Server IP/host name.
         :param pulumi.Input[_builtins.str] port_number: MySQL Server port number
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] server_name: The name of Server
         :param pulumi.Input[_builtins.str] site_name: The name of Site
         :param pulumi.Input[Union[_builtins.str, 'Edition']] edition: mysql server edition.
         :param pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]] errors: The list of errors.
@@ -53,7 +54,6 @@ class MySQLServerArgs:
         :param pulumi.Input[_builtins.str] mysql_version: The mysql server version.
         :param pulumi.Input[_builtins.float] number_of_database: The number of database.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: Gets or sets the provisioning state.
-        :param pulumi.Input[_builtins.str] server_name: The name of Server
         :param pulumi.Input[_builtins.str] support_end_in: Time when mysql version support end.
         :param pulumi.Input[Union[_builtins.str, 'SupportStatus']] support_status: mysql version support status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
@@ -61,6 +61,7 @@ class MySQLServerArgs:
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "port_number", port_number)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "site_name", site_name)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
@@ -78,8 +79,6 @@ class MySQLServerArgs:
             pulumi.set(__self__, "number_of_database", number_of_database)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
         if support_end_in is not None:
             pulumi.set(__self__, "support_end_in", support_end_in)
         if support_status is not None:
@@ -122,6 +121,18 @@ class MySQLServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Server
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
@@ -230,18 +241,6 @@ class MySQLServerArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Server
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportEndIn")
@@ -397,6 +396,8 @@ class MySQLServer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")

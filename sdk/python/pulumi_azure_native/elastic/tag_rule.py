@@ -24,22 +24,21 @@ class TagRuleArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rule_set_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TagRule resource.
 
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] properties: Properties of the monitoring tag rules.
         :param pulumi.Input[_builtins.str] rule_set_name: Tag Rule Set resource name
+        :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] properties: Properties of the monitoring tag rules.
         """
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_set_name", rule_set_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if rule_set_name is not None:
-            pulumi.set(__self__, "rule_set_name", rule_set_name)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
@@ -66,6 +65,18 @@ class TagRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tag Rule Set resource name
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_set_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]:
         """
@@ -76,18 +87,6 @@ class TagRuleArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Tag Rule Set resource name
-        """
-        return pulumi.get(self, "rule_set_name")
-
-    @rule_set_name.setter
-    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_set_name", value)
 
 
 @pulumi.type_token("azure-native:elastic:TagRule")
@@ -165,6 +164,8 @@ class TagRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

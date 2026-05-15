@@ -24,7 +24,7 @@ class FleetUpdateStrategyArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input['UpdateRunStrategyArgs'],
-                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 update_strategy_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FleetUpdateStrategy resource.
 
@@ -36,8 +36,7 @@ class FleetUpdateStrategyArgs:
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "strategy", strategy)
-        if update_strategy_name is not None:
-            pulumi.set(__self__, "update_strategy_name", update_strategy_name)
+        pulumi.set(__self__, "update_strategy_name", update_strategy_name)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
@@ -77,14 +76,14 @@ class FleetUpdateStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyName")
-    def update_strategy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def update_strategy_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the UpdateStrategy resource.
         """
         return pulumi.get(self, "update_strategy_name")
 
     @update_strategy_name.setter
-    def update_strategy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def update_strategy_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "update_strategy_name", value)
 
 
@@ -165,6 +164,8 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
             __props__.__dict__["strategy"] = strategy
+            if update_strategy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'update_strategy_name'")
             __props__.__dict__["update_strategy_name"] = update_strategy_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

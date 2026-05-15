@@ -23,25 +23,26 @@ __all__ = ['DigitalTwinArgs', 'DigitalTwin']
 class DigitalTwinArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['DigitalTwinsIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DigitalTwin resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the DigitalTwinsInstance.
         :param pulumi.Input['DigitalTwinsIdentityArgs'] identity: The managed identity for the DigitalTwinsInstance.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Public network access for the DigitalTwinsInstance.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the DigitalTwinsInstance.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -50,8 +51,6 @@ class DigitalTwinArgs:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -66,6 +65,18 @@ class DigitalTwinArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -115,18 +126,6 @@ class DigitalTwinArgs:
     @public_network_access.setter
     def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the DigitalTwinsInstance.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -222,6 +221,8 @@ class DigitalTwin(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

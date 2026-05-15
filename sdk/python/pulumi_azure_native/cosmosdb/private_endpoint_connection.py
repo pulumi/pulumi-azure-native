@@ -22,31 +22,30 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint: pulumi.Input[Optional['PrivateEndpointPropertyArgs']] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStatePropertyArgs']] = None,
                  provisioning_state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] group_id: Group id of the private endpoint.
         :param pulumi.Input['PrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         :param pulumi.Input[_builtins.str] provisioning_state: Provisioning state of the private endpoint.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
@@ -63,6 +62,18 @@ class PrivateEndpointConnectionArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,18 +110,6 @@ class PrivateEndpointConnectionArgs:
     @private_endpoint.setter
     def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointPropertyArgs']]):
         pulumi.set(self, "private_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -219,6 +218,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["private_endpoint"] = private_endpoint
+            if private_endpoint_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             __props__.__dict__["provisioning_state"] = provisioning_state

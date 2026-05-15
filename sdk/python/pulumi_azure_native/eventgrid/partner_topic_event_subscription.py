@@ -22,6 +22,7 @@ __all__ = ['PartnerTopicEventSubscriptionArgs', 'PartnerTopicEventSubscription']
 @pulumi.input_type
 class PartnerTopicEventSubscriptionArgs:
     def __init__(__self__, *,
+                 event_subscription_name: pulumi.Input[_builtins.str],
                  partner_topic_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  dead_letter_destination: pulumi.Input[Optional['StorageBlobDeadLetterDestinationArgs']] = None,
@@ -29,7 +30,6 @@ class PartnerTopicEventSubscriptionArgs:
                  delivery_with_resource_identity: pulumi.Input[Optional['DeliveryWithResourceIdentityArgs']] = None,
                  destination: pulumi.Input[Optional[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
                  event_delivery_schema: pulumi.Input[Optional[Union[_builtins.str, 'EventDeliverySchema']]] = None,
-                 event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional['EventSubscriptionFilterArgs']] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -37,6 +37,7 @@ class PartnerTopicEventSubscriptionArgs:
         """
         The set of arguments for constructing a PartnerTopicEventSubscription resource.
 
+        :param pulumi.Input[_builtins.str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         :param pulumi.Input[_builtins.str] partner_topic_name: Name of the partner topic.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -48,12 +49,12 @@ class PartnerTopicEventSubscriptionArgs:
         :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[Union[_builtins.str, 'EventDeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[_builtins.str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         :param pulumi.Input[_builtins.str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input['EventSubscriptionFilterArgs'] filter: Information about the filter for the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of user defined labels.
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """
+        pulumi.set(__self__, "event_subscription_name", event_subscription_name)
         pulumi.set(__self__, "partner_topic_name", partner_topic_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dead_letter_destination is not None:
@@ -68,8 +69,6 @@ class PartnerTopicEventSubscriptionArgs:
             event_delivery_schema = 'EventGridSchema'
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
-        if event_subscription_name is not None:
-            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
         if expiration_time_utc is not None:
             pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
         if filter is not None:
@@ -78,6 +77,18 @@ class PartnerTopicEventSubscriptionArgs:
             pulumi.set(__self__, "labels", labels)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSubscriptionName")
+    def event_subscription_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
+        """
+        return pulumi.get(self, "event_subscription_name")
+
+    @event_subscription_name.setter
+    def event_subscription_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicName")
@@ -166,18 +177,6 @@ class PartnerTopicEventSubscriptionArgs:
     @event_delivery_schema.setter
     def event_delivery_schema(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EventDeliverySchema']]]):
         pulumi.set(self, "event_delivery_schema", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventSubscriptionName")
-    def event_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
-        """
-        return pulumi.get(self, "event_subscription_name")
-
-    @event_subscription_name.setter
-    def event_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "event_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeUtc")
@@ -331,6 +330,8 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
             if event_delivery_schema is None:
                 event_delivery_schema = 'EventGridSchema'
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
+            if event_subscription_name is None and not opts.urn:
+                raise TypeError("Missing required property 'event_subscription_name'")
             __props__.__dict__["event_subscription_name"] = event_subscription_name
             __props__.__dict__["expiration_time_utc"] = expiration_time_utc
             __props__.__dict__["filter"] = filter

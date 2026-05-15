@@ -23,28 +23,27 @@ __all__ = ['DatabaseAccountSqlContainerArgs', 'DatabaseAccountSqlContainer']
 class DatabaseAccountSqlContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 container_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  options: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input['SqlContainerResourceArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DatabaseAccountSqlContainer resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[_builtins.str] container_name: Cosmos DB container name.
         :param pulumi.Input[_builtins.str] database_name: Cosmos DB database name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input['SqlContainerResourceArgs'] resource: The standard JSON format of a container
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure resource group.
-        :param pulumi.Input[_builtins.str] container_name: Cosmos DB container name.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -57,6 +56,18 @@ class DatabaseAccountSqlContainerArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cosmos DB container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -105,18 +116,6 @@ class DatabaseAccountSqlContainerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cosmos DB container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
 
 
 @pulumi.type_token("azure-native:cosmosdb:DatabaseAccountSqlContainer")
@@ -196,6 +195,8 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if container_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

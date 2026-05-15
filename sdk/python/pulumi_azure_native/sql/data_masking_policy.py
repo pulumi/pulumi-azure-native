@@ -20,30 +20,41 @@ __all__ = ['DataMaskingPolicyArgs', 'DataMaskingPolicy']
 @pulumi.input_type
 class DataMaskingPolicyArgs:
     def __init__(__self__, *,
+                 data_masking_policy_name: pulumi.Input[_builtins.str],
                  data_masking_state: pulumi.Input['DataMaskingState'],
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 data_masking_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  exempt_principals: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataMaskingPolicy resource.
 
+        :param pulumi.Input[_builtins.str] data_masking_policy_name: The name of the database for which the data masking policy applies.
         :param pulumi.Input['DataMaskingState'] data_masking_state: The state of the data masking policy.
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] data_masking_policy_name: The name of the database for which the data masking policy applies.
         :param pulumi.Input[_builtins.str] exempt_principals: The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
         """
+        pulumi.set(__self__, "data_masking_policy_name", data_masking_policy_name)
         pulumi.set(__self__, "data_masking_state", data_masking_state)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if data_masking_policy_name is not None:
-            pulumi.set(__self__, "data_masking_policy_name", data_masking_policy_name)
         if exempt_principals is not None:
             pulumi.set(__self__, "exempt_principals", exempt_principals)
+
+    @_builtins.property
+    @pulumi.getter(name="dataMaskingPolicyName")
+    def data_masking_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database for which the data masking policy applies.
+        """
+        return pulumi.get(self, "data_masking_policy_name")
+
+    @data_masking_policy_name.setter
+    def data_masking_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_masking_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataMaskingState")
@@ -92,18 +103,6 @@ class DataMaskingPolicyArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataMaskingPolicyName")
-    def data_masking_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the database for which the data masking policy applies.
-        """
-        return pulumi.get(self, "data_masking_policy_name")
-
-    @data_masking_policy_name.setter
-    def data_masking_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_masking_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="exemptPrincipals")
@@ -192,6 +191,8 @@ class DataMaskingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataMaskingPolicyArgs.__new__(DataMaskingPolicyArgs)
 
+            if data_masking_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_masking_policy_name'")
             __props__.__dict__["data_masking_policy_name"] = data_masking_policy_name
             if data_masking_state is None and not opts.urn:
                 raise TypeError("Missing required property 'data_masking_state'")

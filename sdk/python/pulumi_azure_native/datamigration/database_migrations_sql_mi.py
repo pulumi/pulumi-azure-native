@@ -24,21 +24,20 @@ class DatabaseMigrationsSqlMiArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['DatabaseMigrationPropertiesSqlMiArgs']] = None,
-                 target_db_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 target_db_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['DatabaseMigrationPropertiesSqlMiArgs']] = None):
         """
         The set of arguments for constructing a DatabaseMigrationsSqlMi resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input['DatabaseMigrationPropertiesSqlMiArgs'] properties: Database Migration Resource properties for SQL Managed Instance.
         :param pulumi.Input[_builtins.str] target_db_name: The name of the target database.
+        :param pulumi.Input['DatabaseMigrationPropertiesSqlMiArgs'] properties: Database Migration Resource properties for SQL Managed Instance.
         """
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_db_name", target_db_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if target_db_name is not None:
-            pulumi.set(__self__, "target_db_name", target_db_name)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -62,6 +61,18 @@ class DatabaseMigrationsSqlMiArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetDbName")
+    def target_db_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the target database.
+        """
+        return pulumi.get(self, "target_db_name")
+
+    @target_db_name.setter
+    def target_db_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_db_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['DatabaseMigrationPropertiesSqlMiArgs']]:
         """
@@ -72,18 +83,6 @@ class DatabaseMigrationsSqlMiArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['DatabaseMigrationPropertiesSqlMiArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetDbName")
-    def target_db_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the target database.
-        """
-        return pulumi.get(self, "target_db_name")
-
-    @target_db_name.setter
-    def target_db_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "target_db_name", value)
 
 
 @pulumi.type_token("azure-native:datamigration:DatabaseMigrationsSqlMi")
@@ -160,6 +159,8 @@ class DatabaseMigrationsSqlMi(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if target_db_name is None and not opts.urn:
+                raise TypeError("Missing required property 'target_db_name'")
             __props__.__dict__["target_db_name"] = target_db_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

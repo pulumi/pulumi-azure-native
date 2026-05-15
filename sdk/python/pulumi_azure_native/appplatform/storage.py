@@ -23,22 +23,21 @@ class StorageArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['StorageAccountArgs']] = None,
-                 storage_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['StorageAccountArgs']] = None):
         """
         The set of arguments for constructing a Storage resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input['StorageAccountArgs'] properties: Properties of the storage resource payload.
         :param pulumi.Input[_builtins.str] storage_name: The name of the storage resource.
+        :param pulumi.Input['StorageAccountArgs'] properties: Properties of the storage resource payload.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "storage_name", storage_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,6 +64,18 @@ class StorageArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the storage resource.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @storage_name.setter
+    def storage_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['StorageAccountArgs']]:
         """
@@ -75,18 +86,6 @@ class StorageArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StorageAccountArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageName")
-    def storage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the storage resource.
-        """
-        return pulumi.get(self, "storage_name")
-
-    @storage_name.setter
-    def storage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_name", value)
 
 
 @pulumi.type_token("azure-native:appplatform:Storage")
@@ -164,6 +163,8 @@ class Storage(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if storage_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_name'")
             __props__.__dict__["storage_name"] = storage_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

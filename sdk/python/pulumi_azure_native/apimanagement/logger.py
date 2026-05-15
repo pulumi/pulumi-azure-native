@@ -20,17 +20,18 @@ __all__ = ['LoggerArgs', 'Logger']
 @pulumi.input_type
 class LoggerArgs:
     def __init__(__self__, *,
+                 logger_id: pulumi.Input[_builtins.str],
                  logger_type: pulumi.Input[Union[_builtins.str, 'LoggerType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_buffered: pulumi.Input[Optional[_builtins.bool]] = None,
-                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Logger resource.
 
+        :param pulumi.Input[_builtins.str] logger_id: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'LoggerType']] logger_type: Logger type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
@@ -38,9 +39,9 @@ class LoggerArgs:
                Instrumentation key for applicationInsights logger.
         :param pulumi.Input[_builtins.str] description: Logger description.
         :param pulumi.Input[_builtins.bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
-        :param pulumi.Input[_builtins.str] logger_id: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input[_builtins.str] resource_id: Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         """
+        pulumi.set(__self__, "logger_id", logger_id)
         pulumi.set(__self__, "logger_type", logger_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -50,10 +51,20 @@ class LoggerArgs:
             pulumi.set(__self__, "description", description)
         if is_buffered is not None:
             pulumi.set(__self__, "is_buffered", is_buffered)
-        if logger_id is not None:
-            pulumi.set(__self__, "logger_id", logger_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="loggerId")
+    def logger_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Logger identifier. Must be unique in the API Management service instance.
+        """
+        return pulumi.get(self, "logger_id")
+
+    @logger_id.setter
+    def logger_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "logger_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loggerType")
@@ -127,18 +138,6 @@ class LoggerArgs:
     @is_buffered.setter
     def is_buffered(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_buffered", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loggerId")
-    def logger_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Logger identifier. Must be unique in the API Management service instance.
-        """
-        return pulumi.get(self, "logger_id")
-
-    @logger_id.setter
-    def logger_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "logger_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -237,6 +236,8 @@ class Logger(pulumi.CustomResource):
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["is_buffered"] = is_buffered
+            if logger_id is None and not opts.urn:
+                raise TypeError("Missing required property 'logger_id'")
             __props__.__dict__["logger_id"] = logger_id
             if logger_type is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_type'")

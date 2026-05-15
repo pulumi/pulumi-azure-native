@@ -22,16 +22,16 @@ class TopicSpaceArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_space_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TopicSpace resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[_builtins.str] description: Description for the Topic Space resource.
         :param pulumi.Input[_builtins.str] topic_space_name: The topic space name.
+        :param pulumi.Input[_builtins.str] description: Description for the Topic Space resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topic_templates: The topic filters in the topic space.
                Example: "topicTemplates": [ 
                              "devices/foo/bar",
@@ -40,10 +40,9 @@ class TopicSpaceArgs:
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_space_name", topic_space_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if topic_space_name is not None:
-            pulumi.set(__self__, "topic_space_name", topic_space_name)
         if topic_templates is not None:
             pulumi.set(__self__, "topic_templates", topic_templates)
 
@@ -72,6 +71,18 @@ class TopicSpaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="topicSpaceName")
+    def topic_space_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The topic space name.
+        """
+        return pulumi.get(self, "topic_space_name")
+
+    @topic_space_name.setter
+    def topic_space_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_space_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -82,18 +93,6 @@ class TopicSpaceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicSpaceName")
-    def topic_space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The topic space name.
-        """
-        return pulumi.get(self, "topic_space_name")
-
-    @topic_space_name.setter
-    def topic_space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_space_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicTemplates")
@@ -194,6 +193,8 @@ class TopicSpace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if topic_space_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_space_name'")
             __props__.__dict__["topic_space_name"] = topic_space_name
             __props__.__dict__["topic_templates"] = topic_templates
             __props__.__dict__["azure_api_version"] = None

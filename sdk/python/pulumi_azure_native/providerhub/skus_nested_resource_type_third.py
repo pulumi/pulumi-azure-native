@@ -27,8 +27,8 @@ class SkusNestedResourceTypeThirdArgs:
                  nested_resource_type_third: pulumi.Input[_builtins.str],
                  provider_namespace: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SkuResourcePropertiesArgs']] = None,
-                 sku: pulumi.Input[Optional[_builtins.str]] = None):
+                 sku: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['SkuResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a SkusNestedResourceTypeThird resource.
 
@@ -44,10 +44,9 @@ class SkusNestedResourceTypeThirdArgs:
         pulumi.set(__self__, "nested_resource_type_third", nested_resource_type_third)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "sku", sku)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
 
     @_builtins.property
     @pulumi.getter(name="nestedResourceTypeFirst")
@@ -111,24 +110,24 @@ class SkusNestedResourceTypeThirdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['SkuResourcePropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input[Optional['SkuResourcePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sku(self) -> pulumi.Input[_builtins.str]:
         """
         The SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sku(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Optional['SkuResourcePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Optional['SkuResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.type_token("azure-native:providerhub:SkusNestedResourceTypeThird")
@@ -223,6 +222,8 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -23,6 +23,7 @@ __all__ = ['ScalingPlanArgs', 'ScalingPlan']
 class ScalingPlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 scaling_plan_name: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,7 +35,6 @@ class ScalingPlanArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
-                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schedules: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
                  sku: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -42,6 +42,7 @@ class ScalingPlanArgs:
         The set of arguments for constructing a ScalingPlan resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[_builtins.str] time_zone: Timezone of the scaling plan.
         :param pulumi.Input[_builtins.str] description: Description of scaling plan.
         :param pulumi.Input[_builtins.str] exclusion_tag: Exclusion tag for scaling plan.
@@ -51,11 +52,11 @@ class ScalingPlanArgs:
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[_builtins.str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]] schedules: List of ScalingPlanPooledSchedule definitions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
         pulumi.set(__self__, "time_zone", time_zone)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -79,8 +80,6 @@ class ScalingPlanArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
-        if scaling_plan_name is not None:
-            pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
         if schedules is not None:
             pulumi.set(__self__, "schedules", schedules)
         if sku is not None:
@@ -99,6 +98,18 @@ class ScalingPlanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingPlanName")
+    def scaling_plan_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the scaling plan.
+        """
+        return pulumi.get(self, "scaling_plan_name")
+
+    @scaling_plan_name.setter
+    def scaling_plan_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scaling_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
@@ -225,18 +236,6 @@ class ScalingPlanArgs:
     @plan.setter
     def plan(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']]):
         pulumi.set(self, "plan", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scalingPlanName")
-    def scaling_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the scaling plan.
-        """
-        return pulumi.get(self, "scaling_plan_name")
-
-    @scaling_plan_name.setter
-    def scaling_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "scaling_plan_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -388,6 +387,8 @@ class ScalingPlan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scaling_plan_name is None and not opts.urn:
+                raise TypeError("Missing required property 'scaling_plan_name'")
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
             __props__.__dict__["schedules"] = schedules
             __props__.__dict__["sku"] = sku

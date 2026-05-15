@@ -22,20 +22,31 @@ __all__ = ['AuthorizedApplicationArgs', 'AuthorizedApplication']
 @pulumi.input_type
 class AuthorizedApplicationArgs:
     def __init__(__self__, *,
+                 application_id: pulumi.Input[_builtins.str],
                  provider_namespace: pulumi.Input[_builtins.str],
-                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['AuthorizedApplicationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthorizedApplication resource.
 
-        :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
@@ -48,18 +59,6 @@ class AuthorizedApplicationArgs:
     @provider_namespace.setter
     def provider_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_namespace", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The application ID.
-        """
-        return pulumi.get(self, "application_id")
-
-    @application_id.setter
-    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -131,6 +130,8 @@ class AuthorizedApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthorizedApplicationArgs.__new__(AuthorizedApplicationArgs)
 
+            if application_id is None and not opts.urn:
+                raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:

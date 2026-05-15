@@ -22,24 +22,23 @@ __all__ = ['ApiPortalCustomDomainArgs', 'ApiPortalCustomDomain']
 class ApiPortalCustomDomainArgs:
     def __init__(__self__, *,
                  api_portal_name: pulumi.Input[_builtins.str],
+                 domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ApiPortalCustomDomainPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ApiPortalCustomDomain resource.
 
         :param pulumi.Input[_builtins.str] api_portal_name: The name of API portal.
+        :param pulumi.Input[_builtins.str] domain_name: The name of the API portal custom domain.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the API portal custom domain.
         :param pulumi.Input['ApiPortalCustomDomainPropertiesArgs'] properties: The properties of custom domain for API portal
         """
         pulumi.set(__self__, "api_portal_name", api_portal_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,6 +53,18 @@ class ApiPortalCustomDomainArgs:
     @api_portal_name.setter
     def api_portal_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_portal_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the API portal custom domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +89,6 @@ class ApiPortalCustomDomainArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the API portal custom domain.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class ApiPortalCustomDomain(pulumi.CustomResource):
             if api_portal_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_portal_name'")
             __props__.__dict__["api_portal_name"] = api_portal_name
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

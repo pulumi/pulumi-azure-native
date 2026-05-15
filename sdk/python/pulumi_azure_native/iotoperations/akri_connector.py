@@ -23,24 +23,23 @@ __all__ = ['AkriConnectorArgs', 'AkriConnector']
 class AkriConnectorArgs:
     def __init__(__self__, *,
                  akri_connector_template_name: pulumi.Input[_builtins.str],
+                 connector_name: pulumi.Input[_builtins.str],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a AkriConnector resource.
 
         :param pulumi.Input[_builtins.str] akri_connector_template_name: Name of AkriConnectorTemplate resource.
+        :param pulumi.Input[_builtins.str] connector_name: Name of AkriConnector resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] connector_name: Name of AkriConnector resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         """
         pulumi.set(__self__, "akri_connector_template_name", akri_connector_template_name)
+        pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
 
@@ -55,6 +54,18 @@ class AkriConnectorArgs:
     @akri_connector_template_name.setter
     def akri_connector_template_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "akri_connector_template_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of AkriConnector resource.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
@@ -79,18 +90,6 @@ class AkriConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of AkriConnector resource.
-        """
-        return pulumi.get(self, "connector_name")
-
-    @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -179,6 +178,8 @@ class AkriConnector(pulumi.CustomResource):
             if akri_connector_template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'akri_connector_template_name'")
             __props__.__dict__["akri_connector_template_name"] = akri_connector_template_name
+            if connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["extended_location"] = extended_location
             if instance_name is None and not opts.urn:

@@ -24,9 +24,9 @@ class JitRequestArgs:
     def __init__(__self__, *,
                  application_resource_id: pulumi.Input[_builtins.str],
                  jit_authorization_policies: pulumi.Input[Sequence[pulumi.Input['JitAuthorizationPoliciesArgs']]],
+                 jit_request_name: pulumi.Input[_builtins.str],
                  jit_scheduling_policy: pulumi.Input['JitSchedulingPolicyArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 jit_request_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -34,18 +34,17 @@ class JitRequestArgs:
 
         :param pulumi.Input[_builtins.str] application_resource_id: The parent application id.
         :param pulumi.Input[Sequence[pulumi.Input['JitAuthorizationPoliciesArgs']]] jit_authorization_policies: The JIT authorization policies.
+        :param pulumi.Input[_builtins.str] jit_request_name: The name of the JIT request.
         :param pulumi.Input['JitSchedulingPolicyArgs'] jit_scheduling_policy: The JIT request properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] jit_request_name: The name of the JIT request.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
         pulumi.set(__self__, "application_resource_id", application_resource_id)
         pulumi.set(__self__, "jit_authorization_policies", jit_authorization_policies)
+        pulumi.set(__self__, "jit_request_name", jit_request_name)
         pulumi.set(__self__, "jit_scheduling_policy", jit_scheduling_policy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if jit_request_name is not None:
-            pulumi.set(__self__, "jit_request_name", jit_request_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -76,6 +75,18 @@ class JitRequestArgs:
         pulumi.set(self, "jit_authorization_policies", value)
 
     @_builtins.property
+    @pulumi.getter(name="jitRequestName")
+    def jit_request_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the JIT request.
+        """
+        return pulumi.get(self, "jit_request_name")
+
+    @jit_request_name.setter
+    def jit_request_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "jit_request_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="jitSchedulingPolicy")
     def jit_scheduling_policy(self) -> pulumi.Input['JitSchedulingPolicyArgs']:
         """
@@ -98,18 +109,6 @@ class JitRequestArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jitRequestName")
-    def jit_request_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the JIT request.
-        """
-        return pulumi.get(self, "jit_request_name")
-
-    @jit_request_name.setter
-    def jit_request_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "jit_request_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -219,6 +218,8 @@ class JitRequest(pulumi.CustomResource):
             if jit_authorization_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_authorization_policies'")
             __props__.__dict__["jit_authorization_policies"] = jit_authorization_policies
+            if jit_request_name is None and not opts.urn:
+                raise TypeError("Missing required property 'jit_request_name'")
             __props__.__dict__["jit_request_name"] = jit_request_name
             if jit_scheduling_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_scheduling_policy'")

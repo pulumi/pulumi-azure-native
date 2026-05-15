@@ -22,29 +22,28 @@ __all__ = ['JobScheduleArgs', 'JobSchedule']
 class JobScheduleArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
+                 job_schedule_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  runbook: pulumi.Input['RunbookAssociationPropertyArgs'],
                  schedule: pulumi.Input['ScheduleAssociationPropertyArgs'],
-                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  run_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[_builtins.str] job_schedule_id: The job schedule name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
         :param pulumi.Input['ScheduleAssociationPropertyArgs'] schedule: Gets or sets the schedule.
-        :param pulumi.Input[_builtins.str] job_schedule_id: The job schedule name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[_builtins.str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "job_schedule_id", job_schedule_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "runbook", runbook)
         pulumi.set(__self__, "schedule", schedule)
-        if job_schedule_id is not None:
-            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if run_on is not None:
@@ -61,6 +60,18 @@ class JobScheduleArgs:
     @automation_account_name.setter
     def automation_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "automation_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobScheduleId")
+    def job_schedule_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The job schedule name.
+        """
+        return pulumi.get(self, "job_schedule_id")
+
+    @job_schedule_id.setter
+    def job_schedule_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -97,18 +108,6 @@ class JobScheduleArgs:
     @schedule.setter
     def schedule(self, value: pulumi.Input['ScheduleAssociationPropertyArgs']):
         pulumi.set(self, "schedule", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The job schedule name.
-        """
-        return pulumi.get(self, "job_schedule_id")
-
-    @job_schedule_id.setter
-    def job_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -215,6 +214,8 @@ class JobSchedule(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
+            if job_schedule_id is None and not opts.urn:
+                raise TypeError("Missing required property 'job_schedule_id'")
             __props__.__dict__["job_schedule_id"] = job_schedule_id
             __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:

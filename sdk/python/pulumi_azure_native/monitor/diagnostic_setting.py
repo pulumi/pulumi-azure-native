@@ -21,6 +21,7 @@ __all__ = ['DiagnosticSettingArgs', 'DiagnosticSetting']
 @pulumi.input_type
 class DiagnosticSettingArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
                  event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -28,13 +29,13 @@ class DiagnosticSettingArgs:
                  logs: pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
                  marketplace_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metrics: pulumi.Input[Optional[Sequence[pulumi.Input['MetricSettingsArgs']]]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DiagnosticSetting resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the diagnostic setting.
         :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
@@ -42,11 +43,11 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]] logs: The list of logs settings.
         :param pulumi.Input[_builtins.str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         :param pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]] metrics: The list of metric settings.
-        :param pulumi.Input[_builtins.str] name: The name of the diagnostic setting.
         :param pulumi.Input[_builtins.str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[_builtins.str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
         :param pulumi.Input[_builtins.str] workspace_id: The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_uri", resource_uri)
         if event_hub_authorization_rule_id is not None:
             pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -60,14 +61,24 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if service_bus_rule_id is not None:
             pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the diagnostic setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -152,18 +163,6 @@ class DiagnosticSettingArgs:
     @metrics.setter
     def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricSettingsArgs']]]]):
         pulumi.set(self, "metrics", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the diagnostic setting.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusRuleId")
@@ -293,6 +292,8 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["logs"] = logs
             __props__.__dict__["marketplace_partner_id"] = marketplace_partner_id
             __props__.__dict__["metrics"] = metrics
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")

@@ -22,10 +22,10 @@ __all__ = ['BusinessProcessArgs', 'BusinessProcess']
 class BusinessProcessArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
+                 business_process_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
                  business_process_mapping: pulumi.Input[Optional[Mapping[str, pulumi.Input['BusinessProcessMappingItemArgs']]]] = None,
-                 business_process_name: pulumi.Input[Optional[_builtins.str]] = None,
                  business_process_stages: pulumi.Input[Optional[Mapping[str, pulumi.Input['BusinessProcessStageArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional['BusinessProcessIdentifierArgs']] = None,
@@ -35,10 +35,10 @@ class BusinessProcessArgs:
         The set of arguments for constructing a BusinessProcess resource.
 
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
+        :param pulumi.Input[_builtins.str] business_process_name: The name of the business process
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
         :param pulumi.Input[Mapping[str, pulumi.Input['BusinessProcessMappingItemArgs']]] business_process_mapping: The business process mapping.
-        :param pulumi.Input[_builtins.str] business_process_name: The name of the business process
         :param pulumi.Input[Mapping[str, pulumi.Input['BusinessProcessStageArgs']]] business_process_stages: The business process stages.
         :param pulumi.Input[_builtins.str] description: The description of the business process.
         :param pulumi.Input['BusinessProcessIdentifierArgs'] identifier: The business process identifier.
@@ -46,12 +46,11 @@ class BusinessProcessArgs:
         :param pulumi.Input[_builtins.str] tracking_data_store_reference_name: The tracking data store reference name.
         """
         pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "business_process_name", business_process_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "space_name", space_name)
         if business_process_mapping is not None:
             pulumi.set(__self__, "business_process_mapping", business_process_mapping)
-        if business_process_name is not None:
-            pulumi.set(__self__, "business_process_name", business_process_name)
         if business_process_stages is not None:
             pulumi.set(__self__, "business_process_stages", business_process_stages)
         if description is not None:
@@ -74,6 +73,18 @@ class BusinessProcessArgs:
     @application_name.setter
     def application_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="businessProcessName")
+    def business_process_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the business process
+        """
+        return pulumi.get(self, "business_process_name")
+
+    @business_process_name.setter
+    def business_process_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "business_process_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -110,18 +121,6 @@ class BusinessProcessArgs:
     @business_process_mapping.setter
     def business_process_mapping(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['BusinessProcessMappingItemArgs']]]]):
         pulumi.set(self, "business_process_mapping", value)
-
-    @_builtins.property
-    @pulumi.getter(name="businessProcessName")
-    def business_process_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the business process
-        """
-        return pulumi.get(self, "business_process_name")
-
-    @business_process_name.setter
-    def business_process_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "business_process_name", value)
 
     @_builtins.property
     @pulumi.getter(name="businessProcessStages")
@@ -270,6 +269,8 @@ class BusinessProcess(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["business_process_mapping"] = business_process_mapping
+            if business_process_name is None and not opts.urn:
+                raise TypeError("Missing required property 'business_process_name'")
             __props__.__dict__["business_process_name"] = business_process_name
             __props__.__dict__["business_process_stages"] = business_process_stages
             __props__.__dict__["description"] = description

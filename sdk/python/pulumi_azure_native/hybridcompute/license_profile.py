@@ -22,10 +22,10 @@ __all__ = ['LicenseProfileArgs', 'LicenseProfile']
 @pulumi.input_type
 class LicenseProfileArgs:
     def __init__(__self__, *,
+                 license_profile_name: pulumi.Input[_builtins.str],
                  machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  assigned_license: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  product_features: pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
                  product_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
@@ -35,10 +35,10 @@ class LicenseProfileArgs:
         """
         The set of arguments for constructing a LicenseProfile resource.
 
+        :param pulumi.Input[_builtins.str] license_profile_name: The name of the license profile.
         :param pulumi.Input[_builtins.str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assigned_license: The resource id of the license.
-        :param pulumi.Input[_builtins.str] license_profile_name: The name of the license profile.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]] product_features: The list of product features.
         :param pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
@@ -46,12 +46,11 @@ class LicenseProfileArgs:
         :param pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "license_profile_name", license_profile_name)
         pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if assigned_license is not None:
             pulumi.set(__self__, "assigned_license", assigned_license)
-        if license_profile_name is not None:
-            pulumi.set(__self__, "license_profile_name", license_profile_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if product_features is not None:
@@ -64,6 +63,18 @@ class LicenseProfileArgs:
             pulumi.set(__self__, "subscription_status", subscription_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseProfileName")
+    def license_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the license profile.
+        """
+        return pulumi.get(self, "license_profile_name")
+
+    @license_profile_name.setter
+    def license_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "license_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="machineName")
@@ -100,18 +111,6 @@ class LicenseProfileArgs:
     @assigned_license.setter
     def assigned_license(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assigned_license", value)
-
-    @_builtins.property
-    @pulumi.getter(name="licenseProfileName")
-    def license_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the license profile.
-        """
-        return pulumi.get(self, "license_profile_name")
-
-    @license_profile_name.setter
-    def license_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "license_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -273,6 +272,8 @@ class LicenseProfile(pulumi.CustomResource):
             __props__ = LicenseProfileArgs.__new__(LicenseProfileArgs)
 
             __props__.__dict__["assigned_license"] = assigned_license
+            if license_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'license_profile_name'")
             __props__.__dict__["license_profile_name"] = license_profile_name
             __props__.__dict__["location"] = location
             if machine_name is None and not opts.urn:

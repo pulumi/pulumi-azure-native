@@ -22,35 +22,46 @@ __all__ = ['AssociationsInterfaceArgs', 'AssociationsInterface']
 @pulumi.input_type
 class AssociationsInterfaceArgs:
     def __init__(__self__, *,
+                 association_name: pulumi.Input[_builtins.str],
                  association_type: pulumi.Input[Union[_builtins.str, 'AssociationType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  traffic_controller_name: pulumi.Input[_builtins.str],
-                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet: pulumi.Input[Optional['AssociationSubnetArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssociationsInterface resource.
 
+        :param pulumi.Input[_builtins.str] association_name: Name of Association
         :param pulumi.Input[Union[_builtins.str, 'AssociationType']] association_type: Association Type
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
-        :param pulumi.Input[_builtins.str] association_name: Name of Association
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AssociationSubnetArgs'] subnet: Association Subnet
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "association_name", association_name)
         pulumi.set(__self__, "association_type", association_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
-        if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Association
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="associationType")
@@ -87,18 +98,6 @@ class AssociationsInterfaceArgs:
     @traffic_controller_name.setter
     def traffic_controller_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "traffic_controller_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="associationName")
-    def association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Association
-        """
-        return pulumi.get(self, "association_name")
-
-    @association_name.setter
-    def association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,6 +213,8 @@ class AssociationsInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssociationsInterfaceArgs.__new__(AssociationsInterfaceArgs)
 
+            if association_name is None and not opts.urn:
+                raise TypeError("Missing required property 'association_name'")
             __props__.__dict__["association_name"] = association_name
             if association_type is None and not opts.urn:
                 raise TypeError("Missing required property 'association_type'")

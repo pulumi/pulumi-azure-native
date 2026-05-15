@@ -19,23 +19,34 @@ __all__ = ['ServerCommunicationLinkArgs', 'ServerCommunicationLink']
 @pulumi.input_type
 class ServerCommunicationLinkArgs:
     def __init__(__self__, *,
+                 communication_link_name: pulumi.Input[_builtins.str],
                  partner_server: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
-                 communication_link_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServerCommunicationLink resource.
 
+        :param pulumi.Input[_builtins.str] communication_link_name: The name of the server communication link.
         :param pulumi.Input[_builtins.str] partner_server: The name of the partner server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] communication_link_name: The name of the server communication link.
         """
+        pulumi.set(__self__, "communication_link_name", communication_link_name)
         pulumi.set(__self__, "partner_server", partner_server)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if communication_link_name is not None:
-            pulumi.set(__self__, "communication_link_name", communication_link_name)
+
+    @_builtins.property
+    @pulumi.getter(name="communicationLinkName")
+    def communication_link_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the server communication link.
+        """
+        return pulumi.get(self, "communication_link_name")
+
+    @communication_link_name.setter
+    def communication_link_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "communication_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerServer")
@@ -72,18 +83,6 @@ class ServerCommunicationLinkArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="communicationLinkName")
-    def communication_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the server communication link.
-        """
-        return pulumi.get(self, "communication_link_name")
-
-    @communication_link_name.setter
-    def communication_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "communication_link_name", value)
 
 
 @pulumi.type_token("azure-native:sql:ServerCommunicationLink")
@@ -150,6 +149,8 @@ class ServerCommunicationLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerCommunicationLinkArgs.__new__(ServerCommunicationLinkArgs)
 
+            if communication_link_name is None and not opts.urn:
+                raise TypeError("Missing required property 'communication_link_name'")
             __props__.__dict__["communication_link_name"] = communication_link_name
             if partner_server is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_server'")

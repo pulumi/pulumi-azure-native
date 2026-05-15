@@ -22,6 +22,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
+                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
                  aad_application_object_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -29,7 +30,6 @@ class ClusterArgs:
                  aad_service_principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_management_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  desired_properties: pulumi.Input[Optional['ClusterDesiredPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  software_assurance_properties: pulumi.Input[Optional['SoftwareAssurancePropertiesArgs']] = None,
@@ -38,6 +38,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[_builtins.str] aad_application_object_id: Object id of cluster AAD identity.
@@ -45,13 +46,13 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] aad_service_principal_object_id: Id of cluster identity service principal.
         :param pulumi.Input[_builtins.str] aad_tenant_id: Tenant id of cluster AAD identity.
         :param pulumi.Input[_builtins.str] cloud_management_endpoint: Endpoint configured for management from the Azure portal.
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['ClusterDesiredPropertiesArgs'] desired_properties: Desired properties of the cluster.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SoftwareAssurancePropertiesArgs'] software_assurance_properties: Software Assurance properties of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
+        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "type", type)
         if aad_application_object_id is not None:
@@ -64,8 +65,6 @@ class ClusterArgs:
             pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
         if cloud_management_endpoint is not None:
             pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
-        if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
         if desired_properties is not None:
             pulumi.set(__self__, "desired_properties", desired_properties)
         if location is not None:
@@ -76,6 +75,18 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -160,18 +171,6 @@ class ClusterArgs:
     @cloud_management_endpoint.setter
     def cloud_management_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_management_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredProperties")
@@ -334,6 +333,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["aad_service_principal_object_id"] = aad_service_principal_object_id
             __props__.__dict__["aad_tenant_id"] = aad_tenant_id
             __props__.__dict__["cloud_management_endpoint"] = cloud_management_endpoint
+            if cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["desired_properties"] = desired_properties
             __props__.__dict__["location"] = location

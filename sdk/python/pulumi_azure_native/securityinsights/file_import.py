@@ -23,31 +23,30 @@ __all__ = ['FileImportArgs', 'FileImport']
 class FileImportArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[Union[_builtins.str, 'FileImportContentType']],
+                 file_import_id: pulumi.Input[_builtins.str],
                  import_file: pulumi.Input['FileMetadataArgs'],
                  ingestion_mode: pulumi.Input[Union[_builtins.str, 'IngestionMode']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 file_import_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FileImport resource.
 
         :param pulumi.Input[Union[_builtins.str, 'FileImportContentType']] content_type: The content type of this file.
+        :param pulumi.Input[_builtins.str] file_import_id: File import ID
         :param pulumi.Input['FileMetadataArgs'] import_file: Represents the imported file.
         :param pulumi.Input[Union[_builtins.str, 'IngestionMode']] ingestion_mode: Describes how to ingest the records in the file.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source: The source for the data in the file.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] file_import_id: File import ID
         """
         pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "file_import_id", file_import_id)
         pulumi.set(__self__, "import_file", import_file)
         pulumi.set(__self__, "ingestion_mode", ingestion_mode)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if file_import_id is not None:
-            pulumi.set(__self__, "file_import_id", file_import_id)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
@@ -60,6 +59,18 @@ class FileImportArgs:
     @content_type.setter
     def content_type(self, value: pulumi.Input[Union[_builtins.str, 'FileImportContentType']]):
         pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileImportId")
+    def file_import_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        File import ID
+        """
+        return pulumi.get(self, "file_import_id")
+
+    @file_import_id.setter
+    def file_import_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_import_id", value)
 
     @_builtins.property
     @pulumi.getter(name="importFile")
@@ -120,18 +131,6 @@ class FileImportArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fileImportId")
-    def file_import_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        File import ID
-        """
-        return pulumi.get(self, "file_import_id")
-
-    @file_import_id.setter
-    def file_import_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "file_import_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:FileImport")
@@ -214,6 +213,8 @@ class FileImport(pulumi.CustomResource):
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
+            if file_import_id is None and not opts.urn:
+                raise TypeError("Missing required property 'file_import_id'")
             __props__.__dict__["file_import_id"] = file_import_id
             if import_file is None and not opts.urn:
                 raise TypeError("Missing required property 'import_file'")

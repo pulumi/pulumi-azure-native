@@ -23,6 +23,7 @@ __all__ = ['AFDOriginArgs', 'AFDOrigin']
 class AFDOriginArgs:
     def __init__(__self__, *,
                  origin_group_name: pulumi.Input[_builtins.str],
+                 origin_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_origin: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
@@ -32,7 +33,6 @@ class AFDOriginArgs:
                  http_port: pulumi.Input[Optional[_builtins.int]] = None,
                  https_port: pulumi.Input[Optional[_builtins.int]] = None,
                  origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
-                 origin_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  shared_private_link_resource: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']] = None,
                  weight: pulumi.Input[Optional[_builtins.int]] = None):
@@ -40,6 +40,7 @@ class AFDOriginArgs:
         The set of arguments for constructing a AFDOrigin resource.
 
         :param pulumi.Input[_builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input[_builtins.str] origin_name: Name of the origin which is unique within the profile.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceReferenceArgs'] azure_origin: Resource reference to the Azure origin resource.
@@ -49,12 +50,12 @@ class AFDOriginArgs:
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-        :param pulumi.Input[_builtins.str] origin_name: Name of the origin which is unique within the profile.
         :param pulumi.Input[_builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[_builtins.int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         pulumi.set(__self__, "origin_group_name", origin_group_name)
+        pulumi.set(__self__, "origin_name", origin_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_origin is not None:
@@ -77,8 +78,6 @@ class AFDOriginArgs:
             pulumi.set(__self__, "https_port", https_port)
         if origin_host_header is not None:
             pulumi.set(__self__, "origin_host_header", origin_host_header)
-        if origin_name is not None:
-            pulumi.set(__self__, "origin_name", origin_name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if shared_private_link_resource is not None:
@@ -97,6 +96,18 @@ class AFDOriginArgs:
     @origin_group_name.setter
     def origin_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "origin_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originName")
+    def origin_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the origin which is unique within the profile.
+        """
+        return pulumi.get(self, "origin_name")
+
+    @origin_name.setter
+    def origin_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "origin_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -205,18 +216,6 @@ class AFDOriginArgs:
     @origin_host_header.setter
     def origin_host_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_host_header", value)
-
-    @_builtins.property
-    @pulumi.getter(name="originName")
-    def origin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the origin which is unique within the profile.
-        """
-        return pulumi.get(self, "origin_name")
-
-    @origin_name.setter
-    def origin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "origin_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -369,6 +368,8 @@ class AFDOrigin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'origin_group_name'")
             __props__.__dict__["origin_group_name"] = origin_group_name
             __props__.__dict__["origin_host_header"] = origin_host_header
+            if origin_name is None and not opts.urn:
+                raise TypeError("Missing required property 'origin_name'")
             __props__.__dict__["origin_name"] = origin_name
             __props__.__dict__["priority"] = priority
             if profile_name is None and not opts.urn:

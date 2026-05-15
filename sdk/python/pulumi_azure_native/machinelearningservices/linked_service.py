@@ -22,36 +22,47 @@ __all__ = ['LinkedServiceArgs', 'LinkedService']
 @pulumi.input_type
 class LinkedServiceArgs:
     def __init__(__self__, *,
+                 link_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
-                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['LinkedServicePropsArgs']] = None):
         """
         The set of arguments for constructing a LinkedService resource.
 
+        :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
-        :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[_builtins.str] location: location of the linked service.
         :param pulumi.Input[_builtins.str] name: Friendly name of the linked service
         :param pulumi.Input['LinkedServicePropsArgs'] properties: LinkedService specific properties.
         """
+        pulumi.set(__self__, "link_name", link_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if link_name is not None:
-            pulumi.set(__self__, "link_name", link_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Friendly name of the linked workspace
+        """
+        return pulumi.get(self, "link_name")
+
+    @link_name.setter
+    def link_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,18 +99,6 @@ class LinkedServiceArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkName")
-    def link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Friendly name of the linked workspace
-        """
-        return pulumi.get(self, "link_name")
-
-    @link_name.setter
-    def link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +211,8 @@ class LinkedService(pulumi.CustomResource):
             __props__ = LinkedServiceArgs.__new__(LinkedServiceArgs)
 
             __props__.__dict__["identity"] = identity
+            if link_name is None and not opts.urn:
+                raise TypeError("Missing required property 'link_name'")
             __props__.__dict__["link_name"] = link_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

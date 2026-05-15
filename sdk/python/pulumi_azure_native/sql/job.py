@@ -23,30 +23,29 @@ __all__ = ['JobArgs', 'Job']
 class JobArgs:
     def __init__(__self__, *,
                  job_agent_name: pulumi.Input[_builtins.str],
+                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule: pulumi.Input[Optional['JobScheduleArgs']] = None):
         """
         The set of arguments for constructing a Job resource.
 
         :param pulumi.Input[_builtins.str] job_agent_name: The name of the job agent.
+        :param pulumi.Input[_builtins.str] job_name: The name of the job to get.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] description: User-defined description of the job.
-        :param pulumi.Input[_builtins.str] job_name: The name of the job to get.
         :param pulumi.Input['JobScheduleArgs'] schedule: Schedule properties of the job.
         """
         pulumi.set(__self__, "job_agent_name", job_agent_name)
+        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if description is None:
             description = ''
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
 
@@ -61,6 +60,18 @@ class JobArgs:
     @job_agent_name.setter
     def job_agent_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "job_agent_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the job to get.
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -97,18 +108,6 @@ class JobArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the job to get.
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -203,6 +202,8 @@ class Job(pulumi.CustomResource):
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__.__dict__["job_agent_name"] = job_agent_name
+            if job_name is None and not opts.urn:
+                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

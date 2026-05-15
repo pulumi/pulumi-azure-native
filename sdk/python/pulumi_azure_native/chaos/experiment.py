@@ -22,32 +22,43 @@ __all__ = ['ExperimentArgs', 'Experiment']
 @pulumi.input_type
 class ExperimentArgs:
     def __init__(__self__, *,
+                 experiment_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ExperimentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ExperimentIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
 
+        :param pulumi.Input[_builtins.str] experiment_name: String that represents a Experiment resource name.
         :param pulumi.Input['ExperimentPropertiesArgs'] properties: The properties of the experiment resource.
         :param pulumi.Input[_builtins.str] resource_group_name: String that represents an Azure resource group.
-        :param pulumi.Input[_builtins.str] experiment_name: String that represents a Experiment resource name.
         :param pulumi.Input['ExperimentIdentityArgs'] identity: The identity of the experiment resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "experiment_name", experiment_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        String that represents a Experiment resource name.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "experiment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -72,18 +83,6 @@ class ExperimentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="experimentName")
-    def experiment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        String that represents a Experiment resource name.
-        """
-        return pulumi.get(self, "experiment_name")
-
-    @experiment_name.setter
-    def experiment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "experiment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,6 +195,8 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExperimentArgs.__new__(ExperimentArgs)
 
+            if experiment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'experiment_name'")
             __props__.__dict__["experiment_name"] = experiment_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

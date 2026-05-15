@@ -22,24 +22,23 @@ __all__ = ['BuildServiceBuilderArgs', 'BuildServiceBuilder']
 class BuildServiceBuilderArgs:
     def __init__(__self__, *,
                  build_service_name: pulumi.Input[_builtins.str],
+                 builder_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BuilderPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildServiceBuilder resource.
 
         :param pulumi.Input[_builtins.str] build_service_name: The name of the build service resource.
+        :param pulumi.Input[_builtins.str] builder_name: The name of the builder resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] builder_name: The name of the builder resource.
         :param pulumi.Input['BuilderPropertiesArgs'] properties: Property of the Builder resource.
         """
         pulumi.set(__self__, "build_service_name", build_service_name)
+        pulumi.set(__self__, "builder_name", builder_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if builder_name is not None:
-            pulumi.set(__self__, "builder_name", builder_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,6 +53,18 @@ class BuildServiceBuilderArgs:
     @build_service_name.setter
     def build_service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "build_service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="builderName")
+    def builder_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the builder resource.
+        """
+        return pulumi.get(self, "builder_name")
+
+    @builder_name.setter
+    def builder_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "builder_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +89,6 @@ class BuildServiceBuilderArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="builderName")
-    def builder_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the builder resource.
-        """
-        return pulumi.get(self, "builder_name")
-
-    @builder_name.setter
-    def builder_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "builder_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class BuildServiceBuilder(pulumi.CustomResource):
             if build_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'build_service_name'")
             __props__.__dict__["build_service_name"] = build_service_name
+            if builder_name is None and not opts.urn:
+                raise TypeError("Missing required property 'builder_name'")
             __props__.__dict__["builder_name"] = builder_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

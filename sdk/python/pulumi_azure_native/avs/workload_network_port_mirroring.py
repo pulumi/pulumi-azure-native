@@ -21,26 +21,27 @@ __all__ = ['WorkloadNetworkPortMirroringArgs', 'WorkloadNetworkPortMirroring']
 @pulumi.input_type
 class WorkloadNetworkPortMirroringArgs:
     def __init__(__self__, *,
+                 port_mirroring_id: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  direction: pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_mirroring_id: pulumi.Input[Optional[_builtins.str]] = None,
                  revision: pulumi.Input[Optional[_builtins.float]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkPortMirroring resource.
 
+        :param pulumi.Input[_builtins.str] port_mirroring_id: ID of the NSX port mirroring profile.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] destination: Destination VM Group.
         :param pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']] direction: Direction of port mirroring profile.
         :param pulumi.Input[_builtins.str] display_name: Display name of the port mirroring profile.
-        :param pulumi.Input[_builtins.str] port_mirroring_id: ID of the NSX port mirroring profile.
         :param pulumi.Input[_builtins.float] revision: NSX revision number.
         :param pulumi.Input[_builtins.str] source: Source VM Group.
         """
+        pulumi.set(__self__, "port_mirroring_id", port_mirroring_id)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if destination is not None:
@@ -49,12 +50,22 @@ class WorkloadNetworkPortMirroringArgs:
             pulumi.set(__self__, "direction", direction)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if port_mirroring_id is not None:
-            pulumi.set(__self__, "port_mirroring_id", port_mirroring_id)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="portMirroringId")
+    def port_mirroring_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the NSX port mirroring profile.
+        """
+        return pulumi.get(self, "port_mirroring_id")
+
+    @port_mirroring_id.setter
+    def port_mirroring_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "port_mirroring_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -115,18 +126,6 @@ class WorkloadNetworkPortMirroringArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="portMirroringId")
-    def port_mirroring_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ID of the NSX port mirroring profile.
-        """
-        return pulumi.get(self, "port_mirroring_id")
-
-    @port_mirroring_id.setter
-    def port_mirroring_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "port_mirroring_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,6 +235,8 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["direction"] = direction
             __props__.__dict__["display_name"] = display_name
+            if port_mirroring_id is None and not opts.urn:
+                raise TypeError("Missing required property 'port_mirroring_id'")
             __props__.__dict__["port_mirroring_id"] = port_mirroring_id
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

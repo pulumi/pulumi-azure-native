@@ -25,6 +25,7 @@ class TopicArgs:
                  environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_name: pulumi.Input[_builtins.str],
                  configs: pulumi.Input[Optional['TopicsRelatedLinkArgs']] = None,
                  input_configs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicsInputConfigArgs']]]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,8 +34,7 @@ class TopicArgs:
                  partitions_count: pulumi.Input[Optional[_builtins.str]] = None,
                  partitions_reassignments: pulumi.Input[Optional['TopicsRelatedLinkArgs']] = None,
                  replication_factor: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -42,6 +42,7 @@ class TopicArgs:
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] topic_name: Confluent kafka or schema registry topic name
         :param pulumi.Input['TopicsRelatedLinkArgs'] configs: Config Specification of the topic
         :param pulumi.Input[Sequence[pulumi.Input['TopicsInputConfigArgs']]] input_configs: Input Config Specification of the topic
         :param pulumi.Input[_builtins.str] kind: Type of topic
@@ -51,12 +52,12 @@ class TopicArgs:
         :param pulumi.Input['TopicsRelatedLinkArgs'] partitions_reassignments: Partition Reassignment Specification of the topic
         :param pulumi.Input[_builtins.str] replication_factor: Replication factor of the topic
         :param pulumi.Input[_builtins.str] topic_id: Topic Id returned by Confluent
-        :param pulumi.Input[_builtins.str] topic_name: Confluent kafka or schema registry topic name
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if configs is not None:
             pulumi.set(__self__, "configs", configs)
         if input_configs is not None:
@@ -75,8 +76,6 @@ class TopicArgs:
             pulumi.set(__self__, "replication_factor", replication_factor)
         if topic_id is not None:
             pulumi.set(__self__, "topic_id", topic_id)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
@@ -125,6 +124,18 @@ class TopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Confluent kafka or schema registry topic name
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,18 +244,6 @@ class TopicArgs:
     @topic_id.setter
     def topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Confluent kafka or schema registry topic name
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_name", value)
 
 
 @pulumi.type_token("azure-native:confluent:Topic")
@@ -366,6 +365,8 @@ class Topic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["topic_id"] = topic_id
+            if topic_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -21,26 +21,37 @@ __all__ = ['ProfileAgentArgs', 'ProfileAgent']
 @pulumi.input_type
 class ProfileAgentArgs:
     def __init__(__self__, *,
+                 agent_name: pulumi.Input[_builtins.str],
                  custom_domains: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 web_agent: pulumi.Input['ResourceReferenceArgs'],
-                 agent_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 web_agent: pulumi.Input['ResourceReferenceArgs']):
         """
         The set of arguments for constructing a ProfileAgent resource.
 
+        :param pulumi.Input[_builtins.str] agent_name: Name of the web agent association.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] custom_domains: List of custom domains associated with this agent link.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceReferenceArgs'] web_agent: Reference to the web agent resource.
-        :param pulumi.Input[_builtins.str] agent_name: Name of the web agent association.
         """
+        pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "custom_domains", custom_domains)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "web_agent", web_agent)
-        if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+
+    @_builtins.property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the web agent association.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
@@ -89,18 +100,6 @@ class ProfileAgentArgs:
     @web_agent.setter
     def web_agent(self, value: pulumi.Input['ResourceReferenceArgs']):
         pulumi.set(self, "web_agent", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the web agent association.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @agent_name.setter
-    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "agent_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:ProfileAgent")
@@ -170,6 +169,8 @@ class ProfileAgent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileAgentArgs.__new__(ProfileAgentArgs)
 
+            if agent_name is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_name'")
             __props__.__dict__["agent_name"] = agent_name
             if custom_domains is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_domains'")

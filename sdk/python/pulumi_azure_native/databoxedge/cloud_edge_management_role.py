@@ -23,25 +23,24 @@ class CloudEdgeManagementRoleArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']]):
         """
         The set of arguments for constructing a CloudEdgeManagementRole resource.
 
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] kind: Role type.
                Expected value is 'CloudEdgeManagement'.
+        :param pulumi.Input[_builtins.str] name: The role name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[_builtins.str, 'RoleStatus']] role_status: Role status.
-        :param pulumi.Input[_builtins.str] name: The role name.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "kind", 'CloudEdgeManagement')
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role_status", role_status)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
@@ -69,6 +68,18 @@ class CloudEdgeManagementRoleArgs:
         pulumi.set(self, "kind", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -91,18 +102,6 @@ class CloudEdgeManagementRoleArgs:
     @role_status.setter
     def role_status(self, value: pulumi.Input[Union[_builtins.str, 'RoleStatus']]):
         pulumi.set(self, "role_status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The role name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:databoxedge:CloudEdgeManagementRole")
@@ -183,6 +182,8 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'CloudEdgeManagement'
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

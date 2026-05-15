@@ -23,6 +23,7 @@ __all__ = ['VirtualHubArgs', 'VirtualHub']
 class VirtualHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_hub_name: pulumi.Input[_builtins.str],
                  address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
                  azure_firewall: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -37,7 +38,6 @@ class VirtualHubArgs:
                  security_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_hub_route_table_v2s: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]]] = None,
                  virtual_router_asn: pulumi.Input[Optional[_builtins.float]] = None,
                  virtual_router_auto_scale_configuration: pulumi.Input[Optional['VirtualRouterAutoScaleConfigurationArgs']] = None,
@@ -48,6 +48,7 @@ class VirtualHubArgs:
         The set of arguments for constructing a VirtualHub resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[_builtins.str] address_prefix: Address-prefix for this VirtualHub.
         :param pulumi.Input[_builtins.bool] allow_branch_to_branch_traffic: Flag to control transit for VirtualRouter hub.
         :param pulumi.Input['SubResourceArgs'] azure_firewall: The azureFirewall associated with this VirtualHub.
@@ -62,7 +63,6 @@ class VirtualHubArgs:
         :param pulumi.Input[_builtins.str] security_provider_name: The Security Provider name.
         :param pulumi.Input[_builtins.str] sku: The sku of this VirtualHub.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[_builtins.float] virtual_router_asn: VirtualRouter ASN.
@@ -72,6 +72,7 @@ class VirtualHubArgs:
         :param pulumi.Input['SubResourceArgs'] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if allow_branch_to_branch_traffic is not None:
@@ -100,8 +101,6 @@ class VirtualHubArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_hub_name is not None:
-            pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if virtual_hub_route_table_v2s is not None:
             pulumi.set(__self__, "virtual_hub_route_table_v2s", virtual_hub_route_table_v2s)
         if virtual_router_asn is not None:
@@ -126,6 +125,18 @@ class VirtualHubArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualHubName")
+    def virtual_hub_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the VirtualHub.
+        """
+        return pulumi.get(self, "virtual_hub_name")
+
+    @virtual_hub_name.setter
+    def virtual_hub_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
@@ -294,18 +305,6 @@ class VirtualHubArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualHubName")
-    def virtual_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the VirtualHub.
-        """
-        return pulumi.get(self, "virtual_hub_name")
-
-    @virtual_hub_name.setter
-    def virtual_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubRouteTableV2s")
@@ -521,6 +520,8 @@ class VirtualHub(pulumi.CustomResource):
             __props__.__dict__["security_provider_name"] = security_provider_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if virtual_hub_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_hub_name'")
             __props__.__dict__["virtual_hub_name"] = virtual_hub_name
             __props__.__dict__["virtual_hub_route_table_v2s"] = virtual_hub_route_table_v2s
             __props__.__dict__["virtual_router_asn"] = virtual_router_asn

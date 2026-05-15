@@ -22,9 +22,9 @@ __all__ = ['ImportJobArgs', 'ImportJob']
 class ImportJobArgs:
     def __init__(__self__, *,
                  aml_filesystem_name: pulumi.Input[_builtins.str],
+                 import_job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  conflict_resolution_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
-                 import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  import_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_errors: pulumi.Input[Optional[_builtins.int]] = None,
@@ -33,22 +33,21 @@ class ImportJobArgs:
         The set of arguments for constructing a ImportJob resource.
 
         :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        :param pulumi.Input[_builtins.str] import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']] conflict_resolution_mode: How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
-        :param pulumi.Input[_builtins.str] import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] import_prefixes: An array of blob paths/prefixes that get imported into the cluster namespace. It has '/' as the default value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] maximum_errors: Total non-conflict oriented errors the import job will tolerate before exiting with failure. -1 means infinite. 0 means exit immediately and is the default.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
+        pulumi.set(__self__, "import_job_name", import_job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if conflict_resolution_mode is None:
             conflict_resolution_mode = 'Fail'
         if conflict_resolution_mode is not None:
             pulumi.set(__self__, "conflict_resolution_mode", conflict_resolution_mode)
-        if import_job_name is not None:
-            pulumi.set(__self__, "import_job_name", import_job_name)
         if import_prefixes is not None:
             pulumi.set(__self__, "import_prefixes", import_prefixes)
         if location is not None:
@@ -73,6 +72,18 @@ class ImportJobArgs:
         pulumi.set(self, "aml_filesystem_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="importJobName")
+    def import_job_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        """
+        return pulumi.get(self, "import_job_name")
+
+    @import_job_name.setter
+    def import_job_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "import_job_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -95,18 +106,6 @@ class ImportJobArgs:
     @conflict_resolution_mode.setter
     def conflict_resolution_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]]):
         pulumi.set(self, "conflict_resolution_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="importJobName")
-    def import_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        """
-        return pulumi.get(self, "import_job_name")
-
-    @import_job_name.setter
-    def import_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "import_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="importPrefixes")
@@ -243,6 +242,8 @@ class ImportJob(pulumi.CustomResource):
             if conflict_resolution_mode is None:
                 conflict_resolution_mode = 'Fail'
             __props__.__dict__["conflict_resolution_mode"] = conflict_resolution_mode
+            if import_job_name is None and not opts.urn:
+                raise TypeError("Missing required property 'import_job_name'")
             __props__.__dict__["import_job_name"] = import_job_name
             __props__.__dict__["import_prefixes"] = import_prefixes
             __props__.__dict__["location"] = location

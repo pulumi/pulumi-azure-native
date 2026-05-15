@@ -23,10 +23,10 @@ __all__ = ['OutputInitArgs', 'Output']
 class OutputInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[_builtins.str],
+                 output_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  datasource: pulumi.Input[Optional[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_name: pulumi.Input[Optional[_builtins.str]] = None,
                  serialization: pulumi.Input[Optional[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: pulumi.Input[Optional[_builtins.int]] = None,
                  time_window: pulumi.Input[Optional[_builtins.str]] = None):
@@ -34,22 +34,21 @@ class OutputInitArgs:
         The set of arguments for constructing a Output resource.
 
         :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
+        :param pulumi.Input[_builtins.str] output_name: The name of the output.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[_builtins.str] name: Resource name
-        :param pulumi.Input[_builtins.str] output_name: The name of the output.
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[_builtins.int] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[_builtins.str] time_window: The time frame for filtering Stream Analytics job outputs.
         """
         pulumi.set(__self__, "job_name", job_name)
+        pulumi.set(__self__, "output_name", output_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if datasource is not None:
             pulumi.set(__self__, "datasource", datasource)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if output_name is not None:
-            pulumi.set(__self__, "output_name", output_name)
         if serialization is not None:
             pulumi.set(__self__, "serialization", serialization)
         if size_window is not None:
@@ -68,6 +67,18 @@ class OutputInitArgs:
     @job_name.setter
     def job_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "job_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputName")
+    def output_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the output.
+        """
+        return pulumi.get(self, "output_name")
+
+    @output_name.setter
+    def output_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "output_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -104,18 +115,6 @@ class OutputInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outputName")
-    def output_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the output.
-        """
-        return pulumi.get(self, "output_name")
-
-    @output_name.setter
-    def output_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "output_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -239,6 +238,8 @@ class Output(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["name"] = name
+            if output_name is None and not opts.urn:
+                raise TypeError("Missing required property 'output_name'")
             __props__.__dict__["output_name"] = output_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

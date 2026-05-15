@@ -22,12 +22,12 @@ class IotHubDataConnectionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  consumer_group: pulumi.Input[_builtins.str],
+                 data_connection_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  iot_hub_resource_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  shared_access_policy_name: pulumi.Input[_builtins.str],
-                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_format: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]] = None,
                  database_routing: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseRouting']]] = None,
                  event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -40,13 +40,13 @@ class IotHubDataConnectionArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] consumer_group: The iot hub consumer group.
+        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[_builtins.str] iot_hub_resource_id: The resource ID of the Iot hub to be used to create a data connection.
         :param pulumi.Input[_builtins.str] kind: Kind of the endpoint for the data connection
                Expected value is 'IotHub'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] shared_access_policy_name: The name of the share access policy
-        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[Union[_builtins.str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_system_properties: System properties of the iot hub
@@ -57,13 +57,12 @@ class IotHubDataConnectionArgs:
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "data_connection_name", data_connection_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "iot_hub_resource_id", iot_hub_resource_id)
         pulumi.set(__self__, "kind", 'IotHub')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
-        if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
         if database_routing is None:
@@ -104,6 +103,18 @@ class IotHubDataConnectionArgs:
     @consumer_group.setter
     def consumer_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "consumer_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectionName")
+    def data_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data connection.
+        """
+        return pulumi.get(self, "data_connection_name")
+
+    @data_connection_name.setter
+    def data_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -165,18 +176,6 @@ class IotHubDataConnectionArgs:
     @shared_access_policy_name.setter
     def shared_access_policy_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "shared_access_policy_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data connection.
-        """
-        return pulumi.get(self, "data_connection_name")
-
-    @data_connection_name.setter
-    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
@@ -367,6 +366,8 @@ class IotHubDataConnection(pulumi.CustomResource):
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__.__dict__["consumer_group"] = consumer_group
+            if data_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connection_name'")
             __props__.__dict__["data_connection_name"] = data_connection_name
             __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:

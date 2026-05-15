@@ -22,12 +22,12 @@ __all__ = ['LocalRulestackArgs', 'LocalRulestack']
 @pulumi.input_type
 class LocalRulestackArgs:
     def __init__(__self__, *,
+                 local_rulestack_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  associated_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_mode: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
-                 local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_app_id_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,12 +38,12 @@ class LocalRulestackArgs:
         """
         The set of arguments for constructing a LocalRulestack resource.
 
+        :param pulumi.Input[_builtins.str] local_rulestack_name: LocalRulestack resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
         :param pulumi.Input[Union[_builtins.str, 'DefaultMode']] default_mode: Mode for default rules creation
         :param pulumi.Input[_builtins.str] description: rulestack description
         :param pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs'] identity: The managed service identities assigned to this resource.
-        :param pulumi.Input[_builtins.str] local_rulestack_name: LocalRulestack resource name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] min_app_id_version: minimum version
         :param pulumi.Input[_builtins.str] pan_etag: PanEtag info
@@ -52,6 +52,7 @@ class LocalRulestackArgs:
         :param pulumi.Input['SecurityServicesArgs'] security_services: Security Profile
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "local_rulestack_name", local_rulestack_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if associated_subscriptions is not None:
             pulumi.set(__self__, "associated_subscriptions", associated_subscriptions)
@@ -61,8 +62,6 @@ class LocalRulestackArgs:
             pulumi.set(__self__, "description", description)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if local_rulestack_name is not None:
-            pulumi.set(__self__, "local_rulestack_name", local_rulestack_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if min_app_id_version is not None:
@@ -77,6 +76,18 @@ class LocalRulestackArgs:
             pulumi.set(__self__, "security_services", security_services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="localRulestackName")
+    def local_rulestack_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        LocalRulestack resource name
+        """
+        return pulumi.get(self, "local_rulestack_name")
+
+    @local_rulestack_name.setter
+    def local_rulestack_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "local_rulestack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -137,18 +148,6 @@ class LocalRulestackArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localRulestackName")
-    def local_rulestack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        LocalRulestack resource name
-        """
-        return pulumi.get(self, "local_rulestack_name")
-
-    @local_rulestack_name.setter
-    def local_rulestack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "local_rulestack_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -334,6 +333,8 @@ class LocalRulestack(pulumi.CustomResource):
             __props__.__dict__["default_mode"] = default_mode
             __props__.__dict__["description"] = description
             __props__.__dict__["identity"] = identity
+            if local_rulestack_name is None and not opts.urn:
+                raise TypeError("Missing required property 'local_rulestack_name'")
             __props__.__dict__["local_rulestack_name"] = local_rulestack_name
             __props__.__dict__["location"] = location
             __props__.__dict__["min_app_id_version"] = min_app_id_version

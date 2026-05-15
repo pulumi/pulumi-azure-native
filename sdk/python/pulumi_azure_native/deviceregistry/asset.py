@@ -23,9 +23,9 @@ __all__ = ['AssetArgs', 'Asset']
 class AssetArgs:
     def __init__(__self__, *,
                  asset_endpoint_profile_ref: pulumi.Input[_builtins.str],
+                 asset_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 asset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  attributes: Optional[Any] = None,
                  datasets: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetArgs']]]] = None,
                  default_datasets_configuration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -51,9 +51,9 @@ class AssetArgs:
         The set of arguments for constructing a Asset resource.
 
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
+        :param pulumi.Input[_builtins.str] asset_name: Asset name parameter.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] asset_name: Asset name parameter.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetArgs']]] datasets: Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         :param pulumi.Input[_builtins.str] default_datasets_configuration: Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
@@ -77,10 +77,9 @@ class AssetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "asset_endpoint_profile_ref", asset_endpoint_profile_ref)
+        pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if datasets is not None:
@@ -137,6 +136,18 @@ class AssetArgs:
         pulumi.set(self, "asset_endpoint_profile_ref", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Asset name parameter.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> pulumi.Input['ExtendedLocationArgs']:
         """
@@ -159,18 +170,6 @@ class AssetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assetName")
-    def asset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Asset name parameter.
-        """
-        return pulumi.get(self, "asset_name")
-
-    @asset_name.setter
-    def asset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "asset_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -559,6 +558,8 @@ class Asset(pulumi.CustomResource):
             if asset_endpoint_profile_ref is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_endpoint_profile_ref'")
             __props__.__dict__["asset_endpoint_profile_ref"] = asset_endpoint_profile_ref
+            if asset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'asset_name'")
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["datasets"] = datasets

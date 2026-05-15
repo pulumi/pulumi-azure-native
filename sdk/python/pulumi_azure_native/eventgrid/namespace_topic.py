@@ -23,23 +23,24 @@ class NamespaceTopicArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_name: pulumi.Input[_builtins.str],
                  event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  input_schema: pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]] = None,
-                 publisher_type: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 publisher_type: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]] = None):
         """
         The set of arguments for constructing a NamespaceTopic resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[_builtins.str] topic_name: Name of the namespace topic.
         :param pulumi.Input[_builtins.int] event_retention_in_days: Event retention for the namespace topic expressed in days. The property default value is 1 day.
                Min event retention duration value is 1 day and max event retention duration value is 1 day.
         :param pulumi.Input[Union[_builtins.str, 'EventInputSchema']] input_schema: This determines the format that is expected for incoming events published to the topic.
         :param pulumi.Input[Union[_builtins.str, 'PublisherType']] publisher_type: Publisher type of the namespace topic.
-        :param pulumi.Input[_builtins.str] topic_name: Name of the namespace topic.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if event_retention_in_days is not None:
             pulumi.set(__self__, "event_retention_in_days", event_retention_in_days)
         if input_schema is None:
@@ -48,8 +49,6 @@ class NamespaceTopicArgs:
             pulumi.set(__self__, "input_schema", input_schema)
         if publisher_type is not None:
             pulumi.set(__self__, "publisher_type", publisher_type)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -74,6 +73,18 @@ class NamespaceTopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the namespace topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventRetentionInDays")
@@ -111,18 +122,6 @@ class NamespaceTopicArgs:
     @publisher_type.setter
     def publisher_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]]):
         pulumi.set(self, "publisher_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the namespace topic.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_name", value)
 
 
 @pulumi.type_token("azure-native:eventgrid:NamespaceTopic")
@@ -211,6 +210,8 @@ class NamespaceTopic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if topic_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

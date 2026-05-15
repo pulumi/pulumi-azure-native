@@ -22,22 +22,23 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
+                 namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  messaging: pulumi.Input[Optional['MessagingArgs']] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
 
+        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MessagingArgs'] messaging: Assigned and unassigned messaging endpoints.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -45,10 +46,20 @@ class NamespaceArgs:
             pulumi.set(__self__, "location", location)
         if messaging is not None:
             pulumi.set(__self__, "messaging", messaging)
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the namespace.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -97,18 +108,6 @@ class NamespaceArgs:
     @messaging.setter
     def messaging(self, value: pulumi.Input[Optional['MessagingArgs']]):
         pulumi.set(self, "messaging", value)
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the namespace.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["messaging"] = messaging
+            if namespace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

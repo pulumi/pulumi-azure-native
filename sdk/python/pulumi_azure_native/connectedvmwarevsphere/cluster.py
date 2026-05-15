@@ -21,8 +21,8 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
+                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,8 +33,8 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster.
+        :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the cluster.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -43,9 +43,8 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[_builtins.str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
         """
+        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if inventory_item_id is not None:
@@ -62,6 +61,18 @@ class ClusterArgs:
             pulumi.set(__self__, "v_center_id", v_center_id)
 
     @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -72,18 +83,6 @@ class ClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -253,6 +252,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            if cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["inventory_item_id"] = inventory_item_id

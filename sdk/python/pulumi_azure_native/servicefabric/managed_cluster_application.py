@@ -22,9 +22,9 @@ __all__ = ['ManagedClusterApplicationArgs', 'ManagedClusterApplication']
 @pulumi.input_type
 class ManagedClusterApplicationArgs:
     def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_identities: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationUserAssignedIdentityArgs']]]] = None,
@@ -35,9 +35,9 @@ class ManagedClusterApplicationArgs:
         """
         The set of arguments for constructing a ManagedClusterApplication resource.
 
+        :param pulumi.Input[_builtins.str] application_name: The name of the application resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] application_name: The name of the application resource.
         :param pulumi.Input['ManagedIdentityArgs'] identity: Describes the managed identities for an Azure resource.
         :param pulumi.Input[_builtins.str] location: Resource location depends on the parent resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationUserAssignedIdentityArgs']]] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
@@ -47,10 +47,9 @@ class ManagedClusterApplicationArgs:
         :param pulumi.Input[_builtins.str] version: The version of the application type as defined in the application manifest.
                This name must be the full Arm Resource ID for the referenced application type version.
         """
+        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -65,6 +64,18 @@ class ManagedClusterApplicationArgs:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application resource.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -89,18 +100,6 @@ class ManagedClusterApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the application resource.
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -275,6 +274,8 @@ class ManagedClusterApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedClusterApplicationArgs.__new__(ManagedClusterApplicationArgs)
 
+            if application_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

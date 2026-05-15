@@ -22,36 +22,47 @@ __all__ = ['MachineLearningDatasetArgs', 'MachineLearningDataset']
 @pulumi.input_type
 class MachineLearningDatasetArgs:
     def __init__(__self__, *,
+                 dataset_name: pulumi.Input[_builtins.str],
                  dataset_type: pulumi.Input[Union[_builtins.str, 'DatasetType']],
                  parameters: pulumi.Input['DatasetCreateRequestParametersArgs'],
                  registration: pulumi.Input['DatasetCreateRequestRegistrationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
                  time_series: pulumi.Input[Optional['DatasetCreateRequestTimeSeriesArgs']] = None):
         """
         The set of arguments for constructing a MachineLearningDataset resource.
 
+        :param pulumi.Input[_builtins.str] dataset_name: The Dataset name.
         :param pulumi.Input[Union[_builtins.str, 'DatasetType']] dataset_type: Specifies dataset type.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[_builtins.str] dataset_name: The Dataset name.
         :param pulumi.Input[_builtins.bool] skip_validation: Skip validation that ensures data can be loaded from the dataset before registration.
         """
+        pulumi.set(__self__, "dataset_name", dataset_name)
         pulumi.set(__self__, "dataset_type", dataset_type)
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "registration", registration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
         if skip_validation is None:
             skip_validation = False
         if skip_validation is not None:
             pulumi.set(__self__, "skip_validation", skip_validation)
         if time_series is not None:
             pulumi.set(__self__, "time_series", time_series)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Dataset name.
+        """
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetType")
@@ -106,18 +117,6 @@ class MachineLearningDatasetArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Dataset name.
-        """
-        return pulumi.get(self, "dataset_name")
-
-    @dataset_name.setter
-    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
@@ -214,6 +213,8 @@ class MachineLearningDataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MachineLearningDatasetArgs.__new__(MachineLearningDatasetArgs)
 
+            if dataset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dataset_name'")
             __props__.__dict__["dataset_name"] = dataset_name
             if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")

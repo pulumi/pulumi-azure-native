@@ -25,10 +25,10 @@ class GalleryInVMAccessControlProfileVersionArgs:
                  default_access: pulumi.Input[Union[_builtins.str, 'EndpointAccess']],
                  gallery_name: pulumi.Input[_builtins.str],
                  in_vm_access_control_profile_name: pulumi.Input[_builtins.str],
+                 in_vm_access_control_profile_version_name: pulumi.Input[_builtins.str],
                  mode: pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
-                 in_vm_access_control_profile_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional['AccessControlRulesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -39,10 +39,10 @@ class GalleryInVMAccessControlProfileVersionArgs:
         :param pulumi.Input[Union[_builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
+        :param pulumi.Input[_builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
         :param pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']] mode: This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
-        :param pulumi.Input[_builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AccessControlRulesArgs'] rules: This is the Access Control Rules specification for an inVMAccessControlProfile version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -51,12 +51,11 @@ class GalleryInVMAccessControlProfileVersionArgs:
         pulumi.set(__self__, "default_access", default_access)
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "in_vm_access_control_profile_name", in_vm_access_control_profile_name)
+        pulumi.set(__self__, "in_vm_access_control_profile_version_name", in_vm_access_control_profile_version_name)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
-        if in_vm_access_control_profile_version_name is not None:
-            pulumi.set(__self__, "in_vm_access_control_profile_version_name", in_vm_access_control_profile_version_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if rules is not None:
@@ -103,6 +102,18 @@ class GalleryInVMAccessControlProfileVersionArgs:
         pulumi.set(self, "in_vm_access_control_profile_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="inVMAccessControlProfileVersionName")
+    def in_vm_access_control_profile_version_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the gallery inVMAccessControlProfile version to be retrieved.
+        """
+        return pulumi.get(self, "in_vm_access_control_profile_version_name")
+
+    @in_vm_access_control_profile_version_name.setter
+    def in_vm_access_control_profile_version_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "in_vm_access_control_profile_version_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']]:
         """
@@ -137,18 +148,6 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @exclude_from_latest.setter
     def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inVMAccessControlProfileVersionName")
-    def in_vm_access_control_profile_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the gallery inVMAccessControlProfile version to be retrieved.
-        """
-        return pulumi.get(self, "in_vm_access_control_profile_version_name")
-
-    @in_vm_access_control_profile_version_name.setter
-    def in_vm_access_control_profile_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "in_vm_access_control_profile_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -298,6 +297,8 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
             if in_vm_access_control_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'in_vm_access_control_profile_name'")
             __props__.__dict__["in_vm_access_control_profile_name"] = in_vm_access_control_profile_name
+            if in_vm_access_control_profile_version_name is None and not opts.urn:
+                raise TypeError("Missing required property 'in_vm_access_control_profile_version_name'")
             __props__.__dict__["in_vm_access_control_profile_version_name"] = in_vm_access_control_profile_version_name
             __props__.__dict__["location"] = location
             if mode is None and not opts.urn:

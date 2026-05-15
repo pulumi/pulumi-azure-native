@@ -21,12 +21,12 @@ __all__ = ['PolicyAssignmentArtifactArgs', 'PolicyAssignmentArtifact']
 @pulumi.input_type
 class PolicyAssignmentArtifactArgs:
     def __init__(__self__, *,
+                 artifact_name: pulumi.Input[_builtins.str],
                  blueprint_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]],
                  policy_definition_id: pulumi.Input[_builtins.str],
                  resource_scope: pulumi.Input[_builtins.str],
-                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,25 +34,24 @@ class PolicyAssignmentArtifactArgs:
         """
         The set of arguments for constructing a PolicyAssignmentArtifact resource.
 
+        :param pulumi.Input[_builtins.str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'policyAssignment'.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]] parameters: Parameter values for the policy definition.
         :param pulumi.Input[_builtins.str] policy_definition_id: Azure resource ID of the policy definition.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param pulumi.Input[_builtins.str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
         :param pulumi.Input[_builtins.str] description: Multi-line explain this resource.
         :param pulumi.Input[_builtins.str] display_name: One-liner string explain this resource.
         :param pulumi.Input[_builtins.str] resource_group: Name of the resource group placeholder to which the policy will be assigned.
         """
+        pulumi.set(__self__, "artifact_name", artifact_name)
         pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "kind", 'policyAssignment')
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         pulumi.set(__self__, "resource_scope", resource_scope)
-        if artifact_name is not None:
-            pulumi.set(__self__, "artifact_name", artifact_name)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -61,6 +60,18 @@ class PolicyAssignmentArtifactArgs:
             pulumi.set(__self__, "display_name", display_name)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the blueprint artifact.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @artifact_name.setter
+    def artifact_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="blueprintName")
@@ -122,18 +133,6 @@ class PolicyAssignmentArtifactArgs:
     @resource_scope.setter
     def resource_scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="artifactName")
-    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the blueprint artifact.
-        """
-        return pulumi.get(self, "artifact_name")
-
-    @artifact_name.setter
-    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
@@ -267,6 +266,8 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyAssignmentArtifactArgs.__new__(PolicyAssignmentArtifactArgs)
 
+            if artifact_name is None and not opts.urn:
+                raise TypeError("Missing required property 'artifact_name'")
             __props__.__dict__["artifact_name"] = artifact_name
             if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")

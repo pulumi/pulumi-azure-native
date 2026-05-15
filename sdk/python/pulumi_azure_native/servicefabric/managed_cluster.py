@@ -23,6 +23,7 @@ __all__ = ['ManagedClusterArgs', 'ManagedCluster']
 class ManagedClusterArgs:
     def __init__(__self__, *,
                  admin_user_name: pulumi.Input[_builtins.str],
+                 cluster_name: pulumi.Input[_builtins.str],
                  dns_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
@@ -35,7 +36,6 @@ class ManagedClusterArgs:
                  client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
                  clients: pulumi.Input[Optional[Sequence[pulumi.Input['ClientCertificateArgs']]]] = None,
                  cluster_code_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_upgrade_cadence: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
                  cluster_upgrade_mode: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
                  ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -63,6 +63,7 @@ class ManagedClusterArgs:
         The set of arguments for constructing a ManagedCluster resource.
 
         :param pulumi.Input[_builtins.str] admin_user_name: VM admin user name.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.str] dns_name: The cluster dns name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SkuArgs'] sku: The sku of the managed cluster
@@ -75,7 +76,6 @@ class ManagedClusterArgs:
         :param pulumi.Input[_builtins.int] client_connection_port: The port used for client connections to the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]] clients: Client certificates that are allowed to manage the cluster.
         :param pulumi.Input[_builtins.str] cluster_code_version: The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
         :param pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']] cluster_upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
         :param pulumi.Input[_builtins.str] ddos_protection_plan_id: Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
@@ -101,6 +101,7 @@ class ManagedClusterArgs:
         :param pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']] zonal_update_mode: Indicates the update mode for Cross Az clusters.
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
+        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -124,8 +125,6 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "clients", clients)
         if cluster_code_version is not None:
             pulumi.set(__self__, "cluster_code_version", cluster_code_version)
-        if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
         if cluster_upgrade_cadence is not None:
             pulumi.set(__self__, "cluster_upgrade_cadence", cluster_upgrade_cadence)
         if cluster_upgrade_mode is not None:
@@ -188,6 +187,18 @@ class ManagedClusterArgs:
     @admin_user_name.setter
     def admin_user_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "admin_user_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the cluster resource.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
@@ -332,18 +343,6 @@ class ManagedClusterArgs:
     @cluster_code_version.setter
     def cluster_code_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_code_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the cluster resource.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterUpgradeCadence")
@@ -803,6 +802,8 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["client_connection_port"] = client_connection_port
             __props__.__dict__["clients"] = clients
             __props__.__dict__["cluster_code_version"] = cluster_code_version
+            if cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_upgrade_cadence"] = cluster_upgrade_cadence
             __props__.__dict__["cluster_upgrade_mode"] = cluster_upgrade_mode

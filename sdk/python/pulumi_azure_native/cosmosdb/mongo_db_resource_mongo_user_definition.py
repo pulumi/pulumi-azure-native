@@ -22,11 +22,11 @@ __all__ = ['MongoDBResourceMongoUserDefinitionArgs', 'MongoDBResourceMongoUserDe
 class MongoDBResourceMongoUserDefinitionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 mongo_user_definition_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  custom_data: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  mechanisms: pulumi.Input[Optional[_builtins.str]] = None,
-                 mongo_user_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  roles: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None):
@@ -34,16 +34,17 @@ class MongoDBResourceMongoUserDefinitionArgs:
         The set of arguments for constructing a MongoDBResourceMongoUserDefinition resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[_builtins.str] mongo_user_definition_id: The ID for the User Definition {dbName.userName}.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] custom_data: A custom definition for the USer Definition.
         :param pulumi.Input[_builtins.str] database_name: The database name for which access is being granted for this User Definition.
         :param pulumi.Input[_builtins.str] mechanisms: The Mongo Auth mechanism. For now, we only support auth mechanism SCRAM-SHA-256.
-        :param pulumi.Input[_builtins.str] mongo_user_definition_id: The ID for the User Definition {dbName.userName}.
         :param pulumi.Input[_builtins.str] password: The password for User Definition. Response does not contain user password.
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The set of roles inherited by the User Definition.
         :param pulumi.Input[_builtins.str] user_name: The user name for User Definition.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "mongo_user_definition_id", mongo_user_definition_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
@@ -51,8 +52,6 @@ class MongoDBResourceMongoUserDefinitionArgs:
             pulumi.set(__self__, "database_name", database_name)
         if mechanisms is not None:
             pulumi.set(__self__, "mechanisms", mechanisms)
-        if mongo_user_definition_id is not None:
-            pulumi.set(__self__, "mongo_user_definition_id", mongo_user_definition_id)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if roles is not None:
@@ -71,6 +70,18 @@ class MongoDBResourceMongoUserDefinitionArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mongoUserDefinitionId")
+    def mongo_user_definition_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID for the User Definition {dbName.userName}.
+        """
+        return pulumi.get(self, "mongo_user_definition_id")
+
+    @mongo_user_definition_id.setter
+    def mongo_user_definition_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mongo_user_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -119,18 +130,6 @@ class MongoDBResourceMongoUserDefinitionArgs:
     @mechanisms.setter
     def mechanisms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mechanisms", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mongoUserDefinitionId")
-    def mongo_user_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID for the User Definition {dbName.userName}.
-        """
-        return pulumi.get(self, "mongo_user_definition_id")
-
-    @mongo_user_definition_id.setter
-    def mongo_user_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mongo_user_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -258,6 +257,8 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
             __props__.__dict__["custom_data"] = custom_data
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["mechanisms"] = mechanisms
+            if mongo_user_definition_id is None and not opts.urn:
+                raise TypeError("Missing required property 'mongo_user_definition_id'")
             __props__.__dict__["mongo_user_definition_id"] = mongo_user_definition_id
             __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:

@@ -30,6 +30,7 @@ class ContentTemplateArgs:
                  package_version: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['MetadataSourceArgs'],
+                 template_id: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  author: pulumi.Input[Optional['MetadataAuthorArgs']] = None,
@@ -47,7 +48,6 @@ class ContentTemplateArgs:
                  preview_images_dark: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  support: pulumi.Input[Optional['MetadataSupportArgs']] = None,
-                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
                  threat_analysis_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  threat_analysis_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -61,6 +61,7 @@ class ContentTemplateArgs:
         :param pulumi.Input[_builtins.str] package_version: Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['MetadataSourceArgs'] source: Source of the content.  This is where/how it was created.
+        :param pulumi.Input[_builtins.str] template_id: template Id
         :param pulumi.Input[_builtins.str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['MetadataAuthorArgs'] author: The creator of the content item.
@@ -78,7 +79,6 @@ class ContentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_images_dark: preview image file names. These will be taken from the solution artifacts. used for dark theme support
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] providers: Providers for the content item
         :param pulumi.Input['MetadataSupportArgs'] support: Support information for the template - type, name, contact information
-        :param pulumi.Input[_builtins.str] template_id: template Id
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] threat_analysis_tactics: the tactics the resource covers
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] threat_analysis_techniques: the techniques the resource covers, these have to be aligned with the tactics being used
         """
@@ -90,6 +90,7 @@ class ContentTemplateArgs:
         pulumi.set(__self__, "package_version", package_version)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "template_id", template_id)
         pulumi.set(__self__, "version", version)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if author is not None:
@@ -122,8 +123,6 @@ class ContentTemplateArgs:
             pulumi.set(__self__, "providers", providers)
         if support is not None:
             pulumi.set(__self__, "support", support)
-        if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
         if threat_analysis_tactics is not None:
             pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
         if threat_analysis_techniques is not None:
@@ -224,6 +223,18 @@ class ContentTemplateArgs:
     @source.setter
     def source(self, value: pulumi.Input['MetadataSourceArgs']):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        template Id
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "template_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -430,18 +441,6 @@ class ContentTemplateArgs:
         pulumi.set(self, "support", value)
 
     @_builtins.property
-    @pulumi.getter(name="templateId")
-    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        template Id
-        """
-        return pulumi.get(self, "template_id")
-
-    @template_id.setter
-    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "template_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="threatAnalysisTactics")
     def threat_analysis_tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -645,6 +644,8 @@ class ContentTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["support"] = support
+            if template_id is None and not opts.urn:
+                raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["threat_analysis_tactics"] = threat_analysis_tactics
             __props__.__dict__["threat_analysis_techniques"] = threat_analysis_techniques

@@ -22,20 +22,20 @@ __all__ = ['AutoUpgradeProfileArgs', 'AutoUpgradeProfile']
 @pulumi.input_type
 class AutoUpgradeProfileArgs:
     def __init__(__self__, *,
+                 auto_upgrade_profile_name: pulumi.Input[_builtins.str],
                  channel: pulumi.Input[Union[_builtins.str, 'UpgradeChannel']],
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_upgrade_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  node_image_selection: pulumi.Input[Optional['AutoUpgradeNodeImageSelectionArgs']] = None,
                  update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoUpgradeProfile resource.
 
+        :param pulumi.Input[_builtins.str] auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.
         :param pulumi.Input[Union[_builtins.str, 'UpgradeChannel']] channel: Configures how auto-upgrade will be run.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.
         :param pulumi.Input[_builtins.bool] disabled: If set to False: the auto upgrade has effect - target managed clusters will be upgraded on schedule.
                If set to True: the auto upgrade has no effect - no upgrade will be run on the target managed clusters.
                This is a boolean and not an enum because enabled/disabled are all available states of the auto upgrade profile.
@@ -43,17 +43,28 @@ class AutoUpgradeProfileArgs:
         :param pulumi.Input['AutoUpgradeNodeImageSelectionArgs'] node_image_selection: The node image upgrade to be applied to the target clusters in auto upgrade.
         :param pulumi.Input[_builtins.str] update_strategy_id: The resource id of the UpdateStrategy resource to reference. If not specified, the auto upgrade will run on all clusters which are members of the fleet.
         """
+        pulumi.set(__self__, "auto_upgrade_profile_name", auto_upgrade_profile_name)
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if auto_upgrade_profile_name is not None:
-            pulumi.set(__self__, "auto_upgrade_profile_name", auto_upgrade_profile_name)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if node_image_selection is not None:
             pulumi.set(__self__, "node_image_selection", node_image_selection)
         if update_strategy_id is not None:
             pulumi.set(__self__, "update_strategy_id", update_strategy_id)
+
+    @_builtins.property
+    @pulumi.getter(name="autoUpgradeProfileName")
+    def auto_upgrade_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the AutoUpgradeProfile resource.
+        """
+        return pulumi.get(self, "auto_upgrade_profile_name")
+
+    @auto_upgrade_profile_name.setter
+    def auto_upgrade_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "auto_upgrade_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -90,18 +101,6 @@ class AutoUpgradeProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="autoUpgradeProfileName")
-    def auto_upgrade_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the AutoUpgradeProfile resource.
-        """
-        return pulumi.get(self, "auto_upgrade_profile_name")
-
-    @auto_upgrade_profile_name.setter
-    def auto_upgrade_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "auto_upgrade_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -223,6 +222,8 @@ class AutoUpgradeProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutoUpgradeProfileArgs.__new__(AutoUpgradeProfileArgs)
 
+            if auto_upgrade_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'auto_upgrade_profile_name'")
             __props__.__dict__["auto_upgrade_profile_name"] = auto_upgrade_profile_name
             if channel is None and not opts.urn:
                 raise TypeError("Missing required property 'channel'")

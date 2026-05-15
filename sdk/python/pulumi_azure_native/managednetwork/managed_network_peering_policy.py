@@ -23,25 +23,24 @@ __all__ = ['ManagedNetworkPeeringPolicyArgs', 'ManagedNetworkPeeringPolicy']
 class ManagedNetworkPeeringPolicyArgs:
     def __init__(__self__, *,
                  managed_network_name: pulumi.Input[_builtins.str],
+                 managed_network_peering_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network_peering_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ManagedNetworkPeeringPolicyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagedNetworkPeeringPolicy resource.
 
         :param pulumi.Input[_builtins.str] managed_network_name: The name of the Managed Network.
+        :param pulumi.Input[_builtins.str] managed_network_peering_policy_name: The name of the Managed Network Peering Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] managed_network_peering_policy_name: The name of the Managed Network Peering Policy.
         :param pulumi.Input['ManagedNetworkPeeringPolicyPropertiesArgs'] properties: Gets or sets the properties of a Managed Network Policy
         """
         pulumi.set(__self__, "managed_network_name", managed_network_name)
+        pulumi.set(__self__, "managed_network_peering_policy_name", managed_network_peering_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_network_peering_policy_name is not None:
-            pulumi.set(__self__, "managed_network_peering_policy_name", managed_network_peering_policy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -56,6 +55,18 @@ class ManagedNetworkPeeringPolicyArgs:
     @managed_network_name.setter
     def managed_network_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "managed_network_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetworkPeeringPolicyName")
+    def managed_network_peering_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Managed Network Peering Policy.
+        """
+        return pulumi.get(self, "managed_network_peering_policy_name")
+
+    @managed_network_peering_policy_name.setter
+    def managed_network_peering_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "managed_network_peering_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class ManagedNetworkPeeringPolicyArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedNetworkPeeringPolicyName")
-    def managed_network_peering_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Managed Network Peering Policy.
-        """
-        return pulumi.get(self, "managed_network_peering_policy_name")
-
-    @managed_network_peering_policy_name.setter
-    def managed_network_peering_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_network_peering_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
             if managed_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_name'")
             __props__.__dict__["managed_network_name"] = managed_network_name
+            if managed_network_peering_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'managed_network_peering_policy_name'")
             __props__.__dict__["managed_network_peering_policy_name"] = managed_network_peering_policy_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

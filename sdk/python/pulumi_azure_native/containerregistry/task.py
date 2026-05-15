@@ -24,6 +24,7 @@ class TaskArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 task_name: pulumi.Input[_builtins.str],
                  agent_configuration: pulumi.Input[Optional['AgentPropertiesArgs']] = None,
                  agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional['CredentialsArgs']] = None,
@@ -35,7 +36,6 @@ class TaskArgs:
                  status: pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]] = None,
                  step: pulumi.Input[Optional[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 task_name: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  trigger: pulumi.Input[Optional['TriggerPropertiesArgs']] = None):
         """
@@ -43,6 +43,7 @@ class TaskArgs:
 
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[_builtins.str] task_name: The name of the container registry task.
         :param pulumi.Input['AgentPropertiesArgs'] agent_configuration: The machine configuration of the run agent.
         :param pulumi.Input[_builtins.str] agent_pool_name: The dedicated agent pool for the task.
         :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
@@ -54,12 +55,12 @@ class TaskArgs:
         :param pulumi.Input[Union[_builtins.str, 'TaskStatus']] status: The current status of task.
         :param pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
-        :param pulumi.Input[_builtins.str] task_name: The name of the container registry task.
         :param pulumi.Input[_builtins.int] timeout: Run timeout in seconds.
         :param pulumi.Input['TriggerPropertiesArgs'] trigger: The properties that describe all triggers for the task.
         """
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "task_name", task_name)
         if agent_configuration is not None:
             pulumi.set(__self__, "agent_configuration", agent_configuration)
         if agent_pool_name is not None:
@@ -84,8 +85,6 @@ class TaskArgs:
             pulumi.set(__self__, "step", step)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if task_name is not None:
-            pulumi.set(__self__, "task_name", task_name)
         if timeout is None:
             timeout = 3600
         if timeout is not None:
@@ -116,6 +115,18 @@ class TaskArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskName")
+    def task_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the container registry task.
+        """
+        return pulumi.get(self, "task_name")
+
+    @task_name.setter
+    def task_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "task_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentConfiguration")
@@ -248,18 +259,6 @@ class TaskArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskName")
-    def task_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the container registry task.
-        """
-        return pulumi.get(self, "task_name")
-
-    @task_name.setter
-    def task_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "task_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -411,6 +410,8 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["step"] = step
             __props__.__dict__["tags"] = tags
+            if task_name is None and not opts.urn:
+                raise TypeError("Missing required property 'task_name'")
             __props__.__dict__["task_name"] = task_name
             if timeout is None:
                 timeout = 3600

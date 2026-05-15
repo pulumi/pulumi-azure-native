@@ -23,27 +23,26 @@ class ShareSubscriptionArgs:
                  account_name: pulumi.Input[_builtins.str],
                  invitation_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 share_subscription_name: pulumi.Input[_builtins.str],
                  source_share_location: pulumi.Input[_builtins.str],
-                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareSubscription resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] invitation_id: The invitation id.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] share_subscription_name: The name of the shareSubscription.
         :param pulumi.Input[_builtins.str] source_share_location: Source share location.
         :param pulumi.Input[_builtins.str] expiration_date: The expiration date of the share subscription.
-        :param pulumi.Input[_builtins.str] share_subscription_name: The name of the shareSubscription.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "invitation_id", invitation_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
         pulumi.set(__self__, "source_share_location", source_share_location)
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
-        if share_subscription_name is not None:
-            pulumi.set(__self__, "share_subscription_name", share_subscription_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -82,6 +81,18 @@ class ShareSubscriptionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareSubscriptionName")
+    def share_subscription_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the shareSubscription.
+        """
+        return pulumi.get(self, "share_subscription_name")
+
+    @share_subscription_name.setter
+    def share_subscription_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "share_subscription_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="sourceShareLocation")
     def source_share_location(self) -> pulumi.Input[_builtins.str]:
         """
@@ -104,18 +115,6 @@ class ShareSubscriptionArgs:
     @expiration_date.setter
     def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
-
-    @_builtins.property
-    @pulumi.getter(name="shareSubscriptionName")
-    def share_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the shareSubscription.
-        """
-        return pulumi.get(self, "share_subscription_name")
-
-    @share_subscription_name.setter
-    def share_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "share_subscription_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:ShareSubscription")
@@ -198,6 +197,8 @@ class ShareSubscription(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if share_subscription_name is None and not opts.urn:
+                raise TypeError("Missing required property 'share_subscription_name'")
             __props__.__dict__["share_subscription_name"] = share_subscription_name
             if source_share_location is None and not opts.urn:
                 raise TypeError("Missing required property 'source_share_location'")

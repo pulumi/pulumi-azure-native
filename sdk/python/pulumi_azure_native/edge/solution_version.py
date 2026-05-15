@@ -24,29 +24,28 @@ class SolutionVersionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  solution_name: pulumi.Input[_builtins.str],
+                 solution_version_name: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 properties: pulumi.Input[Optional['SolutionVersionPropertiesArgs']] = None,
-                 solution_version_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['SolutionVersionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a SolutionVersion resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] solution_name: Name of the solution
+        :param pulumi.Input[_builtins.str] solution_version_name: Name of the solution version
         :param pulumi.Input[_builtins.str] target_name: Name of the target
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['SolutionVersionPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] solution_version_name: Name of the solution version
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "solution_name", solution_name)
+        pulumi.set(__self__, "solution_version_name", solution_version_name)
         pulumi.set(__self__, "target_name", target_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if solution_version_name is not None:
-            pulumi.set(__self__, "solution_version_name", solution_version_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,6 +70,18 @@ class SolutionVersionArgs:
     @solution_name.setter
     def solution_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "solution_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionVersionName")
+    def solution_version_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the solution version
+        """
+        return pulumi.get(self, "solution_version_name")
+
+    @solution_version_name.setter
+    def solution_version_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
@@ -107,18 +118,6 @@ class SolutionVersionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SolutionVersionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionVersionName")
-    def solution_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the solution version
-        """
-        return pulumi.get(self, "solution_version_name")
-
-    @solution_version_name.setter
-    def solution_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_version_name", value)
 
 
 @pulumi.type_token("azure-native:edge:SolutionVersion")
@@ -203,6 +202,8 @@ class SolutionVersion(pulumi.CustomResource):
             if solution_name is None and not opts.urn:
                 raise TypeError("Missing required property 'solution_name'")
             __props__.__dict__["solution_name"] = solution_name
+            if solution_version_name is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_version_name'")
             __props__.__dict__["solution_version_name"] = solution_version_name
             if target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_name'")

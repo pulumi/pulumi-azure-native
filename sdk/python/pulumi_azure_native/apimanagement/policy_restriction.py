@@ -20,30 +20,41 @@ __all__ = ['PolicyRestrictionArgs', 'PolicyRestriction']
 @pulumi.input_type
 class PolicyRestrictionArgs:
     def __init__(__self__, *,
+                 policy_restriction_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 policy_restriction_id: pulumi.Input[Optional[_builtins.str]] = None,
                  require_base: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyRestriction resource.
 
+        :param pulumi.Input[_builtins.str] policy_restriction_id: Policy restrictions after an entity level
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] policy_restriction_id: Policy restrictions after an entity level
         :param pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']] require_base: Indicates if base policy should be enforced for the policy document.
         :param pulumi.Input[_builtins.str] scope: Path to the policy document.
         """
+        pulumi.set(__self__, "policy_restriction_id", policy_restriction_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if policy_restriction_id is not None:
-            pulumi.set(__self__, "policy_restriction_id", policy_restriction_id)
         if require_base is None:
             require_base = 'false'
         if require_base is not None:
             pulumi.set(__self__, "require_base", require_base)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter(name="policyRestrictionId")
+    def policy_restriction_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Policy restrictions after an entity level
+        """
+        return pulumi.get(self, "policy_restriction_id")
+
+    @policy_restriction_id.setter
+    def policy_restriction_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_restriction_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +79,6 @@ class PolicyRestrictionArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyRestrictionId")
-    def policy_restriction_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Policy restrictions after an entity level
-        """
-        return pulumi.get(self, "policy_restriction_id")
-
-    @policy_restriction_id.setter
-    def policy_restriction_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_restriction_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requireBase")
@@ -177,6 +176,8 @@ class PolicyRestriction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyRestrictionArgs.__new__(PolicyRestrictionArgs)
 
+            if policy_restriction_id is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_restriction_id'")
             __props__.__dict__["policy_restriction_id"] = policy_restriction_id
             if require_base is None:
                 require_base = 'false'

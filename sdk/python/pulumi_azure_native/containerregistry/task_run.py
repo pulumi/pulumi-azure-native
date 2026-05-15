@@ -24,24 +24,25 @@ class TaskRunArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 task_run_name: pulumi.Input[_builtins.str],
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 run_request: pulumi.Input[Optional[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']]] = None,
-                 task_run_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 run_request: pulumi.Input[Optional[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']]] = None):
         """
         The set of arguments for constructing a TaskRun resource.
 
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[_builtins.str] task_run_name: The name of the task run.
         :param pulumi.Input[_builtins.str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The location of the resource
         :param pulumi.Input[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']] run_request: The request (parameters) for the run
-        :param pulumi.Input[_builtins.str] task_run_name: The name of the task run.
         """
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "task_run_name", task_run_name)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if identity is not None:
@@ -50,8 +51,6 @@ class TaskRunArgs:
             pulumi.set(__self__, "location", location)
         if run_request is not None:
             pulumi.set(__self__, "run_request", run_request)
-        if task_run_name is not None:
-            pulumi.set(__self__, "task_run_name", task_run_name)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -76,6 +75,18 @@ class TaskRunArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskRunName")
+    def task_run_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the task run.
+        """
+        return pulumi.get(self, "task_run_name")
+
+    @task_run_name.setter
+    def task_run_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "task_run_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
@@ -124,18 +135,6 @@ class TaskRunArgs:
     @run_request.setter
     def run_request(self, value: pulumi.Input[Optional[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']]]):
         pulumi.set(self, "run_request", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskRunName")
-    def task_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the task run.
-        """
-        return pulumi.get(self, "task_run_name")
-
-    @task_run_name.setter
-    def task_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "task_run_name", value)
 
 
 @pulumi.type_token("azure-native:containerregistry:TaskRun")
@@ -227,6 +226,8 @@ class TaskRun(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["run_request"] = run_request
+            if task_run_name is None and not opts.urn:
+                raise TypeError("Missing required property 'task_run_name'")
             __props__.__dict__["task_run_name"] = task_run_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

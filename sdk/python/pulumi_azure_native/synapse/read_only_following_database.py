@@ -20,35 +20,46 @@ __all__ = ['ReadOnlyFollowingDatabaseArgs', 'ReadOnlyFollowingDatabase']
 @pulumi.input_type
 class ReadOnlyFollowingDatabaseArgs:
     def __init__(__self__, *,
+                 database_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  kusto_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hot_cache_period: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReadOnlyFollowingDatabase resource.
 
+        :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[_builtins.str] location: Resource location.
         """
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "kind", 'ReadOnlyFollowing')
         pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
         if hot_cache_period is not None:
             pulumi.set(__self__, "hot_cache_period", hot_cache_period)
         if location is not None:
             pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database in the Kusto pool.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -98,18 +109,6 @@ class ReadOnlyFollowingDatabaseArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the database in the Kusto pool.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hotCachePeriod")
@@ -210,6 +209,8 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReadOnlyFollowingDatabaseArgs.__new__(ReadOnlyFollowingDatabaseArgs)
 
+            if database_name is None and not opts.urn:
+                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["hot_cache_period"] = hot_cache_period
             if kind is None and not opts.urn:

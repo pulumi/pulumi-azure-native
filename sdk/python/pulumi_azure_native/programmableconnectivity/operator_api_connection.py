@@ -24,13 +24,13 @@ class OperatorApiConnectionArgs:
     def __init__(__self__, *,
                  account_type: pulumi.Input[Union[_builtins.str, 'AccountType']],
                  gateway_id: pulumi.Input[_builtins.str],
+                 operator_api_connection_name: pulumi.Input[_builtins.str],
                  operator_api_plan_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  configured_application: pulumi.Input[Optional['ApplicationPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 operator_api_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  saas_properties: pulumi.Input[Optional['SaasPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -38,18 +38,19 @@ class OperatorApiConnectionArgs:
 
         :param pulumi.Input[Union[_builtins.str, 'AccountType']] account_type: Type of the account the user has with the Operator's Network API infrastructure. AzureManaged | UserManaged.
         :param pulumi.Input[_builtins.str] gateway_id: Reference to the APC Gateway resource ID.
+        :param pulumi.Input[_builtins.str] operator_api_connection_name: Azure Programmable Connectivity (APC) Operator API Connection Name.
         :param pulumi.Input[_builtins.str] operator_api_plan_id: Reference to the Operator API Plan Resource ID.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] app_id: Application ID of the App Developer that is registered with the Operator in a specific country/region.
         :param pulumi.Input[_builtins.str] app_secret: Application secret linked to the 'appId'. This should be stored securely and is not returned back when the resource information is read.
         :param pulumi.Input['ApplicationPropertiesArgs'] configured_application: Details about the Application that would use the Operator's Network APIs.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] operator_api_connection_name: Azure Programmable Connectivity (APC) Operator API Connection Name.
         :param pulumi.Input['SaasPropertiesArgs'] saas_properties: Details about the SaaS offer purchased from the marketplace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_type", account_type)
         pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "operator_api_connection_name", operator_api_connection_name)
         pulumi.set(__self__, "operator_api_plan_id", operator_api_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_id is not None:
@@ -60,8 +61,6 @@ class OperatorApiConnectionArgs:
             pulumi.set(__self__, "configured_application", configured_application)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if operator_api_connection_name is not None:
-            pulumi.set(__self__, "operator_api_connection_name", operator_api_connection_name)
         if saas_properties is not None:
             pulumi.set(__self__, "saas_properties", saas_properties)
         if tags is not None:
@@ -90,6 +89,18 @@ class OperatorApiConnectionArgs:
     @gateway_id.setter
     def gateway_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "gateway_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operatorApiConnectionName")
+    def operator_api_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure Programmable Connectivity (APC) Operator API Connection Name.
+        """
+        return pulumi.get(self, "operator_api_connection_name")
+
+    @operator_api_connection_name.setter
+    def operator_api_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator_api_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorApiPlanId")
@@ -162,18 +173,6 @@ class OperatorApiConnectionArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="operatorApiConnectionName")
-    def operator_api_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Azure Programmable Connectivity (APC) Operator API Connection Name.
-        """
-        return pulumi.get(self, "operator_api_connection_name")
-
-    @operator_api_connection_name.setter
-    def operator_api_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "operator_api_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="saasProperties")
@@ -299,6 +298,8 @@ class OperatorApiConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gateway_id'")
             __props__.__dict__["gateway_id"] = gateway_id
             __props__.__dict__["location"] = location
+            if operator_api_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'operator_api_connection_name'")
             __props__.__dict__["operator_api_connection_name"] = operator_api_connection_name
             if operator_api_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operator_api_plan_id'")

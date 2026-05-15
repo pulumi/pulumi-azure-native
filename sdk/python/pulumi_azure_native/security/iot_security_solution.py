@@ -25,12 +25,12 @@ class IotSecuritySolutionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  iot_hubs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 solution_name: pulumi.Input[_builtins.str],
                  additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalWorkspacesPropertiesArgs']]]] = None,
                  disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DataSource']]]]] = None,
                  export: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExportData']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  recommendations_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]] = None,
-                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'SecuritySolutionStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  unmasked_ip_logging_status: pulumi.Input[Optional[Union[_builtins.str, 'UnmaskedIpLoggingStatus']]] = None,
@@ -42,12 +42,12 @@ class IotSecuritySolutionArgs:
         :param pulumi.Input[_builtins.str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalWorkspacesPropertiesArgs']]] additional_workspaces: List of additional workspaces
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]] recommendations_configuration: List of the configuration status for each recommendation type.
-        :param pulumi.Input[_builtins.str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[Union[_builtins.str, 'SecuritySolutionStatus']] status: Status of the IoT Security solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[Union[_builtins.str, 'UnmaskedIpLoggingStatus']] unmasked_ip_logging_status: Unmasked IP address logging status
@@ -57,6 +57,7 @@ class IotSecuritySolutionArgs:
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "iot_hubs", iot_hubs)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "solution_name", solution_name)
         if additional_workspaces is not None:
             pulumi.set(__self__, "additional_workspaces", additional_workspaces)
         if disabled_data_sources is not None:
@@ -67,8 +68,6 @@ class IotSecuritySolutionArgs:
             pulumi.set(__self__, "location", location)
         if recommendations_configuration is not None:
             pulumi.set(__self__, "recommendations_configuration", recommendations_configuration)
-        if solution_name is not None:
-            pulumi.set(__self__, "solution_name", solution_name)
         if status is None:
             status = 'Enabled'
         if status is not None:
@@ -119,6 +118,18 @@ class IotSecuritySolutionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionName")
+    def solution_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the IoT Security solution.
+        """
+        return pulumi.get(self, "solution_name")
+
+    @solution_name.setter
+    def solution_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_name", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalWorkspaces")
@@ -179,18 +190,6 @@ class IotSecuritySolutionArgs:
     @recommendations_configuration.setter
     def recommendations_configuration(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]]):
         pulumi.set(self, "recommendations_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionName")
-    def solution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the IoT Security solution.
-        """
-        return pulumi.get(self, "solution_name")
-
-    @solution_name.setter
-    def solution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -365,6 +364,8 @@ class IotSecuritySolution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if solution_name is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_name'")
             __props__.__dict__["solution_name"] = solution_name
             if status is None:
                 status = 'Enabled'

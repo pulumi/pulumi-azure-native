@@ -21,20 +21,31 @@ __all__ = ['UserSolutionArgs', 'UserSolution']
 @pulumi.input_type
 class UserSolutionArgs:
     def __init__(__self__, *,
+                 solution_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 products: pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]] = None,
-                 solution_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 products: pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]] = None):
         """
         The set of arguments for constructing a UserSolution resource.
 
         :param pulumi.Input[_builtins.str] solution_id: The solution id
         """
+        pulumi.set(__self__, "solution_id", solution_id)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if products is not None:
             pulumi.set(__self__, "products", products)
-        if solution_id is not None:
-            pulumi.set(__self__, "solution_id", solution_id)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionId")
+    def solution_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The solution id
+        """
+        return pulumi.get(self, "solution_id")
+
+    @solution_id.setter
+    def solution_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -53,18 +64,6 @@ class UserSolutionArgs:
     @products.setter
     def products(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]]):
         pulumi.set(self, "products", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionId")
-    def solution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The solution id
-        """
-        return pulumi.get(self, "solution_id")
-
-    @solution_id.setter
-    def solution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_id", value)
 
 
 @pulumi.type_token("azure-native:marketplace:UserSolution")
@@ -91,7 +90,7 @@ class UserSolution(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[UserSolutionArgs] = None,
+                 args: UserSolutionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Solution data structure
@@ -128,6 +127,8 @@ class UserSolution(pulumi.CustomResource):
 
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["products"] = products
+            if solution_id is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_id'")
             __props__.__dict__["solution_id"] = solution_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

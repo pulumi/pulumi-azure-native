@@ -20,17 +20,28 @@ __all__ = ['GuestSubscriptionArgs', 'GuestSubscription']
 @pulumi.input_type
 class GuestSubscriptionArgs:
     def __init__(__self__, *,
-                 location: pulumi.Input[_builtins.str],
-                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 guest_subscription_id: pulumi.Input[_builtins.str],
+                 location: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GuestSubscription resource.
 
-        :param pulumi.Input[_builtins.str] location: The name of the Azure region.
         :param pulumi.Input[_builtins.str] guest_subscription_id: The name of the GuestSubscription
+        :param pulumi.Input[_builtins.str] location: The name of the Azure region.
         """
+        pulumi.set(__self__, "guest_subscription_id", guest_subscription_id)
         pulumi.set(__self__, "location", location)
-        if guest_subscription_id is not None:
-            pulumi.set(__self__, "guest_subscription_id", guest_subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="guestSubscriptionId")
+    def guest_subscription_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the GuestSubscription
+        """
+        return pulumi.get(self, "guest_subscription_id")
+
+    @guest_subscription_id.setter
+    def guest_subscription_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "guest_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -43,18 +54,6 @@ class GuestSubscriptionArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="guestSubscriptionId")
-    def guest_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the GuestSubscription
-        """
-        return pulumi.get(self, "guest_subscription_id")
-
-    @guest_subscription_id.setter
-    def guest_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "guest_subscription_id", value)
 
 
 @pulumi.type_token("azure-native:computelimit:GuestSubscription")
@@ -115,6 +114,8 @@ class GuestSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GuestSubscriptionArgs.__new__(GuestSubscriptionArgs)
 
+            if guest_subscription_id is None and not opts.urn:
+                raise TypeError("Missing required property 'guest_subscription_id'")
             __props__.__dict__["guest_subscription_id"] = guest_subscription_id
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")

@@ -22,12 +22,12 @@ __all__ = ['WebAppAssessmentV2OperationArgs', 'WebAppAssessmentV2Operation']
 @pulumi.input_type
 class WebAppAssessmentV2OperationArgs:
     def __init__(__self__, *,
+                 assessment_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  app_svc_container_settings: pulumi.Input[Optional['AppSvcContainerSettingsArgs']] = None,
                  app_svc_native_settings: pulumi.Input[Optional['AppSvcNativeSettingsArgs']] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
                  azure_location: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_offer_code: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]] = None,
@@ -50,12 +50,12 @@ class WebAppAssessmentV2OperationArgs:
         """
         The set of arguments for constructing a WebAppAssessmentV2Operation resource.
 
+        :param pulumi.Input[_builtins.str] assessment_name: Web app Assessment arm name.
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AppSvcContainerSettingsArgs'] app_svc_container_settings: Gets or sets user configurable app service container database settings.
         :param pulumi.Input['AppSvcNativeSettingsArgs'] app_svc_native_settings: Gets or sets user configurable app service native settings.
-        :param pulumi.Input[_builtins.str] assessment_name: Web app Assessment arm name.
         :param pulumi.Input[Union[_builtins.str, 'AssessmentType']] assessment_type: Assessment type of the assessment.
         :param pulumi.Input[_builtins.str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param pulumi.Input[Union[_builtins.str, 'AzureOfferCode']] azure_offer_code: Azure Offer Code.
@@ -80,6 +80,7 @@ class WebAppAssessmentV2OperationArgs:
         :param pulumi.Input[Union[_builtins.str, 'TimeRange']] time_range: Time Range for which the historic utilization data should be considered for
                assessment.
         """
+        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -87,8 +88,6 @@ class WebAppAssessmentV2OperationArgs:
             pulumi.set(__self__, "app_svc_container_settings", app_svc_container_settings)
         if app_svc_native_settings is not None:
             pulumi.set(__self__, "app_svc_native_settings", app_svc_native_settings)
-        if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
         if assessment_type is not None:
             pulumi.set(__self__, "assessment_type", assessment_type)
         if azure_location is not None:
@@ -127,6 +126,18 @@ class WebAppAssessmentV2OperationArgs:
             pulumi.set(__self__, "sizing_criterion", sizing_criterion)
         if time_range is not None:
             pulumi.set(__self__, "time_range", time_range)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Web app Assessment arm name.
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
@@ -187,18 +198,6 @@ class WebAppAssessmentV2OperationArgs:
     @app_svc_native_settings.setter
     def app_svc_native_settings(self, value: pulumi.Input[Optional['AppSvcNativeSettingsArgs']]):
         pulumi.set(self, "app_svc_native_settings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Web app Assessment arm name.
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentType")
@@ -570,6 +569,8 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
 
             __props__.__dict__["app_svc_container_settings"] = app_svc_container_settings
             __props__.__dict__["app_svc_native_settings"] = app_svc_native_settings
+            if assessment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["assessment_type"] = assessment_type
             __props__.__dict__["azure_location"] = azure_location

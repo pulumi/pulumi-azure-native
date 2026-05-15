@@ -22,32 +22,43 @@ __all__ = ['ACSSBackupConnectionArgs', 'ACSSBackupConnection']
 @pulumi.input_type
 class ACSSBackupConnectionArgs:
     def __init__(__self__, *,
+                 backup_name: pulumi.Input[_builtins.str],
                  connector_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backup_data: pulumi.Input[Optional[Union['HanaBackupDataArgs', 'SqlBackupDataArgs', 'VMBackupDataArgs']]] = None,
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ACSSBackupConnection resource.
 
+        :param pulumi.Input[_builtins.str] backup_name: The name of the backup connection resource of virtual instance for SAP.
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['HanaBackupDataArgs', 'SqlBackupDataArgs', 'VMBackupDataArgs']] backup_data: Information about the recovery services vault and backup policy used for backup.
-        :param pulumi.Input[_builtins.str] backup_name: The name of the backup connection resource of virtual instance for SAP.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "backup_name", backup_name)
         pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backup_data is not None:
             pulumi.set(__self__, "backup_data", backup_data)
-        if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the backup connection resource of virtual instance for SAP.
+        """
+        return pulumi.get(self, "backup_name")
+
+    @backup_name.setter
+    def backup_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
@@ -84,18 +95,6 @@ class ACSSBackupConnectionArgs:
     @backup_data.setter
     def backup_data(self, value: pulumi.Input[Optional[Union['HanaBackupDataArgs', 'SqlBackupDataArgs', 'VMBackupDataArgs']]]):
         pulumi.set(self, "backup_data", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backupName")
-    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the backup connection resource of virtual instance for SAP.
-        """
-        return pulumi.get(self, "backup_name")
-
-    @backup_name.setter
-    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +192,8 @@ class ACSSBackupConnection(pulumi.CustomResource):
             __props__ = ACSSBackupConnectionArgs.__new__(ACSSBackupConnectionArgs)
 
             __props__.__dict__["backup_data"] = backup_data
+            if backup_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_name'")
             __props__.__dict__["backup_name"] = backup_name
             if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")

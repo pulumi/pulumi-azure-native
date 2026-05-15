@@ -23,10 +23,10 @@ __all__ = ['JobAgentArgs', 'JobAgent']
 class JobAgentArgs:
     def __init__(__self__, *,
                  database_id: pulumi.Input[_builtins.str],
+                 job_agent_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['JobAgentIdentityArgs']] = None,
-                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,21 +34,20 @@ class JobAgentArgs:
         The set of arguments for constructing a JobAgent resource.
 
         :param pulumi.Input[_builtins.str] database_id: Resource ID of the database to store job metadata in.
+        :param pulumi.Input[_builtins.str] job_agent_name: The name of the job agent to be created or updated.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['JobAgentIdentityArgs'] identity: The identity of the job agent.
-        :param pulumi.Input[_builtins.str] job_agent_name: The name of the job agent to be created or updated.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['SkuArgs'] sku: The name and tier of the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "database_id", database_id)
+        pulumi.set(__self__, "job_agent_name", job_agent_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if job_agent_name is not None:
-            pulumi.set(__self__, "job_agent_name", job_agent_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -67,6 +66,18 @@ class JobAgentArgs:
     @database_id.setter
     def database_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobAgentName")
+    def job_agent_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the job agent to be created or updated.
+        """
+        return pulumi.get(self, "job_agent_name")
+
+    @job_agent_name.setter
+    def job_agent_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,18 +114,6 @@ class JobAgentArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['JobAgentIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobAgentName")
-    def job_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the job agent to be created or updated.
-        """
-        return pulumi.get(self, "job_agent_name")
-
-    @job_agent_name.setter
-    def job_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "job_agent_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,6 +236,8 @@ class JobAgent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_id'")
             __props__.__dict__["database_id"] = database_id
             __props__.__dict__["identity"] = identity
+            if job_agent_name is None and not opts.urn:
+                raise TypeError("Missing required property 'job_agent_name'")
             __props__.__dict__["job_agent_name"] = job_agent_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

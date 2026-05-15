@@ -23,10 +23,10 @@ __all__ = ['GatewayArgs', 'Gateway']
 class GatewayArgs:
     def __init__(__self__, *,
                  destination_network: pulumi.Input['NetworkRefArgs'],
+                 gateway_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_network: pulumi.Input['NetworkRefArgs'],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 gateway_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  http: pulumi.Input[Optional[Sequence[pulumi.Input['HttpConfigArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -35,22 +35,21 @@ class GatewayArgs:
         The set of arguments for constructing a Gateway resource.
 
         :param pulumi.Input['NetworkRefArgs'] destination_network: Network that the Application is using.
+        :param pulumi.Input[_builtins.str] gateway_resource_name: The identity of the gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
         :param pulumi.Input['NetworkRefArgs'] source_network: Network the gateway should listen on for requests.
         :param pulumi.Input[_builtins.str] description: User readable description of the gateway.
-        :param pulumi.Input[_builtins.str] gateway_resource_name: The identity of the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['HttpConfigArgs']]] http: Configuration for http connectivity for this gateway.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]] tcp: Configuration for tcp connectivity for this gateway.
         """
         pulumi.set(__self__, "destination_network", destination_network)
+        pulumi.set(__self__, "gateway_resource_name", gateway_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_network", source_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if gateway_resource_name is not None:
-            pulumi.set(__self__, "gateway_resource_name", gateway_resource_name)
         if http is not None:
             pulumi.set(__self__, "http", http)
         if location is not None:
@@ -71,6 +70,18 @@ class GatewayArgs:
     @destination_network.setter
     def destination_network(self, value: pulumi.Input['NetworkRefArgs']):
         pulumi.set(self, "destination_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayResourceName")
+    def gateway_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identity of the gateway.
+        """
+        return pulumi.get(self, "gateway_resource_name")
+
+    @gateway_resource_name.setter
+    def gateway_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gateway_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -107,18 +118,6 @@ class GatewayArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayResourceName")
-    def gateway_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The identity of the gateway.
-        """
-        return pulumi.get(self, "gateway_resource_name")
-
-    @gateway_resource_name.setter
-    def gateway_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gateway_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -252,6 +251,8 @@ class Gateway(pulumi.CustomResource):
             if destination_network is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_network'")
             __props__.__dict__["destination_network"] = destination_network
+            if gateway_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_resource_name'")
             __props__.__dict__["gateway_resource_name"] = gateway_resource_name
             __props__.__dict__["http"] = http
             __props__.__dict__["location"] = location

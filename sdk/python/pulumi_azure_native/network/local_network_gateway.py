@@ -21,28 +21,29 @@ __all__ = ['LocalNetworkGatewayInitArgs', 'LocalNetworkGateway']
 @pulumi.input_type
 class LocalNetworkGatewayInitArgs:
     def __init__(__self__, *,
+                 local_network_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  bgp_settings: pulumi.Input[Optional['BgpSettingsArgs']] = None,
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  local_network_address_space: pulumi.Input[Optional['AddressSpaceArgs']] = None,
-                 local_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalNetworkGateway resource.
 
+        :param pulumi.Input[_builtins.str] local_network_gateway_name: The name of the local network gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[_builtins.str] fqdn: FQDN of local network gateway.
         :param pulumi.Input[_builtins.str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input['AddressSpaceArgs'] local_network_address_space: Local network site address space.
-        :param pulumi.Input[_builtins.str] local_network_gateway_name: The name of the local network gateway.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "local_network_gateway_name", local_network_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -54,12 +55,22 @@ class LocalNetworkGatewayInitArgs:
             pulumi.set(__self__, "id", id)
         if local_network_address_space is not None:
             pulumi.set(__self__, "local_network_address_space", local_network_address_space)
-        if local_network_gateway_name is not None:
-            pulumi.set(__self__, "local_network_gateway_name", local_network_gateway_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="localNetworkGatewayName")
+    def local_network_gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the local network gateway.
+        """
+        return pulumi.get(self, "local_network_gateway_name")
+
+    @local_network_gateway_name.setter
+    def local_network_gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "local_network_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -132,18 +143,6 @@ class LocalNetworkGatewayInitArgs:
     @local_network_address_space.setter
     def local_network_address_space(self, value: pulumi.Input[Optional['AddressSpaceArgs']]):
         pulumi.set(self, "local_network_address_space", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localNetworkGatewayName")
-    def local_network_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the local network gateway.
-        """
-        return pulumi.get(self, "local_network_gateway_name")
-
-    @local_network_gateway_name.setter
-    def local_network_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "local_network_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -258,6 +257,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["gateway_ip_address"] = gateway_ip_address
             __props__.__dict__["id"] = id
             __props__.__dict__["local_network_address_space"] = local_network_address_space
+            if local_network_gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'local_network_gateway_name'")
             __props__.__dict__["local_network_gateway_name"] = local_network_gateway_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

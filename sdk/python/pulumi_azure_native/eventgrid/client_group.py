@@ -20,29 +20,40 @@ __all__ = ['ClientGroupArgs', 'ClientGroup']
 @pulumi.input_type
 class ClientGroupArgs:
     def __init__(__self__, *,
+                 client_group_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 client_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientGroup resource.
 
+        :param pulumi.Input[_builtins.str] client_group_name: The client group name.
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[_builtins.str] client_group_name: The client group name.
         :param pulumi.Input[_builtins.str] description: Description for the Client Group resource.
         :param pulumi.Input[_builtins.str] query: The grouping query for the clients.
                Example : attributes.keyName IN ['a', 'b', 'c'].
         """
+        pulumi.set(__self__, "client_group_name", client_group_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if client_group_name is not None:
-            pulumi.set(__self__, "client_group_name", client_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if query is not None:
             pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="clientGroupName")
+    def client_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The client group name.
+        """
+        return pulumi.get(self, "client_group_name")
+
+    @client_group_name.setter
+    def client_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -67,18 +78,6 @@ class ClientGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientGroupName")
-    def client_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The client group name.
-        """
-        return pulumi.get(self, "client_group_name")
-
-    @client_group_name.setter
-    def client_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "client_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class ClientGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClientGroupArgs.__new__(ClientGroupArgs)
 
+            if client_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'client_group_name'")
             __props__.__dict__["client_group_name"] = client_group_name
             __props__.__dict__["description"] = description
             if namespace_name is None and not opts.urn:

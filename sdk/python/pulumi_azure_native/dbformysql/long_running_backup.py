@@ -21,9 +21,9 @@ __all__ = ['LongRunningBackupArgs', 'LongRunningBackup']
 @pulumi.input_type
 class LongRunningBackupArgs:
     def __init__(__self__, *,
+                 backup_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  backup_name_v2: pulumi.Input[Optional[_builtins.str]] = None,
                  backup_type: pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]] = None,
                  completed_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,17 +31,16 @@ class LongRunningBackupArgs:
         """
         The set of arguments for constructing a LongRunningBackup resource.
 
+        :param pulumi.Input[_builtins.str] backup_name: The name of the backup.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] backup_name: The name of the backup.
         :param pulumi.Input[_builtins.str] backup_name_v2: Backup name
         :param pulumi.Input[_builtins.str] completed_time: Backup completed time (ISO8601 format).
         :param pulumi.Input[_builtins.str] source: Backup source
         """
+        pulumi.set(__self__, "backup_name", backup_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
         if backup_name_v2 is not None:
             pulumi.set(__self__, "backup_name_v2", backup_name_v2)
         if backup_type is not None:
@@ -50,6 +49,18 @@ class LongRunningBackupArgs:
             pulumi.set(__self__, "completed_time", completed_time)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the backup.
+        """
+        return pulumi.get(self, "backup_name")
+
+    @backup_name.setter
+    def backup_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,18 +85,6 @@ class LongRunningBackupArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backupName")
-    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the backup.
-        """
-        return pulumi.get(self, "backup_name")
-
-    @backup_name.setter
-    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupNameV2")
@@ -205,6 +204,8 @@ class LongRunningBackup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LongRunningBackupArgs.__new__(LongRunningBackupArgs)
 
+            if backup_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_name'")
             __props__.__dict__["backup_name"] = backup_name
             __props__.__dict__["backup_name_v2"] = backup_name_v2
             __props__.__dict__["backup_type"] = backup_type

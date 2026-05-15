@@ -22,29 +22,30 @@ __all__ = ['MasterSitesControllerArgs', 'MasterSitesController']
 class MasterSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 site_name: pulumi.Input[_builtins.str],
                  allow_multiple_sites: pulumi.Input[Optional[_builtins.bool]] = None,
                  customer_storage_account_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MasterSitesController resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.bool] allow_multiple_sites: Gets or sets a value indicating whether multiple sites per site type are
                allowed.
         :param pulumi.Input[_builtins.str] customer_storage_account_arm_id: Gets or sets a value for customer storage account ARM id.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']] public_network_access: Gets or sets the state of public network access.
-        :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sites: Gets or sets the sites that are a part of Master Site.
                            The key
                should contain the Site ARM name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_name", site_name)
         if allow_multiple_sites is not None:
             pulumi.set(__self__, "allow_multiple_sites", allow_multiple_sites)
         if customer_storage_account_arm_id is not None:
@@ -53,8 +54,6 @@ class MasterSitesControllerArgs:
             pulumi.set(__self__, "location", location)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
         if tags is not None:
@@ -71,6 +70,18 @@ class MasterSitesControllerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Site name
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMultipleSites")
@@ -120,18 +131,6 @@ class MasterSitesControllerArgs:
     @public_network_access.setter
     def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Site name
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -250,6 +249,8 @@ class MasterSitesController(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["sites"] = sites
             __props__.__dict__["tags"] = tags

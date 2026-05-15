@@ -23,24 +23,25 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 zone_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  resolution_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  zone_type: pulumi.Input[Optional['ZoneType']] = None):
         """
         The set of arguments for constructing a Zone resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "zone_name", zone_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if registration_virtual_networks is not None:
@@ -49,8 +50,6 @@ class ZoneArgs:
             pulumi.set(__self__, "resolution_virtual_networks", resolution_virtual_networks)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
         if zone_type is None:
             zone_type = 'Public'
         if zone_type is not None:
@@ -67,6 +66,18 @@ class ZoneArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zoneName")
+    def zone_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the DNS zone (without a terminating dot).
+        """
+        return pulumi.get(self, "zone_name")
+
+    @zone_name.setter
+    def zone_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "zone_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -115,18 +126,6 @@ class ZoneArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zoneName")
-    def zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the DNS zone (without a terminating dot).
-        """
-        return pulumi.get(self, "zone_name")
-
-    @zone_name.setter
-    def zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "zone_name", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneType")
@@ -225,6 +224,8 @@ class Zone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if zone_name is None and not opts.urn:
+                raise TypeError("Missing required property 'zone_name'")
             __props__.__dict__["zone_name"] = zone_name
             if zone_type is None:
                 zone_type = 'Public'

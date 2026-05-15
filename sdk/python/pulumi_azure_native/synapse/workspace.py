@@ -23,6 +23,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str],
                  azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  csp_workspace_admin_properties: pulumi.Input[Optional['CspWorkspaceAdminPropertiesArgs']] = None,
                  default_data_lake_storage: pulumi.Input[Optional['DataLakeStorageAccountDetailsArgs']] = None,
@@ -40,12 +41,12 @@ class WorkspaceArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trusted_service_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_profile: pulumi.Input[Optional['VirtualNetworkProfileArgs']] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_repository_configuration: pulumi.Input[Optional['WorkspaceRepositoryConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.bool] azure_ad_only_authentication: Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
         :param pulumi.Input['CspWorkspaceAdminPropertiesArgs'] csp_workspace_admin_properties: Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input['DataLakeStorageAccountDetailsArgs'] default_data_lake_storage: Workspace default data lake storage account details
@@ -64,10 +65,10 @@ class WorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] trusted_service_bypass_enabled: Is trustedServiceBypassEnabled for the workspace
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network_profile: Virtual Network profile
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
         if azure_ad_only_authentication is not None:
             pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         if csp_workspace_admin_properties is not None:
@@ -106,8 +107,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "trusted_service_bypass_enabled", trusted_service_bypass_enabled)
         if virtual_network_profile is not None:
             pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
-        if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
         if workspace_repository_configuration is not None:
             pulumi.set(__self__, "workspace_repository_configuration", workspace_repository_configuration)
 
@@ -122,6 +121,18 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureADOnlyAuthentication")
@@ -329,18 +340,6 @@ class WorkspaceArgs:
         pulumi.set(self, "virtual_network_profile", value)
 
     @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace.
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceRepositoryConfiguration")
     def workspace_repository_configuration(self) -> pulumi.Input[Optional['WorkspaceRepositoryConfigurationArgs']]:
         """
@@ -494,6 +493,8 @@ class Workspace(pulumi.CustomResource):
                 trusted_service_bypass_enabled = False
             __props__.__dict__["trusted_service_bypass_enabled"] = trusted_service_bypass_enabled
             __props__.__dict__["virtual_network_profile"] = virtual_network_profile
+            if workspace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
             __props__.__dict__["adla_resource_id"] = None

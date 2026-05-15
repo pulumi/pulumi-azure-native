@@ -22,36 +22,47 @@ __all__ = ['ModernizeProjectArgs', 'ModernizeProject']
 @pulumi.input_type
 class ModernizeProjectArgs:
     def __init__(__self__, *,
+                 modernize_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ModernizeProjectModelPropertiesArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ModernizeProject resource.
 
+        :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject Name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the modernizeProject.
-        :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject Name.
         :param pulumi.Input['ModernizeProjectModelPropertiesArgs'] properties: ModernizeProject properties.
         :param pulumi.Input[_builtins.str] subscription_id: Azure Subscription Id in which project was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the resource tags.
         """
+        pulumi.set(__self__, "modernize_project_name", modernize_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if modernize_project_name is not None:
-            pulumi.set(__self__, "modernize_project_name", modernize_project_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="modernizeProjectName")
+    def modernize_project_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        ModernizeProject Name.
+        """
+        return pulumi.get(self, "modernize_project_name")
+
+    @modernize_project_name.setter
+    def modernize_project_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "modernize_project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,18 +96,6 @@ class ModernizeProjectArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="modernizeProjectName")
-    def modernize_project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ModernizeProject Name.
-        """
-        return pulumi.get(self, "modernize_project_name")
-
-    @modernize_project_name.setter
-    def modernize_project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "modernize_project_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -209,6 +208,8 @@ class ModernizeProject(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if modernize_project_name is None and not opts.urn:
+                raise TypeError("Missing required property 'modernize_project_name'")
             __props__.__dict__["modernize_project_name"] = modernize_project_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

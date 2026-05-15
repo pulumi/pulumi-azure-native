@@ -23,6 +23,7 @@ __all__ = ['PacketCaptureArgs', 'PacketCapture']
 class PacketCaptureArgs:
     def __init__(__self__, *,
                  network_watcher_name: pulumi.Input[_builtins.str],
+                 packet_capture_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
                  target: pulumi.Input[_builtins.str],
@@ -30,7 +31,6 @@ class PacketCaptureArgs:
                  capture_settings: pulumi.Input[Optional['PacketCaptureSettingsArgs']] = None,
                  continuous_capture: pulumi.Input[Optional[_builtins.bool]] = None,
                  filters: pulumi.Input[Optional[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
-                 packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional['PacketCaptureMachineScopeArgs']] = None,
                  target_type: pulumi.Input[Optional['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
@@ -39,6 +39,7 @@ class PacketCaptureArgs:
         The set of arguments for constructing a PacketCapture resource.
 
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the network watcher.
+        :param pulumi.Input[_builtins.str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: The storage location for a packet capture session.
         :param pulumi.Input[_builtins.str] target: The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
@@ -46,13 +47,13 @@ class PacketCaptureArgs:
         :param pulumi.Input['PacketCaptureSettingsArgs'] capture_settings: The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
         :param pulumi.Input[_builtins.bool] continuous_capture: This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: A list of packet capture filters.
-        :param pulumi.Input[_builtins.str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input['PacketCaptureMachineScopeArgs'] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
         :param pulumi.Input['PacketCaptureTargetType'] target_type: Target type of the resource provided.
         :param pulumi.Input[_builtins.int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[_builtins.float] total_bytes_per_session: Maximum size of the capture output.
         """
         pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+        pulumi.set(__self__, "packet_capture_name", packet_capture_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_location", storage_location)
         pulumi.set(__self__, "target", target)
@@ -66,8 +67,6 @@ class PacketCaptureArgs:
             pulumi.set(__self__, "continuous_capture", continuous_capture)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
-        if packet_capture_name is not None:
-            pulumi.set(__self__, "packet_capture_name", packet_capture_name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if target_type is not None:
@@ -92,6 +91,18 @@ class PacketCaptureArgs:
     @network_watcher_name.setter
     def network_watcher_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_watcher_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="packetCaptureName")
+    def packet_capture_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the packet capture session.
+        """
+        return pulumi.get(self, "packet_capture_name")
+
+    @packet_capture_name.setter
+    def packet_capture_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "packet_capture_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -176,18 +187,6 @@ class PacketCaptureArgs:
     @filters.setter
     def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]):
         pulumi.set(self, "filters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="packetCaptureName")
-    def packet_capture_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the packet capture session.
-        """
-        return pulumi.get(self, "packet_capture_name")
-
-    @packet_capture_name.setter
-    def packet_capture_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "packet_capture_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -342,6 +341,8 @@ class PacketCapture(pulumi.CustomResource):
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__.__dict__["network_watcher_name"] = network_watcher_name
+            if packet_capture_name is None and not opts.urn:
+                raise TypeError("Missing required property 'packet_capture_name'")
             __props__.__dict__["packet_capture_name"] = packet_capture_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

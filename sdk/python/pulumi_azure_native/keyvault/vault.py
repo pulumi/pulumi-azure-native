@@ -24,26 +24,25 @@ class VaultArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['VaultPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 vault_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
 
         :param pulumi.Input['VaultPropertiesArgs'] properties: Properties of the vault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the server belongs.
+        :param pulumi.Input[_builtins.str] vault_name: Name of the vault
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the key vault should be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the key vault.
-        :param pulumi.Input[_builtins.str] vault_name: Name of the vault
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vault_name", vault_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vault_name is not None:
-            pulumi.set(__self__, "vault_name", vault_name)
 
     @_builtins.property
     @pulumi.getter
@@ -70,6 +69,18 @@ class VaultArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the vault
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vault_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -92,18 +103,6 @@ class VaultArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vaultName")
-    def vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the vault
-        """
-        return pulumi.get(self, "vault_name")
-
-    @vault_name.setter
-    def vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "vault_name", value)
 
 
 @pulumi.type_token("azure-native:keyvault:Vault")
@@ -185,6 +184,8 @@ class Vault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if vault_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

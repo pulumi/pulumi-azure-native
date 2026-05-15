@@ -22,21 +22,32 @@ __all__ = ['IssueArgs', 'Issue']
 @pulumi.input_type
 class IssueArgs:
     def __init__(__self__, *,
+                 issue_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
-                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['IssuePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Issue resource.
 
-        :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] issue_name: The name of the IssueResource
+        :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input['IssuePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "issue_name", issue_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
-        if issue_name is not None:
-            pulumi.set(__self__, "issue_name", issue_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="issueName")
+    def issue_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the IssueResource
+        """
+        return pulumi.get(self, "issue_name")
+
+    @issue_name.setter
+    def issue_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "issue_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -49,18 +60,6 @@ class IssueArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="issueName")
-    def issue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the IssueResource
-        """
-        return pulumi.get(self, "issue_name")
-
-    @issue_name.setter
-    def issue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "issue_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +135,8 @@ class Issue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IssueArgs.__new__(IssueArgs)
 
+            if issue_name is None and not opts.urn:
+                raise TypeError("Missing required property 'issue_name'")
             __props__.__dict__["issue_name"] = issue_name
             __props__.__dict__["properties"] = properties
             if resource_uri is None and not opts.urn:

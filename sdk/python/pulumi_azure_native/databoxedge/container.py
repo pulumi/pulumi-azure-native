@@ -21,26 +21,37 @@ __all__ = ['ContainerArgs', 'Container']
 @pulumi.input_type
 class ContainerArgs:
     def __init__(__self__, *,
+                 container_name: pulumi.Input[_builtins.str],
                  data_format: pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']],
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_account_name: pulumi.Input[_builtins.str],
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_account_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Container resource.
 
+        :param pulumi.Input[_builtins.str] container_name: The container name.
         :param pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']] data_format: DataFormat for Container
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] storage_account_name: The Storage Account Name
-        :param pulumi.Input[_builtins.str] container_name: The container name.
         """
+        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "data_format", data_format)
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
@@ -89,18 +100,6 @@ class ContainerArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
 
 
 @pulumi.type_token("azure-native:databoxedge:Container")
@@ -174,6 +173,8 @@ class Container(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerArgs.__new__(ContainerArgs)
 
+            if container_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             if data_format is None and not opts.urn:
                 raise TypeError("Missing required property 'data_format'")

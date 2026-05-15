@@ -23,26 +23,25 @@ class SchemaRegistryArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 schema_group_name: pulumi.Input[_builtins.str],
                  group_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  schema_compatibility: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]] = None,
-                 schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None):
         """
         The set of arguments for constructing a SchemaRegistry resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] group_properties: dictionary object for SchemaGroup group properties
         :param pulumi.Input[_builtins.str] schema_group_name: The Schema Group name 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] group_properties: dictionary object for SchemaGroup group properties
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_group_name", schema_group_name)
         if group_properties is not None:
             pulumi.set(__self__, "group_properties", group_properties)
         if schema_compatibility is not None:
             pulumi.set(__self__, "schema_compatibility", schema_compatibility)
-        if schema_group_name is not None:
-            pulumi.set(__self__, "schema_group_name", schema_group_name)
         if schema_type is not None:
             pulumi.set(__self__, "schema_type", schema_type)
 
@@ -71,6 +70,18 @@ class SchemaRegistryArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="schemaGroupName")
+    def schema_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Schema Group name 
+        """
+        return pulumi.get(self, "schema_group_name")
+
+    @schema_group_name.setter
+    def schema_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "schema_group_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="groupProperties")
     def group_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -90,18 +101,6 @@ class SchemaRegistryArgs:
     @schema_compatibility.setter
     def schema_compatibility(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]]):
         pulumi.set(self, "schema_compatibility", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaGroupName")
-    def schema_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Schema Group name 
-        """
-        return pulumi.get(self, "schema_group_name")
-
-    @schema_group_name.setter
-    def schema_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "schema_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
@@ -193,6 +192,8 @@ class SchemaRegistry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schema_compatibility"] = schema_compatibility
+            if schema_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'schema_group_name'")
             __props__.__dict__["schema_group_name"] = schema_group_name
             __props__.__dict__["schema_type"] = schema_type
             __props__.__dict__["azure_api_version"] = None

@@ -26,7 +26,7 @@ class OutboundRuleArgs:
                  managed_network_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['FqdnOutboundRuleArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rule_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OutboundRule resource.
 
@@ -40,8 +40,7 @@ class OutboundRuleArgs:
         pulumi.set(__self__, "managed_network_name", managed_network_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -93,14 +92,14 @@ class OutboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the cognitive services account managed network outbound rule
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -179,6 +178,8 @@ class OutboundRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -21,23 +21,34 @@ __all__ = ['ComponentContainerArgs', 'ComponentContainer']
 @pulumi.input_type
 class ComponentContainerArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ComponentContainerPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ComponentContainer resource.
 
+        :param pulumi.Input[_builtins.str] name: Container name.
         :param pulumi.Input['ComponentContainerPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[_builtins.str] name: Container name.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Container name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,18 +85,6 @@ class ComponentContainerArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Container name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ComponentContainer")
@@ -156,6 +155,8 @@ class ComponentContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentContainerArgs.__new__(ComponentContainerArgs)
 
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

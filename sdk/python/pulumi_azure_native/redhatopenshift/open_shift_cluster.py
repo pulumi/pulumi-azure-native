@@ -23,6 +23,7 @@ __all__ = ['OpenShiftClusterArgs', 'OpenShiftCluster']
 class OpenShiftClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  apiserver_profile: pulumi.Input[Optional['APIServerProfileArgs']] = None,
                  cluster_profile: pulumi.Input[Optional['ClusterProfileArgs']] = None,
                  ingress_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['IngressProfileArgs']]]] = None,
@@ -30,7 +31,6 @@ class OpenShiftClusterArgs:
                  master_profile: pulumi.Input[Optional['MasterProfileArgs']] = None,
                  network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_profile: pulumi.Input[Optional['ServicePrincipalProfileArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  worker_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['WorkerProfileArgs']]]] = None):
@@ -38,6 +38,7 @@ class OpenShiftClusterArgs:
         The set of arguments for constructing a OpenShiftCluster resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the OpenShift cluster resource.
         :param pulumi.Input['APIServerProfileArgs'] apiserver_profile: The cluster API server profile.
         :param pulumi.Input['ClusterProfileArgs'] cluster_profile: The cluster profile.
         :param pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]] ingress_profiles: The cluster ingress profiles.
@@ -45,12 +46,12 @@ class OpenShiftClusterArgs:
         :param pulumi.Input['MasterProfileArgs'] master_profile: The cluster master profile.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The cluster network profile.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The cluster provisioning state.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the OpenShift cluster resource.
         :param pulumi.Input['ServicePrincipalProfileArgs'] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]] worker_profiles: The cluster worker profiles.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if apiserver_profile is not None:
             pulumi.set(__self__, "apiserver_profile", apiserver_profile)
         if cluster_profile is not None:
@@ -65,8 +66,6 @@ class OpenShiftClusterArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if service_principal_profile is not None:
             pulumi.set(__self__, "service_principal_profile", service_principal_profile)
         if tags is not None:
@@ -85,6 +84,18 @@ class OpenShiftClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the OpenShift cluster resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="apiserverProfile")
@@ -169,18 +180,6 @@ class OpenShiftClusterArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the OpenShift cluster resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalProfile")
@@ -321,6 +320,8 @@ class OpenShiftCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["service_principal_profile"] = service_principal_profile
             __props__.__dict__["tags"] = tags

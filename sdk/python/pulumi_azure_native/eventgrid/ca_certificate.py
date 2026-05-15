@@ -20,28 +20,39 @@ __all__ = ['CaCertificateArgs', 'CaCertificate']
 @pulumi.input_type
 class CaCertificateArgs:
     def __init__(__self__, *,
+                 ca_certificate_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 ca_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
 
+        :param pulumi.Input[_builtins.str] ca_certificate_name: The CA certificate name.
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[_builtins.str] ca_certificate_name: The CA certificate name.
         :param pulumi.Input[_builtins.str] description: Description for the CA Certificate resource.
         :param pulumi.Input[_builtins.str] encoded_certificate: Base64 encoded PEM (Privacy Enhanced Mail) format certificate data.
         """
+        pulumi.set(__self__, "ca_certificate_name", ca_certificate_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if ca_certificate_name is not None:
-            pulumi.set(__self__, "ca_certificate_name", ca_certificate_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encoded_certificate is not None:
             pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="caCertificateName")
+    def ca_certificate_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CA certificate name.
+        """
+        return pulumi.get(self, "ca_certificate_name")
+
+    @ca_certificate_name.setter
+    def ca_certificate_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ca_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -66,18 +77,6 @@ class CaCertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="caCertificateName")
-    def ca_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The CA certificate name.
-        """
-        return pulumi.get(self, "ca_certificate_name")
-
-    @ca_certificate_name.setter
-    def ca_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "ca_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,6 +174,8 @@ class CaCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CaCertificateArgs.__new__(CaCertificateArgs)
 
+            if ca_certificate_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ca_certificate_name'")
             __props__.__dict__["ca_certificate_name"] = ca_certificate_name
             __props__.__dict__["description"] = description
             __props__.__dict__["encoded_certificate"] = encoded_certificate

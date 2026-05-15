@@ -21,28 +21,39 @@ __all__ = ['FunctionInitArgs', 'Function']
 @pulumi.input_type
 class FunctionInitArgs:
     def __init__(__self__, *,
+                 function_name: pulumi.Input[_builtins.str],
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Function resource.
 
+        :param pulumi.Input[_builtins.str] function_name: The name of the function.
         :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] function_name: The name of the function.
         :param pulumi.Input[_builtins.str] name: Resource name
         :param pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         """
+        pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the function.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobName")
@@ -67,18 +78,6 @@ class FunctionInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="functionName")
-    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the function.
-        """
-        return pulumi.get(self, "function_name")
-
-    @function_name.setter
-    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,6 +175,8 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionInitArgs.__new__(FunctionInitArgs)
 
+            if function_name is None and not opts.urn:
+                raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")

@@ -22,41 +22,52 @@ __all__ = ['AnalyticsConnectorArgs', 'AnalyticsConnector']
 @pulumi.input_type
 class AnalyticsConnectorArgs:
     def __init__(__self__, *,
+                 analytics_connector_name: pulumi.Input[_builtins.str],
                  data_destination_configuration: pulumi.Input['AnalyticsConnectorDataLakeDataDestinationArgs'],
                  data_mapping_configuration: pulumi.Input['AnalyticsConnectorFhirToParquetMappingArgs'],
                  data_source_configuration: pulumi.Input['AnalyticsConnectorFhirServiceDataSourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 analytics_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsConnector resource.
 
+        :param pulumi.Input[_builtins.str] analytics_connector_name: The name of Analytics Connector resource.
         :param pulumi.Input['AnalyticsConnectorDataLakeDataDestinationArgs'] data_destination_configuration: Data destination configuration for Analytics Connector.
         :param pulumi.Input['AnalyticsConnectorFhirToParquetMappingArgs'] data_mapping_configuration: Data mapping configuration for Analytics Connector.
         :param pulumi.Input['AnalyticsConnectorFhirServiceDataSourceArgs'] data_source_configuration: Data source for Analytics Connector.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[_builtins.str] workspace_name: The name of workspace resource.
-        :param pulumi.Input[_builtins.str] analytics_connector_name: The name of Analytics Connector resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "analytics_connector_name", analytics_connector_name)
         pulumi.set(__self__, "data_destination_configuration", data_destination_configuration)
         pulumi.set(__self__, "data_mapping_configuration", data_mapping_configuration)
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if analytics_connector_name is not None:
-            pulumi.set(__self__, "analytics_connector_name", analytics_connector_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConnectorName")
+    def analytics_connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Analytics Connector resource.
+        """
+        return pulumi.get(self, "analytics_connector_name")
+
+    @analytics_connector_name.setter
+    def analytics_connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "analytics_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDestinationConfiguration")
@@ -117,18 +128,6 @@ class AnalyticsConnectorArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="analyticsConnectorName")
-    def analytics_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Analytics Connector resource.
-        """
-        return pulumi.get(self, "analytics_connector_name")
-
-    @analytics_connector_name.setter
-    def analytics_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "analytics_connector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -246,6 +245,8 @@ class AnalyticsConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnalyticsConnectorArgs.__new__(AnalyticsConnectorArgs)
 
+            if analytics_connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'analytics_connector_name'")
             __props__.__dict__["analytics_connector_name"] = analytics_connector_name
             if data_destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_destination_configuration'")

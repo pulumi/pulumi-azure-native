@@ -24,29 +24,28 @@ class WorkflowVersionArgs:
     def __init__(__self__, *,
                  context_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 version_name: pulumi.Input[_builtins.str],
                  workflow_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 properties: pulumi.Input[Optional['WorkflowVersionPropertiesArgs']] = None,
-                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['WorkflowVersionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a WorkflowVersion resource.
 
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] version_name: The name of the workflowVersion.
         :param pulumi.Input[_builtins.str] workflow_name: Name of the workflow
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['WorkflowVersionPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] version_name: The name of the workflowVersion.
         """
         pulumi.set(__self__, "context_name", context_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "version_name", version_name)
         pulumi.set(__self__, "workflow_name", workflow_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
 
     @_builtins.property
     @pulumi.getter(name="contextName")
@@ -71,6 +70,18 @@ class WorkflowVersionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workflowVersion.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
@@ -107,18 +118,6 @@ class WorkflowVersionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['WorkflowVersionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workflowVersion.
-        """
-        return pulumi.get(self, "version_name")
-
-    @version_name.setter
-    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "version_name", value)
 
 
 @pulumi.type_token("azure-native:edge:WorkflowVersion")
@@ -203,6 +202,8 @@ class WorkflowVersion(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if version_name is None and not opts.urn:
+                raise TypeError("Missing required property 'version_name'")
             __props__.__dict__["version_name"] = version_name
             if workflow_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow_name'")

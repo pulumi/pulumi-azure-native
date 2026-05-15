@@ -24,13 +24,13 @@ class VirtualMachineImageTemplateArgs:
     def __init__(__self__, *,
                  distribute: pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgs', 'ImageTemplateVhdDistributorArgs']]]],
                  identity: pulumi.Input['ImageTemplateIdentityArgs'],
+                 image_template_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplatePlatformImageSourceArgs', 'ImageTemplateSharedImageVersionSourceArgs']],
                  auto_run: pulumi.Input[Optional['ImageTemplateAutoRunArgs']] = None,
                  build_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  customize: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]] = None,
                  error_handling: pulumi.Input[Optional['ImageTemplatePropertiesErrorHandlingArgs']] = None,
-                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  optimize: pulumi.Input[Optional['ImageTemplatePropertiesOptimizeArgs']] = None,
@@ -43,13 +43,13 @@ class VirtualMachineImageTemplateArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgs', 'ImageTemplateVhdDistributorArgs']]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input['ImageTemplateIdentityArgs'] identity: The identity of the image template, if configured.
+        :param pulumi.Input[_builtins.str] image_template_name: The name of the image Template
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplatePlatformImageSourceArgs', 'ImageTemplateSharedImageVersionSourceArgs']] source: Specifies the properties used to describe the source image.
         :param pulumi.Input['ImageTemplateAutoRunArgs'] auto_run: Indicates whether or not to automatically run the image template build on template creation or update.
         :param pulumi.Input[_builtins.int] build_timeout_in_minutes: Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
         :param pulumi.Input['ImageTemplatePropertiesErrorHandlingArgs'] error_handling: Error handling options upon a build failure
-        :param pulumi.Input[_builtins.str] image_template_name: The name of the image Template
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] managed_resource_tags: Tags that will be applied to the resource group and/or resources created by the service.
         :param pulumi.Input['ImageTemplatePropertiesOptimizeArgs'] optimize: Specifies optimization to be performed on image.
@@ -60,6 +60,7 @@ class VirtualMachineImageTemplateArgs:
         """
         pulumi.set(__self__, "distribute", distribute)
         pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "image_template_name", image_template_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
         if auto_run is not None:
@@ -72,8 +73,6 @@ class VirtualMachineImageTemplateArgs:
             pulumi.set(__self__, "customize", customize)
         if error_handling is not None:
             pulumi.set(__self__, "error_handling", error_handling)
-        if image_template_name is not None:
-            pulumi.set(__self__, "image_template_name", image_template_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_tags is not None:
@@ -112,6 +111,18 @@ class VirtualMachineImageTemplateArgs:
     @identity.setter
     def identity(self, value: pulumi.Input['ImageTemplateIdentityArgs']):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageTemplateName")
+    def image_template_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the image Template
+        """
+        return pulumi.get(self, "image_template_name")
+
+    @image_template_name.setter
+    def image_template_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image_template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -184,18 +195,6 @@ class VirtualMachineImageTemplateArgs:
     @error_handling.setter
     def error_handling(self, value: pulumi.Input[Optional['ImageTemplatePropertiesErrorHandlingArgs']]):
         pulumi.set(self, "error_handling", value)
-
-    @_builtins.property
-    @pulumi.getter(name="imageTemplateName")
-    def image_template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the image Template
-        """
-        return pulumi.get(self, "image_template_name")
-
-    @image_template_name.setter
-    def image_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "image_template_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -398,6 +397,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
+            if image_template_name is None and not opts.urn:
+                raise TypeError("Missing required property 'image_template_name'")
             __props__.__dict__["image_template_name"] = image_template_name
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_tags"] = managed_resource_tags

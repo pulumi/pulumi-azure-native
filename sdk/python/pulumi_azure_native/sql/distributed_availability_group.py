@@ -22,10 +22,10 @@ __all__ = ['DistributedAvailabilityGroupArgs', 'DistributedAvailabilityGroup']
 @pulumi.input_type
 class DistributedAvailabilityGroupArgs:
     def __init__(__self__, *,
+                 distributed_availability_group_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  databases: pulumi.Input[Optional[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]] = None,
-                 distributed_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  failover_mode: pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]] = None,
                  instance_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_link_role: pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]] = None,
@@ -36,10 +36,10 @@ class DistributedAvailabilityGroupArgs:
         """
         The set of arguments for constructing a DistributedAvailabilityGroup resource.
 
+        :param pulumi.Input[_builtins.str] distributed_availability_group_name: The distributed availability group name.
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]] databases: Databases in the distributed availability group
-        :param pulumi.Input[_builtins.str] distributed_availability_group_name: The distributed availability group name.
         :param pulumi.Input[Union[_builtins.str, 'FailoverModeType']] failover_mode: The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
         :param pulumi.Input[_builtins.str] instance_availability_group_name: Managed instance side availability group name
         :param pulumi.Input[Union[_builtins.str, 'LinkRole']] instance_link_role: Managed instance side link role
@@ -48,12 +48,11 @@ class DistributedAvailabilityGroupArgs:
         :param pulumi.Input[Union[_builtins.str, 'ReplicationModeType']] replication_mode: Replication mode of the link
         :param pulumi.Input[Union[_builtins.str, 'SeedingModeType']] seeding_mode: Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
         """
+        pulumi.set(__self__, "distributed_availability_group_name", distributed_availability_group_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if databases is not None:
             pulumi.set(__self__, "databases", databases)
-        if distributed_availability_group_name is not None:
-            pulumi.set(__self__, "distributed_availability_group_name", distributed_availability_group_name)
         if failover_mode is not None:
             pulumi.set(__self__, "failover_mode", failover_mode)
         if instance_availability_group_name is not None:
@@ -68,6 +67,18 @@ class DistributedAvailabilityGroupArgs:
             pulumi.set(__self__, "replication_mode", replication_mode)
         if seeding_mode is not None:
             pulumi.set(__self__, "seeding_mode", seeding_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="distributedAvailabilityGroupName")
+    def distributed_availability_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The distributed availability group name.
+        """
+        return pulumi.get(self, "distributed_availability_group_name")
+
+    @distributed_availability_group_name.setter
+    def distributed_availability_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "distributed_availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -104,18 +115,6 @@ class DistributedAvailabilityGroupArgs:
     @databases.setter
     def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]]):
         pulumi.set(self, "databases", value)
-
-    @_builtins.property
-    @pulumi.getter(name="distributedAvailabilityGroupName")
-    def distributed_availability_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The distributed availability group name.
-        """
-        return pulumi.get(self, "distributed_availability_group_name")
-
-    @distributed_availability_group_name.setter
-    def distributed_availability_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "distributed_availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverMode")
@@ -292,6 +291,8 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
             __props__ = DistributedAvailabilityGroupArgs.__new__(DistributedAvailabilityGroupArgs)
 
             __props__.__dict__["databases"] = databases
+            if distributed_availability_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'distributed_availability_group_name'")
             __props__.__dict__["distributed_availability_group_name"] = distributed_availability_group_name
             __props__.__dict__["failover_mode"] = failover_mode
             __props__.__dict__["instance_availability_group_name"] = instance_availability_group_name

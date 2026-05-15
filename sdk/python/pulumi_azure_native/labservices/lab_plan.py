@@ -22,13 +22,13 @@ __all__ = ['LabPlanArgs', 'LabPlan']
 @pulumi.input_type
 class LabPlanArgs:
     def __init__(__self__, *,
+                 lab_plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allowed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_auto_shutdown_profile: pulumi.Input[Optional['AutoShutdownProfileArgs']] = None,
                  default_connection_profile: pulumi.Input[Optional['ConnectionProfileArgs']] = None,
                  default_network_profile: pulumi.Input[Optional['LabPlanNetworkProfileArgs']] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
-                 lab_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_lms_instance: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,19 +37,20 @@ class LabPlanArgs:
         """
         The set of arguments for constructing a LabPlan resource.
 
+        :param pulumi.Input[_builtins.str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this lab plan.
         :param pulumi.Input['AutoShutdownProfileArgs'] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['ConnectionProfileArgs'] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['LabPlanNetworkProfileArgs'] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
         :param pulumi.Input['IdentityArgs'] identity: Managed Identity Information
-        :param pulumi.Input[_builtins.str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[_builtins.str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] shared_gallery_id: Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
         :param pulumi.Input['SupportInfoArgs'] support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "lab_plan_name", lab_plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allowed_regions is not None:
             pulumi.set(__self__, "allowed_regions", allowed_regions)
@@ -61,8 +62,6 @@ class LabPlanArgs:
             pulumi.set(__self__, "default_network_profile", default_network_profile)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if lab_plan_name is not None:
-            pulumi.set(__self__, "lab_plan_name", lab_plan_name)
         if linked_lms_instance is not None:
             pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
         if location is not None:
@@ -73,6 +72,18 @@ class LabPlanArgs:
             pulumi.set(__self__, "support_info", support_info)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="labPlanName")
+    def lab_plan_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
+        """
+        return pulumi.get(self, "lab_plan_name")
+
+    @lab_plan_name.setter
+    def lab_plan_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "lab_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -145,18 +156,6 @@ class LabPlanArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="labPlanName")
-    def lab_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
-        """
-        return pulumi.get(self, "lab_plan_name")
-
-    @lab_plan_name.setter
-    def lab_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "lab_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedLmsInstance")
@@ -316,6 +315,8 @@ class LabPlan(pulumi.CustomResource):
             __props__.__dict__["default_connection_profile"] = default_connection_profile
             __props__.__dict__["default_network_profile"] = default_network_profile
             __props__.__dict__["identity"] = identity
+            if lab_plan_name is None and not opts.urn:
+                raise TypeError("Missing required property 'lab_plan_name'")
             __props__.__dict__["lab_plan_name"] = lab_plan_name
             __props__.__dict__["linked_lms_instance"] = linked_lms_instance
             __props__.__dict__["location"] = location

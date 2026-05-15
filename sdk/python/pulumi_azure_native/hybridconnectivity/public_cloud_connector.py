@@ -24,27 +24,26 @@ class PublicCloudConnectorArgs:
     def __init__(__self__, *,
                  aws_cloud_profile: pulumi.Input['AwsCloudProfileArgs'],
                  host_type: pulumi.Input[Union[_builtins.str, 'HostType']],
+                 public_cloud_connector: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_cloud_connector: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicCloudConnector resource.
 
         :param pulumi.Input['AwsCloudProfileArgs'] aws_cloud_profile: Cloud profile for AWS.
         :param pulumi.Input[Union[_builtins.str, 'HostType']] host_type: Host cloud the public cloud connector.
+        :param pulumi.Input[_builtins.str] public_cloud_connector: Represent public cloud connectors resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] public_cloud_connector: Represent public cloud connectors resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
         pulumi.set(__self__, "host_type", host_type)
+        pulumi.set(__self__, "public_cloud_connector", public_cloud_connector)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if public_cloud_connector is not None:
-            pulumi.set(__self__, "public_cloud_connector", public_cloud_connector)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,6 +72,18 @@ class PublicCloudConnectorArgs:
         pulumi.set(self, "host_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicCloudConnector")
+    def public_cloud_connector(self) -> pulumi.Input[_builtins.str]:
+        """
+        Represent public cloud connectors resource.
+        """
+        return pulumi.get(self, "public_cloud_connector")
+
+    @public_cloud_connector.setter
+    def public_cloud_connector(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "public_cloud_connector", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -95,18 +106,6 @@ class PublicCloudConnectorArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicCloudConnector")
-    def public_cloud_connector(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Represent public cloud connectors resource.
-        """
-        return pulumi.get(self, "public_cloud_connector")
-
-    @public_cloud_connector.setter
-    def public_cloud_connector(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "public_cloud_connector", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class PublicCloudConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'host_type'")
             __props__.__dict__["host_type"] = host_type
             __props__.__dict__["location"] = location
+            if public_cloud_connector is None and not opts.urn:
+                raise TypeError("Missing required property 'public_cloud_connector'")
             __props__.__dict__["public_cloud_connector"] = public_cloud_connector
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

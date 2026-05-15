@@ -24,22 +24,21 @@ class ManagedEnvironmentsStorageArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']] = None,
-                 storage_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagedEnvironmentsStorage resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedEnvironmentStoragePropertiesArgs'] properties: Storage properties
         :param pulumi.Input[_builtins.str] storage_name: Name of the storage.
+        :param pulumi.Input['ManagedEnvironmentStoragePropertiesArgs'] properties: Storage properties
         """
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_name", storage_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
@@ -66,6 +65,18 @@ class ManagedEnvironmentsStorageArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the storage.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @storage_name.setter
+    def storage_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']]:
         """
@@ -76,18 +87,6 @@ class ManagedEnvironmentsStorageArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ManagedEnvironmentStoragePropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageName")
-    def storage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the storage.
-        """
-        return pulumi.get(self, "storage_name")
-
-    @storage_name.setter
-    def storage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_name", value)
 
 
 @pulumi.type_token("azure-native:app:ManagedEnvironmentsStorage")
@@ -165,6 +164,8 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_name'")
             __props__.__dict__["storage_name"] = storage_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

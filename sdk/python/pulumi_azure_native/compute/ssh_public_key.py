@@ -21,26 +21,25 @@ __all__ = ['SshPublicKeyInitArgs', 'SshPublicKey']
 class SshPublicKeyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 ssh_public_key_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 ssh_public_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SshPublicKey resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] ssh_public_key_name: The name of the SSH public key.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] public_key: SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-        :param pulumi.Input[_builtins.str] ssh_public_key_name: The name of the SSH public key.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "ssh_public_key_name", ssh_public_key_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
-        if ssh_public_key_name is not None:
-            pulumi.set(__self__, "ssh_public_key_name", ssh_public_key_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,6 +54,18 @@ class SshPublicKeyInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sshPublicKeyName")
+    def ssh_public_key_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SSH public key.
+        """
+        return pulumi.get(self, "ssh_public_key_name")
+
+    @ssh_public_key_name.setter
+    def ssh_public_key_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ssh_public_key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,18 +90,6 @@ class SshPublicKeyInitArgs:
     @public_key.setter
     def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sshPublicKeyName")
-    def ssh_public_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the SSH public key.
-        """
-        return pulumi.get(self, "ssh_public_key_name")
-
-    @ssh_public_key_name.setter
-    def ssh_public_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "ssh_public_key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +180,8 @@ class SshPublicKey(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if ssh_public_key_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ssh_public_key_name'")
             __props__.__dict__["ssh_public_key_name"] = ssh_public_key_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

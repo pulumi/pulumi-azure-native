@@ -22,9 +22,9 @@ __all__ = ['CommunicationServiceArgs', 'CommunicationService']
 @pulumi.input_type
 class CommunicationServiceArgs:
     def __init__(__self__, *,
+                 communication_service_name: pulumi.Input[_builtins.str],
                  data_location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  linked_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,18 +32,17 @@ class CommunicationServiceArgs:
         """
         The set of arguments for constructing a CommunicationService resource.
 
+        :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input[_builtins.str] data_location: The location where the communication service stores its data at rest.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_domains: List of email Domain resource Ids.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "communication_service_name", communication_service_name)
         pulumi.set(__self__, "data_location", data_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if communication_service_name is not None:
-            pulumi.set(__self__, "communication_service_name", communication_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if linked_domains is not None:
@@ -52,6 +51,18 @@ class CommunicationServiceArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="communicationServiceName")
+    def communication_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the CommunicationService resource.
+        """
+        return pulumi.get(self, "communication_service_name")
+
+    @communication_service_name.setter
+    def communication_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "communication_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataLocation")
@@ -76,18 +87,6 @@ class CommunicationServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="communicationServiceName")
-    def communication_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the CommunicationService resource.
-        """
-        return pulumi.get(self, "communication_service_name")
-
-    @communication_service_name.setter
-    def communication_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "communication_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -215,6 +214,8 @@ class CommunicationService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CommunicationServiceArgs.__new__(CommunicationServiceArgs)
 
+            if communication_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'communication_service_name'")
             __props__.__dict__["communication_service_name"] = communication_service_name
             if data_location is None and not opts.urn:
                 raise TypeError("Missing required property 'data_location'")

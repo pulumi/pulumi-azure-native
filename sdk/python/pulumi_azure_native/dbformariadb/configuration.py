@@ -19,28 +19,39 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 @pulumi.input_type
 class ConfigurationArgs:
     def __init__(__self__, *,
+                 configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
 
+        :param pulumi.Input[_builtins.str] configuration_name: The name of the server configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] configuration_name: The name of the server configuration.
         :param pulumi.Input[_builtins.str] source: Source of the configuration.
         :param pulumi.Input[_builtins.str] value: Value of the configuration.
         """
+        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the server configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,18 +76,6 @@ class ConfigurationArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the server configuration.
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -170,6 +169,8 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
+            if configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

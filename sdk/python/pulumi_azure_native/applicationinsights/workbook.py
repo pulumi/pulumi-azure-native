@@ -25,12 +25,12 @@ class WorkbookArgs:
                  category: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  serialized_data: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['WorkbookResourceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'WorkbookSharedTypeKind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -41,12 +41,12 @@ class WorkbookArgs:
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[_builtins.str] display_name: The user-defined name (display name) of the workbook.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the workbook resource. The value must be an UUID.
         :param pulumi.Input[_builtins.str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[_builtins.str] description: The description of the workbook.
         :param pulumi.Input['WorkbookResourceIdentityArgs'] identity: Identity used for BYOS
         :param pulumi.Input[Union[_builtins.str, 'WorkbookSharedTypeKind']] kind: The kind of workbook. Only valid value is shared.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] resource_name: The name of the workbook resource. The value must be an UUID.
         :param pulumi.Input[_builtins.str] source_id: ResourceId for a source resource.
         :param pulumi.Input[_builtins.str] storage_uri: The resourceId to the storage account when bring your own storage is used
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -55,6 +55,7 @@ class WorkbookArgs:
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "serialized_data", serialized_data)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -64,8 +65,6 @@ class WorkbookArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
         if storage_uri is not None:
@@ -110,6 +109,18 @@ class WorkbookArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workbook resource. The value must be an UUID.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serializedData")
@@ -170,18 +181,6 @@ class WorkbookArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workbook resource. The value must be an UUID.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
@@ -340,6 +339,8 @@ class Workbook(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if serialized_data is None and not opts.urn:
                 raise TypeError("Missing required property 'serialized_data'")

@@ -21,24 +21,35 @@ __all__ = ['FirewallRuleArgs', 'FirewallRule']
 @pulumi.input_type
 class FirewallRuleArgs:
     def __init__(__self__, *,
+                 firewall_rule_name: pulumi.Input[_builtins.str],
                  mongo_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FirewallRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
+        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the mongo cluster firewall rule.
         :param pulumi.Input[_builtins.str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the mongo cluster firewall rule.
         :param pulumi.Input['FirewallRulePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallRuleName")
+    def firewall_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the mongo cluster firewall rule.
+        """
+        return pulumi.get(self, "firewall_rule_name")
+
+    @firewall_rule_name.setter
+    def firewall_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoClusterName")
@@ -63,18 +74,6 @@ class FirewallRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the mongo cluster firewall rule.
-        """
-        return pulumi.get(self, "firewall_rule_name")
-
-    @firewall_rule_name.setter
-    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
+            if firewall_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_rule_name'")
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
             if mongo_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mongo_cluster_name'")

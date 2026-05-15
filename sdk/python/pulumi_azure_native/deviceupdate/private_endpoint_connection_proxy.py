@@ -23,23 +23,22 @@ __all__ = ['PrivateEndpointConnectionProxyArgs', 'PrivateEndpointConnectionProxy
 class PrivateEndpointConnectionProxyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_proxy_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_proxy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_private_endpoint: pulumi.Input[Optional['RemotePrivateEndpointArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionProxy resource.
 
         :param pulumi.Input[_builtins.str] account_name: Account name.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
+        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['RemotePrivateEndpointArgs'] remote_private_endpoint: Remote private endpoint details.
         :param pulumi.Input[_builtins.str] status: Operation status.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "private_endpoint_connection_proxy_id", private_endpoint_connection_proxy_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if private_endpoint_connection_proxy_id is not None:
-            pulumi.set(__self__, "private_endpoint_connection_proxy_id", private_endpoint_connection_proxy_id)
         if remote_private_endpoint is not None:
             pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
         if status is not None:
@@ -58,6 +57,18 @@ class PrivateEndpointConnectionProxyArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionProxyId")
+    def private_endpoint_connection_proxy_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the private endpoint connection proxy object.
+        """
+        return pulumi.get(self, "private_endpoint_connection_proxy_id")
+
+    @private_endpoint_connection_proxy_id.setter
+    def private_endpoint_connection_proxy_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_connection_proxy_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -68,18 +79,6 @@ class PrivateEndpointConnectionProxyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionProxyId")
-    def private_endpoint_connection_proxy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the private endpoint connection proxy object.
-        """
-        return pulumi.get(self, "private_endpoint_connection_proxy_id")
-
-    @private_endpoint_connection_proxy_id.setter
-    def private_endpoint_connection_proxy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_proxy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="remotePrivateEndpoint")
@@ -176,6 +175,8 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if private_endpoint_connection_proxy_id is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_connection_proxy_id'")
             __props__.__dict__["private_endpoint_connection_proxy_id"] = private_endpoint_connection_proxy_id
             __props__.__dict__["remote_private_endpoint"] = remote_private_endpoint
             if resource_group_name is None and not opts.urn:

@@ -23,28 +23,27 @@ class ServiceEndpointArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 service_endpoint_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ServiceEndpointResourcePropertiesArgs']] = None,
-                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceEndpoint resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the RecommendationsService Account resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the ServiceEndpoint resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ServiceEndpointResourcePropertiesArgs'] properties: ServiceEndpoint resource properties.
-        :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the ServiceEndpoint resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,6 +72,18 @@ class ServiceEndpointArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ServiceEndpoint resource.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -95,18 +106,6 @@ class ServiceEndpointArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ServiceEndpointResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ServiceEndpoint resource.
-        """
-        return pulumi.get(self, "service_endpoint_name")
-
-    @service_endpoint_name.setter
-    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -203,6 +202,8 @@ class ServiceEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if service_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

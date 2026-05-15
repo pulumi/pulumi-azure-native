@@ -22,6 +22,7 @@ __all__ = ['ServerEndpointArgs', 'ServerEndpoint']
 class ServerEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_endpoint_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
                  sync_group_name: pulumi.Input[_builtins.str],
                  cloud_tiering: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
@@ -31,7 +32,6 @@ class ServerEndpointArgs:
                  local_cache_mode: pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]] = None,
                  offline_data_transfer: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
                  offline_data_transfer_share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
                  server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -40,6 +40,7 @@ class ServerEndpointArgs:
         The set of arguments for constructing a ServerEndpoint resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] server_endpoint_name: Name of Server Endpoint object.
         :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[_builtins.str] sync_group_name: Name of Sync Group resource.
         :param pulumi.Input[Union[_builtins.str, 'FeatureStatus']] cloud_tiering: Cloud Tiering.
@@ -49,13 +50,13 @@ class ServerEndpointArgs:
         :param pulumi.Input[Union[_builtins.str, 'LocalCacheMode']] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         :param pulumi.Input[Union[_builtins.str, 'FeatureStatus']] offline_data_transfer: Offline data transfer
         :param pulumi.Input[_builtins.str] offline_data_transfer_share_name: Offline data transfer share name
-        :param pulumi.Input[_builtins.str] server_endpoint_name: Name of Server Endpoint object.
         :param pulumi.Input[_builtins.str] server_local_path: Server Local path.
         :param pulumi.Input[_builtins.str] server_resource_id: Server Resource Id.
         :param pulumi.Input[_builtins.int] tier_files_older_than_days: Tier files older than days.
         :param pulumi.Input[_builtins.int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_endpoint_name", server_endpoint_name)
         pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         pulumi.set(__self__, "sync_group_name", sync_group_name)
         if cloud_tiering is not None:
@@ -78,8 +79,6 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "offline_data_transfer", offline_data_transfer)
         if offline_data_transfer_share_name is not None:
             pulumi.set(__self__, "offline_data_transfer_share_name", offline_data_transfer_share_name)
-        if server_endpoint_name is not None:
-            pulumi.set(__self__, "server_endpoint_name", server_endpoint_name)
         if server_local_path is not None:
             pulumi.set(__self__, "server_local_path", server_local_path)
         if server_resource_id is not None:
@@ -104,6 +103,18 @@ class ServerEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverEndpointName")
+    def server_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Server Endpoint object.
+        """
+        return pulumi.get(self, "server_endpoint_name")
+
+    @server_endpoint_name.setter
+    def server_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncServiceName")
@@ -212,18 +223,6 @@ class ServerEndpointArgs:
     @offline_data_transfer_share_name.setter
     def offline_data_transfer_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offline_data_transfer_share_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverEndpointName")
-    def server_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Server Endpoint object.
-        """
-        return pulumi.get(self, "server_endpoint_name")
-
-    @server_endpoint_name.setter
-    def server_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverLocalPath")
@@ -391,6 +390,8 @@ class ServerEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if server_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_endpoint_name'")
             __props__.__dict__["server_endpoint_name"] = server_endpoint_name
             __props__.__dict__["server_local_path"] = server_local_path
             __props__.__dict__["server_resource_id"] = server_resource_id

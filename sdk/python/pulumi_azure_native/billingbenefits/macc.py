@@ -23,6 +23,7 @@ __all__ = ['MaccArgs', 'Macc']
 class MaccArgs:
     def __init__(__self__, *,
                  entity_type: pulumi.Input[Union[_builtins.str, 'MaccEntityType']],
+                 macc_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_contributors: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_shortfall: pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]] = None,
@@ -34,7 +35,6 @@ class MaccArgs:
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 macc_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
                  milestones: pulumi.Input[Optional[Sequence[pulumi.Input['MaccMilestoneArgs']]]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
@@ -52,6 +52,7 @@ class MaccArgs:
         The set of arguments for constructing a Macc resource.
 
         :param pulumi.Input[Union[_builtins.str, 'MaccEntityType']] entity_type: Represents type of the object being operated on. Possible values are primary or contributor.
+        :param pulumi.Input[_builtins.str] macc_name: Name of primary MACC.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_contributors: Setting this to true means multi-entity.
         :param pulumi.Input[Union[_builtins.str, 'EnablementMode']] automatic_shortfall: Setting this to 'Enable' enables automatic shortfall charging when commitment is not met.
@@ -63,7 +64,6 @@ class MaccArgs:
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] macc_name: Name of primary MACC.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]] milestones: List of milestones associated with this MACC.
         :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
@@ -79,6 +79,7 @@ class MaccArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "entity_type", entity_type)
+        pulumi.set(__self__, "macc_name", macc_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_contributors is not None:
             pulumi.set(__self__, "allow_contributors", allow_contributors)
@@ -100,8 +101,6 @@ class MaccArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if macc_name is not None:
-            pulumi.set(__self__, "macc_name", macc_name)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
         if milestones is not None:
@@ -140,6 +139,18 @@ class MaccArgs:
     @entity_type.setter
     def entity_type(self, value: pulumi.Input[Union[_builtins.str, 'MaccEntityType']]):
         pulumi.set(self, "entity_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maccName")
+    def macc_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of primary MACC.
+        """
+        return pulumi.get(self, "macc_name")
+
+    @macc_name.setter
+    def macc_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "macc_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -272,18 +283,6 @@ class MaccArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="maccName")
-    def macc_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of primary MACC.
-        """
-        return pulumi.get(self, "macc_name")
-
-    @macc_name.setter
-    def macc_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "macc_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
@@ -589,6 +588,8 @@ class Macc(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if macc_name is None and not opts.urn:
+                raise TypeError("Missing required property 'macc_name'")
             __props__.__dict__["macc_name"] = macc_name
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["milestones"] = milestones

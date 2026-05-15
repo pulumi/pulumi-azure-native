@@ -23,7 +23,7 @@ class ServerInstanceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_discovery_site_name: pulumi.Input[_builtins.str],
                  sap_instance_name: pulumi.Input[_builtins.str],
-                 server_instance_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_instance_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServerInstance resource.
 
@@ -35,8 +35,7 @@ class ServerInstanceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sap_discovery_site_name", sap_discovery_site_name)
         pulumi.set(__self__, "sap_instance_name", sap_instance_name)
-        if server_instance_name is not None:
-            pulumi.set(__self__, "server_instance_name", server_instance_name)
+        pulumi.set(__self__, "server_instance_name", server_instance_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -76,14 +75,14 @@ class ServerInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverInstanceName")
-    def server_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def server_instance_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the Server instance resource for SAP Migration.
         """
         return pulumi.get(self, "server_instance_name")
 
     @server_instance_name.setter
-    def server_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def server_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_instance_name", value)
 
 
@@ -160,6 +159,8 @@ class ServerInstance(pulumi.CustomResource):
             if sap_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_instance_name'")
             __props__.__dict__["sap_instance_name"] = sap_instance_name
+            if server_instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_instance_name'")
             __props__.__dict__["server_instance_name"] = server_instance_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["configuration_data"] = None

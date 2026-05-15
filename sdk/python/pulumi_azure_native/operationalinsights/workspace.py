@@ -23,6 +23,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str],
                  default_data_collection_rule_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  features: pulumi.Input[Optional['WorkspaceFeaturesArgs']] = None,
                  force_cmk_for_query: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -33,12 +34,12 @@ class WorkspaceArgs:
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  sku: pulumi.Input[Optional['WorkspaceSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_capping: pulumi.Input[Optional['WorkspaceCappingArgs']] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_capping: pulumi.Input[Optional['WorkspaceCappingArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] default_data_collection_rule_resource_id: The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         :param pulumi.Input['WorkspaceFeaturesArgs'] features: Workspace features.
         :param pulumi.Input[_builtins.bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
@@ -50,9 +51,9 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceSkuArgs'] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['WorkspaceCappingArgs'] workspace_capping: The daily volume cap for ingestion.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
         if default_data_collection_rule_resource_id is not None:
             pulumi.set(__self__, "default_data_collection_rule_resource_id", default_data_collection_rule_resource_id)
         if features is not None:
@@ -75,8 +76,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "tags", tags)
         if workspace_capping is not None:
             pulumi.set(__self__, "workspace_capping", workspace_capping)
-        if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +88,18 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDataCollectionRuleResourceId")
@@ -222,18 +233,6 @@ class WorkspaceArgs:
     def workspace_capping(self, value: pulumi.Input[Optional['WorkspaceCappingArgs']]):
         pulumi.set(self, "workspace_capping", value)
 
-    @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace.
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_name", value)
-
 
 @pulumi.type_token("azure-native:operationalinsights:Workspace")
 class Workspace(pulumi.CustomResource):
@@ -344,6 +343,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_capping"] = workspace_capping
+            if workspace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None

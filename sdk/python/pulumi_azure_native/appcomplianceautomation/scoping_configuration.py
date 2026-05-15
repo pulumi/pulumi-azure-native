@@ -22,20 +22,19 @@ __all__ = ['ScopingConfigurationArgs', 'ScopingConfiguration']
 class ScopingConfigurationArgs:
     def __init__(__self__, *,
                  report_name: pulumi.Input[_builtins.str],
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]] = None,
-                 scoping_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 scoping_configuration_name: pulumi.Input[_builtins.str],
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]] = None):
         """
         The set of arguments for constructing a ScopingConfiguration resource.
 
         :param pulumi.Input[_builtins.str] report_name: Report Name.
-        :param pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]] answers: List of scoping question answers.
         :param pulumi.Input[_builtins.str] scoping_configuration_name: The scoping configuration of the specific report.
+        :param pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]] answers: List of scoping question answers.
         """
         pulumi.set(__self__, "report_name", report_name)
+        pulumi.set(__self__, "scoping_configuration_name", scoping_configuration_name)
         if answers is not None:
             pulumi.set(__self__, "answers", answers)
-        if scoping_configuration_name is not None:
-            pulumi.set(__self__, "scoping_configuration_name", scoping_configuration_name)
 
     @_builtins.property
     @pulumi.getter(name="reportName")
@@ -50,6 +49,18 @@ class ScopingConfigurationArgs:
         pulumi.set(self, "report_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="scopingConfigurationName")
+    def scoping_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The scoping configuration of the specific report.
+        """
+        return pulumi.get(self, "scoping_configuration_name")
+
+    @scoping_configuration_name.setter
+    def scoping_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scoping_configuration_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]]:
         """
@@ -60,18 +71,6 @@ class ScopingConfigurationArgs:
     @answers.setter
     def answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scopingConfigurationName")
-    def scoping_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The scoping configuration of the specific report.
-        """
-        return pulumi.get(self, "scoping_configuration_name")
-
-    @scoping_configuration_name.setter
-    def scoping_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "scoping_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:appcomplianceautomation:ScopingConfiguration")
@@ -139,6 +138,8 @@ class ScopingConfiguration(pulumi.CustomResource):
             if report_name is None and not opts.urn:
                 raise TypeError("Missing required property 'report_name'")
             __props__.__dict__["report_name"] = report_name
+            if scoping_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'scoping_configuration_name'")
             __props__.__dict__["scoping_configuration_name"] = scoping_configuration_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

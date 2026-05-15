@@ -24,12 +24,12 @@ class RestApiPollerDataConnectorArgs:
     def __init__(__self__, *,
                  auth: pulumi.Input[Union['AWSAuthModelArgs', 'ApiKeyAuthModelArgs', 'BasicAuthModelArgs', 'GCPAuthModelArgs', 'GenericBlobSbsAuthModelArgs', 'GitHubAuthModelArgs', 'JwtAuthModelArgs', 'NoneAuthModelArgs', 'OAuthModelArgs', 'OracleAuthModelArgs', 'SessionAuthModelArgs']],
                  connector_definition_name: pulumi.Input[_builtins.str],
+                 data_connector_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  request: pulumi.Input['RestApiPollerRequestConfigArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  add_on_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_type: pulumi.Input[Optional[_builtins.str]] = None,
                  dcr_config: pulumi.Input[Optional['DCRConfigurationArgs']] = None,
                  is_active: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -40,13 +40,13 @@ class RestApiPollerDataConnectorArgs:
 
         :param pulumi.Input[Union['AWSAuthModelArgs', 'ApiKeyAuthModelArgs', 'BasicAuthModelArgs', 'GCPAuthModelArgs', 'GenericBlobSbsAuthModelArgs', 'GitHubAuthModelArgs', 'JwtAuthModelArgs', 'NoneAuthModelArgs', 'OAuthModelArgs', 'OracleAuthModelArgs', 'SessionAuthModelArgs']] auth: The a authentication model.
         :param pulumi.Input[_builtins.str] connector_definition_name: The connector definition name (the dataConnectorDefinition resource id).
+        :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'RestApiPoller'.
         :param pulumi.Input['RestApiPollerRequestConfigArgs'] request: The request configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] add_on_attributes: The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
-        :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input[_builtins.str] data_type: The Log Analytics table destination.
         :param pulumi.Input['DCRConfigurationArgs'] dcr_config: The DCR related properties.
         :param pulumi.Input[_builtins.bool] is_active: Indicates whether the connector is active or not.
@@ -55,14 +55,13 @@ class RestApiPollerDataConnectorArgs:
         """
         pulumi.set(__self__, "auth", auth)
         pulumi.set(__self__, "connector_definition_name", connector_definition_name)
+        pulumi.set(__self__, "data_connector_id", data_connector_id)
         pulumi.set(__self__, "kind", 'RestApiPoller')
         pulumi.set(__self__, "request", request)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if add_on_attributes is not None:
             pulumi.set(__self__, "add_on_attributes", add_on_attributes)
-        if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
         if dcr_config is not None:
@@ -97,6 +96,18 @@ class RestApiPollerDataConnectorArgs:
     @connector_definition_name.setter
     def connector_definition_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "connector_definition_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorId")
+    def data_connector_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Connector ID
+        """
+        return pulumi.get(self, "data_connector_id")
+
+    @data_connector_id.setter
+    def data_connector_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,18 +169,6 @@ class RestApiPollerDataConnectorArgs:
     @add_on_attributes.setter
     def add_on_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "add_on_attributes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Connector ID
-        """
-        return pulumi.get(self, "data_connector_id")
-
-    @data_connector_id.setter
-    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
@@ -331,6 +330,8 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
             if connector_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_definition_name'")
             __props__.__dict__["connector_definition_name"] = connector_definition_name
+            if data_connector_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connector_id'")
             __props__.__dict__["data_connector_id"] = data_connector_id
             __props__.__dict__["data_type"] = data_type
             __props__.__dict__["dcr_config"] = dcr_config

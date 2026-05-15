@@ -20,13 +20,13 @@ __all__ = ['WebAppPremierAddOnSlotArgs', 'WebAppPremierAddOnSlot']
 class WebAppPremierAddOnSlotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 premier_add_on_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_offer: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 premier_add_on_name: pulumi.Input[Optional[_builtins.str]] = None,
                  product: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -35,19 +35,20 @@ class WebAppPremierAddOnSlotArgs:
         The set of arguments for constructing a WebAppPremierAddOnSlot resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] premier_add_on_name: Add-on name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[_builtins.str] marketplace_publisher: Premier add on Marketplace publisher.
-        :param pulumi.Input[_builtins.str] premier_add_on_name: Add-on name.
         :param pulumi.Input[_builtins.str] product: Premier add on Product.
         :param pulumi.Input[_builtins.str] sku: Premier add on SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vendor: Premier add on Vendor.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "premier_add_on_name", premier_add_on_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "slot", slot)
         if kind is not None:
@@ -58,8 +59,6 @@ class WebAppPremierAddOnSlotArgs:
             pulumi.set(__self__, "marketplace_offer", marketplace_offer)
         if marketplace_publisher is not None:
             pulumi.set(__self__, "marketplace_publisher", marketplace_publisher)
-        if premier_add_on_name is not None:
-            pulumi.set(__self__, "premier_add_on_name", premier_add_on_name)
         if product is not None:
             pulumi.set(__self__, "product", product)
         if sku is not None:
@@ -80,6 +79,18 @@ class WebAppPremierAddOnSlotArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="premierAddOnName")
+    def premier_add_on_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Add-on name.
+        """
+        return pulumi.get(self, "premier_add_on_name")
+
+    @premier_add_on_name.setter
+    def premier_add_on_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "premier_add_on_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -152,18 +163,6 @@ class WebAppPremierAddOnSlotArgs:
     @marketplace_publisher.setter
     def marketplace_publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_publisher", value)
-
-    @_builtins.property
-    @pulumi.getter(name="premierAddOnName")
-    def premier_add_on_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Add-on name.
-        """
-        return pulumi.get(self, "premier_add_on_name")
-
-    @premier_add_on_name.setter
-    def premier_add_on_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "premier_add_on_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -313,6 +312,8 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if premier_add_on_name is None and not opts.urn:
+                raise TypeError("Missing required property 'premier_add_on_name'")
             __props__.__dict__["premier_add_on_name"] = premier_add_on_name
             __props__.__dict__["product"] = product
             if resource_group_name is None and not opts.urn:

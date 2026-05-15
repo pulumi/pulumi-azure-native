@@ -22,13 +22,13 @@ __all__ = ['WebAppSiteContainerSlotArgs', 'WebAppSiteContainerSlot']
 @pulumi.input_type
 class WebAppSiteContainerSlotArgs:
     def __init__(__self__, *,
+                 container_name: pulumi.Input[_builtins.str],
                  image: pulumi.Input[_builtins.str],
                  is_main: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
                  auth_type: pulumi.Input[Optional['AuthType']] = None,
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  inherit_app_settings_and_connection_strings: pulumi.Input[Optional[_builtins.bool]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,13 +41,13 @@ class WebAppSiteContainerSlotArgs:
         """
         The set of arguments for constructing a WebAppSiteContainerSlot resource.
 
+        :param pulumi.Input[_builtins.str] container_name: Site Container Name
         :param pulumi.Input[_builtins.str] image: Image Name
         :param pulumi.Input[_builtins.bool] is_main: <code>true</code> if the container is the main site container; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will create the container for the production slot.
         :param pulumi.Input['AuthType'] auth_type: Auth Type
-        :param pulumi.Input[_builtins.str] container_name: Site Container Name
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables
         :param pulumi.Input[_builtins.bool] inherit_app_settings_and_connection_strings: <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
@@ -58,6 +58,7 @@ class WebAppSiteContainerSlotArgs:
         :param pulumi.Input[_builtins.str] user_name: User Name
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: List of volume mounts
         """
+        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "is_main", is_main)
         pulumi.set(__self__, "name", name)
@@ -65,8 +66,6 @@ class WebAppSiteContainerSlotArgs:
         pulumi.set(__self__, "slot", slot)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if inherit_app_settings_and_connection_strings is not None:
@@ -85,6 +84,18 @@ class WebAppSiteContainerSlotArgs:
             pulumi.set(__self__, "user_name", user_name)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Site Container Name
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,18 +168,6 @@ class WebAppSiteContainerSlotArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[Optional['AuthType']]):
         pulumi.set(self, "auth_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Site Container Name
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
@@ -384,6 +383,8 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
             __props__ = WebAppSiteContainerSlotArgs.__new__(WebAppSiteContainerSlotArgs)
 
             __props__.__dict__["auth_type"] = auth_type
+            if container_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["environment_variables"] = environment_variables
             if image is None and not opts.urn:

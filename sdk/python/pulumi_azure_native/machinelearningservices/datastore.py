@@ -22,27 +22,38 @@ __all__ = ['DatastoreArgs', 'Datastore']
 @pulumi.input_type
 class DatastoreArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Datastore resource.
 
+        :param pulumi.Input[_builtins.str] name: Datastore name.
         :param pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] name: Datastore name.
         :param pulumi.Input[_builtins.bool] skip_validation: Flag to skip validation.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if skip_validation is not None:
             pulumi.set(__self__, "skip_validation", skip_validation)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Datastore name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,18 +90,6 @@ class DatastoreArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Datastore name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
@@ -176,6 +175,8 @@ class Datastore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

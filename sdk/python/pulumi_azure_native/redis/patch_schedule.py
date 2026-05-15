@@ -22,23 +22,34 @@ __all__ = ['PatchScheduleArgs', 'PatchSchedule']
 @pulumi.input_type
 class PatchScheduleArgs:
     def __init__(__self__, *,
+                 default: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]],
-                 default: pulumi.Input[Optional[_builtins.str]] = None):
+                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
         """
         The set of arguments for constructing a PatchSchedule resource.
 
+        :param pulumi.Input[_builtins.str] default: The name of the RedisPatchSchedule
         :param pulumi.Input[_builtins.str] name: The name of the redis cache.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
-        :param pulumi.Input[_builtins.str] default: The name of the RedisPatchSchedule
         """
+        pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schedule_entries", schedule_entries)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RedisPatchSchedule
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class PatchScheduleArgs:
     @schedule_entries.setter
     def schedule_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
         pulumi.set(self, "schedule_entries", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RedisPatchSchedule
-        """
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "default", value)
 
 
 @pulumi.type_token("azure-native:redis:PatchSchedule")
@@ -157,6 +156,8 @@ class PatchSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PatchScheduleArgs.__new__(PatchScheduleArgs)
 
+            if default is None and not opts.urn:
+                raise TypeError("Missing required property 'default'")
             __props__.__dict__["default"] = default
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

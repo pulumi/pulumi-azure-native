@@ -19,19 +19,27 @@ __all__ = ['OutboundFirewallRuleArgs', 'OutboundFirewallRule']
 @pulumi.input_type
 class OutboundFirewallRuleArgs:
     def __init__(__self__, *,
+                 outbound_rule_fqdn: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
-                 outbound_rule_fqdn: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OutboundFirewallRule resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         """
+        pulumi.set(__self__, "outbound_rule_fqdn", outbound_rule_fqdn)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if outbound_rule_fqdn is not None:
-            pulumi.set(__self__, "outbound_rule_fqdn", outbound_rule_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRuleFqdn")
+    def outbound_rule_fqdn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "outbound_rule_fqdn")
+
+    @outbound_rule_fqdn.setter
+    def outbound_rule_fqdn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "outbound_rule_fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -56,15 +64,6 @@ class OutboundFirewallRuleArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRuleFqdn")
-    def outbound_rule_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "outbound_rule_fqdn")
-
-    @outbound_rule_fqdn.setter
-    def outbound_rule_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "outbound_rule_fqdn", value)
 
 
 @pulumi.type_token("azure-native:sql:OutboundFirewallRule")
@@ -131,6 +130,8 @@ class OutboundFirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OutboundFirewallRuleArgs.__new__(OutboundFirewallRuleArgs)
 
+            if outbound_rule_fqdn is None and not opts.urn:
+                raise TypeError("Missing required property 'outbound_rule_fqdn'")
             __props__.__dict__["outbound_rule_fqdn"] = outbound_rule_fqdn
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

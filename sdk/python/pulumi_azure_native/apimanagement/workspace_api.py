@@ -22,11 +22,11 @@ __all__ = ['WorkspaceApiArgs', 'WorkspaceApi']
 @pulumi.input_type
 class WorkspaceApiArgs:
     def __init__(__self__, *,
+                 api_id: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  api_revision: pulumi.Input[Optional[_builtins.str]] = None,
                  api_revision_description: pulumi.Input[Optional[_builtins.str]] = None,
                  api_type: pulumi.Input[Optional[Union[_builtins.str, 'ApiType']]] = None,
@@ -54,11 +54,11 @@ class WorkspaceApiArgs:
         """
         The set of arguments for constructing a WorkspaceApi resource.
 
+        :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] api_revision: Describes the revision of the API. If no value is provided, default revision 1 is created
         :param pulumi.Input[_builtins.str] api_revision_description: Description of the API Revision.
         :param pulumi.Input[Union[_builtins.str, 'ApiType']] api_type: Type of API.
@@ -89,12 +89,11 @@ class WorkspaceApiArgs:
         :param pulumi.Input[_builtins.str] value: Content value when Importing an API.
         :param pulumi.Input['ApiCreateOrUpdatePropertiesWsdlSelectorArgs'] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
+        pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
         if api_revision is not None:
             pulumi.set(__self__, "api_revision", api_revision)
         if api_revision_description is not None:
@@ -145,6 +144,18 @@ class WorkspaceApiArgs:
             pulumi.set(__self__, "wsdl_selector", wsdl_selector)
 
     @_builtins.property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Input[_builtins.str]:
         """
@@ -191,18 +202,6 @@ class WorkspaceApiArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiId")
-    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        """
-        return pulumi.get(self, "api_id")
-
-    @api_id.setter
-    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="apiRevision")
@@ -646,6 +645,8 @@ class WorkspaceApi(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceApiArgs.__new__(WorkspaceApiArgs)
 
+            if api_id is None and not opts.urn:
+                raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["api_revision"] = api_revision
             __props__.__dict__["api_revision_description"] = api_revision_description

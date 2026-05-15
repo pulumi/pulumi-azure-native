@@ -23,6 +23,7 @@ __all__ = ['NamespaceDiscoveredAssetArgs', 'NamespaceDiscoveredAsset']
 class NamespaceDiscoveredAssetArgs:
     def __init__(__self__, *,
                  device_ref: pulumi.Input['DeviceRefArgs'],
+                 discovered_asset_name: pulumi.Input[_builtins.str],
                  discovery_id: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  namespace_name: pulumi.Input[_builtins.str],
@@ -38,7 +39,6 @@ class NamespaceDiscoveredAssetArgs:
                  default_management_groups_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streams_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streams_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]] = None,
-                 discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredEventArgs']]]] = None,
                  hardware_revision: pulumi.Input[Optional[_builtins.str]] = None,
@@ -56,6 +56,7 @@ class NamespaceDiscoveredAssetArgs:
         The set of arguments for constructing a NamespaceDiscoveredAsset resource.
 
         :param pulumi.Input['DeviceRefArgs'] device_ref: Reference to the device that provides data for this asset. Must provide device name & endpoint on the device to use.
+        :param pulumi.Input[_builtins.str] discovered_asset_name: The name of the discovered asset.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
@@ -71,7 +72,6 @@ class NamespaceDiscoveredAssetArgs:
         :param pulumi.Input[_builtins.str] default_management_groups_configuration: Stringified JSON that contains connector-specific default configuration for all management groups. Each management group can have its own configuration that overrides the default settings here.
         :param pulumi.Input[_builtins.str] default_streams_configuration: Stringified JSON that contains connector-specific default configuration for all streams. Each stream can have its own configuration that overrides the default settings here.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]] default_streams_destinations: Default destinations for a stream.
-        :param pulumi.Input[_builtins.str] discovered_asset_name: The name of the discovered asset.
         :param pulumi.Input[_builtins.str] documentation_uri: Asset documentation reference.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventArgs']]] events: Array of events that are part of the asset. Each event can have per-event configuration.
         :param pulumi.Input[_builtins.str] hardware_revision: Asset hardware revision number.
@@ -87,6 +87,7 @@ class NamespaceDiscoveredAssetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "device_ref", device_ref)
+        pulumi.set(__self__, "discovered_asset_name", discovered_asset_name)
         pulumi.set(__self__, "discovery_id", discovery_id)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -112,8 +113,6 @@ class NamespaceDiscoveredAssetArgs:
             pulumi.set(__self__, "default_streams_configuration", default_streams_configuration)
         if default_streams_destinations is not None:
             pulumi.set(__self__, "default_streams_destinations", default_streams_destinations)
-        if discovered_asset_name is not None:
-            pulumi.set(__self__, "discovered_asset_name", discovered_asset_name)
         if documentation_uri is not None:
             pulumi.set(__self__, "documentation_uri", documentation_uri)
         if events is not None:
@@ -152,6 +151,18 @@ class NamespaceDiscoveredAssetArgs:
     @device_ref.setter
     def device_ref(self, value: pulumi.Input['DeviceRefArgs']):
         pulumi.set(self, "device_ref", value)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveredAssetName")
+    def discovered_asset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the discovered asset.
+        """
+        return pulumi.get(self, "discovered_asset_name")
+
+    @discovered_asset_name.setter
+    def discovered_asset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovered_asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryId")
@@ -332,18 +343,6 @@ class NamespaceDiscoveredAssetArgs:
     @default_streams_destinations.setter
     def default_streams_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]):
         pulumi.set(self, "default_streams_destinations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveredAssetName")
-    def discovered_asset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the discovered asset.
-        """
-        return pulumi.get(self, "discovered_asset_name")
-
-    @discovered_asset_name.setter
-    def discovered_asset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "discovered_asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationUri")
@@ -661,6 +660,8 @@ class NamespaceDiscoveredAsset(pulumi.CustomResource):
             if device_ref is None and not opts.urn:
                 raise TypeError("Missing required property 'device_ref'")
             __props__.__dict__["device_ref"] = device_ref
+            if discovered_asset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'discovered_asset_name'")
             __props__.__dict__["discovered_asset_name"] = discovered_asset_name
             if discovery_id is None and not opts.urn:
                 raise TypeError("Missing required property 'discovery_id'")

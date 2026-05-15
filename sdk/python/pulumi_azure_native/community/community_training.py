@@ -22,6 +22,7 @@ __all__ = ['CommunityTrainingArgs', 'CommunityTraining']
 @pulumi.input_type
 class CommunityTrainingArgs:
     def __init__(__self__, *,
+                 community_training_name: pulumi.Input[_builtins.str],
                  disaster_recovery_enabled: pulumi.Input[_builtins.bool],
                  identity_configuration: pulumi.Input['IdentityConfigurationPropertiesArgs'],
                  portal_admin_email_address: pulumi.Input[_builtins.str],
@@ -30,13 +31,13 @@ class CommunityTrainingArgs:
                  portal_owner_organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  zone_redundancy_enabled: pulumi.Input[_builtins.bool],
-                 community_training_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityTraining resource.
 
+        :param pulumi.Input[_builtins.str] community_training_name: The name of the Community Training Resource
         :param pulumi.Input[_builtins.bool] disaster_recovery_enabled: To indicate whether the Community Training instance has Disaster Recovery enabled
         :param pulumi.Input['IdentityConfigurationPropertiesArgs'] identity_configuration: The identity configuration of the Community Training resource
         :param pulumi.Input[_builtins.str] portal_admin_email_address: The email address of the portal admin
@@ -45,11 +46,11 @@ class CommunityTrainingArgs:
         :param pulumi.Input[_builtins.str] portal_owner_organization_name: The organization name of the portal owner
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: To indicate whether the Community Training instance has Zone Redundancy enabled
-        :param pulumi.Input[_builtins.str] community_training_name: The name of the Community Training Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "community_training_name", community_training_name)
         pulumi.set(__self__, "disaster_recovery_enabled", disaster_recovery_enabled)
         pulumi.set(__self__, "identity_configuration", identity_configuration)
         pulumi.set(__self__, "portal_admin_email_address", portal_admin_email_address)
@@ -58,14 +59,24 @@ class CommunityTrainingArgs:
         pulumi.set(__self__, "portal_owner_organization_name", portal_owner_organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
-        if community_training_name is not None:
-            pulumi.set(__self__, "community_training_name", community_training_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="communityTrainingName")
+    def community_training_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Community Training Resource
+        """
+        return pulumi.get(self, "community_training_name")
+
+    @community_training_name.setter
+    def community_training_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "community_training_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disasterRecoveryEnabled")
@@ -162,18 +173,6 @@ class CommunityTrainingArgs:
     @zone_redundancy_enabled.setter
     def zone_redundancy_enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "zone_redundancy_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="communityTrainingName")
-    def community_training_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Community Training Resource
-        """
-        return pulumi.get(self, "community_training_name")
-
-    @community_training_name.setter
-    def community_training_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "community_training_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -300,6 +299,8 @@ class CommunityTraining(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CommunityTrainingArgs.__new__(CommunityTrainingArgs)
 
+            if community_training_name is None and not opts.urn:
+                raise TypeError("Missing required property 'community_training_name'")
             __props__.__dict__["community_training_name"] = community_training_name
             if disaster_recovery_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'disaster_recovery_enabled'")

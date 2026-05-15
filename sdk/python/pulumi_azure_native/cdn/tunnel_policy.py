@@ -25,8 +25,8 @@ class TunnelPolicyArgs:
                  domains: pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 tunnel_policy_name: pulumi.Input[_builtins.str],
                  target_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
-                 tunnel_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tunnel_type: pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]] = None):
         """
         The set of arguments for constructing a TunnelPolicy resource.
@@ -34,17 +34,16 @@ class TunnelPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] domains: Domains referenced by this tunnel policy.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] target_groups: Target Groups referenced by this tunnel policy.
         :param pulumi.Input[_builtins.str] tunnel_policy_name: Name of the Tunnel Policy under the profile.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] target_groups: Target Groups referenced by this tunnel policy.
         :param pulumi.Input[Union[_builtins.str, 'TunnelType']] tunnel_type: Protocol this tunnel will use for allowing traffic to backends.
         """
         pulumi.set(__self__, "domains", domains)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "tunnel_policy_name", tunnel_policy_name)
         if target_groups is not None:
             pulumi.set(__self__, "target_groups", target_groups)
-        if tunnel_policy_name is not None:
-            pulumi.set(__self__, "tunnel_policy_name", tunnel_policy_name)
         if tunnel_type is not None:
             pulumi.set(__self__, "tunnel_type", tunnel_type)
 
@@ -85,6 +84,18 @@ class TunnelPolicyArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tunnelPolicyName")
+    def tunnel_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Tunnel Policy under the profile.
+        """
+        return pulumi.get(self, "tunnel_policy_name")
+
+    @tunnel_policy_name.setter
+    def tunnel_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tunnel_policy_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
@@ -95,18 +106,6 @@ class TunnelPolicyArgs:
     @target_groups.setter
     def target_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "target_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tunnelPolicyName")
-    def tunnel_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Tunnel Policy under the profile.
-        """
-        return pulumi.get(self, "tunnel_policy_name")
-
-    @tunnel_policy_name.setter
-    def tunnel_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tunnel_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelType")
@@ -201,6 +200,8 @@ class TunnelPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["target_groups"] = target_groups
+            if tunnel_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'tunnel_policy_name'")
             __props__.__dict__["tunnel_policy_name"] = tunnel_policy_name
             __props__.__dict__["tunnel_type"] = tunnel_type
             __props__.__dict__["azure_api_version"] = None

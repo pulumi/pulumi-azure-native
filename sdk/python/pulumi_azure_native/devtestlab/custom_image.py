@@ -23,6 +23,7 @@ __all__ = ['CustomImageArgs', 'CustomImage']
 class CustomImageArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  author: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_image_plan: pulumi.Input[Optional['CustomImagePropertiesFromPlanArgs']] = None,
@@ -32,7 +33,6 @@ class CustomImageArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vhd: pulumi.Input[Optional['CustomImagePropertiesCustomArgs']] = None,
                  vm: pulumi.Input[Optional['CustomImagePropertiesFromVmArgs']] = None):
@@ -40,6 +40,7 @@ class CustomImageArgs:
         The set of arguments for constructing a CustomImage resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
+        :param pulumi.Input[_builtins.str] name: The name of the CustomImage
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] author: The author of the custom image.
         :param pulumi.Input['CustomImagePropertiesFromPlanArgs'] custom_image_plan: Storage information about the plan related to this custom image
@@ -49,12 +50,12 @@ class CustomImageArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_image_id: The Managed Image Id backing the custom image.
         :param pulumi.Input[_builtins.str] managed_snapshot_id: The Managed Snapshot Id backing the custom image.
-        :param pulumi.Input[_builtins.str] name: The name of the CustomImage
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['CustomImagePropertiesCustomArgs'] vhd: The VHD from which the image is to be created.
         :param pulumi.Input['CustomImagePropertiesFromVmArgs'] vm: The virtual machine from which the image is to be created.
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if author is not None:
             pulumi.set(__self__, "author", author)
@@ -72,8 +73,6 @@ class CustomImageArgs:
             pulumi.set(__self__, "managed_image_id", managed_image_id)
         if managed_snapshot_id is not None:
             pulumi.set(__self__, "managed_snapshot_id", managed_snapshot_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vhd is not None:
@@ -92,6 +91,18 @@ class CustomImageArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the CustomImage
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -200,18 +211,6 @@ class CustomImageArgs:
     @managed_snapshot_id.setter
     def managed_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_snapshot_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the CustomImage
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -355,6 +354,8 @@ class CustomImage(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_image_id"] = managed_image_id
             __props__.__dict__["managed_snapshot_id"] = managed_snapshot_id
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

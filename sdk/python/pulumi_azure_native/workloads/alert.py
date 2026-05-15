@@ -22,9 +22,9 @@ __all__ = ['AlertArgs', 'Alert']
 @pulumi.input_type
 class AlertArgs:
     def __init__(__self__, *,
+                 alert_name: pulumi.Input[_builtins.str],
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 alert_name: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_rule_properties: pulumi.Input[Optional['AlertRulePropertiesArgs']] = None,
                  provider_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  provider_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,18 +32,17 @@ class AlertArgs:
         """
         The set of arguments for constructing a Alert resource.
 
+        :param pulumi.Input[_builtins.str] alert_name: Name of the SAP monitor alert resource.
         :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] alert_name: Name of the SAP monitor alert resource.
         :param pulumi.Input['AlertRulePropertiesArgs'] alert_rule_properties: Describes the properties of an alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] provider_names: Name of provider instances associated with the alert.
         :param pulumi.Input[_builtins.str] provider_type: The provider type for alert. For example, the value can be SapHana.
         :param pulumi.Input[_builtins.str] template_name: Name of the alert template from which it was created.
         """
+        pulumi.set(__self__, "alert_name", alert_name)
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if alert_name is not None:
-            pulumi.set(__self__, "alert_name", alert_name)
         if alert_rule_properties is not None:
             pulumi.set(__self__, "alert_rule_properties", alert_rule_properties)
         if provider_names is not None:
@@ -52,6 +51,18 @@ class AlertArgs:
             pulumi.set(__self__, "provider_type", provider_type)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
+
+    @_builtins.property
+    @pulumi.getter(name="alertName")
+    def alert_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the SAP monitor alert resource.
+        """
+        return pulumi.get(self, "alert_name")
+
+    @alert_name.setter
+    def alert_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alert_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
@@ -76,18 +87,6 @@ class AlertArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="alertName")
-    def alert_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the SAP monitor alert resource.
-        """
-        return pulumi.get(self, "alert_name")
-
-    @alert_name.setter
-    def alert_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "alert_name", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleProperties")
@@ -211,6 +210,8 @@ class Alert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertArgs.__new__(AlertArgs)
 
+            if alert_name is None and not opts.urn:
+                raise TypeError("Missing required property 'alert_name'")
             __props__.__dict__["alert_name"] = alert_name
             __props__.__dict__["alert_rule_properties"] = alert_rule_properties
             if monitor_name is None and not opts.urn:

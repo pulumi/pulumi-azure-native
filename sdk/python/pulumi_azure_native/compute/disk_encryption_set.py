@@ -22,9 +22,9 @@ __all__ = ['DiskEncryptionSetArgs', 'DiskEncryptionSet']
 @pulumi.input_type
 class DiskEncryptionSetArgs:
     def __init__(__self__, *,
+                 disk_encryption_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  active_key: pulumi.Input[Optional['KeyForDiskEncryptionSetArgs']] = None,
-                 disk_encryption_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_type: pulumi.Input[Optional[Union[_builtins.str, 'DiskEncryptionSetType']]] = None,
                  federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['EncryptionSetIdentityArgs']] = None,
@@ -34,9 +34,9 @@ class DiskEncryptionSetArgs:
         """
         The set of arguments for constructing a DiskEncryptionSet resource.
 
+        :param pulumi.Input[_builtins.str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['KeyForDiskEncryptionSetArgs'] active_key: The key vault key which is currently used by this disk encryption set.
-        :param pulumi.Input[_builtins.str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[_builtins.str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
         :param pulumi.Input['EncryptionSetIdentityArgs'] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -44,11 +44,10 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input[_builtins.bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "disk_encryption_set_name", disk_encryption_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if active_key is not None:
             pulumi.set(__self__, "active_key", active_key)
-        if disk_encryption_set_name is not None:
-            pulumi.set(__self__, "disk_encryption_set_name", disk_encryption_set_name)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if federated_client_id is not None:
@@ -61,6 +60,18 @@ class DiskEncryptionSetArgs:
             pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionSetName")
+    def disk_encryption_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        """
+        return pulumi.get(self, "disk_encryption_set_name")
+
+    @disk_encryption_set_name.setter
+    def disk_encryption_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "disk_encryption_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,18 +96,6 @@ class DiskEncryptionSetArgs:
     @active_key.setter
     def active_key(self, value: pulumi.Input[Optional['KeyForDiskEncryptionSetArgs']]):
         pulumi.set(self, "active_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="diskEncryptionSetName")
-    def disk_encryption_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-        """
-        return pulumi.get(self, "disk_encryption_set_name")
-
-    @disk_encryption_set_name.setter
-    def disk_encryption_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "disk_encryption_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
@@ -255,6 +254,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
 
             __props__.__dict__["active_key"] = active_key
+            if disk_encryption_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'disk_encryption_set_name'")
             __props__.__dict__["disk_encryption_set_name"] = disk_encryption_set_name
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["federated_client_id"] = federated_client_id

@@ -24,7 +24,7 @@ class TrustedAccessRoleBindingArgs:
                  resource_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 trusted_access_role_binding_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 trusted_access_role_binding_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TrustedAccessRoleBinding resource.
 
@@ -38,8 +38,7 @@ class TrustedAccessRoleBindingArgs:
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if trusted_access_role_binding_name is not None:
-            pulumi.set(__self__, "trusted_access_role_binding_name", trusted_access_role_binding_name)
+        pulumi.set(__self__, "trusted_access_role_binding_name", trusted_access_role_binding_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,14 +90,14 @@ class TrustedAccessRoleBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedAccessRoleBindingName")
-    def trusted_access_role_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trusted_access_role_binding_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of trusted access role binding.
         """
         return pulumi.get(self, "trusted_access_role_binding_name")
 
     @trusted_access_role_binding_name.setter
-    def trusted_access_role_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trusted_access_role_binding_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "trusted_access_role_binding_name", value)
 
 
@@ -185,6 +184,8 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
             if source_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_resource_id'")
             __props__.__dict__["source_resource_id"] = source_resource_id
+            if trusted_access_role_binding_name is None and not opts.urn:
+                raise TypeError("Missing required property 'trusted_access_role_binding_name'")
             __props__.__dict__["trusted_access_role_binding_name"] = trusted_access_role_binding_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

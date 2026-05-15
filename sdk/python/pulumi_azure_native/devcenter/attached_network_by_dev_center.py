@@ -20,23 +20,34 @@ __all__ = ['AttachedNetworkByDevCenterArgs', 'AttachedNetworkByDevCenter']
 @pulumi.input_type
 class AttachedNetworkByDevCenterArgs:
     def __init__(__self__, *,
+                 attached_network_connection_name: pulumi.Input[_builtins.str],
                  dev_center_name: pulumi.Input[_builtins.str],
                  network_connection_id: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 attached_network_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AttachedNetworkByDevCenter resource.
 
+        :param pulumi.Input[_builtins.str] attached_network_connection_name: The name of the attached NetworkConnection.
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] network_connection_id: The resource ID of the NetworkConnection you want to attach.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] attached_network_connection_name: The name of the attached NetworkConnection.
         """
+        pulumi.set(__self__, "attached_network_connection_name", attached_network_connection_name)
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "network_connection_id", network_connection_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if attached_network_connection_name is not None:
-            pulumi.set(__self__, "attached_network_connection_name", attached_network_connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="attachedNetworkConnectionName")
+    def attached_network_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the attached NetworkConnection.
+        """
+        return pulumi.get(self, "attached_network_connection_name")
+
+    @attached_network_connection_name.setter
+    def attached_network_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attached_network_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterName")
@@ -73,18 +84,6 @@ class AttachedNetworkByDevCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="attachedNetworkConnectionName")
-    def attached_network_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the attached NetworkConnection.
-        """
-        return pulumi.get(self, "attached_network_connection_name")
-
-    @attached_network_connection_name.setter
-    def attached_network_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "attached_network_connection_name", value)
 
 
 @pulumi.type_token("azure-native:devcenter:AttachedNetworkByDevCenter")
@@ -155,6 +154,8 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttachedNetworkByDevCenterArgs.__new__(AttachedNetworkByDevCenterArgs)
 
+            if attached_network_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'attached_network_connection_name'")
             __props__.__dict__["attached_network_connection_name"] = attached_network_connection_name
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")

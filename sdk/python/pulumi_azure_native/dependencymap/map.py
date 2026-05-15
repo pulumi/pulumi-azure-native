@@ -20,25 +20,36 @@ __all__ = ['MapArgs', 'Map']
 @pulumi.input_type
 class MapArgs:
     def __init__(__self__, *,
+                 map_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Map resource.
 
+        :param pulumi.Input[_builtins.str] map_name: Maps resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] map_name: Maps resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "map_name", map_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if map_name is not None:
-            pulumi.set(__self__, "map_name", map_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="mapName")
+    def map_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Maps resource name
+        """
+        return pulumi.get(self, "map_name")
+
+    @map_name.setter
+    def map_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "map_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +74,6 @@ class MapArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mapName")
-    def map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Maps resource name
-        """
-        return pulumi.get(self, "map_name")
-
-    @map_name.setter
-    def map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "map_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class Map(pulumi.CustomResource):
             __props__ = MapArgs.__new__(MapArgs)
 
             __props__.__dict__["location"] = location
+            if map_name is None and not opts.urn:
+                raise TypeError("Missing required property 'map_name'")
             __props__.__dict__["map_name"] = map_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

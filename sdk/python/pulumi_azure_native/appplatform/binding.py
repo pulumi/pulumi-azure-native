@@ -22,24 +22,23 @@ __all__ = ['BindingArgs', 'Binding']
 class BindingArgs:
     def __init__(__self__, *,
                  app_name: pulumi.Input[_builtins.str],
+                 binding_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BindingResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Binding resource.
 
         :param pulumi.Input[_builtins.str] app_name: The name of the App resource.
+        :param pulumi.Input[_builtins.str] binding_name: The name of the Binding resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] binding_name: The name of the Binding resource.
         :param pulumi.Input['BindingResourcePropertiesArgs'] properties: Properties of the Binding resource
         """
         pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "binding_name", binding_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if binding_name is not None:
-            pulumi.set(__self__, "binding_name", binding_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,6 +53,18 @@ class BindingArgs:
     @app_name.setter
     def app_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "app_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bindingName")
+    def binding_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Binding resource.
+        """
+        return pulumi.get(self, "binding_name")
+
+    @binding_name.setter
+    def binding_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "binding_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +89,6 @@ class BindingArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bindingName")
-    def binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Binding resource.
-        """
-        return pulumi.get(self, "binding_name")
-
-    @binding_name.setter
-    def binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "binding_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class Binding(pulumi.CustomResource):
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
             __props__.__dict__["app_name"] = app_name
+            if binding_name is None and not opts.urn:
+                raise TypeError("Missing required property 'binding_name'")
             __props__.__dict__["binding_name"] = binding_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

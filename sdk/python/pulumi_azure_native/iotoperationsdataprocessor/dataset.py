@@ -21,10 +21,10 @@ __all__ = ['DatasetArgs', 'Dataset']
 @pulumi.input_type
 class DatasetArgs:
     def __init__(__self__, *,
+                 dataset_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  keys: pulumi.Input[Optional[Mapping[str, pulumi.Input['DatasetPropertyKeyArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,10 +35,10 @@ class DatasetArgs:
         """
         The set of arguments for constructing a Dataset resource.
 
+        :param pulumi.Input[_builtins.str] dataset_name: Name of dataset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] dataset_name: Name of dataset.
         :param pulumi.Input[_builtins.str] description: Detailed description of the Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input['DatasetPropertyKeyArgs']]] keys: List of keys that can be used for joining on enrich.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -47,11 +47,10 @@ class DatasetArgs:
         :param pulumi.Input[_builtins.str] timestamp: Path to an RFC3339 timestamp in the message. If no path is provided, the ingestion time of the record is used for time-based joins.
         :param pulumi.Input[_builtins.str] ttl: Time to live for individual records.
         """
+        pulumi.set(__self__, "dataset_name", dataset_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if keys is not None:
@@ -66,6 +65,18 @@ class DatasetArgs:
             pulumi.set(__self__, "timestamp", timestamp)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of dataset.
+        """
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -102,18 +113,6 @@ class DatasetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of dataset.
-        """
-        return pulumi.get(self, "dataset_name")
-
-    @dataset_name.setter
-    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -285,6 +284,8 @@ class Dataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatasetArgs.__new__(DatasetArgs)
 
+            if dataset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dataset_name'")
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["description"] = description
             if extended_location is None and not opts.urn:

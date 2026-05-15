@@ -23,21 +23,20 @@ __all__ = ['MoveResourceArgs', 'MoveResource']
 class MoveResourceArgs:
     def __init__(__self__, *,
                  move_collection_name: pulumi.Input[_builtins.str],
+                 move_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 move_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MoveResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a MoveResource resource.
 
         :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
-        :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] move_resource_name: The Move Resource Name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['MoveResourcePropertiesArgs'] properties: Defines the move resource properties.
         """
         pulumi.set(__self__, "move_collection_name", move_collection_name)
+        pulumi.set(__self__, "move_resource_name", move_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if move_resource_name is not None:
-            pulumi.set(__self__, "move_resource_name", move_resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,6 +53,18 @@ class MoveResourceArgs:
         pulumi.set(self, "move_collection_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="moveResourceName")
+    def move_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Move Resource Name.
+        """
+        return pulumi.get(self, "move_resource_name")
+
+    @move_resource_name.setter
+    def move_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "move_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -64,18 +75,6 @@ class MoveResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="moveResourceName")
-    def move_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Move Resource Name.
-        """
-        return pulumi.get(self, "move_resource_name")
-
-    @move_resource_name.setter
-    def move_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "move_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -161,6 +160,8 @@ class MoveResource(pulumi.CustomResource):
             if move_collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'move_collection_name'")
             __props__.__dict__["move_collection_name"] = move_collection_name
+            if move_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'move_resource_name'")
             __props__.__dict__["move_resource_name"] = move_resource_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

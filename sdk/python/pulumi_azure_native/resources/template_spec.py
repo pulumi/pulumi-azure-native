@@ -21,24 +21,25 @@ __all__ = ['TemplateSpecArgs', 'TemplateSpec']
 class TemplateSpecArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 template_spec_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_spec_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TemplateSpec resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] template_spec_name: Name of the Template Spec.
         :param pulumi.Input[_builtins.str] description: Template Spec description.
         :param pulumi.Input[_builtins.str] display_name: Template Spec display name.
         :param pulumi.Input[_builtins.str] location: The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
         :param Any metadata: The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] template_spec_name: Name of the Template Spec.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "template_spec_name", template_spec_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -49,8 +50,6 @@ class TemplateSpecArgs:
             pulumi.set(__self__, "metadata", metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if template_spec_name is not None:
-            pulumi.set(__self__, "template_spec_name", template_spec_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,6 +62,18 @@ class TemplateSpecArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateSpecName")
+    def template_spec_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Template Spec.
+        """
+        return pulumi.get(self, "template_spec_name")
+
+    @template_spec_name.setter
+    def template_spec_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "template_spec_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -123,18 +134,6 @@ class TemplateSpecArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="templateSpecName")
-    def template_spec_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Template Spec.
-        """
-        return pulumi.get(self, "template_spec_name")
-
-    @template_spec_name.setter
-    def template_spec_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "template_spec_name", value)
 
 
 @pulumi.type_token("azure-native:resources:TemplateSpec")
@@ -222,6 +221,8 @@ class TemplateSpec(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if template_spec_name is None and not opts.urn:
+                raise TypeError("Missing required property 'template_spec_name'")
             __props__.__dict__["template_spec_name"] = template_spec_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

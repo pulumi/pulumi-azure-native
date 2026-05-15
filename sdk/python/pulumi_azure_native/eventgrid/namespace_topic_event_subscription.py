@@ -22,26 +22,27 @@ __all__ = ['NamespaceTopicEventSubscriptionArgs', 'NamespaceTopicEventSubscripti
 @pulumi.input_type
 class NamespaceTopicEventSubscriptionArgs:
     def __init__(__self__, *,
+                 event_subscription_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
                  delivery_configuration: pulumi.Input[Optional['DeliveryConfigurationArgs']] = None,
                  event_delivery_schema: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]] = None,
-                 event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  filters_configuration: pulumi.Input[Optional['FiltersConfigurationArgs']] = None):
         """
         The set of arguments for constructing a NamespaceTopicEventSubscription resource.
 
+        :param pulumi.Input[_builtins.str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.str] topic_name: Name of the namespace topic.
         :param pulumi.Input['DeliveryConfigurationArgs'] delivery_configuration: Information about the delivery configuration of the event subscription.
         :param pulumi.Input[Union[_builtins.str, 'DeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[_builtins.str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         :param pulumi.Input[_builtins.str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input['FiltersConfigurationArgs'] filters_configuration: Information about the filter for the event subscription.
         """
+        pulumi.set(__self__, "event_subscription_name", event_subscription_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "topic_name", topic_name)
@@ -49,12 +50,22 @@ class NamespaceTopicEventSubscriptionArgs:
             pulumi.set(__self__, "delivery_configuration", delivery_configuration)
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
-        if event_subscription_name is not None:
-            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
         if expiration_time_utc is not None:
             pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
         if filters_configuration is not None:
             pulumi.set(__self__, "filters_configuration", filters_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSubscriptionName")
+    def event_subscription_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
+        """
+        return pulumi.get(self, "event_subscription_name")
+
+    @event_subscription_name.setter
+    def event_subscription_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -115,18 +126,6 @@ class NamespaceTopicEventSubscriptionArgs:
     @event_delivery_schema.setter
     def event_delivery_schema(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]]):
         pulumi.set(self, "event_delivery_schema", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventSubscriptionName")
-    def event_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
-        """
-        return pulumi.get(self, "event_subscription_name")
-
-    @event_subscription_name.setter
-    def event_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "event_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeUtc")
@@ -235,6 +234,8 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
 
             __props__.__dict__["delivery_configuration"] = delivery_configuration
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
+            if event_subscription_name is None and not opts.urn:
+                raise TypeError("Missing required property 'event_subscription_name'")
             __props__.__dict__["event_subscription_name"] = event_subscription_name
             __props__.__dict__["expiration_time_utc"] = expiration_time_utc
             __props__.__dict__["filters_configuration"] = filters_configuration

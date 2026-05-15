@@ -19,23 +19,34 @@ __all__ = ['ServerAzureADOnlyAuthenticationArgs', 'ServerAzureADOnlyAuthenticati
 @pulumi.input_type
 class ServerAzureADOnlyAuthenticationArgs:
     def __init__(__self__, *,
+                 authentication_name: pulumi.Input[_builtins.str],
                  azure_ad_only_authentication: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
-                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServerAzureADOnlyAuthentication resource.
 
+        :param pulumi.Input[_builtins.str] authentication_name: The name of server azure active directory only authentication.
         :param pulumi.Input[_builtins.bool] azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] authentication_name: The name of server azure active directory only authentication.
         """
+        pulumi.set(__self__, "authentication_name", authentication_name)
         pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if authentication_name is not None:
-            pulumi.set(__self__, "authentication_name", authentication_name)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationName")
+    def authentication_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of server azure active directory only authentication.
+        """
+        return pulumi.get(self, "authentication_name")
+
+    @authentication_name.setter
+    def authentication_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureADOnlyAuthentication")
@@ -72,18 +83,6 @@ class ServerAzureADOnlyAuthenticationArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of server azure active directory only authentication.
-        """
-        return pulumi.get(self, "authentication_name")
-
-    @authentication_name.setter
-    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authentication_name", value)
 
 
 @pulumi.type_token("azure-native:sql:ServerAzureADOnlyAuthentication")
@@ -154,6 +153,8 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerAzureADOnlyAuthenticationArgs.__new__(ServerAzureADOnlyAuthenticationArgs)
 
+            if authentication_name is None and not opts.urn:
+                raise TypeError("Missing required property 'authentication_name'")
             __props__.__dict__["authentication_name"] = authentication_name
             if azure_ad_only_authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_ad_only_authentication'")

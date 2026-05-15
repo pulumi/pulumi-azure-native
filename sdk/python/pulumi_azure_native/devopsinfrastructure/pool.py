@@ -27,10 +27,10 @@ class PoolArgs:
                  fabric_profile: pulumi.Input['VmssFabricProfileArgs'],
                  maximum_concurrency: pulumi.Input[_builtins.int],
                  organization_profile: pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']],
+                 pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -41,10 +41,10 @@ class PoolArgs:
         :param pulumi.Input['VmssFabricProfileArgs'] fabric_profile: Defines the type of fabric the agent will run on.
         :param pulumi.Input[_builtins.int] maximum_concurrency: Defines how many resources can there be created at any given time.
         :param pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']] organization_profile: Defines the organization in which the pool will be used.
+        :param pulumi.Input[_builtins.str] pool_name: Name of the pool. It needs to be globally unique.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] pool_name: Name of the pool. It needs to be globally unique.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the current operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -53,13 +53,12 @@ class PoolArgs:
         pulumi.set(__self__, "fabric_profile", fabric_profile)
         pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
         pulumi.set(__self__, "organization_profile", organization_profile)
+        pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
@@ -126,6 +125,18 @@ class PoolArgs:
         pulumi.set(self, "organization_profile", value)
 
     @_builtins.property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the pool. It needs to be globally unique.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "pool_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -160,18 +171,6 @@ class PoolArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="poolName")
-    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the pool. It needs to be globally unique.
-        """
-        return pulumi.get(self, "pool_name")
-
-    @pool_name.setter
-    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -304,6 +303,8 @@ class Pool(pulumi.CustomResource):
             if organization_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_profile'")
             __props__.__dict__["organization_profile"] = organization_profile
+            if pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

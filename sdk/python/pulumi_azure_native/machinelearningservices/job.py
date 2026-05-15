@@ -22,23 +22,34 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Job resource.
 
+        :param pulumi.Input[_builtins.str] id: The name and identifier for the Job. This is case-sensitive.
         :param pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] id: The name and identifier for the Job. This is case-sensitive.
         """
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name and identifier for the Job. This is case-sensitive.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class JobArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name and identifier for the Job. This is case-sensitive.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:Job")
@@ -157,6 +156,8 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
+            if id is None and not opts.urn:
+                raise TypeError("Missing required property 'id'")
             __props__.__dict__["id"] = id
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

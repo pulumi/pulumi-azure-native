@@ -22,21 +22,20 @@ __all__ = ['DashboardDefinitionArgs', 'DashboardDefinition']
 class DashboardDefinitionArgs:
     def __init__(__self__, *,
                  dashboard_name: pulumi.Input[_builtins.str],
+                 definition_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DashboardDefinitionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DashboardDefinition resource.
 
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the Azure Managed Dashboard.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] definition_name: The name of the Dashboard Definition.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DashboardDefinitionPropertiesArgs'] properties: Properties specific to the dashboard definition resource.
         """
         pulumi.set(__self__, "dashboard_name", dashboard_name)
+        pulumi.set(__self__, "definition_name", definition_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if definition_name is not None:
-            pulumi.set(__self__, "definition_name", definition_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,6 +52,18 @@ class DashboardDefinitionArgs:
         pulumi.set(self, "dashboard_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="definitionName")
+    def definition_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Dashboard Definition.
+        """
+        return pulumi.get(self, "definition_name")
+
+    @definition_name.setter
+    def definition_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -63,18 +74,6 @@ class DashboardDefinitionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="definitionName")
-    def definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Dashboard Definition.
-        """
-        return pulumi.get(self, "definition_name")
-
-    @definition_name.setter
-    def definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,6 +155,8 @@ class DashboardDefinition(pulumi.CustomResource):
             if dashboard_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_name'")
             __props__.__dict__["dashboard_name"] = dashboard_name
+            if definition_name is None and not opts.urn:
+                raise TypeError("Missing required property 'definition_name'")
             __props__.__dict__["definition_name"] = definition_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

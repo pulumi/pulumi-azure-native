@@ -21,13 +21,13 @@ __all__ = ['AssessmentProjectsOperationArgs', 'AssessmentProjectsOperation']
 @pulumi.input_type
 class AssessmentProjectsOperationArgs:
     def __init__(__self__, *,
+                 project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  assessment_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_storage_account_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_workspace_location: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_status: pulumi.Input[Optional[Union[_builtins.str, 'ProjectStatus']]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,6 +35,7 @@ class AssessmentProjectsOperationArgs:
         """
         The set of arguments for constructing a AssessmentProjectsOperation resource.
 
+        :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assessment_solution_id: Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
         :param pulumi.Input[_builtins.str] customer_storage_account_arm_id: The ARM id of the storage account used for interactions when public access is
@@ -42,7 +43,6 @@ class AssessmentProjectsOperationArgs:
         :param pulumi.Input[_builtins.str] customer_workspace_id: The ARM id of service map workspace created by customer.
         :param pulumi.Input[_builtins.str] customer_workspace_location: Location of service map workspace created by customer.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[Union[_builtins.str, 'ProjectStatus']] project_status: Assessment project status.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[_builtins.str] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing
@@ -51,6 +51,7 @@ class AssessmentProjectsOperationArgs:
                exclusive access method.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if assessment_solution_id is not None:
             pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
@@ -62,8 +63,6 @@ class AssessmentProjectsOperationArgs:
             pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
         if project_status is not None:
             pulumi.set(__self__, "project_status", project_status)
         if provisioning_state is not None:
@@ -72,6 +71,18 @@ class AssessmentProjectsOperationArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Assessment Project Name
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -145,18 +156,6 @@ class AssessmentProjectsOperationArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Assessment Project Name
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectStatus")
@@ -308,6 +307,8 @@ class AssessmentProjectsOperation(pulumi.CustomResource):
             __props__.__dict__["customer_workspace_id"] = customer_workspace_id
             __props__.__dict__["customer_workspace_location"] = customer_workspace_location
             __props__.__dict__["location"] = location
+            if project_name is None and not opts.urn:
+                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["project_status"] = project_status
             __props__.__dict__["provisioning_state"] = provisioning_state

@@ -21,24 +21,25 @@ __all__ = ['CustomImageArgs', 'CustomImage']
 @pulumi.input_type
 class CustomImageArgs:
     def __init__(__self__, *,
+                 custom_image_name: pulumi.Input[_builtins.str],
                  definition_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[Optional[Union[_builtins.str, 'ImageSource']]] = None,
                  test_base_account_name: pulumi.Input[_builtins.str],
                  version_name: pulumi.Input[_builtins.str],
-                 custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vhd_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomImage resource.
 
+        :param pulumi.Input[_builtins.str] custom_image_name: The resource name of the test base custom image.
         :param pulumi.Input[_builtins.str] definition_name: Image definition name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ImageSource']] source: Custom image source type.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[_builtins.str] version_name: Image version name.
-        :param pulumi.Input[_builtins.str] custom_image_name: The resource name of the test base custom image.
         :param pulumi.Input[_builtins.str] vhd_id: The Id of the associated VHD resource.
         """
+        pulumi.set(__self__, "custom_image_name", custom_image_name)
         pulumi.set(__self__, "definition_name", definition_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source is None:
@@ -46,10 +47,20 @@ class CustomImageArgs:
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
         pulumi.set(__self__, "version_name", version_name)
-        if custom_image_name is not None:
-            pulumi.set(__self__, "custom_image_name", custom_image_name)
         if vhd_id is not None:
             pulumi.set(__self__, "vhd_id", vhd_id)
+
+    @_builtins.property
+    @pulumi.getter(name="customImageName")
+    def custom_image_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource name of the test base custom image.
+        """
+        return pulumi.get(self, "custom_image_name")
+
+    @custom_image_name.setter
+    def custom_image_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "custom_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionName")
@@ -110,18 +121,6 @@ class CustomImageArgs:
     @version_name.setter
     def version_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "version_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customImageName")
-    def custom_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The resource name of the test base custom image.
-        """
-        return pulumi.get(self, "custom_image_name")
-
-    @custom_image_name.setter
-    def custom_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "custom_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vhdId")
@@ -209,6 +208,8 @@ class CustomImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
+            if custom_image_name is None and not opts.urn:
+                raise TypeError("Missing required property 'custom_image_name'")
             __props__.__dict__["custom_image_name"] = custom_image_name
             if definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'definition_name'")

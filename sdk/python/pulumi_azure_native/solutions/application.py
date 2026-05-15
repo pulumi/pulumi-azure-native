@@ -22,10 +22,10 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  jit_access_policy: pulumi.Input[Optional['ApplicationJitAccessPolicyArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,10 +38,10 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
+        :param pulumi.Input[_builtins.str] application_name: The name of the managed application.
         :param pulumi.Input[_builtins.str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] application_definition_id: The fully qualified path of managed application definition Id.
-        :param pulumi.Input[_builtins.str] application_name: The name of the managed application.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input['ApplicationJitAccessPolicyArgs'] jit_access_policy: The managed application Jit access policy.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -52,12 +52,11 @@ class ApplicationArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_definition_id is not None:
             pulumi.set(__self__, "application_definition_id", application_definition_id)
-        if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if jit_access_policy is not None:
@@ -76,6 +75,18 @@ class ApplicationArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the managed application.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,18 +123,6 @@ class ApplicationArgs:
     @application_definition_id.setter
     def application_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_definition_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the managed application.
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -330,6 +329,8 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_definition_id"] = application_definition_id
+            if application_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["jit_access_policy"] = jit_access_policy

@@ -26,6 +26,7 @@ class MetricAlertArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  evaluation_frequency: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  severity: pulumi.Input[_builtins.int],
                  window_size: pulumi.Input[_builtins.str],
@@ -33,7 +34,6 @@ class MetricAlertArgs:
                  auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_resource_type: pulumi.Input[Optional[_builtins.str]] = None):
@@ -44,6 +44,7 @@ class MetricAlertArgs:
         :param pulumi.Input[_builtins.bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[_builtins.str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         :param pulumi.Input[_builtins.int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[_builtins.str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
@@ -51,7 +52,6 @@ class MetricAlertArgs:
         :param pulumi.Input[_builtins.bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
         :param pulumi.Input[_builtins.str] description: the description of the metric alert that will be included in the alert email.
         :param pulumi.Input[_builtins.str] location: Resource location
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         :param pulumi.Input[_builtins.str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
@@ -60,6 +60,7 @@ class MetricAlertArgs:
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "scopes", scopes)
         pulumi.set(__self__, "severity", severity)
         pulumi.set(__self__, "window_size", window_size)
@@ -71,8 +72,6 @@ class MetricAlertArgs:
             pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_resource_region is not None:
@@ -127,6 +126,18 @@ class MetricAlertArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -211,18 +222,6 @@ class MetricAlertArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -378,6 +377,8 @@ class MetricAlert(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

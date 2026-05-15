@@ -22,32 +22,43 @@ __all__ = ['ConnectedEnvironmentsCertificateArgs', 'ConnectedEnvironmentsCertifi
 @pulumi.input_type
 class ConnectedEnvironmentsCertificateArgs:
     def __init__(__self__, *,
+                 certificate_name: pulumi.Input[_builtins.str],
                  connected_environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CertificatePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedEnvironmentsCertificate resource.
 
+        :param pulumi.Input[_builtins.str] certificate_name: Name of the Certificate.
         :param pulumi.Input[_builtins.str] connected_environment_name: Name of the Connected Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] certificate_name: Name of the Certificate.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['CertificatePropertiesArgs'] properties: Certificate resource specific properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "connected_environment_name", connected_environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedEnvironmentName")
@@ -72,18 +83,6 @@ class ConnectedEnvironmentsCertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Certificate.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,6 +195,8 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectedEnvironmentsCertificateArgs.__new__(ConnectedEnvironmentsCertificateArgs)
 
+            if certificate_name is None and not opts.urn:
+                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             if connected_environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connected_environment_name'")

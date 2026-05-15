@@ -22,12 +22,12 @@ __all__ = ['KustoPoolArgs', 'KustoPool']
 @pulumi.input_type
 class KustoPoolArgs:
     def __init__(__self__, *,
+                 kusto_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AzureSkuArgs'],
                  workspace_name: pulumi.Input[_builtins.str],
                  enable_purge: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_streaming_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  optimized_autoscale: pulumi.Input[Optional['OptimizedAutoscaleArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -35,17 +35,18 @@ class KustoPoolArgs:
         """
         The set of arguments for constructing a KustoPool resource.
 
+        :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureSkuArgs'] sku: The SKU of the kusto pool.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
         :param pulumi.Input[_builtins.bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
-        :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['OptimizedAutoscaleArgs'] optimized_autoscale: Optimized auto scale definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] workspace_uid: The workspace unique identifier.
         """
+        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -57,8 +58,6 @@ class KustoPoolArgs:
             enable_streaming_ingest = False
         if enable_streaming_ingest is not None:
             pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
-        if kusto_pool_name is not None:
-            pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if optimized_autoscale is not None:
@@ -67,6 +66,18 @@ class KustoPoolArgs:
             pulumi.set(__self__, "tags", tags)
         if workspace_uid is not None:
             pulumi.set(__self__, "workspace_uid", workspace_uid)
+
+    @_builtins.property
+    @pulumi.getter(name="kustoPoolName")
+    def kusto_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Kusto pool.
+        """
+        return pulumi.get(self, "kusto_pool_name")
+
+    @kusto_pool_name.setter
+    def kusto_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kusto_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -127,18 +138,6 @@ class KustoPoolArgs:
     @enable_streaming_ingest.setter
     def enable_streaming_ingest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_streaming_ingest", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kustoPoolName")
-    def kusto_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Kusto pool.
-        """
-        return pulumi.get(self, "kusto_pool_name")
-
-    @kusto_pool_name.setter
-    def kusto_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "kusto_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -281,6 +280,8 @@ class KustoPool(pulumi.CustomResource):
             if enable_streaming_ingest is None:
                 enable_streaming_ingest = False
             __props__.__dict__["enable_streaming_ingest"] = enable_streaming_ingest
+            if kusto_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'kusto_pool_name'")
             __props__.__dict__["kusto_pool_name"] = kusto_pool_name
             __props__.__dict__["location"] = location
             __props__.__dict__["optimized_autoscale"] = optimized_autoscale

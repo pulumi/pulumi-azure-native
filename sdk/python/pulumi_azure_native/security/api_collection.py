@@ -19,20 +19,31 @@ __all__ = ['APICollectionArgs', 'APICollection']
 @pulumi.input_type
 class APICollectionArgs:
     def __init__(__self__, *,
+                 api_collection_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
-                 api_collection_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 service_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a APICollection resource.
 
+        :param pulumi.Input[_builtins.str] api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
         """
+        pulumi.set(__self__, "api_collection_id", api_collection_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if api_collection_id is not None:
-            pulumi.set(__self__, "api_collection_id", api_collection_id)
+
+    @_builtins.property
+    @pulumi.getter(name="apiCollectionId")
+    def api_collection_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
+        """
+        return pulumi.get(self, "api_collection_id")
+
+    @api_collection_id.setter
+    def api_collection_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_collection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +68,6 @@ class APICollectionArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiCollectionId")
-    def api_collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
-        """
-        return pulumi.get(self, "api_collection_id")
-
-    @api_collection_id.setter
-    def api_collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_collection_id", value)
 
 
 @pulumi.type_token("azure-native:security:APICollection")
@@ -132,6 +131,8 @@ class APICollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = APICollectionArgs.__new__(APICollectionArgs)
 
+            if api_collection_id is None and not opts.urn:
+                raise TypeError("Missing required property 'api_collection_id'")
             __props__.__dict__["api_collection_id"] = api_collection_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

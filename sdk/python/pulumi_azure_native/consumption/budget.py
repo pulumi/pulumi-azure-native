@@ -23,11 +23,11 @@ __all__ = ['BudgetArgs', 'Budget']
 class BudgetArgs:
     def __init__(__self__, *,
                  amount: pulumi.Input[_builtins.float],
+                 budget_name: pulumi.Input[_builtins.str],
                  category: pulumi.Input[Union[_builtins.str, 'CategoryType']],
                  scope: pulumi.Input[_builtins.str],
                  time_grain: pulumi.Input[Union[_builtins.str, 'TimeGrainType']],
                  time_period: pulumi.Input['BudgetTimePeriodArgs'],
-                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional['BudgetFilterArgs']] = None,
                  notifications: pulumi.Input[Optional[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
@@ -35,22 +35,21 @@ class BudgetArgs:
         The set of arguments for constructing a Budget resource.
 
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget
+        :param pulumi.Input[_builtins.str] budget_name: Budget Name.
         :param pulumi.Input[Union[_builtins.str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[_builtins.str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         :param pulumi.Input['BudgetTimePeriodArgs'] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-        :param pulumi.Input[_builtins.str] budget_name: Budget Name.
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input['BudgetFilterArgs'] filter: May be used to filter budgets by user-specified dimensions and/or tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
         pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "budget_name", budget_name)
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "time_grain", time_grain)
         pulumi.set(__self__, "time_period", time_period)
-        if budget_name is not None:
-            pulumi.set(__self__, "budget_name", budget_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if filter is not None:
@@ -69,6 +68,18 @@ class BudgetArgs:
     @amount.setter
     def amount(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Budget Name.
+        """
+        return pulumi.get(self, "budget_name")
+
+    @budget_name.setter
+    def budget_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "budget_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -117,18 +128,6 @@ class BudgetArgs:
     @time_period.setter
     def time_period(self, value: pulumi.Input['BudgetTimePeriodArgs']):
         pulumi.set(self, "time_period", value)
-
-    @_builtins.property
-    @pulumi.getter(name="budgetName")
-    def budget_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Budget Name.
-        """
-        return pulumi.get(self, "budget_name")
-
-    @budget_name.setter
-    def budget_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "budget_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -253,6 +252,8 @@ class Budget(pulumi.CustomResource):
             if amount is None and not opts.urn:
                 raise TypeError("Missing required property 'amount'")
             __props__.__dict__["amount"] = amount
+            if budget_name is None and not opts.urn:
+                raise TypeError("Missing required property 'budget_name'")
             __props__.__dict__["budget_name"] = budget_name
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")

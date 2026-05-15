@@ -21,23 +21,34 @@ __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
 @pulumi.input_type
 class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
+                 authorization_rule_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]],
-                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
 
+        :param pulumi.Input[_builtins.str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]] rights: The rights associated with the rule.
-        :param pulumi.Input[_builtins.str] authorization_rule_name: The authorization rule name.
         """
+        pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rights", rights)
-        if authorization_rule_name is not None:
-            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationRuleName")
+    def authorization_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The authorization rule name.
+        """
+        return pulumi.get(self, "authorization_rule_name")
+
+    @authorization_rule_name.setter
+    def authorization_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -74,18 +85,6 @@ class NamespaceAuthorizationRuleArgs:
     @rights.setter
     def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The authorization rule name.
-        """
-        return pulumi.get(self, "authorization_rule_name")
-
-    @authorization_rule_name.setter
-    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authorization_rule_name", value)
 
 
 @pulumi.type_token("azure-native:relay:NamespaceAuthorizationRule")
@@ -156,6 +155,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceAuthorizationRuleArgs.__new__(NamespaceAuthorizationRuleArgs)
 
+            if authorization_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'authorization_rule_name'")
             __props__.__dict__["authorization_rule_name"] = authorization_rule_name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

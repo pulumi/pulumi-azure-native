@@ -22,9 +22,9 @@ __all__ = ['BlueprintArgs', 'Blueprint']
 @pulumi.input_type
 class BlueprintArgs:
     def __init__(__self__, *,
+                 blueprint_name: pulumi.Input[_builtins.str],
                  resource_scope: pulumi.Input[_builtins.str],
                  target_scope: pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']],
-                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
@@ -33,19 +33,18 @@ class BlueprintArgs:
         """
         The set of arguments for constructing a Blueprint resource.
 
+        :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
-        :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[_builtins.str] description: Multi-line explain this resource.
         :param pulumi.Input[_builtins.str] display_name: One-liner string explain this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]] parameters: Parameters required by this blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param Any versions: Published versions of this blueprint definition.
         """
+        pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "resource_scope", resource_scope)
         pulumi.set(__self__, "target_scope", target_scope)
-        if blueprint_name is not None:
-            pulumi.set(__self__, "blueprint_name", blueprint_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -56,6 +55,18 @@ class BlueprintArgs:
             pulumi.set(__self__, "resource_groups", resource_groups)
         if versions is not None:
             pulumi.set(__self__, "versions", versions)
+
+    @_builtins.property
+    @pulumi.getter(name="blueprintName")
+    def blueprint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the blueprint definition.
+        """
+        return pulumi.get(self, "blueprint_name")
+
+    @blueprint_name.setter
+    def blueprint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "blueprint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceScope")
@@ -80,18 +91,6 @@ class BlueprintArgs:
     @target_scope.setter
     def target_scope(self, value: pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]):
         pulumi.set(self, "target_scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="blueprintName")
-    def blueprint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the blueprint definition.
-        """
-        return pulumi.get(self, "blueprint_name")
-
-    @blueprint_name.setter
-    def blueprint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "blueprint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -230,6 +229,8 @@ class Blueprint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BlueprintArgs.__new__(BlueprintArgs)
 
+            if blueprint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'blueprint_name'")
             __props__.__dict__["blueprint_name"] = blueprint_name
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

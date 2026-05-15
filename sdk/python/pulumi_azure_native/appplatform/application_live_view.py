@@ -20,20 +20,31 @@ __all__ = ['ApplicationLiveViewArgs', 'ApplicationLiveView']
 @pulumi.input_type
 class ApplicationLiveViewArgs:
     def __init__(__self__, *,
+                 application_live_view_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
-                 application_live_view_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 service_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ApplicationLiveView resource.
 
+        :param pulumi.Input[_builtins.str] application_live_view_name: The name of Application Live View.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] application_live_view_name: The name of Application Live View.
         """
+        pulumi.set(__self__, "application_live_view_name", application_live_view_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if application_live_view_name is not None:
-            pulumi.set(__self__, "application_live_view_name", application_live_view_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLiveViewName")
+    def application_live_view_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Application Live View.
+        """
+        return pulumi.get(self, "application_live_view_name")
+
+    @application_live_view_name.setter
+    def application_live_view_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_live_view_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -58,18 +69,6 @@ class ApplicationLiveViewArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationLiveViewName")
-    def application_live_view_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Application Live View.
-        """
-        return pulumi.get(self, "application_live_view_name")
-
-    @application_live_view_name.setter
-    def application_live_view_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_live_view_name", value)
 
 
 @pulumi.type_token("azure-native:appplatform:ApplicationLiveView")
@@ -137,6 +136,8 @@ class ApplicationLiveView(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationLiveViewArgs.__new__(ApplicationLiveViewArgs)
 
+            if application_live_view_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_live_view_name'")
             __props__.__dict__["application_live_view_name"] = application_live_view_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

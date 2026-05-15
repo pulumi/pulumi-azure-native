@@ -22,6 +22,7 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
+                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  transfer_type: pulumi.Input[Union[_builtins.str, 'TransferType']],
@@ -29,12 +30,12 @@ class JobArgs:
                  delivery_type: pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]] = None,
                  details: pulumi.Input[Optional[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
                  identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
-                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Job resource.
 
+        :param pulumi.Input[_builtins.str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name
         :param pulumi.Input['SkuArgs'] sku: The sku type.
         :param pulumi.Input[Union[_builtins.str, 'TransferType']] transfer_type: Type of the data transfer.
@@ -42,10 +43,10 @@ class JobArgs:
         :param pulumi.Input[Union[_builtins.str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
         :param pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
-        :param pulumi.Input[_builtins.str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[_builtins.str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         """
+        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "transfer_type", transfer_type)
@@ -59,12 +60,22 @@ class JobArgs:
             pulumi.set(__self__, "details", details)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -149,18 +160,6 @@ class JobArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -279,6 +278,8 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["delivery_type"] = delivery_type
             __props__.__dict__["details"] = details
             __props__.__dict__["identity"] = identity
+            if job_name is None and not opts.urn:
+                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

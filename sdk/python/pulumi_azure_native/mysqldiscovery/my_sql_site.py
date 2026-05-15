@@ -26,9 +26,9 @@ class MySQLSiteArgs:
                  master_site_id: pulumi.Input[_builtins.str],
                  migrate_project_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 site_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MySQLSite resource.
@@ -37,21 +37,20 @@ class MySQLSiteArgs:
         :param pulumi.Input[_builtins.str] master_site_id: The mapped master Site Id.
         :param pulumi.Input[_builtins.str] migrate_project_id: The mapped migrate project Id.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] site_name: The name of Site
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: Gets or sets the provisioning state.
-        :param pulumi.Input[_builtins.str] site_name: The name of Site
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "master_site_id", master_site_id)
         pulumi.set(__self__, "migrate_project_id", migrate_project_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_name", site_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -104,6 +103,18 @@ class MySQLSiteArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Site
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -126,18 +137,6 @@ class MySQLSiteArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Site
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -242,6 +241,8 @@ class MySQLSite(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

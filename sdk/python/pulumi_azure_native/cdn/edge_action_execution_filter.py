@@ -21,32 +21,31 @@ __all__ = ['EdgeActionExecutionFilterArgs', 'EdgeActionExecutionFilter']
 class EdgeActionExecutionFilterArgs:
     def __init__(__self__, *,
                  edge_action_name: pulumi.Input[_builtins.str],
+                 execution_filter: pulumi.Input[_builtins.str],
                  execution_filter_identifier_header_name: pulumi.Input[_builtins.str],
                  execution_filter_identifier_header_value: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version_id: pulumi.Input[_builtins.str],
-                 execution_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EdgeActionExecutionFilter resource.
 
         :param pulumi.Input[_builtins.str] edge_action_name: The name of the Edge Action
+        :param pulumi.Input[_builtins.str] execution_filter: The name of the execution filter
         :param pulumi.Input[_builtins.str] execution_filter_identifier_header_name: Custom Header Key associated with the execution filter
         :param pulumi.Input[_builtins.str] execution_filter_identifier_header_value: Custom Header Value associated with the execution filter
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version_id: The referenced versionId of the edgeaction version
-        :param pulumi.Input[_builtins.str] execution_filter: The name of the execution filter
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "edge_action_name", edge_action_name)
+        pulumi.set(__self__, "execution_filter", execution_filter)
         pulumi.set(__self__, "execution_filter_identifier_header_name", execution_filter_identifier_header_name)
         pulumi.set(__self__, "execution_filter_identifier_header_value", execution_filter_identifier_header_value)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version_id", version_id)
-        if execution_filter is not None:
-            pulumi.set(__self__, "execution_filter", execution_filter)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -63,6 +62,18 @@ class EdgeActionExecutionFilterArgs:
     @edge_action_name.setter
     def edge_action_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "edge_action_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executionFilter")
+    def execution_filter(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the execution filter
+        """
+        return pulumi.get(self, "execution_filter")
+
+    @execution_filter.setter
+    def execution_filter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "execution_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="executionFilterIdentifierHeaderName")
@@ -111,18 +122,6 @@ class EdgeActionExecutionFilterArgs:
     @version_id.setter
     def version_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "version_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="executionFilter")
-    def execution_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the execution filter
-        """
-        return pulumi.get(self, "execution_filter")
-
-    @execution_filter.setter
-    def execution_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "execution_filter", value)
 
     @_builtins.property
     @pulumi.getter
@@ -232,6 +231,8 @@ class EdgeActionExecutionFilter(pulumi.CustomResource):
             if edge_action_name is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_action_name'")
             __props__.__dict__["edge_action_name"] = edge_action_name
+            if execution_filter is None and not opts.urn:
+                raise TypeError("Missing required property 'execution_filter'")
             __props__.__dict__["execution_filter"] = execution_filter
             if execution_filter_identifier_header_name is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_filter_identifier_header_name'")

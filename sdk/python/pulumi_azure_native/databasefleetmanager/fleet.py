@@ -21,29 +21,40 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
+                 fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FleetPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] fleet_name: Name of the database fleet.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['FleetPropertiesArgs'] properties: The fleet properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if fleet_name is not None:
-            pulumi.set(__self__, "fleet_name", fleet_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetName")
+    def fleet_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the database fleet.
+        """
+        return pulumi.get(self, "fleet_name")
+
+    @fleet_name.setter
+    def fleet_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -56,18 +67,6 @@ class FleetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetName")
-    def fleet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the database fleet.
-        """
-        return pulumi.get(self, "fleet_name")
-
-    @fleet_name.setter
-    def fleet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,6 +172,8 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
+            if fleet_name is None and not opts.urn:
+                raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

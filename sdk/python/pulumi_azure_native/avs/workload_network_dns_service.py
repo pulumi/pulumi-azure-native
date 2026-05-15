@@ -21,11 +21,11 @@ __all__ = ['WorkloadNetworkDnsServiceArgs', 'WorkloadNetworkDnsService']
 @pulumi.input_type
 class WorkloadNetworkDnsServiceArgs:
     def __init__(__self__, *,
+                 dns_service_id: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  default_dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_service_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  fqdn_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  log_level: pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
@@ -33,24 +33,23 @@ class WorkloadNetworkDnsServiceArgs:
         """
         The set of arguments for constructing a WorkloadNetworkDnsService resource.
 
+        :param pulumi.Input[_builtins.str] dns_service_id: ID of the DNS service.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] default_dns_zone: Default DNS zone of the DNS Service.
         :param pulumi.Input[_builtins.str] display_name: Display name of the DNS Service.
-        :param pulumi.Input[_builtins.str] dns_service_id: ID of the DNS service.
         :param pulumi.Input[_builtins.str] dns_service_ip: DNS service IP of the DNS Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdn_zones: FQDN zones of the DNS Service.
         :param pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
         :param pulumi.Input[_builtins.float] revision: NSX revision number.
         """
+        pulumi.set(__self__, "dns_service_id", dns_service_id)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if default_dns_zone is not None:
             pulumi.set(__self__, "default_dns_zone", default_dns_zone)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if dns_service_id is not None:
-            pulumi.set(__self__, "dns_service_id", dns_service_id)
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
         if fqdn_zones is not None:
@@ -59,6 +58,18 @@ class WorkloadNetworkDnsServiceArgs:
             pulumi.set(__self__, "log_level", log_level)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsServiceId")
+    def dns_service_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the DNS service.
+        """
+        return pulumi.get(self, "dns_service_id")
+
+    @dns_service_id.setter
+    def dns_service_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dns_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -107,18 +118,6 @@ class WorkloadNetworkDnsServiceArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsServiceId")
-    def dns_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ID of the DNS service.
-        """
-        return pulumi.get(self, "dns_service_id")
-
-    @dns_service_id.setter
-    def dns_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dns_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceIp")
@@ -254,6 +253,8 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
 
             __props__.__dict__["default_dns_zone"] = default_dns_zone
             __props__.__dict__["display_name"] = display_name
+            if dns_service_id is None and not opts.urn:
+                raise TypeError("Missing required property 'dns_service_id'")
             __props__.__dict__["dns_service_id"] = dns_service_id
             __props__.__dict__["dns_service_ip"] = dns_service_ip
             __props__.__dict__["fqdn_zones"] = fqdn_zones

@@ -20,20 +20,19 @@ __all__ = ['AdvancedThreatProtectionArgs', 'AdvancedThreatProtection']
 class AdvancedThreatProtectionArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 setting_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 setting_name: pulumi.Input[_builtins.str],
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AdvancedThreatProtection resource.
 
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
-        :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether Advanced Threat Protection is enabled.
         :param pulumi.Input[_builtins.str] setting_name: Advanced Threat Protection setting name.
+        :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether Advanced Threat Protection is enabled.
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "setting_name", setting_name)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
-        if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -48,6 +47,18 @@ class AdvancedThreatProtectionArgs:
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Advanced Threat Protection setting name.
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "setting_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -58,18 +69,6 @@ class AdvancedThreatProtectionArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="settingName")
-    def setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Advanced Threat Protection setting name.
-        """
-        return pulumi.get(self, "setting_name")
-
-    @setting_name.setter
-    def setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "setting_name", value)
 
 
 @pulumi.type_token("azure-native:security:AdvancedThreatProtection")
@@ -141,6 +140,8 @@ class AdvancedThreatProtection(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            if setting_name is None and not opts.urn:
+                raise TypeError("Missing required property 'setting_name'")
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

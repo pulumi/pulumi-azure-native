@@ -23,26 +23,25 @@ __all__ = ['HciEdgeDeviceJobArgs', 'HciEdgeDeviceJob']
 class HciEdgeDeviceJobArgs:
     def __init__(__self__, *,
                  edge_device_name: pulumi.Input[_builtins.str],
+                 jobs_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['HciCollectLogJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgs']],
-                 resource_uri: pulumi.Input[_builtins.str],
-                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_uri: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a HciEdgeDeviceJob resource.
 
         :param pulumi.Input[_builtins.str] edge_device_name: The name of the EdgeDevice
+        :param pulumi.Input[_builtins.str] jobs_name: Name of EdgeDevice Job
         :param pulumi.Input[_builtins.str] kind: Edge device kind.
                Expected value is 'HCI'.
         :param pulumi.Input[Union['HciCollectLogJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgs']] properties: HCI Edge device job properties
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
-        :param pulumi.Input[_builtins.str] jobs_name: Name of EdgeDevice Job
         """
         pulumi.set(__self__, "edge_device_name", edge_device_name)
+        pulumi.set(__self__, "jobs_name", jobs_name)
         pulumi.set(__self__, "kind", 'HCI')
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_uri", resource_uri)
-        if jobs_name is not None:
-            pulumi.set(__self__, "jobs_name", jobs_name)
 
     @_builtins.property
     @pulumi.getter(name="edgeDeviceName")
@@ -55,6 +54,18 @@ class HciEdgeDeviceJobArgs:
     @edge_device_name.setter
     def edge_device_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "edge_device_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobsName")
+    def jobs_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of EdgeDevice Job
+        """
+        return pulumi.get(self, "jobs_name")
+
+    @jobs_name.setter
+    def jobs_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "jobs_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,18 +103,6 @@ class HciEdgeDeviceJobArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobsName")
-    def jobs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of EdgeDevice Job
-        """
-        return pulumi.get(self, "jobs_name")
-
-    @jobs_name.setter
-    def jobs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "jobs_name", value)
 
 
 @pulumi.type_token("azure-native:azurestackhci:HciEdgeDeviceJob")
@@ -177,6 +176,8 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
             if edge_device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_device_name'")
             __props__.__dict__["edge_device_name"] = edge_device_name
+            if jobs_name is None and not opts.urn:
+                raise TypeError("Missing required property 'jobs_name'")
             __props__.__dict__["jobs_name"] = jobs_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

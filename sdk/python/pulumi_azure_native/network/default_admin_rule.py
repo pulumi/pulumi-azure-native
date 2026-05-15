@@ -25,8 +25,8 @@ class DefaultAdminRuleArgs:
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection_name: pulumi.Input[_builtins.str],
-                 flag: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rule_name: pulumi.Input[_builtins.str],
+                 flag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultAdminRule resource.
 
@@ -36,18 +36,17 @@ class DefaultAdminRuleArgs:
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] rule_collection_name: The name of the network manager security Configuration rule collection.
-        :param pulumi.Input[_builtins.str] flag: Default rule flag.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
+        :param pulumi.Input[_builtins.str] flag: Default rule flag.
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "kind", 'Default')
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         if flag is not None:
             pulumi.set(__self__, "flag", flag)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
@@ -111,6 +110,18 @@ class DefaultAdminRuleArgs:
         pulumi.set(self, "rule_collection_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def flag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -121,18 +132,6 @@ class DefaultAdminRuleArgs:
     @flag.setter
     def flag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:network:DefaultAdminRule")
@@ -225,6 +224,8 @@ class DefaultAdminRule(pulumi.CustomResource):
             if rule_collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_collection_name'")
             __props__.__dict__["rule_collection_name"] = rule_collection_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["access"] = None
             __props__.__dict__["azure_api_version"] = None

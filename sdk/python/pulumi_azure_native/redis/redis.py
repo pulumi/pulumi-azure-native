@@ -22,6 +22,7 @@ __all__ = ['RedisArgs', 'Redis']
 @pulumi.input_type
 class RedisArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  disable_access_key_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -29,7 +30,6 @@ class RedisArgs:
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  redis_configuration: pulumi.Input[Optional['RedisCommonPropertiesRedisConfigurationArgs']] = None,
                  redis_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -46,6 +46,7 @@ class RedisArgs:
         """
         The set of arguments for constructing a Redis resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the RedisResource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
         :param pulumi.Input[_builtins.bool] disable_access_key_authentication: Authentication to Redis through access keys is disabled when set as true. Default value is false.
@@ -53,7 +54,6 @@ class RedisArgs:
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-        :param pulumi.Input[_builtins.str] name: The name of the RedisResource
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param pulumi.Input[_builtins.str] redis_version: Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
@@ -68,6 +68,7 @@ class RedisArgs:
         :param pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']] zonal_allocation_policy: Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if disable_access_key_authentication is None:
@@ -84,8 +85,6 @@ class RedisArgs:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_configuration is not None:
@@ -112,6 +111,18 @@ class RedisArgs:
             pulumi.set(__self__, "zonal_allocation_policy", zonal_allocation_policy)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RedisResource
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -196,18 +207,6 @@ class RedisArgs:
     @minimum_tls_version.setter
     def minimum_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RedisResource
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
@@ -494,6 +493,8 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redis_configuration"] = redis_configuration

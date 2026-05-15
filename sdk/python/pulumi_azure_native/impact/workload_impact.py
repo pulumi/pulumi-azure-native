@@ -22,18 +22,29 @@ __all__ = ['WorkloadImpactArgs', 'WorkloadImpact']
 @pulumi.input_type
 class WorkloadImpactArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input[Optional['WorkloadImpactPropertiesArgs']] = None,
-                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workload_impact_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['WorkloadImpactPropertiesArgs']] = None):
         """
         The set of arguments for constructing a WorkloadImpact resource.
 
-        :param pulumi.Input['WorkloadImpactPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
+        :param pulumi.Input['WorkloadImpactPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "workload_impact_name", workload_impact_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if workload_impact_name is not None:
-            pulumi.set(__self__, "workload_impact_name", workload_impact_name)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadImpactName")
+    def workload_impact_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        workloadImpact resource 
+        """
+        return pulumi.get(self, "workload_impact_name")
+
+    @workload_impact_name.setter
+    def workload_impact_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_impact_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -46,18 +57,6 @@ class WorkloadImpactArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['WorkloadImpactPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadImpactName")
-    def workload_impact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        workloadImpact resource 
-        """
-        return pulumi.get(self, "workload_impact_name")
-
-    @workload_impact_name.setter
-    def workload_impact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workload_impact_name", value)
 
 
 @pulumi.type_token("azure-native:impact:WorkloadImpact")
@@ -84,7 +83,7 @@ class WorkloadImpact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkloadImpactArgs] = None,
+                 args: WorkloadImpactArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload Impact properties
@@ -119,6 +118,8 @@ class WorkloadImpact(pulumi.CustomResource):
             __props__ = WorkloadImpactArgs.__new__(WorkloadImpactArgs)
 
             __props__.__dict__["properties"] = properties
+            if workload_impact_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workload_impact_name'")
             __props__.__dict__["workload_impact_name"] = workload_impact_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

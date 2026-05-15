@@ -23,9 +23,9 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  reconciliation_policy: pulumi.Input[Optional['ReconciliationPolicyArgs']] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  solution: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,9 +36,9 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
+        :param pulumi.Input[_builtins.str] name: Name of Instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] name: Name of Instance.
         :param pulumi.Input['ReconciliationPolicyArgs'] reconciliation_policy: Reconciliation Policy.
         :param pulumi.Input[_builtins.str] scope: Deployment scope (such as Kubernetes namespace).
         :param pulumi.Input[_builtins.str] solution: Name of the solution.
@@ -47,11 +47,10 @@ class InstanceArgs:
         :param pulumi.Input[_builtins.str] version: Version of the particular resource.
         """
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if reconciliation_policy is not None:
             pulumi.set(__self__, "reconciliation_policy", reconciliation_policy)
         if scope is not None:
@@ -78,6 +77,18 @@ class InstanceArgs:
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Instance.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,18 +111,6 @@ class InstanceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Instance.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reconciliationPolicy")
@@ -272,6 +271,8 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["reconciliation_policy"] = reconciliation_policy
             if resource_group_name is None and not opts.urn:

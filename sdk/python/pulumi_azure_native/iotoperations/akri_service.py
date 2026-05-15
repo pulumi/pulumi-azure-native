@@ -22,24 +22,35 @@ __all__ = ['AkriServiceArgs', 'AkriService']
 @pulumi.input_type
 class AkriServiceArgs:
     def __init__(__self__, *,
+                 akri_service_name: pulumi.Input[_builtins.str],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 akri_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a AkriService resource.
 
+        :param pulumi.Input[_builtins.str] akri_service_name: Name of AkriService resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] akri_service_name: Name of AkriService resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         """
+        pulumi.set(__self__, "akri_service_name", akri_service_name)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if akri_service_name is not None:
-            pulumi.set(__self__, "akri_service_name", akri_service_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+
+    @_builtins.property
+    @pulumi.getter(name="akriServiceName")
+    def akri_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of AkriService resource.
+        """
+        return pulumi.get(self, "akri_service_name")
+
+    @akri_service_name.setter
+    def akri_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "akri_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
@@ -64,18 +75,6 @@ class AkriServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="akriServiceName")
-    def akri_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of AkriService resource.
-        """
-        return pulumi.get(self, "akri_service_name")
-
-    @akri_service_name.setter
-    def akri_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "akri_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -154,6 +153,8 @@ class AkriService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AkriServiceArgs.__new__(AkriServiceArgs)
 
+            if akri_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'akri_service_name'")
             __props__.__dict__["akri_service_name"] = akri_service_name
             __props__.__dict__["extended_location"] = extended_location
             if instance_name is None and not opts.urn:

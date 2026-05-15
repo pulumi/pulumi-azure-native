@@ -23,28 +23,29 @@ class WorkspaceApiVersionSetArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 version_set_id: pulumi.Input[_builtins.str],
                  versioning_scheme: pulumi.Input[Union[_builtins.str, 'VersioningScheme']],
                  workspace_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 version_set_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiVersionSet resource.
 
         :param pulumi.Input[_builtins.str] display_name: Name of API Version Set
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] description: Description of API Version Set.
         :param pulumi.Input[_builtins.str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[_builtins.str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-        :param pulumi.Input[_builtins.str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "version_set_id", version_set_id)
         pulumi.set(__self__, "versioning_scheme", versioning_scheme)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if description is not None:
@@ -53,8 +54,6 @@ class WorkspaceApiVersionSetArgs:
             pulumi.set(__self__, "version_header_name", version_header_name)
         if version_query_name is not None:
             pulumi.set(__self__, "version_query_name", version_query_name)
-        if version_set_id is not None:
-            pulumi.set(__self__, "version_set_id", version_set_id)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -91,6 +90,18 @@ class WorkspaceApiVersionSetArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionSetId")
+    def version_set_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Api Version Set identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "version_set_id")
+
+    @version_set_id.setter
+    def version_set_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "version_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningScheme")
@@ -151,18 +162,6 @@ class WorkspaceApiVersionSetArgs:
     @version_query_name.setter
     def version_query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_query_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionSetId")
-    def version_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Api Version Set identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "version_set_id")
-
-    @version_set_id.setter
-    def version_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "version_set_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceApiVersionSet")
@@ -260,6 +259,8 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["version_header_name"] = version_header_name
             __props__.__dict__["version_query_name"] = version_query_name
+            if version_set_id is None and not opts.urn:
+                raise TypeError("Missing required property 'version_set_id'")
             __props__.__dict__["version_set_id"] = version_set_id
             if versioning_scheme is None and not opts.urn:
                 raise TypeError("Missing required property 'versioning_scheme'")

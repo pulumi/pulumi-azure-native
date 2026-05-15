@@ -21,21 +21,32 @@ __all__ = ['InsightArgs', 'Insight']
 @pulumi.input_type
 class InsightArgs:
     def __init__(__self__, *,
+                 insight_name: pulumi.Input[_builtins.str],
                  workload_impact_name: pulumi.Input[_builtins.str],
-                 insight_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['InsightPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Insight resource.
 
-        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
         :param pulumi.Input[_builtins.str] insight_name: Name of the insight
+        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
         :param pulumi.Input['InsightPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "insight_name", insight_name)
         pulumi.set(__self__, "workload_impact_name", workload_impact_name)
-        if insight_name is not None:
-            pulumi.set(__self__, "insight_name", insight_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="insightName")
+    def insight_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the insight
+        """
+        return pulumi.get(self, "insight_name")
+
+    @insight_name.setter
+    def insight_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "insight_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadImpactName")
@@ -48,18 +59,6 @@ class InsightArgs:
     @workload_impact_name.setter
     def workload_impact_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workload_impact_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="insightName")
-    def insight_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the insight
-        """
-        return pulumi.get(self, "insight_name")
-
-    @insight_name.setter
-    def insight_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "insight_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +134,8 @@ class Insight(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InsightArgs.__new__(InsightArgs)
 
+            if insight_name is None and not opts.urn:
+                raise TypeError("Missing required property 'insight_name'")
             __props__.__dict__["insight_name"] = insight_name
             __props__.__dict__["properties"] = properties
             if workload_impact_name is None and not opts.urn:

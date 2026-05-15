@@ -22,8 +22,8 @@ __all__ = ['BatchAccountArgs', 'BatchAccount']
 @pulumi.input_type
 class BatchAccountArgs:
     def __init__(__self__, *,
+                 account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
                  auto_storage: pulumi.Input[Optional['AutoStorageBasePropertiesArgs']] = None,
                  encryption: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
@@ -37,8 +37,8 @@ class BatchAccountArgs:
         """
         The set of arguments for constructing a BatchAccount resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]] allowed_authentication_modes: List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
         :param pulumi.Input['AutoStorageBasePropertiesArgs'] auto_storage: The properties related to the auto-storage account.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
@@ -50,9 +50,8 @@ class BatchAccountArgs:
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: The network access type for operating on the resources in the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The user-specified tags associated with the account.
         """
+        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
         if allowed_authentication_modes is not None:
             pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if auto_storage is not None:
@@ -77,6 +76,18 @@ class BatchAccountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -87,18 +98,6 @@ class BatchAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAuthenticationModes")
@@ -313,6 +312,8 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BatchAccountArgs.__new__(BatchAccountArgs)
 
+            if account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
             __props__.__dict__["auto_storage"] = auto_storage

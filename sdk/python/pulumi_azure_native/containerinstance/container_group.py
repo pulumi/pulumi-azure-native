@@ -22,10 +22,10 @@ __all__ = ['ContainerGroupArgs', 'ContainerGroup']
 @pulumi.input_type
 class ContainerGroupArgs:
     def __init__(__self__, *,
+                 container_group_name: pulumi.Input[_builtins.str],
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  confidential_compute_properties: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']] = None,
-                 container_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_group_profile: pulumi.Input[Optional['ContainerGroupProfileReferenceDefinitionArgs']] = None,
                  diagnostics: pulumi.Input[Optional['ContainerGroupDiagnosticsArgs']] = None,
                  dns_config: pulumi.Input[Optional['DnsConfigurationArgs']] = None,
@@ -48,10 +48,10 @@ class ContainerGroupArgs:
         """
         The set of arguments for constructing a ContainerGroup resource.
 
+        :param pulumi.Input[_builtins.str] container_group_name: The name of the container group.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
-        :param pulumi.Input[_builtins.str] container_group_name: The name of the container group.
         :param pulumi.Input['ContainerGroupProfileReferenceDefinitionArgs'] container_group_profile: The reference container group profile properties.
         :param pulumi.Input['ContainerGroupDiagnosticsArgs'] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input['DnsConfigurationArgs'] dns_config: The DNS config information for a container group.
@@ -75,12 +75,11 @@ class ContainerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The zones for the container group.
         """
+        pulumi.set(__self__, "container_group_name", container_group_name)
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if confidential_compute_properties is not None:
             pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
-        if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
         if container_group_profile is not None:
             pulumi.set(__self__, "container_group_profile", container_group_profile)
         if diagnostics is not None:
@@ -121,6 +120,18 @@ class ContainerGroupArgs:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
+    @pulumi.getter(name="containerGroupName")
+    def container_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the container group.
+        """
+        return pulumi.get(self, "container_group_name")
+
+    @container_group_name.setter
+    def container_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_group_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]:
         """
@@ -155,18 +166,6 @@ class ContainerGroupArgs:
     @confidential_compute_properties.setter
     def confidential_compute_properties(self, value: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']]):
         pulumi.set(self, "confidential_compute_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerGroupName")
-    def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the container group.
-        """
-        return pulumi.get(self, "container_group_name")
-
-    @container_group_name.setter
-    def container_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="containerGroupProfile")
@@ -529,6 +528,8 @@ class ContainerGroup(pulumi.CustomResource):
             __props__ = ContainerGroupArgs.__new__(ContainerGroupArgs)
 
             __props__.__dict__["confidential_compute_properties"] = confidential_compute_properties
+            if container_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_group_name'")
             __props__.__dict__["container_group_name"] = container_group_name
             __props__.__dict__["container_group_profile"] = container_group_profile
             if containers is None and not opts.urn:

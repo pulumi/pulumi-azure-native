@@ -20,25 +20,24 @@ __all__ = ['VendorArgs', 'Vendor']
 @pulumi.input_type
 class VendorArgs:
     def __init__(__self__, *,
-                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vendor_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Vendor resource.
 
         :param pulumi.Input[_builtins.str] vendor_name: The name of the vendor.
         """
-        if vendor_name is not None:
-            pulumi.set(__self__, "vendor_name", vendor_name)
+        pulumi.set(__self__, "vendor_name", vendor_name)
 
     @_builtins.property
     @pulumi.getter(name="vendorName")
-    def vendor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def vendor_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the vendor.
         """
         return pulumi.get(self, "vendor_name")
 
     @vendor_name.setter
-    def vendor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def vendor_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vendor_name", value)
 
 
@@ -64,7 +63,7 @@ class Vendor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VendorArgs] = None,
+                 args: VendorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Vendor resource.
@@ -97,6 +96,8 @@ class Vendor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VendorArgs.__new__(VendorArgs)
 
+            if vendor_name is None and not opts.urn:
+                raise TypeError("Missing required property 'vendor_name'")
             __props__.__dict__["vendor_name"] = vendor_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -21,24 +21,35 @@ __all__ = ['NetworkSecurityPerimeterLoggingConfigurationArgs', 'NetworkSecurityP
 @pulumi.input_type
 class NetworkSecurityPerimeterLoggingConfigurationArgs:
     def __init__(__self__, *,
+                 logging_configuration_name: pulumi.Input[_builtins.str],
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 logging_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NspLoggingConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterLoggingConfiguration resource.
 
+        :param pulumi.Input[_builtins.str] logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.
         :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.
         :param pulumi.Input['NspLoggingConfigurationPropertiesArgs'] properties: Properties of the NSP logging configuration.
         """
+        pulumi.set(__self__, "logging_configuration_name", logging_configuration_name)
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if logging_configuration_name is not None:
-            pulumi.set(__self__, "logging_configuration_name", logging_configuration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfigurationName")
+    def logging_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the NSP logging configuration. Accepts 'instance' as name.
+        """
+        return pulumi.get(self, "logging_configuration_name")
+
+    @logging_configuration_name.setter
+    def logging_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "logging_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -63,18 +74,6 @@ class NetworkSecurityPerimeterLoggingConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loggingConfigurationName")
-    def logging_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the NSP logging configuration. Accepts 'instance' as name.
-        """
-        return pulumi.get(self, "logging_configuration_name")
-
-    @logging_configuration_name.setter
-    def logging_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "logging_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class NetworkSecurityPerimeterLoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkSecurityPerimeterLoggingConfigurationArgs.__new__(NetworkSecurityPerimeterLoggingConfigurationArgs)
 
+            if logging_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'logging_configuration_name'")
             __props__.__dict__["logging_configuration_name"] = logging_configuration_name
             if network_security_perimeter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_perimeter_name'")

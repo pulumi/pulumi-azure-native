@@ -23,9 +23,9 @@ __all__ = ['SecurityPartnerProviderArgs', 'SecurityPartnerProvider']
 class SecurityPartnerProviderArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 security_partner_provider_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_partner_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_provider_name: pulumi.Input[Optional[Union[_builtins.str, 'SecurityProviderName']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_hub: pulumi.Input[Optional['SubResourceArgs']] = None):
@@ -33,20 +33,19 @@ class SecurityPartnerProviderArgs:
         The set of arguments for constructing a SecurityPartnerProvider resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] security_partner_provider_name: The name of the Security Partner Provider.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] security_partner_provider_name: The name of the Security Partner Provider.
         :param pulumi.Input[Union[_builtins.str, 'SecurityProviderName']] security_provider_name: The security provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_partner_provider_name", security_partner_provider_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if security_partner_provider_name is not None:
-            pulumi.set(__self__, "security_partner_provider_name", security_partner_provider_name)
         if security_provider_name is not None:
             pulumi.set(__self__, "security_provider_name", security_provider_name)
         if tags is not None:
@@ -65,6 +64,18 @@ class SecurityPartnerProviderArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityPartnerProviderName")
+    def security_partner_provider_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Security Partner Provider.
+        """
+        return pulumi.get(self, "security_partner_provider_name")
+
+    @security_partner_provider_name.setter
+    def security_partner_provider_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_partner_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -89,18 +100,6 @@ class SecurityPartnerProviderArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityPartnerProviderName")
-    def security_partner_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Security Partner Provider.
-        """
-        return pulumi.get(self, "security_partner_provider_name")
-
-    @security_partner_provider_name.setter
-    def security_partner_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_partner_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProviderName")
@@ -221,6 +220,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_partner_provider_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_partner_provider_name'")
             __props__.__dict__["security_partner_provider_name"] = security_partner_provider_name
             __props__.__dict__["security_provider_name"] = security_provider_name
             __props__.__dict__["tags"] = tags

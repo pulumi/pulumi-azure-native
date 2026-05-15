@@ -22,9 +22,9 @@ class CertificateArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  base64_value: pulumi.Input[_builtins.str],
+                 certificate_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_exportable: pulumi.Input[Optional[_builtins.bool]] = None,
                  thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
@@ -33,19 +33,18 @@ class CertificateArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] base64_value: Gets or sets the base64 encoded value of the certificate.
+        :param pulumi.Input[_builtins.str] certificate_name: The parameters supplied to the create or update certificate operation.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] certificate_name: The parameters supplied to the create or update certificate operation.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the certificate.
         :param pulumi.Input[_builtins.bool] is_exportable: Gets or sets the is exportable flag of the certificate.
         :param pulumi.Input[_builtins.str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "base64_value", base64_value)
+        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_exportable is not None:
@@ -78,6 +77,18 @@ class CertificateArgs:
         pulumi.set(self, "base64_value", value)
 
     @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The parameters supplied to the create or update certificate operation.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,18 +111,6 @@ class CertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The parameters supplied to the create or update certificate operation.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,6 +235,8 @@ class Certificate(pulumi.CustomResource):
             if base64_value is None and not opts.urn:
                 raise TypeError("Missing required property 'base64_value'")
             __props__.__dict__["base64_value"] = base64_value
+            if certificate_name is None and not opts.urn:
+                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             __props__.__dict__["description"] = description
             __props__.__dict__["is_exportable"] = is_exportable

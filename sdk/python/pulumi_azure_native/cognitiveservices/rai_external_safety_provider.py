@@ -21,22 +21,33 @@ __all__ = ['RaiExternalSafetyProviderArgs', 'RaiExternalSafetyProvider']
 @pulumi.input_type
 class RaiExternalSafetyProviderArgs:
     def __init__(__self__, *,
+                 safety_provider_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['RaiExternalSafetyProviderSchemaPropertiesArgs']] = None,
-                 safety_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiExternalSafetyProvider resource.
 
-        :param pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs'] properties: Properties of Cognitive Services Rai External Safety provider.
         :param pulumi.Input[_builtins.str] safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account
+        :param pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs'] properties: Properties of Cognitive Services Rai External Safety provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "safety_provider_name", safety_provider_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if safety_provider_name is not None:
-            pulumi.set(__self__, "safety_provider_name", safety_provider_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="safetyProviderName")
+    def safety_provider_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Rai External Safety Provider associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "safety_provider_name")
+
+    @safety_provider_name.setter
+    def safety_provider_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "safety_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -49,18 +60,6 @@ class RaiExternalSafetyProviderArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RaiExternalSafetyProviderSchemaPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="safetyProviderName")
-    def safety_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Rai External Safety Provider associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "safety_provider_name")
-
-    @safety_provider_name.setter
-    def safety_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "safety_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,7 +100,7 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[RaiExternalSafetyProviderArgs] = None,
+                 args: RaiExternalSafetyProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services Rai External Safety provider Schema.
@@ -137,6 +136,8 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
             __props__ = RaiExternalSafetyProviderArgs.__new__(RaiExternalSafetyProviderArgs)
 
             __props__.__dict__["properties"] = properties
+            if safety_provider_name is None and not opts.urn:
+                raise TypeError("Missing required property 'safety_provider_name'")
             __props__.__dict__["safety_provider_name"] = safety_provider_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

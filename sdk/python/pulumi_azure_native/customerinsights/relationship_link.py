@@ -26,12 +26,12 @@ class RelationshipLinkArgs:
                  interaction_type: pulumi.Input[_builtins.str],
                  profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
                  related_profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
+                 relationship_link_name: pulumi.Input[_builtins.str],
                  relationship_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]] = None,
-                 relationship_link_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]] = None):
         """
         The set of arguments for constructing a RelationshipLink resource.
 
@@ -39,17 +39,18 @@ class RelationshipLinkArgs:
         :param pulumi.Input[_builtins.str] interaction_type: The InteractionType associated with the Relationship Link.
         :param pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]] profile_property_references: The property references for the Profile of the Relationship.
         :param pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]] related_profile_property_references: The property references for the Related Profile of the Relationship.
+        :param pulumi.Input[_builtins.str] relationship_link_name: The name of the relationship link.
         :param pulumi.Input[_builtins.str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] description: Localized descriptions for the Relationship Link.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] display_name: Localized display name for the Relationship Link.
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]] mappings: The mappings between Interaction and Relationship fields.
-        :param pulumi.Input[_builtins.str] relationship_link_name: The name of the relationship link.
         """
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "interaction_type", interaction_type)
         pulumi.set(__self__, "profile_property_references", profile_property_references)
         pulumi.set(__self__, "related_profile_property_references", related_profile_property_references)
+        pulumi.set(__self__, "relationship_link_name", relationship_link_name)
         pulumi.set(__self__, "relationship_name", relationship_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -58,8 +59,6 @@ class RelationshipLinkArgs:
             pulumi.set(__self__, "display_name", display_name)
         if mappings is not None:
             pulumi.set(__self__, "mappings", mappings)
-        if relationship_link_name is not None:
-            pulumi.set(__self__, "relationship_link_name", relationship_link_name)
 
     @_builtins.property
     @pulumi.getter(name="hubName")
@@ -108,6 +107,18 @@ class RelationshipLinkArgs:
     @related_profile_property_references.setter
     def related_profile_property_references(self, value: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]):
         pulumi.set(self, "related_profile_property_references", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipLinkName")
+    def relationship_link_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the relationship link.
+        """
+        return pulumi.get(self, "relationship_link_name")
+
+    @relationship_link_name.setter
+    def relationship_link_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "relationship_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="relationshipName")
@@ -168,18 +179,6 @@ class RelationshipLinkArgs:
     @mappings.setter
     def mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]]):
         pulumi.set(self, "mappings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relationshipLinkName")
-    def relationship_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the relationship link.
-        """
-        return pulumi.get(self, "relationship_link_name")
-
-    @relationship_link_name.setter
-    def relationship_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "relationship_link_name", value)
 
 
 @pulumi.type_token("azure-native:customerinsights:RelationshipLink")
@@ -279,6 +278,8 @@ class RelationshipLink(pulumi.CustomResource):
             if related_profile_property_references is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_property_references'")
             __props__.__dict__["related_profile_property_references"] = related_profile_property_references
+            if relationship_link_name is None and not opts.urn:
+                raise TypeError("Missing required property 'relationship_link_name'")
             __props__.__dict__["relationship_link_name"] = relationship_link_name
             if relationship_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relationship_name'")

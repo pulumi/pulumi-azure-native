@@ -21,18 +21,19 @@ __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
 class RoleAssignmentArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
+                 role_assignment_name: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
                  condition_version: pulumi.Input[Optional[_builtins.str]] = None,
                  delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
-                 role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
 
         :param pulumi.Input[_builtins.str] principal_id: The principal ID.
+        :param pulumi.Input[_builtins.str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID.
         :param pulumi.Input[_builtins.str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[_builtins.str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -40,9 +41,9 @@ class RoleAssignmentArgs:
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
         :param pulumi.Input[_builtins.str] description: Description of role assignment
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
-        :param pulumi.Input[_builtins.str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         """
         pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_assignment_name", role_assignment_name)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
         pulumi.set(__self__, "scope", scope)
         if condition is not None:
@@ -57,8 +58,6 @@ class RoleAssignmentArgs:
             principal_type = 'User'
         if principal_type is not None:
             pulumi.set(__self__, "principal_type", principal_type)
-        if role_assignment_name is not None:
-            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -71,6 +70,18 @@ class RoleAssignmentArgs:
     @principal_id.setter
     def principal_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "principal_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleAssignmentName")
+    def role_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the role assignment. It can be any valid GUID.
+        """
+        return pulumi.get(self, "role_assignment_name")
+
+    @role_assignment_name.setter
+    def role_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
@@ -155,18 +166,6 @@ class RoleAssignmentArgs:
     @principal_type.setter
     def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleAssignmentName")
-    def role_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the role assignment. It can be any valid GUID.
-        """
-        return pulumi.get(self, "role_assignment_name")
-
-    @role_assignment_name.setter
-    def role_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "role_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:authorization:RoleAssignment")
@@ -262,6 +261,8 @@ class RoleAssignment(pulumi.CustomResource):
             if principal_type is None:
                 principal_type = 'User'
             __props__.__dict__["principal_type"] = principal_type
+            if role_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'role_assignment_name'")
             __props__.__dict__["role_assignment_name"] = role_assignment_name
             if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")

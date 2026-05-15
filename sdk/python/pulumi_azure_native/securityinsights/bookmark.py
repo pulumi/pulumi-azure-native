@@ -22,11 +22,11 @@ __all__ = ['BookmarkArgs', 'Bookmark']
 @pulumi.input_type
 class BookmarkArgs:
     def __init__(__self__, *,
+                 bookmark_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
                  created: pulumi.Input[Optional[_builtins.str]] = None,
                  created_by: pulumi.Input[Optional['UserInfoArgs']] = None,
                  event_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,11 +41,11 @@ class BookmarkArgs:
         """
         The set of arguments for constructing a Bookmark resource.
 
+        :param pulumi.Input[_builtins.str] bookmark_id: Bookmark ID
         :param pulumi.Input[_builtins.str] display_name: The display name of the bookmark
         :param pulumi.Input[_builtins.str] query: The query of the bookmark.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] bookmark_id: Bookmark ID
         :param pulumi.Input[_builtins.str] created: The time the bookmark was created
         :param pulumi.Input['UserInfoArgs'] created_by: Describes a user that created the bookmark
         :param pulumi.Input[_builtins.str] event_time: The bookmark event time
@@ -58,12 +58,11 @@ class BookmarkArgs:
         :param pulumi.Input[_builtins.str] updated: The last time the bookmark was updated
         :param pulumi.Input['UserInfoArgs'] updated_by: Describes a user that updated the bookmark
         """
+        pulumi.set(__self__, "bookmark_id", bookmark_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if bookmark_id is not None:
-            pulumi.set(__self__, "bookmark_id", bookmark_id)
         if created is not None:
             pulumi.set(__self__, "created", created)
         if created_by is not None:
@@ -86,6 +85,18 @@ class BookmarkArgs:
             pulumi.set(__self__, "updated", updated)
         if updated_by is not None:
             pulumi.set(__self__, "updated_by", updated_by)
+
+    @_builtins.property
+    @pulumi.getter(name="bookmarkId")
+    def bookmark_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Bookmark ID
+        """
+        return pulumi.get(self, "bookmark_id")
+
+    @bookmark_id.setter
+    def bookmark_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bookmark_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -134,18 +145,6 @@ class BookmarkArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bookmarkId")
-    def bookmark_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Bookmark ID
-        """
-        return pulumi.get(self, "bookmark_id")
-
-    @bookmark_id.setter
-    def bookmark_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "bookmark_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -384,6 +383,8 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BookmarkArgs.__new__(BookmarkArgs)
 
+            if bookmark_id is None and not opts.urn:
+                raise TypeError("Missing required property 'bookmark_id'")
             __props__.__dict__["bookmark_id"] = bookmark_id
             __props__.__dict__["created"] = created
             __props__.__dict__["created_by"] = created_by

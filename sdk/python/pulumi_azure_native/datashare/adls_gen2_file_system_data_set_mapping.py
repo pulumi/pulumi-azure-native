@@ -22,19 +22,20 @@ class ADLSGen2FileSystemDataSetMappingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  data_set_id: pulumi.Input[_builtins.str],
+                 data_set_mapping_name: pulumi.Input[_builtins.str],
                  file_system: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_subscription_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 subscription_id: pulumi.Input[_builtins.str],
-                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 subscription_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ADLSGen2FileSystemDataSetMapping resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] data_set_id: The id of the source data set.
+        :param pulumi.Input[_builtins.str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[_builtins.str] file_system: The file system name.
         :param pulumi.Input[_builtins.str] kind: Kind of data set mapping.
                Expected value is 'AdlsGen2FileSystem'.
@@ -43,10 +44,10 @@ class ADLSGen2FileSystemDataSetMappingArgs:
         :param pulumi.Input[_builtins.str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         :param pulumi.Input[_builtins.str] storage_account_name: Storage account name of the source data set.
         :param pulumi.Input[_builtins.str] subscription_id: Subscription id of storage account.
-        :param pulumi.Input[_builtins.str] data_set_mapping_name: The name of the data set mapping to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
         pulumi.set(__self__, "file_system", file_system)
         pulumi.set(__self__, "kind", 'AdlsGen2FileSystem')
         pulumi.set(__self__, "resource_group", resource_group)
@@ -54,8 +55,6 @@ class ADLSGen2FileSystemDataSetMappingArgs:
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "subscription_id", subscription_id)
-        if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -80,6 +79,18 @@ class ADLSGen2FileSystemDataSetMappingArgs:
     @data_set_id.setter
     def data_set_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "data_set_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetMappingName")
+    def data_set_mapping_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data set mapping to be created.
+        """
+        return pulumi.get(self, "data_set_mapping_name")
+
+    @data_set_mapping_name.setter
+    def data_set_mapping_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
@@ -165,18 +176,6 @@ class ADLSGen2FileSystemDataSetMappingArgs:
     @subscription_id.setter
     def subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subscription_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetMappingName")
-    def data_set_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data set mapping to be created.
-        """
-        return pulumi.get(self, "data_set_mapping_name")
-
-    @data_set_mapping_name.setter
-    def data_set_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_mapping_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:ADLSGen2FileSystemDataSetMapping")
@@ -268,6 +267,8 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
             if data_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
+            if data_set_mapping_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_mapping_name'")
             __props__.__dict__["data_set_mapping_name"] = data_set_mapping_name
             if file_system is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system'")

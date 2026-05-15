@@ -21,28 +21,27 @@ __all__ = ['FederatedIdentityCredentialArgs', 'FederatedIdentityCredential']
 class FederatedIdentityCredentialArgs:
     def __init__(__self__, *,
                  audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 federated_identity_credential_resource_name: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 subject: pulumi.Input[_builtins.str],
-                 federated_identity_credential_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 subject: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FederatedIdentityCredential resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The list of audiences that can appear in the issued token.
+        :param pulumi.Input[_builtins.str] federated_identity_credential_resource_name: The name of the federated identity credential resource.
         :param pulumi.Input[_builtins.str] issuer: The URL of the issuer to be trusted.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the identity resource.
         :param pulumi.Input[_builtins.str] subject: The identifier of the external identity.
-        :param pulumi.Input[_builtins.str] federated_identity_credential_resource_name: The name of the federated identity credential resource.
         """
         pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "federated_identity_credential_resource_name", federated_identity_credential_resource_name)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "subject", subject)
-        if federated_identity_credential_resource_name is not None:
-            pulumi.set(__self__, "federated_identity_credential_resource_name", federated_identity_credential_resource_name)
 
     @_builtins.property
     @pulumi.getter
@@ -55,6 +54,18 @@ class FederatedIdentityCredentialArgs:
     @audiences.setter
     def audiences(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "audiences", value)
+
+    @_builtins.property
+    @pulumi.getter(name="federatedIdentityCredentialResourceName")
+    def federated_identity_credential_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the federated identity credential resource.
+        """
+        return pulumi.get(self, "federated_identity_credential_resource_name")
+
+    @federated_identity_credential_resource_name.setter
+    def federated_identity_credential_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "federated_identity_credential_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -103,18 +114,6 @@ class FederatedIdentityCredentialArgs:
     @subject.setter
     def subject(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subject", value)
-
-    @_builtins.property
-    @pulumi.getter(name="federatedIdentityCredentialResourceName")
-    def federated_identity_credential_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the federated identity credential resource.
-        """
-        return pulumi.get(self, "federated_identity_credential_resource_name")
-
-    @federated_identity_credential_resource_name.setter
-    def federated_identity_credential_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "federated_identity_credential_resource_name", value)
 
 
 @pulumi.type_token("azure-native:managedidentity:FederatedIdentityCredential")
@@ -194,6 +193,8 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             if audiences is None and not opts.urn:
                 raise TypeError("Missing required property 'audiences'")
             __props__.__dict__["audiences"] = audiences
+            if federated_identity_credential_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'federated_identity_credential_resource_name'")
             __props__.__dict__["federated_identity_credential_resource_name"] = federated_identity_credential_resource_name
             if issuer is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer'")

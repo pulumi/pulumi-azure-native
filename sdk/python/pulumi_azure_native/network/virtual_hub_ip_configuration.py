@@ -22,10 +22,10 @@ __all__ = ['VirtualHubIpConfigurationArgs', 'VirtualHubIpConfiguration']
 @pulumi.input_type
 class VirtualHubIpConfigurationArgs:
     def __init__(__self__, *,
+                 ip_config_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
@@ -34,22 +34,21 @@ class VirtualHubIpConfigurationArgs:
         """
         The set of arguments for constructing a VirtualHubIpConfiguration resource.
 
+        :param pulumi.Input[_builtins.str] ip_config_name: The name of the ipconfig.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input[_builtins.str] ip_config_name: The name of the ipconfig.
         :param pulumi.Input[_builtins.str] name: Name of the Ip Configuration.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']] private_ip_allocation_method: The private IP address allocation method.
         :param pulumi.Input['PublicIPAddressArgs'] public_ip_address: The reference to the public IP resource.
         :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
         """
+        pulumi.set(__self__, "ip_config_name", ip_config_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if ip_config_name is not None:
-            pulumi.set(__self__, "ip_config_name", ip_config_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_ip_address is not None:
@@ -60,6 +59,18 @@ class VirtualHubIpConfigurationArgs:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfigName")
+    def ip_config_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ipconfig.
+        """
+        return pulumi.get(self, "ip_config_name")
+
+    @ip_config_name.setter
+    def ip_config_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ip_config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -96,18 +107,6 @@ class VirtualHubIpConfigurationArgs:
     @id.setter
     def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipConfigName")
-    def ip_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ipconfig.
-        """
-        return pulumi.get(self, "ip_config_name")
-
-    @ip_config_name.setter
-    def ip_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "ip_config_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +253,8 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__ = VirtualHubIpConfigurationArgs.__new__(VirtualHubIpConfigurationArgs)
 
             __props__.__dict__["id"] = id
+            if ip_config_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_config_name'")
             __props__.__dict__["ip_config_name"] = ip_config_name
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_address"] = private_ip_address

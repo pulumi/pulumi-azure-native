@@ -22,23 +22,22 @@ __all__ = ['BillingRoleAssignmentByDepartmentArgs', 'BillingRoleAssignmentByDepa
 class BillingRoleAssignmentByDepartmentArgs:
     def __init__(__self__, *,
                  billing_account_name: pulumi.Input[_builtins.str],
+                 billing_role_assignment_name: pulumi.Input[_builtins.str],
                  department_name: pulumi.Input[_builtins.str],
-                 billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BillingRoleAssignmentPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingRoleAssignmentByDepartment resource.
 
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
-        :param pulumi.Input[_builtins.str] department_name: The name of the department.
         :param pulumi.Input[_builtins.str] billing_role_assignment_name: The ID that uniquely identifies a role assignment.
+        :param pulumi.Input[_builtins.str] department_name: The name of the department.
         :param pulumi.Input['BillingRoleAssignmentPropertiesArgs'] properties: The properties of the billing role assignment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         pulumi.set(__self__, "billing_account_name", billing_account_name)
+        pulumi.set(__self__, "billing_role_assignment_name", billing_role_assignment_name)
         pulumi.set(__self__, "department_name", department_name)
-        if billing_role_assignment_name is not None:
-            pulumi.set(__self__, "billing_role_assignment_name", billing_role_assignment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -57,6 +56,18 @@ class BillingRoleAssignmentByDepartmentArgs:
         pulumi.set(self, "billing_account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="billingRoleAssignmentName")
+    def billing_role_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID that uniquely identifies a role assignment.
+        """
+        return pulumi.get(self, "billing_role_assignment_name")
+
+    @billing_role_assignment_name.setter
+    def billing_role_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "billing_role_assignment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="departmentName")
     def department_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -67,18 +78,6 @@ class BillingRoleAssignmentByDepartmentArgs:
     @department_name.setter
     def department_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "department_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="billingRoleAssignmentName")
-    def billing_role_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID that uniquely identifies a role assignment.
-        """
-        return pulumi.get(self, "billing_role_assignment_name")
-
-    @billing_role_assignment_name.setter
-    def billing_role_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "billing_role_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -179,6 +178,8 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
             if billing_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_name'")
             __props__.__dict__["billing_account_name"] = billing_account_name
+            if billing_role_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'billing_role_assignment_name'")
             __props__.__dict__["billing_role_assignment_name"] = billing_role_assignment_name
             if department_name is None and not opts.urn:
                 raise TypeError("Missing required property 'department_name'")

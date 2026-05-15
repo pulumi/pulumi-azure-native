@@ -22,6 +22,7 @@ __all__ = ['MarketplaceGalleryImageArgs', 'MarketplaceGalleryImage']
 @pulumi.input_type
 class MarketplaceGalleryImageArgs:
     def __init__(__self__, *,
+                 marketplace_gallery_image_name: pulumi.Input[_builtins.str],
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  cloud_init_data_source: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]] = None,
@@ -30,12 +31,12 @@ class MarketplaceGalleryImageArgs:
                  hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
                  identifier: pulumi.Input[Optional['GalleryImageIdentifierArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 marketplace_gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional['GalleryImageVersionArgs']] = None):
         """
         The set of arguments for constructing a MarketplaceGalleryImage resource.
 
+        :param pulumi.Input[_builtins.str] marketplace_gallery_image_name: Name of the marketplace gallery image
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
@@ -44,10 +45,10 @@ class MarketplaceGalleryImageArgs:
         :param pulumi.Input[Union[_builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] marketplace_gallery_image_name: Name of the marketplace gallery image
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['GalleryImageVersionArgs'] version: Specifies information about the gallery image version that you want to create or update.
         """
+        pulumi.set(__self__, "marketplace_gallery_image_name", marketplace_gallery_image_name)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_init_data_source is not None:
@@ -62,12 +63,22 @@ class MarketplaceGalleryImageArgs:
             pulumi.set(__self__, "identifier", identifier)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if marketplace_gallery_image_name is not None:
-            pulumi.set(__self__, "marketplace_gallery_image_name", marketplace_gallery_image_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceGalleryImageName")
+    def marketplace_gallery_image_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the marketplace gallery image
+        """
+        return pulumi.get(self, "marketplace_gallery_image_name")
+
+    @marketplace_gallery_image_name.setter
+    def marketplace_gallery_image_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "marketplace_gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
@@ -164,18 +175,6 @@ class MarketplaceGalleryImageArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="marketplaceGalleryImageName")
-    def marketplace_gallery_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the marketplace gallery image
-        """
-        return pulumi.get(self, "marketplace_gallery_image_name")
-
-    @marketplace_gallery_image_name.setter
-    def marketplace_gallery_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "marketplace_gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -297,6 +296,8 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["location"] = location
+            if marketplace_gallery_image_name is None and not opts.urn:
+                raise TypeError("Missing required property 'marketplace_gallery_image_name'")
             __props__.__dict__["marketplace_gallery_image_name"] = marketplace_gallery_image_name
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")

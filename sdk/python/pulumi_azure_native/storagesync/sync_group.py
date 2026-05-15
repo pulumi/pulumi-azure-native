@@ -22,7 +22,7 @@ class SyncGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
-                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 sync_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SyncGroup resource.
 
@@ -32,8 +32,7 @@ class SyncGroupArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
-        if sync_group_name is not None:
-            pulumi.set(__self__, "sync_group_name", sync_group_name)
+        pulumi.set(__self__, "sync_group_name", sync_group_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,14 +60,14 @@ class SyncGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="syncGroupName")
-    def sync_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sync_group_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of Sync Group resource.
         """
         return pulumi.get(self, "sync_group_name")
 
     @sync_group_name.setter
-    def sync_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sync_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sync_group_name", value)
 
 
@@ -143,6 +142,8 @@ class SyncGroup(pulumi.CustomResource):
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            if sync_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

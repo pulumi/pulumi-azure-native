@@ -23,32 +23,31 @@ __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 class StorageSyncServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_sync_service_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  incoming_traffic_policy: pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_identity: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StorageSyncService resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] use_identity: Use Identity authorization when customer have finished setup RBAC permissions.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if incoming_traffic_policy is not None:
             pulumi.set(__self__, "incoming_traffic_policy", incoming_traffic_policy)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if storage_sync_service_name is not None:
-            pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if use_identity is not None:
@@ -65,6 +64,18 @@ class StorageSyncServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageSyncServiceName")
+    def storage_sync_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Storage Sync Service resource.
+        """
+        return pulumi.get(self, "storage_sync_service_name")
+
+    @storage_sync_service_name.setter
+    def storage_sync_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_sync_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,18 +112,6 @@ class StorageSyncServiceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageSyncServiceName")
-    def storage_sync_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Storage Sync Service resource.
-        """
-        return pulumi.get(self, "storage_sync_service_name")
-
-    @storage_sync_service_name.setter
-    def storage_sync_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_sync_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -222,6 +221,8 @@ class StorageSyncService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_sync_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_identity"] = use_identity

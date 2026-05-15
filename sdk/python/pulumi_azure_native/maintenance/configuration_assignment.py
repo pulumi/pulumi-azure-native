@@ -22,11 +22,11 @@ __all__ = ['ConfigurationAssignmentArgs', 'ConfigurationAssignment']
 @pulumi.input_type
 class ConfigurationAssignmentArgs:
     def __init__(__self__, *,
+                 configuration_assignment_name: pulumi.Input[_builtins.str],
                  provider_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional['ConfigurationAssignmentFilterPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,22 +34,21 @@ class ConfigurationAssignmentArgs:
         """
         The set of arguments for constructing a ConfigurationAssignment resource.
 
+        :param pulumi.Input[_builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input[_builtins.str] provider_name: Resource provider name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: Resource parent name
         :param pulumi.Input[_builtins.str] resource_type: Resource parent type
-        :param pulumi.Input[_builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs'] filter: Properties of the configuration assignment
         :param pulumi.Input[_builtins.str] location: Location of the resource
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[_builtins.str] resource_id: The unique resourceId
         """
+        pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
         pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "resource_type", resource_type)
-        if configuration_assignment_name is not None:
-            pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if location is not None:
@@ -58,6 +57,18 @@ class ConfigurationAssignmentArgs:
             pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationAssignmentName")
+    def configuration_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ConfigurationAssignment
+        """
+        return pulumi.get(self, "configuration_assignment_name")
+
+    @configuration_assignment_name.setter
+    def configuration_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
@@ -106,18 +117,6 @@ class ConfigurationAssignmentArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationAssignmentName")
-    def configuration_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ConfigurationAssignment
-        """
-        return pulumi.get(self, "configuration_assignment_name")
-
-    @configuration_assignment_name.setter
-    def configuration_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -251,6 +250,8 @@ class ConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationAssignmentArgs.__new__(ConfigurationAssignmentArgs)
 
+            if configuration_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_assignment_name'")
             __props__.__dict__["configuration_assignment_name"] = configuration_assignment_name
             __props__.__dict__["filter"] = filter
             __props__.__dict__["location"] = location

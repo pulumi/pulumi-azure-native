@@ -26,6 +26,7 @@ class ContentPackageArgs:
                  content_kind: pulumi.Input[Union[_builtins.str, 'PackageKind']],
                  content_product_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
+                 package_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
@@ -41,7 +42,6 @@ class ContentPackageArgs:
                  is_new: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
                  is_preview: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
                  last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
                  providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  publisher_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional['MetadataSourceArgs']] = None,
@@ -55,6 +55,7 @@ class ContentPackageArgs:
         :param pulumi.Input[Union[_builtins.str, 'PackageKind']] content_kind: The package kind
         :param pulumi.Input[_builtins.str] content_product_id: Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
         :param pulumi.Input[_builtins.str] display_name: The display name of the package
+        :param pulumi.Input[_builtins.str] package_id: package Id
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version: the latest version number of the package
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
@@ -70,7 +71,6 @@ class ContentPackageArgs:
         :param pulumi.Input[Union[_builtins.str, 'Flag']] is_new: Flag indicates if this is a newly published package.
         :param pulumi.Input[Union[_builtins.str, 'Flag']] is_preview: Flag indicates if this package is in preview.
         :param pulumi.Input[_builtins.str] last_publish_date: last publish date for the package item
-        :param pulumi.Input[_builtins.str] package_id: package Id
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] providers: Providers for the package item
         :param pulumi.Input[_builtins.str] publisher_display_name: The publisher display name of the package
         :param pulumi.Input['MetadataSourceArgs'] source: The source of the package
@@ -82,6 +82,7 @@ class ContentPackageArgs:
         pulumi.set(__self__, "content_kind", content_kind)
         pulumi.set(__self__, "content_product_id", content_product_id)
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "package_id", package_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version", version)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -109,8 +110,6 @@ class ContentPackageArgs:
             pulumi.set(__self__, "is_preview", is_preview)
         if last_publish_date is not None:
             pulumi.set(__self__, "last_publish_date", last_publish_date)
-        if package_id is not None:
-            pulumi.set(__self__, "package_id", package_id)
         if providers is not None:
             pulumi.set(__self__, "providers", providers)
         if publisher_display_name is not None:
@@ -171,6 +170,18 @@ class ContentPackageArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="packageId")
+    def package_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        package Id
+        """
+        return pulumi.get(self, "package_id")
+
+    @package_id.setter
+    def package_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "package_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -351,18 +362,6 @@ class ContentPackageArgs:
     @last_publish_date.setter
     def last_publish_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_publish_date", value)
-
-    @_builtins.property
-    @pulumi.getter(name="packageId")
-    def package_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        package Id
-        """
-        return pulumi.get(self, "package_id")
-
-    @package_id.setter
-    def package_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "package_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -595,6 +594,8 @@ class ContentPackage(pulumi.CustomResource):
             __props__.__dict__["is_new"] = is_new
             __props__.__dict__["is_preview"] = is_preview
             __props__.__dict__["last_publish_date"] = last_publish_date
+            if package_id is None and not opts.urn:
+                raise TypeError("Missing required property 'package_id'")
             __props__.__dict__["package_id"] = package_id
             __props__.__dict__["providers"] = providers
             __props__.__dict__["publisher_display_name"] = publisher_display_name

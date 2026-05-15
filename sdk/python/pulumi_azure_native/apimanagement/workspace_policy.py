@@ -20,22 +20,23 @@ __all__ = ['WorkspacePolicyArgs', 'WorkspacePolicy']
 @pulumi.input_type
 class WorkspacePolicyArgs:
     def __init__(__self__, *,
+                 policy_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 format: pulumi.Input[Optional[Union[_builtins.str, 'PolicyContentFormat']]] = None,
-                 policy_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 format: pulumi.Input[Optional[Union[_builtins.str, 'PolicyContentFormat']]] = None):
         """
         The set of arguments for constructing a WorkspacePolicy resource.
 
+        :param pulumi.Input[_builtins.str] policy_id: The identifier of the Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] value: Contents of the Policy as defined by the format.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'PolicyContentFormat']] format: Format of the policyContent.
-        :param pulumi.Input[_builtins.str] policy_id: The identifier of the Policy.
         """
+        pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "value", value)
@@ -44,8 +45,18 @@ class WorkspacePolicyArgs:
             format = 'xml'
         if format is not None:
             pulumi.set(__self__, "format", format)
-        if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+
+    @_builtins.property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the Policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,18 +117,6 @@ class WorkspacePolicyArgs:
     @format.setter
     def format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyContentFormat']]]):
         pulumi.set(self, "format", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The identifier of the Policy.
-        """
-        return pulumi.get(self, "policy_id")
-
-    @policy_id.setter
-    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspacePolicy")
@@ -197,6 +196,8 @@ class WorkspacePolicy(pulumi.CustomResource):
             if format is None:
                 format = 'xml'
             __props__.__dict__["format"] = format
+            if policy_id is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_id'")
             __props__.__dict__["policy_id"] = policy_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

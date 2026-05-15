@@ -22,24 +22,35 @@ __all__ = ['DiscoveryRuleArgs', 'DiscoveryRule']
 @pulumi.input_type
 class DiscoveryRuleArgs:
     def __init__(__self__, *,
+                 discovery_rule_name: pulumi.Input[_builtins.str],
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 discovery_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DiscoveryRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a DiscoveryRule resource.
 
+        :param pulumi.Input[_builtins.str] discovery_rule_name: Name of the discovery rule. Must be unique within a health model.
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] discovery_rule_name: Name of the discovery rule. Must be unique within a health model.
         :param pulumi.Input['DiscoveryRulePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "discovery_rule_name", discovery_rule_name)
         pulumi.set(__self__, "health_model_name", health_model_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if discovery_rule_name is not None:
-            pulumi.set(__self__, "discovery_rule_name", discovery_rule_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryRuleName")
+    def discovery_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the discovery rule. Must be unique within a health model.
+        """
+        return pulumi.get(self, "discovery_rule_name")
+
+    @discovery_rule_name.setter
+    def discovery_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovery_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthModelName")
@@ -64,18 +75,6 @@ class DiscoveryRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveryRuleName")
-    def discovery_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the discovery rule. Must be unique within a health model.
-        """
-        return pulumi.get(self, "discovery_rule_name")
-
-    @discovery_rule_name.setter
-    def discovery_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "discovery_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class DiscoveryRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiscoveryRuleArgs.__new__(DiscoveryRuleArgs)
 
+            if discovery_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'discovery_rule_name'")
             __props__.__dict__["discovery_rule_name"] = discovery_rule_name
             if health_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'health_model_name'")

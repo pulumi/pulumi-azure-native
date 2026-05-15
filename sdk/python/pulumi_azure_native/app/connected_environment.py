@@ -22,8 +22,8 @@ __all__ = ['ConnectedEnvironmentArgs', 'ConnectedEnvironment']
 @pulumi.input_type
 class ConnectedEnvironmentArgs:
     def __init__(__self__, *,
+                 connected_environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_configuration: pulumi.Input[Optional['CustomDomainConfigurationArgs']] = None,
                  dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
@@ -33,8 +33,8 @@ class ConnectedEnvironmentArgs:
         """
         The set of arguments for constructing a ConnectedEnvironment resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] connected_environment_name: Name of the connectedEnvironment.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CustomDomainConfigurationArgs'] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[_builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
@@ -42,9 +42,8 @@ class ConnectedEnvironmentArgs:
         :param pulumi.Input[_builtins.str] static_ip: Static IP of the connectedEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "connected_environment_name", connected_environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connected_environment_name is not None:
-            pulumi.set(__self__, "connected_environment_name", connected_environment_name)
         if custom_domain_configuration is not None:
             pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
         if dapr_ai_connection_string is not None:
@@ -59,6 +58,18 @@ class ConnectedEnvironmentArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="connectedEnvironmentName")
+    def connected_environment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the connectedEnvironment.
+        """
+        return pulumi.get(self, "connected_environment_name")
+
+    @connected_environment_name.setter
+    def connected_environment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connected_environment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -69,18 +80,6 @@ class ConnectedEnvironmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectedEnvironmentName")
-    def connected_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the connectedEnvironment.
-        """
-        return pulumi.get(self, "connected_environment_name")
-
-    @connected_environment_name.setter
-    def connected_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connected_environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainConfiguration")
@@ -235,6 +234,8 @@ class ConnectedEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectedEnvironmentArgs.__new__(ConnectedEnvironmentArgs)
 
+            if connected_environment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connected_environment_name'")
             __props__.__dict__["connected_environment_name"] = connected_environment_name
             __props__.__dict__["custom_domain_configuration"] = custom_domain_configuration
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string

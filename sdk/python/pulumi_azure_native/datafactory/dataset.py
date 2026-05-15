@@ -22,23 +22,34 @@ __all__ = ['DatasetArgs', 'Dataset']
 @pulumi.input_type
 class DatasetArgs:
     def __init__(__self__, *,
+                 dataset_name: pulumi.Input[_builtins.str],
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRedshiftTableDatasetArgs', 'AmazonS3DatasetArgs', 'AvroDatasetArgs', 'AzureBlobDatasetArgs', 'AzureBlobFSDatasetArgs', 'AzureDataExplorerTableDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgs', 'AzureMariaDBTableDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlMITableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'BinaryDatasetArgs', 'CassandraTableDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgs', 'ConcurObjectDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'Db2TableDatasetArgs', 'DelimitedTextDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsAXResourceDatasetArgs', 'DynamicsCrmEntityDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'ExcelDatasetArgs', 'FileShareDatasetArgs', 'GoogleAdWordsObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GoogleBigQueryV2ObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'IcebergDatasetArgs', 'ImpalaObjectDatasetArgs', 'InformixTableDatasetArgs', 'JiraObjectDatasetArgs', 'JsonDatasetArgs', 'LakeHouseTableDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MicrosoftAccessTableDatasetArgs', 'MongoDbAtlasCollectionDatasetArgs', 'MongoDbCollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgs', 'MySqlTableDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OdbcTableDatasetArgs', 'Office365DatasetArgs', 'OracleServiceCloudObjectDatasetArgs', 'OracleTableDatasetArgs', 'OrcDatasetArgs', 'ParquetDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PostgreSqlTableDatasetArgs', 'PostgreSqlV2TableDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'RestResourceDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgs', 'SalesforceServiceCloudV2ObjectDatasetArgs', 'SalesforceV2ObjectDatasetArgs', 'SapBwCubeDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'SapHanaTableDatasetArgs', 'SapOdpResourceDatasetArgs', 'SapOpenHubTableDatasetArgs', 'SapTableResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ServiceNowV2ObjectDatasetArgs', 'SharePointOnlineListResourceDatasetArgs', 'ShopifyObjectDatasetArgs', 'SnowflakeDatasetArgs', 'SnowflakeV2DatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'SybaseTableDatasetArgs', 'TeradataTableDatasetArgs', 'VerticaTableDatasetArgs', 'WarehouseTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'XmlDatasetArgs', 'ZohoObjectDatasetArgs']],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Dataset resource.
 
+        :param pulumi.Input[_builtins.str] dataset_name: The dataset name.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRedshiftTableDatasetArgs', 'AmazonS3DatasetArgs', 'AvroDatasetArgs', 'AzureBlobDatasetArgs', 'AzureBlobFSDatasetArgs', 'AzureDataExplorerTableDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgs', 'AzureMariaDBTableDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlMITableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'BinaryDatasetArgs', 'CassandraTableDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgs', 'ConcurObjectDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'Db2TableDatasetArgs', 'DelimitedTextDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsAXResourceDatasetArgs', 'DynamicsCrmEntityDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'ExcelDatasetArgs', 'FileShareDatasetArgs', 'GoogleAdWordsObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GoogleBigQueryV2ObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'IcebergDatasetArgs', 'ImpalaObjectDatasetArgs', 'InformixTableDatasetArgs', 'JiraObjectDatasetArgs', 'JsonDatasetArgs', 'LakeHouseTableDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MicrosoftAccessTableDatasetArgs', 'MongoDbAtlasCollectionDatasetArgs', 'MongoDbCollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgs', 'MySqlTableDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OdbcTableDatasetArgs', 'Office365DatasetArgs', 'OracleServiceCloudObjectDatasetArgs', 'OracleTableDatasetArgs', 'OrcDatasetArgs', 'ParquetDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PostgreSqlTableDatasetArgs', 'PostgreSqlV2TableDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'RestResourceDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgs', 'SalesforceServiceCloudV2ObjectDatasetArgs', 'SalesforceV2ObjectDatasetArgs', 'SapBwCubeDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'SapHanaTableDatasetArgs', 'SapOdpResourceDatasetArgs', 'SapOpenHubTableDatasetArgs', 'SapTableResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ServiceNowV2ObjectDatasetArgs', 'SharePointOnlineListResourceDatasetArgs', 'ShopifyObjectDatasetArgs', 'SnowflakeDatasetArgs', 'SnowflakeV2DatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'SybaseTableDatasetArgs', 'TeradataTableDatasetArgs', 'VerticaTableDatasetArgs', 'WarehouseTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'XmlDatasetArgs', 'ZohoObjectDatasetArgs']] properties: Dataset properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] dataset_name: The dataset name.
         """
+        pulumi.set(__self__, "dataset_name", dataset_name)
         pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The dataset name.
+        """
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -75,18 +86,6 @@ class DatasetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The dataset name.
-        """
-        return pulumi.get(self, "dataset_name")
-
-    @dataset_name.setter
-    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dataset_name", value)
 
 
 @pulumi.type_token("azure-native:datafactory:Dataset")
@@ -153,6 +152,8 @@ class Dataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatasetArgs.__new__(DatasetArgs)
 
+            if dataset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dataset_name'")
             __props__.__dict__["dataset_name"] = dataset_name
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")

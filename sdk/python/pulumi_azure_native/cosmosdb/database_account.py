@@ -22,10 +22,10 @@ __all__ = ['DatabaseAccountArgs', 'DatabaseAccount']
 @pulumi.input_type
 class DatabaseAccountArgs:
     def __init__(__self__, *,
+                 account_name: pulumi.Input[_builtins.str],
                  database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
                  locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  analytical_storage_configuration: pulumi.Input[Optional['AnalyticalStorageConfigurationArgs']] = None,
                  api_properties: pulumi.Input[Optional['ApiPropertiesArgs']] = None,
                  backup_policy: pulumi.Input[Optional[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
@@ -65,10 +65,10 @@ class DatabaseAccountArgs:
         """
         The set of arguments for constructing a DatabaseAccount resource.
 
+        :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input['AnalyticalStorageConfigurationArgs'] analytical_storage_configuration: Analytical storage specific properties.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
         :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
@@ -106,11 +106,10 @@ class DatabaseAccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
+        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
         pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
         if analytical_storage_configuration is not None:
             pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
         if api_properties is not None:
@@ -189,6 +188,18 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cosmos DB database account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="databaseAccountOfferType")
     def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
         """
@@ -223,18 +234,6 @@ class DatabaseAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cosmos DB database account name.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageConfiguration")
@@ -845,6 +844,8 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatabaseAccountArgs.__new__(DatabaseAccountArgs)
 
+            if account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_configuration"] = analytical_storage_configuration
             __props__.__dict__["api_properties"] = api_properties

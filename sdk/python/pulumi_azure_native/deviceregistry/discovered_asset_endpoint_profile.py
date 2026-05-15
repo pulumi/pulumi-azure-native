@@ -22,6 +22,7 @@ __all__ = ['DiscoveredAssetEndpointProfileArgs', 'DiscoveredAssetEndpointProfile
 @pulumi.input_type
 class DiscoveredAssetEndpointProfileArgs:
     def __init__(__self__, *,
+                 discovered_asset_endpoint_profile_name: pulumi.Input[_builtins.str],
                  discovery_id: pulumi.Input[_builtins.str],
                  endpoint_profile_type: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
@@ -29,13 +30,13 @@ class DiscoveredAssetEndpointProfileArgs:
                  target_address: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.float],
                  additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovered_asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  supported_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAssetEndpointProfile resource.
 
+        :param pulumi.Input[_builtins.str] discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset endpoint profile.
         :param pulumi.Input[_builtins.str] endpoint_profile_type: Defines the configuration for the connector type that is being used with the endpoint profile.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -43,11 +44,11 @@ class DiscoveredAssetEndpointProfileArgs:
         :param pulumi.Input[_builtins.str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
         :param pulumi.Input[_builtins.float] version: An integer that is incremented each time the resource is modified.
         :param pulumi.Input[_builtins.str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
-        :param pulumi.Input[_builtins.str] discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]] supported_authentication_methods: List of supported authentication methods supported by the target server.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "discovered_asset_endpoint_profile_name", discovered_asset_endpoint_profile_name)
         pulumi.set(__self__, "discovery_id", discovery_id)
         pulumi.set(__self__, "endpoint_profile_type", endpoint_profile_type)
         pulumi.set(__self__, "extended_location", extended_location)
@@ -56,14 +57,24 @@ class DiscoveredAssetEndpointProfileArgs:
         pulumi.set(__self__, "version", version)
         if additional_configuration is not None:
             pulumi.set(__self__, "additional_configuration", additional_configuration)
-        if discovered_asset_endpoint_profile_name is not None:
-            pulumi.set(__self__, "discovered_asset_endpoint_profile_name", discovered_asset_endpoint_profile_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if supported_authentication_methods is not None:
             pulumi.set(__self__, "supported_authentication_methods", supported_authentication_methods)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveredAssetEndpointProfileName")
+    def discovered_asset_endpoint_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Discovered Asset Endpoint Profile name parameter.
+        """
+        return pulumi.get(self, "discovered_asset_endpoint_profile_name")
+
+    @discovered_asset_endpoint_profile_name.setter
+    def discovered_asset_endpoint_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovered_asset_endpoint_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryId")
@@ -148,18 +159,6 @@ class DiscoveredAssetEndpointProfileArgs:
     @additional_configuration.setter
     def additional_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveredAssetEndpointProfileName")
-    def discovered_asset_endpoint_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Discovered Asset Endpoint Profile name parameter.
-        """
-        return pulumi.get(self, "discovered_asset_endpoint_profile_name")
-
-    @discovered_asset_endpoint_profile_name.setter
-    def discovered_asset_endpoint_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "discovered_asset_endpoint_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -284,6 +283,8 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
             __props__ = DiscoveredAssetEndpointProfileArgs.__new__(DiscoveredAssetEndpointProfileArgs)
 
             __props__.__dict__["additional_configuration"] = additional_configuration
+            if discovered_asset_endpoint_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'discovered_asset_endpoint_profile_name'")
             __props__.__dict__["discovered_asset_endpoint_profile_name"] = discovered_asset_endpoint_profile_name
             if discovery_id is None and not opts.urn:
                 raise TypeError("Missing required property 'discovery_id'")

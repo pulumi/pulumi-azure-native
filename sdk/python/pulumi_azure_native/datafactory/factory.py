@@ -22,9 +22,9 @@ __all__ = ['FactoryArgs', 'Factory']
 @pulumi.input_type
 class FactoryArgs:
     def __init__(__self__, *,
+                 factory_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  encryption: pulumi.Input[Optional['EncryptionConfigurationArgs']] = None,
-                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
                  global_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]]] = None,
                  identity: pulumi.Input[Optional['FactoryIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,9 +35,9 @@ class FactoryArgs:
         """
         The set of arguments for constructing a Factory resource.
 
+        :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['EncryptionConfigurationArgs'] encryption: Properties to enable Customer Managed Key for the factory.
-        :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]] global_parameters: List of parameters for factory.
         :param pulumi.Input['FactoryIdentityArgs'] identity: Managed service identity of the factory.
         :param pulumi.Input[_builtins.str] location: The resource location.
@@ -46,11 +46,10 @@ class FactoryArgs:
         :param pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
+        pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
-        if factory_name is not None:
-            pulumi.set(__self__, "factory_name", factory_name)
         if global_parameters is not None:
             pulumi.set(__self__, "global_parameters", global_parameters)
         if identity is not None:
@@ -65,6 +64,18 @@ class FactoryArgs:
             pulumi.set(__self__, "repo_configuration", repo_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="factoryName")
+    def factory_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The factory name.
+        """
+        return pulumi.get(self, "factory_name")
+
+    @factory_name.setter
+    def factory_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "factory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,18 +100,6 @@ class FactoryArgs:
     @encryption.setter
     def encryption(self, value: pulumi.Input[Optional['EncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption", value)
-
-    @_builtins.property
-    @pulumi.getter(name="factoryName")
-    def factory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The factory name.
-        """
-        return pulumi.get(self, "factory_name")
-
-    @factory_name.setter
-    def factory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "factory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="globalParameters")
@@ -270,6 +269,8 @@ class Factory(pulumi.CustomResource):
             __props__ = FactoryArgs.__new__(FactoryArgs)
 
             __props__.__dict__["encryption"] = encryption
+            if factory_name is None and not opts.urn:
+                raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
             __props__.__dict__["global_parameters"] = global_parameters
             __props__.__dict__["identity"] = identity

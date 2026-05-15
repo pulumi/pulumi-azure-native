@@ -22,8 +22,8 @@ __all__ = ['ApplicationGatewayPrivateEndpointConnectionArgs', 'ApplicationGatewa
 class ApplicationGatewayPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  application_gateway_name: pulumi.Input[_builtins.str],
+                 connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']] = None):
@@ -31,16 +31,15 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
         The set of arguments for constructing a ApplicationGatewayPrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] application_gateway_name: The name of the application gateway.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] connection_name: The name of the application gateway private endpoint connection.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: Name of the private endpoint connection on an application gateway.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "application_gateway_name", application_gateway_name)
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -61,6 +60,18 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
         pulumi.set(self, "application_gateway_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application gateway private endpoint connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -71,18 +82,6 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the application gateway private endpoint connection.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             if application_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_gateway_name'")
             __props__.__dict__["application_gateway_name"] = application_gateway_name
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name

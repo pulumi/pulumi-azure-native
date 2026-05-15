@@ -22,6 +22,7 @@ __all__ = ['VendorSkusArgs', 'VendorSkus']
 @pulumi.input_type
 class VendorSkusArgs:
     def __init__(__self__, *,
+                 sku_name: pulumi.Input[_builtins.str],
                  vendor_name: pulumi.Input[_builtins.str],
                  deployment_mode: pulumi.Input[Optional[Union[_builtins.str, 'SkuDeploymentMode']]] = None,
                  managed_application_parameters: Optional[Any] = None,
@@ -29,11 +30,11 @@ class VendorSkusArgs:
                  network_function_template: pulumi.Input[Optional['NetworkFunctionTemplateArgs']] = None,
                  network_function_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFunctionType']]] = None,
                  preview: pulumi.Input[Optional[_builtins.bool]] = None,
-                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_type: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]] = None):
         """
         The set of arguments for constructing a VendorSkus resource.
 
+        :param pulumi.Input[_builtins.str] sku_name: The name of the sku.
         :param pulumi.Input[_builtins.str] vendor_name: The name of the vendor.
         :param pulumi.Input[Union[_builtins.str, 'SkuDeploymentMode']] deployment_mode: The sku deployment mode.
         :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
@@ -41,9 +42,9 @@ class VendorSkusArgs:
         :param pulumi.Input['NetworkFunctionTemplateArgs'] network_function_template: The template definition of the network function.
         :param pulumi.Input[Union[_builtins.str, 'NetworkFunctionType']] network_function_type: The network function type.
         :param pulumi.Input[_builtins.bool] preview: Indicates if the vendor sku is in preview mode.
-        :param pulumi.Input[_builtins.str] sku_name: The name of the sku.
         :param pulumi.Input[Union[_builtins.str, 'SkuType']] sku_type: The sku type.
         """
+        pulumi.set(__self__, "sku_name", sku_name)
         pulumi.set(__self__, "vendor_name", vendor_name)
         if deployment_mode is not None:
             pulumi.set(__self__, "deployment_mode", deployment_mode)
@@ -57,10 +58,20 @@ class VendorSkusArgs:
             pulumi.set(__self__, "network_function_type", network_function_type)
         if preview is not None:
             pulumi.set(__self__, "preview", preview)
-        if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
         if sku_type is not None:
             pulumi.set(__self__, "sku_type", sku_type)
+
+    @_builtins.property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the sku.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vendorName")
@@ -145,18 +156,6 @@ class VendorSkusArgs:
     @preview.setter
     def preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preview", value)
-
-    @_builtins.property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the sku.
-        """
-        return pulumi.get(self, "sku_name")
-
-    @sku_name.setter
-    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuType")
@@ -256,6 +255,8 @@ class VendorSkus(pulumi.CustomResource):
             __props__.__dict__["network_function_template"] = network_function_template
             __props__.__dict__["network_function_type"] = network_function_type
             __props__.__dict__["preview"] = preview
+            if sku_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["sku_type"] = sku_type
             if vendor_name is None and not opts.urn:

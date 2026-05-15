@@ -22,9 +22,9 @@ __all__ = ['AutoExportJobArgs', 'AutoExportJob']
 class AutoExportJobArgs:
     def __init__(__self__, *,
                  aml_filesystem_name: pulumi.Input[_builtins.str],
+                 auto_export_job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  admin_status: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
-                 auto_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_export_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]] = None,
@@ -33,22 +33,21 @@ class AutoExportJobArgs:
         The set of arguments for constructing a AutoExportJob resource.
 
         :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        :param pulumi.Input[_builtins.str] auto_export_job_name: Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']] admin_status: The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
-        :param pulumi.Input[_builtins.str] auto_export_job_name: Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_export_prefixes: An array of blob paths/prefixes that get auto exported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths for now is 1.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']] state: The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
+        pulumi.set(__self__, "auto_export_job_name", auto_export_job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_status is None:
             admin_status = 'Enable'
         if admin_status is not None:
             pulumi.set(__self__, "admin_status", admin_status)
-        if auto_export_job_name is not None:
-            pulumi.set(__self__, "auto_export_job_name", auto_export_job_name)
         if auto_export_prefixes is not None:
             pulumi.set(__self__, "auto_export_prefixes", auto_export_prefixes)
         if location is not None:
@@ -69,6 +68,18 @@ class AutoExportJobArgs:
     @aml_filesystem_name.setter
     def aml_filesystem_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "aml_filesystem_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoExportJobName")
+    def auto_export_job_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        """
+        return pulumi.get(self, "auto_export_job_name")
+
+    @auto_export_job_name.setter
+    def auto_export_job_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "auto_export_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -93,18 +104,6 @@ class AutoExportJobArgs:
     @admin_status.setter
     def admin_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]]):
         pulumi.set(self, "admin_status", value)
-
-    @_builtins.property
-    @pulumi.getter(name="autoExportJobName")
-    def auto_export_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        """
-        return pulumi.get(self, "auto_export_job_name")
-
-    @auto_export_job_name.setter
-    def auto_export_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "auto_export_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoExportPrefixes")
@@ -241,6 +240,8 @@ class AutoExportJob(pulumi.CustomResource):
             if aml_filesystem_name is None and not opts.urn:
                 raise TypeError("Missing required property 'aml_filesystem_name'")
             __props__.__dict__["aml_filesystem_name"] = aml_filesystem_name
+            if auto_export_job_name is None and not opts.urn:
+                raise TypeError("Missing required property 'auto_export_job_name'")
             __props__.__dict__["auto_export_job_name"] = auto_export_job_name
             __props__.__dict__["auto_export_prefixes"] = auto_export_prefixes
             __props__.__dict__["location"] = location

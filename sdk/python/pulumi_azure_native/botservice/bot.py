@@ -23,32 +23,31 @@ __all__ = ['BotArgs', 'Bot']
 class BotArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BotPropertiesArgs']] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Bot resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input['BotPropertiesArgs'] properties: The set of properties specific to bot resource
-        :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -65,6 +64,18 @@ class BotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Bot resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,18 +112,6 @@ class BotArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['BotPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Bot resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -222,6 +221,8 @@ class Bot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags

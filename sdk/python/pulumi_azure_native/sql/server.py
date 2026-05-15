@@ -23,6 +23,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_name: pulumi.Input[_builtins.str],
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
                  administrators: pulumi.Input[Optional['ServerExternalAdministratorArgs']] = None,
@@ -35,13 +36,13 @@ class ServerArgs:
                  primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'ServerPublicNetworkAccessFlag']]] = None,
                  restrict_outbound_network_access: pulumi.Input[Optional[Union[_builtins.str, 'ServerNetworkAccessFlag']]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[_builtins.str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
@@ -54,11 +55,11 @@ class ServerArgs:
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[Union[_builtins.str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] version: The version of the server.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
@@ -83,8 +84,6 @@ class ServerArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if restrict_outbound_network_access is not None:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -101,6 +100,18 @@ class ServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
@@ -245,18 +256,6 @@ class ServerArgs:
     @restrict_outbound_network_access.setter
     def restrict_outbound_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerNetworkAccessFlag']]]):
         pulumi.set(self, "restrict_outbound_network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the server.
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -422,6 +421,8 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restrict_outbound_network_access"] = restrict_outbound_network_access
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

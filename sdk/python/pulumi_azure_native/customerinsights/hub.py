@@ -21,33 +21,44 @@ __all__ = ['HubArgs', 'Hub']
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
+                 hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  hub_billing_info: pulumi.Input[Optional['HubBillingInfoFormatArgs']] = None,
-                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tenant_features: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Hub resource.
 
+        :param pulumi.Input[_builtins.str] hub_name: The name of the Hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['HubBillingInfoFormatArgs'] hub_billing_info: Billing settings of the hub.
-        :param pulumi.Input[_builtins.str] hub_name: The name of the Hub.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] tenant_features: The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
         """
+        pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if hub_billing_info is not None:
             pulumi.set(__self__, "hub_billing_info", hub_billing_info)
-        if hub_name is not None:
-            pulumi.set(__self__, "hub_name", hub_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenant_features is not None:
             pulumi.set(__self__, "tenant_features", tenant_features)
+
+    @_builtins.property
+    @pulumi.getter(name="hubName")
+    def hub_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Hub.
+        """
+        return pulumi.get(self, "hub_name")
+
+    @hub_name.setter
+    def hub_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -72,18 +83,6 @@ class HubArgs:
     @hub_billing_info.setter
     def hub_billing_info(self, value: pulumi.Input[Optional['HubBillingInfoFormatArgs']]):
         pulumi.set(self, "hub_billing_info", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hubName")
-    def hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Hub.
-        """
-        return pulumi.get(self, "hub_name")
-
-    @hub_name.setter
-    def hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "hub_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +192,8 @@ class Hub(pulumi.CustomResource):
             __props__ = HubArgs.__new__(HubArgs)
 
             __props__.__dict__["hub_billing_info"] = hub_billing_info
+            if hub_name is None and not opts.urn:
+                raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

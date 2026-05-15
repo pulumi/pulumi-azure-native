@@ -21,9 +21,9 @@ __all__ = ['AzureADAdministratorArgs', 'AzureADAdministrator']
 @pulumi.input_type
 class AzureADAdministratorArgs:
     def __init__(__self__, *,
+                 administrator_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
                  identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  login: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,19 +32,18 @@ class AzureADAdministratorArgs:
         """
         The set of arguments for constructing a AzureADAdministrator resource.
 
+        :param pulumi.Input[_builtins.str] administrator_name: The name of the Azure AD Administrator.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] administrator_name: The name of the Azure AD Administrator.
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: Type of the sever administrator.
         :param pulumi.Input[_builtins.str] identity_resource_id: The resource id of the identity used for AAD Authentication.
         :param pulumi.Input[_builtins.str] login: Login name of the server administrator.
         :param pulumi.Input[_builtins.str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[_builtins.str] tenant_id: Tenant ID of the administrator.
         """
+        pulumi.set(__self__, "administrator_name", administrator_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        if administrator_name is not None:
-            pulumi.set(__self__, "administrator_name", administrator_name)
         if administrator_type is not None:
             pulumi.set(__self__, "administrator_type", administrator_type)
         if identity_resource_id is not None:
@@ -55,6 +54,18 @@ class AzureADAdministratorArgs:
             pulumi.set(__self__, "sid", sid)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="administratorName")
+    def administrator_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure AD Administrator.
+        """
+        return pulumi.get(self, "administrator_name")
+
+    @administrator_name.setter
+    def administrator_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,18 +90,6 @@ class AzureADAdministratorArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="administratorName")
-    def administrator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Azure AD Administrator.
-        """
-        return pulumi.get(self, "administrator_name")
-
-    @administrator_name.setter
-    def administrator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorType")
@@ -233,6 +232,8 @@ class AzureADAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AzureADAdministratorArgs.__new__(AzureADAdministratorArgs)
 
+            if administrator_name is None and not opts.urn:
+                raise TypeError("Missing required property 'administrator_name'")
             __props__.__dict__["administrator_name"] = administrator_name
             __props__.__dict__["administrator_type"] = administrator_type
             __props__.__dict__["identity_resource_id"] = identity_resource_id

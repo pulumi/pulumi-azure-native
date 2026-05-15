@@ -23,29 +23,28 @@ __all__ = ['RouteFilterArgs', 'RouteFilter']
 class RouteFilterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_filter_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input['RouteFilterRuleArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteFilter resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] route_filter_name: The name of the route filter.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] route_filter_name: The name of the route filter.
         :param pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgs']]] rules: Collection of RouteFilterRules contained within a route filter.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_filter_name", route_filter_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if route_filter_name is not None:
-            pulumi.set(__self__, "route_filter_name", route_filter_name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -62,6 +61,18 @@ class RouteFilterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeFilterName")
+    def route_filter_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the route filter.
+        """
+        return pulumi.get(self, "route_filter_name")
+
+    @route_filter_name.setter
+    def route_filter_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_filter_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -86,18 +97,6 @@ class RouteFilterArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeFilterName")
-    def route_filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the route filter.
-        """
-        return pulumi.get(self, "route_filter_name")
-
-    @route_filter_name.setter
-    def route_filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_filter_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -205,6 +204,8 @@ class RouteFilter(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_filter_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_filter_name'")
             __props__.__dict__["route_filter_name"] = route_filter_name
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags

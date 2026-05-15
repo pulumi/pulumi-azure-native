@@ -23,22 +23,21 @@ class SecurityPolicyArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 parameters: pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']] = None,
-                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 security_policy_name: pulumi.Input[_builtins.str],
+                 parameters: pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']] = None):
         """
         The set of arguments for constructing a SecurityPolicy resource.
 
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs'] parameters: object which contains security policy parameters
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy under the profile.
+        :param pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs'] parameters: object which contains security policy parameters
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_policy_name", security_policy_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if security_policy_name is not None:
-            pulumi.set(__self__, "security_policy_name", security_policy_name)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -65,6 +64,18 @@ class SecurityPolicyArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the security policy under the profile.
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_policy_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']]:
         """
@@ -75,18 +86,6 @@ class SecurityPolicyArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[Optional['SecurityPolicyWebApplicationFirewallParametersArgs']]):
         pulumi.set(self, "parameters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the security policy under the profile.
-        """
-        return pulumi.get(self, "security_policy_name")
-
-    @security_policy_name.setter
-    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_policy_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:SecurityPolicy")
@@ -164,6 +163,8 @@ class SecurityPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_policy_name'")
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None

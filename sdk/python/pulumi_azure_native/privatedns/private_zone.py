@@ -20,25 +20,36 @@ __all__ = ['PrivateZoneArgs', 'PrivateZone']
 @pulumi.input_type
 class PrivateZoneArgs:
     def __init__(__self__, *,
+                 private_zone_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateZone resource.
 
+        :param pulumi.Input[_builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the resource lives
-        :param pulumi.Input[_builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "private_zone_name", private_zone_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if private_zone_name is not None:
-            pulumi.set(__self__, "private_zone_name", private_zone_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="privateZoneName")
+    def private_zone_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Private DNS zone (without a terminating dot).
+        """
+        return pulumi.get(self, "private_zone_name")
+
+    @private_zone_name.setter
+    def private_zone_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_zone_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +74,6 @@ class PrivateZoneArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateZoneName")
-    def private_zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Private DNS zone (without a terminating dot).
-        """
-        return pulumi.get(self, "private_zone_name")
-
-    @private_zone_name.setter
-    def private_zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_zone_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class PrivateZone(pulumi.CustomResource):
             __props__ = PrivateZoneArgs.__new__(PrivateZoneArgs)
 
             __props__.__dict__["location"] = location
+            if private_zone_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_zone_name'")
             __props__.__dict__["private_zone_name"] = private_zone_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

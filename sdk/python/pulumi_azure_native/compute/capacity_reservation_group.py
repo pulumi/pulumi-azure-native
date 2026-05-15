@@ -21,8 +21,8 @@ __all__ = ['CapacityReservationGroupArgs', 'CapacityReservationGroup']
 @pulumi.input_type
 class CapacityReservationGroupArgs:
     def __init__(__self__, *,
+                 capacity_reservation_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 capacity_reservation_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sharing_profile: pulumi.Input[Optional['ResourceSharingProfileArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -30,16 +30,15 @@ class CapacityReservationGroupArgs:
         """
         The set of arguments for constructing a CapacityReservationGroup resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ResourceSharingProfileArgs'] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. The capacity reservation group resource can generally be shared across subscriptions belonging to a single Azure AAD tenant or across AAD tenants if there is a trust relationship established between the tenants.  Block capacity reservation does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
+        pulumi.set(__self__, "capacity_reservation_group_name", capacity_reservation_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if capacity_reservation_group_name is not None:
-            pulumi.set(__self__, "capacity_reservation_group_name", capacity_reservation_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sharing_profile is not None:
@@ -48,6 +47,18 @@ class CapacityReservationGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationGroupName")
+    def capacity_reservation_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the capacity reservation group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_name")
+
+    @capacity_reservation_group_name.setter
+    def capacity_reservation_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_reservation_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -60,18 +71,6 @@ class CapacityReservationGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityReservationGroupName")
-    def capacity_reservation_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the capacity reservation group.
-        """
-        return pulumi.get(self, "capacity_reservation_group_name")
-
-    @capacity_reservation_group_name.setter
-    def capacity_reservation_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "capacity_reservation_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,6 +195,8 @@ class CapacityReservationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityReservationGroupArgs.__new__(CapacityReservationGroupArgs)
 
+            if capacity_reservation_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'capacity_reservation_group_name'")
             __props__.__dict__["capacity_reservation_group_name"] = capacity_reservation_group_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

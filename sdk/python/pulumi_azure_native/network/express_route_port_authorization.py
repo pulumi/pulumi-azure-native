@@ -19,28 +19,39 @@ __all__ = ['ExpressRoutePortAuthorizationArgs', 'ExpressRoutePortAuthorization']
 @pulumi.input_type
 class ExpressRoutePortAuthorizationArgs:
     def __init__(__self__, *,
+                 authorization_name: pulumi.Input[_builtins.str],
                  express_route_port_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRoutePortAuthorization resource.
 
+        :param pulumi.Input[_builtins.str] authorization_name: The name of the authorization.
         :param pulumi.Input[_builtins.str] express_route_port_name: The name of the express route port.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] authorization_name: The name of the authorization.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
+        pulumi.set(__self__, "authorization_name", authorization_name)
         pulumi.set(__self__, "express_route_port_name", express_route_port_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if authorization_name is not None:
-            pulumi.set(__self__, "authorization_name", authorization_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationName")
+    def authorization_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the authorization.
+        """
+        return pulumi.get(self, "authorization_name")
+
+    @authorization_name.setter
+    def authorization_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRoutePortName")
@@ -65,18 +76,6 @@ class ExpressRoutePortAuthorizationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the authorization.
-        """
-        return pulumi.get(self, "authorization_name")
-
-    @authorization_name.setter
-    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +173,8 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExpressRoutePortAuthorizationArgs.__new__(ExpressRoutePortAuthorizationArgs)
 
+            if authorization_name is None and not opts.urn:
+                raise TypeError("Missing required property 'authorization_name'")
             __props__.__dict__["authorization_name"] = authorization_name
             if express_route_port_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_port_name'")

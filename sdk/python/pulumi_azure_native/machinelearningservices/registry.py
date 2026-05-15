@@ -22,6 +22,7 @@ __all__ = ['RegistryArgs', 'Registry']
 @pulumi.input_type
 class RegistryArgs:
     def __init__(__self__, *,
+                 registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -33,13 +34,13 @@ class RegistryArgs:
                  ml_flow_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  region_details: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
+        :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] discovery_url: Discovery URL for the Registry
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
@@ -52,11 +53,11 @@ class RegistryArgs:
         :param pulumi.Input[_builtins.str] public_network_access: Is the Registry accessible from the internet?
                Possible values: "Enabled" or "Disabled"
         :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
-        :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
@@ -78,14 +79,24 @@ class RegistryArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if region_details is not None:
             pulumi.set(__self__, "region_details", region_details)
-        if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
         if registry_private_endpoint_connections is not None:
             pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Azure Machine Learning registry. This is case-insensitive
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -219,18 +230,6 @@ class RegistryArgs:
     @region_details.setter
     def region_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
         pulumi.set(self, "region_details", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registryName")
-    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Azure Machine Learning registry. This is case-insensitive
-        """
-        return pulumi.get(self, "registry_name")
-
-    @registry_name.setter
-    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryPrivateEndpointConnections")
@@ -381,6 +380,8 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["ml_flow_registry_uri"] = ml_flow_registry_uri
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["region_details"] = region_details
+            if registry_name is None and not opts.urn:
+                raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
             __props__.__dict__["registry_private_endpoint_connections"] = registry_private_endpoint_connections
             if resource_group_name is None and not opts.urn:

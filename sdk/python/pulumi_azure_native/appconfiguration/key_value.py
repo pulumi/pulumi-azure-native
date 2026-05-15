@@ -20,28 +20,27 @@ __all__ = ['KeyValueArgs', 'KeyValue']
 class KeyValueArgs:
     def __init__(__self__, *,
                  config_store_name: pulumi.Input[_builtins.str],
+                 key_value_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyValue resource.
 
         :param pulumi.Input[_builtins.str] config_store_name: The name of the configuration store.
+        :param pulumi.Input[_builtins.str] key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] content_type: The content type of the key-value's value.
                Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-        :param pulumi.Input[_builtins.str] key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A dictionary of tags that can help identify what a key-value may be applicable for.
         :param pulumi.Input[_builtins.str] value: The value of the key-value.
         """
         pulumi.set(__self__, "config_store_name", config_store_name)
+        pulumi.set(__self__, "key_value_name", key_value_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
-        if key_value_name is not None:
-            pulumi.set(__self__, "key_value_name", key_value_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
@@ -58,6 +57,18 @@ class KeyValueArgs:
     @config_store_name.setter
     def config_store_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "config_store_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueName")
+    def key_value_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
+        """
+        return pulumi.get(self, "key_value_name")
+
+    @key_value_name.setter
+    def key_value_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_value_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class KeyValueArgs:
     @content_type.setter
     def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyValueName")
-    def key_value_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-        """
-        return pulumi.get(self, "key_value_name")
-
-    @key_value_name.setter
-    def key_value_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "key_value_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class KeyValue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config_store_name'")
             __props__.__dict__["config_store_name"] = config_store_name
             __props__.__dict__["content_type"] = content_type
+            if key_value_name is None and not opts.urn:
+                raise TypeError("Missing required property 'key_value_name'")
             __props__.__dict__["key_value_name"] = key_value_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

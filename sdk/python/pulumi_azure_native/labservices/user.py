@@ -23,24 +23,23 @@ class UserArgs:
                  email: pulumi.Input[_builtins.str],
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_usage_quota: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_name: pulumi.Input[_builtins.str],
+                 additional_usage_quota: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
         :param pulumi.Input[_builtins.str] email: Email address of the user.
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
         :param pulumi.Input[_builtins.str] user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
+        :param pulumi.Input[_builtins.str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "lab_name", lab_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_name", user_name)
         if additional_usage_quota is not None:
             pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
-        if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +78,18 @@ class UserArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "user_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="additionalUsageQuota")
     def additional_usage_quota(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -89,18 +100,6 @@ class UserArgs:
     @additional_usage_quota.setter
     def additional_usage_quota(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_usage_quota", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "user_name", value)
 
 
 @pulumi.type_token("azure-native:labservices:User")
@@ -184,6 +183,8 @@ class User(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if user_name is None and not opts.urn:
+                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["display_name"] = None

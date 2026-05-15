@@ -22,28 +22,27 @@ __all__ = ['TrafficControllerInterfaceArgs', 'TrafficControllerInterface']
 class TrafficControllerInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 traffic_controller_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  security_policy_configurations: pulumi.Input[Optional['SecurityPolicyConfigurationsArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrafficControllerInterface resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SecurityPolicyConfigurationsArgs'] security_policy_configurations: Security Policy Configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if security_policy_configurations is not None:
             pulumi.set(__self__, "security_policy_configurations", security_policy_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if traffic_controller_name is not None:
-            pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -56,6 +55,18 @@ class TrafficControllerInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficControllerName")
+    def traffic_controller_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        traffic controller name for path
+        """
+        return pulumi.get(self, "traffic_controller_name")
+
+    @traffic_controller_name.setter
+    def traffic_controller_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "traffic_controller_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,18 +103,6 @@ class TrafficControllerInterfaceArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trafficControllerName")
-    def traffic_controller_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        traffic controller name for path
-        """
-        return pulumi.get(self, "traffic_controller_name")
-
-    @traffic_controller_name.setter
-    def traffic_controller_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "traffic_controller_name", value)
 
 
 @pulumi.type_token("azure-native:servicenetworking:TrafficControllerInterface")
@@ -183,6 +182,8 @@ class TrafficControllerInterface(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_policy_configurations"] = security_policy_configurations
             __props__.__dict__["tags"] = tags
+            if traffic_controller_name is None and not opts.urn:
+                raise TypeError("Missing required property 'traffic_controller_name'")
             __props__.__dict__["traffic_controller_name"] = traffic_controller_name
             __props__.__dict__["associations"] = None
             __props__.__dict__["azure_api_version"] = None

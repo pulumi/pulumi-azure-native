@@ -22,22 +22,23 @@ __all__ = ['NetworkProfileArgs', 'NetworkProfile']
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
+                 network_profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  container_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
 
+        :param pulumi.Input[_builtins.str] network_profile_name: The name of the network profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]] container_network_interface_configurations: List of chid container network interface configurations.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] network_profile_name: The name of the network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "network_profile_name", network_profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if container_network_interface_configurations is not None:
             pulumi.set(__self__, "container_network_interface_configurations", container_network_interface_configurations)
@@ -45,10 +46,20 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_profile_name is not None:
-            pulumi.set(__self__, "network_profile_name", network_profile_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="networkProfileName")
+    def network_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the network profile.
+        """
+        return pulumi.get(self, "network_profile_name")
+
+    @network_profile_name.setter
+    def network_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -97,18 +108,6 @@ class NetworkProfileArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkProfileName")
-    def network_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the network profile.
-        """
-        return pulumi.get(self, "network_profile_name")
-
-    @network_profile_name.setter
-    def network_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +199,8 @@ class NetworkProfile(pulumi.CustomResource):
             __props__.__dict__["container_network_interface_configurations"] = container_network_interface_configurations
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            if network_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_profile_name'")
             __props__.__dict__["network_profile_name"] = network_profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

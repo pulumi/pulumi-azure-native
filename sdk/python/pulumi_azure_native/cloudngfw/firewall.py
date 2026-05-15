@@ -23,12 +23,12 @@ __all__ = ['FirewallArgs', 'Firewall']
 class FirewallArgs:
     def __init__(__self__, *,
                  dns_settings: pulumi.Input['DNSSettingsArgs'],
+                 firewall_name: pulumi.Input[_builtins.str],
                  marketplace_details: pulumi.Input['MarketplaceDetailsArgs'],
                  network_profile: pulumi.Input['NetworkProfileArgs'],
                  plan_data: pulumi.Input['PlanDataArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  associated_rulestack: pulumi.Input[Optional['RulestackDetailsArgs']] = None,
-                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
                  front_end_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendSettingArgs']]]] = None,
                  identity: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
                  is_panorama_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
@@ -42,12 +42,12 @@ class FirewallArgs:
         The set of arguments for constructing a Firewall resource.
 
         :param pulumi.Input['DNSSettingsArgs'] dns_settings: DNS settings for Firewall
+        :param pulumi.Input[_builtins.str] firewall_name: Firewall resource name
         :param pulumi.Input['MarketplaceDetailsArgs'] marketplace_details: Marketplace details
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Network settings
         :param pulumi.Input['PlanDataArgs'] plan_data: Billing plan information.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RulestackDetailsArgs'] associated_rulestack: Associated Rulestack
-        :param pulumi.Input[_builtins.str] firewall_name: Firewall resource name
         :param pulumi.Input[Sequence[pulumi.Input['FrontendSettingArgs']]] front_end_settings: Frontend settings for Firewall
         :param pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnum']] is_panorama_managed: Panorama Managed: Default is False. Default will be CloudSec managed
@@ -59,14 +59,13 @@ class FirewallArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dns_settings", dns_settings)
+        pulumi.set(__self__, "firewall_name", firewall_name)
         pulumi.set(__self__, "marketplace_details", marketplace_details)
         pulumi.set(__self__, "network_profile", network_profile)
         pulumi.set(__self__, "plan_data", plan_data)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if associated_rulestack is not None:
             pulumi.set(__self__, "associated_rulestack", associated_rulestack)
-        if firewall_name is not None:
-            pulumi.set(__self__, "firewall_name", firewall_name)
         if front_end_settings is not None:
             pulumi.set(__self__, "front_end_settings", front_end_settings)
         if identity is not None:
@@ -97,6 +96,18 @@ class FirewallArgs:
     @dns_settings.setter
     def dns_settings(self, value: pulumi.Input['DNSSettingsArgs']):
         pulumi.set(self, "dns_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallName")
+    def firewall_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Firewall resource name
+        """
+        return pulumi.get(self, "firewall_name")
+
+    @firewall_name.setter
+    def firewall_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceDetails")
@@ -157,18 +168,6 @@ class FirewallArgs:
     @associated_rulestack.setter
     def associated_rulestack(self, value: pulumi.Input[Optional['RulestackDetailsArgs']]):
         pulumi.set(self, "associated_rulestack", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallName")
-    def firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Firewall resource name
-        """
-        return pulumi.get(self, "firewall_name")
-
-    @firewall_name.setter
-    def firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frontEndSettings")
@@ -387,6 +386,8 @@ class Firewall(pulumi.CustomResource):
             if dns_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_settings'")
             __props__.__dict__["dns_settings"] = dns_settings
+            if firewall_name is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_name'")
             __props__.__dict__["firewall_name"] = firewall_name
             __props__.__dict__["front_end_settings"] = front_end_settings
             __props__.__dict__["identity"] = identity

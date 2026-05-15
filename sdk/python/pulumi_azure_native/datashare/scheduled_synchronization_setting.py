@@ -26,8 +26,8 @@ class ScheduledSynchronizationSettingArgs:
                  recurrence_interval: pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
-                 synchronization_time: pulumi.Input[_builtins.str],
-                 synchronization_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 synchronization_setting_name: pulumi.Input[_builtins.str],
+                 synchronization_time: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ScheduledSynchronizationSetting resource.
 
@@ -37,17 +37,16 @@ class ScheduledSynchronizationSettingArgs:
         :param pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']] recurrence_interval: Recurrence Interval
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the synchronization setting to.
-        :param pulumi.Input[_builtins.str] synchronization_time: Synchronization time
         :param pulumi.Input[_builtins.str] synchronization_setting_name: The name of the synchronizationSetting.
+        :param pulumi.Input[_builtins.str] synchronization_time: Synchronization time
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'ScheduleBased')
         pulumi.set(__self__, "recurrence_interval", recurrence_interval)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "synchronization_setting_name", synchronization_setting_name)
         pulumi.set(__self__, "synchronization_time", synchronization_time)
-        if synchronization_setting_name is not None:
-            pulumi.set(__self__, "synchronization_setting_name", synchronization_setting_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -111,6 +110,18 @@ class ScheduledSynchronizationSettingArgs:
         pulumi.set(self, "share_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="synchronizationSettingName")
+    def synchronization_setting_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the synchronizationSetting.
+        """
+        return pulumi.get(self, "synchronization_setting_name")
+
+    @synchronization_setting_name.setter
+    def synchronization_setting_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "synchronization_setting_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="synchronizationTime")
     def synchronization_time(self) -> pulumi.Input[_builtins.str]:
         """
@@ -121,18 +132,6 @@ class ScheduledSynchronizationSettingArgs:
     @synchronization_time.setter
     def synchronization_time(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "synchronization_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="synchronizationSettingName")
-    def synchronization_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the synchronizationSetting.
-        """
-        return pulumi.get(self, "synchronization_setting_name")
-
-    @synchronization_setting_name.setter
-    def synchronization_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "synchronization_setting_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:ScheduledSynchronizationSetting")
@@ -224,6 +223,8 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
+            if synchronization_setting_name is None and not opts.urn:
+                raise TypeError("Missing required property 'synchronization_setting_name'")
             __props__.__dict__["synchronization_setting_name"] = synchronization_setting_name
             if synchronization_time is None and not opts.urn:
                 raise TypeError("Missing required property 'synchronization_time'")

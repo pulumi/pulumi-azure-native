@@ -20,11 +20,11 @@ __all__ = ['ExtendedServerBlobAuditingPolicyArgs', 'ExtendedServerBlobAuditingPo
 @pulumi.input_type
 class ExtendedServerBlobAuditingPolicyArgs:
     def __init__(__self__, *,
+                 blob_auditing_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['BlobAuditingPolicyState'],
                  audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_azure_monitor_target_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_devops_audit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_managed_identity_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -38,6 +38,7 @@ class ExtendedServerBlobAuditingPolicyArgs:
         """
         The set of arguments for constructing a ExtendedServerBlobAuditingPolicy resource.
 
+        :param pulumi.Input[_builtins.str] blob_auditing_policy_name: The name of the blob auditing policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['BlobAuditingPolicyState'] state: Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
@@ -102,7 +103,6 @@ class ExtendedServerBlobAuditingPolicyArgs:
                SELECT on SCHEMA::mySchema by public
                
                For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
-        :param pulumi.Input[_builtins.str] blob_auditing_policy_name: The name of the blob auditing policy.
         :param pulumi.Input[_builtins.bool] is_azure_monitor_target_enabled: Specifies whether audit events are sent to Azure Monitor. 
                In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
                
@@ -139,13 +139,12 @@ class ExtendedServerBlobAuditingPolicyArgs:
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: Specifies the blob storage subscription Id.
         :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
         """
+        pulumi.set(__self__, "blob_auditing_policy_name", blob_auditing_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "state", state)
         if audit_actions_and_groups is not None:
             pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
-        if blob_auditing_policy_name is not None:
-            pulumi.set(__self__, "blob_auditing_policy_name", blob_auditing_policy_name)
         if is_azure_monitor_target_enabled is not None:
             pulumi.set(__self__, "is_azure_monitor_target_enabled", is_azure_monitor_target_enabled)
         if is_devops_audit_enabled is not None:
@@ -166,6 +165,18 @@ class ExtendedServerBlobAuditingPolicyArgs:
             pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="blobAuditingPolicyName")
+    def blob_auditing_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the blob auditing policy.
+        """
+        return pulumi.get(self, "blob_auditing_policy_name")
+
+    @blob_auditing_policy_name.setter
+    def blob_auditing_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "blob_auditing_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -274,18 +285,6 @@ class ExtendedServerBlobAuditingPolicyArgs:
     @audit_actions_and_groups.setter
     def audit_actions_and_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audit_actions_and_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="blobAuditingPolicyName")
-    def blob_auditing_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the blob auditing policy.
-        """
-        return pulumi.get(self, "blob_auditing_policy_name")
-
-    @blob_auditing_policy_name.setter
-    def blob_auditing_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "blob_auditing_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isAzureMonitorTargetEnabled")
@@ -620,6 +619,8 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
             __props__ = ExtendedServerBlobAuditingPolicyArgs.__new__(ExtendedServerBlobAuditingPolicyArgs)
 
             __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
+            if blob_auditing_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'blob_auditing_policy_name'")
             __props__.__dict__["blob_auditing_policy_name"] = blob_auditing_policy_name
             __props__.__dict__["is_azure_monitor_target_enabled"] = is_azure_monitor_target_enabled
             __props__.__dict__["is_devops_audit_enabled"] = is_devops_audit_enabled

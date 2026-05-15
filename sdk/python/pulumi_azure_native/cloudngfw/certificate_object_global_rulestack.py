@@ -23,30 +23,29 @@ class CertificateObjectGlobalRulestackArgs:
     def __init__(__self__, *,
                  certificate_self_signed: pulumi.Input[Union[_builtins.str, 'BooleanEnum']],
                  global_rulestack_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_signer_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateObjectGlobalRulestack resource.
 
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnum']] certificate_self_signed: use certificate self signed
         :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
+        :param pulumi.Input[_builtins.str] name: certificate name
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
         :param pulumi.Input[_builtins.str] certificate_signer_resource_id: Resource Id of certificate signer, to be populated only when certificateSelfSigned is false
         :param pulumi.Input[_builtins.str] description: user description for this object
-        :param pulumi.Input[_builtins.str] name: certificate name
         """
         pulumi.set(__self__, "certificate_self_signed", certificate_self_signed)
         pulumi.set(__self__, "global_rulestack_name", global_rulestack_name)
+        pulumi.set(__self__, "name", name)
         if audit_comment is not None:
             pulumi.set(__self__, "audit_comment", audit_comment)
         if certificate_signer_resource_id is not None:
             pulumi.set(__self__, "certificate_signer_resource_id", certificate_signer_resource_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="certificateSelfSigned")
@@ -71,6 +70,18 @@ class CertificateObjectGlobalRulestackArgs:
     @global_rulestack_name.setter
     def global_rulestack_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "global_rulestack_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        certificate name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="auditComment")
@@ -107,18 +118,6 @@ class CertificateObjectGlobalRulestackArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        certificate name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:cloudngfw:CertificateObjectGlobalRulestack")
@@ -204,6 +203,8 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
             if global_rulestack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'global_rulestack_name'")
             __props__.__dict__["global_rulestack_name"] = global_rulestack_name
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

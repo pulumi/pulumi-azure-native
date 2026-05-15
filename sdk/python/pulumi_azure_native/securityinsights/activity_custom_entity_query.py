@@ -22,6 +22,7 @@ __all__ = ['ActivityCustomEntityQueryArgs', 'ActivityCustomEntityQuery']
 @pulumi.input_type
 class ActivityCustomEntityQueryArgs:
     def __init__(__self__, *,
+                 entity_query_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
@@ -29,7 +30,6 @@ class ActivityCustomEntityQueryArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  entities_filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 entity_query_id: pulumi.Input[Optional[_builtins.str]] = None,
                  input_entity_type: pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]] = None,
                  query_definitions: pulumi.Input[Optional['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] = None,
                  required_input_fields_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
@@ -38,6 +38,7 @@ class ActivityCustomEntityQueryArgs:
         """
         The set of arguments for constructing a ActivityCustomEntityQuery resource.
 
+        :param pulumi.Input[_builtins.str] entity_query_id: entity query ID
         :param pulumi.Input[_builtins.str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -46,13 +47,13 @@ class ActivityCustomEntityQueryArgs:
         :param pulumi.Input[_builtins.str] description: The entity query description
         :param pulumi.Input[_builtins.bool] enabled: Determines whether this activity is enabled or disabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] entities_filter: The query applied only to entities matching to all filters
-        :param pulumi.Input[_builtins.str] entity_query_id: entity query ID
         :param pulumi.Input[Union[_builtins.str, 'EntityType']] input_entity_type: The type of the query's source entity
         :param pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs'] query_definitions: The Activity query definitions
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] required_input_fields_sets: List of the fields of the source entity that are required to run the query
         :param pulumi.Input[_builtins.str] template_name: The template id this activity was created from
         :param pulumi.Input[_builtins.str] title: The entity query title
         """
+        pulumi.set(__self__, "entity_query_id", entity_query_id)
         pulumi.set(__self__, "kind", 'Activity')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -64,8 +65,6 @@ class ActivityCustomEntityQueryArgs:
             pulumi.set(__self__, "enabled", enabled)
         if entities_filter is not None:
             pulumi.set(__self__, "entities_filter", entities_filter)
-        if entity_query_id is not None:
-            pulumi.set(__self__, "entity_query_id", entity_query_id)
         if input_entity_type is not None:
             pulumi.set(__self__, "input_entity_type", input_entity_type)
         if query_definitions is not None:
@@ -76,6 +75,18 @@ class ActivityCustomEntityQueryArgs:
             pulumi.set(__self__, "template_name", template_name)
         if title is not None:
             pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter(name="entityQueryId")
+    def entity_query_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        entity query ID
+        """
+        return pulumi.get(self, "entity_query_id")
+
+    @entity_query_id.setter
+    def entity_query_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "entity_query_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -161,18 +172,6 @@ class ActivityCustomEntityQueryArgs:
     @entities_filter.setter
     def entities_filter(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "entities_filter", value)
-
-    @_builtins.property
-    @pulumi.getter(name="entityQueryId")
-    def entity_query_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        entity query ID
-        """
-        return pulumi.get(self, "entity_query_id")
-
-    @entity_query_id.setter
-    def entity_query_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "entity_query_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEntityType")
@@ -331,6 +330,8 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entities_filter"] = entities_filter
+            if entity_query_id is None and not opts.urn:
+                raise TypeError("Missing required property 'entity_query_id'")
             __props__.__dict__["entity_query_id"] = entity_query_id
             __props__.__dict__["input_entity_type"] = input_entity_type
             if kind is None and not opts.urn:

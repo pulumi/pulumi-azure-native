@@ -23,6 +23,7 @@ __all__ = ['ExpressRouteCircuitPeeringInitArgs', 'ExpressRouteCircuitPeering']
 class ExpressRouteCircuitPeeringInitArgs:
     def __init__(__self__, *,
                  circuit_name: pulumi.Input[_builtins.str],
+                 peering_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  connections: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitConnectionArgs']]]] = None,
@@ -32,7 +33,6 @@ class ExpressRouteCircuitPeeringInitArgs:
                  microsoft_peering_config: pulumi.Input[Optional['ExpressRouteCircuitPeeringConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_type: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePeeringType']]] = None,
                  primary_azure_port: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_peer_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,6 +47,7 @@ class ExpressRouteCircuitPeeringInitArgs:
         The set of arguments for constructing a ExpressRouteCircuitPeering resource.
 
         :param pulumi.Input[_builtins.str] circuit_name: The name of the express route circuit.
+        :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.int] azure_asn: The Azure ASN.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitConnectionArgs']]] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
@@ -57,7 +58,6 @@ class ExpressRouteCircuitPeeringInitArgs:
         :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[_builtins.float] peer_asn: The peer ASN.
-        :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
         :param pulumi.Input[Union[_builtins.str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[_builtins.str] primary_azure_port: The primary port.
         :param pulumi.Input[_builtins.str] primary_peer_address_prefix: The primary address prefix.
@@ -70,6 +70,7 @@ class ExpressRouteCircuitPeeringInitArgs:
         :param pulumi.Input[_builtins.int] vlan_id: The VLAN ID.
         """
         pulumi.set(__self__, "circuit_name", circuit_name)
+        pulumi.set(__self__, "peering_name", peering_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_asn is not None:
             pulumi.set(__self__, "azure_asn", azure_asn)
@@ -87,8 +88,6 @@ class ExpressRouteCircuitPeeringInitArgs:
             pulumi.set(__self__, "name", name)
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
-        if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
         if peering_type is not None:
             pulumi.set(__self__, "peering_type", peering_type)
         if primary_azure_port is not None:
@@ -121,6 +120,18 @@ class ExpressRouteCircuitPeeringInitArgs:
     @circuit_name.setter
     def circuit_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "circuit_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -230,18 +241,6 @@ class ExpressRouteCircuitPeeringInitArgs:
     @peer_asn.setter
     def peer_asn(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "peer_asn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peeringName")
-    def peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the peering.
-        """
-        return pulumi.get(self, "peering_name")
-
-    @peering_name.setter
-    def peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringType")
@@ -495,6 +494,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__.__dict__["microsoft_peering_config"] = microsoft_peering_config
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_asn"] = peer_asn
+            if peering_name is None and not opts.urn:
+                raise TypeError("Missing required property 'peering_name'")
             __props__.__dict__["peering_name"] = peering_name
             __props__.__dict__["peering_type"] = peering_type
             __props__.__dict__["primary_azure_port"] = primary_azure_port

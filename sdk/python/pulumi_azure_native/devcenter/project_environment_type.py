@@ -22,12 +22,12 @@ __all__ = ['ProjectEnvironmentTypeArgs', 'ProjectEnvironmentType']
 @pulumi.input_type
 class ProjectEnvironmentTypeArgs:
     def __init__(__self__, *,
+                 environment_type_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  creator_role_assignment: pulumi.Input[Optional['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] = None,
                  deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
@@ -36,18 +36,19 @@ class ProjectEnvironmentTypeArgs:
         """
         The set of arguments for constructing a ProjectEnvironmentType resource.
 
+        :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs'] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[_builtins.str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] display_name: The display name of the project environment type.
-        :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location for the environment type
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
+        pulumi.set(__self__, "environment_type_name", environment_type_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if creator_role_assignment is not None:
@@ -56,8 +57,6 @@ class ProjectEnvironmentTypeArgs:
             pulumi.set(__self__, "deployment_target_id", deployment_target_id)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if environment_type_name is not None:
-            pulumi.set(__self__, "environment_type_name", environment_type_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -68,6 +67,18 @@ class ProjectEnvironmentTypeArgs:
             pulumi.set(__self__, "tags", tags)
         if user_role_assignments is not None:
             pulumi.set(__self__, "user_role_assignments", user_role_assignments)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentTypeName")
+    def environment_type_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the environment type.
+        """
+        return pulumi.get(self, "environment_type_name")
+
+    @environment_type_name.setter
+    def environment_type_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "environment_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -128,18 +139,6 @@ class ProjectEnvironmentTypeArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentTypeName")
-    def environment_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the environment type.
-        """
-        return pulumi.get(self, "environment_type_name")
-
-    @environment_type_name.setter
-    def environment_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "environment_type_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -294,6 +293,8 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             __props__.__dict__["creator_role_assignment"] = creator_role_assignment
             __props__.__dict__["deployment_target_id"] = deployment_target_id
             __props__.__dict__["display_name"] = display_name
+            if environment_type_name is None and not opts.urn:
+                raise TypeError("Missing required property 'environment_type_name'")
             __props__.__dict__["environment_type_name"] = environment_type_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

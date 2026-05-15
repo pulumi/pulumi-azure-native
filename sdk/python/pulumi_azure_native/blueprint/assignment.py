@@ -22,11 +22,11 @@ __all__ = ['AssignmentArgs', 'Assignment']
 @pulumi.input_type
 class AssignmentArgs:
     def __init__(__self__, *,
+                 assignment_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input['ManagedServiceIdentityArgs'],
                  parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]],
                  resource_groups: pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]],
                  resource_scope: pulumi.Input[_builtins.str],
-                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,11 +36,11 @@ class AssignmentArgs:
         """
         The set of arguments for constructing a Assignment resource.
 
+        :param pulumi.Input[_builtins.str] assignment_name: Name of the blueprint assignment.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity for this blueprint assignment.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]] parameters: Blueprint assignment parameter values.
         :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]] resource_groups: Names and locations of resource group placeholders.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param pulumi.Input[_builtins.str] assignment_name: Name of the blueprint assignment.
         :param pulumi.Input[_builtins.str] blueprint_id: ID of the published version of a blueprint definition.
         :param pulumi.Input[_builtins.str] description: Multi-line explain this resource.
         :param pulumi.Input[_builtins.str] display_name: One-liner string explain this resource.
@@ -48,12 +48,11 @@ class AssignmentArgs:
         :param pulumi.Input['AssignmentLockSettingsArgs'] locks: Defines how resources deployed by a blueprint assignment are locked.
         :param pulumi.Input[_builtins.str] scope: The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
         """
+        pulumi.set(__self__, "assignment_name", assignment_name)
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "resource_groups", resource_groups)
         pulumi.set(__self__, "resource_scope", resource_scope)
-        if assignment_name is not None:
-            pulumi.set(__self__, "assignment_name", assignment_name)
         if blueprint_id is not None:
             pulumi.set(__self__, "blueprint_id", blueprint_id)
         if description is not None:
@@ -66,6 +65,18 @@ class AssignmentArgs:
             pulumi.set(__self__, "locks", locks)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter(name="assignmentName")
+    def assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the blueprint assignment.
+        """
+        return pulumi.get(self, "assignment_name")
+
+    @assignment_name.setter
+    def assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -114,18 +125,6 @@ class AssignmentArgs:
     @resource_scope.setter
     def resource_scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assignmentName")
-    def assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the blueprint assignment.
-        """
-        return pulumi.get(self, "assignment_name")
-
-    @assignment_name.setter
-    def assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="blueprintId")
@@ -285,6 +284,8 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
+            if assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assignment_name'")
             __props__.__dict__["assignment_name"] = assignment_name
             __props__.__dict__["blueprint_id"] = blueprint_id
             __props__.__dict__["description"] = description

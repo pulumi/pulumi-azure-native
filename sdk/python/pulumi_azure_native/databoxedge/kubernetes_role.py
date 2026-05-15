@@ -27,9 +27,9 @@ class KubernetesRoleArgs:
                  kind: pulumi.Input[_builtins.str],
                  kubernetes_cluster_info: pulumi.Input['KubernetesClusterInfoArgs'],
                  kubernetes_role_resources: pulumi.Input['KubernetesRoleResourcesArgs'],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']]):
         """
         The set of arguments for constructing a KubernetesRole resource.
 
@@ -39,19 +39,18 @@ class KubernetesRoleArgs:
                Expected value is 'Kubernetes'.
         :param pulumi.Input['KubernetesClusterInfoArgs'] kubernetes_cluster_info: Kubernetes cluster configuration
         :param pulumi.Input['KubernetesRoleResourcesArgs'] kubernetes_role_resources: Kubernetes role resources
+        :param pulumi.Input[_builtins.str] name: The role name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[_builtins.str, 'RoleStatus']] role_status: Role status.
-        :param pulumi.Input[_builtins.str] name: The role name.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "host_platform", host_platform)
         pulumi.set(__self__, "kind", 'Kubernetes')
         pulumi.set(__self__, "kubernetes_cluster_info", kubernetes_cluster_info)
         pulumi.set(__self__, "kubernetes_role_resources", kubernetes_role_resources)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role_status", role_status)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
@@ -115,6 +114,18 @@ class KubernetesRoleArgs:
         pulumi.set(self, "kubernetes_role_resources", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -137,18 +148,6 @@ class KubernetesRoleArgs:
     @role_status.setter
     def role_status(self, value: pulumi.Input[Union[_builtins.str, 'RoleStatus']]):
         pulumi.set(self, "role_status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The role name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:databoxedge:KubernetesRole")
@@ -257,6 +256,8 @@ class KubernetesRole(pulumi.CustomResource):
             if kubernetes_role_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_role_resources'")
             __props__.__dict__["kubernetes_role_resources"] = kubernetes_role_resources
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

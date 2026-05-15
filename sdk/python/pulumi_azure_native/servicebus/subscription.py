@@ -24,6 +24,7 @@ class SubscriptionArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 subscription_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
                  auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affine_properties: pulumi.Input[Optional['SBClientAffinePropertiesArgs']] = None,
@@ -38,13 +39,13 @@ class SubscriptionArgs:
                  lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
                  requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 status: pulumi.Input[Optional['EntityStatus']] = None):
         """
         The set of arguments for constructing a Subscription resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] subscription_name: The subscription name.
         :param pulumi.Input[_builtins.str] topic_name: The topic name.
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         :param pulumi.Input['SBClientAffinePropertiesArgs'] client_affine_properties: Properties specific to client affine subscriptions.
@@ -60,10 +61,10 @@ class SubscriptionArgs:
         :param pulumi.Input[_builtins.int] max_delivery_count: Number of maximum deliveries.
         :param pulumi.Input[_builtins.bool] requires_session: Value indicating if a subscription supports the concept of sessions.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
-        :param pulumi.Input[_builtins.str] subscription_name: The subscription name.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subscription_name", subscription_name)
         pulumi.set(__self__, "topic_name", topic_name)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -93,8 +94,6 @@ class SubscriptionArgs:
             pulumi.set(__self__, "requires_session", requires_session)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -119,6 +118,18 @@ class SubscriptionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionName")
+    def subscription_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The subscription name.
+        """
+        return pulumi.get(self, "subscription_name")
+
+    @subscription_name.setter
+    def subscription_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
@@ -300,18 +311,6 @@ class SubscriptionArgs:
     def status(self, value: pulumi.Input[Optional['EntityStatus']]):
         pulumi.set(self, "status", value)
 
-    @_builtins.property
-    @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The subscription name.
-        """
-        return pulumi.get(self, "subscription_name")
-
-    @subscription_name.setter
-    def subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "subscription_name", value)
-
 
 @pulumi.type_token("azure-native:servicebus:Subscription")
 class Subscription(pulumi.CustomResource):
@@ -443,6 +442,8 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
+            if subscription_name is None and not opts.urn:
+                raise TypeError("Missing required property 'subscription_name'")
             __props__.__dict__["subscription_name"] = subscription_name
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")

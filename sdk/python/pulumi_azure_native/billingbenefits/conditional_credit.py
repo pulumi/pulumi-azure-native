@@ -22,10 +22,10 @@ __all__ = ['ConditionalCreditArgs', 'ConditionalCredit']
 @pulumi.input_type
 class ConditionalCreditArgs:
     def __init__(__self__, *,
+                 conditional_credit_name: pulumi.Input[_builtins.str],
                  entity_type: pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 conditional_credit_name: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_at: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -42,10 +42,10 @@ class ConditionalCreditArgs:
         """
         The set of arguments for constructing a ConditionalCredit resource.
 
+        :param pulumi.Input[_builtins.str] conditional_credit_name: Name of the conditional credit
         :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']] entity_type: Type of conditional credit entity
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] billing_account_resource_id: The billing account resource ID
-        :param pulumi.Input[_builtins.str] conditional_credit_name: Name of the conditional credit
         :param pulumi.Input[_builtins.str] display_name: Display name for the conditional credit
         :param pulumi.Input[_builtins.str] end_at: End date of the conditional credit (derived from last milestone)
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
@@ -60,12 +60,11 @@ class ConditionalCreditArgs:
         :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']] status: The status of the conditional credit
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "conditional_credit_name", conditional_credit_name)
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if billing_account_resource_id is not None:
             pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
-        if conditional_credit_name is not None:
-            pulumi.set(__self__, "conditional_credit_name", conditional_credit_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if end_at is not None:
@@ -92,6 +91,18 @@ class ConditionalCreditArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionalCreditName")
+    def conditional_credit_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the conditional credit
+        """
+        return pulumi.get(self, "conditional_credit_name")
+
+    @conditional_credit_name.setter
+    def conditional_credit_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "conditional_credit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="entityType")
@@ -128,18 +139,6 @@ class ConditionalCreditArgs:
     @billing_account_resource_id.setter
     def billing_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_account_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="conditionalCreditName")
-    def conditional_credit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the conditional credit
-        """
-        return pulumi.get(self, "conditional_credit_name")
-
-    @conditional_credit_name.setter
-    def conditional_credit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "conditional_credit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -406,6 +405,8 @@ class ConditionalCredit(pulumi.CustomResource):
             __props__ = ConditionalCreditArgs.__new__(ConditionalCreditArgs)
 
             __props__.__dict__["billing_account_resource_id"] = billing_account_resource_id
+            if conditional_credit_name is None and not opts.urn:
+                raise TypeError("Missing required property 'conditional_credit_name'")
             __props__.__dict__["conditional_credit_name"] = conditional_credit_name
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["end_at"] = end_at

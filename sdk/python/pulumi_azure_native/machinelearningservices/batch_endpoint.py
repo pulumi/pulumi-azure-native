@@ -22,10 +22,10 @@ __all__ = ['BatchEndpointArgs', 'BatchEndpoint']
 @pulumi.input_type
 class BatchEndpointArgs:
     def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['BatchEndpointPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,21 +34,20 @@ class BatchEndpointArgs:
         """
         The set of arguments for constructing a BatchEndpoint resource.
 
+        :param pulumi.Input[_builtins.str] endpoint_name: Name for the Batch Endpoint.
         :param pulumi.Input['BatchEndpointPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] endpoint_name: Name for the Batch Endpoint.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -59,6 +58,18 @@ class BatchEndpointArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name for the Batch Endpoint.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -95,18 +106,6 @@ class BatchEndpointArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name for the Batch Endpoint.
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -252,6 +251,8 @@ class BatchEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BatchEndpointArgs.__new__(BatchEndpointArgs)
 
+            if endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind

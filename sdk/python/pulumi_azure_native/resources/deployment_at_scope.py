@@ -22,28 +22,39 @@ __all__ = ['DeploymentAtScopeArgs', 'DeploymentAtScope']
 @pulumi.input_type
 class DeploymentAtScopeArgs:
     def __init__(__self__, *,
+                 deployment_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DeploymentPropertiesArgs'],
                  scope: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentAtScope resource.
 
+        :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
         :param pulumi.Input['DeploymentPropertiesArgs'] properties: The deployment properties.
         :param pulumi.Input[_builtins.str] scope: The resource scope.
-        :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
         :param pulumi.Input[_builtins.str] location: The location to store the deployment data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Deployment tags
         """
+        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "scope", scope)
-        if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the deployment.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -68,18 +79,6 @@ class DeploymentAtScopeArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the deployment.
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class DeploymentAtScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentAtScopeArgs.__new__(DeploymentAtScopeArgs)
 
+            if deployment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:

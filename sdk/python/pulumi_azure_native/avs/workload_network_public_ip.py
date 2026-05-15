@@ -21,27 +21,26 @@ __all__ = ['WorkloadNetworkPublicIPArgs', 'WorkloadNetworkPublicIP']
 class WorkloadNetworkPublicIPArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
+                 public_ip_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 number_of_public_ips: pulumi.Input[Optional[_builtins.float]] = None,
-                 public_ip_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 number_of_public_ips: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkPublicIP resource.
 
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
+        :param pulumi.Input[_builtins.str] public_ip_id: ID of the DNS zone.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: Display name of the Public IP Block.
         :param pulumi.Input[_builtins.float] number_of_public_ips: Number of Public IPs requested.
-        :param pulumi.Input[_builtins.str] public_ip_id: ID of the DNS zone.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+        pulumi.set(__self__, "public_ip_id", public_ip_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if number_of_public_ips is not None:
             pulumi.set(__self__, "number_of_public_ips", number_of_public_ips)
-        if public_ip_id is not None:
-            pulumi.set(__self__, "public_ip_id", public_ip_id)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -54,6 +53,18 @@ class WorkloadNetworkPublicIPArgs:
     @private_cloud_name.setter
     def private_cloud_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "private_cloud_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPId")
+    def public_ip_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the DNS zone.
+        """
+        return pulumi.get(self, "public_ip_id")
+
+    @public_ip_id.setter
+    def public_ip_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "public_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,18 +101,6 @@ class WorkloadNetworkPublicIPArgs:
     @number_of_public_ips.setter
     def number_of_public_ips(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_public_ips", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPId")
-    def public_ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ID of the DNS zone.
-        """
-        return pulumi.get(self, "public_ip_id")
-
-    @public_ip_id.setter
-    def public_ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "public_ip_id", value)
 
 
 @pulumi.type_token("azure-native:avs:WorkloadNetworkPublicIP")
@@ -180,6 +179,8 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
+            if public_ip_id is None and not opts.urn:
+                raise TypeError("Missing required property 'public_ip_id'")
             __props__.__dict__["public_ip_id"] = public_ip_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

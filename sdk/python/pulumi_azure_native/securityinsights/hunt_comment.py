@@ -20,26 +20,37 @@ __all__ = ['HuntCommentArgs', 'HuntComment']
 @pulumi.input_type
 class HuntCommentArgs:
     def __init__(__self__, *,
+                 hunt_comment_id: pulumi.Input[_builtins.str],
                  hunt_id: pulumi.Input[_builtins.str],
                  message: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 hunt_comment_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a HuntComment resource.
 
+        :param pulumi.Input[_builtins.str] hunt_comment_id: The hunt comment id (GUID)
         :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
         :param pulumi.Input[_builtins.str] message: The message for the comment
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] hunt_comment_id: The hunt comment id (GUID)
         """
+        pulumi.set(__self__, "hunt_comment_id", hunt_comment_id)
         pulumi.set(__self__, "hunt_id", hunt_id)
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if hunt_comment_id is not None:
-            pulumi.set(__self__, "hunt_comment_id", hunt_comment_id)
+
+    @_builtins.property
+    @pulumi.getter(name="huntCommentId")
+    def hunt_comment_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The hunt comment id (GUID)
+        """
+        return pulumi.get(self, "hunt_comment_id")
+
+    @hunt_comment_id.setter
+    def hunt_comment_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hunt_comment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="huntId")
@@ -88,18 +99,6 @@ class HuntCommentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="huntCommentId")
-    def hunt_comment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The hunt comment id (GUID)
-        """
-        return pulumi.get(self, "hunt_comment_id")
-
-    @hunt_comment_id.setter
-    def hunt_comment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "hunt_comment_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:HuntComment")
@@ -173,6 +172,8 @@ class HuntComment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HuntCommentArgs.__new__(HuntCommentArgs)
 
+            if hunt_comment_id is None and not opts.urn:
+                raise TypeError("Missing required property 'hunt_comment_id'")
             __props__.__dict__["hunt_comment_id"] = hunt_comment_id
             if hunt_id is None and not opts.urn:
                 raise TypeError("Missing required property 'hunt_id'")

@@ -22,11 +22,11 @@ __all__ = ['CreditArgs', 'Credit']
 @pulumi.input_type
 class CreditArgs:
     def __init__(__self__, *,
+                 credit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  breakdown: pulumi.Input[Optional[Sequence[pulumi.Input['CreditBreakdownItemArgs']]]] = None,
                  credit: pulumi.Input[Optional['CommitmentArgs']] = None,
-                 credit_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_at: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
@@ -44,11 +44,11 @@ class CreditArgs:
         """
         The set of arguments for constructing a Credit resource.
 
+        :param pulumi.Input[_builtins.str] credit_name: Name of the credit
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] billing_account_resource_id: Fully-qualified identifier of the billing account where the benefit is applied. Present only for Enterprise Agreement customers.
         :param pulumi.Input[Sequence[pulumi.Input['CreditBreakdownItemArgs']]] breakdown: Credit line-items/milestones/no-charge services breakdown
         :param pulumi.Input['CommitmentArgs'] credit: The entire investment amount for the credit contract, including currency and amount
-        :param pulumi.Input[_builtins.str] credit_name: Name of the credit
         :param pulumi.Input[_builtins.str] end_at: End DateTime in UTC.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -64,6 +64,7 @@ class CreditArgs:
         :param pulumi.Input[_builtins.str] system_id: System identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "credit_name", credit_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if billing_account_resource_id is not None:
             pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
@@ -71,8 +72,6 @@ class CreditArgs:
             pulumi.set(__self__, "breakdown", breakdown)
         if credit is not None:
             pulumi.set(__self__, "credit", credit)
-        if credit_name is not None:
-            pulumi.set(__self__, "credit_name", credit_name)
         if end_at is not None:
             pulumi.set(__self__, "end_at", end_at)
         if identity is not None:
@@ -101,6 +100,18 @@ class CreditArgs:
             pulumi.set(__self__, "system_id", system_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="creditName")
+    def credit_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the credit
+        """
+        return pulumi.get(self, "credit_name")
+
+    @credit_name.setter
+    def credit_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -149,18 +160,6 @@ class CreditArgs:
     @credit.setter
     def credit(self, value: pulumi.Input[Optional['CommitmentArgs']]):
         pulumi.set(self, "credit", value)
-
-    @_builtins.property
-    @pulumi.getter(name="creditName")
-    def credit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the credit
-        """
-        return pulumi.get(self, "credit_name")
-
-    @credit_name.setter
-    def credit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "credit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endAt")
@@ -447,6 +446,8 @@ class Credit(pulumi.CustomResource):
             __props__.__dict__["billing_account_resource_id"] = billing_account_resource_id
             __props__.__dict__["breakdown"] = breakdown
             __props__.__dict__["credit"] = credit
+            if credit_name is None and not opts.urn:
+                raise TypeError("Missing required property 'credit_name'")
             __props__.__dict__["credit_name"] = credit_name
             __props__.__dict__["end_at"] = end_at
             __props__.__dict__["identity"] = identity

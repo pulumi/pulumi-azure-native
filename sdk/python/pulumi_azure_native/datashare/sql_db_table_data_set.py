@@ -21,18 +21,19 @@ __all__ = ['SqlDBTableDataSetArgs', 'SqlDBTableDataSet']
 class SqlDBTableDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  sql_server_resource_id: pulumi.Input[_builtins.str],
-                 table_name: pulumi.Input[_builtins.str],
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SqlDBTableDataSet resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
+        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         :param pulumi.Input[_builtins.str] database_name: Database name of the source data set
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
                Expected value is 'SqlDBTable'.
@@ -41,9 +42,9 @@ class SqlDBTableDataSetArgs:
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[_builtins.str] sql_server_resource_id: Resource id of SQL server
         :param pulumi.Input[_builtins.str] table_name: SQL DB table name.
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "data_set_name", data_set_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "kind", 'SqlDBTable')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,8 +52,6 @@ class SqlDBTableDataSetArgs:
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
         pulumi.set(__self__, "table_name", table_name)
-        if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -65,6 +64,18 @@ class SqlDBTableDataSetArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the dataSet.
+        """
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -151,18 +162,6 @@ class SqlDBTableDataSetArgs:
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
 
-    @_builtins.property
-    @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the dataSet.
-        """
-        return pulumi.get(self, "data_set_name")
-
-    @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_name", value)
-
 
 @pulumi.type_token("azure-native:datashare:SqlDBTableDataSet")
 class SqlDBTableDataSet(pulumi.CustomResource):
@@ -247,6 +246,8 @@ class SqlDBTableDataSet(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if data_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_name'")
             __props__.__dict__["data_set_name"] = data_set_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

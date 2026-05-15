@@ -27,12 +27,12 @@ class DomainArgs:
                  contact_billing: pulumi.Input['ContactArgs'],
                  contact_registrant: pulumi.Input['ContactArgs'],
                  contact_tech: pulumi.Input['ContactArgs'],
+                 domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auth_code: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_type: pulumi.Input[Optional['DnsType']] = None,
                  dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  privacy: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -46,11 +46,11 @@ class DomainArgs:
         :param pulumi.Input['ContactArgs'] contact_billing: Billing contact.
         :param pulumi.Input['ContactArgs'] contact_registrant: Registrant contact.
         :param pulumi.Input['ContactArgs'] contact_tech: Technical contact.
+        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.bool] auto_renew: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
         :param pulumi.Input['DnsType'] dns_type: Current DNS type
         :param pulumi.Input[_builtins.str] dns_zone_id: Azure DNS Zone to use
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
@@ -62,6 +62,7 @@ class DomainArgs:
         pulumi.set(__self__, "contact_billing", contact_billing)
         pulumi.set(__self__, "contact_registrant", contact_registrant)
         pulumi.set(__self__, "contact_tech", contact_tech)
+        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auth_code is not None:
             pulumi.set(__self__, "auth_code", auth_code)
@@ -73,8 +74,6 @@ class DomainArgs:
             pulumi.set(__self__, "dns_type", dns_type)
         if dns_zone_id is not None:
             pulumi.set(__self__, "dns_zone_id", dns_zone_id)
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -147,6 +146,18 @@ class DomainArgs:
         pulumi.set(self, "contact_tech", value)
 
     @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -202,18 +213,6 @@ class DomainArgs:
     @dns_zone_id.setter
     def dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the domain.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -400,6 +399,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["contact_tech"] = contact_tech
             __props__.__dict__["dns_type"] = dns_type
             __props__.__dict__["dns_zone_id"] = dns_zone_id
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

@@ -21,24 +21,25 @@ class BlobContainerImmutabilityPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  container_name: pulumi.Input[_builtins.str],
+                 immutability_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_protected_append_writes: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
-                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 immutability_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a BlobContainerImmutabilityPolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        :param pulumi.Input[_builtins.str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         :param pulumi.Input[_builtins.bool] allow_protected_append_writes_all: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         :param pulumi.Input[_builtins.int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
-        :param pulumi.Input[_builtins.str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "immutability_policy_name", immutability_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_protected_append_writes is not None:
             pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
@@ -46,8 +47,6 @@ class BlobContainerImmutabilityPolicyArgs:
             pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
         if immutability_period_since_creation_in_days is not None:
             pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
-        if immutability_policy_name is not None:
-            pulumi.set(__self__, "immutability_policy_name", immutability_policy_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -72,6 +71,18 @@ class BlobContainerImmutabilityPolicyArgs:
     @container_name.setter
     def container_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "container_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="immutabilityPolicyName")
+    def immutability_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
+        """
+        return pulumi.get(self, "immutability_policy_name")
+
+    @immutability_policy_name.setter
+    def immutability_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "immutability_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -120,18 +131,6 @@ class BlobContainerImmutabilityPolicyArgs:
     @immutability_period_since_creation_in_days.setter
     def immutability_period_since_creation_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "immutability_period_since_creation_in_days", value)
-
-    @_builtins.property
-    @pulumi.getter(name="immutabilityPolicyName")
-    def immutability_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
-        """
-        return pulumi.get(self, "immutability_policy_name")
-
-    @immutability_policy_name.setter
-    def immutability_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "immutability_policy_name", value)
 
 
 @pulumi.type_token("azure-native:storage:BlobContainerImmutabilityPolicy")
@@ -220,6 +219,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["immutability_period_since_creation_in_days"] = immutability_period_since_creation_in_days
+            if immutability_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'immutability_policy_name'")
             __props__.__dict__["immutability_policy_name"] = immutability_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

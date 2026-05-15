@@ -23,6 +23,7 @@ __all__ = ['ServerDetailsArgs', 'ServerDetails']
 class ServerDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 server_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ResourceSkuArgs'],
                  as_administrators: pulumi.Input[Optional['ServerAdministratorsArgs']] = None,
                  backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,12 +33,12 @@ class ServerDetailsArgs:
                  managed_mode: pulumi.Input[Optional[_builtins.int]] = None,
                  querypool_connection_mode: pulumi.Input[Optional['ConnectionMode']] = None,
                  server_monitor_mode: pulumi.Input[Optional[_builtins.int]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerDetails resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[_builtins.str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input['ResourceSkuArgs'] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input['ServerAdministratorsArgs'] as_administrators: A collection of AS server administrators
         :param pulumi.Input[_builtins.str] backup_blob_container_uri: The SAS container URI to the backup container.
@@ -47,10 +48,10 @@ class ServerDetailsArgs:
         :param pulumi.Input[_builtins.int] managed_mode: The managed mode of the server (0 = not managed, 1 = managed).
         :param pulumi.Input['ConnectionMode'] querypool_connection_mode: How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
         :param pulumi.Input[_builtins.int] server_monitor_mode: The server monitor mode for AS server
-        :param pulumi.Input[_builtins.str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "sku", sku)
         if as_administrators is not None:
             pulumi.set(__self__, "as_administrators", as_administrators)
@@ -74,8 +75,6 @@ class ServerDetailsArgs:
             server_monitor_mode = 1
         if server_monitor_mode is not None:
             pulumi.set(__self__, "server_monitor_mode", server_monitor_mode)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +89,18 @@ class ServerDetailsArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,18 +209,6 @@ class ServerDetailsArgs:
     @server_monitor_mode.setter
     def server_monitor_mode(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_monitor_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -329,6 +328,8 @@ class ServerDetails(pulumi.CustomResource):
             if server_monitor_mode is None:
                 server_monitor_mode = 1
             __props__.__dict__["server_monitor_mode"] = server_monitor_mode
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

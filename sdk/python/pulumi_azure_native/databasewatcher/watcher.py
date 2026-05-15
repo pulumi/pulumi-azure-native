@@ -23,24 +23,25 @@ __all__ = ['WatcherArgs', 'Watcher']
 class WatcherArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 watcher_name: pulumi.Input[_builtins.str],
                  datastore: pulumi.Input[Optional['DatastoreArgs']] = None,
                  default_alert_rule_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watcher_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Watcher resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
         :param pulumi.Input['DatastoreArgs'] datastore: The data store for collected monitoring data.
         :param pulumi.Input[_builtins.str] default_alert_rule_identity_resource_id: The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "watcher_name", watcher_name)
         if datastore is not None:
             pulumi.set(__self__, "datastore", datastore)
         if default_alert_rule_identity_resource_id is not None:
@@ -51,8 +52,6 @@ class WatcherArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if watcher_name is not None:
-            pulumi.set(__self__, "watcher_name", watcher_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,6 +64,18 @@ class WatcherArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="watcherName")
+    def watcher_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The database watcher name.
+        """
+        return pulumi.get(self, "watcher_name")
+
+    @watcher_name.setter
+    def watcher_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "watcher_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,18 +136,6 @@ class WatcherArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watcherName")
-    def watcher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The database watcher name.
-        """
-        return pulumi.get(self, "watcher_name")
-
-    @watcher_name.setter
-    def watcher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "watcher_name", value)
 
 
 @pulumi.type_token("azure-native:databasewatcher:Watcher")
@@ -224,6 +223,8 @@ class Watcher(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if watcher_name is None and not opts.urn:
+                raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

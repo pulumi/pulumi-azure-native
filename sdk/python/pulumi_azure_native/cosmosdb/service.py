@@ -24,22 +24,21 @@ class ServiceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 service_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']] properties: Properties in ServiceResourceCreateUpdateParameters.
         :param pulumi.Input[_builtins.str] service_name: Cosmos DB service name.
+        :param pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']] properties: Properties in ServiceResourceCreateUpdateParameters.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -66,6 +65,18 @@ class ServiceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cosmos DB service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]:
         """
@@ -76,18 +87,6 @@ class ServiceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cosmos DB service name.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_name", value)
 
 
 @pulumi.type_token("azure-native:cosmosdb:Service")
@@ -165,6 +164,8 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

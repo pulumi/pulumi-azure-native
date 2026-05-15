@@ -22,6 +22,7 @@ __all__ = ['RecordSetArgs', 'RecordSet']
 class RecordSetArgs:
     def __init__(__self__, *,
                  record_type: pulumi.Input[_builtins.str],
+                 relative_record_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  zone_name: pulumi.Input[_builtins.str],
                  a_records: pulumi.Input[Optional[Sequence[pulumi.Input['ARecordArgs']]]] = None,
@@ -34,7 +35,6 @@ class RecordSetArgs:
                  naptr_records: pulumi.Input[Optional[Sequence[pulumi.Input['NaptrRecordArgs']]]] = None,
                  ns_records: pulumi.Input[Optional[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
                  ptr_records: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
-                 relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  soa_record: pulumi.Input[Optional['SoaRecordArgs']] = None,
                  srv_records: pulumi.Input[Optional[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
                  target_resource: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -46,6 +46,7 @@ class RecordSetArgs:
         The set of arguments for constructing a RecordSet resource.
 
         :param pulumi.Input[_builtins.str] record_type: The type of DNS record in this record set.
+        :param pulumi.Input[_builtins.str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: The list of A records in the record set.
@@ -58,7 +59,6 @@ class RecordSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NaptrRecordArgs']]] naptr_records: The list of NAPTR records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]] ns_records: The list of NS records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]] ptr_records: The list of PTR records in the record set.
-        :param pulumi.Input[_builtins.str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input['SoaRecordArgs'] soa_record: The SOA record in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input['SubResourceArgs'] target_resource: A reference to an azure resource from where the dns resource value is taken.
@@ -68,6 +68,7 @@ class RecordSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]] txt_records: The list of TXT records in the record set.
         """
         pulumi.set(__self__, "record_type", record_type)
+        pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "zone_name", zone_name)
         if a_records is not None:
@@ -90,8 +91,6 @@ class RecordSetArgs:
             pulumi.set(__self__, "ns_records", ns_records)
         if ptr_records is not None:
             pulumi.set(__self__, "ptr_records", ptr_records)
-        if relative_record_set_name is not None:
-            pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
         if soa_record is not None:
             pulumi.set(__self__, "soa_record", soa_record)
         if srv_records is not None:
@@ -118,6 +117,18 @@ class RecordSetArgs:
     @record_type.setter
     def record_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "record_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relativeRecordSetName")
+    def relative_record_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the record set, relative to the name of the zone.
+        """
+        return pulumi.get(self, "relative_record_set_name")
+
+    @relative_record_set_name.setter
+    def relative_record_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "relative_record_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -262,18 +273,6 @@ class RecordSetArgs:
     @ptr_records.setter
     def ptr_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]]):
         pulumi.set(self, "ptr_records", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relativeRecordSetName")
-    def relative_record_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the record set, relative to the name of the zone.
-        """
-        return pulumi.get(self, "relative_record_set_name")
-
-    @relative_record_set_name.setter
-    def relative_record_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "relative_record_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="soaRecord")
@@ -492,6 +491,8 @@ class RecordSet(pulumi.CustomResource):
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
             __props__.__dict__["record_type"] = record_type
+            if relative_record_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'relative_record_set_name'")
             __props__.__dict__["relative_record_set_name"] = relative_record_set_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

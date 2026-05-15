@@ -20,28 +20,29 @@ __all__ = ['ServiceEndpointPolicyDefinitionInitArgs', 'ServiceEndpointPolicyDefi
 class ServiceEndpointPolicyDefinitionInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 service_endpoint_policy_definition_name: pulumi.Input[_builtins.str],
                  service_endpoint_policy_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointPolicyDefinition resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
         :param pulumi.Input[_builtins.str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[_builtins.str] service: Service endpoint name.
-        :param pulumi.Input[_builtins.str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_resources: A list of service resources.
         :param pulumi.Input[_builtins.str] type: The type of the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_endpoint_policy_definition_name", service_endpoint_policy_definition_name)
         pulumi.set(__self__, "service_endpoint_policy_name", service_endpoint_policy_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -51,8 +52,6 @@ class ServiceEndpointPolicyDefinitionInitArgs:
             pulumi.set(__self__, "name", name)
         if service is not None:
             pulumi.set(__self__, "service", service)
-        if service_endpoint_policy_definition_name is not None:
-            pulumi.set(__self__, "service_endpoint_policy_definition_name", service_endpoint_policy_definition_name)
         if service_resources is not None:
             pulumi.set(__self__, "service_resources", service_resources)
         if type is not None:
@@ -69,6 +68,18 @@ class ServiceEndpointPolicyDefinitionInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceEndpointPolicyDefinitionName")
+    def service_endpoint_policy_definition_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the service endpoint policy definition name.
+        """
+        return pulumi.get(self, "service_endpoint_policy_definition_name")
+
+    @service_endpoint_policy_definition_name.setter
+    def service_endpoint_policy_definition_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_endpoint_policy_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyName")
@@ -129,18 +140,6 @@ class ServiceEndpointPolicyDefinitionInitArgs:
     @service.setter
     def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceEndpointPolicyDefinitionName")
-    def service_endpoint_policy_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the service endpoint policy definition name.
-        """
-        return pulumi.get(self, "service_endpoint_policy_definition_name")
-
-    @service_endpoint_policy_definition_name.setter
-    def service_endpoint_policy_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_endpoint_policy_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceResources")
@@ -257,6 +256,8 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service"] = service
+            if service_endpoint_policy_definition_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_endpoint_policy_definition_name'")
             __props__.__dict__["service_endpoint_policy_definition_name"] = service_endpoint_policy_definition_name
             if service_endpoint_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_policy_name'")

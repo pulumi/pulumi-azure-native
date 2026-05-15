@@ -24,7 +24,7 @@ class VolumeArgs:
                  labels: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 volume_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -38,8 +38,7 @@ class VolumeArgs:
         pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+        pulumi.set(__self__, "volume_name", volume_name)
 
     @_builtins.property
     @pulumi.getter(name="capacityGiB")
@@ -91,14 +90,14 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def volume_name(self) -> pulumi.Input[_builtins.str]:
         """
         Volume Resource
         """
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def volume_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "volume_name", value)
 
 
@@ -181,6 +180,8 @@ class Volume(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if volume_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -23,13 +23,13 @@ __all__ = ['AppArgs', 'App']
 class AppArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AppSkuInfoArgs'],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rule_sets: pulumi.Input[Optional['NetworkRuleSetsArgs']] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subdomain: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template: pulumi.Input[Optional[_builtins.str]] = None):
@@ -37,18 +37,19 @@ class AppArgs:
         The set of arguments for constructing a App resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the IoT Central application.
+        :param pulumi.Input[_builtins.str] resource_name: The ARM resource name of the IoT Central application.
         :param pulumi.Input['AppSkuInfoArgs'] sku: A valid instance SKU.
         :param pulumi.Input[_builtins.str] display_name: The display name of the application.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkRuleSetsArgs'] network_rule_sets: Network Rule Set Properties of this IoT Central application.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
-        :param pulumi.Input[_builtins.str] resource_name: The ARM resource name of the IoT Central application.
         :param pulumi.Input[_builtins.str] subdomain: The subdomain of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "sku", sku)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -60,8 +61,6 @@ class AppArgs:
             pulumi.set(__self__, "network_rule_sets", network_rule_sets)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
         if subdomain is not None:
             pulumi.set(__self__, "subdomain", subdomain)
         if tags is not None:
@@ -80,6 +79,18 @@ class AppArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARM resource name of the IoT Central application.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -152,18 +163,6 @@ class AppArgs:
     @public_network_access.setter
     def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ARM resource name of the IoT Central application.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -299,6 +298,8 @@ class App(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

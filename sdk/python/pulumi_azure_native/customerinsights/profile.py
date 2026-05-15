@@ -23,6 +23,7 @@ __all__ = ['ProfileArgs', 'Profile']
 class ProfileArgs:
     def __init__(__self__, *,
                  hub_name: pulumi.Input[_builtins.str],
+                 profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  api_entity_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
@@ -34,7 +35,6 @@ class ProfileArgs:
                  large_image: pulumi.Input[Optional[_builtins.str]] = None,
                  localized_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  medium_image: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_item_type_link: pulumi.Input[Optional[_builtins.str]] = None,
                  small_image: pulumi.Input[Optional[_builtins.str]] = None,
                  strong_ids: pulumi.Input[Optional[Sequence[pulumi.Input['StrongIdArgs']]]] = None,
@@ -44,6 +44,7 @@ class ProfileArgs:
         The set of arguments for constructing a Profile resource.
 
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
+        :param pulumi.Input[_builtins.str] profile_name: The name of the profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] attributes: The attributes for the Type.
@@ -55,7 +56,6 @@ class ProfileArgs:
         :param pulumi.Input[_builtins.str] large_image: Large Image associated with the Property or EntityType.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] localized_attributes: Any custom localized attributes for the Type.
         :param pulumi.Input[_builtins.str] medium_image: Medium Image associated with the Property or EntityType.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the profile.
         :param pulumi.Input[_builtins.str] schema_item_type_link: The schema org link. This helps ACI identify and suggest semantic models.
         :param pulumi.Input[_builtins.str] small_image: Small Image associated with the Property or EntityType.
         :param pulumi.Input[Sequence[pulumi.Input['StrongIdArgs']]] strong_ids: The strong IDs.
@@ -63,6 +63,7 @@ class ProfileArgs:
         :param pulumi.Input[_builtins.str] type_name: The name of the entity.
         """
         pulumi.set(__self__, "hub_name", hub_name)
+        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if api_entity_set_name is not None:
             pulumi.set(__self__, "api_entity_set_name", api_entity_set_name)
@@ -84,8 +85,6 @@ class ProfileArgs:
             pulumi.set(__self__, "localized_attributes", localized_attributes)
         if medium_image is not None:
             pulumi.set(__self__, "medium_image", medium_image)
-        if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
         if schema_item_type_link is not None:
             pulumi.set(__self__, "schema_item_type_link", schema_item_type_link)
         if small_image is not None:
@@ -108,6 +107,18 @@ class ProfileArgs:
     @hub_name.setter
     def hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "hub_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the profile.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -240,18 +251,6 @@ class ProfileArgs:
     @medium_image.setter
     def medium_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "medium_image", value)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the profile.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaItemTypeLink")
@@ -433,6 +432,8 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["large_image"] = large_image
             __props__.__dict__["localized_attributes"] = localized_attributes
             __props__.__dict__["medium_image"] = medium_image
+            if profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

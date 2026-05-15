@@ -21,32 +21,43 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
+                 certificate_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
+        :param pulumi.Input[_builtins.str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
         :param pulumi.Input['KeyVaultContractCreatePropertiesArgs'] key_vault: KeyVault location details of the certificate.
         :param pulumi.Input[_builtins.str] password: Password for the Certificate
         """
+        pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
         if data is not None:
             pulumi.set(__self__, "data", data)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if password is not None:
             pulumi.set(__self__, "password", password)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the certificate entity. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +82,6 @@ class CertificateArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the certificate entity. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "certificate_id")
-
-    @certificate_id.setter
-    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,6 +194,8 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            if certificate_id is None and not opts.urn:
+                raise TypeError("Missing required property 'certificate_id'")
             __props__.__dict__["certificate_id"] = certificate_id
             __props__.__dict__["data"] = data
             __props__.__dict__["key_vault"] = key_vault

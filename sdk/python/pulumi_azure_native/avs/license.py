@@ -21,24 +21,35 @@ __all__ = ['LicenseArgs', 'License']
 @pulumi.input_type
 class LicenseArgs:
     def __init__(__self__, *,
+                 license_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['VmwareFirewallLicensePropertiesArgs']] = None):
         """
         The set of arguments for constructing a License resource.
 
+        :param pulumi.Input[_builtins.str] license_name: Name of the license.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] license_name: Name of the license.
         :param pulumi.Input['VmwareFirewallLicensePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "license_name", license_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if license_name is not None:
-            pulumi.set(__self__, "license_name", license_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseName")
+    def license_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the license.
+        """
+        return pulumi.get(self, "license_name")
+
+    @license_name.setter
+    def license_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -63,18 +74,6 @@ class LicenseArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="licenseName")
-    def license_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the license.
-        """
-        return pulumi.get(self, "license_name")
-
-    @license_name.setter
-    def license_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -153,6 +152,8 @@ class License(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LicenseArgs.__new__(LicenseArgs)
 
+            if license_name is None and not opts.urn:
+                raise TypeError("Missing required property 'license_name'")
             __props__.__dict__["license_name"] = license_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

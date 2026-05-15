@@ -22,23 +22,22 @@ class WorkspaceNotificationRecipientUserArgs:
                  notification_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 workspace_id: pulumi.Input[_builtins.str],
-                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_id: pulumi.Input[_builtins.str],
+                 workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceNotificationRecipientUser resource.
 
         :param pulumi.Input[_builtins.str] notification_name: Notification Name Identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] user_id: User identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "notification_name", notification_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "user_id", user_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter(name="notificationName")
@@ -77,6 +76,18 @@ class WorkspaceNotificationRecipientUserArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        User identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "user_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -87,18 +98,6 @@ class WorkspaceNotificationRecipientUserArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        User identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "user_id")
-
-    @user_id.setter
-    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "user_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceNotificationRecipientUser")
@@ -181,6 +180,8 @@ class WorkspaceNotificationRecipientUser(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if user_id is None and not opts.urn:
+                raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")

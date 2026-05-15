@@ -25,12 +25,12 @@ class BrokerListenerArgs:
                  broker_name: pulumi.Input[_builtins.str],
                  broker_ref: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
+                 listener_name: pulumi.Input[_builtins.str],
                  mq_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  node_port: pulumi.Input[Optional[_builtins.int]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -43,12 +43,12 @@ class BrokerListenerArgs:
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input[_builtins.str] broker_ref: The k8s cr/resource reference of mq/broker.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
+        :param pulumi.Input[_builtins.str] listener_name: Name of MQ broker/listener resource
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.int] port: The port to start Listening for connections on.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] authentication_enabled: The flag for enabling Authentication rules on Listener Port.
         :param pulumi.Input[_builtins.bool] authorization_enabled: The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
-        :param pulumi.Input[_builtins.str] listener_name: Name of MQ broker/listener resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] node_port: The node port to use on the Host node.
         :param pulumi.Input[_builtins.str] service_name: The service name to expose Listener port on.
@@ -59,6 +59,7 @@ class BrokerListenerArgs:
         pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "broker_ref", broker_ref)
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "listener_name", listener_name)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -70,8 +71,6 @@ class BrokerListenerArgs:
             authorization_enabled = False
         if authorization_enabled is not None:
             pulumi.set(__self__, "authorization_enabled", authorization_enabled)
-        if listener_name is not None:
-            pulumi.set(__self__, "listener_name", listener_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if node_port is not None:
@@ -124,6 +123,18 @@ class BrokerListenerArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input['ExtendedLocationPropertyArgs']):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listenerName")
+    def listener_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ broker/listener resource
+        """
+        return pulumi.get(self, "listener_name")
+
+    @listener_name.setter
+    def listener_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "listener_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mqName")
@@ -184,18 +195,6 @@ class BrokerListenerArgs:
     @authorization_enabled.setter
     def authorization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authorization_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="listenerName")
-    def listener_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ broker/listener resource
-        """
-        return pulumi.get(self, "listener_name")
-
-    @listener_name.setter
-    def listener_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "listener_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -382,6 +381,8 @@ class BrokerListener(pulumi.CustomResource):
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
+            if listener_name is None and not opts.urn:
+                raise TypeError("Missing required property 'listener_name'")
             __props__.__dict__["listener_name"] = listener_name
             __props__.__dict__["location"] = location
             if mq_name is None and not opts.urn:

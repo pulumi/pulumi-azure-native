@@ -21,26 +21,37 @@ __all__ = ['CredentialArgs', 'Credential']
 @pulumi.input_type
 class CredentialArgs:
     def __init__(__self__, *,
+                 credential_name: pulumi.Input[_builtins.str],
                  credential_type: pulumi.Input[Union[_builtins.str, 'CredentialType']],
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 test_base_account_name: pulumi.Input[_builtins.str],
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 test_base_account_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Credential resource.
 
+        :param pulumi.Input[_builtins.str] credential_name: The credential resource name.
         :param pulumi.Input[Union[_builtins.str, 'CredentialType']] credential_type: Credential type.
         :param pulumi.Input[_builtins.str] display_name: Credential display name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
-        :param pulumi.Input[_builtins.str] credential_name: The credential resource name.
         """
+        pulumi.set(__self__, "credential_name", credential_name)
         pulumi.set(__self__, "credential_type", credential_type)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        if credential_name is not None:
-            pulumi.set(__self__, "credential_name", credential_name)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The credential resource name.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialType")
@@ -89,18 +100,6 @@ class CredentialArgs:
     @test_base_account_name.setter
     def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "test_base_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The credential resource name.
-        """
-        return pulumi.get(self, "credential_name")
-
-    @credential_name.setter
-    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "credential_name", value)
 
 
 @pulumi.type_token("azure-native:testbase:Credential")
@@ -170,6 +169,8 @@ class Credential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CredentialArgs.__new__(CredentialArgs)
 
+            if credential_name is None and not opts.urn:
+                raise TypeError("Missing required property 'credential_name'")
             __props__.__dict__["credential_name"] = credential_name
             if credential_type is None and not opts.urn:
                 raise TypeError("Missing required property 'credential_type'")

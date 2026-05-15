@@ -21,7 +21,7 @@ __all__ = ['SecurityOperatorArgs', 'SecurityOperator']
 class SecurityOperatorArgs:
     def __init__(__self__, *,
                  pricing_name: pulumi.Input[_builtins.str],
-                 security_operator_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 security_operator_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityOperator resource.
 
@@ -29,8 +29,7 @@ class SecurityOperatorArgs:
         :param pulumi.Input[_builtins.str] security_operator_name: name of the securityOperator
         """
         pulumi.set(__self__, "pricing_name", pricing_name)
-        if security_operator_name is not None:
-            pulumi.set(__self__, "security_operator_name", security_operator_name)
+        pulumi.set(__self__, "security_operator_name", security_operator_name)
 
     @_builtins.property
     @pulumi.getter(name="pricingName")
@@ -46,14 +45,14 @@ class SecurityOperatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityOperatorName")
-    def security_operator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def security_operator_name(self) -> pulumi.Input[_builtins.str]:
         """
         name of the securityOperator
         """
         return pulumi.get(self, "security_operator_name")
 
     @security_operator_name.setter
-    def security_operator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def security_operator_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "security_operator_name", value)
 
 
@@ -118,6 +117,8 @@ class SecurityOperator(pulumi.CustomResource):
             if pricing_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pricing_name'")
             __props__.__dict__["pricing_name"] = pricing_name
+            if security_operator_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_operator_name'")
             __props__.__dict__["security_operator_name"] = security_operator_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["identity"] = None

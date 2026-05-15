@@ -22,8 +22,8 @@ __all__ = ['CustomApiArgs', 'CustomApi']
 @pulumi.input_type
 class CustomApiArgs:
     def __init__(__self__, *,
+                 api_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CustomApiPropertiesDefinitionArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,16 +31,15 @@ class CustomApiArgs:
         """
         The set of arguments for constructing a CustomApi resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group
         :param pulumi.Input[_builtins.str] api_name: API name
+        :param pulumi.Input[_builtins.str] resource_group_name: The resource group
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input['CustomApiPropertiesDefinitionArgs'] properties: Custom API properties
         :param pulumi.Input[_builtins.str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "api_name", api_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if api_name is not None:
-            pulumi.set(__self__, "api_name", api_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -49,6 +48,18 @@ class CustomApiArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        API name
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class CustomApiArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiName")
-    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        API name
-        """
-        return pulumi.get(self, "api_name")
-
-    @api_name.setter
-    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +192,8 @@ class CustomApi(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomApiArgs.__new__(CustomApiArgs)
 
+            if api_name is None and not opts.urn:
+                raise TypeError("Missing required property 'api_name'")
             __props__.__dict__["api_name"] = api_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

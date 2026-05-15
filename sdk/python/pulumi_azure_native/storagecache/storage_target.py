@@ -24,30 +24,31 @@ class StorageTargetArgs:
     def __init__(__self__, *,
                  cache_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_target_name: pulumi.Input[_builtins.str],
                  target_type: pulumi.Input[Union[_builtins.str, 'StorageTargetType']],
                  blob_nfs: pulumi.Input[Optional['BlobNfsTargetArgs']] = None,
                  clfs: pulumi.Input[Optional['ClfsTargetArgs']] = None,
                  junctions: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceJunctionArgs']]]] = None,
                  nfs3: pulumi.Input[Optional['Nfs3TargetArgs']] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]] = None,
-                 storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  unknown: pulumi.Input[Optional['UnknownTargetArgs']] = None):
         """
         The set of arguments for constructing a StorageTarget resource.
 
         :param pulumi.Input[_builtins.str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] storage_target_name: Name of Storage Target.
         :param pulumi.Input[Union[_builtins.str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input['BlobNfsTargetArgs'] blob_nfs: Properties when targetType is blobNfs.
         :param pulumi.Input['ClfsTargetArgs'] clfs: Properties when targetType is clfs.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]] junctions: List of cache namespace junctions to target for namespace associations.
         :param pulumi.Input['Nfs3TargetArgs'] nfs3: Properties when targetType is nfs3.
         :param pulumi.Input[Union[_builtins.str, 'OperationalStateType']] state: Storage target operational state.
-        :param pulumi.Input[_builtins.str] storage_target_name: Name of Storage Target.
         :param pulumi.Input['UnknownTargetArgs'] unknown: Properties when targetType is unknown.
         """
         pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_target_name", storage_target_name)
         pulumi.set(__self__, "target_type", target_type)
         if blob_nfs is not None:
             pulumi.set(__self__, "blob_nfs", blob_nfs)
@@ -59,8 +60,6 @@ class StorageTargetArgs:
             pulumi.set(__self__, "nfs3", nfs3)
         if state is not None:
             pulumi.set(__self__, "state", state)
-        if storage_target_name is not None:
-            pulumi.set(__self__, "storage_target_name", storage_target_name)
         if unknown is not None:
             pulumi.set(__self__, "unknown", unknown)
 
@@ -87,6 +86,18 @@ class StorageTargetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageTargetName")
+    def storage_target_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Storage Target.
+        """
+        return pulumi.get(self, "storage_target_name")
+
+    @storage_target_name.setter
+    def storage_target_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
@@ -159,18 +170,6 @@ class StorageTargetArgs:
     @state.setter
     def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]]):
         pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageTargetName")
-    def storage_target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Storage Target.
-        """
-        return pulumi.get(self, "storage_target_name")
-
-    @storage_target_name.setter
-    def storage_target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_target_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -282,6 +281,8 @@ class StorageTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["state"] = state
+            if storage_target_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_target_name'")
             __props__.__dict__["storage_target_name"] = storage_target_name
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")

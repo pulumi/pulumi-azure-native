@@ -23,22 +23,21 @@ class SecretArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 parameters: pulumi.Input[Optional[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']]] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 secret_name: pulumi.Input[_builtins.str],
+                 parameters: pulumi.Input[Optional[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']]] = None):
         """
         The set of arguments for constructing a Secret resource.
 
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']] parameters: object which contains secret parameters
         :param pulumi.Input[_builtins.str] secret_name: Name of the Secret under the profile.
+        :param pulumi.Input[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']] parameters: object which contains secret parameters
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secret_name", secret_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -65,6 +64,18 @@ class SecretArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Secret under the profile.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']]]:
         """
@@ -75,18 +86,6 @@ class SecretArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[Optional[Union['AzureFirstPartyManagedCertificateParametersArgs', 'CustomerCertificateParametersArgs', 'ManagedCertificateParametersArgs', 'UrlSigningKeyParametersArgs']]]):
         pulumi.set(self, "parameters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Secret under the profile.
-        """
-        return pulumi.get(self, "secret_name")
-
-    @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "secret_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:Secret")
@@ -164,6 +163,8 @@ class Secret(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if secret_name is None and not opts.urn:
+                raise TypeError("Missing required property 'secret_name'")
             __props__.__dict__["secret_name"] = secret_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None

@@ -24,32 +24,31 @@ class TransitHubArgs:
     def __init__(__self__, *,
                  community_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 transit_hub_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transit_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_option: pulumi.Input[Optional['TransitOptionArgs']] = None):
         """
         The set of arguments for constructing a TransitHub resource.
 
         :param pulumi.Input[_builtins.str] community_name: The name of the communityResource Resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] transit_hub_name: The name of the TransitHub Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TransitHubState']] state: The state of the transitHub.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] transit_hub_name: The name of the TransitHub Resource
         :param pulumi.Input['TransitOptionArgs'] transit_option: The TransitOption of the transitHub.
         """
         pulumi.set(__self__, "community_name", community_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "transit_hub_name", transit_hub_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if transit_hub_name is not None:
-            pulumi.set(__self__, "transit_hub_name", transit_hub_name)
         if transit_option is not None:
             pulumi.set(__self__, "transit_option", transit_option)
 
@@ -76,6 +75,18 @@ class TransitHubArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitHubName")
+    def transit_hub_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the TransitHub Resource
+        """
+        return pulumi.get(self, "transit_hub_name")
+
+    @transit_hub_name.setter
+    def transit_hub_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transit_hub_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,18 +123,6 @@ class TransitHubArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transitHubName")
-    def transit_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the TransitHub Resource
-        """
-        return pulumi.get(self, "transit_hub_name")
-
-    @transit_hub_name.setter
-    def transit_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transit_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="transitOption")
@@ -224,6 +223,8 @@ class TransitHub(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            if transit_hub_name is None and not opts.urn:
+                raise TypeError("Missing required property 'transit_hub_name'")
             __props__.__dict__["transit_hub_name"] = transit_hub_name
             __props__.__dict__["transit_option"] = transit_option
             __props__.__dict__["azure_api_version"] = None

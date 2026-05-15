@@ -23,27 +23,26 @@ class CapacityPoolSnapshotArgs:
                  account_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 snapshot_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityPoolSnapshot resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot
         :param pulumi.Input[_builtins.str] volume_name: The name of the volume
         :param pulumi.Input[_builtins.str] location: Resource location
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "snapshot_name", snapshot_name)
         pulumi.set(__self__, "volume_name", volume_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -82,6 +81,18 @@ class CapacityPoolSnapshotArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the snapshot
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "snapshot_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -104,18 +115,6 @@ class CapacityPoolSnapshotArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the snapshot
-        """
-        return pulumi.get(self, "snapshot_name")
-
-    @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "snapshot_name", value)
 
 
 @pulumi.type_token("azure-native:netapp:CapacityPoolSnapshot")
@@ -202,6 +201,8 @@ class CapacityPoolSnapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if snapshot_name is None and not opts.urn:
+                raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")

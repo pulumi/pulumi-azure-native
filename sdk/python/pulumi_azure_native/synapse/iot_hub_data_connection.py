@@ -22,6 +22,7 @@ __all__ = ['IotHubDataConnectionArgs', 'IotHubDataConnection']
 class IotHubDataConnectionArgs:
     def __init__(__self__, *,
                  consumer_group: pulumi.Input[_builtins.str],
+                 data_connection_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  iot_hub_resource_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
@@ -29,7 +30,6 @@ class IotHubDataConnectionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  shared_access_policy_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_format: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]] = None,
                  event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,6 +39,7 @@ class IotHubDataConnectionArgs:
         The set of arguments for constructing a IotHubDataConnection resource.
 
         :param pulumi.Input[_builtins.str] consumer_group: The iot hub consumer group.
+        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] iot_hub_resource_id: The resource ID of the Iot hub to be used to create a data connection.
         :param pulumi.Input[_builtins.str] kind: Kind of the endpoint for the data connection
@@ -47,7 +48,6 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] shared_access_policy_name: The name of the share access policy
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_system_properties: System properties of the iot hub
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -55,6 +55,7 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[_builtins.str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "data_connection_name", data_connection_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "iot_hub_resource_id", iot_hub_resource_id)
         pulumi.set(__self__, "kind", 'IotHub')
@@ -62,8 +63,6 @@ class IotHubDataConnectionArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
         if event_system_properties is not None:
@@ -86,6 +85,18 @@ class IotHubDataConnectionArgs:
     @consumer_group.setter
     def consumer_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "consumer_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectionName")
+    def data_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data connection.
+        """
+        return pulumi.get(self, "data_connection_name")
+
+    @data_connection_name.setter
+    def data_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -171,18 +182,6 @@ class IotHubDataConnectionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data connection.
-        """
-        return pulumi.get(self, "data_connection_name")
-
-    @data_connection_name.setter
-    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
@@ -343,6 +342,8 @@ class IotHubDataConnection(pulumi.CustomResource):
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__.__dict__["consumer_group"] = consumer_group
+            if data_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connection_name'")
             __props__.__dict__["data_connection_name"] = data_connection_name
             __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:

@@ -21,24 +21,35 @@ __all__ = ['ContainerRegistryArgs', 'ContainerRegistry']
 @pulumi.input_type
 class ContainerRegistryArgs:
     def __init__(__self__, *,
+                 container_registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ContainerRegistryPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ContainerRegistry resource.
 
+        :param pulumi.Input[_builtins.str] container_registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] container_registry_name: The name of the container registry.
         :param pulumi.Input['ContainerRegistryPropertiesArgs'] properties: Properties of the container registry resource payload.
         """
+        pulumi.set(__self__, "container_registry_name", container_registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if container_registry_name is not None:
-            pulumi.set(__self__, "container_registry_name", container_registry_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="containerRegistryName")
+    def container_registry_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "container_registry_name")
+
+    @container_registry_name.setter
+    def container_registry_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +74,6 @@ class ContainerRegistryArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerRegistryName")
-    def container_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the container registry.
-        """
-        return pulumi.get(self, "container_registry_name")
-
-    @container_registry_name.setter
-    def container_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_registry_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class ContainerRegistry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerRegistryArgs.__new__(ContainerRegistryArgs)
 
+            if container_registry_name is None and not opts.urn:
+                raise TypeError("Missing required property 'container_registry_name'")
             __props__.__dict__["container_registry_name"] = container_registry_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

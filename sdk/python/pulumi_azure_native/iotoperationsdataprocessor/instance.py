@@ -22,27 +22,26 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
+        :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Detailed description of the Instance.
-        :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -59,6 +58,18 @@ class InstanceArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input['ExtendedLocationArgs']):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of instance.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class InstanceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of instance.
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,6 +194,8 @@ class Instance(pulumi.CustomResource):
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
+            if instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

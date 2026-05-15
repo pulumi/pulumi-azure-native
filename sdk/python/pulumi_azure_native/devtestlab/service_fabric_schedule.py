@@ -23,13 +23,13 @@ __all__ = ['ServiceFabricScheduleArgs', 'ServiceFabricSchedule']
 class ServiceFabricScheduleArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_fabric_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
                  daily_recurrence: pulumi.Input[Optional['DayDetailsArgs']] = None,
                  hourly_recurrence: pulumi.Input[Optional['HourDetailsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_settings: pulumi.Input[Optional['NotificationSettingsArgs']] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -41,13 +41,13 @@ class ServiceFabricScheduleArgs:
         The set of arguments for constructing a ServiceFabricSchedule resource.
 
         :param pulumi.Input[_builtins.str] lab_name: labs
+        :param pulumi.Input[_builtins.str] name: The name of the Schedule
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_fabric_name: servicefabrics
         :param pulumi.Input[_builtins.str] user_name: users
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] name: The name of the Schedule
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -57,6 +57,7 @@ class ServiceFabricScheduleArgs:
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_fabric_name", service_fabric_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -66,8 +67,6 @@ class ServiceFabricScheduleArgs:
             pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
         if status is None:
@@ -96,6 +95,18 @@ class ServiceFabricScheduleArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Schedule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -168,18 +179,6 @@ class ServiceFabricScheduleArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Schedule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
@@ -369,6 +368,8 @@ class ServiceFabricSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_settings"] = notification_settings
             if resource_group_name is None and not opts.urn:

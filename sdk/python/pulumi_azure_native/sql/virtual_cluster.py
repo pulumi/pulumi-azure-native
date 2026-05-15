@@ -20,28 +20,27 @@ __all__ = ['VirtualClusterArgs', 'VirtualCluster']
 class VirtualClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_cluster_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_cluster_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] virtual_cluster_name: The name of the virtual cluster.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] version: Virtual cluster version.
-        :param pulumi.Input[_builtins.str] virtual_cluster_name: The name of the virtual cluster.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_cluster_name", virtual_cluster_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
-        if virtual_cluster_name is not None:
-            pulumi.set(__self__, "virtual_cluster_name", virtual_cluster_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -54,6 +53,18 @@ class VirtualClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualClusterName")
+    def virtual_cluster_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual cluster.
+        """
+        return pulumi.get(self, "virtual_cluster_name")
+
+    @virtual_cluster_name.setter
+    def virtual_cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -90,18 +101,6 @@ class VirtualClusterArgs:
     @version.setter
     def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualClusterName")
-    def virtual_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the virtual cluster.
-        """
-        return pulumi.get(self, "virtual_cluster_name")
-
-    @virtual_cluster_name.setter
-    def virtual_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_cluster_name", value)
 
 
 @pulumi.type_token("azure-native:sql:VirtualCluster")
@@ -177,6 +176,8 @@ class VirtualCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            if virtual_cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_cluster_name'")
             __props__.__dict__["virtual_cluster_name"] = virtual_cluster_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["child_resources"] = None

@@ -24,6 +24,7 @@ class NodeTypeArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  is_primary: pulumi.Input[_builtins.bool],
+                 node_type_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_instance_count: pulumi.Input[_builtins.int],
                  additional_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
@@ -50,7 +51,6 @@ class NodeTypeArgs:
                  nat_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
-                 node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_type: pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]] = None,
@@ -80,6 +80,7 @@ class NodeTypeArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.bool] is_primary: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+        :param pulumi.Input[_builtins.str] node_type_name: The name of the node type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
         :param pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]] additional_data_disks: Additional managed data disks.
@@ -106,7 +107,6 @@ class NodeTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]] nat_configurations: Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
-        :param pulumi.Input[_builtins.str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
         :param pulumi.Input[Union[_builtins.str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
@@ -134,6 +134,7 @@ class NodeTypeArgs:
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "is_primary", is_primary)
+        pulumi.set(__self__, "node_type_name", node_type_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_instance_count", vm_instance_count)
         if additional_data_disks is not None:
@@ -190,8 +191,6 @@ class NodeTypeArgs:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_security_rules is not None:
             pulumi.set(__self__, "network_security_rules", network_security_rules)
-        if node_type_name is not None:
-            pulumi.set(__self__, "node_type_name", node_type_name)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
         if secure_boot_enabled is not None:
@@ -264,6 +263,18 @@ class NodeTypeArgs:
     @is_primary.setter
     def is_primary(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "is_primary", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeTypeName")
+    def node_type_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the node type.
+        """
+        return pulumi.get(self, "node_type_name")
+
+    @node_type_name.setter
+    def node_type_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "node_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -576,18 +587,6 @@ class NodeTypeArgs:
     @network_security_rules.setter
     def network_security_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
         pulumi.set(self, "network_security_rules", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeTypeName")
-    def node_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the node type.
-        """
-        return pulumi.get(self, "node_type_name")
-
-    @node_type_name.setter
-    def node_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "node_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProperties")
@@ -1129,6 +1128,8 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["nat_configurations"] = nat_configurations
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_security_rules"] = network_security_rules
+            if node_type_name is None and not opts.urn:
+                raise TypeError("Missing required property 'node_type_name'")
             __props__.__dict__["node_type_name"] = node_type_name
             __props__.__dict__["placement_properties"] = placement_properties
             if resource_group_name is None and not opts.urn:

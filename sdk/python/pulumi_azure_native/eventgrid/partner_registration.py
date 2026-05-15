@@ -20,30 +20,41 @@ __all__ = ['PartnerRegistrationArgs', 'PartnerRegistration']
 @pulumi.input_type
 class PartnerRegistrationArgs:
     def __init__(__self__, *,
+                 partner_registration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 partner_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerRegistration resource.
 
+        :param pulumi.Input[_builtins.str] partner_registration_name: Name of the partner registration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[_builtins.str] partner_registration_immutable_id: The immutableId of the corresponding partner registration.
                Note: This property is marked for deprecation and is not supported in any future GA API version
-        :param pulumi.Input[_builtins.str] partner_registration_name: Name of the partner registration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         """
+        pulumi.set(__self__, "partner_registration_name", partner_registration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if partner_registration_immutable_id is not None:
             pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
-        if partner_registration_name is not None:
-            pulumi.set(__self__, "partner_registration_name", partner_registration_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerRegistrationName")
+    def partner_registration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the partner registration.
+        """
+        return pulumi.get(self, "partner_registration_name")
+
+    @partner_registration_name.setter
+    def partner_registration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "partner_registration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -81,18 +92,6 @@ class PartnerRegistrationArgs:
     @partner_registration_immutable_id.setter
     def partner_registration_immutable_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_immutable_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerRegistrationName")
-    def partner_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the partner registration.
-        """
-        return pulumi.get(self, "partner_registration_name")
-
-    @partner_registration_name.setter
-    def partner_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "partner_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +180,8 @@ class PartnerRegistration(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["partner_registration_immutable_id"] = partner_registration_immutable_id
+            if partner_registration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'partner_registration_name'")
             __props__.__dict__["partner_registration_name"] = partner_registration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

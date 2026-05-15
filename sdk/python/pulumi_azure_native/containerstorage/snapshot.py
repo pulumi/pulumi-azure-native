@@ -22,21 +22,20 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source: pulumi.Input[_builtins.str],
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 snapshot_name: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Snapshot resource.
 
         :param pulumi.Input[_builtins.str] pool_name: Pool Object
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source: Reference to the source volume
         :param pulumi.Input[_builtins.str] snapshot_name: Volume Snapshot Resource
+        :param pulumi.Input[_builtins.str] source: Reference to the source volume
         """
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "snapshot_name", snapshot_name)
         pulumi.set(__self__, "source", source)
-        if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
@@ -63,6 +62,18 @@ class SnapshotArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Volume Snapshot Resource
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "snapshot_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
@@ -73,18 +84,6 @@ class SnapshotArgs:
     @source.setter
     def source(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Volume Snapshot Resource
-        """
-        return pulumi.get(self, "snapshot_name")
-
-    @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "snapshot_name", value)
 
 
 @pulumi.type_token("azure-native:containerstorage:Snapshot")
@@ -157,6 +156,8 @@ class Snapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if snapshot_name is None and not opts.urn:
+                raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")

@@ -22,11 +22,11 @@ __all__ = ['GlobalScheduleArgs', 'GlobalSchedule']
 @pulumi.input_type
 class GlobalScheduleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  daily_recurrence: pulumi.Input[Optional['DayDetailsArgs']] = None,
                  hourly_recurrence: pulumi.Input[Optional['HourDetailsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_settings: pulumi.Input[Optional['NotificationSettingsArgs']] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -37,11 +37,11 @@ class GlobalScheduleArgs:
         """
         The set of arguments for constructing a GlobalSchedule resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the Schedule
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] name: The name of the Schedule
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -50,6 +50,7 @@ class GlobalScheduleArgs:
         :param pulumi.Input[_builtins.str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if daily_recurrence is not None:
             pulumi.set(__self__, "daily_recurrence", daily_recurrence)
@@ -57,8 +58,6 @@ class GlobalScheduleArgs:
             pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
         if status is None:
@@ -75,6 +74,18 @@ class GlobalScheduleArgs:
             pulumi.set(__self__, "time_zone_id", time_zone_id)
         if weekly_recurrence is not None:
             pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Schedule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -123,18 +134,6 @@ class GlobalScheduleArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Schedule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
@@ -312,6 +311,8 @@ class GlobalSchedule(pulumi.CustomResource):
             __props__.__dict__["daily_recurrence"] = daily_recurrence
             __props__.__dict__["hourly_recurrence"] = hourly_recurrence
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_settings"] = notification_settings
             if resource_group_name is None and not opts.urn:

@@ -21,6 +21,7 @@ class IoMAMPolicyByNameArgs:
     def __init__(__self__, *,
                  friendly_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
+                 policy_name: pulumi.Input[_builtins.str],
                  access_recheck_offline_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  access_recheck_online_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  app_sharing_from_level: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,19 +38,19 @@ class IoMAMPolicyByNameArgs:
                  offline_wipe_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  pin: pulumi.Input[Optional[_builtins.str]] = None,
                  pin_num_retry: pulumi.Input[Optional[_builtins.int]] = None,
-                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  touch_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IoMAMPolicyByName resource.
 
         :param pulumi.Input[_builtins.str] host_name: Location hostName for the tenant
-        :param pulumi.Input[_builtins.str] location: Resource Location
         :param pulumi.Input[_builtins.str] policy_name: Unique name for the policy
+        :param pulumi.Input[_builtins.str] location: Resource Location
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource Tags
         """
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "policy_name", policy_name)
         if access_recheck_offline_timeout is not None:
             pulumi.set(__self__, "access_recheck_offline_timeout", access_recheck_offline_timeout)
         if access_recheck_online_timeout is not None:
@@ -102,8 +103,6 @@ class IoMAMPolicyByNameArgs:
             pulumi.set(__self__, "pin", pin)
         if pin_num_retry is not None:
             pulumi.set(__self__, "pin_num_retry", pin_num_retry)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if touch_id is None:
@@ -131,6 +130,18 @@ class IoMAMPolicyByNameArgs:
     @host_name.setter
     def host_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "host_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique name for the policy
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="accessRecheckOfflineTimeout")
@@ -278,18 +289,6 @@ class IoMAMPolicyByNameArgs:
     @pin_num_retry.setter
     def pin_num_retry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pin_num_retry", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Unique name for the policy
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -453,6 +452,8 @@ class IoMAMPolicyByName(pulumi.CustomResource):
                 pin = 'required'
             __props__.__dict__["pin"] = pin
             __props__.__dict__["pin_num_retry"] = pin_num_retry
+            if policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["tags"] = tags
             if touch_id is None:

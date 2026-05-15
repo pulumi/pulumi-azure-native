@@ -22,8 +22,8 @@ class GremlinResourceGremlinRoleAssignmentArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 role_assignment_id: pulumi.Input[_builtins.str],
                  principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -31,17 +31,16 @@ class GremlinResourceGremlinRoleAssignmentArgs:
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] principal_id: The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Gremlin Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
         :param pulumi.Input[_builtins.str] role_assignment_id: The GUID for the Role Assignment.
+        :param pulumi.Input[_builtins.str] principal_id: The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Gremlin Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
         :param pulumi.Input[_builtins.str] role_definition_id: The unique identifier for the associated Role Definition.
         :param pulumi.Input[_builtins.str] scope: The data plane resource path for which access is being granted through this Gremlin Role Assignment.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "role_assignment_id", role_assignment_id)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
-        if role_assignment_id is not None:
-            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
         if role_definition_id is not None:
             pulumi.set(__self__, "role_definition_id", role_definition_id)
         if scope is not None:
@@ -72,6 +71,18 @@ class GremlinResourceGremlinRoleAssignmentArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="roleAssignmentId")
+    def role_assignment_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GUID for the Role Assignment.
+        """
+        return pulumi.get(self, "role_assignment_id")
+
+    @role_assignment_id.setter
+    def role_assignment_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_assignment_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -82,18 +93,6 @@ class GremlinResourceGremlinRoleAssignmentArgs:
     @principal_id.setter
     def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleAssignmentId")
-    def role_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The GUID for the Role Assignment.
-        """
-        return pulumi.get(self, "role_assignment_id")
-
-    @role_assignment_id.setter
-    def role_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "role_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
@@ -201,6 +200,8 @@ class GremlinResourceGremlinRoleAssignment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if role_assignment_id is None and not opts.urn:
+                raise TypeError("Missing required property 'role_assignment_id'")
             __props__.__dict__["role_assignment_id"] = role_assignment_id
             __props__.__dict__["role_definition_id"] = role_definition_id
             __props__.__dict__["scope"] = scope

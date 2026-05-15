@@ -23,30 +23,29 @@ class ApplicationResourceArgs:
                  application_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
+                 resource_name: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
-                 resource_kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationResource resource.
 
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The Arm id of the application resource.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the application resource.
         :param pulumi.Input[_builtins.str] resource_type: The type of the application resource.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
         :param pulumi.Input[_builtins.str] resource_kind: The kind of the application resource.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the application resource.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "space_name", space_name)
         if resource_kind is not None:
             pulumi.set(__self__, "resource_kind", resource_kind)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
@@ -85,6 +84,18 @@ class ApplicationResourceArgs:
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
         """
@@ -119,18 +130,6 @@ class ApplicationResourceArgs:
     @resource_kind.setter
     def resource_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_kind", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the application resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_name", value)
 
 
 @pulumi.type_token("azure-native:integrationspaces:ApplicationResource")
@@ -216,6 +215,8 @@ class ApplicationResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["resource_kind"] = resource_kind
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")

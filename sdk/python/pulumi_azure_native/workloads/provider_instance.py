@@ -23,21 +23,20 @@ __all__ = ['ProviderInstanceArgs', 'ProviderInstance']
 class ProviderInstanceArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
+                 provider_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_settings: pulumi.Input[Optional[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a ProviderInstance resource.
 
         :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] provider_instance_name: Name of the provider instance.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']] provider_settings: Defines the provider specific properties.
         """
         pulumi.set(__self__, "monitor_name", monitor_name)
+        pulumi.set(__self__, "provider_instance_name", provider_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if provider_instance_name is not None:
-            pulumi.set(__self__, "provider_instance_name", provider_instance_name)
         if provider_settings is not None:
             pulumi.set(__self__, "provider_settings", provider_settings)
 
@@ -54,6 +53,18 @@ class ProviderInstanceArgs:
         pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="providerInstanceName")
+    def provider_instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the provider instance.
+        """
+        return pulumi.get(self, "provider_instance_name")
+
+    @provider_instance_name.setter
+    def provider_instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_instance_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -64,18 +75,6 @@ class ProviderInstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="providerInstanceName")
-    def provider_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the provider instance.
-        """
-        return pulumi.get(self, "provider_instance_name")
-
-    @provider_instance_name.setter
-    def provider_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "provider_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSettings")
@@ -161,6 +160,8 @@ class ProviderInstance(pulumi.CustomResource):
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
+            if provider_instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'provider_instance_name'")
             __props__.__dict__["provider_instance_name"] = provider_instance_name
             __props__.__dict__["provider_settings"] = provider_settings
             if resource_group_name is None and not opts.urn:

@@ -21,28 +21,39 @@ __all__ = ['LinkedWorkspaceArgs', 'LinkedWorkspace']
 @pulumi.input_type
 class LinkedWorkspaceArgs:
     def __init__(__self__, *,
+                 link_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['LinkedWorkspacePropsArgs']] = None):
         """
         The set of arguments for constructing a LinkedWorkspace resource.
 
+        :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[_builtins.str] name: Friendly name of the linked workspace
         :param pulumi.Input['LinkedWorkspacePropsArgs'] properties: LinkedWorkspace specific properties.
         """
+        pulumi.set(__self__, "link_name", link_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if link_name is not None:
-            pulumi.set(__self__, "link_name", link_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Friendly name of the linked workspace
+        """
+        return pulumi.get(self, "link_name")
+
+    @link_name.setter
+    def link_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,18 +78,6 @@ class LinkedWorkspaceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkName")
-    def link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Friendly name of the linked workspace
-        """
-        return pulumi.get(self, "link_name")
-
-    @link_name.setter
-    def link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,6 +175,8 @@ class LinkedWorkspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedWorkspaceArgs.__new__(LinkedWorkspaceArgs)
 
+            if link_name is None and not opts.urn:
+                raise TypeError("Missing required property 'link_name'")
             __props__.__dict__["link_name"] = link_name
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties

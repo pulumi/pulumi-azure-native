@@ -20,28 +20,39 @@ __all__ = ['DisasterRecoveryConfigArgs', 'DisasterRecoveryConfig']
 @pulumi.input_type
 class DisasterRecoveryConfigArgs:
     def __init__(__self__, *,
+                 alias: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 alias: pulumi.Input[Optional[_builtins.str]] = None,
                  alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DisasterRecoveryConfig resource.
 
+        :param pulumi.Input[_builtins.str] alias: The Disaster Recovery configuration name
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] alias: The Disaster Recovery configuration name
         :param pulumi.Input[_builtins.str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[_builtins.str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
+        pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if alias is not None:
-            pulumi.set(__self__, "alias", alias)
         if alternate_name is not None:
             pulumi.set(__self__, "alternate_name", alternate_name)
         if partner_namespace is not None:
             pulumi.set(__self__, "partner_namespace", partner_namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Disaster Recovery configuration name
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -66,18 +77,6 @@ class DisasterRecoveryConfigArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Disaster Recovery configuration name
-        """
-        return pulumi.get(self, "alias")
-
-    @alias.setter
-    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="alternateName")
@@ -175,6 +174,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DisasterRecoveryConfigArgs.__new__(DisasterRecoveryConfigArgs)
 
+            if alias is None and not opts.urn:
+                raise TypeError("Missing required property 'alias'")
             __props__.__dict__["alias"] = alias
             __props__.__dict__["alternate_name"] = alternate_name
             if namespace_name is None and not opts.urn:

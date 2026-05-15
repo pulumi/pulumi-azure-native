@@ -22,28 +22,39 @@ __all__ = ['NetworkMonitorArgs', 'NetworkMonitor']
 @pulumi.input_type
 class NetworkMonitorArgs:
     def __init__(__self__, *,
+                 network_monitor_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['NetworkMonitorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkMonitor resource.
 
+        :param pulumi.Input[_builtins.str] network_monitor_name: Name of the Network Monitor.
         :param pulumi.Input['NetworkMonitorPropertiesArgs'] properties: The NetworkFabric Properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] network_monitor_name: Name of the Network Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "network_monitor_name", network_monitor_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_monitor_name is not None:
-            pulumi.set(__self__, "network_monitor_name", network_monitor_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMonitorName")
+    def network_monitor_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Network Monitor.
+        """
+        return pulumi.get(self, "network_monitor_name")
+
+    @network_monitor_name.setter
+    def network_monitor_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -80,18 +91,6 @@ class NetworkMonitorArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkMonitorName")
-    def network_monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Network Monitor.
-        """
-        return pulumi.get(self, "network_monitor_name")
-
-    @network_monitor_name.setter
-    def network_monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +173,8 @@ class NetworkMonitor(pulumi.CustomResource):
             __props__ = NetworkMonitorArgs.__new__(NetworkMonitorArgs)
 
             __props__.__dict__["location"] = location
+            if network_monitor_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_monitor_name'")
             __props__.__dict__["network_monitor_name"] = network_monitor_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

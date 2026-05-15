@@ -23,21 +23,20 @@ __all__ = ['HttpRouteConfigArgs', 'HttpRouteConfig']
 class HttpRouteConfigArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
+                 http_route_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 http_route_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['HttpRouteConfigPropertiesArgs']] = None):
         """
         The set of arguments for constructing a HttpRouteConfig resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] http_route_name: Name of the Http Route Config Resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['HttpRouteConfigPropertiesArgs'] properties: Http Route Config properties
         """
         pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "http_route_name", http_route_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if http_route_name is not None:
-            pulumi.set(__self__, "http_route_name", http_route_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,6 +53,18 @@ class HttpRouteConfigArgs:
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="httpRouteName")
+    def http_route_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Http Route Config Resource.
+        """
+        return pulumi.get(self, "http_route_name")
+
+    @http_route_name.setter
+    def http_route_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "http_route_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -64,18 +75,6 @@ class HttpRouteConfigArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="httpRouteName")
-    def http_route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Http Route Config Resource.
-        """
-        return pulumi.get(self, "http_route_name")
-
-    @http_route_name.setter
-    def http_route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "http_route_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -161,6 +160,8 @@ class HttpRouteConfig(pulumi.CustomResource):
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
+            if http_route_name is None and not opts.urn:
+                raise TypeError("Missing required property 'http_route_name'")
             __props__.__dict__["http_route_name"] = http_route_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

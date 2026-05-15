@@ -22,9 +22,9 @@ __all__ = ['FreeServiceArgs', 'FreeService']
 @pulumi.input_type
 class FreeServiceArgs:
     def __init__(__self__, *,
+                 free_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  end_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 free_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,9 +39,9 @@ class FreeServiceArgs:
         """
         The set of arguments for constructing a FreeService resource.
 
+        :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
-        :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -54,11 +54,10 @@ class FreeServiceArgs:
         :param pulumi.Input[_builtins.str] system_id: This is the globally unique identifier of the free services which will not change for its lifetime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "free_service_name", free_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if end_at is not None:
             pulumi.set(__self__, "end_at", end_at)
-        if free_service_name is not None:
-            pulumi.set(__self__, "free_service_name", free_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -83,6 +82,18 @@ class FreeServiceArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="freeServiceName")
+    def free_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the free service
+        """
+        return pulumi.get(self, "free_service_name")
+
+    @free_service_name.setter
+    def free_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "free_service_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -105,18 +116,6 @@ class FreeServiceArgs:
     @end_at.setter
     def end_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_at", value)
-
-    @_builtins.property
-    @pulumi.getter(name="freeServiceName")
-    def free_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the free service
-        """
-        return pulumi.get(self, "free_service_name")
-
-    @free_service_name.setter
-    def free_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "free_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -346,6 +345,8 @@ class FreeService(pulumi.CustomResource):
             __props__ = FreeServiceArgs.__new__(FreeServiceArgs)
 
             __props__.__dict__["end_at"] = end_at
+            if free_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'free_service_name'")
             __props__.__dict__["free_service_name"] = free_service_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind

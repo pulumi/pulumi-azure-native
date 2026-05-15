@@ -20,28 +20,39 @@ __all__ = ['LabelByWorkspaceArgs', 'LabelByWorkspace']
 @pulumi.input_type
 class LabelByWorkspaceArgs:
     def __init__(__self__, *,
+                 label_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  color: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LabelByWorkspace resource.
 
+        :param pulumi.Input[_builtins.str] label_name: The name of the Label.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the Workspace.
         :param pulumi.Input[_builtins.str] color: Label color.
         :param pulumi.Input[_builtins.str] display_name: Label display name.
-        :param pulumi.Input[_builtins.str] label_name: The name of the Label.
         """
+        pulumi.set(__self__, "label_name", label_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if color is not None:
             pulumi.set(__self__, "color", color)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if label_name is not None:
-            pulumi.set(__self__, "label_name", label_name)
+
+    @_builtins.property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Label.
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,18 +101,6 @@ class LabelByWorkspaceArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="labelName")
-    def label_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Label.
-        """
-        return pulumi.get(self, "label_name")
-
-    @label_name.setter
-    def label_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "label_name", value)
 
 
 @pulumi.type_token("azure-native:easm:LabelByWorkspace")
@@ -173,6 +172,8 @@ class LabelByWorkspace(pulumi.CustomResource):
 
             __props__.__dict__["color"] = color
             __props__.__dict__["display_name"] = display_name
+            if label_name is None and not opts.urn:
+                raise TypeError("Missing required property 'label_name'")
             __props__.__dict__["label_name"] = label_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

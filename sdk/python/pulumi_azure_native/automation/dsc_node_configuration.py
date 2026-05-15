@@ -24,34 +24,33 @@ class DscNodeConfigurationArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input['DscConfigurationAssociationPropertyArgs'],
+                 node_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ContentSourceArgs'],
                  increment_node_configuration_build: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DscNodeConfiguration resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['DscConfigurationAssociationPropertyArgs'] configuration: Gets or sets the configuration of the node.
+        :param pulumi.Input[_builtins.str] node_configuration_name: The Dsc node configuration name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
         :param pulumi.Input[_builtins.bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[_builtins.str] name: Name of the node configuration.
-        :param pulumi.Input[_builtins.str] node_configuration_name: The Dsc node configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "node_configuration_name", node_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
         if increment_node_configuration_build is not None:
             pulumi.set(__self__, "increment_node_configuration_build", increment_node_configuration_build)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if node_configuration_name is not None:
-            pulumi.set(__self__, "node_configuration_name", node_configuration_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +77,18 @@ class DscNodeConfigurationArgs:
     @configuration.setter
     def configuration(self, value: pulumi.Input['DscConfigurationAssociationPropertyArgs']):
         pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeConfigurationName")
+    def node_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Dsc node configuration name.
+        """
+        return pulumi.get(self, "node_configuration_name")
+
+    @node_configuration_name.setter
+    def node_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "node_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -126,18 +137,6 @@ class DscNodeConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeConfigurationName")
-    def node_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Dsc node configuration name.
-        """
-        return pulumi.get(self, "node_configuration_name")
-
-    @node_configuration_name.setter
-    def node_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "node_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -240,6 +239,8 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["increment_node_configuration_build"] = increment_node_configuration_build
             __props__.__dict__["name"] = name
+            if node_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'node_configuration_name'")
             __props__.__dict__["node_configuration_name"] = node_configuration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

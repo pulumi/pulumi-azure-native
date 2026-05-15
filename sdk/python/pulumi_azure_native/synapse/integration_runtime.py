@@ -22,23 +22,34 @@ __all__ = ['IntegrationRuntimeArgs', 'IntegrationRuntime']
 @pulumi.input_type
 class IntegrationRuntimeArgs:
     def __init__(__self__, *,
+                 integration_runtime_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['ManagedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationRuntime resource.
 
+        :param pulumi.Input[_builtins.str] integration_runtime_name: Integration runtime name
         :param pulumi.Input[Union['ManagedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgs']] properties: Integration runtime properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] integration_runtime_name: Integration runtime name
         """
+        pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+
+    @_builtins.property
+    @pulumi.getter(name="integrationRuntimeName")
+    def integration_runtime_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Integration runtime name
+        """
+        return pulumi.get(self, "integration_runtime_name")
+
+    @integration_runtime_name.setter
+    def integration_runtime_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class IntegrationRuntimeArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Integration runtime name
-        """
-        return pulumi.get(self, "integration_runtime_name")
-
-    @integration_runtime_name.setter
-    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "integration_runtime_name", value)
 
 
 @pulumi.type_token("azure-native:synapse:IntegrationRuntime")
@@ -157,6 +156,8 @@ class IntegrationRuntime(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationRuntimeArgs.__new__(IntegrationRuntimeArgs)
 
+            if integration_runtime_name is None and not opts.urn:
+                raise TypeError("Missing required property 'integration_runtime_name'")
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

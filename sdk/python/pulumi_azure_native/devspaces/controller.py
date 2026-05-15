@@ -22,34 +22,45 @@ __all__ = ['ControllerArgs', 'Controller']
 @pulumi.input_type
 class ControllerArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  target_container_host_credentials_base64: pulumi.Input[_builtins.str],
                  target_container_host_resource_id: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Controller resource.
 
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group to which the resource belongs.
         :param pulumi.Input['SkuArgs'] sku: Model representing SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[_builtins.str] target_container_host_credentials_base64: Credentials of the target container host (base64).
         :param pulumi.Input[_builtins.str] target_container_host_resource_id: Resource ID of the target container host
         :param pulumi.Input[_builtins.str] location: Region where the Azure resource is located.
-        :param pulumi.Input[_builtins.str] name: Name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags for the Azure resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "target_container_host_credentials_base64", target_container_host_credentials_base64)
         pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -110,18 +121,6 @@ class ControllerArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -206,6 +205,8 @@ class Controller(pulumi.CustomResource):
             __props__ = ControllerArgs.__new__(ControllerArgs)
 
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

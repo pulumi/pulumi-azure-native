@@ -23,25 +23,24 @@ __all__ = ['ResourceTypeRegistrationInitArgs', 'ResourceTypeRegistration']
 class ResourceTypeRegistrationInitArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
+                 resource_type: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
-                 properties: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ResourceTypeRegistration resource.
 
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
-        :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] resource_type: The resource type.
+        :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         pulumi.set(__self__, "provider_namespace", provider_namespace)
+        pulumi.set(__self__, "resource_type", resource_type)
         if kind is None:
             kind = 'Managed'
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
@@ -54,6 +53,18 @@ class ResourceTypeRegistrationInitArgs:
     @provider_namespace.setter
     def provider_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class ResourceTypeRegistrationInitArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The resource type.
-        """
-        return pulumi.get(self, "resource_type")
-
-    @resource_type.setter
-    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_type", value)
 
 
 @pulumi.type_token("azure-native:providerhub:ResourceTypeRegistration")
@@ -163,6 +162,8 @@ class ResourceTypeRegistration(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
+            if resource_type is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

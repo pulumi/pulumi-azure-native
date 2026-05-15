@@ -26,12 +26,12 @@ class ScheduleArgs:
                  frequency: pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 schedule_name: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
                  advanced_schedule: pulumi.Input[Optional['AdvancedScheduleArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
                  interval: Optional[Any] = None,
-                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
@@ -40,18 +40,19 @@ class ScheduleArgs:
         :param pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the Schedule.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] schedule_name: The schedule name.
         :param pulumi.Input[_builtins.str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input['AdvancedScheduleArgs'] advanced_schedule: Gets or sets the AdvancedSchedule.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the schedule.
         :param pulumi.Input[_builtins.str] expiry_time: Gets or sets the end time of the schedule.
         :param Any interval: Gets or sets the interval of the schedule.
-        :param pulumi.Input[_builtins.str] schedule_name: The schedule name.
         :param pulumi.Input[_builtins.str] time_zone: Gets or sets the time zone of the schedule.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schedule_name", schedule_name)
         pulumi.set(__self__, "start_time", start_time)
         if advanced_schedule is not None:
             pulumi.set(__self__, "advanced_schedule", advanced_schedule)
@@ -61,8 +62,6 @@ class ScheduleArgs:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
-        if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
 
@@ -113,6 +112,18 @@ class ScheduleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleName")
+    def schedule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The schedule name.
+        """
+        return pulumi.get(self, "schedule_name")
+
+    @schedule_name.setter
+    def schedule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
@@ -173,18 +184,6 @@ class ScheduleArgs:
     @interval.setter
     def interval(self, value: Optional[Any]):
         pulumi.set(self, "interval", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The schedule name.
-        """
-        return pulumi.get(self, "schedule_name")
-
-    @schedule_name.setter
-    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
@@ -304,6 +303,8 @@ class Schedule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if schedule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'schedule_name'")
             __props__.__dict__["schedule_name"] = schedule_name
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")

@@ -20,26 +20,27 @@ __all__ = ['AppServiceCertificateOrderCertificateArgs', 'AppServiceCertificateOr
 class AppServiceCertificateOrderCertificateArgs:
     def __init__(__self__, *,
                  certificate_order_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppServiceCertificateOrderCertificate resource.
 
         :param pulumi.Input[_builtins.str] certificate_order_name: Name of the certificate order.
+        :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[_builtins.str] key_vault_secret_name: Key Vault secret name.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
-        :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "certificate_order_name", certificate_order_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -49,8 +50,6 @@ class AppServiceCertificateOrderCertificateArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -65,6 +64,18 @@ class AppServiceCertificateOrderCertificateArgs:
     @certificate_order_name.setter
     def certificate_order_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "certificate_order_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -125,18 +136,6 @@ class AppServiceCertificateOrderCertificateArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,6 +237,8 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
             __props__.__dict__["key_vault_secret_name"] = key_vault_secret_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

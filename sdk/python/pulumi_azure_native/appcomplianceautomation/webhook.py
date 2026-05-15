@@ -22,6 +22,7 @@ __all__ = ['WebhookArgs', 'Webhook']
 class WebhookArgs:
     def __init__(__self__, *,
                  report_name: pulumi.Input[_builtins.str],
+                 webhook_name: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]] = None,
                  enable_ssl_verification: pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
@@ -29,12 +30,12 @@ class WebhookArgs:
                  send_all_events: pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]] = None,
                  update_webhook_key: pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
-                 webhook_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 webhook_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 webhook_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
         :param pulumi.Input[_builtins.str] report_name: Report Name.
+        :param pulumi.Input[_builtins.str] webhook_name: Webhook Name.
         :param pulumi.Input[Union[_builtins.str, 'ContentType']] content_type: content type
         :param pulumi.Input[Union[_builtins.str, 'EnableSslVerification']] enable_ssl_verification: whether to enable ssl verification
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]] events: under which event notification should be sent.
@@ -43,9 +44,9 @@ class WebhookArgs:
         :param pulumi.Input[Union[_builtins.str, 'WebhookStatus']] status: Webhook status.
         :param pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']] update_webhook_key: whether to update webhookKey.
         :param pulumi.Input[_builtins.str] webhook_key: webhook secret token. If not set, this field value is null; otherwise, please set a string value.
-        :param pulumi.Input[_builtins.str] webhook_name: Webhook Name.
         """
         pulumi.set(__self__, "report_name", report_name)
+        pulumi.set(__self__, "webhook_name", webhook_name)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if enable_ssl_verification is not None:
@@ -62,8 +63,6 @@ class WebhookArgs:
             pulumi.set(__self__, "update_webhook_key", update_webhook_key)
         if webhook_key is not None:
             pulumi.set(__self__, "webhook_key", webhook_key)
-        if webhook_name is not None:
-            pulumi.set(__self__, "webhook_name", webhook_name)
 
     @_builtins.property
     @pulumi.getter(name="reportName")
@@ -76,6 +75,18 @@ class WebhookArgs:
     @report_name.setter
     def report_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "report_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookName")
+    def webhook_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Webhook Name.
+        """
+        return pulumi.get(self, "webhook_name")
+
+    @webhook_name.setter
+    def webhook_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "webhook_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
@@ -173,18 +184,6 @@ class WebhookArgs:
     def webhook_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_key", value)
 
-    @_builtins.property
-    @pulumi.getter(name="webhookName")
-    def webhook_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Webhook Name.
-        """
-        return pulumi.get(self, "webhook_name")
-
-    @webhook_name.setter
-    def webhook_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "webhook_name", value)
-
 
 @pulumi.type_token("azure-native:appcomplianceautomation:Webhook")
 class Webhook(pulumi.CustomResource):
@@ -279,6 +278,8 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["update_webhook_key"] = update_webhook_key
             __props__.__dict__["webhook_key"] = webhook_key
+            if webhook_name is None and not opts.urn:
+                raise TypeError("Missing required property 'webhook_name'")
             __props__.__dict__["webhook_name"] = webhook_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["delivery_status"] = None

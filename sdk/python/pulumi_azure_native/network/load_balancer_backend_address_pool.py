@@ -22,9 +22,9 @@ __all__ = ['LoadBalancerBackendAddressPoolArgs', 'LoadBalancerBackendAddressPool
 @pulumi.input_type
 class LoadBalancerBackendAddressPoolArgs:
     def __init__(__self__, *,
+                 backend_address_pool_name: pulumi.Input[_builtins.str],
                  load_balancer_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backend_address_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  drain_period_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancer_backend_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
@@ -36,9 +36,9 @@ class LoadBalancerBackendAddressPoolArgs:
         """
         The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
 
+        :param pulumi.Input[_builtins.str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[_builtins.int] drain_period_in_seconds: Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
@@ -48,10 +48,9 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         :param pulumi.Input['SubResourceArgs'] virtual_network: A reference to a virtual network.
         """
+        pulumi.set(__self__, "backend_address_pool_name", backend_address_pool_name)
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if backend_address_pool_name is not None:
-            pulumi.set(__self__, "backend_address_pool_name", backend_address_pool_name)
         if drain_period_in_seconds is not None:
             pulumi.set(__self__, "drain_period_in_seconds", drain_period_in_seconds)
         if id is not None:
@@ -68,6 +67,18 @@ class LoadBalancerBackendAddressPoolArgs:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
         if virtual_network is not None:
             pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPoolName")
+    def backend_address_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the backend address pool.
+        """
+        return pulumi.get(self, "backend_address_pool_name")
+
+    @backend_address_pool_name.setter
+    def backend_address_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backend_address_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
@@ -92,18 +103,6 @@ class LoadBalancerBackendAddressPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backendAddressPoolName")
-    def backend_address_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the backend address pool.
-        """
-        return pulumi.get(self, "backend_address_pool_name")
-
-    @backend_address_pool_name.setter
-    def backend_address_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backend_address_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="drainPeriodInSeconds")
@@ -291,6 +290,8 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerBackendAddressPoolArgs.__new__(LoadBalancerBackendAddressPoolArgs)
 
+            if backend_address_pool_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backend_address_pool_name'")
             __props__.__dict__["backend_address_pool_name"] = backend_address_pool_name
             __props__.__dict__["drain_period_in_seconds"] = drain_period_in_seconds
             __props__.__dict__["id"] = id

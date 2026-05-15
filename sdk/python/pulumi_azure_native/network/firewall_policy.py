@@ -22,11 +22,11 @@ __all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
 @pulumi.input_type
 class FirewallPolicyArgs:
     def __init__(__self__, *,
+                 firewall_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  base_policy: pulumi.Input[Optional['SubResourceArgs']] = None,
                  dns_settings: pulumi.Input[Optional['DnsSettingsArgs']] = None,
                  explicit_proxy: pulumi.Input[Optional['ExplicitProxyArgs']] = None,
-                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  insights: pulumi.Input[Optional['FirewallPolicyInsightsArgs']] = None,
@@ -42,11 +42,11 @@ class FirewallPolicyArgs:
         """
         The set of arguments for constructing a FirewallPolicy resource.
 
+        :param pulumi.Input[_builtins.str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SubResourceArgs'] base_policy: The parent firewall policy from which rules are inherited.
         :param pulumi.Input['DnsSettingsArgs'] dns_settings: DNS Proxy Settings definition.
         :param pulumi.Input['ExplicitProxyArgs'] explicit_proxy: Explicit Proxy Settings definition.
-        :param pulumi.Input[_builtins.str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the firewall policy.
         :param pulumi.Input['FirewallPolicyInsightsArgs'] insights: Insights on Firewall Policy.
@@ -60,6 +60,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input['FirewallPolicyTransportSecurityArgs'] transport_security: TLS Configuration definition.
         """
+        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if base_policy is not None:
             pulumi.set(__self__, "base_policy", base_policy)
@@ -67,8 +68,6 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if explicit_proxy is not None:
             pulumi.set(__self__, "explicit_proxy", explicit_proxy)
-        if firewall_policy_name is not None:
-            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if identity is not None:
@@ -93,6 +92,18 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
         if transport_security is not None:
             pulumi.set(__self__, "transport_security", transport_security)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallPolicyName")
+    def firewall_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Firewall Policy.
+        """
+        return pulumi.get(self, "firewall_policy_name")
+
+    @firewall_policy_name.setter
+    def firewall_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "firewall_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -141,18 +152,6 @@ class FirewallPolicyArgs:
     @explicit_proxy.setter
     def explicit_proxy(self, value: pulumi.Input[Optional['ExplicitProxyArgs']]):
         pulumi.set(self, "explicit_proxy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallPolicyName")
-    def firewall_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Firewall Policy.
-        """
-        return pulumi.get(self, "firewall_policy_name")
-
-    @firewall_policy_name.setter
-    def firewall_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "firewall_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -409,6 +408,8 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["base_policy"] = base_policy
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["explicit_proxy"] = explicit_proxy
+            if firewall_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_policy_name'")
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity

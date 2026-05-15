@@ -21,26 +21,37 @@ __all__ = ['ServiceGroupArgs', 'ServiceGroup']
 @pulumi.input_type
 class ServiceGroupArgs:
     def __init__(__self__, *,
+                 service_group_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ServiceGroupPropertiesArgs']] = None,
-                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGroup resource.
 
+        :param pulumi.Input[_builtins.str] service_group_name: ServiceGroup Name.
         :param pulumi.Input[_builtins.str] kind: The kind of the serviceGroup.
         :param pulumi.Input['ServiceGroupPropertiesArgs'] properties: ServiceGroup creation request body parameters.
-        :param pulumi.Input[_builtins.str] service_group_name: ServiceGroup Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The serviceGroup tags.
         """
+        pulumi.set(__self__, "service_group_name", service_group_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if service_group_name is not None:
-            pulumi.set(__self__, "service_group_name", service_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGroupName")
+    def service_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        ServiceGroup Name.
+        """
+        return pulumi.get(self, "service_group_name")
+
+    @service_group_name.setter
+    def service_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -65,18 +76,6 @@ class ServiceGroupArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ServiceGroupPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceGroupName")
-    def service_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        ServiceGroup Name.
-        """
-        return pulumi.get(self, "service_group_name")
-
-    @service_group_name.setter
-    def service_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,7 +118,7 @@ class ServiceGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServiceGroupArgs] = None,
+                 args: ServiceGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The serviceGroup details.
@@ -157,6 +156,8 @@ class ServiceGroup(pulumi.CustomResource):
 
             __props__.__dict__["kind"] = kind
             __props__.__dict__["properties"] = properties
+            if service_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_group_name'")
             __props__.__dict__["service_group_name"] = service_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

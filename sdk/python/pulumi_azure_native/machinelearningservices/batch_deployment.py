@@ -22,11 +22,11 @@ __all__ = ['BatchDeploymentArgs', 'BatchDeployment']
 @pulumi.input_type
 class BatchDeploymentArgs:
     def __init__(__self__, *,
+                 deployment_name: pulumi.Input[_builtins.str],
                  endpoint_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['BatchDeploymentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,23 +35,22 @@ class BatchDeploymentArgs:
         """
         The set of arguments for constructing a BatchDeployment resource.
 
+        :param pulumi.Input[_builtins.str] deployment_name: The identifier for the Batch deployments.
         :param pulumi.Input[_builtins.str] endpoint_name: Name for the Batch Endpoint.
         :param pulumi.Input['BatchDeploymentPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] deployment_name: The identifier for the Batch deployments.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -62,6 +61,18 @@ class BatchDeploymentArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier for the Batch deployments.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
@@ -110,18 +121,6 @@ class BatchDeploymentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The identifier for the Batch deployments.
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -270,6 +269,8 @@ class BatchDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BatchDeploymentArgs.__new__(BatchDeploymentArgs)
 
+            if deployment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")

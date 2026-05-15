@@ -21,19 +21,18 @@ __all__ = ['MonitoredResourceArgs', 'MonitoredResource']
 class MonitoredResourceArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 monitored_resource_name: pulumi.Input[_builtins.str],
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a MonitoredResource resource.
 
         :param pulumi.Input[_builtins.str] instance_name: Name of the SCOM managed instance.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] monitored_resource_name: The monitored resource name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "monitored_resource_name", monitored_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if monitored_resource_name is not None:
-            pulumi.set(__self__, "monitored_resource_name", monitored_resource_name)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
@@ -48,6 +47,18 @@ class MonitoredResourceArgs:
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="monitoredResourceName")
+    def monitored_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The monitored resource name.
+        """
+        return pulumi.get(self, "monitored_resource_name")
+
+    @monitored_resource_name.setter
+    def monitored_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "monitored_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -58,18 +69,6 @@ class MonitoredResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="monitoredResourceName")
-    def monitored_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The monitored resource name.
-        """
-        return pulumi.get(self, "monitored_resource_name")
-
-    @monitored_resource_name.setter
-    def monitored_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "monitored_resource_name", value)
 
 
 @pulumi.type_token("azure-native:scom:MonitoredResource")
@@ -136,6 +135,8 @@ class MonitoredResource(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
+            if monitored_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'monitored_resource_name'")
             __props__.__dict__["monitored_resource_name"] = monitored_resource_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

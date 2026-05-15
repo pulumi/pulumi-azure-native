@@ -22,26 +22,25 @@ __all__ = ['StorageContainerArgs', 'StorageContainer']
 class StorageContainerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_container_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['StorageContainerPropertiesArgs']] = None,
-                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageContainer resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] storage_container_name: The name of the StorageContainer
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageContainerPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] storage_container_name: The name of the StorageContainer
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_container_name", storage_container_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if storage_container_name is not None:
-            pulumi.set(__self__, "storage_container_name", storage_container_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,6 +55,18 @@ class StorageContainerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the StorageContainer
+        """
+        return pulumi.get(self, "storage_container_name")
+
+    @storage_container_name.setter
+    def storage_container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_container_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -80,18 +91,6 @@ class StorageContainerArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StorageContainerPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the StorageContainer
-        """
-        return pulumi.get(self, "storage_container_name")
-
-    @storage_container_name.setter
-    def storage_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_container_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class StorageContainer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_container_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_container_name'")
             __props__.__dict__["storage_container_name"] = storage_container_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

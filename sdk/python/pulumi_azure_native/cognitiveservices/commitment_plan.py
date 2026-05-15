@@ -23,8 +23,8 @@ __all__ = ['CommitmentPlanArgs', 'CommitmentPlan']
 class CommitmentPlanArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 commitment_plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 commitment_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CommitmentPlanPropertiesArgs']] = None,
@@ -34,8 +34,8 @@ class CommitmentPlanArgs:
         The set of arguments for constructing a CommitmentPlan resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] kind: The Kind of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['CommitmentPlanPropertiesArgs'] properties: Properties of Cognitive Services account commitment plan.
@@ -43,9 +43,8 @@ class CommitmentPlanArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if commitment_plan_name is not None:
-            pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -70,6 +69,18 @@ class CommitmentPlanArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="commitmentPlanName")
+    def commitment_plan_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the commitmentPlan associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "commitment_plan_name")
+
+    @commitment_plan_name.setter
+    def commitment_plan_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "commitment_plan_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -80,18 +91,6 @@ class CommitmentPlanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="commitmentPlanName")
-    def commitment_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the commitmentPlan associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "commitment_plan_name")
-
-    @commitment_plan_name.setter
-    def commitment_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "commitment_plan_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,6 +236,8 @@ class CommitmentPlan(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if commitment_plan_name is None and not opts.urn:
+                raise TypeError("Missing required property 'commitment_plan_name'")
             __props__.__dict__["commitment_plan_name"] = commitment_plan_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

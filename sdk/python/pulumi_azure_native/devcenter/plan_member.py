@@ -21,36 +21,47 @@ __all__ = ['PlanMemberArgs', 'PlanMember']
 @pulumi.input_type
 class PlanMemberArgs:
     def __init__(__self__, *,
+                 member_name: pulumi.Input[_builtins.str],
                  plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  member_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
                  member_type: pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlanMember resource.
 
+        :param pulumi.Input[_builtins.str] member_name: The name of a devcenter plan member.
         :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] member_id: The unique id of the member.
-        :param pulumi.Input[_builtins.str] member_name: The name of a devcenter plan member.
         :param pulumi.Input[Union[_builtins.str, 'PlanMemberType']] member_type: The type of the member (user, group)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] tier: The tier of the member.
         """
+        pulumi.set(__self__, "member_name", member_name)
         pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if member_id is not None:
             pulumi.set(__self__, "member_id", member_id)
-        if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
         if member_type is not None:
             pulumi.set(__self__, "member_type", member_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of a devcenter plan member.
+        """
+        return pulumi.get(self, "member_name")
+
+    @member_name.setter
+    def member_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="planName")
@@ -87,18 +98,6 @@ class PlanMemberArgs:
     @member_id.setter
     def member_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="memberName")
-    def member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of a devcenter plan member.
-        """
-        return pulumi.get(self, "member_name")
-
-    @member_name.setter
-    def member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="memberType")
@@ -215,6 +214,8 @@ class PlanMember(pulumi.CustomResource):
             __props__ = PlanMemberArgs.__new__(PlanMemberArgs)
 
             __props__.__dict__["member_id"] = member_id
+            if member_name is None and not opts.urn:
+                raise TypeError("Missing required property 'member_name'")
             __props__.__dict__["member_name"] = member_name
             __props__.__dict__["member_type"] = member_type
             if plan_name is None and not opts.urn:

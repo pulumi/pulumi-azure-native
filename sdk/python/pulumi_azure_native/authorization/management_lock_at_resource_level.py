@@ -24,12 +24,12 @@ class ManagementLockAtResourceLevelArgs:
     def __init__(__self__, *,
                  api_version: pulumi.Input[_builtins.str],
                  level: pulumi.Input[Union[_builtins.str, 'LockLevel']],
+                 lock_name: pulumi.Input[_builtins.str],
                  parent_resource_path: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  resource_provider_namespace: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  owners: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
@@ -37,24 +37,23 @@ class ManagementLockAtResourceLevelArgs:
 
         :param pulumi.Input[_builtins.str] api_version: The API version to use for this operation.
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        :param pulumi.Input[_builtins.str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         :param pulumi.Input[_builtins.str] parent_resource_path: The parent resource identity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing the resource to lock. 
         :param pulumi.Input[_builtins.str] resource_name: The name of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_type: The resource type of the resource to lock.
-        :param pulumi.Input[_builtins.str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         :param pulumi.Input[_builtins.str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
         """
         pulumi.set(__self__, "api_version", api_version)
         pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "lock_name", lock_name)
         pulumi.set(__self__, "parent_resource_path", parent_resource_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
-        if lock_name is not None:
-            pulumi.set(__self__, "lock_name", lock_name)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if owners is not None:
@@ -83,6 +82,18 @@ class ManagementLockAtResourceLevelArgs:
     @level.setter
     def level(self, value: pulumi.Input[Union[_builtins.str, 'LockLevel']]):
         pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lockName")
+    def lock_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
+        """
+        return pulumi.get(self, "lock_name")
+
+    @lock_name.setter
+    def lock_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "lock_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentResourcePath")
@@ -143,18 +154,6 @@ class ManagementLockAtResourceLevelArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lockName")
-    def lock_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
-        """
-        return pulumi.get(self, "lock_name")
-
-    @lock_name.setter
-    def lock_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "lock_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -269,6 +268,8 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__.__dict__["level"] = level
+            if lock_name is None and not opts.urn:
+                raise TypeError("Missing required property 'lock_name'")
             __props__.__dict__["lock_name"] = lock_name
             __props__.__dict__["notes"] = notes
             __props__.__dict__["owners"] = owners

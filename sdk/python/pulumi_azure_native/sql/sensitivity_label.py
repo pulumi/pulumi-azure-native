@@ -24,6 +24,7 @@ class SensitivityLabelArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
+                 sensitivity_label_source: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  client_classification_source: pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]] = None,
@@ -31,8 +32,7 @@ class SensitivityLabelArgs:
                  information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  label_id: pulumi.Input[Optional[_builtins.str]] = None,
                  label_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
-                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None):
+                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None):
         """
         The set of arguments for constructing a SensitivityLabel resource.
 
@@ -40,18 +40,19 @@ class SensitivityLabelArgs:
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] schema_name: The name of the schema.
+        :param pulumi.Input[_builtins.str] sensitivity_label_source: The source of the sensitivity label.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
         :param pulumi.Input[_builtins.str] information_type: The information type.
         :param pulumi.Input[_builtins.str] information_type_id: The information type ID.
         :param pulumi.Input[_builtins.str] label_id: The label ID.
         :param pulumi.Input[_builtins.str] label_name: The label name.
-        :param pulumi.Input[_builtins.str] sensitivity_label_source: The source of the sensitivity label.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "sensitivity_label_source", sensitivity_label_source)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "table_name", table_name)
         if client_classification_source is not None:
@@ -66,8 +67,6 @@ class SensitivityLabelArgs:
             pulumi.set(__self__, "label_name", label_name)
         if rank is not None:
             pulumi.set(__self__, "rank", rank)
-        if sensitivity_label_source is not None:
-            pulumi.set(__self__, "sensitivity_label_source", sensitivity_label_source)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -116,6 +115,18 @@ class SensitivityLabelArgs:
     @schema_name.setter
     def schema_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitivityLabelSource")
+    def sensitivity_label_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source of the sensitivity label.
+        """
+        return pulumi.get(self, "sensitivity_label_source")
+
+    @sensitivity_label_source.setter
+    def sensitivity_label_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sensitivity_label_source", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
@@ -206,18 +217,6 @@ class SensitivityLabelArgs:
     @rank.setter
     def rank(self, value: pulumi.Input[Optional['SensitivityLabelRank']]):
         pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sensitivityLabelSource")
-    def sensitivity_label_source(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The source of the sensitivity label.
-        """
-        return pulumi.get(self, "sensitivity_label_source")
-
-    @sensitivity_label_source.setter
-    def sensitivity_label_source(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sensitivity_label_source", value)
 
 
 @pulumi.type_token("azure-native:sql:SensitivityLabel")
@@ -331,6 +330,8 @@ class SensitivityLabel(pulumi.CustomResource):
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
+            if sensitivity_label_source is None and not opts.urn:
+                raise TypeError("Missing required property 'sensitivity_label_source'")
             __props__.__dict__["sensitivity_label_source"] = sensitivity_label_source
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

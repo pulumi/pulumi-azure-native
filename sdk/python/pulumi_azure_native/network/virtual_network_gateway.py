@@ -23,6 +23,7 @@ __all__ = ['VirtualNetworkGatewayInitArgs', 'VirtualNetworkGateway']
 class VirtualNetworkGatewayInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 virtual_network_gateway_name: pulumi.Input[_builtins.str],
                  active_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  admin_state: pulumi.Input[Optional[Union[_builtins.str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -47,7 +48,6 @@ class VirtualNetworkGatewayInitArgs:
                  sku: pulumi.Input[Optional['VirtualNetworkGatewaySkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v_net_extended_location_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_gateway_policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]]] = None,
                  vpn_client_configuration: pulumi.Input[Optional['VpnClientConfigurationArgs']] = None,
                  vpn_gateway_generation: pulumi.Input[Optional[Union[_builtins.str, 'VpnGatewayGeneration']]] = None,
@@ -56,6 +56,7 @@ class VirtualNetworkGatewayInitArgs:
         The set of arguments for constructing a VirtualNetworkGateway resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[_builtins.bool] active_active: ActiveActive flag.
         :param pulumi.Input[Union[_builtins.str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[_builtins.bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
@@ -81,13 +82,13 @@ class VirtualNetworkGatewayInitArgs:
         :param pulumi.Input['VirtualNetworkGatewaySkuArgs'] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-        :param pulumi.Input[_builtins.str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]] virtual_network_gateway_policy_groups: The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
         :param pulumi.Input['VpnClientConfigurationArgs'] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[_builtins.str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param pulumi.Input[Union[_builtins.str, 'VpnType']] vpn_type: The type of this virtual network gateway.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_gateway_name", virtual_network_gateway_name)
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
         if admin_state is not None:
@@ -136,8 +137,6 @@ class VirtualNetworkGatewayInitArgs:
             pulumi.set(__self__, "tags", tags)
         if v_net_extended_location_resource_id is not None:
             pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
-        if virtual_network_gateway_name is not None:
-            pulumi.set(__self__, "virtual_network_gateway_name", virtual_network_gateway_name)
         if virtual_network_gateway_policy_groups is not None:
             pulumi.set(__self__, "virtual_network_gateway_policy_groups", virtual_network_gateway_policy_groups)
         if vpn_client_configuration is not None:
@@ -158,6 +157,18 @@ class VirtualNetworkGatewayInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkGatewayName")
+    def virtual_network_gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual network gateway.
+        """
+        return pulumi.get(self, "virtual_network_gateway_name")
+
+    @virtual_network_gateway_name.setter
+    def virtual_network_gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_network_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="activeActive")
@@ -449,18 +460,6 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(self, "v_net_extended_location_resource_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworkGatewayName")
-    def virtual_network_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the virtual network gateway.
-        """
-        return pulumi.get(self, "virtual_network_gateway_name")
-
-    @virtual_network_gateway_name.setter
-    def virtual_network_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_network_gateway_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="virtualNetworkGatewayPolicyGroups")
     def virtual_network_gateway_policy_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]]]:
         """
@@ -683,6 +682,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_net_extended_location_resource_id"] = v_net_extended_location_resource_id
+            if virtual_network_gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_network_gateway_name'")
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["virtual_network_gateway_policy_groups"] = virtual_network_gateway_policy_groups
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration

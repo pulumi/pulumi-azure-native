@@ -20,6 +20,7 @@ __all__ = ['ManagedDatabaseArgs', 'ManagedDatabase']
 @pulumi.input_type
 class ManagedDatabaseArgs:
     def __init__(__self__, *,
+                 database_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_complete_restore: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -29,7 +30,6 @@ class ManagedDatabaseArgs:
                  cross_subscription_restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cross_subscription_source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cross_subscription_target_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_backup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -45,6 +45,7 @@ class ManagedDatabaseArgs:
         """
         The set of arguments for constructing a ManagedDatabase resource.
 
+        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.bool] auto_complete_restore: Whether to auto complete restore of this managed database.
@@ -54,7 +55,6 @@ class ManagedDatabaseArgs:
         :param pulumi.Input[_builtins.str] cross_subscription_restorable_dropped_database_id: The restorable cross-subscription dropped database resource id to restore when creating this database.
         :param pulumi.Input[_builtins.str] cross_subscription_source_database_id: The resource identifier of the cross-subscription source database associated with create operation of this database.
         :param pulumi.Input[_builtins.str] cross_subscription_target_managed_instance_id: Target managed instance id used in cross-subscription restore.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[_builtins.str] last_backup_name: Last backup file name for restore of this managed database.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -68,6 +68,7 @@ class ManagedDatabaseArgs:
         :param pulumi.Input[_builtins.str] storage_container_uri: Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_complete_restore is not None:
@@ -84,8 +85,6 @@ class ManagedDatabaseArgs:
             pulumi.set(__self__, "cross_subscription_source_database_id", cross_subscription_source_database_id)
         if cross_subscription_target_managed_instance_id is not None:
             pulumi.set(__self__, "cross_subscription_target_managed_instance_id", cross_subscription_target_managed_instance_id)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
         if is_ledger_on is not None:
             pulumi.set(__self__, "is_ledger_on", is_ledger_on)
         if last_backup_name is not None:
@@ -110,6 +109,18 @@ class ManagedDatabaseArgs:
             pulumi.set(__self__, "storage_container_uri", storage_container_uri)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -218,18 +229,6 @@ class ManagedDatabaseArgs:
     @cross_subscription_target_managed_instance_id.setter
     def cross_subscription_target_managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_subscription_target_managed_instance_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isLedgerOn")
@@ -505,6 +504,8 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__.__dict__["cross_subscription_restorable_dropped_database_id"] = cross_subscription_restorable_dropped_database_id
             __props__.__dict__["cross_subscription_source_database_id"] = cross_subscription_source_database_id
             __props__.__dict__["cross_subscription_target_managed_instance_id"] = cross_subscription_target_managed_instance_id
+            if database_name is None and not opts.urn:
+                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["is_ledger_on"] = is_ledger_on
             __props__.__dict__["last_backup_name"] = last_backup_name

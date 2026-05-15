@@ -22,11 +22,11 @@ __all__ = ['HubVirtualNetworkConnectionArgs', 'HubVirtualNetworkConnection']
 @pulumi.input_type
 class HubVirtualNetworkConnectionArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
                  allow_hub_to_remote_vnet_transit: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,25 +35,24 @@ class HubVirtualNetworkConnectionArgs:
         """
         The set of arguments for constructing a HubVirtualNetworkConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: The name of the HubVirtualNetworkConnection.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[_builtins.bool] allow_hub_to_remote_vnet_transit: Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
         :param pulumi.Input[_builtins.bool] allow_remote_vnet_to_use_hub_vnet_gateways: Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-        :param pulumi.Input[_builtins.str] connection_name: The name of the HubVirtualNetworkConnection.
         :param pulumi.Input[_builtins.bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if allow_hub_to_remote_vnet_transit is not None:
             pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
             pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
         if id is not None:
@@ -64,6 +63,18 @@ class HubVirtualNetworkConnectionArgs:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
         if routing_configuration is not None:
             pulumi.set(__self__, "routing_configuration", routing_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the HubVirtualNetworkConnection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -112,18 +123,6 @@ class HubVirtualNetworkConnectionArgs:
     @allow_remote_vnet_to_use_hub_vnet_gateways.setter
     def allow_remote_vnet_to_use_hub_vnet_gateways(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_remote_vnet_to_use_hub_vnet_gateways", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the HubVirtualNetworkConnection.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInternetSecurity")
@@ -274,6 +273,8 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
             __props__.__dict__["allow_hub_to_remote_vnet_transit"] = allow_hub_to_remote_vnet_transit
             __props__.__dict__["allow_remote_vnet_to_use_hub_vnet_gateways"] = allow_remote_vnet_to_use_hub_vnet_gateways
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["enable_internet_security"] = enable_internet_security
             __props__.__dict__["id"] = id

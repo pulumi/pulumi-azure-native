@@ -21,24 +21,35 @@ __all__ = ['OpenAIArgs', 'OpenAI']
 @pulumi.input_type
 class OpenAIArgs:
     def __init__(__self__, *,
+                 integration_name: pulumi.Input[_builtins.str],
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['OpenAIIntegrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a OpenAI resource.
 
+        :param pulumi.Input[_builtins.str] integration_name: OpenAI Integration name
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] integration_name: OpenAI Integration name
         :param pulumi.Input['OpenAIIntegrationPropertiesArgs'] properties: Open AI Integration details.
         """
+        pulumi.set(__self__, "integration_name", integration_name)
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if integration_name is not None:
-            pulumi.set(__self__, "integration_name", integration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="integrationName")
+    def integration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        OpenAI Integration name
+        """
+        return pulumi.get(self, "integration_name")
+
+    @integration_name.setter
+    def integration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "integration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
@@ -63,18 +74,6 @@ class OpenAIArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="integrationName")
-    def integration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        OpenAI Integration name
-        """
-        return pulumi.get(self, "integration_name")
-
-    @integration_name.setter
-    def integration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "integration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class OpenAI(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OpenAIArgs.__new__(OpenAIArgs)
 
+            if integration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'integration_name'")
             __props__.__dict__["integration_name"] = integration_name
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")

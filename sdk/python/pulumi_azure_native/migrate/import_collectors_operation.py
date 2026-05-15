@@ -21,28 +21,39 @@ __all__ = ['ImportCollectorsOperationArgs', 'ImportCollectorsOperation']
 @pulumi.input_type
 class ImportCollectorsOperationArgs:
     def __init__(__self__, *,
+                 import_collector_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         The set of arguments for constructing a ImportCollectorsOperation resource.
 
+        :param pulumi.Input[_builtins.str] import_collector_name: Import collector ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] discovery_site_id: Gets the discovery site id.
-        :param pulumi.Input[_builtins.str] import_collector_name: Import collector ARM name
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         """
+        pulumi.set(__self__, "import_collector_name", import_collector_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if discovery_site_id is not None:
             pulumi.set(__self__, "discovery_site_id", discovery_site_id)
-        if import_collector_name is not None:
-            pulumi.set(__self__, "import_collector_name", import_collector_name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="importCollectorName")
+    def import_collector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Import collector ARM name
+        """
+        return pulumi.get(self, "import_collector_name")
+
+    @import_collector_name.setter
+    def import_collector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "import_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -79,18 +90,6 @@ class ImportCollectorsOperationArgs:
     @discovery_site_id.setter
     def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="importCollectorName")
-    def import_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Import collector ARM name
-        """
-        return pulumi.get(self, "import_collector_name")
-
-    @import_collector_name.setter
-    def import_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "import_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -177,6 +176,8 @@ class ImportCollectorsOperation(pulumi.CustomResource):
             __props__ = ImportCollectorsOperationArgs.__new__(ImportCollectorsOperationArgs)
 
             __props__.__dict__["discovery_site_id"] = discovery_site_id
+            if import_collector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'import_collector_name'")
             __props__.__dict__["import_collector_name"] = import_collector_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

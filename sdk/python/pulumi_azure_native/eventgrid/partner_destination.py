@@ -21,6 +21,7 @@ __all__ = ['PartnerDestinationArgs', 'PartnerDestination']
 @pulumi.input_type
 class PartnerDestinationArgs:
     def __init__(__self__, *,
+                 partner_destination_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
                  endpoint_base_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -28,12 +29,12 @@ class PartnerDestinationArgs:
                  expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
-                 partner_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerDestination resource.
 
+        :param pulumi.Input[_builtins.str] partner_destination_name: Name of the partner destination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']] activation_state: Activation state of the partner destination.
         :param pulumi.Input[_builtins.str] endpoint_base_url: Endpoint Base URL of the partner destination
@@ -42,10 +43,10 @@ class PartnerDestinationArgs:
                the partner destination and corresponding channel are deleted.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[_builtins.str] message_for_activation: Context or helpful message that can be used during the approval process.
-        :param pulumi.Input[_builtins.str] partner_destination_name: Name of the partner destination.
         :param pulumi.Input[_builtins.str] partner_registration_immutable_id: The immutable Id of the corresponding partner registration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         """
+        pulumi.set(__self__, "partner_destination_name", partner_destination_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if activation_state is not None:
             pulumi.set(__self__, "activation_state", activation_state)
@@ -59,12 +60,22 @@ class PartnerDestinationArgs:
             pulumi.set(__self__, "location", location)
         if message_for_activation is not None:
             pulumi.set(__self__, "message_for_activation", message_for_activation)
-        if partner_destination_name is not None:
-            pulumi.set(__self__, "partner_destination_name", partner_destination_name)
         if partner_registration_immutable_id is not None:
             pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerDestinationName")
+    def partner_destination_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the partner destination.
+        """
+        return pulumi.get(self, "partner_destination_name")
+
+    @partner_destination_name.setter
+    def partner_destination_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "partner_destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -150,18 +161,6 @@ class PartnerDestinationArgs:
     @message_for_activation.setter
     def message_for_activation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_for_activation", value)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerDestinationName")
-    def partner_destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the partner destination.
-        """
-        return pulumi.get(self, "partner_destination_name")
-
-    @partner_destination_name.setter
-    def partner_destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "partner_destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationImmutableId")
@@ -281,6 +280,8 @@ class PartnerDestination(pulumi.CustomResource):
             __props__.__dict__["expiration_time_if_not_activated_utc"] = expiration_time_if_not_activated_utc
             __props__.__dict__["location"] = location
             __props__.__dict__["message_for_activation"] = message_for_activation
+            if partner_destination_name is None and not opts.urn:
+                raise TypeError("Missing required property 'partner_destination_name'")
             __props__.__dict__["partner_destination_name"] = partner_destination_name
             __props__.__dict__["partner_registration_immutable_id"] = partner_registration_immutable_id
             if resource_group_name is None and not opts.urn:

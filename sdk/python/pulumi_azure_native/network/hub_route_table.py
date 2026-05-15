@@ -22,24 +22,25 @@ __all__ = ['HubRouteTableArgs', 'HubRouteTable']
 class HubRouteTableArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_table_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routes: pulumi.Input[Optional[Sequence[pulumi.Input['HubRouteArgs']]]] = None):
         """
         The set of arguments for constructing a HubRouteTable resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[_builtins.str] route_table_name: The name of the RouteTable.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[_builtins.str] route_table_name: The name of the RouteTable.
         :param pulumi.Input[Sequence[pulumi.Input['HubRouteArgs']]] routes: List of all routes.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_table_name", route_table_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -47,8 +48,6 @@ class HubRouteTableArgs:
             pulumi.set(__self__, "labels", labels)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
 
@@ -63,6 +62,18 @@ class HubRouteTableArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableName")
+    def route_table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RouteTable.
+        """
+        return pulumi.get(self, "route_table_name")
+
+    @route_table_name.setter
+    def route_table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubName")
@@ -111,18 +122,6 @@ class HubRouteTableArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeTableName")
-    def route_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RouteTable.
-        """
-        return pulumi.get(self, "route_table_name")
-
-    @route_table_name.setter
-    def route_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_table_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -220,6 +219,8 @@ class HubRouteTable(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_table_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_table_name'")
             __props__.__dict__["route_table_name"] = route_table_name
             __props__.__dict__["routes"] = routes
             if virtual_hub_name is None and not opts.urn:

@@ -21,32 +21,43 @@ __all__ = ['PrivateLinkServicePrivateEndpointConnectionArgs', 'PrivateLinkServic
 @pulumi.input_type
 class PrivateLinkServicePrivateEndpointConnectionArgs:
     def __init__(__self__, *,
+                 pe_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkServicePrivateEndpointConnection resource.
 
+        :param pulumi.Input[_builtins.str] pe_connection_name: The name of the private end point connection.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] service_name: The name of the private link service.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[_builtins.str] pe_connection_name: The name of the private end point connection.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
+        pulumi.set(__self__, "pe_connection_name", pe_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if pe_connection_name is not None:
-            pulumi.set(__self__, "pe_connection_name", pe_connection_name)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @_builtins.property
+    @pulumi.getter(name="peConnectionName")
+    def pe_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the private end point connection.
+        """
+        return pulumi.get(self, "pe_connection_name")
+
+    @pe_connection_name.setter
+    def pe_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,18 +106,6 @@ class PrivateLinkServicePrivateEndpointConnectionArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peConnectionName")
-    def pe_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the private end point connection.
-        """
-        return pulumi.get(self, "pe_connection_name")
-
-    @pe_connection_name.setter
-    def pe_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -197,6 +196,8 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
+            if pe_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'pe_connection_name'")
             __props__.__dict__["pe_connection_name"] = pe_connection_name
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:

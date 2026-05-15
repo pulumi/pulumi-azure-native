@@ -21,9 +21,9 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 application_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_updates: pulumi.Input[Optional[_builtins.bool]] = None,
-                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  default_version: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -31,19 +31,18 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
 
         :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[_builtins.str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string.
-        :param pulumi.Input[_builtins.str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[_builtins.str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         :param pulumi.Input[_builtins.str] display_name: The display name for the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_updates is not None:
             pulumi.set(__self__, "allow_updates", allow_updates)
-        if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
         if default_version is not None:
             pulumi.set(__self__, "default_version", default_version)
         if display_name is not None:
@@ -62,6 +61,18 @@ class ApplicationArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application. This must be unique within the account.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,18 +97,6 @@ class ApplicationArgs:
     @allow_updates.setter
     def allow_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_updates", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the application. This must be unique within the account.
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVersion")
@@ -217,6 +216,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allow_updates"] = allow_updates
+            if application_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["default_version"] = default_version
             __props__.__dict__["display_name"] = display_name

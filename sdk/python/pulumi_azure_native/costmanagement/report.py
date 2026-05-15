@@ -24,24 +24,23 @@ class ReportArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['ReportDefinitionArgs'],
                  delivery_info: pulumi.Input['ReportDeliveryInfoArgs'],
+                 report_name: pulumi.Input[_builtins.str],
                  format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule: pulumi.Input[Optional['ReportScheduleArgs']] = None):
         """
         The set of arguments for constructing a Report resource.
 
         :param pulumi.Input['ReportDefinitionArgs'] definition: Has definition for the report.
         :param pulumi.Input['ReportDeliveryInfoArgs'] delivery_info: Has delivery information for the report.
-        :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the report being delivered.
         :param pulumi.Input[_builtins.str] report_name: Report Name.
+        :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the report being delivered.
         :param pulumi.Input['ReportScheduleArgs'] schedule: Has schedule information for the report.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "delivery_info", delivery_info)
+        pulumi.set(__self__, "report_name", report_name)
         if format is not None:
             pulumi.set(__self__, "format", format)
-        if report_name is not None:
-            pulumi.set(__self__, "report_name", report_name)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
 
@@ -70,6 +69,18 @@ class ReportArgs:
         pulumi.set(self, "delivery_info", value)
 
     @_builtins.property
+    @pulumi.getter(name="reportName")
+    def report_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Report Name.
+        """
+        return pulumi.get(self, "report_name")
+
+    @report_name.setter
+    def report_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "report_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]:
         """
@@ -80,18 +91,6 @@ class ReportArgs:
     @format.setter
     def format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]):
         pulumi.set(self, "format", value)
-
-    @_builtins.property
-    @pulumi.getter(name="reportName")
-    def report_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Report Name.
-        """
-        return pulumi.get(self, "report_name")
-
-    @report_name.setter
-    def report_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "report_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,6 +179,8 @@ class Report(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__.__dict__["delivery_info"] = delivery_info
             __props__.__dict__["format"] = format
+            if report_name is None and not opts.urn:
+                raise TypeError("Missing required property 'report_name'")
             __props__.__dict__["report_name"] = report_name
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["azure_api_version"] = None

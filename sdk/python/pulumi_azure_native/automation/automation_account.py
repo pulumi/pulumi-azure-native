@@ -22,8 +22,8 @@ __all__ = ['AutomationAccountArgs', 'AutomationAccount']
 @pulumi.input_type
 class AutomationAccountArgs:
     def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
@@ -35,8 +35,8 @@ class AutomationAccountArgs:
         """
         The set of arguments for constructing a AutomationAccount resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.bool] disable_local_auth: Indicates whether requests using non-AAD authentication are blocked
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Set the encryption properties for the automation account
         :param pulumi.Input['IdentityArgs'] identity: Sets the identity property for automation account
@@ -46,9 +46,8 @@ class AutomationAccountArgs:
         :param pulumi.Input['SkuArgs'] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if encryption is not None:
@@ -67,6 +66,18 @@ class AutomationAccountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -77,18 +88,6 @@ class AutomationAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the automation account.
-        """
-        return pulumi.get(self, "automation_account_name")
-
-    @automation_account_name.setter
-    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
@@ -273,6 +272,8 @@ class AutomationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutomationAccountArgs.__new__(AutomationAccountArgs)
 
+            if automation_account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["encryption"] = encryption

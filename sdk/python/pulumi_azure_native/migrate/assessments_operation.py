@@ -22,10 +22,10 @@ __all__ = ['AssessmentsOperationArgs', 'AssessmentsOperation']
 @pulumi.input_type
 class AssessmentsOperationArgs:
     def __init__(__self__, *,
+                 assessment_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_disk_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AzureDiskType']]]]] = None,
                  azure_hybrid_use_benefit: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridUseBenefit']]] = None,
                  azure_location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -49,10 +49,10 @@ class AssessmentsOperationArgs:
         """
         The set of arguments for constructing a AssessmentsOperation resource.
 
+        :param pulumi.Input[_builtins.str] assessment_name: Machine Assessment ARM name
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] assessment_name: Machine Assessment ARM name
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AzureDiskType']]]] azure_disk_types: Gets or sets the azure storage type. Premium, Standard etc.
         :param pulumi.Input[Union[_builtins.str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
                benefit.
@@ -80,11 +80,10 @@ class AssessmentsOperationArgs:
         :param pulumi.Input['VmUptimeArgs'] vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
                environment.
         """
+        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
         if azure_disk_types is not None:
             pulumi.set(__self__, "azure_disk_types", azure_disk_types)
         if azure_hybrid_use_benefit is not None:
@@ -127,6 +126,18 @@ class AssessmentsOperationArgs:
             pulumi.set(__self__, "vm_uptime", vm_uptime)
 
     @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Machine Assessment ARM name
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assessment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -161,18 +172,6 @@ class AssessmentsOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Machine Assessment ARM name
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureDiskTypes")
@@ -555,6 +554,8 @@ class AssessmentsOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentsOperationArgs.__new__(AssessmentsOperationArgs)
 
+            if assessment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["azure_disk_types"] = azure_disk_types
             __props__.__dict__["azure_hybrid_use_benefit"] = azure_hybrid_use_benefit

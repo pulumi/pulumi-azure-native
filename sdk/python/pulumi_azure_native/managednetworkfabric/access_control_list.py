@@ -22,9 +22,9 @@ __all__ = ['AccessControlListArgs', 'AccessControlList']
 @pulumi.input_type
 class AccessControlListArgs:
     def __init__(__self__, *,
+                 access_control_list_name: pulumi.Input[_builtins.str],
                  configuration_type: pulumi.Input[Union[_builtins.str, 'ConfigurationType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_control_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  acls_url: pulumi.Input[Optional[_builtins.str]] = None,
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  default_action: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]] = None,
@@ -35,9 +35,9 @@ class AccessControlListArgs:
         """
         The set of arguments for constructing a AccessControlList resource.
 
+        :param pulumi.Input[_builtins.str] access_control_list_name: Name of the Access Control List.
         :param pulumi.Input[Union[_builtins.str, 'ConfigurationType']] configuration_type: Input method to configure Access Control List.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] access_control_list_name: Name of the Access Control List.
         :param pulumi.Input[_builtins.str] acls_url: Access Control List file URL.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] default_action: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
@@ -46,10 +46,9 @@ class AccessControlListArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConfigurationArgs']]] match_configurations: List of match configurations.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "access_control_list_name", access_control_list_name)
         pulumi.set(__self__, "configuration_type", configuration_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if access_control_list_name is not None:
-            pulumi.set(__self__, "access_control_list_name", access_control_list_name)
         if acls_url is not None:
             pulumi.set(__self__, "acls_url", acls_url)
         if annotation is not None:
@@ -66,6 +65,18 @@ class AccessControlListArgs:
             pulumi.set(__self__, "match_configurations", match_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accessControlListName")
+    def access_control_list_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Access Control List.
+        """
+        return pulumi.get(self, "access_control_list_name")
+
+    @access_control_list_name.setter
+    def access_control_list_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_control_list_name", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationType")
@@ -90,18 +101,6 @@ class AccessControlListArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="accessControlListName")
-    def access_control_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Access Control List.
-        """
-        return pulumi.get(self, "access_control_list_name")
-
-    @access_control_list_name.setter
-    def access_control_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "access_control_list_name", value)
 
     @_builtins.property
     @pulumi.getter(name="aclsUrl")
@@ -274,6 +273,8 @@ class AccessControlList(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessControlListArgs.__new__(AccessControlListArgs)
 
+            if access_control_list_name is None and not opts.urn:
+                raise TypeError("Missing required property 'access_control_list_name'")
             __props__.__dict__["access_control_list_name"] = access_control_list_name
             __props__.__dict__["acls_url"] = acls_url
             __props__.__dict__["annotation"] = annotation

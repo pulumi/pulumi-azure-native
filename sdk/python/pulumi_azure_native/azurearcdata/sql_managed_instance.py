@@ -24,32 +24,31 @@ class SqlManagedInstanceArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['SqlManagedInstancePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 sql_managed_instance_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SqlManagedInstanceSkuArgs']] = None,
-                 sql_managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlManagedInstance resource.
 
         :param pulumi.Input['SqlManagedInstancePropertiesArgs'] properties: null
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
+        :param pulumi.Input[_builtins.str] sql_managed_instance_name: Name of SQL Managed Instance
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SqlManagedInstanceSkuArgs'] sku: Resource sku.
-        :param pulumi.Input[_builtins.str] sql_managed_instance_name: Name of SQL Managed Instance
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sql_managed_instance_name", sql_managed_instance_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if sql_managed_instance_name is not None:
-            pulumi.set(__self__, "sql_managed_instance_name", sql_managed_instance_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -76,6 +75,18 @@ class SqlManagedInstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlManagedInstanceName")
+    def sql_managed_instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of SQL Managed Instance
+        """
+        return pulumi.get(self, "sql_managed_instance_name")
+
+    @sql_managed_instance_name.setter
+    def sql_managed_instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_managed_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -112,18 +123,6 @@ class SqlManagedInstanceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[Optional['SqlManagedInstanceSkuArgs']]):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlManagedInstanceName")
-    def sql_managed_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of SQL Managed Instance
-        """
-        return pulumi.get(self, "sql_managed_instance_name")
-
-    @sql_managed_instance_name.setter
-    def sql_managed_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sql_managed_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -224,6 +223,8 @@ class SqlManagedInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            if sql_managed_instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sql_managed_instance_name'")
             __props__.__dict__["sql_managed_instance_name"] = sql_managed_instance_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

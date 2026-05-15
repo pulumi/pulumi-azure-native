@@ -22,11 +22,11 @@ __all__ = ['VpnGatewayArgs', 'VpnGateway']
 @pulumi.input_type
 class VpnGatewayArgs:
     def __init__(__self__, *,
+                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  bgp_settings: pulumi.Input[Optional['BgpSettingsArgs']] = None,
                  connections: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionArgs']]]] = None,
                  enable_bgp_route_translation_for_nat: pulumi.Input[Optional[_builtins.bool]] = None,
-                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_routing_preference_internet: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,12 +37,12 @@ class VpnGatewayArgs:
         """
         The set of arguments for constructing a VpnGateway resource.
 
+        :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionArgs']]] connections: List of all vpn connections to the gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[_builtins.bool] enable_bgp_route_translation_for_nat: Enable BGP routes translation for NAT on this VpnGateway.
-        :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the VpnGateway.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -52,6 +52,7 @@ class VpnGatewayArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The VirtualHub to which the gateway belongs.
         :param pulumi.Input[_builtins.int] vpn_gateway_scale_unit: The scale unit for this vpn gateway.
         """
+        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -59,8 +60,6 @@ class VpnGatewayArgs:
             pulumi.set(__self__, "connections", connections)
         if enable_bgp_route_translation_for_nat is not None:
             pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
-        if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_routing_preference_internet is not None:
@@ -75,6 +74,18 @@ class VpnGatewayArgs:
             pulumi.set(__self__, "virtual_hub", virtual_hub)
         if vpn_gateway_scale_unit is not None:
             pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -124,18 +135,6 @@ class VpnGatewayArgs:
     @enable_bgp_route_translation_for_nat.setter
     def enable_bgp_route_translation_for_nat(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_bgp_route_translation_for_nat", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -320,6 +319,8 @@ class VpnGateway(pulumi.CustomResource):
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["connections"] = connections
             __props__.__dict__["enable_bgp_route_translation_for_nat"] = enable_bgp_route_translation_for_nat
+            if gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["is_routing_preference_internet"] = is_routing_preference_internet

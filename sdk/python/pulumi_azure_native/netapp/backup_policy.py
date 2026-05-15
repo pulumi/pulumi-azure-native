@@ -21,8 +21,8 @@ __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 class BackupPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 backup_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,8 +33,8 @@ class BackupPolicyArgs:
         The set of arguments for constructing a BackupPolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Daily backups count to keep
         :param pulumi.Input[_builtins.bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -43,9 +43,8 @@ class BackupPolicyArgs:
         :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Weekly backups count to keep
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "backup_policy_name", backup_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if backup_policy_name is not None:
-            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
         if daily_backups_to_keep is not None:
             pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
         if enabled is not None:
@@ -72,6 +71,18 @@ class BackupPolicyArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="backupPolicyName")
+    def backup_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Backup policy Name which uniquely identify backup policy.
+        """
+        return pulumi.get(self, "backup_policy_name")
+
+    @backup_policy_name.setter
+    def backup_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backup_policy_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -82,18 +93,6 @@ class BackupPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backupPolicyName")
-    def backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Backup policy Name which uniquely identify backup policy.
-        """
-        return pulumi.get(self, "backup_policy_name")
-
-    @backup_policy_name.setter
-    def backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyBackupsToKeep")
@@ -254,6 +253,8 @@ class BackupPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if backup_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_policy_name'")
             __props__.__dict__["backup_policy_name"] = backup_policy_name
             __props__.__dict__["daily_backups_to_keep"] = daily_backups_to_keep
             __props__.__dict__["enabled"] = enabled

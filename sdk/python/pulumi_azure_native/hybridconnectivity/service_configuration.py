@@ -23,29 +23,28 @@ class ServiceConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
+                 service_configuration_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[Union[_builtins.str, 'ServiceName']],
                  port: pulumi.Input[Optional[_builtins.float]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceConfiguration resource.
 
         :param pulumi.Input[_builtins.str] endpoint_name: The endpoint name.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[_builtins.str] service_configuration_name: The service name.
         :param pulumi.Input[Union[_builtins.str, 'ServiceName']] service_name: Name of the service.
         :param pulumi.Input[_builtins.float] port: The port on which service is enabled.
         :param pulumi.Input[_builtins.str] resource_id: The resource Id of the connectivity endpoint (optional).
-        :param pulumi.Input[_builtins.str] service_configuration_name: The service name.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
+        pulumi.set(__self__, "service_configuration_name", service_configuration_name)
         pulumi.set(__self__, "service_name", service_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-        if service_configuration_name is not None:
-            pulumi.set(__self__, "service_configuration_name", service_configuration_name)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
@@ -70,6 +69,18 @@ class ServiceConfigurationArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceConfigurationName")
+    def service_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The service name.
+        """
+        return pulumi.get(self, "service_configuration_name")
+
+    @service_configuration_name.setter
+    def service_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
@@ -106,18 +117,6 @@ class ServiceConfigurationArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceConfigurationName")
-    def service_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The service name.
-        """
-        return pulumi.get(self, "service_configuration_name")
-
-    @service_configuration_name.setter
-    def service_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:hybridconnectivity:ServiceConfiguration")
@@ -202,6 +201,8 @@ class ServiceConfiguration(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            if service_configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_configuration_name'")
             __props__.__dict__["service_configuration_name"] = service_configuration_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

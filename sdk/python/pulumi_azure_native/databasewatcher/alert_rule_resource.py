@@ -22,34 +22,33 @@ __all__ = ['AlertRuleResourceArgs', 'AlertRuleResource']
 class AlertRuleResourceArgs:
     def __init__(__self__, *,
                  alert_rule_resource_id: pulumi.Input[_builtins.str],
+                 alert_rule_resource_name: pulumi.Input[_builtins.str],
                  alert_rule_template_id: pulumi.Input[_builtins.str],
                  alert_rule_template_version: pulumi.Input[_builtins.str],
                  created_with_properties: pulumi.Input[Union[_builtins.str, 'AlertRuleCreationProperties']],
                  creation_time: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 watcher_name: pulumi.Input[_builtins.str],
-                 alert_rule_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 watcher_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AlertRuleResource resource.
 
         :param pulumi.Input[_builtins.str] alert_rule_resource_id: The resource ID of the alert rule resource.
+        :param pulumi.Input[_builtins.str] alert_rule_resource_name: The alert rule proxy resource name.
         :param pulumi.Input[_builtins.str] alert_rule_template_id: The template ID associated with alert rule resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The alert rule template version.
         :param pulumi.Input[Union[_builtins.str, 'AlertRuleCreationProperties']] created_with_properties: The properties with which the alert rule resource was created.
         :param pulumi.Input[_builtins.str] creation_time: The creation time of the alert rule resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
-        :param pulumi.Input[_builtins.str] alert_rule_resource_name: The alert rule proxy resource name.
         """
         pulumi.set(__self__, "alert_rule_resource_id", alert_rule_resource_id)
+        pulumi.set(__self__, "alert_rule_resource_name", alert_rule_resource_name)
         pulumi.set(__self__, "alert_rule_template_id", alert_rule_template_id)
         pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
         pulumi.set(__self__, "created_with_properties", created_with_properties)
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "watcher_name", watcher_name)
-        if alert_rule_resource_name is not None:
-            pulumi.set(__self__, "alert_rule_resource_name", alert_rule_resource_name)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleResourceId")
@@ -62,6 +61,18 @@ class AlertRuleResourceArgs:
     @alert_rule_resource_id.setter
     def alert_rule_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "alert_rule_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertRuleResourceName")
+    def alert_rule_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The alert rule proxy resource name.
+        """
+        return pulumi.get(self, "alert_rule_resource_name")
+
+    @alert_rule_resource_name.setter
+    def alert_rule_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alert_rule_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateId")
@@ -134,18 +145,6 @@ class AlertRuleResourceArgs:
     @watcher_name.setter
     def watcher_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "watcher_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="alertRuleResourceName")
-    def alert_rule_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The alert rule proxy resource name.
-        """
-        return pulumi.get(self, "alert_rule_resource_name")
-
-    @alert_rule_resource_name.setter
-    def alert_rule_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "alert_rule_resource_name", value)
 
 
 @pulumi.type_token("azure-native:databasewatcher:AlertRuleResource")
@@ -231,6 +230,8 @@ class AlertRuleResource(pulumi.CustomResource):
             if alert_rule_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_resource_id'")
             __props__.__dict__["alert_rule_resource_id"] = alert_rule_resource_id
+            if alert_rule_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'alert_rule_resource_name'")
             __props__.__dict__["alert_rule_resource_name"] = alert_rule_resource_name
             if alert_rule_template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_template_id'")

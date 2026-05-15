@@ -23,25 +23,24 @@ __all__ = ['MqArgs', 'Mq']
 class MqArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
+                 mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Mq resource.
 
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
+        :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mq_name is not None:
-            pulumi.set(__self__, "mq_name", mq_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,6 +55,18 @@ class MqArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input['ExtendedLocationPropertyArgs']):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mqName")
+    def mq_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ resource
+        """
+        return pulumi.get(self, "mq_name")
+
+    @mq_name.setter
+    def mq_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mq_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class MqArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mqName")
-    def mq_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ resource
-        """
-        return pulumi.get(self, "mq_name")
-
-    @mq_name.setter
-    def mq_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mq_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class Mq(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if mq_name is None and not opts.urn:
+                raise TypeError("Missing required property 'mq_name'")
             __props__.__dict__["mq_name"] = mq_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

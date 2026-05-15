@@ -24,22 +24,21 @@ class RulesEngineArgs:
     def __init__(__self__, *,
                  front_door_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
-                 rules_engine_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rules_engine_name: pulumi.Input[_builtins.str],
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RulesEngine resource.
 
         :param pulumi.Input[_builtins.str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[_builtins.str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A list of rules that define a particular Rules Engine Configuration.
         """
         pulumi.set(__self__, "front_door_name", front_door_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rules_engine_name", rules_engine_name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
-        if rules_engine_name is not None:
-            pulumi.set(__self__, "rules_engine_name", rules_engine_name)
 
     @_builtins.property
     @pulumi.getter(name="frontDoorName")
@@ -66,6 +65,18 @@ class RulesEngineArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rulesEngineName")
+    def rules_engine_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Rules Engine which is unique within the Front Door.
+        """
+        return pulumi.get(self, "rules_engine_name")
+
+    @rules_engine_name.setter
+    def rules_engine_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rules_engine_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
         """
@@ -76,18 +87,6 @@ class RulesEngineArgs:
     @rules.setter
     def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
         pulumi.set(self, "rules", value)
-
-    @_builtins.property
-    @pulumi.getter(name="rulesEngineName")
-    def rules_engine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Rules Engine which is unique within the Front Door.
-        """
-        return pulumi.get(self, "rules_engine_name")
-
-    @rules_engine_name.setter
-    def rules_engine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rules_engine_name", value)
 
 
 @pulumi.type_token("azure-native:frontdoor:RulesEngine")
@@ -165,6 +164,8 @@ class RulesEngine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rules"] = rules
+            if rules_engine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rules_engine_name'")
             __props__.__dict__["rules_engine_name"] = rules_engine_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -22,31 +22,42 @@ __all__ = ['GuestConfigurationAssignmentArgs', 'GuestConfigurationAssignment']
 @pulumi.input_type
 class GuestConfigurationAssignmentArgs:
     def __init__(__self__, *,
+                 guest_configuration_assignment_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_name: pulumi.Input[_builtins.str],
-                 guest_configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationAssignment resource.
 
+        :param pulumi.Input[_builtins.str] guest_configuration_assignment_name: The guest configuration assignment name.
         :param pulumi.Input[_builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_name: The name of the virtual machine.
-        :param pulumi.Input[_builtins.str] guest_configuration_assignment_name: The guest configuration assignment name.
         :param pulumi.Input[_builtins.str] location: Region where the VM is located.
         :param pulumi.Input['GuestConfigurationAssignmentPropertiesArgs'] properties: Properties of the Guest configuration assignment.
         """
+        pulumi.set(__self__, "guest_configuration_assignment_name", guest_configuration_assignment_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_name", vm_name)
-        if guest_configuration_assignment_name is not None:
-            pulumi.set(__self__, "guest_configuration_assignment_name", guest_configuration_assignment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="guestConfigurationAssignmentName")
+    def guest_configuration_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The guest configuration assignment name.
+        """
+        return pulumi.get(self, "guest_configuration_assignment_name")
+
+    @guest_configuration_assignment_name.setter
+    def guest_configuration_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "guest_configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -83,18 +94,6 @@ class GuestConfigurationAssignmentArgs:
     @vm_name.setter
     def vm_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vm_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="guestConfigurationAssignmentName")
-    def guest_configuration_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The guest configuration assignment name.
-        """
-        return pulumi.get(self, "guest_configuration_assignment_name")
-
-    @guest_configuration_assignment_name.setter
-    def guest_configuration_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "guest_configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,6 +194,8 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GuestConfigurationAssignmentArgs.__new__(GuestConfigurationAssignmentArgs)
 
+            if guest_configuration_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'guest_configuration_assignment_name'")
             __props__.__dict__["guest_configuration_assignment_name"] = guest_configuration_assignment_name
             __props__.__dict__["location"] = location
             if name is None and not opts.urn:

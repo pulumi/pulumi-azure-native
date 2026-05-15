@@ -25,7 +25,7 @@ class StorageTaskAssignmentArgs:
                  account_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['StorageTaskAssignmentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_task_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_task_assignment_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a StorageTaskAssignment resource.
 
@@ -37,8 +37,7 @@ class StorageTaskAssignmentArgs:
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if storage_task_assignment_name is not None:
-            pulumi.set(__self__, "storage_task_assignment_name", storage_task_assignment_name)
+        pulumi.set(__self__, "storage_task_assignment_name", storage_task_assignment_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -78,14 +77,14 @@ class StorageTaskAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageTaskAssignmentName")
-    def storage_task_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_task_assignment_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         """
         return pulumi.get(self, "storage_task_assignment_name")
 
     @storage_task_assignment_name.setter
-    def storage_task_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_task_assignment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_task_assignment_name", value)
 
 
@@ -166,6 +165,8 @@ class StorageTaskAssignment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_task_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_task_assignment_name'")
             __props__.__dict__["storage_task_assignment_name"] = storage_task_assignment_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

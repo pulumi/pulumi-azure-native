@@ -21,39 +21,50 @@ __all__ = ['InternetGatewayArgs', 'InternetGateway']
 @pulumi.input_type
 class InternetGatewayArgs:
     def __init__(__self__, *,
+                 internet_gateway_name: pulumi.Input[_builtins.str],
                  network_fabric_controller_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'GatewayType']],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
-                 internet_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_gateway_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InternetGateway resource.
 
+        :param pulumi.Input[_builtins.str] internet_gateway_name: Name of the Internet Gateway.
         :param pulumi.Input[_builtins.str] network_fabric_controller_id: ARM Resource ID of the Network Fabric Controller.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'GatewayType']] type: Gateway Type of the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
-        :param pulumi.Input[_builtins.str] internet_gateway_name: Name of the Internet Gateway.
         :param pulumi.Input[_builtins.str] internet_gateway_rule_id: ARM Resource ID of the Internet Gateway Rule.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "internet_gateway_name", internet_gateway_name)
         pulumi.set(__self__, "network_fabric_controller_id", network_fabric_controller_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "type", type)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
-        if internet_gateway_name is not None:
-            pulumi.set(__self__, "internet_gateway_name", internet_gateway_name)
         if internet_gateway_rule_id is not None:
             pulumi.set(__self__, "internet_gateway_rule_id", internet_gateway_rule_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="internetGatewayName")
+    def internet_gateway_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Internet Gateway.
+        """
+        return pulumi.get(self, "internet_gateway_name")
+
+    @internet_gateway_name.setter
+    def internet_gateway_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "internet_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFabricControllerId")
@@ -102,18 +113,6 @@ class InternetGatewayArgs:
     @annotation.setter
     def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
-
-    @_builtins.property
-    @pulumi.getter(name="internetGatewayName")
-    def internet_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Internet Gateway.
-        """
-        return pulumi.get(self, "internet_gateway_name")
-
-    @internet_gateway_name.setter
-    def internet_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "internet_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayRuleId")
@@ -233,6 +232,8 @@ class InternetGateway(pulumi.CustomResource):
             __props__ = InternetGatewayArgs.__new__(InternetGatewayArgs)
 
             __props__.__dict__["annotation"] = annotation
+            if internet_gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'internet_gateway_name'")
             __props__.__dict__["internet_gateway_name"] = internet_gateway_name
             __props__.__dict__["internet_gateway_rule_id"] = internet_gateway_rule_id
             __props__.__dict__["location"] = location

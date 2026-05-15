@@ -22,28 +22,29 @@ __all__ = ['ExperimentArgs', 'Experiment']
 @pulumi.input_type
 class ExperimentArgs:
     def __init__(__self__, *,
+                 experiment_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
                  endpoint_a: pulumi.Input[Optional['EndpointArgs']] = None,
                  endpoint_b: pulumi.Input[Optional['EndpointArgs']] = None,
-                 experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
 
+        :param pulumi.Input[_builtins.str] experiment_name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[_builtins.str] description: The description of the details or intents of the Experiment
         :param pulumi.Input[Union[_builtins.str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input['EndpointArgs'] endpoint_a: The endpoint A of an experiment
         :param pulumi.Input['EndpointArgs'] endpoint_b: The endpoint B of an experiment
-        :param pulumi.Input[_builtins.str] experiment_name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "experiment_name", experiment_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -54,12 +55,22 @@ class ExperimentArgs:
             pulumi.set(__self__, "endpoint_a", endpoint_a)
         if endpoint_b is not None:
             pulumi.set(__self__, "endpoint_b", endpoint_b)
-        if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Experiment identifier associated with the Experiment
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "experiment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -132,18 +143,6 @@ class ExperimentArgs:
     @endpoint_b.setter
     def endpoint_b(self, value: pulumi.Input[Optional['EndpointArgs']]):
         pulumi.set(self, "endpoint_b", value)
-
-    @_builtins.property
-    @pulumi.getter(name="experimentName")
-    def experiment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Experiment identifier associated with the Experiment
-        """
-        return pulumi.get(self, "experiment_name")
-
-    @experiment_name.setter
-    def experiment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "experiment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -257,6 +256,8 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["enabled_state"] = enabled_state
             __props__.__dict__["endpoint_a"] = endpoint_a
             __props__.__dict__["endpoint_b"] = endpoint_b
+            if experiment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'experiment_name'")
             __props__.__dict__["experiment_name"] = experiment_name
             __props__.__dict__["location"] = location
             if profile_name is None and not opts.urn:

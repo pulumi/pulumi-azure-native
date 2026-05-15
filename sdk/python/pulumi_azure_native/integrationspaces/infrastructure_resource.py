@@ -20,26 +20,37 @@ __all__ = ['InfrastructureResourceArgs', 'InfrastructureResource']
 @pulumi.input_type
 class InfrastructureResourceArgs:
     def __init__(__self__, *,
+                 infrastructure_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 space_name: pulumi.Input[_builtins.str],
-                 infrastructure_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 space_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a InfrastructureResource resource.
 
+        :param pulumi.Input[_builtins.str] infrastructure_resource_name: The name of the infrastructure resource in the space.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The id of the infrastructure resource.
         :param pulumi.Input[_builtins.str] resource_type: The type of the infrastructure resource.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
-        :param pulumi.Input[_builtins.str] infrastructure_resource_name: The name of the infrastructure resource in the space.
         """
+        pulumi.set(__self__, "infrastructure_resource_name", infrastructure_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "space_name", space_name)
-        if infrastructure_resource_name is not None:
-            pulumi.set(__self__, "infrastructure_resource_name", infrastructure_resource_name)
+
+    @_builtins.property
+    @pulumi.getter(name="infrastructureResourceName")
+    def infrastructure_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the infrastructure resource in the space.
+        """
+        return pulumi.get(self, "infrastructure_resource_name")
+
+    @infrastructure_resource_name.setter
+    def infrastructure_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "infrastructure_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,18 +99,6 @@ class InfrastructureResourceArgs:
     @space_name.setter
     def space_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "space_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="infrastructureResourceName")
-    def infrastructure_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the infrastructure resource in the space.
-        """
-        return pulumi.get(self, "infrastructure_resource_name")
-
-    @infrastructure_resource_name.setter
-    def infrastructure_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "infrastructure_resource_name", value)
 
 
 @pulumi.type_token("azure-native:integrationspaces:InfrastructureResource")
@@ -169,6 +168,8 @@ class InfrastructureResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InfrastructureResourceArgs.__new__(InfrastructureResourceArgs)
 
+            if infrastructure_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'infrastructure_resource_name'")
             __props__.__dict__["infrastructure_resource_name"] = infrastructure_resource_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

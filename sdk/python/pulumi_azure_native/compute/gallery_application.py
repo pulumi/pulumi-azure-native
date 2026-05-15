@@ -22,6 +22,7 @@ __all__ = ['GalleryApplicationArgs', 'GalleryApplication']
 @pulumi.input_type
 class GalleryApplicationArgs:
     def __init__(__self__, *,
+                 gallery_application_name: pulumi.Input[_builtins.str],
                  gallery_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  supported_os_type: pulumi.Input['OperatingSystemTypes'],
@@ -29,7 +30,6 @@ class GalleryApplicationArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
                  eula: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,6 +37,7 @@ class GalleryApplicationArgs:
         """
         The set of arguments for constructing a GalleryApplication resource.
 
+        :param pulumi.Input[_builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
@@ -44,12 +45,12 @@ class GalleryApplicationArgs:
         :param pulumi.Input[_builtins.str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[_builtins.str] eula: The Eula agreement for the gallery Application Definition.
-        :param pulumi.Input[_builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[_builtins.str] release_note_uri: The release note uri.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "gallery_application_name", gallery_application_name)
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "supported_os_type", supported_os_type)
@@ -61,8 +62,6 @@ class GalleryApplicationArgs:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
             pulumi.set(__self__, "eula", eula)
-        if gallery_application_name is not None:
-            pulumi.set(__self__, "gallery_application_name", gallery_application_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if privacy_statement_uri is not None:
@@ -71,6 +70,18 @@ class GalleryApplicationArgs:
             pulumi.set(__self__, "release_note_uri", release_note_uri)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryApplicationName")
+    def gallery_application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the gallery Application Definition to be retrieved.
+        """
+        return pulumi.get(self, "gallery_application_name")
+
+    @gallery_application_name.setter
+    def gallery_application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gallery_application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
@@ -155,18 +166,6 @@ class GalleryApplicationArgs:
     @eula.setter
     def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryApplicationName")
-    def gallery_application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the gallery Application Definition to be retrieved.
-        """
-        return pulumi.get(self, "gallery_application_name")
-
-    @gallery_application_name.setter
-    def gallery_application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gallery_application_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -313,6 +312,8 @@ class GalleryApplication(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
+            if gallery_application_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gallery_application_name'")
             __props__.__dict__["gallery_application_name"] = gallery_application_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

@@ -22,9 +22,9 @@ __all__ = ['IacProfileArgs', 'IacProfile']
 @pulumi.input_type
 class IacProfileArgs:
     def __init__(__self__, *,
+                 iac_profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  branch_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 iac_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_main_branch: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,9 +39,9 @@ class IacProfileArgs:
         """
         The set of arguments for constructing a IacProfile resource.
 
+        :param pulumi.Input[_builtins.str] iac_profile_name: The name of the IacProfile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] branch_name: Repository Branch Name
-        :param pulumi.Input[_builtins.str] iac_profile_name: The name of the IacProfile.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] repository_main_branch: Repository Main Branch
         :param pulumi.Input[_builtins.str] repository_name: Repository Name
@@ -52,11 +52,10 @@ class IacProfileArgs:
         :param pulumi.Input[_builtins.str] storage_container_name: Terraform Container Name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "iac_profile_name", iac_profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
-        if iac_profile_name is not None:
-            pulumi.set(__self__, "iac_profile_name", iac_profile_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if repository_main_branch is not None:
@@ -81,6 +80,18 @@ class IacProfileArgs:
             pulumi.set(__self__, "templates", templates)
 
     @_builtins.property
+    @pulumi.getter(name="iacProfileName")
+    def iac_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the IacProfile.
+        """
+        return pulumi.get(self, "iac_profile_name")
+
+    @iac_profile_name.setter
+    def iac_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "iac_profile_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -103,18 +114,6 @@ class IacProfileArgs:
     @branch_name.setter
     def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="iacProfileName")
-    def iac_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the IacProfile.
-        """
-        return pulumi.get(self, "iac_profile_name")
-
-    @iac_profile_name.setter
-    def iac_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "iac_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -340,6 +339,8 @@ class IacProfile(pulumi.CustomResource):
             __props__ = IacProfileArgs.__new__(IacProfileArgs)
 
             __props__.__dict__["branch_name"] = branch_name
+            if iac_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'iac_profile_name'")
             __props__.__dict__["iac_profile_name"] = iac_profile_name
             __props__.__dict__["location"] = location
             __props__.__dict__["repository_main_branch"] = repository_main_branch

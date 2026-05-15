@@ -22,13 +22,13 @@ __all__ = ['ExternalNetworkArgs', 'ExternalNetwork']
 @pulumi.input_type
 class ExternalNetworkArgs:
     def __init__(__self__, *,
+                 external_network_name: pulumi.Input[_builtins.str],
                  l3_isolation_domain_name: pulumi.Input[_builtins.str],
                  peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  export_route_policy: pulumi.Input[Optional['ExportRoutePolicyArgs']] = None,
                  export_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  import_route_policy: pulumi.Input[Optional['ImportRoutePolicyArgs']] = None,
                  import_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_to_network_interconnect_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,19 +37,20 @@ class ExternalNetworkArgs:
         """
         The set of arguments for constructing a ExternalNetwork resource.
 
+        :param pulumi.Input[_builtins.str] external_network_name: Name of the External Network.
         :param pulumi.Input[_builtins.str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[Union[_builtins.str, 'PeeringOption']] peering_option: Peering option list.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input['ExportRoutePolicyArgs'] export_route_policy: Export Route Policy either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] export_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
-        :param pulumi.Input[_builtins.str] external_network_name: Name of the External Network.
         :param pulumi.Input['ImportRoutePolicyArgs'] import_route_policy: Import Route Policy either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] import_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[_builtins.str] network_to_network_interconnect_id: ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         :param pulumi.Input['ExternalNetworkPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties object
         :param pulumi.Input['L3OptionBPropertiesArgs'] option_b_properties: option B properties object
         """
+        pulumi.set(__self__, "external_network_name", external_network_name)
         pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         pulumi.set(__self__, "peering_option", peering_option)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -59,8 +60,6 @@ class ExternalNetworkArgs:
             pulumi.set(__self__, "export_route_policy", export_route_policy)
         if export_route_policy_id is not None:
             pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
-        if external_network_name is not None:
-            pulumi.set(__self__, "external_network_name", external_network_name)
         if import_route_policy is not None:
             pulumi.set(__self__, "import_route_policy", import_route_policy)
         if import_route_policy_id is not None:
@@ -71,6 +70,18 @@ class ExternalNetworkArgs:
             pulumi.set(__self__, "option_a_properties", option_a_properties)
         if option_b_properties is not None:
             pulumi.set(__self__, "option_b_properties", option_b_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="externalNetworkName")
+    def external_network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the External Network.
+        """
+        return pulumi.get(self, "external_network_name")
+
+    @external_network_name.setter
+    def external_network_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "external_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="l3IsolationDomainName")
@@ -143,18 +154,6 @@ class ExternalNetworkArgs:
     @export_route_policy_id.setter
     def export_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_route_policy_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="externalNetworkName")
-    def external_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the External Network.
-        """
-        return pulumi.get(self, "external_network_name")
-
-    @external_network_name.setter
-    def external_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "external_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="importRoutePolicy")
@@ -312,6 +311,8 @@ class ExternalNetwork(pulumi.CustomResource):
             __props__.__dict__["annotation"] = annotation
             __props__.__dict__["export_route_policy"] = export_route_policy
             __props__.__dict__["export_route_policy_id"] = export_route_policy_id
+            if external_network_name is None and not opts.urn:
+                raise TypeError("Missing required property 'external_network_name'")
             __props__.__dict__["external_network_name"] = external_network_name
             __props__.__dict__["import_route_policy"] = import_route_policy
             __props__.__dict__["import_route_policy_id"] = import_route_policy_id

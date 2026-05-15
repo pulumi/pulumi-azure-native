@@ -22,10 +22,10 @@ __all__ = ['EventHubArgs', 'EventHub']
 @pulumi.input_type
 class EventHubArgs:
     def __init__(__self__, *,
+                 event_hub_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  capture_description: pulumi.Input[Optional['CaptureDescriptionArgs']] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  message_retention_in_days: pulumi.Input[Optional[_builtins.float]] = None,
                  partition_count: pulumi.Input[Optional[_builtins.float]] = None,
                  retention_description: pulumi.Input[Optional['RetentionDescriptionArgs']] = None,
@@ -34,22 +34,21 @@ class EventHubArgs:
         """
         The set of arguments for constructing a EventHub resource.
 
+        :param pulumi.Input[_builtins.str] event_hub_name: The Event Hub name
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input['CaptureDescriptionArgs'] capture_description: Properties of capture description
-        :param pulumi.Input[_builtins.str] event_hub_name: The Event Hub name
         :param pulumi.Input[_builtins.float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         :param pulumi.Input[_builtins.float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input['RetentionDescriptionArgs'] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         :param pulumi.Input[_builtins.str] user_metadata: Gets and Sets Metadata of User.
         """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if capture_description is not None:
             pulumi.set(__self__, "capture_description", capture_description)
-        if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
         if message_retention_in_days is not None:
             pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
         if partition_count is not None:
@@ -60,6 +59,18 @@ class EventHubArgs:
             pulumi.set(__self__, "status", status)
         if user_metadata is not None:
             pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Event Hub name
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -96,18 +107,6 @@ class EventHubArgs:
     @capture_description.setter
     def capture_description(self, value: pulumi.Input[Optional['CaptureDescriptionArgs']]):
         pulumi.set(self, "capture_description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Event Hub name
-        """
-        return pulumi.get(self, "event_hub_name")
-
-    @event_hub_name.setter
-    def event_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetentionInDays")
@@ -254,6 +253,8 @@ class EventHub(pulumi.CustomResource):
             __props__ = EventHubArgs.__new__(EventHubArgs)
 
             __props__.__dict__["capture_description"] = capture_description
+            if event_hub_name is None and not opts.urn:
+                raise TypeError("Missing required property 'event_hub_name'")
             __props__.__dict__["event_hub_name"] = event_hub_name
             __props__.__dict__["message_retention_in_days"] = message_retention_in_days
             if namespace_name is None and not opts.urn:

@@ -23,26 +23,25 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  elastic_san_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] elastic_san_name: The name of the ElasticSan.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the Private Endpoint connection.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Private Link Service Connection State.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids:  List of resources private endpoint is mapped
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the Private Endpoint connection.
         """
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
+        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
-        if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="elasticSanName")
@@ -55,6 +54,18 @@ class PrivateEndpointConnectionArgs:
     @elastic_san_name.setter
     def elastic_san_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "elastic_san_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Private Endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -91,18 +102,6 @@ class PrivateEndpointConnectionArgs:
     @group_ids.setter
     def group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Private Endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
 
 
 @pulumi.type_token("azure-native:elasticsan:PrivateEndpointConnection")
@@ -180,6 +179,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
             __props__.__dict__["group_ids"] = group_ids
+            if private_endpoint_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")

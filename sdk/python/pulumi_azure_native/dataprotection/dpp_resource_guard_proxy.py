@@ -22,23 +22,22 @@ __all__ = ['DppResourceGuardProxyArgs', 'DppResourceGuardProxy']
 class DppResourceGuardProxyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 resource_guard_proxy_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['ResourceGuardProxyBaseArgs']] = None,
-                 resource_guard_proxy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['ResourceGuardProxyBaseArgs']] = None):
         """
         The set of arguments for constructing a DppResourceGuardProxy resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_guard_proxy_name: name of the resource guard proxy
         :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
         :param pulumi.Input['ResourceGuardProxyBaseArgs'] properties: ResourceGuardProxyBaseResource properties
-        :param pulumi.Input[_builtins.str] resource_guard_proxy_name: name of the resource guard proxy
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_guard_proxy_name", resource_guard_proxy_name)
         pulumi.set(__self__, "vault_name", vault_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_guard_proxy_name is not None:
-            pulumi.set(__self__, "resource_guard_proxy_name", resource_guard_proxy_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -51,6 +50,18 @@ class DppResourceGuardProxyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGuardProxyName")
+    def resource_guard_proxy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the resource guard proxy
+        """
+        return pulumi.get(self, "resource_guard_proxy_name")
+
+    @resource_guard_proxy_name.setter
+    def resource_guard_proxy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_guard_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultName")
@@ -75,18 +86,6 @@ class DppResourceGuardProxyArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ResourceGuardProxyBaseArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuardProxyName")
-    def resource_guard_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        name of the resource guard proxy
-        """
-        return pulumi.get(self, "resource_guard_proxy_name")
-
-    @resource_guard_proxy_name.setter
-    def resource_guard_proxy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_guard_proxy_name", value)
 
 
 @pulumi.type_token("azure-native:dataprotection:DppResourceGuardProxy")
@@ -161,6 +160,8 @@ class DppResourceGuardProxy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_guard_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_guard_proxy_name'")
             __props__.__dict__["resource_guard_proxy_name"] = resource_guard_proxy_name
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")

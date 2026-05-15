@@ -21,31 +21,42 @@ __all__ = ['IntegrationAccountAssemblyArgs', 'IntegrationAccountAssembly']
 @pulumi.input_type
 class IntegrationAccountAssemblyArgs:
     def __init__(__self__, *,
+                 assembly_artifact_name: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['AssemblyPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assembly_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAssembly resource.
 
+        :param pulumi.Input[_builtins.str] assembly_artifact_name: The assembly artifact name.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input['AssemblyPropertiesArgs'] properties: The assembly properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] assembly_artifact_name: The assembly artifact name.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
+        pulumi.set(__self__, "assembly_artifact_name", assembly_artifact_name)
         pulumi.set(__self__, "integration_account_name", integration_account_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if assembly_artifact_name is not None:
-            pulumi.set(__self__, "assembly_artifact_name", assembly_artifact_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="assemblyArtifactName")
+    def assembly_artifact_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The assembly artifact name.
+        """
+        return pulumi.get(self, "assembly_artifact_name")
+
+    @assembly_artifact_name.setter
+    def assembly_artifact_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assembly_artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
@@ -82,18 +93,6 @@ class IntegrationAccountAssemblyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assemblyArtifactName")
-    def assembly_artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The assembly artifact name.
-        """
-        return pulumi.get(self, "assembly_artifact_name")
-
-    @assembly_artifact_name.setter
-    def assembly_artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "assembly_artifact_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,6 +193,8 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountAssemblyArgs.__new__(IntegrationAccountAssemblyArgs)
 
+            if assembly_artifact_name is None and not opts.urn:
+                raise TypeError("Missing required property 'assembly_artifact_name'")
             __props__.__dict__["assembly_artifact_name"] = assembly_artifact_name
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")

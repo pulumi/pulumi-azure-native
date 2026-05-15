@@ -23,9 +23,9 @@ __all__ = ['BulkActionArgs', 'BulkAction']
 class BulkActionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
                  properties: pulumi.Input[Optional['LaunchBulkInstancesOperationPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -34,20 +34,19 @@ class BulkActionArgs:
         The set of arguments for constructing a BulkAction resource.
 
         :param pulumi.Input[_builtins.str] location: The location name.
+        :param pulumi.Input[_builtins.str] name: The name of the LaunchBulkInstancesOperation.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
-        :param pulumi.Input[_builtins.str] name: The name of the LaunchBulkInstancesOperation.
         :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input['LaunchBulkInstancesOperationPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Zones in which the LaunchBulkInstancesOperation is available
         """
         pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if properties is not None:
@@ -68,6 +67,18 @@ class BulkActionArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the LaunchBulkInstancesOperation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -92,18 +103,6 @@ class BulkActionArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the LaunchBulkInstancesOperation.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -234,6 +233,8 @@ class BulkAction(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["plan"] = plan
             __props__.__dict__["properties"] = properties

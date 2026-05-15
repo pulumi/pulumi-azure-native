@@ -22,8 +22,8 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
+                 account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['AccountResourcePropertiesArgs']] = None,
@@ -31,16 +31,15 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: The name of the RecommendationsService Account resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity used for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AccountResourcePropertiesArgs'] properties: Account resource properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -49,6 +48,18 @@ class AccountArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RecommendationsService Account resource.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RecommendationsService Account resource.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,6 +196,8 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            if account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

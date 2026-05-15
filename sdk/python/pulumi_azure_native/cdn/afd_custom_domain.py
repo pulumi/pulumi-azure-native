@@ -22,39 +22,50 @@ __all__ = ['AFDCustomDomainArgs', 'AFDCustomDomain']
 @pulumi.input_type
 class AFDCustomDomainArgs:
     def __init__(__self__, *,
+                 custom_domain_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_dns_zone: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
-                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  pre_validated_custom_domain_resource_id: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  tls_settings: pulumi.Input[Optional['AFDDomainHttpsParametersArgs']] = None):
         """
         The set of arguments for constructing a AFDCustomDomain resource.
 
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the domain under the profile which is unique globally.
         :param pulumi.Input[_builtins.str] host_name: The host name of the domain. Must be a domain name.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceReferenceArgs'] azure_dns_zone: Resource reference to the Azure DNS zone
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the domain under the profile which is unique globally.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extended_properties: Key-Value pair representing migration properties for domains.
         :param pulumi.Input['ResourceReferenceArgs'] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
         :param pulumi.Input['AFDDomainHttpsParametersArgs'] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
+        pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_dns_zone is not None:
             pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
-        if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if extended_properties is not None:
             pulumi.set(__self__, "extended_properties", extended_properties)
         if pre_validated_custom_domain_resource_id is not None:
             pulumi.set(__self__, "pre_validated_custom_domain_resource_id", pre_validated_custom_domain_resource_id)
         if tls_settings is not None:
             pulumi.set(__self__, "tls_settings", tls_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the domain under the profile which is unique globally.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @custom_domain_name.setter
+    def custom_domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
@@ -103,18 +114,6 @@ class AFDCustomDomainArgs:
     @azure_dns_zone.setter
     def azure_dns_zone(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "azure_dns_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the domain under the profile which is unique globally.
-        """
-        return pulumi.get(self, "custom_domain_name")
-
-    @custom_domain_name.setter
-    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedProperties")
@@ -234,6 +233,8 @@ class AFDCustomDomain(pulumi.CustomResource):
             __props__ = AFDCustomDomainArgs.__new__(AFDCustomDomainArgs)
 
             __props__.__dict__["azure_dns_zone"] = azure_dns_zone
+            if custom_domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'custom_domain_name'")
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["extended_properties"] = extended_properties
             if host_name is None and not opts.urn:

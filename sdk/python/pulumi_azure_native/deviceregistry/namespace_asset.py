@@ -22,11 +22,11 @@ __all__ = ['NamespaceAssetArgs', 'NamespaceAsset']
 @pulumi.input_type
 class NamespaceAssetArgs:
     def __init__(__self__, *,
+                 asset_name: pulumi.Input[_builtins.str],
                  device_ref: pulumi.Input['DeviceRefArgs'],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 asset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  asset_type_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  attributes: Optional[Any] = None,
                  datasets: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDatasetArgs']]]] = None,
@@ -58,11 +58,11 @@ class NamespaceAssetArgs:
         """
         The set of arguments for constructing a NamespaceAsset resource.
 
+        :param pulumi.Input[_builtins.str] asset_name: The name of the asset.
         :param pulumi.Input['DeviceRefArgs'] device_ref: Reference to the device that provides data for this asset. Must provide device name & endpoint on the device to use.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] asset_name: The name of the asset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asset_type_refs: URIs or type definition IDs.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetArgs']]] datasets: Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
@@ -92,12 +92,11 @@ class NamespaceAssetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceStreamArgs']]] streams: Array of streams that are part of the asset. Each stream can have a per-stream configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "device_ref", device_ref)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
         if asset_type_refs is not None:
             pulumi.set(__self__, "asset_type_refs", asset_type_refs)
         if attributes is not None:
@@ -156,6 +155,18 @@ class NamespaceAssetArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the asset.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="deviceRef")
     def device_ref(self) -> pulumi.Input['DeviceRefArgs']:
         """
@@ -202,18 +213,6 @@ class NamespaceAssetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assetName")
-    def asset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the asset.
-        """
-        return pulumi.get(self, "asset_name")
-
-    @asset_name.setter
-    def asset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assetTypeRefs")
@@ -707,6 +706,8 @@ class NamespaceAsset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceAssetArgs.__new__(NamespaceAssetArgs)
 
+            if asset_name is None and not opts.urn:
+                raise TypeError("Missing required property 'asset_name'")
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["asset_type_refs"] = asset_type_refs
             __props__.__dict__["attributes"] = attributes

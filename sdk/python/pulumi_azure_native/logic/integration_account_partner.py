@@ -24,34 +24,33 @@ class IntegrationAccountPartnerArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['PartnerContentArgs'],
                  integration_account_name: pulumi.Input[_builtins.str],
+                 partner_name: pulumi.Input[_builtins.str],
                  partner_type: pulumi.Input[Union[_builtins.str, 'PartnerType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 partner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountPartner resource.
 
         :param pulumi.Input['PartnerContentArgs'] content: The partner content.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
+        :param pulumi.Input[_builtins.str] partner_name: The integration account partner name.
         :param pulumi.Input[Union[_builtins.str, 'PartnerType']] partner_type: The partner type.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param Any metadata: The metadata.
-        :param pulumi.Input[_builtins.str] partner_name: The integration account partner name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "partner_name", partner_name)
         pulumi.set(__self__, "partner_type", partner_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-        if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +77,18 @@ class IntegrationAccountPartnerArgs:
     @integration_account_name.setter
     def integration_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "integration_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The integration account partner name.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @partner_name.setter
+    def partner_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "partner_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerType")
@@ -126,18 +137,6 @@ class IntegrationAccountPartnerArgs:
     @metadata.setter
     def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerName")
-    def partner_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The integration account partner name.
-        """
-        return pulumi.get(self, "partner_name")
-
-    @partner_name.setter
-    def partner_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "partner_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -240,6 +239,8 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata
+            if partner_name is None and not opts.urn:
+                raise TypeError("Missing required property 'partner_name'")
             __props__.__dict__["partner_name"] = partner_name
             if partner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_type'")

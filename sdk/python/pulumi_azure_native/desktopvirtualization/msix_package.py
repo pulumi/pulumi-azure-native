@@ -22,13 +22,13 @@ __all__ = ['MSIXPackageArgs', 'MSIXPackage']
 class MSIXPackageArgs:
     def __init__(__self__, *,
                  host_pool_name: pulumi.Input[_builtins.str],
+                 msix_package_full_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  image_path: pulumi.Input[Optional[_builtins.str]] = None,
                  is_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_regular_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_updated: pulumi.Input[Optional[_builtins.str]] = None,
-                 msix_package_full_name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_applications: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
                  package_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
                  package_family_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,13 +39,13 @@ class MSIXPackageArgs:
         The set of arguments for constructing a MSIXPackage resource.
 
         :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
+        :param pulumi.Input[_builtins.str] msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: User friendly Name to be displayed in the portal. 
         :param pulumi.Input[_builtins.str] image_path: VHD/CIM image path on Network Share.
         :param pulumi.Input[_builtins.bool] is_active: Make this version of the package the active one across the hostpool. 
         :param pulumi.Input[_builtins.bool] is_regular_registration: Specifies how to register Package in feed.
         :param pulumi.Input[_builtins.str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
-        :param pulumi.Input[_builtins.str] msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
         :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
         :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
         :param pulumi.Input[_builtins.str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
@@ -54,6 +54,7 @@ class MSIXPackageArgs:
         :param pulumi.Input[_builtins.str] version: Package version found in the appxmanifest.xml. 
         """
         pulumi.set(__self__, "host_pool_name", host_pool_name)
+        pulumi.set(__self__, "msix_package_full_name", msix_package_full_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -65,8 +66,6 @@ class MSIXPackageArgs:
             pulumi.set(__self__, "is_regular_registration", is_regular_registration)
         if last_updated is not None:
             pulumi.set(__self__, "last_updated", last_updated)
-        if msix_package_full_name is not None:
-            pulumi.set(__self__, "msix_package_full_name", msix_package_full_name)
         if package_applications is not None:
             pulumi.set(__self__, "package_applications", package_applications)
         if package_dependencies is not None:
@@ -91,6 +90,18 @@ class MSIXPackageArgs:
     @host_pool_name.setter
     def host_pool_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "host_pool_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="msixPackageFullName")
+    def msix_package_full_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The version specific package full name of the MSIX package within specified hostpool
+        """
+        return pulumi.get(self, "msix_package_full_name")
+
+    @msix_package_full_name.setter
+    def msix_package_full_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "msix_package_full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -163,18 +174,6 @@ class MSIXPackageArgs:
     @last_updated.setter
     def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
-
-    @_builtins.property
-    @pulumi.getter(name="msixPackageFullName")
-    def msix_package_full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The version specific package full name of the MSIX package within specified hostpool
-        """
-        return pulumi.get(self, "msix_package_full_name")
-
-    @msix_package_full_name.setter
-    def msix_package_full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "msix_package_full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageApplications")
@@ -355,6 +354,8 @@ class MSIXPackage(pulumi.CustomResource):
             __props__.__dict__["is_active"] = is_active
             __props__.__dict__["is_regular_registration"] = is_regular_registration
             __props__.__dict__["last_updated"] = last_updated
+            if msix_package_full_name is None and not opts.urn:
+                raise TypeError("Missing required property 'msix_package_full_name'")
             __props__.__dict__["msix_package_full_name"] = msix_package_full_name
             __props__.__dict__["package_applications"] = package_applications
             __props__.__dict__["package_dependencies"] = package_dependencies

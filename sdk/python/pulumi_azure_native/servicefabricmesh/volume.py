@@ -24,24 +24,25 @@ class VolumeArgs:
     def __init__(__self__, *,
                  provider: pulumi.Input[Union[_builtins.str, 'VolumeProvider']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 volume_resource_name: pulumi.Input[_builtins.str],
                  azure_file_parameters: pulumi.Input[Optional['VolumeProviderParametersAzureFileArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
         :param pulumi.Input[Union[_builtins.str, 'VolumeProvider']] provider: Provider of the volume.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
+        :param pulumi.Input[_builtins.str] volume_resource_name: The identity of the volume.
         :param pulumi.Input['VolumeProviderParametersAzureFileArgs'] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
         :param pulumi.Input[_builtins.str] description: User readable description of the volume.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] volume_resource_name: The identity of the volume.
         """
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "volume_resource_name", volume_resource_name)
         if azure_file_parameters is not None:
             pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
         if description is not None:
@@ -50,8 +51,6 @@ class VolumeArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if volume_resource_name is not None:
-            pulumi.set(__self__, "volume_resource_name", volume_resource_name)
 
     @_builtins.property
     @pulumi.getter
@@ -76,6 +75,18 @@ class VolumeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeResourceName")
+    def volume_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identity of the volume.
+        """
+        return pulumi.get(self, "volume_resource_name")
+
+    @volume_resource_name.setter
+    def volume_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureFileParameters")
@@ -124,18 +135,6 @@ class VolumeArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeResourceName")
-    def volume_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The identity of the volume.
-        """
-        return pulumi.get(self, "volume_resource_name")
-
-    @volume_resource_name.setter
-    def volume_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "volume_resource_name", value)
 
 
 @pulumi.type_token("azure-native:servicefabricmesh:Volume")
@@ -221,6 +220,8 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if volume_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_resource_name'")
             __props__.__dict__["volume_resource_name"] = volume_resource_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

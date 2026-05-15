@@ -20,38 +20,49 @@ __all__ = ['ConnectorArgs', 'Connector']
 @pulumi.input_type
 class ConnectorArgs:
     def __init__(__self__, *,
+                 connector_name: pulumi.Input[_builtins.str],
                  connector_properties: pulumi.Input[Mapping[str, Any]],
                  connector_type: pulumi.Input[Union[_builtins.str, 'ConnectorTypes']],
                  hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_internal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
+        :param pulumi.Input[_builtins.str] connector_name: Name of the connector.
         :param pulumi.Input[Mapping[str, Any]] connector_properties: The connector properties.
         :param pulumi.Input[Union[_builtins.str, 'ConnectorTypes']] connector_type: Type of connector.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] connector_name: Name of the connector.
         :param pulumi.Input[_builtins.str] description: Description of the connector.
         :param pulumi.Input[_builtins.str] display_name: Display name of the connector.
         :param pulumi.Input[_builtins.bool] is_internal: If this is an internal connector.
         """
+        pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "connector_properties", connector_properties)
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if is_internal is not None:
             pulumi.set(__self__, "is_internal", is_internal)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the connector.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorProperties")
@@ -100,18 +111,6 @@ class ConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the connector.
-        """
-        return pulumi.get(self, "connector_name")
-
-    @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -226,6 +225,8 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
+            if connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             if connector_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_properties'")

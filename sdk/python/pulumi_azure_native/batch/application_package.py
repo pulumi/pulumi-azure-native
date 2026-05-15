@@ -23,24 +23,23 @@ class ApplicationPackageArgs:
                  account_name: pulumi.Input[_builtins.str],
                  application_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 version_name: pulumi.Input[_builtins.str],
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationPackage resource.
 
         :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[_builtins.str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[_builtins.str] version_name: The version of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "version_name", version_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -79,6 +78,18 @@ class ApplicationPackageArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The version of the application.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "version_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -89,18 +100,6 @@ class ApplicationPackageArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The version of the application.
-        """
-        return pulumi.get(self, "version_name")
-
-    @version_name.setter
-    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "version_name", value)
 
 
 @pulumi.type_token("azure-native:batch:ApplicationPackage")
@@ -184,6 +183,8 @@ class ApplicationPackage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if version_name is None and not opts.urn:
+                raise TypeError("Missing required property 'version_name'")
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

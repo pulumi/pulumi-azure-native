@@ -23,6 +23,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str],
                  application_group_references: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,12 +34,12 @@ class WorkspaceArgs:
                  plan: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  sku: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[_builtins.str] description: Description of Workspace.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of Workspace.
@@ -47,9 +48,9 @@ class WorkspaceArgs:
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
         if application_group_references is not None:
             pulumi.set(__self__, "application_group_references", application_group_references)
         if description is not None:
@@ -72,8 +73,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +85,18 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workspace
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationGroupReferences")
@@ -210,18 +221,6 @@ class WorkspaceArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workspace
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_name", value)
-
 
 @pulumi.type_token("azure-native:desktopvirtualization:Workspace")
 class Workspace(pulumi.CustomResource):
@@ -329,6 +328,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if workspace_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cloud_pc_resource"] = None

@@ -23,32 +23,31 @@ __all__ = ['SystemTopicArgs', 'SystemTopic']
 class SystemTopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 system_topic_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['IdentityInfoArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 system_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  topic_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SystemTopic resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[_builtins.str] system_topic_name: Name of the system topic.
         :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the resource.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[_builtins.str] source: Source for the system topic.
-        :param pulumi.Input[_builtins.str] system_topic_name: Name of the system topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         :param pulumi.Input[_builtins.str] topic_type: TopicType for the system topic.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "system_topic_name", system_topic_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if source is not None:
             pulumi.set(__self__, "source", source)
-        if system_topic_name is not None:
-            pulumi.set(__self__, "system_topic_name", system_topic_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if topic_type is not None:
@@ -65,6 +64,18 @@ class SystemTopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemTopicName")
+    def system_topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the system topic.
+        """
+        return pulumi.get(self, "system_topic_name")
+
+    @system_topic_name.setter
+    def system_topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "system_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,18 +112,6 @@ class SystemTopicArgs:
     @source.setter
     def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="systemTopicName")
-    def system_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the system topic.
-        """
-        return pulumi.get(self, "system_topic_name")
-
-    @system_topic_name.setter
-    def system_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "system_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -222,6 +221,8 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["source"] = source
+            if system_topic_name is None and not opts.urn:
+                raise TypeError("Missing required property 'system_topic_name'")
             __props__.__dict__["system_topic_name"] = system_topic_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_type"] = topic_type

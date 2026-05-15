@@ -22,26 +22,27 @@ __all__ = ['ProximityPlacementGroupArgs', 'ProximityPlacementGroup']
 @pulumi.input_type
 class ProximityPlacementGroupArgs:
     def __init__(__self__, *,
+                 proximity_placement_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  colocation_status: pulumi.Input[Optional['InstanceViewStatusArgs']] = None,
                  intent: pulumi.Input[Optional['ProximityPlacementGroupPropertiesIntentArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 proximity_placement_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  proximity_placement_group_type: pulumi.Input[Optional[Union[_builtins.str, 'ProximityPlacementGroupType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProximityPlacementGroup resource.
 
+        :param pulumi.Input[_builtins.str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['InstanceViewStatusArgs'] colocation_status: Describes colocation status of the Proximity Placement Group.
         :param pulumi.Input['ProximityPlacementGroupPropertiesIntentArgs'] intent: Specifies the user intent of the proximity placement group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[Union[_builtins.str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
+        pulumi.set(__self__, "proximity_placement_group_name", proximity_placement_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if colocation_status is not None:
             pulumi.set(__self__, "colocation_status", colocation_status)
@@ -49,14 +50,24 @@ class ProximityPlacementGroupArgs:
             pulumi.set(__self__, "intent", intent)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if proximity_placement_group_name is not None:
-            pulumi.set(__self__, "proximity_placement_group_name", proximity_placement_group_name)
         if proximity_placement_group_type is not None:
             pulumi.set(__self__, "proximity_placement_group_type", proximity_placement_group_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="proximityPlacementGroupName")
+    def proximity_placement_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the proximity placement group.
+        """
+        return pulumi.get(self, "proximity_placement_group_name")
+
+    @proximity_placement_group_name.setter
+    def proximity_placement_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "proximity_placement_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +116,6 @@ class ProximityPlacementGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="proximityPlacementGroupName")
-    def proximity_placement_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the proximity placement group.
-        """
-        return pulumi.get(self, "proximity_placement_group_name")
-
-    @proximity_placement_group_name.setter
-    def proximity_placement_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "proximity_placement_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupType")
@@ -238,6 +237,8 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             __props__.__dict__["colocation_status"] = colocation_status
             __props__.__dict__["intent"] = intent
             __props__.__dict__["location"] = location
+            if proximity_placement_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'proximity_placement_group_name'")
             __props__.__dict__["proximity_placement_group_name"] = proximity_placement_group_name
             __props__.__dict__["proximity_placement_group_type"] = proximity_placement_group_type
             if resource_group_name is None and not opts.urn:

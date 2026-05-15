@@ -25,6 +25,7 @@ class ApiManagementServiceArgs:
                  publisher_email: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 service_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
                  additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
                  api_version_constraint: pulumi.Input[Optional['ApiVersionConstraintArgs']] = None,
@@ -44,7 +45,6 @@ class ApiManagementServiceArgs:
                  public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  restore: pulumi.Input[Optional[_builtins.bool]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_configuration: pulumi.Input[Optional['VirtualNetworkConfigurationArgs']] = None,
                  virtual_network_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]] = None,
@@ -55,6 +55,7 @@ class ApiManagementServiceArgs:
         :param pulumi.Input[_builtins.str] publisher_email: Publisher email.
         :param pulumi.Input[_builtins.str] publisher_name: Publisher name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input['ApiVersionConstraintArgs'] api_version_constraint: Control Plane Apis version constraint for the API Management service.
@@ -74,7 +75,6 @@ class ApiManagementServiceArgs:
         :param pulumi.Input[_builtins.str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[_builtins.bool] restore: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
-        :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
@@ -83,6 +83,7 @@ class ApiManagementServiceArgs:
         pulumi.set(__self__, "publisher_email", publisher_email)
         pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "sku", sku)
         if additional_locations is not None:
             pulumi.set(__self__, "additional_locations", additional_locations)
@@ -132,8 +133,6 @@ class ApiManagementServiceArgs:
             restore = False
         if restore is not None:
             pulumi.set(__self__, "restore", restore)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_configuration is not None:
@@ -180,6 +179,18 @@ class ApiManagementServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -410,18 +421,6 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "restore", value)
 
     @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the API Management service.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -646,6 +645,8 @@ class ApiManagementService(pulumi.CustomResource):
             if restore is None:
                 restore = False
             __props__.__dict__["restore"] = restore
+            if service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

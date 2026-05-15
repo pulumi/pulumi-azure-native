@@ -22,6 +22,7 @@ __all__ = ['LabArgs', 'Lab']
 @pulumi.input_type
 class LabArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  announcement: pulumi.Input[Optional['LabAnnouncementPropertiesArgs']] = None,
                  environment_permission: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]] = None,
@@ -30,13 +31,13 @@ class LabArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mandatory_artifacts_resource_ids_linux: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mandatory_artifacts_resource_ids_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  premium_data_disks: pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]] = None,
                  support: pulumi.Input[Optional['LabSupportPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the lab.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['LabAnnouncementPropertiesArgs'] announcement: The properties of any lab announcement associated with this lab
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
@@ -45,13 +46,13 @@ class LabArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
-        :param pulumi.Input[_builtins.str] name: The name of the lab.
         :param pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input['LabSupportPropertiesArgs'] support: The properties of any lab support message associated with this lab
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if announcement is not None:
             pulumi.set(__self__, "announcement", announcement)
@@ -69,14 +70,24 @@ class LabArgs:
             pulumi.set(__self__, "mandatory_artifacts_resource_ids_linux", mandatory_artifacts_resource_ids_linux)
         if mandatory_artifacts_resource_ids_windows is not None:
             pulumi.set(__self__, "mandatory_artifacts_resource_ids_windows", mandatory_artifacts_resource_ids_windows)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if premium_data_disks is not None:
             pulumi.set(__self__, "premium_data_disks", premium_data_disks)
         if support is not None:
             pulumi.set(__self__, "support", support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the lab.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -173,18 +184,6 @@ class LabArgs:
     @mandatory_artifacts_resource_ids_windows.setter
     def mandatory_artifacts_resource_ids_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mandatory_artifacts_resource_ids_windows", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the lab.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumDataDisks")
@@ -324,6 +323,8 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["mandatory_artifacts_resource_ids_linux"] = mandatory_artifacts_resource_ids_linux
             __props__.__dict__["mandatory_artifacts_resource_ids_windows"] = mandatory_artifacts_resource_ids_windows
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["premium_data_disks"] = premium_data_disks
             if resource_group_name is None and not opts.urn:

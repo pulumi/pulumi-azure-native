@@ -20,39 +20,50 @@ __all__ = ['CloudEndpointArgs', 'CloudEndpoint']
 @pulumi.input_type
 class CloudEndpointArgs:
     def __init__(__self__, *,
+                 cloud_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
                  sync_group_name: pulumi.Input[_builtins.str],
                  azure_file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloud_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudEndpoint resource.
 
+        :param pulumi.Input[_builtins.str] cloud_endpoint_name: Name of Cloud Endpoint object.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[_builtins.str] sync_group_name: Name of Sync Group resource.
         :param pulumi.Input[_builtins.str] azure_file_share_name: Azure file share name
-        :param pulumi.Input[_builtins.str] cloud_endpoint_name: Name of Cloud Endpoint object.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly Name
         :param pulumi.Input[_builtins.str] storage_account_resource_id: Storage Account Resource Id
         :param pulumi.Input[_builtins.str] storage_account_tenant_id: Storage Account Tenant Id
         """
+        pulumi.set(__self__, "cloud_endpoint_name", cloud_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         pulumi.set(__self__, "sync_group_name", sync_group_name)
         if azure_file_share_name is not None:
             pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
-        if cloud_endpoint_name is not None:
-            pulumi.set(__self__, "cloud_endpoint_name", cloud_endpoint_name)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if storage_account_resource_id is not None:
             pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
         if storage_account_tenant_id is not None:
             pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudEndpointName")
+    def cloud_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Cloud Endpoint object.
+        """
+        return pulumi.get(self, "cloud_endpoint_name")
+
+    @cloud_endpoint_name.setter
+    def cloud_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cloud_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -101,18 +112,6 @@ class CloudEndpointArgs:
     @azure_file_share_name.setter
     def azure_file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_file_share_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudEndpointName")
-    def cloud_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Cloud Endpoint object.
-        """
-        return pulumi.get(self, "cloud_endpoint_name")
-
-    @cloud_endpoint_name.setter
-    def cloud_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cloud_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
@@ -232,6 +231,8 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__ = CloudEndpointArgs.__new__(CloudEndpointArgs)
 
             __props__.__dict__["azure_file_share_name"] = azure_file_share_name
+            if cloud_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cloud_endpoint_name'")
             __props__.__dict__["cloud_endpoint_name"] = cloud_endpoint_name
             __props__.__dict__["friendly_name"] = friendly_name
             if resource_group_name is None and not opts.urn:

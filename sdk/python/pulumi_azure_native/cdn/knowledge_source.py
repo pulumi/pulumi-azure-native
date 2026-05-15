@@ -21,34 +21,45 @@ __all__ = ['KnowledgeSourceArgs', 'KnowledgeSource']
 @pulumi.input_type
 class KnowledgeSourceArgs:
     def __init__(__self__, *,
+                 knowledge_source_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_type: pulumi.Input[Union[_builtins.str, 'KnowledgeSourceType']],
                  url: pulumi.Input[_builtins.str],
                  web_agent_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 knowledge_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  update_frequency: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None):
         """
         The set of arguments for constructing a KnowledgeSource resource.
 
+        :param pulumi.Input[_builtins.str] knowledge_source_name: The name of the knowledge source.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'KnowledgeSourceType']] source_type: Format or origin of the knowledge source.
         :param pulumi.Input[_builtins.str] url: Endpoint or location of the knowledge source.
         :param pulumi.Input[_builtins.str] web_agent_name: The name of the web agent.
         :param pulumi.Input[_builtins.str] description: Description of the knowledge source.
-        :param pulumi.Input[_builtins.str] knowledge_source_name: The name of the knowledge source.
         :param pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']] update_frequency: Specifies the units of time for scheduling update intervals for the knowledge source.
         """
+        pulumi.set(__self__, "knowledge_source_name", knowledge_source_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "url", url)
         pulumi.set(__self__, "web_agent_name", web_agent_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if knowledge_source_name is not None:
-            pulumi.set(__self__, "knowledge_source_name", knowledge_source_name)
         if update_frequency is not None:
             pulumi.set(__self__, "update_frequency", update_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeSourceName")
+    def knowledge_source_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the knowledge source.
+        """
+        return pulumi.get(self, "knowledge_source_name")
+
+    @knowledge_source_name.setter
+    def knowledge_source_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "knowledge_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -109,18 +120,6 @@ class KnowledgeSourceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="knowledgeSourceName")
-    def knowledge_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the knowledge source.
-        """
-        return pulumi.get(self, "knowledge_source_name")
-
-    @knowledge_source_name.setter
-    def knowledge_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "knowledge_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="updateFrequency")
@@ -209,6 +208,8 @@ class KnowledgeSource(pulumi.CustomResource):
             __props__ = KnowledgeSourceArgs.__new__(KnowledgeSourceArgs)
 
             __props__.__dict__["description"] = description
+            if knowledge_source_name is None and not opts.urn:
+                raise TypeError("Missing required property 'knowledge_source_name'")
             __props__.__dict__["knowledge_source_name"] = knowledge_source_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

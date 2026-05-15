@@ -24,12 +24,12 @@ class KafkaConnectorArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  kafka_connection: pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs'],
+                 kafka_connector_name: pulumi.Input[_builtins.str],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  image: pulumi.Input[Optional['ContainerImageArgs']] = None,
                  instances: pulumi.Input[Optional[_builtins.int]] = None,
-                 kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  local_broker_connection: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,12 +40,12 @@ class KafkaConnectorArgs:
 
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs'] kafka_connection: The details for connecting with Remote Kafka Broker.
+        :param pulumi.Input[_builtins.str] kafka_connector_name: Name of MQ kafkaConnector resource
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] client_id_prefix: The client id prefix of the dynamically generated client ids.
         :param pulumi.Input['ContainerImageArgs'] image: The details of KafkaConnector Docker Image.
         :param pulumi.Input[_builtins.int] instances: The number of KafkaConnector pods to spin up.
-        :param pulumi.Input[_builtins.str] kafka_connector_name: Name of MQ kafkaConnector resource
         :param pulumi.Input['LocalBrokerConnectionSpecArgs'] local_broker_connection: The details for connecting with Local Broker.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] log_level: The log level of the Bridge Connector instances.
@@ -54,6 +54,7 @@ class KafkaConnectorArgs:
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "kafka_connection", kafka_connection)
+        pulumi.set(__self__, "kafka_connector_name", kafka_connector_name)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if client_id_prefix is not None:
@@ -62,8 +63,6 @@ class KafkaConnectorArgs:
             pulumi.set(__self__, "image", image)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
-        if kafka_connector_name is not None:
-            pulumi.set(__self__, "kafka_connector_name", kafka_connector_name)
         if local_broker_connection is not None:
             pulumi.set(__self__, "local_broker_connection", local_broker_connection)
         if location is not None:
@@ -100,6 +99,18 @@ class KafkaConnectorArgs:
     @kafka_connection.setter
     def kafka_connection(self, value: pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs']):
         pulumi.set(self, "kafka_connection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kafkaConnectorName")
+    def kafka_connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ kafkaConnector resource
+        """
+        return pulumi.get(self, "kafka_connector_name")
+
+    @kafka_connector_name.setter
+    def kafka_connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kafka_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mqName")
@@ -160,18 +171,6 @@ class KafkaConnectorArgs:
     @instances.setter
     def instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kafkaConnectorName")
-    def kafka_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ kafkaConnector resource
-        """
-        return pulumi.get(self, "kafka_connector_name")
-
-    @kafka_connector_name.setter
-    def kafka_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "kafka_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localBrokerConnection")
@@ -334,6 +333,8 @@ class KafkaConnector(pulumi.CustomResource):
             if kafka_connection is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_connection'")
             __props__.__dict__["kafka_connection"] = kafka_connection
+            if kafka_connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'kafka_connector_name'")
             __props__.__dict__["kafka_connector_name"] = kafka_connector_name
             __props__.__dict__["local_broker_connection"] = local_broker_connection
             __props__.__dict__["location"] = location

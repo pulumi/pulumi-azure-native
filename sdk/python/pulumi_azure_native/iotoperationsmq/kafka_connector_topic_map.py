@@ -28,14 +28,14 @@ class KafkaConnectorTopicMapArgs:
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  routes: pulumi.Input[Sequence[pulumi.Input['KafkaRoutesArgs']]],
+                 topic_map_name: pulumi.Input[_builtins.str],
                  batching: pulumi.Input[Optional['KafkaTopicMapBatchingArgs']] = None,
                  compression: pulumi.Input[Optional[Union[_builtins.str, 'KafkaMessageCompressionType']]] = None,
                  copy_mqtt_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_key_property: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_strategy: pulumi.Input[Optional[Union[_builtins.str, 'KafkaPartitionStrategy']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_map_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KafkaConnectorTopicMap resource.
 
@@ -45,6 +45,7 @@ class KafkaConnectorTopicMapArgs:
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaRoutesArgs']]] routes: The route details for Kafka connector.
+        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ kafka/topicMap resource
         :param pulumi.Input['KafkaTopicMapBatchingArgs'] batching: The batching settings for kafka messages.
         :param pulumi.Input[Union[_builtins.str, 'KafkaMessageCompressionType']] compression: The compression to use for kafka messages.
         :param pulumi.Input[_builtins.str] copy_mqtt_properties: The flag to copy Mqtt properties.
@@ -52,7 +53,6 @@ class KafkaConnectorTopicMapArgs:
         :param pulumi.Input[_builtins.str] partition_key_property: The partition to use for Kafka.
         :param pulumi.Input[Union[_builtins.str, 'KafkaPartitionStrategy']] partition_strategy: The partition strategy to use for Kafka.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ kafka/topicMap resource
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "kafka_connector_name", kafka_connector_name)
@@ -60,6 +60,7 @@ class KafkaConnectorTopicMapArgs:
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "routes", routes)
+        pulumi.set(__self__, "topic_map_name", topic_map_name)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
         if compression is None:
@@ -78,8 +79,6 @@ class KafkaConnectorTopicMapArgs:
             pulumi.set(__self__, "partition_strategy", partition_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if topic_map_name is not None:
-            pulumi.set(__self__, "topic_map_name", topic_map_name)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -152,6 +151,18 @@ class KafkaConnectorTopicMapArgs:
     @routes.setter
     def routes(self, value: pulumi.Input[Sequence[pulumi.Input['KafkaRoutesArgs']]]):
         pulumi.set(self, "routes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicMapName")
+    def topic_map_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ kafka/topicMap resource
+        """
+        return pulumi.get(self, "topic_map_name")
+
+    @topic_map_name.setter
+    def topic_map_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_map_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,18 +247,6 @@ class KafkaConnectorTopicMapArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicMapName")
-    def topic_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ kafka/topicMap resource
-        """
-        return pulumi.get(self, "topic_map_name")
-
-    @topic_map_name.setter
-    def topic_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_map_name", value)
 
 
 @pulumi.type_token("azure-native:iotoperationsmq:KafkaConnectorTopicMap")
@@ -373,6 +372,8 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'routes'")
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags
+            if topic_map_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_map_name'")
             __props__.__dict__["topic_map_name"] = topic_map_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

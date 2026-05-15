@@ -27,8 +27,8 @@ class StorageTaskArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  identity: pulumi.Input['ManagedServiceIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_task_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_task_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageTask resource.
@@ -38,8 +38,8 @@ class StorageTaskArgs:
         :param pulumi.Input[_builtins.bool] enabled: Storage Task is enabled when set to true and disabled when set to false
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identity of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "action", action)
@@ -47,10 +47,9 @@ class StorageTaskArgs:
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_task_name", storage_task_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if storage_task_name is not None:
-            pulumi.set(__self__, "storage_task_name", storage_task_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -115,6 +114,18 @@ class StorageTaskArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageTaskName")
+    def storage_task_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
+        """
+        return pulumi.get(self, "storage_task_name")
+
+    @storage_task_name.setter
+    def storage_task_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_task_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -125,18 +136,6 @@ class StorageTaskArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageTaskName")
-    def storage_task_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
-        """
-        return pulumi.get(self, "storage_task_name")
-
-    @storage_task_name.setter
-    def storage_task_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_task_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -243,6 +242,8 @@ class StorageTask(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_task_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_task_name'")
             __props__.__dict__["storage_task_name"] = storage_task_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

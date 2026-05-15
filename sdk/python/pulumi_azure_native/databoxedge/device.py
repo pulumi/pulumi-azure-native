@@ -22,9 +22,9 @@ __all__ = ['DeviceArgs', 'Device']
 @pulumi.input_type
 class DeviceArgs:
     def __init__(__self__, *,
+                 device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  data_residency: pulumi.Input[Optional['DataResidencyArgs']] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
@@ -32,19 +32,18 @@ class DeviceArgs:
         """
         The set of arguments for constructing a Device resource.
 
+        :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['DataResidencyArgs'] data_residency: The details of data-residency related properties for this resource
-        :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
         :param pulumi.Input[_builtins.str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input['SkuArgs'] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
+        pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_residency is not None:
             pulumi.set(__self__, "data_residency", data_residency)
-        if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -53,6 +52,18 @@ class DeviceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The device name.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,18 +88,6 @@ class DeviceArgs:
     @data_residency.setter
     def data_residency(self, value: pulumi.Input[Optional['DataResidencyArgs']]):
         pulumi.set(self, "data_residency", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The device name.
-        """
-        return pulumi.get(self, "device_name")
-
-    @device_name.setter
-    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -217,6 +216,8 @@ class Device(pulumi.CustomResource):
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
             __props__.__dict__["data_residency"] = data_residency
+            if device_name is None and not opts.urn:
+                raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

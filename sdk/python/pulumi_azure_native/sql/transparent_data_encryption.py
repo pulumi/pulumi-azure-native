@@ -24,7 +24,7 @@ class TransparentDataEncryptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['TransparentDataEncryptionState'],
-                 tde_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tde_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransparentDataEncryption resource.
 
@@ -38,8 +38,7 @@ class TransparentDataEncryptionArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "state", state)
-        if tde_name is not None:
-            pulumi.set(__self__, "tde_name", tde_name)
+        pulumi.set(__self__, "tde_name", tde_name)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -91,14 +90,14 @@ class TransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="tdeName")
-    def tde_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tde_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the transparent data encryption configuration.
         """
         return pulumi.get(self, "tde_name")
 
     @tde_name.setter
-    def tde_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tde_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "tde_name", value)
 
 
@@ -185,6 +184,8 @@ class TransparentDataEncryption(pulumi.CustomResource):
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
+            if tde_name is None and not opts.urn:
+                raise TypeError("Missing required property 'tde_name'")
             __props__.__dict__["tde_name"] = tde_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

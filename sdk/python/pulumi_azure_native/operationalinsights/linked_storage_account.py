@@ -19,24 +19,35 @@ __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
 @pulumi.input_type
 class LinkedStorageAccountArgs:
     def __init__(__self__, *,
+                 data_source_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkedStorageAccount resource.
 
+        :param pulumi.Input[_builtins.str] data_source_type: Linked storage accounts type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
-        :param pulumi.Input[_builtins.str] data_source_type: Linked storage accounts type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_ids: Linked storage accounts resources ids.
         """
+        pulumi.set(__self__, "data_source_type", data_source_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if data_source_type is not None:
-            pulumi.set(__self__, "data_source_type", data_source_type)
         if storage_account_ids is not None:
             pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Linked storage accounts type.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @data_source_type.setter
+    def data_source_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class LinkedStorageAccountArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSourceType")
-    def data_source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Linked storage accounts type.
-        """
-        return pulumi.get(self, "data_source_type")
-
-    @data_source_type.setter
-    def data_source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountIds")
@@ -155,6 +154,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
 
+            if data_source_type is None and not opts.urn:
+                raise TypeError("Missing required property 'data_source_type'")
             __props__.__dict__["data_source_type"] = data_source_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -20,25 +20,24 @@ __all__ = ['TagApiLinkArgs', 'TagApiLink']
 class TagApiLinkArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
+                 api_link_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 tag_id: pulumi.Input[_builtins.str],
-                 api_link_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 tag_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TagApiLink resource.
 
         :param pulumi.Input[_builtins.str] api_id: Full resource Id of an API.
+        :param pulumi.Input[_builtins.str] api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[_builtins.str] api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "api_link_id", api_link_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "tag_id", tag_id)
-        if api_link_id is not None:
-            pulumi.set(__self__, "api_link_id", api_link_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -51,6 +50,18 @@ class TagApiLinkArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiLinkId")
+    def api_link_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tag-API link identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "api_link_id")
+
+    @api_link_id.setter
+    def api_link_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -87,18 +98,6 @@ class TagApiLinkArgs:
     @tag_id.setter
     def tag_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "tag_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiLinkId")
-    def api_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Tag-API link identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "api_link_id")
-
-    @api_link_id.setter
-    def api_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "api_link_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:TagApiLink")
@@ -175,6 +174,8 @@ class TagApiLink(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
+            if api_link_id is None and not opts.urn:
+                raise TypeError("Missing required property 'api_link_id'")
             __props__.__dict__["api_link_id"] = api_link_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

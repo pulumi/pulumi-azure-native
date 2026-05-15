@@ -23,11 +23,11 @@ __all__ = ['IotDpsResourceArgs', 'IotDpsResource']
 class IotDpsResourceArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['IotDpsPropertiesDescriptionArgs'],
+                 provisioning_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['IotDpsSkuInfoArgs'],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resourcegroup: pulumi.Input[Optional[_builtins.str]] = None,
                  subscriptionid: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -35,24 +35,23 @@ class IotDpsResourceArgs:
         The set of arguments for constructing a IotDpsResource resource.
 
         :param pulumi.Input['IotDpsPropertiesDescriptionArgs'] properties: Service specific properties for a provisioning service
+        :param pulumi.Input[_builtins.str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group identifier.
         :param pulumi.Input['IotDpsSkuInfoArgs'] sku: Sku info for a provisioning Service.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identities for a provisioning service.
         :param pulumi.Input[_builtins.str] location: The resource location.
-        :param pulumi.Input[_builtins.str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[_builtins.str] resourcegroup: The resource group of the resource.
         :param pulumi.Input[_builtins.str] subscriptionid: The subscription id of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provisioning_service_name is not None:
-            pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
         if resourcegroup is not None:
             pulumi.set(__self__, "resourcegroup", resourcegroup)
         if subscriptionid is not None:
@@ -71,6 +70,18 @@ class IotDpsResourceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['IotDpsPropertiesDescriptionArgs']):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningServiceName")
+    def provisioning_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of provisioning service to create or update.
+        """
+        return pulumi.get(self, "provisioning_service_name")
+
+    @provisioning_service_name.setter
+    def provisioning_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provisioning_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -119,18 +130,6 @@ class IotDpsResourceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningServiceName")
-    def provisioning_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of provisioning service to create or update.
-        """
-        return pulumi.get(self, "provisioning_service_name")
-
-    @provisioning_service_name.setter
-    def provisioning_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "provisioning_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -257,6 +256,8 @@ class IotDpsResource(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            if provisioning_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'provisioning_service_name'")
             __props__.__dict__["provisioning_service_name"] = provisioning_service_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

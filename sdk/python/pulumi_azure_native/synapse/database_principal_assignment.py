@@ -23,35 +23,34 @@ class DatabasePrincipalAssignmentArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  kusto_pool_name: pulumi.Input[_builtins.str],
+                 principal_assignment_name: pulumi.Input[_builtins.str],
                  principal_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[Union[_builtins.str, 'PrincipalType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Union[_builtins.str, 'DatabasePrincipalRole']],
                  workspace_name: pulumi.Input[_builtins.str],
-                 principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabasePrincipalAssignment resource.
 
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
+        :param pulumi.Input[_builtins.str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: Principal type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'DatabasePrincipalRole']] role: Database principal role.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace
-        :param pulumi.Input[_builtins.str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the principal
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
+        pulumi.set(__self__, "principal_assignment_name", principal_assignment_name)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if principal_assignment_name is not None:
-            pulumi.set(__self__, "principal_assignment_name", principal_assignment_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -78,6 +77,18 @@ class DatabasePrincipalAssignmentArgs:
     @kusto_pool_name.setter
     def kusto_pool_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kusto_pool_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalAssignmentName")
+    def principal_assignment_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Kusto principalAssignment.
+        """
+        return pulumi.get(self, "principal_assignment_name")
+
+    @principal_assignment_name.setter
+    def principal_assignment_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -138,18 +149,6 @@ class DatabasePrincipalAssignmentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="principalAssignmentName")
-    def principal_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Kusto principalAssignment.
-        """
-        return pulumi.get(self, "principal_assignment_name")
-
-    @principal_assignment_name.setter
-    def principal_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "principal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -249,6 +248,8 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             if kusto_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'kusto_pool_name'")
             __props__.__dict__["kusto_pool_name"] = kusto_pool_name
+            if principal_assignment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'principal_assignment_name'")
             __props__.__dict__["principal_assignment_name"] = principal_assignment_name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")

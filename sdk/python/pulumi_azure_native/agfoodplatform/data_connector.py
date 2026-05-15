@@ -21,23 +21,34 @@ __all__ = ['DataConnectorArgs', 'DataConnector']
 @pulumi.input_type
 class DataConnectorArgs:
     def __init__(__self__, *,
+                 data_connector_name: pulumi.Input[_builtins.str],
                  data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DataConnectorPropertiesArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 data_connector_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DataConnector resource.
 
+        :param pulumi.Input[_builtins.str] data_connector_name: Connector name.
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input['DataConnectorPropertiesArgs'] properties: DataConnector Properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] data_connector_name: Connector name.
         """
+        pulumi.set(__self__, "data_connector_name", data_connector_name)
         pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_connector_name is not None:
-            pulumi.set(__self__, "data_connector_name", data_connector_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorName")
+    def data_connector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Connector name.
+        """
+        return pulumi.get(self, "data_connector_name")
+
+    @data_connector_name.setter
+    def data_connector_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataManagerForAgricultureResourceName")
@@ -74,18 +85,6 @@ class DataConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectorName")
-    def data_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Connector name.
-        """
-        return pulumi.get(self, "data_connector_name")
-
-    @data_connector_name.setter
-    def data_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connector_name", value)
 
 
 @pulumi.type_token("azure-native:agfoodplatform:DataConnector")
@@ -152,6 +151,8 @@ class DataConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataConnectorArgs.__new__(DataConnectorArgs)
 
+            if data_connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connector_name'")
             __props__.__dict__["data_connector_name"] = data_connector_name
             if data_manager_for_agriculture_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")

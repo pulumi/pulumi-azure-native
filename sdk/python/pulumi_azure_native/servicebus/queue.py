@@ -22,6 +22,7 @@ __all__ = ['QueueArgs', 'Queue']
 class QueueArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
+                 queue_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
                  dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -36,7 +37,6 @@ class QueueArgs:
                  max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
                  max_message_size_in_kilobytes: pulumi.Input[Optional[_builtins.float]] = None,
                  max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
-                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
                  requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
                  requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['EntityStatus']] = None):
@@ -44,6 +44,7 @@ class QueueArgs:
         The set of arguments for constructing a Queue resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
+        :param pulumi.Input[_builtins.str] queue_name: The queue name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
         :param pulumi.Input[_builtins.bool] dead_lettering_on_message_expiration: A value that indicates whether this queue has dead letter support when a message expires.
@@ -58,12 +59,12 @@ class QueueArgs:
         :param pulumi.Input[_builtins.int] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         :param pulumi.Input[_builtins.float] max_message_size_in_kilobytes: Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
         :param pulumi.Input[_builtins.int] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
-        :param pulumi.Input[_builtins.str] queue_name: The queue name.
         :param pulumi.Input[_builtins.bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[_builtins.bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -91,8 +92,6 @@ class QueueArgs:
             pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
         if requires_session is not None:
@@ -111,6 +110,18 @@ class QueueArgs:
     @namespace_name.setter
     def namespace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "queue_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -281,18 +292,6 @@ class QueueArgs:
         pulumi.set(self, "max_size_in_megabytes", value)
 
     @_builtins.property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The queue name.
-        """
-        return pulumi.get(self, "queue_name")
-
-    @queue_name.setter
-    def queue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "queue_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -458,6 +457,8 @@ class Queue(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
+            if queue_name is None and not opts.urn:
+                raise TypeError("Missing required property 'queue_name'")
             __props__.__dict__["queue_name"] = queue_name
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
             __props__.__dict__["requires_session"] = requires_session

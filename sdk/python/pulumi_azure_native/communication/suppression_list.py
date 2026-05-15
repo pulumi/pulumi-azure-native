@@ -23,24 +23,23 @@ class SuppressionListArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 suppression_list_name: pulumi.Input[_builtins.str],
+                 list_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionList resource.
 
         :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] list_name: The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         :param pulumi.Input[_builtins.str] suppression_list_name: The name of the suppression list.
+        :param pulumi.Input[_builtins.str] list_name: The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "email_service_name", email_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "suppression_list_name", suppression_list_name)
         if list_name is not None:
             pulumi.set(__self__, "list_name", list_name)
-        if suppression_list_name is not None:
-            pulumi.set(__self__, "suppression_list_name", suppression_list_name)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -79,6 +78,18 @@ class SuppressionListArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="suppressionListName")
+    def suppression_list_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the suppression list.
+        """
+        return pulumi.get(self, "suppression_list_name")
+
+    @suppression_list_name.setter
+    def suppression_list_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "suppression_list_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="listName")
     def list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -89,18 +100,6 @@ class SuppressionListArgs:
     @list_name.setter
     def list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "list_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="suppressionListName")
-    def suppression_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the suppression list.
-        """
-        return pulumi.get(self, "suppression_list_name")
-
-    @suppression_list_name.setter
-    def suppression_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "suppression_list_name", value)
 
 
 @pulumi.type_token("azure-native:communication:SuppressionList")
@@ -184,6 +183,8 @@ class SuppressionList(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if suppression_list_name is None and not opts.urn:
+                raise TypeError("Missing required property 'suppression_list_name'")
             __props__.__dict__["suppression_list_name"] = suppression_list_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time_stamp"] = None

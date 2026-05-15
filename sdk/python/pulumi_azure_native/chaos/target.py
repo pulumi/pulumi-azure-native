@@ -25,8 +25,8 @@ class TargetArgs:
                  parent_resource_type: pulumi.Input[_builtins.str],
                  properties: Any,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 target_name: pulumi.Input[_builtins.str],
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
@@ -35,18 +35,17 @@ class TargetArgs:
         :param pulumi.Input[_builtins.str] parent_resource_type: String that represents a resource type.
         :param Any properties: The properties of the target resource.
         :param pulumi.Input[_builtins.str] resource_group_name: String that represents an Azure resource group.
-        :param pulumi.Input[_builtins.str] location: Location of the target resource.
         :param pulumi.Input[_builtins.str] target_name: String that represents a Target resource name.
+        :param pulumi.Input[_builtins.str] location: Location of the target resource.
         """
         pulumi.set(__self__, "parent_provider_namespace", parent_provider_namespace)
         pulumi.set(__self__, "parent_resource_name", parent_resource_name)
         pulumi.set(__self__, "parent_resource_type", parent_resource_type)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_name", target_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
 
     @_builtins.property
     @pulumi.getter(name="parentProviderNamespace")
@@ -109,6 +108,18 @@ class TargetArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        String that represents a Target resource name.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -119,18 +130,6 @@ class TargetArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        String that represents a Target resource name.
-        """
-        return pulumi.get(self, "target_name")
-
-    @target_name.setter
-    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "target_name", value)
 
 
 @pulumi.type_token("azure-native:chaos:Target")
@@ -226,6 +225,8 @@ class Target(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if target_name is None and not opts.urn:
+                raise TypeError("Missing required property 'target_name'")
             __props__.__dict__["target_name"] = target_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

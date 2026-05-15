@@ -23,24 +23,25 @@ class VirtualApplianceSiteArgs:
     def __init__(__self__, *,
                  network_virtual_appliance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 site_name: pulumi.Input[_builtins.str],
                  address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 o365_policy: pulumi.Input[Optional['Office365PolicyPropertiesArgs']] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 o365_policy: pulumi.Input[Optional['Office365PolicyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a VirtualApplianceSite resource.
 
         :param pulumi.Input[_builtins.str] network_virtual_appliance_name: The name of the Network Virtual Appliance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] site_name: The name of the site.
         :param pulumi.Input[_builtins.str] address_prefix: Address Prefix.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: Name of the virtual appliance site.
         :param pulumi.Input['Office365PolicyPropertiesArgs'] o365_policy: Office 365 Policy.
-        :param pulumi.Input[_builtins.str] site_name: The name of the site.
         """
         pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_name", site_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if id is not None:
@@ -49,8 +50,6 @@ class VirtualApplianceSiteArgs:
             pulumi.set(__self__, "name", name)
         if o365_policy is not None:
             pulumi.set(__self__, "o365_policy", o365_policy)
-        if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
 
     @_builtins.property
     @pulumi.getter(name="networkVirtualApplianceName")
@@ -75,6 +74,18 @@ class VirtualApplianceSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the site.
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
@@ -123,18 +134,6 @@ class VirtualApplianceSiteArgs:
     @o365_policy.setter
     def o365_policy(self, value: pulumi.Input[Optional['Office365PolicyPropertiesArgs']]):
         pulumi.set(self, "o365_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the site.
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_name", value)
 
 
 @pulumi.type_token("azure-native:network:VirtualApplianceSite")
@@ -224,6 +223,8 @@ class VirtualApplianceSite(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

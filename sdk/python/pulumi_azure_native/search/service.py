@@ -23,6 +23,7 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 search_service_name: pulumi.Input[_builtins.str],
                  auth_options: pulumi.Input[Optional['DataPlaneAuthOptionsArgs']] = None,
                  compute_type: pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]] = None,
                  data_exfiltration_protections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
@@ -36,7 +37,6 @@ class ServiceArgs:
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  semantic_search: pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -45,6 +45,7 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         :param pulumi.Input['DataPlaneAuthOptionsArgs'] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         :param pulumi.Input[Union[_builtins.str, 'ComputeType']] compute_type: Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]] data_exfiltration_protections: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
@@ -58,13 +59,13 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']] upgrade_available: Indicates if the search service has an upgrade available.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "search_service_name", search_service_name)
         if auth_options is not None:
             pulumi.set(__self__, "auth_options", auth_options)
         if compute_type is not None:
@@ -99,8 +100,6 @@ class ServiceArgs:
             replica_count = 1
         if replica_count is not None:
             pulumi.set(__self__, "replica_count", replica_count)
-        if search_service_name is not None:
-            pulumi.set(__self__, "search_service_name", search_service_name)
         if semantic_search is not None:
             pulumi.set(__self__, "semantic_search", semantic_search)
         if sku is not None:
@@ -121,6 +120,18 @@ class ServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchServiceName")
+    def search_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure AI Search service associated with the specified resource group.
+        """
+        return pulumi.get(self, "search_service_name")
+
+    @search_service_name.setter
+    def search_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "search_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authOptions")
@@ -277,18 +288,6 @@ class ServiceArgs:
     @replica_count.setter
     def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
-
-    @_builtins.property
-    @pulumi.getter(name="searchServiceName")
-    def search_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Azure AI Search service associated with the specified resource group.
-        """
-        return pulumi.get(self, "search_service_name")
-
-    @search_service_name.setter
-    def search_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "search_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticSearch")
@@ -476,6 +475,8 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if search_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'search_service_name'")
             __props__.__dict__["search_service_name"] = search_service_name
             __props__.__dict__["semantic_search"] = semantic_search
             __props__.__dict__["sku"] = sku

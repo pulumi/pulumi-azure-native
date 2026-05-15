@@ -22,28 +22,27 @@ class DeviceArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
                  device_group_name: pulumi.Input[_builtins.str],
+                 device_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
 
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
         :param pulumi.Input[_builtins.str] device_group_name: Name of device group.
+        :param pulumi.Input[_builtins.str] device_name: Device name
         :param pulumi.Input[_builtins.str] product_name: Name of product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] device_id: Device ID
-        :param pulumi.Input[_builtins.str] device_name: Device name
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "device_group_name", device_group_name)
+        pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if device_id is not None:
             pulumi.set(__self__, "device_id", device_id)
-        if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
@@ -68,6 +67,18 @@ class DeviceArgs:
     @device_group_name.setter
     def device_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "device_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Device name
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productName")
@@ -104,18 +115,6 @@ class DeviceArgs:
     @device_id.setter
     def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Device name
-        """
-        return pulumi.get(self, "device_name")
-
-    @device_name.setter
-    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "device_name", value)
 
 
 @pulumi.type_token("azure-native:azuresphere:Device")
@@ -195,6 +194,8 @@ class Device(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_group_name'")
             __props__.__dict__["device_group_name"] = device_group_name
             __props__.__dict__["device_id"] = device_id
+            if device_name is None and not opts.urn:
+                raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             if product_name is None and not opts.urn:
                 raise TypeError("Missing required property 'product_name'")

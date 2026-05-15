@@ -21,26 +21,25 @@ __all__ = ['StorageMoverArgs', 'StorageMover']
 class StorageMoverArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_mover_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageMover resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] storage_mover_name: The name of the Storage Mover resource.
         :param pulumi.Input[_builtins.str] description: A description for the Storage Mover.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] storage_mover_name: The name of the Storage Mover resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_mover_name", storage_mover_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if storage_mover_name is not None:
-            pulumi.set(__self__, "storage_mover_name", storage_mover_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,6 +54,18 @@ class StorageMoverArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageMoverName")
+    def storage_mover_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Storage Mover resource.
+        """
+        return pulumi.get(self, "storage_mover_name")
+
+    @storage_mover_name.setter
+    def storage_mover_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_mover_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,18 +90,6 @@ class StorageMoverArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageMoverName")
-    def storage_mover_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Storage Mover resource.
-        """
-        return pulumi.get(self, "storage_mover_name")
-
-    @storage_mover_name.setter
-    def storage_mover_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_mover_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +180,8 @@ class StorageMover(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_mover_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_mover_name'")
             __props__.__dict__["storage_mover_name"] = storage_mover_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

@@ -20,24 +20,35 @@ __all__ = ['RegistrationArgs', 'Registration']
 @pulumi.input_type
 class RegistrationArgs:
     def __init__(__self__, *,
+                 registration_name: pulumi.Input[_builtins.str],
                  registration_token: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None):
         """
         The set of arguments for constructing a Registration resource.
 
+        :param pulumi.Input[_builtins.str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[_builtins.str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[_builtins.str] resource_group: Name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'Location']] location: Location of the resource.
-        :param pulumi.Input[_builtins.str] registration_name: Name of the Azure Stack registration.
         """
+        pulumi.set(__self__, "registration_name", registration_name)
         pulumi.set(__self__, "registration_token", registration_token)
         pulumi.set(__self__, "resource_group", resource_group)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if registration_name is not None:
-            pulumi.set(__self__, "registration_name", registration_name)
+
+    @_builtins.property
+    @pulumi.getter(name="registrationName")
+    def registration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Azure Stack registration.
+        """
+        return pulumi.get(self, "registration_name")
+
+    @registration_name.setter
+    def registration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "registration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationToken")
@@ -74,18 +85,6 @@ class RegistrationArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Location']]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registrationName")
-    def registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Azure Stack registration.
-        """
-        return pulumi.get(self, "registration_name")
-
-    @registration_name.setter
-    def registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "registration_name", value)
 
 
 @pulumi.type_token("azure-native:azurestack:Registration")
@@ -157,6 +156,8 @@ class Registration(pulumi.CustomResource):
             __props__ = RegistrationArgs.__new__(RegistrationArgs)
 
             __props__.__dict__["location"] = location
+            if registration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'registration_name'")
             __props__.__dict__["registration_name"] = registration_name
             if registration_token is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_token'")

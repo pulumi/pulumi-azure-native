@@ -23,31 +23,30 @@ class ConnectionRaiBlocklistItemArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['RaiBlocklistItemPropertiesArgs'],
+                 rai_blocklist_item_name: pulumi.Input[_builtins.str],
                  rai_blocklist_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 rai_blocklist_item_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionRaiBlocklistItem resource.
 
         :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input['RaiBlocklistItemPropertiesArgs'] properties: RAI Custom Blocklist Item properties.
+        :param pulumi.Input[_builtins.str] rai_blocklist_item_name: Name of the RaiBlocklist Item
         :param pulumi.Input[_builtins.str] rai_blocklist_name: The name of the RaiBlocklist.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] proxy_api_version: Api version used by proxy call
-        :param pulumi.Input[_builtins.str] rai_blocklist_item_name: Name of the RaiBlocklist Item
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "rai_blocklist_item_name", rai_blocklist_item_name)
         pulumi.set(__self__, "rai_blocklist_name", rai_blocklist_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if proxy_api_version is not None:
             pulumi.set(__self__, "proxy_api_version", proxy_api_version)
-        if rai_blocklist_item_name is not None:
-            pulumi.set(__self__, "rai_blocklist_item_name", rai_blocklist_item_name)
 
     @_builtins.property
     @pulumi.getter(name="connectionName")
@@ -72,6 +71,18 @@ class ConnectionRaiBlocklistItemArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['RaiBlocklistItemPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="raiBlocklistItemName")
+    def rai_blocklist_item_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the RaiBlocklist Item
+        """
+        return pulumi.get(self, "rai_blocklist_item_name")
+
+    @rai_blocklist_item_name.setter
+    def rai_blocklist_item_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rai_blocklist_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="raiBlocklistName")
@@ -120,18 +131,6 @@ class ConnectionRaiBlocklistItemArgs:
     @proxy_api_version.setter
     def proxy_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_api_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="raiBlocklistItemName")
-    def rai_blocklist_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the RaiBlocklist Item
-        """
-        return pulumi.get(self, "rai_blocklist_item_name")
-
-    @rai_blocklist_item_name.setter
-    def rai_blocklist_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rai_blocklist_item_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ConnectionRaiBlocklistItem")
@@ -214,6 +213,8 @@ class ConnectionRaiBlocklistItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["proxy_api_version"] = proxy_api_version
+            if rai_blocklist_item_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rai_blocklist_item_name'")
             __props__.__dict__["rai_blocklist_item_name"] = rai_blocklist_item_name
             if rai_blocklist_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rai_blocklist_name'")

@@ -23,30 +23,31 @@ __all__ = ['ScheduledActionArgs', 'ScheduledAction']
 class ScheduledActionArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  notification: pulumi.Input['NotificationPropertiesArgs'],
                  schedule: pulumi.Input['SchedulePropertiesArgs'],
                  status: pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']],
                  view_id: pulumi.Input[_builtins.str],
                  file_destination: pulumi.Input[Optional['FileDestinationArgs']] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_email: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
 
         :param pulumi.Input[_builtins.str] display_name: Scheduled action name.
+        :param pulumi.Input[_builtins.str] name: Scheduled action name.
         :param pulumi.Input['NotificationPropertiesArgs'] notification: Notification properties based on scheduled action kind.
         :param pulumi.Input['SchedulePropertiesArgs'] schedule: Schedule of the scheduled action.
         :param pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']] status: Status of the scheduled action.
         :param pulumi.Input[_builtins.str] view_id: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
         :param pulumi.Input['FileDestinationArgs'] file_destination: Destination format of the view data. This is optional.
         :param pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']] kind: Kind of the scheduled action.
-        :param pulumi.Input[_builtins.str] name: Scheduled action name.
         :param pulumi.Input[_builtins.str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[_builtins.str] scope: For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "notification", notification)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "status", status)
@@ -55,8 +56,6 @@ class ScheduledActionArgs:
             pulumi.set(__self__, "file_destination", file_destination)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if notification_email is not None:
             pulumi.set(__self__, "notification_email", notification_email)
         if scope is not None:
@@ -73,6 +72,18 @@ class ScheduledActionArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Scheduled action name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -145,18 +156,6 @@ class ScheduledActionArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]]):
         pulumi.set(self, "kind", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Scheduled action name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
@@ -274,6 +273,8 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["file_destination"] = file_destination
             __props__.__dict__["kind"] = kind
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if notification is None and not opts.urn:
                 raise TypeError("Missing required property 'notification'")

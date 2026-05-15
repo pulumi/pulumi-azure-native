@@ -22,23 +22,22 @@ __all__ = ['RelationshipArgs', 'Relationship']
 class RelationshipArgs:
     def __init__(__self__, *,
                  health_model_name: pulumi.Input[_builtins.str],
+                 relationship_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['RelationshipPropertiesArgs']] = None,
-                 relationship_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['RelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Relationship resource.
 
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
+        :param pulumi.Input[_builtins.str] relationship_name: Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RelationshipPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] relationship_name: Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
         """
         pulumi.set(__self__, "health_model_name", health_model_name)
+        pulumi.set(__self__, "relationship_name", relationship_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if relationship_name is not None:
-            pulumi.set(__self__, "relationship_name", relationship_name)
 
     @_builtins.property
     @pulumi.getter(name="healthModelName")
@@ -51,6 +50,18 @@ class RelationshipArgs:
     @health_model_name.setter
     def health_model_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "health_model_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipName")
+    def relationship_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
+        """
+        return pulumi.get(self, "relationship_name")
+
+    @relationship_name.setter
+    def relationship_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "relationship_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,18 +86,6 @@ class RelationshipArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RelationshipPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relationshipName")
-    def relationship_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
-        """
-        return pulumi.get(self, "relationship_name")
-
-    @relationship_name.setter
-    def relationship_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "relationship_name", value)
 
 
 @pulumi.type_token("azure-native:cloudhealth:Relationship")
@@ -161,6 +160,8 @@ class Relationship(pulumi.CustomResource):
                 raise TypeError("Missing required property 'health_model_name'")
             __props__.__dict__["health_model_name"] = health_model_name
             __props__.__dict__["properties"] = properties
+            if relationship_name is None and not opts.urn:
+                raise TypeError("Missing required property 'relationship_name'")
             __props__.__dict__["relationship_name"] = relationship_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

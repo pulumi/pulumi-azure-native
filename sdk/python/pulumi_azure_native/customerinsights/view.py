@@ -22,28 +22,27 @@ class ViewArgs:
                  definition: pulumi.Input[_builtins.str],
                  hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 view_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 view_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a View resource.
 
         :param pulumi.Input[_builtins.str] definition: View definition.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] view_name: The name of the view.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] display_name: Localized display name for the view.
         :param pulumi.Input[_builtins.str] user_id: the user ID.
-        :param pulumi.Input[_builtins.str] view_name: The name of the view.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "view_name", view_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if user_id is not None:
             pulumi.set(__self__, "user_id", user_id)
-        if view_name is not None:
-            pulumi.set(__self__, "view_name", view_name)
 
     @_builtins.property
     @pulumi.getter
@@ -82,6 +81,18 @@ class ViewArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewName")
+    def view_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the view.
+        """
+        return pulumi.get(self, "view_name")
+
+    @view_name.setter
+    def view_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "view_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -104,18 +115,6 @@ class ViewArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="viewName")
-    def view_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the view.
-        """
-        return pulumi.get(self, "view_name")
-
-    @view_name.setter
-    def view_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "view_name", value)
 
 
 @pulumi.type_token("azure-native:customerinsights:View")
@@ -199,6 +198,8 @@ class View(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["user_id"] = user_id
+            if view_name is None and not opts.urn:
+                raise TypeError("Missing required property 'view_name'")
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed"] = None

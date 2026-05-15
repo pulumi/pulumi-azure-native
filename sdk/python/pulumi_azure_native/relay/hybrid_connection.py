@@ -20,28 +20,39 @@ __all__ = ['HybridConnectionArgs', 'HybridConnection']
 @pulumi.input_type
 class HybridConnectionArgs:
     def __init__(__self__, *,
+                 hybrid_connection_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 hybrid_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridConnection resource.
 
+        :param pulumi.Input[_builtins.str] hybrid_connection_name: The hybrid connection name.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] hybrid_connection_name: The hybrid connection name.
         :param pulumi.Input[_builtins.bool] requires_client_authorization: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         :param pulumi.Input[_builtins.str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
+        pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if hybrid_connection_name is not None:
-            pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
         if requires_client_authorization is not None:
             pulumi.set(__self__, "requires_client_authorization", requires_client_authorization)
         if user_metadata is not None:
             pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="hybridConnectionName")
+    def hybrid_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The hybrid connection name.
+        """
+        return pulumi.get(self, "hybrid_connection_name")
+
+    @hybrid_connection_name.setter
+    def hybrid_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hybrid_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -66,18 +77,6 @@ class HybridConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hybridConnectionName")
-    def hybrid_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The hybrid connection name.
-        """
-        return pulumi.get(self, "hybrid_connection_name")
-
-    @hybrid_connection_name.setter
-    def hybrid_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "hybrid_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresClientAuthorization")
@@ -175,6 +174,8 @@ class HybridConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HybridConnectionArgs.__new__(HybridConnectionArgs)
 
+            if hybrid_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'hybrid_connection_name'")
             __props__.__dict__["hybrid_connection_name"] = hybrid_connection_name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

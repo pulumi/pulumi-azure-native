@@ -22,8 +22,8 @@ __all__ = ['GeoCatalogArgs', 'GeoCatalog']
 @pulumi.input_type
 class GeoCatalogArgs:
     def __init__(__self__, *,
+                 catalog_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GeoCatalogPropertiesArgs']] = None,
@@ -31,16 +31,15 @@ class GeoCatalogArgs:
         """
         The set of arguments for constructing a GeoCatalog resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] catalog_name: The name of the catalog
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['GeoCatalogPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if catalog_name is not None:
-            pulumi.set(__self__, "catalog_name", catalog_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -49,6 +48,18 @@ class GeoCatalogArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the catalog
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class GeoCatalogArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the catalog
-        """
-        return pulumi.get(self, "catalog_name")
-
-    @catalog_name.setter
-    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,6 +196,8 @@ class GeoCatalog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GeoCatalogArgs.__new__(GeoCatalogArgs)
 
+            if catalog_name is None and not opts.urn:
+                raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

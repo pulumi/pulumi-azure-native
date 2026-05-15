@@ -21,8 +21,8 @@ __all__ = ['CloudConnectionArgs', 'CloudConnection']
 @pulumi.input_type
 class CloudConnectionArgs:
     def __init__(__self__, *,
+                 cloud_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cloud_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_connector: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,8 +32,8 @@ class CloudConnectionArgs:
         """
         The set of arguments for constructing a CloudConnection resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] cloud_connection_name: The name of the cloud connection resource
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceReferenceArgs'] cloud_connector: The cloud connector which discovered the remote resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] remote_resource_id: Identifier for the remote cloud resource
@@ -41,9 +41,8 @@ class CloudConnectionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['ResourceReferenceArgs'] virtual_hub: The virtualHub to which the cloud connection belongs.
         """
+        pulumi.set(__self__, "cloud_connection_name", cloud_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cloud_connection_name is not None:
-            pulumi.set(__self__, "cloud_connection_name", cloud_connection_name)
         if cloud_connector is not None:
             pulumi.set(__self__, "cloud_connector", cloud_connector)
         if location is not None:
@@ -58,6 +57,18 @@ class CloudConnectionArgs:
             pulumi.set(__self__, "virtual_hub", virtual_hub)
 
     @_builtins.property
+    @pulumi.getter(name="cloudConnectionName")
+    def cloud_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the cloud connection resource
+        """
+        return pulumi.get(self, "cloud_connection_name")
+
+    @cloud_connection_name.setter
+    def cloud_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cloud_connection_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -68,18 +79,6 @@ class CloudConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudConnectionName")
-    def cloud_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the cloud connection resource
-        """
-        return pulumi.get(self, "cloud_connection_name")
-
-    @cloud_connection_name.setter
-    def cloud_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cloud_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudConnector")
@@ -230,6 +229,8 @@ class CloudConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CloudConnectionArgs.__new__(CloudConnectionArgs)
 
+            if cloud_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cloud_connection_name'")
             __props__.__dict__["cloud_connection_name"] = cloud_connection_name
             __props__.__dict__["cloud_connector"] = cloud_connector
             __props__.__dict__["location"] = location

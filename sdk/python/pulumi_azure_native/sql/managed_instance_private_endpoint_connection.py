@@ -22,9 +22,9 @@ __all__ = ['ManagedInstancePrivateEndpointConnectionArgs', 'ManagedInstancePriva
 class ManagedInstancePrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  private_endpoint: pulumi.Input[Optional['ManagedInstancePrivateEndpointPropertyArgs']] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connection_state: pulumi.Input[Optional['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] = None):
         """
         The set of arguments for constructing a ManagedInstancePrivateEndpointConnection resource.
@@ -35,11 +35,10 @@ class ManagedInstancePrivateEndpointConnectionArgs:
         :param pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
+        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
 
@@ -54,6 +53,15 @@ class ManagedInstancePrivateEndpointConnectionArgs:
     @managed_instance_name.setter
     def managed_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "managed_instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,15 +86,6 @@ class ManagedInstancePrivateEndpointConnectionArgs:
     @private_endpoint.setter
     def private_endpoint(self, value: pulumi.Input[Optional['ManagedInstancePrivateEndpointPropertyArgs']]):
         pulumi.set(self, "private_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -175,6 +174,8 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__.__dict__["managed_instance_name"] = managed_instance_name
             __props__.__dict__["private_endpoint"] = private_endpoint
+            if private_endpoint_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:

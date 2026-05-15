@@ -22,11 +22,11 @@ __all__ = ['WorkspaceNamedValueArgs', 'WorkspaceNamedValue']
 class WorkspaceNamedValueArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
+                 named_value_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  key_vault: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']] = None,
-                 named_value_id: pulumi.Input[Optional[_builtins.str]] = None,
                  secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
@@ -34,23 +34,22 @@ class WorkspaceNamedValueArgs:
         The set of arguments for constructing a WorkspaceNamedValue resource.
 
         :param pulumi.Input[_builtins.str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+        :param pulumi.Input[_builtins.str] named_value_id: Identifier of the NamedValue.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['KeyVaultContractCreatePropertiesArgs'] key_vault: KeyVault location details of the namedValue.
-        :param pulumi.Input[_builtins.str] named_value_id: Identifier of the NamedValue.
         :param pulumi.Input[_builtins.bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Optional tags that when provided can be used to filter the NamedValue list.
         :param pulumi.Input[_builtins.str] value: Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "named_value_id", named_value_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
-        if named_value_id is not None:
-            pulumi.set(__self__, "named_value_id", named_value_id)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
         if tags is not None:
@@ -69,6 +68,18 @@ class WorkspaceNamedValueArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namedValueId")
+    def named_value_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the NamedValue.
+        """
+        return pulumi.get(self, "named_value_id")
+
+    @named_value_id.setter
+    def named_value_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "named_value_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -117,18 +128,6 @@ class WorkspaceNamedValueArgs:
     @key_vault.setter
     def key_vault(self, value: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
-
-    @_builtins.property
-    @pulumi.getter(name="namedValueId")
-    def named_value_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the NamedValue.
-        """
-        return pulumi.get(self, "named_value_id")
-
-    @named_value_id.setter
-    def named_value_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "named_value_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +253,8 @@ class WorkspaceNamedValue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["key_vault"] = key_vault
+            if named_value_id is None and not opts.urn:
+                raise TypeError("Missing required property 'named_value_id'")
             __props__.__dict__["named_value_id"] = named_value_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -22,22 +22,21 @@ __all__ = ['ReplicationExtensionArgs', 'ReplicationExtension']
 class ReplicationExtensionArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['ReplicationExtensionModelPropertiesArgs'],
+                 replication_extension_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vault_name: pulumi.Input[_builtins.str],
-                 replication_extension_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vault_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ReplicationExtension resource.
 
         :param pulumi.Input['ReplicationExtensionModelPropertiesArgs'] properties: Replication extension model properties.
+        :param pulumi.Input[_builtins.str] replication_extension_name: The replication extension name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The vault name.
-        :param pulumi.Input[_builtins.str] replication_extension_name: The replication extension name.
         """
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "replication_extension_name", replication_extension_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if replication_extension_name is not None:
-            pulumi.set(__self__, "replication_extension_name", replication_extension_name)
 
     @_builtins.property
     @pulumi.getter
@@ -50,6 +49,18 @@ class ReplicationExtensionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['ReplicationExtensionModelPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationExtensionName")
+    def replication_extension_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The replication extension name.
+        """
+        return pulumi.get(self, "replication_extension_name")
+
+    @replication_extension_name.setter
+    def replication_extension_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "replication_extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,18 +85,6 @@ class ReplicationExtensionArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="replicationExtensionName")
-    def replication_extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The replication extension name.
-        """
-        return pulumi.get(self, "replication_extension_name")
-
-    @replication_extension_name.setter
-    def replication_extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "replication_extension_name", value)
 
 
 @pulumi.type_token("azure-native:datareplication:ReplicationExtension")
@@ -159,6 +158,8 @@ class ReplicationExtension(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            if replication_extension_name is None and not opts.urn:
+                raise TypeError("Missing required property 'replication_extension_name'")
             __props__.__dict__["replication_extension_name"] = replication_extension_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

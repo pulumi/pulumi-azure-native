@@ -22,9 +22,9 @@ __all__ = ['BackendArgs', 'Backend']
 @pulumi.input_type
 class BackendArgs:
     def __init__(__self__, *,
+                 backend_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 backend_id: pulumi.Input[Optional[_builtins.str]] = None,
                  circuit_breaker: pulumi.Input[Optional['BackendCircuitBreakerArgs']] = None,
                  credentials: pulumi.Input[Optional['BackendCredentialsContractArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,9 +40,9 @@ class BackendArgs:
         """
         The set of arguments for constructing a Backend resource.
 
+        :param pulumi.Input[_builtins.str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input['BackendCircuitBreakerArgs'] circuit_breaker: Backend Circuit Breaker Configuration
         :param pulumi.Input['BackendCredentialsContractArgs'] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[_builtins.str] description: Backend Description.
@@ -55,10 +55,9 @@ class BackendArgs:
         :param pulumi.Input[Union[_builtins.str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
         :param pulumi.Input[_builtins.str] url: Runtime Url of the Backend. Required when backend type is 'Single'.
         """
+        pulumi.set(__self__, "backend_id", backend_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if backend_id is not None:
-            pulumi.set(__self__, "backend_id", backend_id)
         if circuit_breaker is not None:
             pulumi.set(__self__, "circuit_breaker", circuit_breaker)
         if credentials is not None:
@@ -85,6 +84,18 @@ class BackendArgs:
             pulumi.set(__self__, "url", url)
 
     @_builtins.property
+    @pulumi.getter(name="backendId")
+    def backend_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the Backend entity. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "backend_id")
+
+    @backend_id.setter
+    def backend_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backend_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -107,18 +118,6 @@ class BackendArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backendId")
-    def backend_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the Backend entity. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "backend_id")
-
-    @backend_id.setter
-    def backend_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "backend_id", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitBreaker")
@@ -362,6 +361,8 @@ class Backend(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackendArgs.__new__(BackendArgs)
 
+            if backend_id is None and not opts.urn:
+                raise TypeError("Missing required property 'backend_id'")
             __props__.__dict__["backend_id"] = backend_id
             __props__.__dict__["circuit_breaker"] = circuit_breaker
             __props__.__dict__["credentials"] = credentials

@@ -20,28 +20,39 @@ __all__ = ['SapApplicationServerInstanceArgs', 'SapApplicationServerInstance']
 @pulumi.input_type
 class SapApplicationServerInstanceArgs:
     def __init__(__self__, *,
+                 application_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_virtual_instance_name: pulumi.Input[_builtins.str],
-                 application_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapApplicationServerInstance resource.
 
+        :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
-        :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "application_instance_name", application_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
-        if application_instance_name is not None:
-            pulumi.set(__self__, "application_instance_name", application_instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationInstanceName")
+    def application_instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of SAP Application Server instance resource.
+        """
+        return pulumi.get(self, "application_instance_name")
+
+    @application_instance_name.setter
+    def application_instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -66,18 +77,6 @@ class SapApplicationServerInstanceArgs:
     @sap_virtual_instance_name.setter
     def sap_virtual_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sap_virtual_instance_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationInstanceName")
-    def application_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of SAP Application Server instance resource.
-        """
-        return pulumi.get(self, "application_instance_name")
-
-    @application_instance_name.setter
-    def application_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "application_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -171,6 +170,8 @@ class SapApplicationServerInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SapApplicationServerInstanceArgs.__new__(SapApplicationServerInstanceArgs)
 
+            if application_instance_name is None and not opts.urn:
+                raise TypeError("Missing required property 'application_instance_name'")
             __props__.__dict__["application_instance_name"] = application_instance_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

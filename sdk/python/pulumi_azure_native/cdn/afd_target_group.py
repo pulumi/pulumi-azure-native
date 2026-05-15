@@ -24,7 +24,7 @@ class AFDTargetGroupArgs:
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_endpoints: pulumi.Input[Sequence[pulumi.Input['TargetEndpointArgs']]],
-                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 target_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AFDTargetGroup resource.
 
@@ -36,8 +36,7 @@ class AFDTargetGroupArgs:
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_endpoints", target_endpoints)
-        if target_group_name is not None:
-            pulumi.set(__self__, "target_group_name", target_group_name)
+        pulumi.set(__self__, "target_group_name", target_group_name)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -77,14 +76,14 @@ class AFDTargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def target_group_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the Target Group under the profile.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def target_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_group_name", value)
 
 
@@ -161,6 +160,8 @@ class AFDTargetGroup(pulumi.CustomResource):
             if target_endpoints is None and not opts.urn:
                 raise TypeError("Missing required property 'target_endpoints'")
             __props__.__dict__["target_endpoints"] = target_endpoints
+            if target_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'target_group_name'")
             __props__.__dict__["target_group_name"] = target_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None

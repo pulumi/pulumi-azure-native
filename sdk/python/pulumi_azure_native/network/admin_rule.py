@@ -31,10 +31,10 @@ class AdminRuleArgs:
                  protocol: pulumi.Input[Union[_builtins.str, 'SecurityConfigurationRuleProtocol']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  destinations: pulumi.Input[Optional[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None):
         """
@@ -50,10 +50,10 @@ class AdminRuleArgs:
         :param pulumi.Input[Union[_builtins.str, 'SecurityConfigurationRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] rule_collection_name: The name of the network manager security Configuration rule collection.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] destinations: The destination address prefixes. CIDR or destination IP ranges.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_port_ranges: The source port ranges.
         :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] sources: The CIDR or source IP ranges.
         """
@@ -66,14 +66,13 @@ class AdminRuleArgs:
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+        pulumi.set(__self__, "rule_name", rule_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_port_ranges is not None:
             pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
         if source_port_ranges is not None:
             pulumi.set(__self__, "source_port_ranges", source_port_ranges)
         if sources is not None:
@@ -189,6 +188,18 @@ class AdminRuleArgs:
         pulumi.set(self, "rule_collection_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -223,18 +234,6 @@ class AdminRuleArgs:
     @destinations.setter
     def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AddressPrefixItemArgs']]]]):
         pulumi.set(self, "destinations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRanges")
@@ -393,6 +392,8 @@ class AdminRule(pulumi.CustomResource):
             if rule_collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_collection_name'")
             __props__.__dict__["rule_collection_name"] = rule_collection_name
+            if rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["sources"] = sources

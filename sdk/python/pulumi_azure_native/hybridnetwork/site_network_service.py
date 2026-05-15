@@ -23,32 +23,31 @@ __all__ = ['SiteNetworkServiceArgs', 'SiteNetworkService']
 class SiteNetworkServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 site_network_service_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SiteNetworkServicePropertiesFormatArgs']] = None,
-                 site_network_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SiteNetworkService resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] site_network_service_name: The name of the site network service.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the Site network service, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SiteNetworkServicePropertiesFormatArgs'] properties: Site network service properties.
-        :param pulumi.Input[_builtins.str] site_network_service_name: The name of the site network service.
         :param pulumi.Input['SkuArgs'] sku: Sku of the site network service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_network_service_name", site_network_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if site_network_service_name is not None:
-            pulumi.set(__self__, "site_network_service_name", site_network_service_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -65,6 +64,18 @@ class SiteNetworkServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteNetworkServiceName")
+    def site_network_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the site network service.
+        """
+        return pulumi.get(self, "site_network_service_name")
+
+    @site_network_service_name.setter
+    def site_network_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_network_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,18 +112,6 @@ class SiteNetworkServiceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SiteNetworkServicePropertiesFormatArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteNetworkServiceName")
-    def site_network_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the site network service.
-        """
-        return pulumi.get(self, "site_network_service_name")
-
-    @site_network_service_name.setter
-    def site_network_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_network_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -222,6 +221,8 @@ class SiteNetworkService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_network_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'site_network_service_name'")
             __props__.__dict__["site_network_service_name"] = site_network_service_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags

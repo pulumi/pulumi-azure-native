@@ -24,7 +24,7 @@ class InvoiceSectionArgs:
     def __init__(__self__, *,
                  billing_account_name: pulumi.Input[_builtins.str],
                  billing_profile_name: pulumi.Input[_builtins.str],
-                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_section_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['InvoiceSectionPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -38,8 +38,7 @@ class InvoiceSectionArgs:
         """
         pulumi.set(__self__, "billing_account_name", billing_account_name)
         pulumi.set(__self__, "billing_profile_name", billing_profile_name)
-        if invoice_section_name is not None:
-            pulumi.set(__self__, "invoice_section_name", invoice_section_name)
+        pulumi.set(__self__, "invoice_section_name", invoice_section_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -71,14 +70,14 @@ class InvoiceSectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="invoiceSectionName")
-    def invoice_section_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def invoice_section_name(self) -> pulumi.Input[_builtins.str]:
         """
         The ID that uniquely identifies an invoice section.
         """
         return pulumi.get(self, "invoice_section_name")
 
     @invoice_section_name.setter
-    def invoice_section_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def invoice_section_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "invoice_section_name", value)
 
     @_builtins.property
@@ -179,6 +178,8 @@ class InvoiceSection(pulumi.CustomResource):
             if billing_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_profile_name'")
             __props__.__dict__["billing_profile_name"] = billing_profile_name
+            if invoice_section_name is None and not opts.urn:
+                raise TypeError("Missing required property 'invoice_section_name'")
             __props__.__dict__["invoice_section_name"] = invoice_section_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags

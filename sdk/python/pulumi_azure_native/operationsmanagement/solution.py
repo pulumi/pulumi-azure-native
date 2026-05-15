@@ -22,30 +22,29 @@ __all__ = ['SolutionArgs', 'Solution']
 class SolutionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 solution_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['SolutionPlanArgs']] = None,
                  properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None,
-                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Solution resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to get. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] solution_name: User Solution Name.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input['SolutionPlanArgs'] plan: Plan for solution object supported by the OperationsManagement resource provider.
         :param pulumi.Input['SolutionPropertiesArgs'] properties: Properties for solution object supported by the OperationsManagement resource provider.
-        :param pulumi.Input[_builtins.str] solution_name: User Solution Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "solution_name", solution_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if solution_name is not None:
-            pulumi.set(__self__, "solution_name", solution_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,6 +59,18 @@ class SolutionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionName")
+    def solution_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        User Solution Name.
+        """
+        return pulumi.get(self, "solution_name")
+
+    @solution_name.setter
+    def solution_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -96,18 +107,6 @@ class SolutionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SolutionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionName")
-    def solution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        User Solution Name.
-        """
-        return pulumi.get(self, "solution_name")
-
-    @solution_name.setter
-    def solution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +197,8 @@ class Solution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if solution_name is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_name'")
             __props__.__dict__["solution_name"] = solution_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

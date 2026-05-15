@@ -22,32 +22,43 @@ __all__ = ['PricingArgs', 'Pricing']
 @pulumi.input_type
 class PricingArgs:
     def __init__(__self__, *,
+                 pricing_name: pulumi.Input[_builtins.str],
                  pricing_tier: pulumi.Input[Union[_builtins.str, 'PricingTier']],
                  scope_id: pulumi.Input[_builtins.str],
                  enforce: pulumi.Input[Optional[Union[_builtins.str, 'Enforce']]] = None,
                  extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionArgs']]]] = None,
-                 pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sub_plan: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pricing resource.
 
+        :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
         :param pulumi.Input[Union[_builtins.str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
         :param pulumi.Input[_builtins.str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionArgs']]] extensions: Optional. List of extensions offered under a plan.
-        :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
         :param pulumi.Input[_builtins.str] sub_plan: The sub-plan selected for a Standard pricing configuration, when more than one sub-plan is available. Each sub-plan enables a set of security features. When not specified, full plan is applied. For VirtualMachines plan, available sub plans are 'P1' & 'P2', where for resource level only 'P1' sub plan is supported.
         """
+        pulumi.set(__self__, "pricing_name", pricing_name)
         pulumi.set(__self__, "pricing_tier", pricing_tier)
         pulumi.set(__self__, "scope_id", scope_id)
         if enforce is not None:
             pulumi.set(__self__, "enforce", enforce)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
-        if pricing_name is not None:
-            pulumi.set(__self__, "pricing_name", pricing_name)
         if sub_plan is not None:
             pulumi.set(__self__, "sub_plan", sub_plan)
+
+    @_builtins.property
+    @pulumi.getter(name="pricingName")
+    def pricing_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the pricing configuration
+        """
+        return pulumi.get(self, "pricing_name")
+
+    @pricing_name.setter
+    def pricing_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "pricing_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingTier")
@@ -96,18 +107,6 @@ class PricingArgs:
     @extensions.setter
     def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="pricingName")
-    def pricing_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        name of the pricing configuration
-        """
-        return pulumi.get(self, "pricing_name")
-
-    @pricing_name.setter
-    def pricing_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "pricing_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subPlan")
@@ -194,6 +193,8 @@ class Pricing(pulumi.CustomResource):
 
             __props__.__dict__["enforce"] = enforce
             __props__.__dict__["extensions"] = extensions
+            if pricing_name is None and not opts.urn:
+                raise TypeError("Missing required property 'pricing_name'")
             __props__.__dict__["pricing_name"] = pricing_name
             if pricing_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'pricing_tier'")

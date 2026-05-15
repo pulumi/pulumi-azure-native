@@ -22,29 +22,40 @@ __all__ = ['CodeSigningAccountArgs', 'CodeSigningAccount']
 @pulumi.input_type
 class CodeSigningAccountArgs:
     def __init__(__self__, *,
+                 account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['AccountSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeSigningAccount resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AccountSkuArgs'] sku: SKU of the artifact signing account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Artifact Signing account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +68,6 @@ class CodeSigningAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Artifact Signing account name.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +177,8 @@ class CodeSigningAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeSigningAccountArgs.__new__(CodeSigningAccountArgs)
 
+            if account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

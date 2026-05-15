@@ -23,6 +23,7 @@ class TopicArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_name: pulumi.Input[_builtins.str],
                  auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
                  default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
                  duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,13 +34,13 @@ class TopicArgs:
                  max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
                  requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['EntityStatus']] = None,
-                 support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 support_ordering: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] topic_name: The topic name.
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         :param pulumi.Input[_builtins.str] default_message_time_to_live: ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[_builtins.str] duplicate_detection_history_time_window: ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
@@ -51,10 +52,10 @@ class TopicArgs:
         :param pulumi.Input[_builtins.bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[_builtins.bool] support_ordering: Value that indicates whether the topic supports ordering.
-        :param pulumi.Input[_builtins.str] topic_name: The topic name.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
         if default_message_time_to_live is not None:
@@ -77,8 +78,6 @@ class TopicArgs:
             pulumi.set(__self__, "status", status)
         if support_ordering is not None:
             pulumi.set(__self__, "support_ordering", support_ordering)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -103,6 +102,18 @@ class TopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The topic name.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -236,18 +247,6 @@ class TopicArgs:
     def support_ordering(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "support_ordering", value)
 
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The topic name.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_name", value)
-
 
 @pulumi.type_token("azure-native:servicebus:Topic")
 class Topic(pulumi.CustomResource):
@@ -364,6 +363,8 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
+            if topic_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["accessed_at"] = None
             __props__.__dict__["azure_api_version"] = None

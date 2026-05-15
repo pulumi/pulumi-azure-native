@@ -20,11 +20,11 @@ __all__ = ['FavoriteArgs', 'Favorite']
 @pulumi.input_type
 class FavoriteArgs:
     def __init__(__self__, *,
+                 favorite_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  config: pulumi.Input[Optional[_builtins.str]] = None,
-                 favorite_id: pulumi.Input[Optional[_builtins.str]] = None,
                  favorite_type: pulumi.Input[Optional['FavoriteType']] = None,
                  is_generated_from_template: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,11 +34,11 @@ class FavoriteArgs:
         """
         The set of arguments for constructing a Favorite resource.
 
+        :param pulumi.Input[_builtins.str] favorite_id: The Id of a specific favorite defined in the Application Insights component
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] category: Favorite category, as defined by the user at creation time.
         :param pulumi.Input[_builtins.str] config: Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-        :param pulumi.Input[_builtins.str] favorite_id: The Id of a specific favorite defined in the Application Insights component
         :param pulumi.Input['FavoriteType'] favorite_type: Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[_builtins.bool] is_generated_from_template: Flag denoting wether or not this favorite was generated from a template.
         :param pulumi.Input[_builtins.str] name: The user-defined name of the favorite.
@@ -46,14 +46,13 @@ class FavoriteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of 0 or more tags that are associated with this favorite definition
         :param pulumi.Input[_builtins.str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
+        pulumi.set(__self__, "favorite_id", favorite_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if config is not None:
             pulumi.set(__self__, "config", config)
-        if favorite_id is not None:
-            pulumi.set(__self__, "favorite_id", favorite_id)
         if favorite_type is not None:
             pulumi.set(__self__, "favorite_type", favorite_type)
         if is_generated_from_template is not None:
@@ -66,6 +65,18 @@ class FavoriteArgs:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="favoriteId")
+    def favorite_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Id of a specific favorite defined in the Application Insights component
+        """
+        return pulumi.get(self, "favorite_id")
+
+    @favorite_id.setter
+    def favorite_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "favorite_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -114,18 +125,6 @@ class FavoriteArgs:
     @config.setter
     def config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="favoriteId")
-    def favorite_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Id of a specific favorite defined in the Application Insights component
-        """
-        return pulumi.get(self, "favorite_id")
-
-    @favorite_id.setter
-    def favorite_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "favorite_id", value)
 
     @_builtins.property
     @pulumi.getter(name="favoriteType")
@@ -287,6 +286,8 @@ class Favorite(pulumi.CustomResource):
 
             __props__.__dict__["category"] = category
             __props__.__dict__["config"] = config
+            if favorite_id is None and not opts.urn:
+                raise TypeError("Missing required property 'favorite_id'")
             __props__.__dict__["favorite_id"] = favorite_id
             __props__.__dict__["favorite_type"] = favorite_type
             __props__.__dict__["is_generated_from_template"] = is_generated_from_template

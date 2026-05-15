@@ -21,21 +21,20 @@ __all__ = ['SolutionConfigurationArgs', 'SolutionConfiguration']
 class SolutionConfigurationArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
+                 solution_configuration: pulumi.Input[_builtins.str],
                  solution_type: pulumi.Input[_builtins.str],
-                 solution_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  solution_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SolutionConfiguration resource.
 
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
-        :param pulumi.Input[_builtins.str] solution_type: The type of the solution
         :param pulumi.Input[_builtins.str] solution_configuration: Represent Solution Configuration Resource.
+        :param pulumi.Input[_builtins.str] solution_type: The type of the solution
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] solution_settings: Solution settings
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
+        pulumi.set(__self__, "solution_configuration", solution_configuration)
         pulumi.set(__self__, "solution_type", solution_type)
-        if solution_configuration is not None:
-            pulumi.set(__self__, "solution_configuration", solution_configuration)
         if solution_settings is not None:
             pulumi.set(__self__, "solution_settings", solution_settings)
 
@@ -52,6 +51,18 @@ class SolutionConfigurationArgs:
         pulumi.set(self, "resource_uri", value)
 
     @_builtins.property
+    @pulumi.getter(name="solutionConfiguration")
+    def solution_configuration(self) -> pulumi.Input[_builtins.str]:
+        """
+        Represent Solution Configuration Resource.
+        """
+        return pulumi.get(self, "solution_configuration")
+
+    @solution_configuration.setter
+    def solution_configuration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "solution_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="solutionType")
     def solution_type(self) -> pulumi.Input[_builtins.str]:
         """
@@ -62,18 +73,6 @@ class SolutionConfigurationArgs:
     @solution_type.setter
     def solution_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "solution_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionConfiguration")
-    def solution_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Represent Solution Configuration Resource.
-        """
-        return pulumi.get(self, "solution_configuration")
-
-    @solution_configuration.setter
-    def solution_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "solution_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionSettings")
@@ -155,6 +154,8 @@ class SolutionConfiguration(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            if solution_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'solution_configuration'")
             __props__.__dict__["solution_configuration"] = solution_configuration
             __props__.__dict__["solution_settings"] = solution_settings
             if solution_type is None and not opts.urn:

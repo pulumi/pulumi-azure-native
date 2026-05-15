@@ -22,37 +22,48 @@ __all__ = ['ManagedHsmArgs', 'ManagedHsm']
 @pulumi.input_type
 class ManagedHsmArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ManagedHsmPropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['ManagedHsmSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedHsm resource.
 
+        :param pulumi.Input[_builtins.str] name: Name of the managed HSM Pool
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the managed HSM pool.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the managed HSM Pool should be created.
-        :param pulumi.Input[_builtins.str] name: Name of the managed HSM Pool
         :param pulumi.Input['ManagedHsmPropertiesArgs'] properties: Properties of the managed HSM
         :param pulumi.Input['ManagedHsmSkuArgs'] sku: SKU details
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the managed HSM Pool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,18 +100,6 @@ class ManagedHsmArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the managed HSM Pool
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +217,8 @@ class ManagedHsm(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

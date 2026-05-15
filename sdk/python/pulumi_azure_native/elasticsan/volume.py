@@ -26,9 +26,9 @@ class VolumeArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  size_gi_b: pulumi.Input[_builtins.float],
                  volume_group_name: pulumi.Input[_builtins.str],
+                 volume_name: pulumi.Input[_builtins.str],
                  creation_data: pulumi.Input[Optional['SourceCreationDataArgs']] = None,
-                 managed_by: pulumi.Input[Optional['ManagedByInfoArgs']] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 managed_by: pulumi.Input[Optional['ManagedByInfoArgs']] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -36,20 +36,19 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] size_gi_b: Volume size.
         :param pulumi.Input[_builtins.str] volume_group_name: The name of the VolumeGroup.
+        :param pulumi.Input[_builtins.str] volume_name: The name of the Volume.
         :param pulumi.Input['SourceCreationDataArgs'] creation_data: State of the operation on the resource.
         :param pulumi.Input['ManagedByInfoArgs'] managed_by: Parent resource information.
-        :param pulumi.Input[_builtins.str] volume_name: The name of the Volume.
         """
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "size_gi_b", size_gi_b)
         pulumi.set(__self__, "volume_group_name", volume_group_name)
+        pulumi.set(__self__, "volume_name", volume_name)
         if creation_data is not None:
             pulumi.set(__self__, "creation_data", creation_data)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
-        if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
 
     @_builtins.property
     @pulumi.getter(name="elasticSanName")
@@ -100,6 +99,18 @@ class VolumeArgs:
         pulumi.set(self, "volume_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Volume.
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> pulumi.Input[Optional['SourceCreationDataArgs']]:
         """
@@ -122,18 +133,6 @@ class VolumeArgs:
     @managed_by.setter
     def managed_by(self, value: pulumi.Input[Optional['ManagedByInfoArgs']]):
         pulumi.set(self, "managed_by", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Volume.
-        """
-        return pulumi.get(self, "volume_name")
-
-    @volume_name.setter
-    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "volume_name", value)
 
 
 @pulumi.type_token("azure-native:elasticsan:Volume")
@@ -227,6 +226,8 @@ class Volume(pulumi.CustomResource):
             if volume_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_group_name'")
             __props__.__dict__["volume_group_name"] = volume_group_name
+            if volume_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

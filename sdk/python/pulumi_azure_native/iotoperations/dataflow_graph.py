@@ -22,31 +22,42 @@ __all__ = ['DataflowGraphArgs', 'DataflowGraph']
 @pulumi.input_type
 class DataflowGraphArgs:
     def __init__(__self__, *,
+                 dataflow_graph_name: pulumi.Input[_builtins.str],
                  dataflow_profile_name: pulumi.Input[_builtins.str],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dataflow_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  properties: pulumi.Input[Optional['DataflowGraphPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataflowGraph resource.
 
+        :param pulumi.Input[_builtins.str] dataflow_graph_name: Name of Instance dataflowEndpoint resource.
         :param pulumi.Input[_builtins.str] dataflow_profile_name: Name of Instance dataflowProfile resource
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] dataflow_graph_name: Name of Instance dataflowEndpoint resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input['DataflowGraphPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "dataflow_graph_name", dataflow_graph_name)
         pulumi.set(__self__, "dataflow_profile_name", dataflow_profile_name)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if dataflow_graph_name is not None:
-            pulumi.set(__self__, "dataflow_graph_name", dataflow_graph_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowGraphName")
+    def dataflow_graph_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of Instance dataflowEndpoint resource.
+        """
+        return pulumi.get(self, "dataflow_graph_name")
+
+    @dataflow_graph_name.setter
+    def dataflow_graph_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dataflow_graph_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataflowProfileName")
@@ -83,18 +94,6 @@ class DataflowGraphArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataflowGraphName")
-    def dataflow_graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of Instance dataflowEndpoint resource.
-        """
-        return pulumi.get(self, "dataflow_graph_name")
-
-    @dataflow_graph_name.setter
-    def dataflow_graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "dataflow_graph_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -195,6 +194,8 @@ class DataflowGraph(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataflowGraphArgs.__new__(DataflowGraphArgs)
 
+            if dataflow_graph_name is None and not opts.urn:
+                raise TypeError("Missing required property 'dataflow_graph_name'")
             __props__.__dict__["dataflow_graph_name"] = dataflow_graph_name
             if dataflow_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dataflow_profile_name'")

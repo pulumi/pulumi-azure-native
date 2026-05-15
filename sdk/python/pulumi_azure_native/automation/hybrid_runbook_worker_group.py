@@ -22,25 +22,24 @@ __all__ = ['HybridRunbookWorkerGroupArgs', 'HybridRunbookWorkerGroup']
 class HybridRunbookWorkerGroupArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
+                 hybrid_runbook_worker_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  credential: pulumi.Input[Optional['RunAsCredentialAssociationPropertyArgs']] = None,
-                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorkerGroup resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['RunAsCredentialAssociationPropertyArgs'] credential: Sets the credential of a worker group.
-        :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
-        if hybrid_runbook_worker_group_name is not None:
-            pulumi.set(__self__, "hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -55,6 +54,18 @@ class HybridRunbookWorkerGroupArgs:
     @automation_account_name.setter
     def automation_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "automation_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hybridRunbookWorkerGroupName")
+    def hybrid_runbook_worker_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The hybrid runbook worker group name
+        """
+        return pulumi.get(self, "hybrid_runbook_worker_group_name")
+
+    @hybrid_runbook_worker_group_name.setter
+    def hybrid_runbook_worker_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hybrid_runbook_worker_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,18 +90,6 @@ class HybridRunbookWorkerGroupArgs:
     @credential.setter
     def credential(self, value: pulumi.Input[Optional['RunAsCredentialAssociationPropertyArgs']]):
         pulumi.set(self, "credential", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hybridRunbookWorkerGroupName")
-    def hybrid_runbook_worker_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The hybrid runbook worker group name
-        """
-        return pulumi.get(self, "hybrid_runbook_worker_group_name")
-
-    @hybrid_runbook_worker_group_name.setter
-    def hybrid_runbook_worker_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "hybrid_runbook_worker_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,6 +179,8 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["credential"] = credential
+            if hybrid_runbook_worker_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'hybrid_runbook_worker_group_name'")
             __props__.__dict__["hybrid_runbook_worker_group_name"] = hybrid_runbook_worker_group_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

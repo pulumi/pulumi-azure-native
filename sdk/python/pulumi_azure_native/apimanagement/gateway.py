@@ -21,28 +21,39 @@ __all__ = ['GatewayArgs', 'Gateway']
 @pulumi.input_type
 class GatewayArgs:
     def __init__(__self__, *,
+                 gateway_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location_data: pulumi.Input[Optional['ResourceLocationDataContractArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
+        :param pulumi.Input[_builtins.str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] description: Gateway description
-        :param pulumi.Input[_builtins.str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input['ResourceLocationDataContractArgs'] location_data: Gateway location.
         """
+        pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if gateway_id is not None:
-            pulumi.set(__self__, "gateway_id", gateway_id)
         if location_data is not None:
             pulumi.set(__self__, "location_data", location_data)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,18 +90,6 @@ class GatewayArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        """
-        return pulumi.get(self, "gateway_id")
-
-    @gateway_id.setter
-    def gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="locationData")
@@ -177,6 +176,8 @@ class Gateway(pulumi.CustomResource):
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
             __props__.__dict__["description"] = description
+            if gateway_id is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_id'")
             __props__.__dict__["gateway_id"] = gateway_id
             __props__.__dict__["location_data"] = location_data
             if resource_group_name is None and not opts.urn:

@@ -24,7 +24,7 @@ class SerialPortArgs:
                  parent_resource_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_provider_namespace: pulumi.Input[_builtins.str],
-                 serial_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_port: pulumi.Input[_builtins.str],
                  state: pulumi.Input[Optional['SerialPortState']] = None):
         """
         The set of arguments for constructing a SerialPort resource.
@@ -40,8 +40,7 @@ class SerialPortArgs:
         pulumi.set(__self__, "parent_resource_type", parent_resource_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
-        if serial_port is not None:
-            pulumi.set(__self__, "serial_port", serial_port)
+        pulumi.set(__self__, "serial_port", serial_port)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -95,14 +94,14 @@ class SerialPortArgs:
 
     @_builtins.property
     @pulumi.getter(name="serialPort")
-    def serial_port(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def serial_port(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the serial port to create.
         """
         return pulumi.get(self, "serial_port")
 
     @serial_port.setter
-    def serial_port(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def serial_port(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "serial_port", value)
 
     @_builtins.property
@@ -200,6 +199,8 @@ class SerialPort(pulumi.CustomResource):
             if resource_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__.__dict__["resource_provider_namespace"] = resource_provider_namespace
+            if serial_port is None and not opts.urn:
+                raise TypeError("Missing required property 'serial_port'")
             __props__.__dict__["serial_port"] = serial_port
             __props__.__dict__["state"] = state
             __props__.__dict__["azure_api_version"] = None

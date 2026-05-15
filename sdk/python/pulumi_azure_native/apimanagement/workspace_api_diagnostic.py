@@ -23,13 +23,13 @@ __all__ = ['WorkspaceApiDiagnosticArgs', 'WorkspaceApiDiagnostic']
 class WorkspaceApiDiagnosticArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
+                 diagnostic_id: pulumi.Input[_builtins.str],
                  logger_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  always_log: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]] = None,
                  backend: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']] = None,
-                 diagnostic_id: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']] = None,
                  http_correlation_protocol: pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -41,13 +41,13 @@ class WorkspaceApiDiagnosticArgs:
         The set of arguments for constructing a WorkspaceApiDiagnostic resource.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] logger_id: Resource Id of a target logger.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input['PipelineDiagnosticSettingsArgs'] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
-        :param pulumi.Input[_builtins.str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['PipelineDiagnosticSettingsArgs'] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         :param pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log the ClientIP. Default is false.
@@ -57,6 +57,7 @@ class WorkspaceApiDiagnosticArgs:
         :param pulumi.Input[Union[_builtins.str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
         pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "diagnostic_id", diagnostic_id)
         pulumi.set(__self__, "logger_id", logger_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -65,8 +66,6 @@ class WorkspaceApiDiagnosticArgs:
             pulumi.set(__self__, "always_log", always_log)
         if backend is not None:
             pulumi.set(__self__, "backend", backend)
-        if diagnostic_id is not None:
-            pulumi.set(__self__, "diagnostic_id", diagnostic_id)
         if frontend is not None:
             pulumi.set(__self__, "frontend", frontend)
         if http_correlation_protocol is not None:
@@ -93,6 +92,18 @@ class WorkspaceApiDiagnosticArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diagnosticId")
+    def diagnostic_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Diagnostic identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "diagnostic_id")
+
+    @diagnostic_id.setter
+    def diagnostic_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "diagnostic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loggerId")
@@ -165,18 +176,6 @@ class WorkspaceApiDiagnosticArgs:
     @backend.setter
     def backend(self, value: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']]):
         pulumi.set(self, "backend", value)
-
-    @_builtins.property
-    @pulumi.getter(name="diagnosticId")
-    def diagnostic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Diagnostic identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "diagnostic_id")
-
-    @diagnostic_id.setter
-    def diagnostic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "diagnostic_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -369,6 +368,8 @@ class WorkspaceApiDiagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["backend"] = backend
+            if diagnostic_id is None and not opts.urn:
+                raise TypeError("Missing required property 'diagnostic_id'")
             __props__.__dict__["diagnostic_id"] = diagnostic_id
             __props__.__dict__["frontend"] = frontend
             __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol

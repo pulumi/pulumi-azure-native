@@ -23,33 +23,32 @@ __all__ = ['RouteTableInitArgs', 'RouteTable']
 class RouteTableInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 route_table_name: pulumi.Input[_builtins.str],
                  disable_bgp_route_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routes: pulumi.Input[Optional[Sequence[pulumi.Input['RouteArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] route_table_name: The name of the route table.
         :param pulumi.Input[_builtins.bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] route_table_name: The name of the route table.
         :param pulumi.Input[Sequence[pulumi.Input['RouteArgs']]] routes: Collection of routes contained within a route table.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_table_name", route_table_name)
         if disable_bgp_route_propagation is not None:
             pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
@@ -66,6 +65,18 @@ class RouteTableInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableName")
+    def route_table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the route table.
+        """
+        return pulumi.get(self, "route_table_name")
+
+    @route_table_name.setter
+    def route_table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "route_table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disableBgpRoutePropagation")
@@ -102,18 +113,6 @@ class RouteTableInitArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeTableName")
-    def route_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the route table.
-        """
-        return pulumi.get(self, "route_table_name")
-
-    @route_table_name.setter
-    def route_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "route_table_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -225,6 +224,8 @@ class RouteTable(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if route_table_name is None and not opts.urn:
+                raise TypeError("Missing required property 'route_table_name'")
             __props__.__dict__["route_table_name"] = route_table_name
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags

@@ -27,12 +27,12 @@ class SourceControlArgs:
                  repo_type: pulumi.Input[Union[_builtins.str, 'RepoType']],
                  repository: pulumi.Input['RepositoryArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 source_control_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  last_deployment_info: pulumi.Input[Optional['DeploymentInfoArgs']] = None,
                  repository_resource_info: pulumi.Input[Optional['RepositoryResourceInfoArgs']] = None,
-                 source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[Union[_builtins.str, 'Version']]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
@@ -42,12 +42,12 @@ class SourceControlArgs:
         :param pulumi.Input[Union[_builtins.str, 'RepoType']] repo_type: The repository type of the source control
         :param pulumi.Input['RepositoryArgs'] repository: Repository metadata.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] source_control_id: Source control Id
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] description: A description of the source control
         :param pulumi.Input[_builtins.str] id: The id (a Guid) of the source control
         :param pulumi.Input['DeploymentInfoArgs'] last_deployment_info: Information regarding the latest deployment for the source control.
         :param pulumi.Input['RepositoryResourceInfoArgs'] repository_resource_info: Information regarding the resources created in user's repository.
-        :param pulumi.Input[_builtins.str] source_control_id: Source control Id
         :param pulumi.Input[Union[_builtins.str, 'Version']] version: The version number associated with the source control
         """
         pulumi.set(__self__, "content_types", content_types)
@@ -55,6 +55,7 @@ class SourceControlArgs:
         pulumi.set(__self__, "repo_type", repo_type)
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_control_id", source_control_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -64,8 +65,6 @@ class SourceControlArgs:
             pulumi.set(__self__, "last_deployment_info", last_deployment_info)
         if repository_resource_info is not None:
             pulumi.set(__self__, "repository_resource_info", repository_resource_info)
-        if source_control_id is not None:
-            pulumi.set(__self__, "source_control_id", source_control_id)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -130,6 +129,18 @@ class SourceControlArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceControlId")
+    def source_control_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Source control Id
+        """
+        return pulumi.get(self, "source_control_id")
+
+    @source_control_id.setter
+    def source_control_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_control_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -188,18 +199,6 @@ class SourceControlArgs:
     @repository_resource_info.setter
     def repository_resource_info(self, value: pulumi.Input[Optional['RepositoryResourceInfoArgs']]):
         pulumi.set(self, "repository_resource_info", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceControlId")
-    def source_control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Source control Id
-        """
-        return pulumi.get(self, "source_control_id")
-
-    @source_control_id.setter
-    def source_control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "source_control_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -325,6 +324,8 @@ class SourceControl(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if source_control_id is None and not opts.urn:
+                raise TypeError("Missing required property 'source_control_id'")
             __props__.__dict__["source_control_id"] = source_control_id
             __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:

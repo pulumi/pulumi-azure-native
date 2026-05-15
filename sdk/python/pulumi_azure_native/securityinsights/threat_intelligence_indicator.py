@@ -22,6 +22,7 @@ __all__ = ['ThreatIntelligenceIndicatorArgs', 'ThreatIntelligenceIndicator']
 class ThreatIntelligenceIndicatorArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  confidence: pulumi.Input[Optional[_builtins.int]] = None,
@@ -41,7 +42,6 @@ class ThreatIntelligenceIndicatorArgs:
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  modified: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_marking_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  parsed_pattern: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]] = None,
                  pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -58,6 +58,7 @@ class ThreatIntelligenceIndicatorArgs:
 
         :param pulumi.Input[_builtins.str] kind: The kind of the threat intelligence entity
                Expected value is 'indicator'.
+        :param pulumi.Input[_builtins.str] name: Threat intelligence indicator name field.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.int] confidence: Confidence of threat intelligence entity
@@ -77,7 +78,6 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[_builtins.str] language: Language of threat intelligence entity
         :param pulumi.Input[_builtins.str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[_builtins.str] modified: Modified by
-        :param pulumi.Input[_builtins.str] name: Threat intelligence indicator name field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_marking_refs: Threat intelligence entity object marking references
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]] parsed_pattern: Parsed patterns
         :param pulumi.Input[_builtins.str] pattern: Pattern of a threat intelligence entity
@@ -91,6 +91,7 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[_builtins.str] valid_until: Valid until
         """
         pulumi.set(__self__, "kind", 'indicator')
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if confidence is not None:
@@ -127,8 +128,6 @@ class ThreatIntelligenceIndicatorArgs:
             pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
         if modified is not None:
             pulumi.set(__self__, "modified", modified)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if object_marking_refs is not None:
             pulumi.set(__self__, "object_marking_refs", object_marking_refs)
         if parsed_pattern is not None:
@@ -164,6 +163,18 @@ class ThreatIntelligenceIndicatorArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Threat intelligence indicator name field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -392,18 +403,6 @@ class ThreatIntelligenceIndicatorArgs:
     @modified.setter
     def modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Threat intelligence indicator name field.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectMarkingRefs")
@@ -711,6 +710,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__.__dict__["language"] = language
             __props__.__dict__["last_updated_time_utc"] = last_updated_time_utc
             __props__.__dict__["modified"] = modified
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["object_marking_refs"] = object_marking_refs
             __props__.__dict__["parsed_pattern"] = parsed_pattern

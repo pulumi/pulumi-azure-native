@@ -23,6 +23,7 @@ __all__ = ['DiskArgs', 'Disk']
 class DiskArgs:
     def __init__(__self__, *,
                  creation_data: pulumi.Input['CreationDataArgs'],
+                 disk_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  completion_percent: pulumi.Input[Optional[_builtins.float]] = None,
@@ -32,7 +33,6 @@ class DiskArgs:
                  disk_iops_read_write: pulumi.Input[Optional[_builtins.float]] = None,
                  disk_m_bps_read_only: pulumi.Input[Optional[_builtins.float]] = None,
                  disk_m_bps_read_write: pulumi.Input[Optional[_builtins.float]] = None,
-                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
                  encryption_settings_collection: pulumi.Input[Optional['EncryptionSettingsCollectionArgs']] = None,
@@ -56,6 +56,7 @@ class DiskArgs:
         The set of arguments for constructing a Disk resource.
 
         :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[_builtins.str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         :param pulumi.Input[_builtins.float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
@@ -65,7 +66,6 @@ class DiskArgs:
         :param pulumi.Input[_builtins.float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[_builtins.float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[_builtins.float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-        :param pulumi.Input[_builtins.str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[_builtins.int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input['EncryptionSettingsCollectionArgs'] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -87,6 +87,7 @@ class DiskArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The Logical zone list for Disk.
         """
         pulumi.set(__self__, "creation_data", creation_data)
+        pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bursting_enabled is not None:
             pulumi.set(__self__, "bursting_enabled", bursting_enabled)
@@ -104,8 +105,6 @@ class DiskArgs:
             pulumi.set(__self__, "disk_m_bps_read_only", disk_m_bps_read_only)
         if disk_m_bps_read_write is not None:
             pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
-        if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption is not None:
@@ -156,6 +155,18 @@ class DiskArgs:
     @creation_data.setter
     def creation_data(self, value: pulumi.Input['CreationDataArgs']):
         pulumi.set(self, "creation_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @disk_name.setter
+    def disk_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -264,18 +275,6 @@ class DiskArgs:
     @disk_m_bps_read_write.setter
     def disk_m_bps_read_write(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "disk_m_bps_read_write", value)
-
-    @_builtins.property
-    @pulumi.getter(name="diskName")
-    def disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-        """
-        return pulumi.get(self, "disk_name")
-
-    @disk_name.setter
-    def disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
@@ -663,6 +662,8 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
             __props__.__dict__["disk_m_bps_read_only"] = disk_m_bps_read_only
             __props__.__dict__["disk_m_bps_read_write"] = disk_m_bps_read_write
+            if disk_name is None and not opts.urn:
+                raise TypeError("Missing required property 'disk_name'")
             __props__.__dict__["disk_name"] = disk_name
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["encryption"] = encryption

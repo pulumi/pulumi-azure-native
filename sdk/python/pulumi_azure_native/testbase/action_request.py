@@ -22,10 +22,10 @@ __all__ = ['ActionRequestArgs', 'ActionRequest']
 @pulumi.input_type
 class ActionRequestArgs:
     def __init__(__self__, *,
+                 action_request_name: pulumi.Input[_builtins.str],
                  request_type: pulumi.Input[Union[_builtins.str, 'RequestTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 action_request_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_release_access_request_spec: pulumi.Input[Optional['PreReleaseAccessRequestSpecArgs']] = None):
         """
         The set of arguments for constructing a ActionRequest resource.
@@ -33,13 +33,21 @@ class ActionRequestArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         """
+        pulumi.set(__self__, "action_request_name", action_request_name)
         pulumi.set(__self__, "request_type", request_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        if action_request_name is not None:
-            pulumi.set(__self__, "action_request_name", action_request_name)
         if pre_release_access_request_spec is not None:
             pulumi.set(__self__, "pre_release_access_request_spec", pre_release_access_request_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="actionRequestName")
+    def action_request_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "action_request_name")
+
+    @action_request_name.setter
+    def action_request_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action_request_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestType")
@@ -73,15 +81,6 @@ class ActionRequestArgs:
     @test_base_account_name.setter
     def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "test_base_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="actionRequestName")
-    def action_request_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "action_request_name")
-
-    @action_request_name.setter
-    def action_request_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "action_request_name", value)
 
     @_builtins.property
     @pulumi.getter(name="preReleaseAccessRequestSpec")
@@ -153,6 +152,8 @@ class ActionRequest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionRequestArgs.__new__(ActionRequestArgs)
 
+            if action_request_name is None and not opts.urn:
+                raise TypeError("Missing required property 'action_request_name'")
             __props__.__dict__["action_request_name"] = action_request_name
             __props__.__dict__["pre_release_access_request_spec"] = pre_release_access_request_spec
             if request_type is None and not opts.urn:

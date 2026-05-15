@@ -22,7 +22,7 @@ __all__ = ['ConnectorArgs', 'Connector']
 @pulumi.input_type
 class ConnectorArgs:
     def __init__(__self__, *,
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['ConnectorPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
@@ -30,21 +30,20 @@ class ConnectorArgs:
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector
         :param pulumi.Input['ConnectorPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+        pulumi.set(__self__, "connector_name", connector_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the connector
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
@@ -84,7 +83,7 @@ class Connector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ConnectorArgs] = None,
+                 args: ConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
@@ -118,6 +117,8 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
+            if connector_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["azure_api_version"] = None

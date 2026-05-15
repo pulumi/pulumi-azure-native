@@ -22,13 +22,13 @@ class EventGridDataConnectionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  consumer_group: pulumi.Input[_builtins.str],
+                 data_connection_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  event_hub_resource_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_resource_id: pulumi.Input[_builtins.str],
                  blob_storage_event_type: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]] = None,
-                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_format: pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]] = None,
                  database_routing: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseRouting']]] = None,
                  event_grid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,6 +42,7 @@ class EventGridDataConnectionArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] consumer_group: The event hub consumer group.
+        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The resource ID where the event grid is configured to send events.
         :param pulumi.Input[_builtins.str] kind: Kind of the endpoint for the data connection
@@ -49,7 +50,6 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_account_resource_id: The resource ID of the storage account where the data resides.
         :param pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']] blob_storage_event_type: The name of blob storage event type to process.
-        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[Union[_builtins.str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[_builtins.str] event_grid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
@@ -61,6 +61,7 @@ class EventGridDataConnectionArgs:
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "data_connection_name", data_connection_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
         pulumi.set(__self__, "kind", 'EventGrid')
@@ -68,8 +69,6 @@ class EventGridDataConnectionArgs:
         pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
         if blob_storage_event_type is not None:
             pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
-        if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
         if database_routing is None:
@@ -112,6 +111,18 @@ class EventGridDataConnectionArgs:
     @consumer_group.setter
     def consumer_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "consumer_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectionName")
+    def data_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data connection.
+        """
+        return pulumi.get(self, "data_connection_name")
+
+    @data_connection_name.setter
+    def data_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -185,18 +196,6 @@ class EventGridDataConnectionArgs:
     @blob_storage_event_type.setter
     def blob_storage_event_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]]):
         pulumi.set(self, "blob_storage_event_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data connection.
-        """
-        return pulumi.get(self, "data_connection_name")
-
-    @data_connection_name.setter
-    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
@@ -406,6 +405,8 @@ class EventGridDataConnection(pulumi.CustomResource):
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__.__dict__["consumer_group"] = consumer_group
+            if data_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_connection_name'")
             __props__.__dict__["data_connection_name"] = data_connection_name
             __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:

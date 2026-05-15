@@ -23,13 +23,13 @@ class WorkloadClassifierArgs:
                  member_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
+                 workload_classifier_name: pulumi.Input[_builtins.str],
                  workload_group_name: pulumi.Input[_builtins.str],
                  context: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
                  importance: pulumi.Input[Optional[_builtins.str]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 workload_classifier_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadClassifier resource.
 
@@ -37,18 +37,19 @@ class WorkloadClassifierArgs:
         :param pulumi.Input[_builtins.str] member_name: The workload classifier member name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[_builtins.str] workload_classifier_name: The name of the workload classifier to create/update.
         :param pulumi.Input[_builtins.str] workload_group_name: The name of the workload group from which to receive the classifier from.
         :param pulumi.Input[_builtins.str] context: The workload classifier context.
         :param pulumi.Input[_builtins.str] end_time: The workload classifier end time for classification.
         :param pulumi.Input[_builtins.str] importance: The workload classifier importance.
         :param pulumi.Input[_builtins.str] label: The workload classifier label.
         :param pulumi.Input[_builtins.str] start_time: The workload classifier start time for classification.
-        :param pulumi.Input[_builtins.str] workload_classifier_name: The name of the workload classifier to create/update.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "member_name", member_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "workload_classifier_name", workload_classifier_name)
         pulumi.set(__self__, "workload_group_name", workload_group_name)
         if context is not None:
             pulumi.set(__self__, "context", context)
@@ -60,8 +61,6 @@ class WorkloadClassifierArgs:
             pulumi.set(__self__, "label", label)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
-        if workload_classifier_name is not None:
-            pulumi.set(__self__, "workload_classifier_name", workload_classifier_name)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -110,6 +109,18 @@ class WorkloadClassifierArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadClassifierName")
+    def workload_classifier_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workload classifier to create/update.
+        """
+        return pulumi.get(self, "workload_classifier_name")
+
+    @workload_classifier_name.setter
+    def workload_classifier_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_classifier_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadGroupName")
@@ -182,18 +193,6 @@ class WorkloadClassifierArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadClassifierName")
-    def workload_classifier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workload classifier to create/update.
-        """
-        return pulumi.get(self, "workload_classifier_name")
-
-    @workload_classifier_name.setter
-    def workload_classifier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workload_classifier_name", value)
 
 
 @pulumi.type_token("azure-native:sql:WorkloadClassifier")
@@ -302,6 +301,8 @@ class WorkloadClassifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["start_time"] = start_time
+            if workload_classifier_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workload_classifier_name'")
             __props__.__dict__["workload_classifier_name"] = workload_classifier_name
             if workload_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_group_name'")

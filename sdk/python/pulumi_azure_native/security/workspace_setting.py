@@ -21,7 +21,7 @@ class WorkspaceSettingArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 workspace_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_setting_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceSetting resource.
 
@@ -31,8 +31,7 @@ class WorkspaceSettingArgs:
         """
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if workspace_setting_name is not None:
-            pulumi.set(__self__, "workspace_setting_name", workspace_setting_name)
+        pulumi.set(__self__, "workspace_setting_name", workspace_setting_name)
 
     @_builtins.property
     @pulumi.getter
@@ -60,14 +59,14 @@ class WorkspaceSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="workspaceSettingName")
-    def workspace_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workspace_setting_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the security setting
         """
         return pulumi.get(self, "workspace_setting_name")
 
     @workspace_setting_name.setter
-    def workspace_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workspace_setting_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_setting_name", value)
 
 
@@ -138,6 +137,8 @@ class WorkspaceSetting(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            if workspace_setting_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_setting_name'")
             __props__.__dict__["workspace_setting_name"] = workspace_setting_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

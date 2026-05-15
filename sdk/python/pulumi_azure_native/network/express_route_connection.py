@@ -22,12 +22,12 @@ __all__ = ['ExpressRouteConnectionInitArgs', 'ExpressRouteConnection']
 @pulumi.input_type
 class ExpressRouteConnectionInitArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  express_route_circuit_peering: pulumi.Input['ExpressRouteCircuitPeeringIdArgs'],
                  express_route_gateway_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -37,12 +37,12 @@ class ExpressRouteConnectionInitArgs:
         """
         The set of arguments for constructing a ExpressRouteConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection subresource.
         :param pulumi.Input['ExpressRouteCircuitPeeringIdArgs'] express_route_circuit_peering: The ExpressRoute circuit peering.
         :param pulumi.Input[_builtins.str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[_builtins.str] name: The name of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] authorization_key: Authorization key to establish the connection.
-        :param pulumi.Input[_builtins.str] connection_name: The name of the connection subresource.
         :param pulumi.Input[_builtins.bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[_builtins.bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[_builtins.bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
@@ -50,14 +50,13 @@ class ExpressRouteConnectionInitArgs:
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the connection.
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
         if enable_private_link_fast_path is not None:
@@ -70,6 +69,18 @@ class ExpressRouteConnectionInitArgs:
             pulumi.set(__self__, "routing_configuration", routing_configuration)
         if routing_weight is not None:
             pulumi.set(__self__, "routing_weight", routing_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the connection subresource.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -130,18 +141,6 @@ class ExpressRouteConnectionInitArgs:
     @authorization_key.setter
     def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the connection subresource.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInternetSecurity")
@@ -309,6 +308,8 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["enable_internet_security"] = enable_internet_security
             __props__.__dict__["enable_private_link_fast_path"] = enable_private_link_fast_path

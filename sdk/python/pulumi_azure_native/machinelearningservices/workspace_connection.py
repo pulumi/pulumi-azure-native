@@ -22,22 +22,33 @@ __all__ = ['WorkspaceConnectionArgs', 'WorkspaceConnection']
 @pulumi.input_type
 class WorkspaceConnectionArgs:
     def __init__(__self__, *,
+                 connection_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceConnection resource.
 
+        :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
         """
+        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Friendly name of the workspace connection
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -71,18 +82,6 @@ class WorkspaceConnectionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Friendly name of the workspace connection
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "connection_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:WorkspaceConnection")
@@ -152,6 +151,8 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceConnectionArgs.__new__(WorkspaceConnectionArgs)
 
+            if connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

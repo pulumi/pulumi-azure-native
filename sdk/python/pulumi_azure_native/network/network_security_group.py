@@ -22,25 +22,26 @@ __all__ = ['NetworkSecurityGroupInitArgs', 'NetworkSecurityGroup']
 @pulumi.input_type
 class NetworkSecurityGroupInitArgs:
     def __init__(__self__, *,
+                 network_security_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  flush_connection: pulumi.Input[Optional[_builtins.bool]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityRuleArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityGroup resource.
 
+        :param pulumi.Input[_builtins.str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityRuleArgs']]] security_rules: A collection of security rules of the network security group.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "network_security_group_name", network_security_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if flush_connection is not None:
             pulumi.set(__self__, "flush_connection", flush_connection)
@@ -48,12 +49,22 @@ class NetworkSecurityGroupInitArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_security_group_name is not None:
-            pulumi.set(__self__, "network_security_group_name", network_security_group_name)
         if security_rules is not None:
             pulumi.set(__self__, "security_rules", security_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupName")
+    def network_security_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the network security group.
+        """
+        return pulumi.get(self, "network_security_group_name")
+
+    @network_security_group_name.setter
+    def network_security_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -102,18 +113,6 @@ class NetworkSecurityGroupInitArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkSecurityGroupName")
-    def network_security_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the network security group.
-        """
-        return pulumi.get(self, "network_security_group_name")
-
-    @network_security_group_name.setter
-    def network_security_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityRules")
@@ -222,6 +221,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["flush_connection"] = flush_connection
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            if network_security_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_security_group_name'")
             __props__.__dict__["network_security_group_name"] = network_security_group_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -22,23 +22,34 @@ __all__ = ['EndpointArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_mover_name: pulumi.Input[_builtins.str],
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_mover_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Endpoint resource.
 
+        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Endpoint resource.
         :param pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']] properties: The resource specific properties for the Storage Mover resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_mover_name: The name of the Storage Mover resource.
-        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Endpoint resource.
         """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_mover_name", storage_mover_name)
-        if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Endpoint resource.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class EndpointArgs:
     @storage_mover_name.setter
     def storage_mover_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_mover_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Endpoint resource.
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:storagemover:Endpoint")
@@ -157,6 +156,8 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
+            if endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

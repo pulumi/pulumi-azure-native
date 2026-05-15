@@ -24,6 +24,7 @@ class ViewArgs:
     def __init__(__self__, *,
                  timeframe: pulumi.Input[Union[_builtins.str, 'ReportTimeframeType']],
                  type: pulumi.Input[Union[_builtins.str, 'ReportType']],
+                 view_name: pulumi.Input[_builtins.str],
                  accumulated: pulumi.Input[Optional[Union[_builtins.str, 'AccumulatedType']]] = None,
                  chart: pulumi.Input[Optional[Union[_builtins.str, 'ChartType']]] = None,
                  data_set: pulumi.Input[Optional['ReportConfigDatasetArgs']] = None,
@@ -36,13 +37,13 @@ class ViewArgs:
                  modified_on: pulumi.Input[Optional[_builtins.str]] = None,
                  pivots: pulumi.Input[Optional[Sequence[pulumi.Input['PivotPropertiesArgs']]]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_period: pulumi.Input[Optional['ReportConfigTimePeriodArgs']] = None,
-                 view_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 time_period: pulumi.Input[Optional['ReportConfigTimePeriodArgs']] = None):
         """
         The set of arguments for constructing a View resource.
 
         :param pulumi.Input[Union[_builtins.str, 'ReportTimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param pulumi.Input[Union[_builtins.str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+        :param pulumi.Input[_builtins.str] view_name: View name
         :param pulumi.Input[Union[_builtins.str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[_builtins.str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
         :param pulumi.Input['ReportConfigDatasetArgs'] data_set: Has definition for data in this report config.
@@ -56,10 +57,10 @@ class ViewArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[_builtins.str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input['ReportConfigTimePeriodArgs'] time_period: Has time period for pulling data for the report.
-        :param pulumi.Input[_builtins.str] view_name: View name
         """
         pulumi.set(__self__, "timeframe", timeframe)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "view_name", view_name)
         if accumulated is not None:
             pulumi.set(__self__, "accumulated", accumulated)
         if chart is not None:
@@ -86,8 +87,6 @@ class ViewArgs:
             pulumi.set(__self__, "scope", scope)
         if time_period is not None:
             pulumi.set(__self__, "time_period", time_period)
-        if view_name is not None:
-            pulumi.set(__self__, "view_name", view_name)
 
     @_builtins.property
     @pulumi.getter
@@ -112,6 +111,18 @@ class ViewArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[_builtins.str, 'ReportType']]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewName")
+    def view_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        View name
+        """
+        return pulumi.get(self, "view_name")
+
+    @view_name.setter
+    def view_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "view_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -269,18 +280,6 @@ class ViewArgs:
     def time_period(self, value: pulumi.Input[Optional['ReportConfigTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
-    @_builtins.property
-    @pulumi.getter(name="viewName")
-    def view_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        View name
-        """
-        return pulumi.get(self, "view_name")
-
-    @view_name.setter
-    def view_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "view_name", value)
-
 
 @pulumi.type_token("azure-native:costmanagement:View")
 class View(pulumi.CustomResource):
@@ -405,6 +404,8 @@ class View(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            if view_name is None and not opts.urn:
+                raise TypeError("Missing required property 'view_name'")
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_on"] = None

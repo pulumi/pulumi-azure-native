@@ -21,25 +21,24 @@ __all__ = ['IotHubResourceEventHubConsumerGroupArgs', 'IotHubResourceEventHubCon
 class IotHubResourceEventHubConsumerGroupArgs:
     def __init__(__self__, *,
                  event_hub_endpoint_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['EventHubConsumerGroupNameArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IotHubResourceEventHubConsumerGroup resource.
 
         :param pulumi.Input[_builtins.str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
+        :param pulumi.Input[_builtins.str] name: The name of the consumer group to add.
         :param pulumi.Input['EventHubConsumerGroupNameArgs'] properties: The EventHub consumer group name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[_builtins.str] resource_name: The name of the IoT hub.
-        :param pulumi.Input[_builtins.str] name: The name of the consumer group to add.
         """
         pulumi.set(__self__, "event_hub_endpoint_name", event_hub_endpoint_name)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="eventHubEndpointName")
@@ -52,6 +51,18 @@ class IotHubResourceEventHubConsumerGroupArgs:
     @event_hub_endpoint_name.setter
     def event_hub_endpoint_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "event_hub_endpoint_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the consumer group to add.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -88,18 +99,6 @@ class IotHubResourceEventHubConsumerGroupArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the consumer group to add.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:iothub:IotHubResourceEventHubConsumerGroup")
@@ -176,6 +175,8 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
             if event_hub_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_endpoint_name'")
             __props__.__dict__["event_hub_endpoint_name"] = event_hub_endpoint_name
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

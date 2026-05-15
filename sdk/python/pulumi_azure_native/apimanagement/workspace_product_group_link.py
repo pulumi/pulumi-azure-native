@@ -20,28 +20,27 @@ __all__ = ['WorkspaceProductGroupLinkArgs', 'WorkspaceProductGroupLink']
 class WorkspaceProductGroupLinkArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
+                 group_link_id: pulumi.Input[_builtins.str],
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 workspace_id: pulumi.Input[_builtins.str],
-                 group_link_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceProductGroupLink resource.
 
         :param pulumi.Input[_builtins.str] group_id: Full resource Id of a group.
+        :param pulumi.Input[_builtins.str] group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[_builtins.str] group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "group_link_id", group_link_id)
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if group_link_id is not None:
-            pulumi.set(__self__, "group_link_id", group_link_id)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
@@ -54,6 +53,18 @@ class WorkspaceProductGroupLinkArgs:
     @group_id.setter
     def group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupLinkId")
+    def group_link_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Product-Group link identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "group_link_id")
+
+    @group_link_id.setter
+    def group_link_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "group_link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
@@ -102,18 +113,6 @@ class WorkspaceProductGroupLinkArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="groupLinkId")
-    def group_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Product-Group link identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "group_link_id")
-
-    @group_link_id.setter
-    def group_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "group_link_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceProductGroupLink")
@@ -193,6 +192,8 @@ class WorkspaceProductGroupLink(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
+            if group_link_id is None and not opts.urn:
+                raise TypeError("Missing required property 'group_link_id'")
             __props__.__dict__["group_link_id"] = group_link_id
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")

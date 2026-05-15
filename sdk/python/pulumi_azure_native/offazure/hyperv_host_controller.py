@@ -21,32 +21,43 @@ __all__ = ['HypervHostControllerArgs', 'HypervHostController']
 @pulumi.input_type
 class HypervHostControllerArgs:
     def __init__(__self__, *,
+                 host_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
                  run_as_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HypervHostController resource.
 
+        :param pulumi.Input[_builtins.str] host_name:  Host name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] fqdn: Gets or sets the FQDN/IPAddress of the Hyper-V host.
-        :param pulumi.Input[_builtins.str] host_name:  Host name
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[_builtins.str] run_as_account_id: Gets or sets the run as account ID of the Hyper-V host.
         """
+        pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
-        if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if run_as_account_id is not None:
             pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[_builtins.str]:
+        """
+         Host name
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class HypervHostControllerArgs:
     @fqdn.setter
     def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-         Host name
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -196,6 +195,8 @@ class HypervHostController(pulumi.CustomResource):
             __props__ = HypervHostControllerArgs.__new__(HypervHostControllerArgs)
 
             __props__.__dict__["fqdn"] = fqdn
+            if host_name is None and not opts.urn:
+                raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

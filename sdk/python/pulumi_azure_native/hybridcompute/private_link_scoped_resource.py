@@ -19,24 +19,35 @@ __all__ = ['PrivateLinkScopedResourceArgs', 'PrivateLinkScopedResource']
 @pulumi.input_type
 class PrivateLinkScopedResourceArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_name: pulumi.Input[_builtins.str],
-                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the scoped resource object.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] scope_name: The name of the Azure Arc PrivateLinkScope resource.
         :param pulumi.Input[_builtins.str] linked_resource_id: The resource id of the scoped Azure monitor resource.
-        :param pulumi.Input[_builtins.str] name: The name of the scoped resource object.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope_name", scope_name)
         if linked_resource_id is not None:
             pulumi.set(__self__, "linked_resource_id", linked_resource_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the scoped resource object.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -73,18 +84,6 @@ class PrivateLinkScopedResourceArgs:
     @linked_resource_id.setter
     def linked_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the scoped resource object.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:hybridcompute:PrivateLinkScopedResource")
@@ -152,6 +151,8 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
             __props__ = PrivateLinkScopedResourceArgs.__new__(PrivateLinkScopedResourceArgs)
 
             __props__.__dict__["linked_resource_id"] = linked_resource_id
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

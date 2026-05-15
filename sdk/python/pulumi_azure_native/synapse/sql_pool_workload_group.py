@@ -24,11 +24,11 @@ class SqlPoolWorkloadGroupArgs:
                  min_resource_percent_per_request: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_pool_name: pulumi.Input[_builtins.str],
+                 workload_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  importance: pulumi.Input[Optional[_builtins.str]] = None,
                  max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
-                 query_execution_timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 workload_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 query_execution_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadGroup resource.
 
@@ -37,17 +37,18 @@ class SqlPoolWorkloadGroupArgs:
         :param pulumi.Input[_builtins.float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sql_pool_name: SQL pool name
+        :param pulumi.Input[_builtins.str] workload_group_name: The name of the workload group.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] importance: The workload group importance level.
         :param pulumi.Input[_builtins.float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[_builtins.int] query_execution_timeout: The workload group query execution timeout.
-        :param pulumi.Input[_builtins.str] workload_group_name: The name of the workload group.
         """
         pulumi.set(__self__, "max_resource_percent", max_resource_percent)
         pulumi.set(__self__, "min_resource_percent", min_resource_percent)
         pulumi.set(__self__, "min_resource_percent_per_request", min_resource_percent_per_request)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+        pulumi.set(__self__, "workload_group_name", workload_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if importance is not None:
             pulumi.set(__self__, "importance", importance)
@@ -55,8 +56,6 @@ class SqlPoolWorkloadGroupArgs:
             pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
         if query_execution_timeout is not None:
             pulumi.set(__self__, "query_execution_timeout", query_execution_timeout)
-        if workload_group_name is not None:
-            pulumi.set(__self__, "workload_group_name", workload_group_name)
 
     @_builtins.property
     @pulumi.getter(name="maxResourcePercent")
@@ -119,6 +118,18 @@ class SqlPoolWorkloadGroupArgs:
         pulumi.set(self, "sql_pool_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="workloadGroupName")
+    def workload_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workload group.
+        """
+        return pulumi.get(self, "workload_group_name")
+
+    @workload_group_name.setter
+    def workload_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_group_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -165,18 +176,6 @@ class SqlPoolWorkloadGroupArgs:
     @query_execution_timeout.setter
     def query_execution_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_execution_timeout", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadGroupName")
-    def workload_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workload group.
-        """
-        return pulumi.get(self, "workload_group_name")
-
-    @workload_group_name.setter
-    def workload_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workload_group_name", value)
 
 
 @pulumi.type_token("azure-native:synapse:SqlPoolWorkloadGroup")
@@ -283,6 +282,8 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__.__dict__["sql_pool_name"] = sql_pool_name
+            if workload_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workload_group_name'")
             __props__.__dict__["workload_group_name"] = workload_group_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

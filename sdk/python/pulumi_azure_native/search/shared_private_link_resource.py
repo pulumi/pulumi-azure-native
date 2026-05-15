@@ -24,22 +24,21 @@ class SharedPrivateLinkResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  search_service_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']] = None,
-                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 shared_private_link_resource_name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
-        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a shared private link resource managed by the Azure AI Search service.
         :param pulumi.Input[_builtins.str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
+        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a shared private link resource managed by the Azure AI Search service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "search_service_name", search_service_name)
+        pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if shared_private_link_resource_name is not None:
-            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -66,6 +65,18 @@ class SharedPrivateLinkResourceArgs:
         pulumi.set(self, "search_service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharedPrivateLinkResourceName")
+    def shared_private_link_resource_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
+        """
+        return pulumi.get(self, "shared_private_link_resource_name")
+
+    @shared_private_link_resource_name.setter
+    def shared_private_link_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "shared_private_link_resource_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']]:
         """
@@ -76,18 +87,6 @@ class SharedPrivateLinkResourceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sharedPrivateLinkResourceName")
-    def shared_private_link_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
-        """
-        return pulumi.get(self, "shared_private_link_resource_name")
-
-    @shared_private_link_resource_name.setter
-    def shared_private_link_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "shared_private_link_resource_name", value)
 
 
 @pulumi.type_token("azure-native:search:SharedPrivateLinkResource")
@@ -165,6 +164,8 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if search_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__.__dict__["search_service_name"] = search_service_name
+            if shared_private_link_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'shared_private_link_resource_name'")
             __props__.__dict__["shared_private_link_resource_name"] = shared_private_link_resource_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

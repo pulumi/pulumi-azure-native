@@ -22,22 +22,33 @@ __all__ = ['SubscriptionRaiPolicyArgs', 'SubscriptionRaiPolicy']
 @pulumi.input_type
 class SubscriptionRaiPolicyArgs:
     def __init__(__self__, *,
+                 rai_policy_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['RaiPolicyPropertiesArgs']] = None,
-                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubscriptionRaiPolicy resource.
 
-        :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Properties of Cognitive Services RaiPolicy.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of the RaiPolicy associated with the Cognitive Services Account
+        :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Properties of Cognitive Services RaiPolicy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RaiPolicy associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @rai_policy_name.setter
+    def rai_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -50,18 +61,6 @@ class SubscriptionRaiPolicyArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RaiPolicyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the RaiPolicy associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @rai_policy_name.setter
-    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -102,7 +101,7 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SubscriptionRaiPolicyArgs] = None,
+                 args: SubscriptionRaiPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services RaiPolicy.
@@ -138,6 +137,8 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
             __props__ = SubscriptionRaiPolicyArgs.__new__(SubscriptionRaiPolicyArgs)
 
             __props__.__dict__["properties"] = properties
+            if rai_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rai_policy_name'")
             __props__.__dict__["rai_policy_name"] = rai_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

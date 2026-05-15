@@ -21,19 +21,18 @@ __all__ = ['LogicAppArgs', 'LogicApp']
 class LogicAppArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 logic_app_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 logic_app_name: pulumi.Input[_builtins.str],
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LogicApp resource.
 
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] logic_app_name: Name of the Logic App, the extension resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
+        pulumi.set(__self__, "logic_app_name", logic_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if logic_app_name is not None:
-            pulumi.set(__self__, "logic_app_name", logic_app_name)
 
     @_builtins.property
     @pulumi.getter(name="containerAppName")
@@ -48,6 +47,18 @@ class LogicAppArgs:
         pulumi.set(self, "container_app_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="logicAppName")
+    def logic_app_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Logic App, the extension resource.
+        """
+        return pulumi.get(self, "logic_app_name")
+
+    @logic_app_name.setter
+    def logic_app_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "logic_app_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -58,18 +69,6 @@ class LogicAppArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="logicAppName")
-    def logic_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Logic App, the extension resource.
-        """
-        return pulumi.get(self, "logic_app_name")
-
-    @logic_app_name.setter
-    def logic_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "logic_app_name", value)
 
 
 @pulumi.type_token("azure-native:app:LogicApp")
@@ -140,6 +139,8 @@ class LogicApp(pulumi.CustomResource):
             if container_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
+            if logic_app_name is None and not opts.urn:
+                raise TypeError("Missing required property 'logic_app_name'")
             __props__.__dict__["logic_app_name"] = logic_app_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

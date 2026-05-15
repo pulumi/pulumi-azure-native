@@ -22,27 +22,38 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
+                 key_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['KeyPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
 
+        :param pulumi.Input[_builtins.str] key_name: The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         :param pulumi.Input['KeyPropertiesArgs'] properties: The properties of the key to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group which contains the specified key vault.
         :param pulumi.Input[_builtins.str] vault_name: The name of the key vault which contains the key to be created.
-        :param pulumi.Input[_builtins.str] key_name: The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the key.
         """
+        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,18 +90,6 @@ class KeyArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,6 +175,8 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyArgs.__new__(KeyArgs)
 
+            if key_name is None and not opts.urn:
+                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

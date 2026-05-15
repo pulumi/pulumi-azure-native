@@ -23,26 +23,25 @@ class SmtpUsernameArgs:
                  communication_service_name: pulumi.Input[_builtins.str],
                  entra_application_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 smtp_username: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str],
-                 smtp_username: pulumi.Input[Optional[_builtins.str]] = None):
+                 username: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SmtpUsername resource.
 
         :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input[_builtins.str] entra_application_id: The application Id for the linked Entra Application.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] smtp_username: The name of the SmtpUsernameResource.
         :param pulumi.Input[_builtins.str] tenant_id: The tenant of the linked Entra Application.
         :param pulumi.Input[_builtins.str] username: The SMTP username. Could be free form or in the email address format.
-        :param pulumi.Input[_builtins.str] smtp_username: The name of the SmtpUsernameResource.
         """
         pulumi.set(__self__, "communication_service_name", communication_service_name)
         pulumi.set(__self__, "entra_application_id", entra_application_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "smtp_username", smtp_username)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "username", username)
-        if smtp_username is not None:
-            pulumi.set(__self__, "smtp_username", smtp_username)
 
     @_builtins.property
     @pulumi.getter(name="communicationServiceName")
@@ -81,6 +80,18 @@ class SmtpUsernameArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="smtpUsername")
+    def smtp_username(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SmtpUsernameResource.
+        """
+        return pulumi.get(self, "smtp_username")
+
+    @smtp_username.setter
+    def smtp_username(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "smtp_username", value)
+
+    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -103,18 +114,6 @@ class SmtpUsernameArgs:
     @username.setter
     def username(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "username", value)
-
-    @_builtins.property
-    @pulumi.getter(name="smtpUsername")
-    def smtp_username(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the SmtpUsernameResource.
-        """
-        return pulumi.get(self, "smtp_username")
-
-    @smtp_username.setter
-    def smtp_username(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "smtp_username", value)
 
 
 @pulumi.type_token("azure-native:communication:SmtpUsername")
@@ -200,6 +199,8 @@ class SmtpUsername(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if smtp_username is None and not opts.urn:
+                raise TypeError("Missing required property 'smtp_username'")
             __props__.__dict__["smtp_username"] = smtp_username
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")

@@ -23,25 +23,24 @@ __all__ = ['AttestationProviderArgs', 'AttestationProvider']
 class AttestationProviderArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['AttestationServiceCreationSpecificParamsArgs'],
+                 provider_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AttestationProvider resource.
 
         :param pulumi.Input['AttestationServiceCreationSpecificParamsArgs'] properties: Properties of the attestation provider
+        :param pulumi.Input[_builtins.str] provider_name: Name of the attestation provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the attestation provider should be created.
-        :param pulumi.Input[_builtins.str] provider_name: Name of the attestation provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the attestation provider.
         """
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,6 +55,18 @@ class AttestationProviderArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['AttestationServiceCreationSpecificParamsArgs']):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the attestation provider.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class AttestationProviderArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the attestation provider.
-        """
-        return pulumi.get(self, "provider_name")
-
-    @provider_name.setter
-    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class AttestationProvider(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            if provider_name is None and not opts.urn:
+                raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

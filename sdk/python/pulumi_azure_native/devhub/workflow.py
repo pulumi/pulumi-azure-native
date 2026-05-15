@@ -23,6 +23,7 @@ __all__ = ['WorkflowArgs', 'Workflow']
 class WorkflowArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workflow_name: pulumi.Input[_builtins.str],
                  app_name: pulumi.Input[Optional[_builtins.str]] = None,
                  builder_version: pulumi.Input[Optional[_builtins.str]] = None,
                  dockerfile_generation_mode: pulumi.Input[Optional[Union[_builtins.str, 'DockerfileGenerationMode']]] = None,
@@ -38,12 +39,12 @@ class WorkflowArgs:
                  manifest_type: pulumi.Input[Optional[Union[_builtins.str, 'GenerationManifestType']]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] workflow_name: The name of the workflow resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] builder_version: The version of the language image used for building the code in the generated dockerfile.
         :param pulumi.Input[Union[_builtins.str, 'DockerfileGenerationMode']] dockerfile_generation_mode: The mode of generation to be used for generating Dockerfiles.
@@ -60,9 +61,9 @@ class WorkflowArgs:
         :param pulumi.Input[_builtins.str] namespace: The namespace to deploy the application to.
         :param pulumi.Input[_builtins.str] port: The port the application is exposed on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] workflow_name: The name of the workflow resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workflow_name", workflow_name)
         if app_name is not None:
             pulumi.set(__self__, "app_name", app_name)
         if builder_version is not None:
@@ -95,8 +96,6 @@ class WorkflowArgs:
             pulumi.set(__self__, "port", port)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -109,6 +108,18 @@ class WorkflowArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the workflow resource.
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workflow_name", value)
 
     @_builtins.property
     @pulumi.getter(name="appName")
@@ -302,18 +313,6 @@ class WorkflowArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the workflow resource.
-        """
-        return pulumi.get(self, "workflow_name")
-
-    @workflow_name.setter
-    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workflow_name", value)
-
 
 @pulumi.type_token("azure-native:devhub:Workflow")
 class Workflow(pulumi.CustomResource):
@@ -444,6 +443,8 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if workflow_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workflow_name'")
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

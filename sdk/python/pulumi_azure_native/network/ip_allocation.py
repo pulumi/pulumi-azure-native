@@ -21,10 +21,10 @@ __all__ = ['IpAllocationArgs', 'IpAllocation']
 @pulumi.input_type
 class IpAllocationArgs:
     def __init__(__self__, *,
+                 ip_allocation_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allocation_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_allocation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ipam_allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,10 +35,10 @@ class IpAllocationArgs:
         """
         The set of arguments for constructing a IpAllocation resource.
 
+        :param pulumi.Input[_builtins.str] ip_allocation_name: The name of the IpAllocation.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_tags: IpAllocation tags.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input[_builtins.str] ip_allocation_name: The name of the IpAllocation.
         :param pulumi.Input[_builtins.str] ipam_allocation_id: The IPAM allocation ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] prefix: The address prefix for the IpAllocation.
@@ -47,13 +47,12 @@ class IpAllocationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'IpAllocationType']] type: The type for the IpAllocation.
         """
+        pulumi.set(__self__, "ip_allocation_name", ip_allocation_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allocation_tags is not None:
             pulumi.set(__self__, "allocation_tags", allocation_tags)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if ip_allocation_name is not None:
-            pulumi.set(__self__, "ip_allocation_name", ip_allocation_name)
         if ipam_allocation_id is not None:
             pulumi.set(__self__, "ipam_allocation_id", ipam_allocation_id)
         if location is not None:
@@ -70,6 +69,18 @@ class IpAllocationArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocationName")
+    def ip_allocation_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the IpAllocation.
+        """
+        return pulumi.get(self, "ip_allocation_name")
+
+    @ip_allocation_name.setter
+    def ip_allocation_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ip_allocation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,18 +117,6 @@ class IpAllocationArgs:
     @id.setter
     def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAllocationName")
-    def ip_allocation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the IpAllocation.
-        """
-        return pulumi.get(self, "ip_allocation_name")
-
-    @ip_allocation_name.setter
-    def ip_allocation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "ip_allocation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamAllocationId")
@@ -295,6 +294,8 @@ class IpAllocation(pulumi.CustomResource):
 
             __props__.__dict__["allocation_tags"] = allocation_tags
             __props__.__dict__["id"] = id
+            if ip_allocation_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_allocation_name'")
             __props__.__dict__["ip_allocation_name"] = ip_allocation_name
             __props__.__dict__["ipam_allocation_id"] = ipam_allocation_id
             __props__.__dict__["location"] = location

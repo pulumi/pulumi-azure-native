@@ -22,31 +22,30 @@ class KustoTableDataSetMappingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  data_set_id: pulumi.Input[_builtins.str],
+                 data_set_mapping_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  kusto_cluster_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 share_subscription_name: pulumi.Input[_builtins.str],
-                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 share_subscription_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a KustoTableDataSetMapping resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] data_set_id: The id of the source data set.
+        :param pulumi.Input[_builtins.str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[_builtins.str] kind: Kind of data set mapping.
                Expected value is 'KustoTable'.
         :param pulumi.Input[_builtins.str] kusto_cluster_resource_id: Resource id of the sink kusto cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[_builtins.str] data_set_mapping_name: The name of the data set mapping to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
         pulumi.set(__self__, "kind", 'KustoTable')
         pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -71,6 +70,18 @@ class KustoTableDataSetMappingArgs:
     @data_set_id.setter
     def data_set_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "data_set_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetMappingName")
+    def data_set_mapping_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data set mapping to be created.
+        """
+        return pulumi.get(self, "data_set_mapping_name")
+
+    @data_set_mapping_name.setter
+    def data_set_mapping_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -120,18 +131,6 @@ class KustoTableDataSetMappingArgs:
     @share_subscription_name.setter
     def share_subscription_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "share_subscription_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetMappingName")
-    def data_set_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the data set mapping to be created.
-        """
-        return pulumi.get(self, "data_set_mapping_name")
-
-    @data_set_mapping_name.setter
-    def data_set_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_mapping_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:KustoTableDataSetMapping")
@@ -214,6 +213,8 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
             if data_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
+            if data_set_mapping_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_mapping_name'")
             __props__.__dict__["data_set_mapping_name"] = data_set_mapping_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

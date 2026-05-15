@@ -21,8 +21,8 @@ __all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
 @pulumi.input_type
 class AvailabilitySetArgs:
     def __init__(__self__, *,
+                 availability_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -30,16 +30,15 @@ class AvailabilitySetArgs:
         """
         The set of arguments for constructing a AvailabilitySet resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] availability_set_name: Name of the availability set.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
+        pulumi.set(__self__, "availability_set_name", availability_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
@@ -48,6 +47,18 @@ class AvailabilitySetArgs:
             pulumi.set(__self__, "tags", tags)
         if vmm_server_id is not None:
             pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the availability set.
+        """
+        return pulumi.get(self, "availability_set_name")
+
+    @availability_set_name.setter
+    def availability_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -60,18 +71,6 @@ class AvailabilitySetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the availability set.
-        """
-        return pulumi.get(self, "availability_set_name")
-
-    @availability_set_name.setter
-    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -196,6 +195,8 @@ class AvailabilitySet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
 
+            if availability_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'availability_set_name'")
             __props__.__dict__["availability_set_name"] = availability_set_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location

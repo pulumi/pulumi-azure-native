@@ -24,9 +24,9 @@ class StorageAccountArgs:
                  data_policy: pulumi.Input[Union[_builtins.str, 'DataPolicy']],
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 storage_account_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_status: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountStatus']]] = None):
         """
         The set of arguments for constructing a StorageAccount resource.
@@ -34,20 +34,19 @@ class StorageAccountArgs:
         :param pulumi.Input[Union[_builtins.str, 'DataPolicy']] data_policy: Data policy of the storage Account.
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] storage_account_name: The StorageAccount name.
         :param pulumi.Input[_builtins.str] description: Description for the storage Account.
         :param pulumi.Input[_builtins.str] storage_account_credential_id: Storage Account Credential Id
-        :param pulumi.Input[_builtins.str] storage_account_name: The StorageAccount name.
         :param pulumi.Input[Union[_builtins.str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
         pulumi.set(__self__, "data_policy", data_policy)
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if storage_account_credential_id is not None:
             pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_account_status is not None:
             pulumi.set(__self__, "storage_account_status", storage_account_status)
 
@@ -88,6 +87,18 @@ class StorageAccountArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The StorageAccount name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -110,18 +121,6 @@ class StorageAccountArgs:
     @storage_account_credential_id.setter
     def storage_account_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_credential_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The StorageAccount name.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountStatus")
@@ -224,6 +223,8 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_account_credential_id"] = storage_account_credential_id
+            if storage_account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["storage_account_status"] = storage_account_status
             __props__.__dict__["azure_api_version"] = None

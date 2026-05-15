@@ -23,26 +23,25 @@ __all__ = ['WorkspaceCollectionArgs', 'WorkspaceCollection']
 class WorkspaceCollectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workspace_collection_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['AzureSkuArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_collection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WorkspaceCollection resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group
-        :param pulumi.Input[_builtins.str] location: Azure location
         :param pulumi.Input[_builtins.str] workspace_collection_name: Power BI Embedded Workspace Collection name
+        :param pulumi.Input[_builtins.str] location: Azure location
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_collection_name", workspace_collection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workspace_collection_name is not None:
-            pulumi.set(__self__, "workspace_collection_name", workspace_collection_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -55,6 +54,18 @@ class WorkspaceCollectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceCollectionName")
+    def workspace_collection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Power BI Embedded Workspace Collection name
+        """
+        return pulumi.get(self, "workspace_collection_name")
+
+    @workspace_collection_name.setter
+    def workspace_collection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_collection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -85,18 +96,6 @@ class WorkspaceCollectionArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceCollectionName")
-    def workspace_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Power BI Embedded Workspace Collection name
-        """
-        return pulumi.get(self, "workspace_collection_name")
-
-    @workspace_collection_name.setter
-    def workspace_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_collection_name", value)
 
 
 @pulumi.type_token("azure-native:powerbi:WorkspaceCollection")
@@ -166,6 +165,8 @@ class WorkspaceCollection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if workspace_collection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_collection_name'")
             __props__.__dict__["workspace_collection_name"] = workspace_collection_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

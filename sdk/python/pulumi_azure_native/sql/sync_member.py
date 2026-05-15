@@ -24,13 +24,13 @@ class SyncMemberArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  sync_group_name: pulumi.Input[_builtins.str],
+                 sync_member_name: pulumi.Input[_builtins.str],
                  database_type: pulumi.Input[Optional[Union[_builtins.str, 'SyncMemberDbType']]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_server_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_direction: pulumi.Input[Optional[Union[_builtins.str, 'SyncDirection']]] = None,
                  sync_member_azure_database_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                  use_private_link_connection: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -40,13 +40,13 @@ class SyncMemberArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: Server name of the member database in the sync member
         :param pulumi.Input[_builtins.str] sync_group_name: The name of the sync group on which the sync member is hosted.
+        :param pulumi.Input[_builtins.str] sync_member_name: The name of the sync member.
         :param pulumi.Input[Union[_builtins.str, 'SyncMemberDbType']] database_type: Database type of the sync member.
         :param pulumi.Input[_builtins.str] password: Password of the member database in the sync member.
         :param pulumi.Input[_builtins.str] sql_server_database_id: SQL Server database id of the sync member.
         :param pulumi.Input[_builtins.str] sync_agent_id: ARM resource id of the sync agent in the sync member.
         :param pulumi.Input[Union[_builtins.str, 'SyncDirection']] sync_direction: Sync direction of the sync member.
         :param pulumi.Input[_builtins.str] sync_member_azure_database_resource_id: ARM resource id of the sync member logical database, for sync members in Azure.
-        :param pulumi.Input[_builtins.str] sync_member_name: The name of the sync member.
         :param pulumi.Input[_builtins.bool] use_private_link_connection: Whether to use private link connection.
         :param pulumi.Input[_builtins.str] user_name: User name of the member database in the sync member.
         """
@@ -54,6 +54,7 @@ class SyncMemberArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "sync_group_name", sync_group_name)
+        pulumi.set(__self__, "sync_member_name", sync_member_name)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
         if password is not None:
@@ -66,8 +67,6 @@ class SyncMemberArgs:
             pulumi.set(__self__, "sync_direction", sync_direction)
         if sync_member_azure_database_resource_id is not None:
             pulumi.set(__self__, "sync_member_azure_database_resource_id", sync_member_azure_database_resource_id)
-        if sync_member_name is not None:
-            pulumi.set(__self__, "sync_member_name", sync_member_name)
         if use_private_link_connection is not None:
             pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
         if user_name is not None:
@@ -120,6 +119,18 @@ class SyncMemberArgs:
     @sync_group_name.setter
     def sync_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sync_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syncMemberName")
+    def sync_member_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the sync member.
+        """
+        return pulumi.get(self, "sync_member_name")
+
+    @sync_member_name.setter
+    def sync_member_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sync_member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseType")
@@ -192,18 +203,6 @@ class SyncMemberArgs:
     @sync_member_azure_database_resource_id.setter
     def sync_member_azure_database_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_member_azure_database_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="syncMemberName")
-    def sync_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the sync member.
-        """
-        return pulumi.get(self, "sync_member_name")
-
-    @sync_member_name.setter
-    def sync_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "sync_member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivateLinkConnection")
@@ -343,6 +342,8 @@ class SyncMember(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["sync_member_azure_database_resource_id"] = sync_member_azure_database_resource_id
+            if sync_member_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sync_member_name'")
             __props__.__dict__["sync_member_name"] = sync_member_name
             __props__.__dict__["use_private_link_connection"] = use_private_link_connection
             __props__.__dict__["user_name"] = user_name

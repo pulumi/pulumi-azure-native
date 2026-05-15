@@ -22,8 +22,8 @@ __all__ = ['CloudServiceArgs', 'CloudService']
 @pulumi.input_type
 class CloudServiceArgs:
     def __init__(__self__, *,
+                 cloud_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cloud_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CloudServicePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,16 +31,15 @@ class CloudServiceArgs:
         """
         The set of arguments for constructing a CloudService resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
         :param pulumi.Input[_builtins.str] cloud_service_name: Name of the cloud service.
+        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['CloudServicePropertiesArgs'] properties: Cloud service properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
         """
+        pulumi.set(__self__, "cloud_service_name", cloud_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cloud_service_name is not None:
-            pulumi.set(__self__, "cloud_service_name", cloud_service_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -49,6 +48,18 @@ class CloudServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudServiceName")
+    def cloud_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the cloud service.
+        """
+        return pulumi.get(self, "cloud_service_name")
+
+    @cloud_service_name.setter
+    def cloud_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cloud_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,18 +72,6 @@ class CloudServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudServiceName")
-    def cloud_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the cloud service.
-        """
-        return pulumi.get(self, "cloud_service_name")
-
-    @cloud_service_name.setter
-    def cloud_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cloud_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,6 +196,8 @@ class CloudService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CloudServiceArgs.__new__(CloudServiceArgs)
 
+            if cloud_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cloud_service_name'")
             __props__.__dict__["cloud_service_name"] = cloud_service_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

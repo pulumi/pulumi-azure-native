@@ -22,6 +22,7 @@ __all__ = ['ProfileArgs', 'Profile']
 @pulumi.input_type
 class ProfileArgs:
     def __init__(__self__, *,
+                 profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allowed_endpoint_record_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
                  dns_config: pulumi.Input[Optional['DnsConfigArgs']] = None,
@@ -31,7 +32,6 @@ class ProfileArgs:
                  max_return: pulumi.Input[Optional[_builtins.float]] = None,
                  monitor_config: pulumi.Input[Optional['MonitorConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_status: pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_routing_method: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
@@ -40,6 +40,7 @@ class ProfileArgs:
         """
         The set of arguments for constructing a Profile resource.
 
+        :param pulumi.Input[_builtins.str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
         :param pulumi.Input['DnsConfigArgs'] dns_config: The DNS settings of the Traffic Manager profile.
@@ -50,13 +51,13 @@ class ProfileArgs:
         :param pulumi.Input[_builtins.float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
         :param pulumi.Input['MonitorConfigArgs'] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
         :param pulumi.Input[_builtins.str] name: The name of the resource
-        :param pulumi.Input[_builtins.str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[Union[_builtins.str, 'ProfileStatus']] profile_status: The status of the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']] traffic_routing_method: The traffic routing method of the Traffic Manager profile.
         :param pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         :param pulumi.Input[_builtins.str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
+        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allowed_endpoint_record_types is not None:
             pulumi.set(__self__, "allowed_endpoint_record_types", allowed_endpoint_record_types)
@@ -74,8 +75,6 @@ class ProfileArgs:
             pulumi.set(__self__, "monitor_config", monitor_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
         if profile_status is not None:
             pulumi.set(__self__, "profile_status", profile_status)
         if tags is not None:
@@ -86,6 +85,18 @@ class ProfileArgs:
             pulumi.set(__self__, "traffic_view_enrollment_status", traffic_view_enrollment_status)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Traffic Manager profile.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -195,18 +206,6 @@ class ProfileArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Traffic Manager profile.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileStatus")
@@ -379,6 +378,8 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["max_return"] = max_return
             __props__.__dict__["monitor_config"] = monitor_config
             __props__.__dict__["name"] = name
+            if profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             __props__.__dict__["profile_status"] = profile_status
             if resource_group_name is None and not opts.urn:

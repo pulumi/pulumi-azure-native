@@ -21,7 +21,7 @@ class WebAppSiteExtensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 site_extension_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 site_extension_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WebAppSiteExtension resource.
 
@@ -31,8 +31,7 @@ class WebAppSiteExtensionArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if site_extension_id is not None:
-            pulumi.set(__self__, "site_extension_id", site_extension_id)
+        pulumi.set(__self__, "site_extension_id", site_extension_id)
 
     @_builtins.property
     @pulumi.getter
@@ -60,14 +59,14 @@ class WebAppSiteExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="siteExtensionId")
-    def site_extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def site_extension_id(self) -> pulumi.Input[_builtins.str]:
         """
         Site extension name.
         """
         return pulumi.get(self, "site_extension_id")
 
     @site_extension_id.setter
-    def site_extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def site_extension_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "site_extension_id", value)
 
 
@@ -142,6 +141,8 @@ class WebAppSiteExtension(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_extension_id is None and not opts.urn:
+                raise TypeError("Missing required property 'site_extension_id'")
             __props__.__dict__["site_extension_id"] = site_extension_id
             __props__.__dict__["authors"] = None
             __props__.__dict__["azure_api_version"] = None

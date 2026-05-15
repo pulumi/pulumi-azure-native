@@ -28,9 +28,9 @@ class DataLakeConnectorTopicMapArgs:
                  mapping: pulumi.Input['DataLakeConnectorMapArgs'],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 topic_map_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_map_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeConnectorTopicMap resource.
 
@@ -40,9 +40,9 @@ class DataLakeConnectorTopicMapArgs:
         :param pulumi.Input['DataLakeConnectorMapArgs'] mapping: TopicMap for DataLake connector.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ dataLakeConnector/topicMap resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ dataLakeConnector/topicMap resource
         """
         pulumi.set(__self__, "data_lake_connector_name", data_lake_connector_name)
         pulumi.set(__self__, "data_lake_connector_ref", data_lake_connector_ref)
@@ -50,12 +50,11 @@ class DataLakeConnectorTopicMapArgs:
         pulumi.set(__self__, "mapping", mapping)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_map_name", topic_map_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if topic_map_name is not None:
-            pulumi.set(__self__, "topic_map_name", topic_map_name)
 
     @_builtins.property
     @pulumi.getter(name="dataLakeConnectorName")
@@ -130,6 +129,18 @@ class DataLakeConnectorTopicMapArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="topicMapName")
+    def topic_map_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of MQ dataLakeConnector/topicMap resource
+        """
+        return pulumi.get(self, "topic_map_name")
+
+    @topic_map_name.setter
+    def topic_map_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_map_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -152,18 +163,6 @@ class DataLakeConnectorTopicMapArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicMapName")
-    def topic_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of MQ dataLakeConnector/topicMap resource
-        """
-        return pulumi.get(self, "topic_map_name")
-
-    @topic_map_name.setter
-    def topic_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "topic_map_name", value)
 
 
 @pulumi.type_token("azure-native:iotoperationsmq:DataLakeConnectorTopicMap")
@@ -265,6 +264,8 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if topic_map_name is None and not opts.urn:
+                raise TypeError("Missing required property 'topic_map_name'")
             __props__.__dict__["topic_map_name"] = topic_map_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

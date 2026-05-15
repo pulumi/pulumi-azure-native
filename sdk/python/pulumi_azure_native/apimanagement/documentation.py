@@ -19,28 +19,39 @@ __all__ = ['DocumentationArgs', 'Documentation']
 @pulumi.input_type
 class DocumentationArgs:
     def __init__(__self__, *,
+                 documentation_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  content: pulumi.Input[Optional[_builtins.str]] = None,
-                 documentation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Documentation resource.
 
+        :param pulumi.Input[_builtins.str] documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] content: Markdown documentation content.
-        :param pulumi.Input[_builtins.str] documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] title: documentation title.
         """
+        pulumi.set(__self__, "documentation_id", documentation_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if content is not None:
             pulumi.set(__self__, "content", content)
-        if documentation_id is not None:
-            pulumi.set(__self__, "documentation_id", documentation_id)
         if title is not None:
             pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter(name="documentationId")
+    def documentation_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Documentation identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "documentation_id")
+
+    @documentation_id.setter
+    def documentation_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "documentation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,18 +88,6 @@ class DocumentationArgs:
     @content.setter
     def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
-
-    @_builtins.property
-    @pulumi.getter(name="documentationId")
-    def documentation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Documentation identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "documentation_id")
-
-    @documentation_id.setter
-    def documentation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "documentation_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,6 +174,8 @@ class Documentation(pulumi.CustomResource):
             __props__ = DocumentationArgs.__new__(DocumentationArgs)
 
             __props__.__dict__["content"] = content
+            if documentation_id is None and not opts.urn:
+                raise TypeError("Missing required property 'documentation_id'")
             __props__.__dict__["documentation_id"] = documentation_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

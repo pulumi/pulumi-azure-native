@@ -22,7 +22,7 @@ class ServiceRegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 service_registry_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 service_registry_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceRegistry resource.
 
@@ -32,8 +32,7 @@ class ServiceRegistryArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if service_registry_name is not None:
-            pulumi.set(__self__, "service_registry_name", service_registry_name)
+        pulumi.set(__self__, "service_registry_name", service_registry_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,14 +60,14 @@ class ServiceRegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistryName")
-    def service_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def service_registry_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of Service Registry.
         """
         return pulumi.get(self, "service_registry_name")
 
     @service_registry_name.setter
-    def service_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def service_registry_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_registry_name", value)
 
 
@@ -143,6 +142,8 @@ class ServiceRegistry(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if service_registry_name is None and not opts.urn:
+                raise TypeError("Missing required property 'service_registry_name'")
             __props__.__dict__["service_registry_name"] = service_registry_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

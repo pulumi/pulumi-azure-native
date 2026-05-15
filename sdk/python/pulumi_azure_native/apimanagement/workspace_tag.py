@@ -22,23 +22,22 @@ class WorkspaceTagArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 workspace_id: pulumi.Input[_builtins.str],
-                 tag_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 tag_id: pulumi.Input[_builtins.str],
+                 workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceTag resource.
 
         :param pulumi.Input[_builtins.str] display_name: Tag name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "tag_id", tag_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -77,6 +76,18 @@ class WorkspaceTagArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagId")
+    def tag_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tag identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "tag_id")
+
+    @tag_id.setter
+    def tag_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tag_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -87,18 +98,6 @@ class WorkspaceTagArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tagId")
-    def tag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Tag identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "tag_id")
-
-    @tag_id.setter
-    def tag_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tag_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceTag")
@@ -181,6 +180,8 @@ class WorkspaceTag(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if tag_id is None and not opts.urn:
+                raise TypeError("Missing required property 'tag_id'")
             __props__.__dict__["tag_id"] = tag_id
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")

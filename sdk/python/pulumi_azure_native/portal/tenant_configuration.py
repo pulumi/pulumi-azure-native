@@ -21,7 +21,7 @@ __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
 @pulumi.input_type
 class TenantConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['ConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TenantConfiguration resource.
@@ -29,21 +29,20 @@ class TenantConfigurationArgs:
         :param pulumi.Input[_builtins.str] configuration_name: The name of the Configuration
         :param pulumi.Input['ConfigurationPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+        pulumi.set(__self__, "configuration_name", configuration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the Configuration
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
@@ -85,7 +84,7 @@ class TenantConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TenantConfigurationArgs] = None,
+                 args: TenantConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The tenant configuration resource definition.
@@ -121,6 +120,8 @@ class TenantConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TenantConfigurationArgs.__new__(TenantConfigurationArgs)
 
+            if configuration_name is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["azure_api_version"] = None

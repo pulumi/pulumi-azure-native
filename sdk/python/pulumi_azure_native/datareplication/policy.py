@@ -21,23 +21,34 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
+                 policy_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['PolicyModelPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vault_name: pulumi.Input[_builtins.str],
-                 policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vault_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Policy resource.
 
+        :param pulumi.Input[_builtins.str] policy_name: The policy name.
         :param pulumi.Input['PolicyModelPropertiesArgs'] properties: Policy model properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The vault name.
-        :param pulumi.Input[_builtins.str] policy_name: The policy name.
         """
+        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,18 +85,6 @@ class PolicyArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The policy name.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "policy_name", value)
 
 
 @pulumi.type_token("azure-native:datareplication:Policy")
@@ -156,6 +155,8 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
+            if policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

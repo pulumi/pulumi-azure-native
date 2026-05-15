@@ -23,27 +23,26 @@ __all__ = ['RegistryEndpointArgs', 'RegistryEndpoint']
 class RegistryEndpointArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[_builtins.str],
+                 registry_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
-                 properties: pulumi.Input[Optional['RegistryEndpointPropertiesArgs']] = None,
-                 registry_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['RegistryEndpointPropertiesArgs']] = None):
         """
         The set of arguments for constructing a RegistryEndpoint resource.
 
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
+        :param pulumi.Input[_builtins.str] registry_endpoint_name: Name of RegistryEndpoint resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input['RegistryEndpointPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] registry_endpoint_name: Name of RegistryEndpoint resource
         """
         pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "registry_endpoint_name", registry_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if registry_endpoint_name is not None:
-            pulumi.set(__self__, "registry_endpoint_name", registry_endpoint_name)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
@@ -56,6 +55,18 @@ class RegistryEndpointArgs:
     @instance_name.setter
     def instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registryEndpointName")
+    def registry_endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of RegistryEndpoint resource
+        """
+        return pulumi.get(self, "registry_endpoint_name")
+
+    @registry_endpoint_name.setter
+    def registry_endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "registry_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -92,18 +103,6 @@ class RegistryEndpointArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RegistryEndpointPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registryEndpointName")
-    def registry_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of RegistryEndpoint resource
-        """
-        return pulumi.get(self, "registry_endpoint_name")
-
-    @registry_endpoint_name.setter
-    def registry_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "registry_endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:iotoperations:RegistryEndpoint")
@@ -182,6 +181,8 @@ class RegistryEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["properties"] = properties
+            if registry_endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'registry_endpoint_name'")
             __props__.__dict__["registry_endpoint_name"] = registry_endpoint_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

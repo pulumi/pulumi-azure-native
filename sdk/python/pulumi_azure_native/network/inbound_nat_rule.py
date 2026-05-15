@@ -22,6 +22,7 @@ __all__ = ['InboundNatRuleInitArgs', 'InboundNatRule']
 @pulumi.input_type
 class InboundNatRuleInitArgs:
     def __init__(__self__, *,
+                 inbound_nat_rule_name: pulumi.Input[_builtins.str],
                  load_balancer_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backend_address_pool: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -34,12 +35,12 @@ class InboundNatRuleInitArgs:
                  frontend_port_range_start: pulumi.Input[Optional[_builtins.int]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 inbound_nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]] = None):
         """
         The set of arguments for constructing a InboundNatRule resource.
 
+        :param pulumi.Input[_builtins.str] inbound_nat_rule_name: The name of the inbound NAT rule.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SubResourceArgs'] backend_address_pool: A reference to backendAddressPool resource.
@@ -52,10 +53,10 @@ class InboundNatRuleInitArgs:
         :param pulumi.Input[_builtins.int] frontend_port_range_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-        :param pulumi.Input[_builtins.str] inbound_nat_rule_name: The name of the inbound NAT rule.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[Union[_builtins.str, 'TransportProtocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         """
+        pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backend_address_pool is not None:
@@ -78,12 +79,22 @@ class InboundNatRuleInitArgs:
             pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
-        if inbound_nat_rule_name is not None:
-            pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundNatRuleName")
+    def inbound_nat_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the inbound NAT rule.
+        """
+        return pulumi.get(self, "inbound_nat_rule_name")
+
+    @inbound_nat_rule_name.setter
+    def inbound_nat_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_nat_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
@@ -230,18 +241,6 @@ class InboundNatRuleInitArgs:
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
-    @pulumi.getter(name="inboundNatRuleName")
-    def inbound_nat_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the inbound NAT rule.
-        """
-        return pulumi.get(self, "inbound_nat_rule_name")
-
-    @inbound_nat_rule_name.setter
-    def inbound_nat_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "inbound_nat_rule_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -377,6 +376,8 @@ class InboundNatRule(pulumi.CustomResource):
             __props__.__dict__["frontend_port_range_start"] = frontend_port_range_start
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
+            if inbound_nat_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'inbound_nat_rule_name'")
             __props__.__dict__["inbound_nat_rule_name"] = inbound_nat_rule_name
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")

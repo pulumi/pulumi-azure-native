@@ -28,6 +28,7 @@ class SecurityRuleInitArgs:
                  priority: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 security_rule_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -36,7 +37,6 @@ class SecurityRuleInitArgs:
                  destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_application_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
@@ -52,6 +52,7 @@ class SecurityRuleInitArgs:
         :param pulumi.Input[_builtins.int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] security_rule_name: The name of the security rule.
         :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[_builtins.str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
@@ -60,7 +61,6 @@ class SecurityRuleInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[_builtins.str] security_rule_name: The name of the security rule.
         :param pulumi.Input[_builtins.str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_address_prefixes: The CIDR or source IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] source_application_security_groups: The application security group specified as source.
@@ -74,6 +74,7 @@ class SecurityRuleInitArgs:
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_rule_name", security_rule_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_address_prefix is not None:
@@ -90,8 +91,6 @@ class SecurityRuleInitArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if security_rule_name is not None:
-            pulumi.set(__self__, "security_rule_name", security_rule_name)
         if source_address_prefix is not None:
             pulumi.set(__self__, "source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
@@ -176,6 +175,18 @@ class SecurityRuleInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityRuleName")
+    def security_rule_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the security rule.
+        """
+        return pulumi.get(self, "security_rule_name")
+
+    @security_rule_name.setter
+    def security_rule_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "security_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -272,18 +283,6 @@ class SecurityRuleInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityRuleName")
-    def security_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the security rule.
-        """
-        return pulumi.get(self, "security_rule_name")
-
-    @security_rule_name.setter
-    def security_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "security_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefix")
@@ -503,6 +502,8 @@ class SecurityRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_rule_name is None and not opts.urn:
+                raise TypeError("Missing required property 'security_rule_name'")
             __props__.__dict__["security_rule_name"] = security_rule_name
             __props__.__dict__["source_address_prefix"] = source_address_prefix
             __props__.__dict__["source_address_prefixes"] = source_address_prefixes

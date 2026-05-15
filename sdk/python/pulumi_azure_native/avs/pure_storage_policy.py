@@ -23,23 +23,22 @@ class PureStoragePolicyArgs:
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_policy_definition: pulumi.Input[_builtins.str],
-                 storage_pool_id: pulumi.Input[_builtins.str],
-                 storage_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_policy_name: pulumi.Input[_builtins.str],
+                 storage_pool_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a PureStoragePolicy resource.
 
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_policy_definition: Definition of a Pure Storage Policy Based Management policy
-        :param pulumi.Input[_builtins.str] storage_pool_id: Azure resource ID of the Pure Storage Pool associated with the storage policy
         :param pulumi.Input[_builtins.str] storage_policy_name: Name of the storage policy.
+        :param pulumi.Input[_builtins.str] storage_pool_id: Azure resource ID of the Pure Storage Pool associated with the storage policy
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_policy_definition", storage_policy_definition)
+        pulumi.set(__self__, "storage_policy_name", storage_policy_name)
         pulumi.set(__self__, "storage_pool_id", storage_pool_id)
-        if storage_policy_name is not None:
-            pulumi.set(__self__, "storage_policy_name", storage_policy_name)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -78,6 +77,18 @@ class PureStoragePolicyArgs:
         pulumi.set(self, "storage_policy_definition", value)
 
     @_builtins.property
+    @pulumi.getter(name="storagePolicyName")
+    def storage_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the storage policy.
+        """
+        return pulumi.get(self, "storage_policy_name")
+
+    @storage_policy_name.setter
+    def storage_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_policy_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="storagePoolId")
     def storage_pool_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -88,18 +99,6 @@ class PureStoragePolicyArgs:
     @storage_pool_id.setter
     def storage_pool_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_pool_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storagePolicyName")
-    def storage_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the storage policy.
-        """
-        return pulumi.get(self, "storage_policy_name")
-
-    @storage_policy_name.setter
-    def storage_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_policy_name", value)
 
 
 @pulumi.type_token("azure-native:avs:PureStoragePolicy")
@@ -182,6 +181,8 @@ class PureStoragePolicy(pulumi.CustomResource):
             if storage_policy_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_policy_definition'")
             __props__.__dict__["storage_policy_definition"] = storage_policy_definition
+            if storage_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_policy_name'")
             __props__.__dict__["storage_policy_name"] = storage_policy_name
             if storage_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_pool_id'")

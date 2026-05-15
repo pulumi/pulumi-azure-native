@@ -20,9 +20,9 @@ __all__ = ['StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs', 'StaticSit
 class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
+                 function_app_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_app_region: pulumi.Input[Optional[_builtins.str]] = None,
                  function_app_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_forced: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -31,19 +31,18 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
         The set of arguments for constructing a StaticSiteUserProvidedFunctionAppForStaticSiteBuild resource.
 
         :param pulumi.Input[_builtins.str] environment_name: The stage site identifier.
+        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app to register with the static site build.
         :param pulumi.Input[_builtins.str] name: Name of the static site.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app to register with the static site build.
         :param pulumi.Input[_builtins.str] function_app_region: The region of the function app registered with the static site
         :param pulumi.Input[_builtins.str] function_app_resource_id: The resource id of the function app registered with the static site
         :param pulumi.Input[_builtins.bool] is_forced: Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         """
         pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "function_app_name", function_app_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if function_app_name is not None:
-            pulumi.set(__self__, "function_app_name", function_app_name)
         if function_app_region is not None:
             pulumi.set(__self__, "function_app_region", function_app_region)
         if function_app_resource_id is not None:
@@ -64,6 +63,18 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
     @environment_name.setter
     def environment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "environment_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionAppName")
+    def function_app_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the function app to register with the static site build.
+        """
+        return pulumi.get(self, "function_app_name")
+
+    @function_app_name.setter
+    def function_app_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "function_app_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -88,18 +99,6 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="functionAppName")
-    def function_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the function app to register with the static site build.
-        """
-        return pulumi.get(self, "function_app_name")
-
-    @function_app_name.setter
-    def function_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "function_app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppRegion")
@@ -233,6 +232,8 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuild(pulumi.CustomResource)
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
+            if function_app_name is None and not opts.urn:
+                raise TypeError("Missing required property 'function_app_name'")
             __props__.__dict__["function_app_name"] = function_app_name
             __props__.__dict__["function_app_region"] = function_app_region
             __props__.__dict__["function_app_resource_id"] = function_app_resource_id

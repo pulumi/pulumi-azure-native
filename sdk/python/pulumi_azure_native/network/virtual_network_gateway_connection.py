@@ -25,6 +25,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  connection_type: pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_gateway1: pulumi.Input['VirtualNetworkGatewayArgs'],
+                 virtual_network_gateway_connection_name: pulumi.Input[_builtins.str],
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_mode: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
                  connection_protocol: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
@@ -46,14 +47,14 @@ class VirtualNetworkGatewayConnectionArgs:
                  traffic_selector_policies: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
                  use_local_azure_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_policy_based_traffic_selectors: pulumi.Input[Optional[_builtins.bool]] = None,
-                 virtual_network_gateway2: pulumi.Input[Optional['VirtualNetworkGatewayArgs']] = None,
-                 virtual_network_gateway_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 virtual_network_gateway2: pulumi.Input[Optional['VirtualNetworkGatewayArgs']] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
 
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway1: The reference to virtual network gateway resource.
+        :param pulumi.Input[_builtins.str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         :param pulumi.Input[_builtins.str] authorization_key: The authorizationKey.
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']] connection_mode: The connection mode for this connection.
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']] connection_protocol: Connection protocol used for this connection.
@@ -76,11 +77,11 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[_builtins.bool] use_local_azure_ip_address: Use private local Azure IP for the connection.
         :param pulumi.Input[_builtins.bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway2: The reference to virtual network gateway resource.
-        :param pulumi.Input[_builtins.str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
         pulumi.set(__self__, "connection_type", connection_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network_gateway1", virtual_network_gateway1)
+        pulumi.set(__self__, "virtual_network_gateway_connection_name", virtual_network_gateway_connection_name)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
         if connection_mode is not None:
@@ -125,8 +126,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if virtual_network_gateway2 is not None:
             pulumi.set(__self__, "virtual_network_gateway2", virtual_network_gateway2)
-        if virtual_network_gateway_connection_name is not None:
-            pulumi.set(__self__, "virtual_network_gateway_connection_name", virtual_network_gateway_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
@@ -163,6 +162,18 @@ class VirtualNetworkGatewayConnectionArgs:
     @virtual_network_gateway1.setter
     def virtual_network_gateway1(self, value: pulumi.Input['VirtualNetworkGatewayArgs']):
         pulumi.set(self, "virtual_network_gateway1", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkGatewayConnectionName")
+    def virtual_network_gateway_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual network gateway connection.
+        """
+        return pulumi.get(self, "virtual_network_gateway_connection_name")
+
+    @virtual_network_gateway_connection_name.setter
+    def virtual_network_gateway_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_network_gateway_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
@@ -428,18 +439,6 @@ class VirtualNetworkGatewayConnectionArgs:
     def virtual_network_gateway2(self, value: pulumi.Input[Optional['VirtualNetworkGatewayArgs']]):
         pulumi.set(self, "virtual_network_gateway2", value)
 
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkGatewayConnectionName")
-    def virtual_network_gateway_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the virtual network gateway connection.
-        """
-        return pulumi.get(self, "virtual_network_gateway_connection_name")
-
-    @virtual_network_gateway_connection_name.setter
-    def virtual_network_gateway_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "virtual_network_gateway_connection_name", value)
-
 
 @pulumi.type_token("azure-native:network:VirtualNetworkGatewayConnection")
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
@@ -606,6 +605,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
             __props__.__dict__["virtual_network_gateway1"] = virtual_network_gateway1
             __props__.__dict__["virtual_network_gateway2"] = virtual_network_gateway2
+            if virtual_network_gateway_connection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
             __props__.__dict__["virtual_network_gateway_connection_name"] = virtual_network_gateway_connection_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connection_status"] = None

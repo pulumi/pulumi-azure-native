@@ -22,6 +22,7 @@ __all__ = ['RegistryArgs', 'Registry']
 @pulumi.input_type
 class RegistryArgs:
     def __init__(__self__, *,
+                 registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  admin_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -34,12 +35,12 @@ class RegistryArgs:
                  network_rule_set: pulumi.Input[Optional['NetworkRuleSetArgs']] = None,
                  policies: pulumi.Input[Optional['PoliciesArgs']] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
+        :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the container registry.
         :param pulumi.Input[_builtins.bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
@@ -52,10 +53,10 @@ class RegistryArgs:
         :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: The network rule set for a container registry.
         :param pulumi.Input['PoliciesArgs'] policies: The policies for a container registry.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the container registry.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry
         """
+        pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if admin_user_enabled is None:
@@ -86,14 +87,24 @@ class RegistryArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy is None:
             zone_redundancy = 'Disabled'
         if zone_redundancy is not None:
             pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+
+    @_builtins.property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -240,18 +251,6 @@ class RegistryArgs:
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
-    @pulumi.getter(name="registryName")
-    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the container registry.
-        """
-        return pulumi.get(self, "registry_name")
-
-    @registry_name.setter
-    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "registry_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -395,6 +394,8 @@ class Registry(pulumi.CustomResource):
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
+            if registry_name is None and not opts.urn:
+                raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

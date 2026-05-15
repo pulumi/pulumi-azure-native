@@ -21,32 +21,43 @@ __all__ = ['MigrateAgentArgs', 'MigrateAgent']
 @pulumi.input_type
 class MigrateAgentArgs:
     def __init__(__self__, *,
+                 agent_name: pulumi.Input[_builtins.str],
                  modernize_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MigrateAgentModelPropertiesArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MigrateAgent resource.
 
+        :param pulumi.Input[_builtins.str] agent_name: MigrateAgent name.
         :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[_builtins.str] agent_name: MigrateAgent name.
         :param pulumi.Input['MigrateAgentModelPropertiesArgs'] properties: MigrateAgent model properties.
         :param pulumi.Input[_builtins.str] subscription_id: Azure Subscription Id in which project was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the resource tags.
         """
+        pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "modernize_project_name", modernize_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        MigrateAgent name.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modernizeProjectName")
@@ -71,18 +82,6 @@ class MigrateAgentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        MigrateAgent name.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @agent_name.setter
-    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -191,6 +190,8 @@ class MigrateAgent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MigrateAgentArgs.__new__(MigrateAgentArgs)
 
+            if agent_name is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_name'")
             __props__.__dict__["agent_name"] = agent_name
             if modernize_project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'modernize_project_name'")

@@ -22,7 +22,7 @@ class TaskHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scheduler_name: pulumi.Input[_builtins.str],
-                 task_hub_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 task_hub_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TaskHub resource.
 
@@ -32,8 +32,7 @@ class TaskHubArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scheduler_name", scheduler_name)
-        if task_hub_name is not None:
-            pulumi.set(__self__, "task_hub_name", task_hub_name)
+        pulumi.set(__self__, "task_hub_name", task_hub_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -61,14 +60,14 @@ class TaskHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="taskHubName")
-    def task_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def task_hub_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the TaskHub
         """
         return pulumi.get(self, "task_hub_name")
 
     @task_hub_name.setter
-    def task_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def task_hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "task_hub_name", value)
 
 
@@ -143,6 +142,8 @@ class TaskHub(pulumi.CustomResource):
             if scheduler_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scheduler_name'")
             __props__.__dict__["scheduler_name"] = scheduler_name
+            if task_hub_name is None and not opts.urn:
+                raise TypeError("Missing required property 'task_hub_name'")
             __props__.__dict__["task_hub_name"] = task_hub_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

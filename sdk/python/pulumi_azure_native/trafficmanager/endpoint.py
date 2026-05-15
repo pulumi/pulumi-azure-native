@@ -22,6 +22,7 @@ __all__ = ['EndpointInitArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointInitArgs:
     def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
@@ -29,7 +30,6 @@ class EndpointInitArgs:
                  custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
                  endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]] = None,
                  geo_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -46,6 +46,7 @@ class EndpointInitArgs:
         """
         The set of arguments for constructing a Endpoint resource.
 
+        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of the Traffic Manager endpoint.
         :param pulumi.Input[_builtins.str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -53,7 +54,6 @@ class EndpointInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[_builtins.str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint.
         :param pulumi.Input[Union[_builtins.str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[_builtins.str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
@@ -68,6 +68,7 @@ class EndpointInitArgs:
         :param pulumi.Input[_builtins.str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param pulumi.Input[_builtins.float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,8 +80,6 @@ class EndpointInitArgs:
             pulumi.set(__self__, "endpoint_location", endpoint_location)
         if endpoint_monitor_status is not None:
             pulumi.set(__self__, "endpoint_monitor_status", endpoint_monitor_status)
-        if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if endpoint_status is not None:
             pulumi.set(__self__, "endpoint_status", endpoint_status)
         if geo_mapping is not None:
@@ -107,6 +106,18 @@ class EndpointInitArgs:
             pulumi.set(__self__, "type", type)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Traffic Manager endpoint.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
@@ -191,18 +202,6 @@ class EndpointInitArgs:
     @endpoint_monitor_status.setter
     def endpoint_monitor_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]):
         pulumi.set(self, "endpoint_monitor_status", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Traffic Manager endpoint.
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointStatus")
@@ -484,6 +483,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["endpoint_location"] = endpoint_location
             __props__.__dict__["endpoint_monitor_status"] = endpoint_monitor_status
+            if endpoint_name is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["endpoint_status"] = endpoint_status
             if endpoint_type is None and not opts.urn:

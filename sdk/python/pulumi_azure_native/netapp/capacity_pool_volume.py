@@ -28,6 +28,7 @@ class CapacityPoolVolumeArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  usage_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 volume_name: pulumi.Input[_builtins.str],
                  avs_data_store: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]] = None,
                  backup_id: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -64,7 +65,6 @@ class CapacityPoolVolumeArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
                  unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -77,6 +77,7 @@ class CapacityPoolVolumeArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[_builtins.float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
+        :param pulumi.Input[_builtins.str] volume_name: The name of the volume
         :param pulumi.Input[Union[_builtins.str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[_builtins.str] backup_id: Resource identifier used to identify the Backup.
         :param pulumi.Input[_builtins.str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
@@ -115,7 +116,6 @@ class CapacityPoolVolumeArgs:
         :param pulumi.Input[_builtins.str] snapshot_id: Resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        :param pulumi.Input[_builtins.str] volume_name: The name of the volume
         :param pulumi.Input[_builtins.str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param pulumi.Input[_builtins.str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Availability Zone
@@ -128,6 +128,7 @@ class CapacityPoolVolumeArgs:
         if usage_threshold is None:
             usage_threshold = 107374182400
         pulumi.set(__self__, "usage_threshold", usage_threshold)
+        pulumi.set(__self__, "volume_name", volume_name)
         if avs_data_store is None:
             avs_data_store = 'Disabled'
         if avs_data_store is not None:
@@ -228,8 +229,6 @@ class CapacityPoolVolumeArgs:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
         if unix_permissions is not None:
             pulumi.set(__self__, "unix_permissions", unix_permissions)
-        if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
         if volume_spec_name is not None:
             pulumi.set(__self__, "volume_spec_name", volume_spec_name)
         if volume_type is not None:
@@ -308,6 +307,18 @@ class CapacityPoolVolumeArgs:
     @usage_threshold.setter
     def usage_threshold(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "usage_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the volume
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_name", value)
 
     @_builtins.property
     @pulumi.getter(name="avsDataStore")
@@ -742,18 +753,6 @@ class CapacityPoolVolumeArgs:
         pulumi.set(self, "unix_permissions", value)
 
     @_builtins.property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the volume
-        """
-        return pulumi.get(self, "volume_name")
-
-    @volume_name.setter
-    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "volume_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="volumeSpecName")
     def volume_spec_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1070,6 +1069,8 @@ class CapacityPoolVolume(pulumi.CustomResource):
             if usage_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_threshold'")
             __props__.__dict__["usage_threshold"] = usage_threshold
+            if volume_name is None and not opts.urn:
+                raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["volume_spec_name"] = volume_spec_name
             __props__.__dict__["volume_type"] = volume_type

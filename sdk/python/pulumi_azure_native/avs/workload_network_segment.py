@@ -23,32 +23,31 @@ class WorkloadNetworkSegmentArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 segment_id: pulumi.Input[_builtins.str],
                  connected_gateway: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 segment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet: pulumi.Input[Optional['WorkloadNetworkSegmentSubnetArgs']] = None):
         """
         The set of arguments for constructing a WorkloadNetworkSegment resource.
 
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] segment_id: The ID of the NSX Segment
         :param pulumi.Input[_builtins.str] connected_gateway: Gateway which to connect segment to.
         :param pulumi.Input[_builtins.str] display_name: Display name of the segment.
         :param pulumi.Input[_builtins.float] revision: NSX revision number.
-        :param pulumi.Input[_builtins.str] segment_id: The ID of the NSX Segment
         :param pulumi.Input['WorkloadNetworkSegmentSubnetArgs'] subnet: Subnet which to connect segment to.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "segment_id", segment_id)
         if connected_gateway is not None:
             pulumi.set(__self__, "connected_gateway", connected_gateway)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
-        if segment_id is not None:
-            pulumi.set(__self__, "segment_id", segment_id)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
 
@@ -75,6 +74,18 @@ class WorkloadNetworkSegmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentId")
+    def segment_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the NSX Segment
+        """
+        return pulumi.get(self, "segment_id")
+
+    @segment_id.setter
+    def segment_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "segment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedGateway")
@@ -111,18 +122,6 @@ class WorkloadNetworkSegmentArgs:
     @revision.setter
     def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "revision", value)
-
-    @_builtins.property
-    @pulumi.getter(name="segmentId")
-    def segment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the NSX Segment
-        """
-        return pulumi.get(self, "segment_id")
-
-    @segment_id.setter
-    def segment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "segment_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -223,6 +222,8 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["revision"] = revision
+            if segment_id is None and not opts.urn:
+                raise TypeError("Missing required property 'segment_id'")
             __props__.__dict__["segment_id"] = segment_id
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["azure_api_version"] = None

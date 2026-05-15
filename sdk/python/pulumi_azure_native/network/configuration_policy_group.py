@@ -22,9 +22,9 @@ __all__ = ['ConfigurationPolicyGroupArgs', 'ConfigurationPolicyGroup']
 @pulumi.input_type
 class ConfigurationPolicyGroupArgs:
     def __init__(__self__, *,
+                 configuration_policy_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vpn_server_configuration_name: pulumi.Input[_builtins.str],
-                 configuration_policy_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,19 +33,18 @@ class ConfigurationPolicyGroupArgs:
         """
         The set of arguments for constructing a ConfigurationPolicyGroup resource.
 
+        :param pulumi.Input[_builtins.str] configuration_policy_group_name: The name of the ConfigurationPolicyGroup.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the ConfigurationPolicyGroup.
         :param pulumi.Input[_builtins.str] vpn_server_configuration_name: The name of the VpnServerConfiguration.
-        :param pulumi.Input[_builtins.str] configuration_policy_group_name: The name of the ConfigurationPolicyGroup.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.bool] is_default: Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]] policy_members: Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
         :param pulumi.Input[_builtins.int] priority: Priority for VpnServerConfigurationPolicyGroup.
         """
+        pulumi.set(__self__, "configuration_policy_group_name", configuration_policy_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vpn_server_configuration_name", vpn_server_configuration_name)
-        if configuration_policy_group_name is not None:
-            pulumi.set(__self__, "configuration_policy_group_name", configuration_policy_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_default is not None:
@@ -56,6 +55,18 @@ class ConfigurationPolicyGroupArgs:
             pulumi.set(__self__, "policy_members", policy_members)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationPolicyGroupName")
+    def configuration_policy_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ConfigurationPolicyGroup.
+        """
+        return pulumi.get(self, "configuration_policy_group_name")
+
+    @configuration_policy_group_name.setter
+    def configuration_policy_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_policy_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +91,6 @@ class ConfigurationPolicyGroupArgs:
     @vpn_server_configuration_name.setter
     def vpn_server_configuration_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpn_server_configuration_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationPolicyGroupName")
-    def configuration_policy_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the ConfigurationPolicyGroup.
-        """
-        return pulumi.get(self, "configuration_policy_group_name")
-
-    @configuration_policy_group_name.setter
-    def configuration_policy_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "configuration_policy_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -234,6 +233,8 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationPolicyGroupArgs.__new__(ConfigurationPolicyGroupArgs)
 
+            if configuration_policy_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_policy_group_name'")
             __props__.__dict__["configuration_policy_group_name"] = configuration_policy_group_name
             __props__.__dict__["id"] = id
             __props__.__dict__["is_default"] = is_default

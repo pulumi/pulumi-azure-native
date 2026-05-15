@@ -23,6 +23,7 @@ __all__ = ['WorkflowArgs', 'Workflow']
 class WorkflowArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 workflow_name: pulumi.Input[_builtins.str],
                  access_control: pulumi.Input[Optional['FlowAccessControlConfigurationArgs']] = None,
                  definition: Optional[Any] = None,
                  endpoints_configuration: pulumi.Input[Optional['FlowEndpointsConfigurationArgs']] = None,
@@ -32,12 +33,12 @@ class WorkflowArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] workflow_name: The workflow name.
         :param pulumi.Input['FlowAccessControlConfigurationArgs'] access_control: The access control configuration.
         :param Any definition: The definition.
         :param pulumi.Input['FlowEndpointsConfigurationArgs'] endpoints_configuration: The endpoints configuration.
@@ -48,9 +49,9 @@ class WorkflowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]] parameters: The parameters.
         :param pulumi.Input[Union[_builtins.str, 'WorkflowState']] state: The state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
-        :param pulumi.Input[_builtins.str] workflow_name: The workflow name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workflow_name", workflow_name)
         if access_control is not None:
             pulumi.set(__self__, "access_control", access_control)
         if definition is not None:
@@ -71,8 +72,6 @@ class WorkflowArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,6 +84,18 @@ class WorkflowArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The workflow name.
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workflow_name", value)
 
     @_builtins.property
     @pulumi.getter(name="accessControl")
@@ -206,18 +217,6 @@ class WorkflowArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The workflow name.
-        """
-        return pulumi.get(self, "workflow_name")
-
-    @workflow_name.setter
-    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workflow_name", value)
-
 
 @pulumi.type_token("azure-native:logic:Workflow")
 class Workflow(pulumi.CustomResource):
@@ -324,6 +323,8 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            if workflow_name is None and not opts.urn:
+                raise TypeError("Missing required property 'workflow_name'")
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["access_endpoint"] = None
             __props__.__dict__["azure_api_version"] = None

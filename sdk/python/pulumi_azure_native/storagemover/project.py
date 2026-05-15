@@ -20,24 +20,35 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
+                 project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_mover_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Project resource.
 
+        :param pulumi.Input[_builtins.str] project_name: The name of the Project resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_mover_name: The name of the Storage Mover resource.
         :param pulumi.Input[_builtins.str] description: A description for the Project.
-        :param pulumi.Input[_builtins.str] project_name: The name of the Project resource.
         """
+        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_mover_name", storage_mover_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Project resource.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,18 +85,6 @@ class ProjectArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the Project resource.
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "project_name", value)
 
 
 @pulumi.type_token("azure-native:storagemover:Project")
@@ -157,6 +156,8 @@ class Project(pulumi.CustomResource):
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
             __props__.__dict__["description"] = description
+            if project_name is None and not opts.urn:
+                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

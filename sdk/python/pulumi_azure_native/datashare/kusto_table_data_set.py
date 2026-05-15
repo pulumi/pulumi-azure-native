@@ -22,32 +22,31 @@ __all__ = ['KustoTableDataSetArgs', 'KustoTableDataSet']
 class KustoTableDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  kusto_database_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
-                 table_level_sharing_properties: pulumi.Input['TableLevelSharingPropertiesArgs'],
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_level_sharing_properties: pulumi.Input['TableLevelSharingPropertiesArgs']):
         """
         The set of arguments for constructing a KustoTableDataSet resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
+        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
                Expected value is 'KustoTable'.
         :param pulumi.Input[_builtins.str] kusto_database_resource_id: Resource id of the kusto database.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the data set to.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing properties for kusto database
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "data_set_name", data_set_name)
         pulumi.set(__self__, "kind", 'KustoTable')
         pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
-        if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -60,6 +59,18 @@ class KustoTableDataSetArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the dataSet.
+        """
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -121,18 +132,6 @@ class KustoTableDataSetArgs:
     @table_level_sharing_properties.setter
     def table_level_sharing_properties(self, value: pulumi.Input['TableLevelSharingPropertiesArgs']):
         pulumi.set(self, "table_level_sharing_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the dataSet.
-        """
-        return pulumi.get(self, "data_set_name")
-
-    @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_set_name", value)
 
 
 @pulumi.type_token("azure-native:datashare:KustoTableDataSet")
@@ -212,6 +211,8 @@ class KustoTableDataSet(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if data_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_set_name'")
             __props__.__dict__["data_set_name"] = data_set_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

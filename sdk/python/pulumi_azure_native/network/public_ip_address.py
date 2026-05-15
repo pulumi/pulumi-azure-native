@@ -22,6 +22,7 @@ __all__ = ['PublicIPAddressInitArgs', 'PublicIPAddress']
 @pulumi.input_type
 class PublicIPAddressInitArgs:
     def __init__(__self__, *,
+                 public_ip_address_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  ddos_settings: pulumi.Input[Optional['DdosSettingsArgs']] = None,
                  delete_option: pulumi.Input[Optional[Union[_builtins.str, 'DeleteOptions']]] = None,
@@ -38,7 +39,6 @@ class PublicIPAddressInitArgs:
                  public_ip_address_version: pulumi.Input[Optional[Union[_builtins.str, 'IPVersion']]] = None,
                  public_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
                  public_ip_prefix: pulumi.Input[Optional['SubResourceArgs']] = None,
-                 public_ip_address_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_public_ip_address: pulumi.Input[Optional['PublicIPAddressArgs']] = None,
                  sku: pulumi.Input[Optional['PublicIPAddressSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -46,6 +46,7 @@ class PublicIPAddressInitArgs:
         """
         The set of arguments for constructing a PublicIPAddress resource.
 
+        :param pulumi.Input[_builtins.str] public_ip_address_name: The name of the public IP address.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['DdosSettingsArgs'] ddos_settings: The DDoS protection custom policy associated with the public IP address.
         :param pulumi.Input[Union[_builtins.str, 'DeleteOptions']] delete_option: Specify what happens to the public IP address when the VM using it is deleted
@@ -62,12 +63,12 @@ class PublicIPAddressInitArgs:
         :param pulumi.Input[Union[_builtins.str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
-        :param pulumi.Input[_builtins.str] public_ip_address_name: The name of the public IP address.
         :param pulumi.Input['PublicIPAddressArgs'] service_public_ip_address: The service public IP address of the public IP address resource.
         :param pulumi.Input['PublicIPAddressSkuArgs'] sku: The public IP address SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ddos_settings is not None:
             pulumi.set(__self__, "ddos_settings", ddos_settings)
@@ -99,8 +100,6 @@ class PublicIPAddressInitArgs:
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if public_ip_prefix is not None:
             pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
-        if public_ip_address_name is not None:
-            pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
         if service_public_ip_address is not None:
             pulumi.set(__self__, "service_public_ip_address", service_public_ip_address)
         if sku is not None:
@@ -109,6 +108,18 @@ class PublicIPAddressInitArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressName")
+    def public_ip_address_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the public IP address.
+        """
+        return pulumi.get(self, "public_ip_address_name")
+
+    @public_ip_address_name.setter
+    def public_ip_address_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "public_ip_address_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -303,18 +314,6 @@ class PublicIPAddressInitArgs:
         pulumi.set(self, "public_ip_prefix", value)
 
     @_builtins.property
-    @pulumi.getter(name="publicIpAddressName")
-    def public_ip_address_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the public IP address.
-        """
-        return pulumi.get(self, "public_ip_address_name")
-
-    @public_ip_address_name.setter
-    def public_ip_address_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "public_ip_address_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="servicePublicIPAddress")
     def service_public_ip_address(self) -> pulumi.Input[Optional['PublicIPAddressArgs']]:
         """
@@ -497,6 +496,8 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
             __props__.__dict__["public_ip_allocation_method"] = public_ip_allocation_method
             __props__.__dict__["public_ip_prefix"] = public_ip_prefix
+            if public_ip_address_name is None and not opts.urn:
+                raise TypeError("Missing required property 'public_ip_address_name'")
             __props__.__dict__["public_ip_address_name"] = public_ip_address_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

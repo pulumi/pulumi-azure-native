@@ -22,7 +22,7 @@ class NotificationRecipientUserArgs:
                  notification_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NotificationRecipientUser resource.
 
@@ -34,8 +34,7 @@ class NotificationRecipientUserArgs:
         pulumi.set(__self__, "notification_name", notification_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter(name="notificationName")
@@ -75,14 +74,14 @@ class NotificationRecipientUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[_builtins.str]:
         """
         User identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_id", value)
 
 
@@ -163,6 +162,8 @@ class NotificationRecipientUser(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if user_id is None and not opts.urn:
+                raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

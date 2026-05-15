@@ -23,22 +23,21 @@ __all__ = ['BlobInventoryPolicyArgs', 'BlobInventoryPolicy']
 class BlobInventoryPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 blob_inventory_policy_name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input['BlobInventoryPolicySchemaArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str],
-                 blob_inventory_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BlobInventoryPolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[_builtins.str] blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
         :param pulumi.Input['BlobInventoryPolicySchemaArgs'] policy: The storage account blob inventory policy object. It is composed of policy rules.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "blob_inventory_policy_name", blob_inventory_policy_name)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if blob_inventory_policy_name is not None:
-            pulumi.set(__self__, "blob_inventory_policy_name", blob_inventory_policy_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -51,6 +50,18 @@ class BlobInventoryPolicyArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blobInventoryPolicyName")
+    def blob_inventory_policy_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the storage account blob inventory policy. It should always be 'default'
+        """
+        return pulumi.get(self, "blob_inventory_policy_name")
+
+    @blob_inventory_policy_name.setter
+    def blob_inventory_policy_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "blob_inventory_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class BlobInventoryPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="blobInventoryPolicyName")
-    def blob_inventory_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the storage account blob inventory policy. It should always be 'default'
-        """
-        return pulumi.get(self, "blob_inventory_policy_name")
-
-    @blob_inventory_policy_name.setter
-    def blob_inventory_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "blob_inventory_policy_name", value)
 
 
 @pulumi.type_token("azure-native:storage:BlobInventoryPolicy")
@@ -160,6 +159,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if blob_inventory_policy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'blob_inventory_policy_name'")
             __props__.__dict__["blob_inventory_policy_name"] = blob_inventory_policy_name
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

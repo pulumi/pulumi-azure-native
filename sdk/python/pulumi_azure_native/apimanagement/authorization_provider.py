@@ -21,32 +21,43 @@ __all__ = ['AuthorizationProviderArgs', 'AuthorizationProvider']
 @pulumi.input_type
 class AuthorizationProviderArgs:
     def __init__(__self__, *,
+                 authorization_provider_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
                  oauth2: pulumi.Input[Optional['AuthorizationProviderOAuth2SettingsArgs']] = None):
         """
         The set of arguments for constructing a AuthorizationProvider resource.
 
+        :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[_builtins.str] display_name: Authorization Provider name. Must be 1 to 300 characters long.
         :param pulumi.Input[_builtins.str] identity_provider: Identity provider name. Must be 1 to 300 characters long.
         :param pulumi.Input['AuthorizationProviderOAuth2SettingsArgs'] oauth2: OAuth2 settings
         """
+        pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if authorization_provider_id is not None:
-            pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if identity_provider is not None:
             pulumi.set(__self__, "identity_provider", identity_provider)
         if oauth2 is not None:
             pulumi.set(__self__, "oauth2", oauth2)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationProviderId")
+    def authorization_provider_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the authorization provider.
+        """
+        return pulumi.get(self, "authorization_provider_id")
+
+    @authorization_provider_id.setter
+    def authorization_provider_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_provider_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +82,6 @@ class AuthorizationProviderArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationProviderId")
-    def authorization_provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the authorization provider.
-        """
-        return pulumi.get(self, "authorization_provider_id")
-
-    @authorization_provider_id.setter
-    def authorization_provider_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "authorization_provider_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -195,6 +194,8 @@ class AuthorizationProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthorizationProviderArgs.__new__(AuthorizationProviderArgs)
 
+            if authorization_provider_id is None and not opts.urn:
+                raise TypeError("Missing required property 'authorization_provider_id'")
             __props__.__dict__["authorization_provider_id"] = authorization_provider_id
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["identity_provider"] = identity_provider

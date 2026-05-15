@@ -23,9 +23,9 @@ __all__ = ['MongoDBResourceMongoRoleDefinitionArgs', 'MongoDBResourceMongoRoleDe
 class MongoDBResourceMongoRoleDefinitionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
+                 mongo_role_definition_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mongo_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  privileges: pulumi.Input[Optional[Sequence[pulumi.Input['PrivilegeArgs']]]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  roles: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]] = None,
@@ -34,20 +34,19 @@ class MongoDBResourceMongoRoleDefinitionArgs:
         The set of arguments for constructing a MongoDBResourceMongoRoleDefinition resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[_builtins.str] mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] database_name: The database name for which access is being granted for this Role Definition.
-        :param pulumi.Input[_builtins.str] mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
         :param pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]] privileges: A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
         :param pulumi.Input[_builtins.str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The set of roles inherited by this Role Definition.
         :param pulumi.Input['MongoRoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "mongo_role_definition_id", mongo_role_definition_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
-        if mongo_role_definition_id is not None:
-            pulumi.set(__self__, "mongo_role_definition_id", mongo_role_definition_id)
         if privileges is not None:
             pulumi.set(__self__, "privileges", privileges)
         if role_name is not None:
@@ -68,6 +67,18 @@ class MongoDBResourceMongoRoleDefinitionArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mongoRoleDefinitionId")
+    def mongo_role_definition_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID for the Role Definition {dbName.roleName}.
+        """
+        return pulumi.get(self, "mongo_role_definition_id")
+
+    @mongo_role_definition_id.setter
+    def mongo_role_definition_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mongo_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -92,18 +103,6 @@ class MongoDBResourceMongoRoleDefinitionArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mongoRoleDefinitionId")
-    def mongo_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID for the Role Definition {dbName.roleName}.
-        """
-        return pulumi.get(self, "mongo_role_definition_id")
-
-    @mongo_role_definition_id.setter
-    def mongo_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mongo_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,6 +237,8 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["database_name"] = database_name
+            if mongo_role_definition_id is None and not opts.urn:
+                raise TypeError("Missing required property 'mongo_role_definition_id'")
             __props__.__dict__["mongo_role_definition_id"] = mongo_role_definition_id
             __props__.__dict__["privileges"] = privileges
             if resource_group_name is None and not opts.urn:

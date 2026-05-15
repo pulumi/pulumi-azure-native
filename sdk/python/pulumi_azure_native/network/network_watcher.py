@@ -19,29 +19,40 @@ __all__ = ['NetworkWatcherArgs', 'NetworkWatcher']
 @pulumi.input_type
 class NetworkWatcherArgs:
     def __init__(__self__, *,
+                 network_watcher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkWatcher resource.
 
+        :param pulumi.Input[_builtins.str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_watcher_name is not None:
-            pulumi.set(__self__, "network_watcher_name", network_watcher_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="networkWatcherName")
+    def network_watcher_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the network watcher.
+        """
+        return pulumi.get(self, "network_watcher_name")
+
+    @network_watcher_name.setter
+    def network_watcher_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_watcher_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +89,6 @@ class NetworkWatcherArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkWatcherName")
-    def network_watcher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the network watcher.
-        """
-        return pulumi.get(self, "network_watcher_name")
-
-    @network_watcher_name.setter
-    def network_watcher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "network_watcher_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,6 +176,8 @@ class NetworkWatcher(pulumi.CustomResource):
 
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            if network_watcher_name is None and not opts.urn:
+                raise TypeError("Missing required property 'network_watcher_name'")
             __props__.__dict__["network_watcher_name"] = network_watcher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

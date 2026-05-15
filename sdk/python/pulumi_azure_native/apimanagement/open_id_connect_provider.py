@@ -22,11 +22,11 @@ class OpenIdConnectProviderArgs:
                  client_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  metadata_endpoint: pulumi.Input[_builtins.str],
+                 opid: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 opid: pulumi.Input[Optional[_builtins.str]] = None,
                  use_in_api_documentation: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_in_test_console: pulumi.Input[Optional[_builtins.bool]] = None):
         """
@@ -35,25 +35,24 @@ class OpenIdConnectProviderArgs:
         :param pulumi.Input[_builtins.str] client_id: Client ID of developer console which is the client application.
         :param pulumi.Input[_builtins.str] display_name: User-friendly OpenID Connect Provider name.
         :param pulumi.Input[_builtins.str] metadata_endpoint: Metadata endpoint URI.
+        :param pulumi.Input[_builtins.str] opid: Identifier of the OpenID Connect Provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret of developer console which is the client application.
         :param pulumi.Input[_builtins.str] description: User-friendly description of OpenID Connect Provider.
-        :param pulumi.Input[_builtins.str] opid: Identifier of the OpenID Connect Provider.
         :param pulumi.Input[_builtins.bool] use_in_api_documentation: If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
         :param pulumi.Input[_builtins.bool] use_in_test_console: If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "metadata_endpoint", metadata_endpoint)
+        pulumi.set(__self__, "opid", opid)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if opid is not None:
-            pulumi.set(__self__, "opid", opid)
         if use_in_api_documentation is not None:
             pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
         if use_in_test_console is not None:
@@ -94,6 +93,18 @@ class OpenIdConnectProviderArgs:
     @metadata_endpoint.setter
     def metadata_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "metadata_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def opid(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the OpenID Connect Provider.
+        """
+        return pulumi.get(self, "opid")
+
+    @opid.setter
+    def opid(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "opid", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -142,18 +153,6 @@ class OpenIdConnectProviderArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def opid(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Identifier of the OpenID Connect Provider.
-        """
-        return pulumi.get(self, "opid")
-
-    @opid.setter
-    def opid(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "opid", value)
 
     @_builtins.property
     @pulumi.getter(name="useInApiDocumentation")
@@ -277,6 +276,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if metadata_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'metadata_endpoint'")
             __props__.__dict__["metadata_endpoint"] = metadata_endpoint
+            if opid is None and not opts.urn:
+                raise TypeError("Missing required property 'opid'")
             __props__.__dict__["opid"] = opid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

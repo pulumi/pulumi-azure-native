@@ -20,25 +20,36 @@ __all__ = ['MigrationServiceArgs', 'MigrationService']
 @pulumi.input_type
 class MigrationServiceArgs:
     def __init__(__self__, *,
+                 migration_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MigrationService resource.
 
+        :param pulumi.Input[_builtins.str] migration_service_name: Name of the Migration Service.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] migration_service_name: Name of the Migration Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "migration_service_name", migration_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if migration_service_name is not None:
-            pulumi.set(__self__, "migration_service_name", migration_service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationServiceName")
+    def migration_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service_name")
+
+    @migration_service_name.setter
+    def migration_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "migration_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +74,6 @@ class MigrationServiceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="migrationServiceName")
-    def migration_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Migration Service.
-        """
-        return pulumi.get(self, "migration_service_name")
-
-    @migration_service_name.setter
-    def migration_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "migration_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class MigrationService(pulumi.CustomResource):
             __props__ = MigrationServiceArgs.__new__(MigrationServiceArgs)
 
             __props__.__dict__["location"] = location
+            if migration_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'migration_service_name'")
             __props__.__dict__["migration_service_name"] = migration_service_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -22,24 +22,35 @@ __all__ = ['ConfigurationServiceArgs', 'ConfigurationService']
 @pulumi.input_type
 class ConfigurationServiceArgs:
     def __init__(__self__, *,
+                 configuration_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 configuration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConfigurationServicePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationService resource.
 
+        :param pulumi.Input[_builtins.str] configuration_service_name: The name of Application Configuration Service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
-        :param pulumi.Input[_builtins.str] configuration_service_name: The name of Application Configuration Service.
         :param pulumi.Input['ConfigurationServicePropertiesArgs'] properties: Application Configuration Service properties payload
         """
+        pulumi.set(__self__, "configuration_service_name", configuration_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        if configuration_service_name is not None:
-            pulumi.set(__self__, "configuration_service_name", configuration_service_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationServiceName")
+    def configuration_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of Application Configuration Service.
+        """
+        return pulumi.get(self, "configuration_service_name")
+
+    @configuration_service_name.setter
+    def configuration_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +75,6 @@ class ConfigurationServiceArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationServiceName")
-    def configuration_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of Application Configuration Service.
-        """
-        return pulumi.get(self, "configuration_service_name")
-
-    @configuration_service_name.setter
-    def configuration_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "configuration_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +157,8 @@ class ConfigurationService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationServiceArgs.__new__(ConfigurationServiceArgs)
 
+            if configuration_service_name is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_service_name'")
             __props__.__dict__["configuration_service_name"] = configuration_service_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

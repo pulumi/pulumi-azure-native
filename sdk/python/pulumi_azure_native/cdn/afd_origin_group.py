@@ -22,26 +22,27 @@ __all__ = ['AFDOriginGroupArgs', 'AFDOriginGroup']
 @pulumi.input_type
 class AFDOriginGroupArgs:
     def __init__(__self__, *,
+                 origin_group_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  authentication: pulumi.Input[Optional['OriginAuthenticationPropertiesArgs']] = None,
                  health_probe_settings: pulumi.Input[Optional['HealthProbeParametersArgs']] = None,
                  load_balancing_settings: pulumi.Input[Optional['LoadBalancingSettingsParametersArgs']] = None,
-                 origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  session_affinity_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AFDOriginGroup resource.
 
+        :param pulumi.Input[_builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['OriginAuthenticationPropertiesArgs'] authentication: Authentication settings for origin in origin group.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input['LoadBalancingSettingsParametersArgs'] load_balancing_settings: Load balancing settings for a backend pool
-        :param pulumi.Input[_builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[Union[_builtins.str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[_builtins.int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
+        pulumi.set(__self__, "origin_group_name", origin_group_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authentication is not None:
@@ -50,12 +51,22 @@ class AFDOriginGroupArgs:
             pulumi.set(__self__, "health_probe_settings", health_probe_settings)
         if load_balancing_settings is not None:
             pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
-        if origin_group_name is not None:
-            pulumi.set(__self__, "origin_group_name", origin_group_name)
         if session_affinity_state is not None:
             pulumi.set(__self__, "session_affinity_state", session_affinity_state)
         if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
             pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="originGroupName")
+    def origin_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the origin group which is unique within the endpoint.
+        """
+        return pulumi.get(self, "origin_group_name")
+
+    @origin_group_name.setter
+    def origin_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "origin_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -116,18 +127,6 @@ class AFDOriginGroupArgs:
     @load_balancing_settings.setter
     def load_balancing_settings(self, value: pulumi.Input[Optional['LoadBalancingSettingsParametersArgs']]):
         pulumi.set(self, "load_balancing_settings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="originGroupName")
-    def origin_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the origin group which is unique within the endpoint.
-        """
-        return pulumi.get(self, "origin_group_name")
-
-    @origin_group_name.setter
-    def origin_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "origin_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionAffinityState")
@@ -237,6 +236,8 @@ class AFDOriginGroup(pulumi.CustomResource):
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["health_probe_settings"] = health_probe_settings
             __props__.__dict__["load_balancing_settings"] = load_balancing_settings
+            if origin_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'origin_group_name'")
             __props__.__dict__["origin_group_name"] = origin_group_name
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")

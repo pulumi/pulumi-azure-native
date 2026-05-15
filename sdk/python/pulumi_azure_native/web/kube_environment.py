@@ -22,6 +22,7 @@ __all__ = ['KubeEnvironmentArgs', 'KubeEnvironment']
 @pulumi.input_type
 class KubeEnvironmentArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aks_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_logs_configuration: pulumi.Input[Optional['AppLogsConfigurationArgs']] = None,
@@ -32,12 +33,12 @@ class KubeEnvironmentArgs:
                  internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  static_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubeEnvironment resource.
 
+        :param pulumi.Input[_builtins.str] name: Name of the Kubernetes Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
@@ -51,10 +52,10 @@ class KubeEnvironmentArgs:
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
-        :param pulumi.Input[_builtins.str] name: Name of the Kubernetes Environment.
         :param pulumi.Input[_builtins.str] static_ip: Static IP of the KubeEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aks_resource_id is not None:
             pulumi.set(__self__, "aks_resource_id", aks_resource_id)
@@ -74,12 +75,22 @@ class KubeEnvironmentArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if static_ip is not None:
             pulumi.set(__self__, "static_ip", static_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -201,18 +212,6 @@ class KubeEnvironmentArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of the Kubernetes Environment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="staticIp")
@@ -346,6 +345,8 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

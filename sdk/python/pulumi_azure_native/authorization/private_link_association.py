@@ -23,7 +23,7 @@ __all__ = ['PrivateLinkAssociationArgs', 'PrivateLinkAssociation']
 class PrivateLinkAssociationArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
-                 pla_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pla_id: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['PrivateLinkAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAssociation resource.
@@ -33,8 +33,7 @@ class PrivateLinkAssociationArgs:
         :param pulumi.Input['PrivateLinkAssociationPropertiesArgs'] properties: The properties of the PrivateLinkAssociation.
         """
         pulumi.set(__self__, "group_id", group_id)
-        if pla_id is not None:
-            pulumi.set(__self__, "pla_id", pla_id)
+        pulumi.set(__self__, "pla_id", pla_id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -52,14 +51,14 @@ class PrivateLinkAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="plaId")
-    def pla_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def pla_id(self) -> pulumi.Input[_builtins.str]:
         """
         The ID of the PLA
         """
         return pulumi.get(self, "pla_id")
 
     @pla_id.setter
-    def pla_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def pla_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "pla_id", value)
 
     @_builtins.property
@@ -135,6 +134,8 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
+            if pla_id is None and not opts.urn:
+                raise TypeError("Missing required property 'pla_id'")
             __props__.__dict__["pla_id"] = pla_id
             __props__.__dict__["properties"] = properties
             __props__.__dict__["azure_api_version"] = None

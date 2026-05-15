@@ -21,24 +21,35 @@ __all__ = ['FileShareSnapshotArgs', 'FileShareSnapshot']
 @pulumi.input_type
 class FileShareSnapshotArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FileShareSnapshotPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FileShareSnapshot resource.
 
+        :param pulumi.Input[_builtins.str] name: The name of the FileShareSnapshot
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The resource name of the file share, as seen by the administrator through Azure Resource Manager.
-        :param pulumi.Input[_builtins.str] name: The name of the FileShareSnapshot
         :param pulumi.Input['FileShareSnapshotPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the FileShareSnapshot
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +74,6 @@ class FileShareSnapshotArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the FileShareSnapshot
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +156,8 @@ class FileShareSnapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileShareSnapshotArgs.__new__(FileShareSnapshotArgs)
 
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
