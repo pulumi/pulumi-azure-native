@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the maintenance configuration.
         /// </summary>
-        [Input("configName", required: true)]
-        public Input<string> ConfigName { get; set; } = null!;
+        [Input("configName")]
+        public Input<string>? ConfigName { get; set; }
 
         /// <summary>
         /// The name of the Managed Environment.

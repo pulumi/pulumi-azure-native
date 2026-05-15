@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network service site.
         /// </summary>
-        [Input("siteName")]
-        public string? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetSiteArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network service site.
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public GetSiteInvokeArgs()
         {

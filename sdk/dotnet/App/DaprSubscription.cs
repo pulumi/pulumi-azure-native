@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Dapr subscription.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Dapr PubSub component name

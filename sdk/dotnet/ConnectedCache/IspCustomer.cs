@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// <summary>
         /// Name of the Customer resource
         /// </summary>
-        [Input("customerResourceName", required: true)]
-        public Input<string> CustomerResourceName { get; set; } = null!;
+        [Input("customerResourceName")]
+        public Input<string>? CustomerResourceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

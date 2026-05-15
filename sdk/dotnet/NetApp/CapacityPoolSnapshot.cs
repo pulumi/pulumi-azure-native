@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the snapshot
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
         /// The name of the volume

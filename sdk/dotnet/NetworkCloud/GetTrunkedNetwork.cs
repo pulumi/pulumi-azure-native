@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the trunked network.
         /// </summary>
-        [Input("trunkedNetworkName")]
-        public string? TrunkedNetworkName { get; set; }
+        [Input("trunkedNetworkName", required: true)]
+        public string TrunkedNetworkName { get; set; } = null!;
 
         public GetTrunkedNetworkArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the trunked network.
         /// </summary>
-        [Input("trunkedNetworkName")]
-        public Input<string>? TrunkedNetworkName { get; set; }
+        [Input("trunkedNetworkName", required: true)]
+        public Input<string> TrunkedNetworkName { get; set; } = null!;
 
         public GetTrunkedNetworkInvokeArgs()
         {

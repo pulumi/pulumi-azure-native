@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The id of the saved search.
         /// </summary>
-        [Input("savedSearchId")]
-        public string? SavedSearchId { get; set; }
+        [Input("savedSearchId", required: true)]
+        public string SavedSearchId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The id of the saved search.
         /// </summary>
-        [Input("savedSearchId")]
-        public Input<string>? SavedSearchId { get; set; }
+        [Input("savedSearchId", required: true)]
+        public Input<string> SavedSearchId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

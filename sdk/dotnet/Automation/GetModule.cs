@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The module name.
         /// </summary>
-        [Input("moduleName")]
-        public string? ModuleName { get; set; }
+        [Input("moduleName", required: true)]
+        public string ModuleName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The module name.
         /// </summary>
-        [Input("moduleName")]
-        public Input<string>? ModuleName { get; set; }
+        [Input("moduleName", required: true)]
+        public Input<string> ModuleName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

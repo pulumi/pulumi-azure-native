@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Activity Log Alert rule.
         /// </summary>
-        [Input("activityLogAlertName")]
-        public string? ActivityLogAlertName { get; set; }
+        [Input("activityLogAlertName", required: true)]
+        public string ActivityLogAlertName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Activity Log Alert rule.
         /// </summary>
-        [Input("activityLogAlertName")]
-        public Input<string>? ActivityLogAlertName { get; set; }
+        [Input("activityLogAlertName", required: true)]
+        public Input<string> ActivityLogAlertName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

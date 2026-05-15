@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the application resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// The type of the application resource.

@@ -201,8 +201,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Security Standard key - unique key for the standard type
         /// </summary>
-        [Input("standardId", required: true)]
-        public Input<string> StandardId { get; set; } = null!;
+        [Input("standardId")]
+        public Input<string>? StandardId { get; set; }
 
         [Input("supportedClouds")]
         private InputList<Pulumi.AzureNative.Security.StandardSupportedClouds>? _supportedClouds;

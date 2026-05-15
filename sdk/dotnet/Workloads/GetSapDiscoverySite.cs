@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the discovery site resource for SAP Migration.
         /// </summary>
-        [Input("sapDiscoverySiteName")]
-        public string? SapDiscoverySiteName { get; set; }
+        [Input("sapDiscoverySiteName", required: true)]
+        public string SapDiscoverySiteName { get; set; } = null!;
 
         public GetSapDiscoverySiteArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the discovery site resource for SAP Migration.
         /// </summary>
-        [Input("sapDiscoverySiteName")]
-        public Input<string>? SapDiscoverySiteName { get; set; }
+        [Input("sapDiscoverySiteName", required: true)]
+        public Input<string> SapDiscoverySiteName { get; set; } = null!;
 
         public GetSapDiscoverySiteInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The name of the SyncIdentityProvider resource.
         /// </summary>
-        [Input("childResourceName")]
-        public string? ChildResourceName { get; set; }
+        [Input("childResourceName", required: true)]
+        public string ChildResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The name of the SyncIdentityProvider resource.
         /// </summary>
-        [Input("childResourceName")]
-        public Input<string>? ChildResourceName { get; set; }
+        [Input("childResourceName", required: true)]
+        public Input<string> ChildResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

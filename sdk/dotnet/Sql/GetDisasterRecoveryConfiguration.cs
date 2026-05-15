@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the disaster recovery configuration.
         /// </summary>
-        [Input("disasterRecoveryConfigurationName")]
-        public string? DisasterRecoveryConfigurationName { get; set; }
+        [Input("disasterRecoveryConfigurationName", required: true)]
+        public string DisasterRecoveryConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the disaster recovery configuration.
         /// </summary>
-        [Input("disasterRecoveryConfigurationName")]
-        public Input<string>? DisasterRecoveryConfigurationName { get; set; }
+        [Input("disasterRecoveryConfigurationName", required: true)]
+        public Input<string> DisasterRecoveryConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

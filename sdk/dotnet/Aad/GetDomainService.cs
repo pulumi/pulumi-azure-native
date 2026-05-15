@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The name of the domain service.
         /// </summary>
-        [Input("domainServiceName")]
-        public string? DomainServiceName { get; set; }
+        [Input("domainServiceName", required: true)]
+        public string DomainServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The name of the domain service.
         /// </summary>
-        [Input("domainServiceName")]
-        public Input<string>? DomainServiceName { get; set; }
+        [Input("domainServiceName", required: true)]
+        public Input<string> DomainServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

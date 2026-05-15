@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
         /// <summary>
         /// Name.
         /// </summary>
-        [Input("mdsResourceName", required: true)]
-        public Input<string> MdsResourceName { get; set; } = null!;
+        [Input("mdsResourceName")]
+        public Input<string>? MdsResourceName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

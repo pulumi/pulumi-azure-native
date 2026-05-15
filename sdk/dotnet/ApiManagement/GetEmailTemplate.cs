@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Email Template Name Identifier.
         /// </summary>
-        [Input("templateName")]
-        public string? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public string TemplateName { get; set; } = null!;
 
         public GetEmailTemplateArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Email Template Name Identifier.
         /// </summary>
-        [Input("templateName")]
-        public Input<string>? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         public GetEmailTemplateInvokeArgs()
         {

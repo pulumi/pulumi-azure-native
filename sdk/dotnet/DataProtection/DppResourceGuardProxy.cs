@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// name of the resource guard proxy
         /// </summary>
-        [Input("resourceGuardProxyName", required: true)]
-        public Input<string> ResourceGuardProxyName { get; set; } = null!;
+        [Input("resourceGuardProxyName")]
+        public Input<string>? ResourceGuardProxyName { get; set; }
 
         /// <summary>
         /// The name of the backup vault.

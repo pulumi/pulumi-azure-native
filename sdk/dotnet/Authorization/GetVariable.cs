@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetVariableResult> InvokeAsync(GetVariableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:authorization:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:authorization:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the variable to operate on.
         /// </summary>
-        [Input("variableName")]
-        public string? VariableName { get; set; }
+        [Input("variableName", required: true)]
+        public string VariableName { get; set; } = null!;
 
         public GetVariableArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the variable to operate on.
         /// </summary>
-        [Input("variableName")]
-        public Input<string>? VariableName { get; set; }
+        [Input("variableName", required: true)]
+        public Input<string> VariableName { get; set; } = null!;
 
         public GetVariableInvokeArgs()
         {

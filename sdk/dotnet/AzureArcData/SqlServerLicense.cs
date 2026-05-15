@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Server License
         /// </summary>
-        [Input("sqlServerLicenseName", required: true)]
-        public Input<string> SqlServerLicenseName { get; set; } = null!;
+        [Input("sqlServerLicenseName")]
+        public Input<string>? SqlServerLicenseName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

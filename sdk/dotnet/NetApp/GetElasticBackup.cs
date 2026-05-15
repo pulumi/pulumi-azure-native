@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticBackup
         /// </summary>
-        [Input("backupName")]
-        public string? BackupName { get; set; }
+        [Input("backupName", required: true)]
+        public string BackupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the ElasticBackupVault
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticBackup
         /// </summary>
-        [Input("backupName")]
-        public Input<string>? BackupName { get; set; }
+        [Input("backupName", required: true)]
+        public Input<string> BackupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the ElasticBackupVault

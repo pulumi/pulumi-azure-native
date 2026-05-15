@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// Monitor resource name
         /// </summary>
-        [Input("monitorName")]
-        public string? MonitorName { get; set; }
+        [Input("monitorName", required: true)]
+        public string MonitorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// Monitor resource name
         /// </summary>
-        [Input("monitorName")]
-        public Input<string>? MonitorName { get; set; }
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

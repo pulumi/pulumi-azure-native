@@ -251,8 +251,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Name of the pool.
         /// </summary>
-        [Input("poolName", required: true)]
-        public Input<string> PoolName { get; set; } = null!;
+        [Input("poolName")]
+        public Input<string>? PoolName { get; set; }
 
         /// <summary>
         /// The name of the project.

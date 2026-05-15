@@ -304,8 +304,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// The name of the workflow resource.
         /// </summary>
-        [Input("workflowName", required: true)]
-        public Input<string> WorkflowName { get; set; } = null!;
+        [Input("workflowName")]
+        public Input<string>? WorkflowName { get; set; }
 
         public WorkflowArgs()
         {

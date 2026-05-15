@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the host.
         /// </summary>
-        [Input("hostName")]
-        public string? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public string HostName { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the host.
         /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.

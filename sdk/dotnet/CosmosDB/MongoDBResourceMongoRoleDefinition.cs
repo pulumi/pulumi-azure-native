@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the Role Definition {dbName.roleName}.
         /// </summary>
-        [Input("mongoRoleDefinitionId", required: true)]
-        public Input<string> MongoRoleDefinitionId { get; set; } = null!;
+        [Input("mongoRoleDefinitionId")]
+        public Input<string>? MongoRoleDefinitionId { get; set; }
 
         [Input("privileges")]
         private InputList<Inputs.PrivilegeArgs>? _privileges;

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB Throughput Pool name.
         /// </summary>
-        [Input("throughputPoolName")]
-        public string? ThroughputPoolName { get; set; }
+        [Input("throughputPoolName", required: true)]
+        public string ThroughputPoolName { get; set; } = null!;
 
         public GetThroughputPoolArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB Throughput Pool name.
         /// </summary>
-        [Input("throughputPoolName")]
-        public Input<string>? ThroughputPoolName { get; set; }
+        [Input("throughputPoolName", required: true)]
+        public Input<string> ThroughputPoolName { get; set; } = null!;
 
         public GetThroughputPoolInvokeArgs()
         {

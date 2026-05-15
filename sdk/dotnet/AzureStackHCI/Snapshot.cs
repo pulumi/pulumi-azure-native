@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the snapshot
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

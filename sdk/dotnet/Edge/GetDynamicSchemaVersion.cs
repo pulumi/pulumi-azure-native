@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicSchemaVersion
         /// </summary>
-        [Input("dynamicSchemaVersionName")]
-        public string? DynamicSchemaVersionName { get; set; }
+        [Input("dynamicSchemaVersionName", required: true)]
+        public string DynamicSchemaVersionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicSchemaVersion
         /// </summary>
-        [Input("dynamicSchemaVersionName")]
-        public Input<string>? DynamicSchemaVersionName { get; set; }
+        [Input("dynamicSchemaVersionName", required: true)]
+        public Input<string> DynamicSchemaVersionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -231,8 +231,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
+        [Input("ruleId")]
+        public Input<string>? RuleId { get; set; }
 
         /// <summary>
         /// The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed

@@ -313,8 +313,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the App Service Environment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Full view of networking configuration for an ASE.

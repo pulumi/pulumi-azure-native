@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual hard disk
         /// </summary>
-        [Input("virtualHardDiskName")]
-        public string? VirtualHardDiskName { get; set; }
+        [Input("virtualHardDiskName", required: true)]
+        public string VirtualHardDiskName { get; set; } = null!;
 
         public GetVirtualHardDiskArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual hard disk
         /// </summary>
-        [Input("virtualHardDiskName")]
-        public Input<string>? VirtualHardDiskName { get; set; }
+        [Input("virtualHardDiskName", required: true)]
+        public Input<string> VirtualHardDiskName { get; set; } = null!;
 
         public GetVirtualHardDiskInvokeArgs()
         {

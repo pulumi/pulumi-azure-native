@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiPolicy associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiPolicyName", required: true)]
-        public Input<string> RaiPolicyName { get; set; } = null!;
+        [Input("raiPolicyName")]
+        public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

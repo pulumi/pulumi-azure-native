@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
         /// <summary>
         /// The name of the EnterpriseKnowledgeGraph resource.
         /// </summary>
-        [Input("resourceName")]
-        public string? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetEnterpriseKnowledgeGraphArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
         /// <summary>
         /// The name of the EnterpriseKnowledgeGraph resource.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetEnterpriseKnowledgeGraphInvokeArgs()
         {

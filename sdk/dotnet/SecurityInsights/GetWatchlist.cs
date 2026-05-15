@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The watchlist alias
         /// </summary>
-        [Input("watchlistAlias")]
-        public string? WatchlistAlias { get; set; }
+        [Input("watchlistAlias", required: true)]
+        public string WatchlistAlias { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The watchlist alias
         /// </summary>
-        [Input("watchlistAlias")]
-        public Input<string>? WatchlistAlias { get; set; }
+        [Input("watchlistAlias", required: true)]
+        public Input<string> WatchlistAlias { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

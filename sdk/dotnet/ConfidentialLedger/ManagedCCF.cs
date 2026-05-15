@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Managed CCF
         /// </summary>
-        [Input("appName", required: true)]
-        public Input<string> AppName { get; set; } = null!;
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

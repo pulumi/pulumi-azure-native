@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager Security Configuration.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// A description of the security configuration.

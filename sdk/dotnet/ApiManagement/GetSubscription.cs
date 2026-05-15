@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         /// </summary>
-        [Input("sid")]
-        public string? Sid { get; set; }
+        [Input("sid", required: true)]
+        public string Sid { get; set; } = null!;
 
         public GetSubscriptionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         /// </summary>
-        [Input("sid")]
-        public Input<string>? Sid { get; set; }
+        [Input("sid", required: true)]
+        public Input<string> Sid { get; set; } = null!;
 
         public GetSubscriptionInvokeArgs()
         {

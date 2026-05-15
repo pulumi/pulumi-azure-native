@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the KPI.
         /// </summary>
-        [Input("kpiName")]
-        public string? KpiName { get; set; }
+        [Input("kpiName", required: true)]
+        public string KpiName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the KPI.
         /// </summary>
-        [Input("kpiName")]
-        public Input<string>? KpiName { get; set; }
+        [Input("kpiName", required: true)]
+        public Input<string> KpiName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

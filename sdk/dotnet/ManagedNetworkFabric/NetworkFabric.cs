@@ -266,8 +266,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Fabric.
         /// </summary>
-        [Input("networkFabricName", required: true)]
-        public Input<string> NetworkFabricName { get; set; } = null!;
+        [Input("networkFabricName")]
+        public Input<string>? NetworkFabricName { get; set; }
 
         /// <summary>
         /// Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.

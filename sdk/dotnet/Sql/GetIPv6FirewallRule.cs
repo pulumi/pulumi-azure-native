@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("firewallRuleName")]
-        public string? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public string FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("firewallRuleName")]
-        public Input<string>? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

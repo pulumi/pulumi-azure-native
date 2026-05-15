@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticVolume
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

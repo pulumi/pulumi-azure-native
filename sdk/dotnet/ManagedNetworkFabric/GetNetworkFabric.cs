@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Fabric.
         /// </summary>
-        [Input("networkFabricName")]
-        public string? NetworkFabricName { get; set; }
+        [Input("networkFabricName", required: true)]
+        public string NetworkFabricName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Fabric.
         /// </summary>
-        [Input("networkFabricName")]
-        public Input<string>? NetworkFabricName { get; set; }
+        [Input("networkFabricName", required: true)]
+        public Input<string> NetworkFabricName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

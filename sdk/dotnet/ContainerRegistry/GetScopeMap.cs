@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the scope map.
         /// </summary>
-        [Input("scopeMapName")]
-        public string? ScopeMapName { get; set; }
+        [Input("scopeMapName", required: true)]
+        public string ScopeMapName { get; set; } = null!;
 
         public GetScopeMapArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the scope map.
         /// </summary>
-        [Input("scopeMapName")]
-        public Input<string>? ScopeMapName { get; set; }
+        [Input("scopeMapName", required: true)]
+        public Input<string> ScopeMapName { get; set; } = null!;
 
         public GetScopeMapInvokeArgs()
         {

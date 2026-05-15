@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB fleet name. Needs to be unique under a subscription.
         /// </summary>
-        [Input("fleetName", required: true)]
-        public Input<string> FleetName { get; set; } = null!;
+        [Input("fleetName")]
+        public Input<string>? FleetName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

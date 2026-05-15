@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the output.
         /// </summary>
-        [Input("outputName")]
-        public string? OutputName { get; set; }
+        [Input("outputName", required: true)]
+        public string OutputName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the output.
         /// </summary>
-        [Input("outputName")]
-        public Input<string>? OutputName { get; set; }
+        [Input("outputName", required: true)]
+        public Input<string> OutputName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

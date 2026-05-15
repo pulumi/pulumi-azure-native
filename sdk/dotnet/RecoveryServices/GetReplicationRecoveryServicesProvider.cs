@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Recovery services provider name.
         /// </summary>
-        [Input("providerName")]
-        public string? ProviderName { get; set; }
+        [Input("providerName", required: true)]
+        public string ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Recovery services provider name.
         /// </summary>
-        [Input("providerName")]
-        public Input<string>? ProviderName { get; set; }
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

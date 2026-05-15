@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Scheduled action name.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetScheduledActionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Scheduled action name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetScheduledActionInvokeArgs()
         {

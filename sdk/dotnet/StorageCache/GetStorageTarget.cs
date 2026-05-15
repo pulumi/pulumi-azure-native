@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name of Storage Target.
         /// </summary>
-        [Input("storageTargetName")]
-        public string? StorageTargetName { get; set; }
+        [Input("storageTargetName", required: true)]
+        public string StorageTargetName { get; set; } = null!;
 
         public GetStorageTargetArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name of Storage Target.
         /// </summary>
-        [Input("storageTargetName")]
-        public Input<string>? StorageTargetName { get; set; }
+        [Input("storageTargetName", required: true)]
+        public Input<string> StorageTargetName { get; set; } = null!;
 
         public GetStorageTargetInvokeArgs()
         {

@@ -194,8 +194,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Route Policy.
         /// </summary>
-        [Input("routePolicyName", required: true)]
-        public Input<string> RoutePolicyName { get; set; } = null!;
+        [Input("routePolicyName")]
+        public Input<string>? RoutePolicyName { get; set; }
 
         [Input("statements", required: true)]
         private InputList<Inputs.RoutePolicyStatementPropertiesArgs>? _statements;

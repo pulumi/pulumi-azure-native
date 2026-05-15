@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the network security group
         /// </summary>
-        [Input("networkSecurityGroupName", required: true)]
-        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
+        [Input("networkSecurityGroupName")]
+        public Input<string>? NetworkSecurityGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

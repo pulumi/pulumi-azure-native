@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the snapshot
         /// </summary>
-        [Input("snapshotName")]
-        public string? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         public GetSnapshotArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the snapshot
         /// </summary>
-        [Input("snapshotName")]
-        public Input<string>? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         public GetSnapshotInvokeArgs()
         {

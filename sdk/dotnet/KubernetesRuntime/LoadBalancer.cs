@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the LoadBalancer
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public Input<string> LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

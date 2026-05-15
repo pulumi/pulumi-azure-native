@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
         /// </summary>
-        public static Task<GetRaiExternalSafetyProviderResult> InvokeAsync(GetRaiExternalSafetyProviderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRaiExternalSafetyProviderResult> InvokeAsync(GetRaiExternalSafetyProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiExternalSafetyProviderResult>("azure-native:cognitiveservices:getRaiExternalSafetyProvider", args ?? new GetRaiExternalSafetyProviderArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
         /// </summary>
-        public static Output<GetRaiExternalSafetyProviderResult> Invoke(GetRaiExternalSafetyProviderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRaiExternalSafetyProviderResult> Invoke(GetRaiExternalSafetyProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiExternalSafetyProviderResult>("azure-native:cognitiveservices:getRaiExternalSafetyProvider", args ?? new GetRaiExternalSafetyProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai External Safety Provider associated with the Cognitive Services Account
         /// </summary>
-        [Input("safetyProviderName")]
-        public string? SafetyProviderName { get; set; }
+        [Input("safetyProviderName", required: true)]
+        public string SafetyProviderName { get; set; } = null!;
 
         public GetRaiExternalSafetyProviderArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai External Safety Provider associated with the Cognitive Services Account
         /// </summary>
-        [Input("safetyProviderName")]
-        public Input<string>? SafetyProviderName { get; set; }
+        [Input("safetyProviderName", required: true)]
+        public Input<string> SafetyProviderName { get; set; } = null!;
 
         public GetRaiExternalSafetyProviderInvokeArgs()
         {

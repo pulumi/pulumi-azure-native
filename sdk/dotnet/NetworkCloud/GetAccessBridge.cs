@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the access bridge.
         /// </summary>
-        [Input("accessBridgeName")]
-        public string? AccessBridgeName { get; set; }
+        [Input("accessBridgeName", required: true)]
+        public string AccessBridgeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the access bridge.
         /// </summary>
-        [Input("accessBridgeName")]
-        public Input<string>? AccessBridgeName { get; set; }
+        [Input("accessBridgeName", required: true)]
+        public Input<string> AccessBridgeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

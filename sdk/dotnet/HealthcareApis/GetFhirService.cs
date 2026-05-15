@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of FHIR Service resource.
         /// </summary>
-        [Input("fhirServiceName")]
-        public string? FhirServiceName { get; set; }
+        [Input("fhirServiceName", required: true)]
+        public string FhirServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of FHIR Service resource.
         /// </summary>
-        [Input("fhirServiceName")]
-        public Input<string>? FhirServiceName { get; set; }
+        [Input("fhirServiceName", required: true)]
+        public Input<string> FhirServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.

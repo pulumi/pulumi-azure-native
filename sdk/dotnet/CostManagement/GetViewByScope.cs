@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// View name
         /// </summary>
-        [Input("viewName")]
-        public string? ViewName { get; set; }
+        [Input("viewName", required: true)]
+        public string ViewName { get; set; } = null!;
 
         public GetViewByScopeArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// View name
         /// </summary>
-        [Input("viewName")]
-        public Input<string>? ViewName { get; set; }
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
 
         public GetViewByScopeInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the datasource
         /// </summary>
-        [Input("dataSourceName")]
-        public string? DataSourceName { get; set; }
+        [Input("dataSourceName", required: true)]
+        public string DataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the datasource
         /// </summary>
-        [Input("dataSourceName")]
-        public Input<string>? DataSourceName { get; set; }
+        [Input("dataSourceName", required: true)]
+        public Input<string> DataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

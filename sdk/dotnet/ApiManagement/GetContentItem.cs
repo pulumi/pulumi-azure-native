@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content item identifier.
         /// </summary>
-        [Input("contentItemId")]
-        public string? ContentItemId { get; set; }
+        [Input("contentItemId", required: true)]
+        public string ContentItemId { get; set; } = null!;
 
         /// <summary>
         /// Content type identifier.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content item identifier.
         /// </summary>
-        [Input("contentItemId")]
-        public Input<string>? ContentItemId { get; set; }
+        [Input("contentItemId", required: true)]
+        public Input<string> ContentItemId { get; set; } = null!;
 
         /// <summary>
         /// Content type identifier.

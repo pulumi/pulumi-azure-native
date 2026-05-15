@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Release identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("releaseId")]
-        public string? ReleaseId { get; set; }
+        [Input("releaseId", required: true)]
+        public string ReleaseId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Release identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("releaseId")]
-        public Input<string>? ReleaseId { get; set; }
+        [Input("releaseId", required: true)]
+        public Input<string> ReleaseId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the database connection.
         /// </summary>
-        [Input("databaseConnectionName")]
-        public string? DatabaseConnectionName { get; set; }
+        [Input("databaseConnectionName", required: true)]
+        public string DatabaseConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The stage site identifier.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the database connection.
         /// </summary>
-        [Input("databaseConnectionName")]
-        public Input<string>? DatabaseConnectionName { get; set; }
+        [Input("databaseConnectionName", required: true)]
+        public Input<string> DatabaseConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The stage site identifier.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the free service
         /// </summary>
-        [Input("freeServiceName")]
-        public string? FreeServiceName { get; set; }
+        [Input("freeServiceName", required: true)]
+        public string FreeServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the free service
         /// </summary>
-        [Input("freeServiceName")]
-        public Input<string>? FreeServiceName { get; set; }
+        [Input("freeServiceName", required: true)]
+        public Input<string> FreeServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

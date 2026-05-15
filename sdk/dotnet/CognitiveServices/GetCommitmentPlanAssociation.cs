@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the commitment plan association with the Cognitive Services Account
         /// </summary>
-        [Input("commitmentPlanAssociationName")]
-        public string? CommitmentPlanAssociationName { get; set; }
+        [Input("commitmentPlanAssociationName", required: true)]
+        public string CommitmentPlanAssociationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the commitment plan association with the Cognitive Services Account
         /// </summary>
-        [Input("commitmentPlanAssociationName")]
-        public Input<string>? CommitmentPlanAssociationName { get; set; }
+        [Input("commitmentPlanAssociationName", required: true)]
+        public Input<string> CommitmentPlanAssociationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account

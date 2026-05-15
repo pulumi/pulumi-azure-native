@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the ElasticSan.
         /// </summary>
-        [Input("elasticSanName")]
-        public string? ElasticSanName { get; set; }
+        [Input("elasticSanName", required: true)]
+        public string ElasticSanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the ElasticSan.
         /// </summary>
-        [Input("elasticSanName")]
-        public Input<string>? ElasticSanName { get; set; }
+        [Input("elasticSanName", required: true)]
+        public Input<string> ElasticSanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

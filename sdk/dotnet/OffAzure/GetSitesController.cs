@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site name
         /// </summary>
-        [Input("siteName")]
-        public string? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetSitesControllerArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site name
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public GetSitesControllerInvokeArgs()
         {

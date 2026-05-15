@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a role assignment.
         /// </summary>
-        [Input("billingRoleAssignmentName")]
-        public string? BillingRoleAssignmentName { get; set; }
+        [Input("billingRoleAssignmentName", required: true)]
+        public string BillingRoleAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the department.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a role assignment.
         /// </summary>
-        [Input("billingRoleAssignmentName")]
-        public Input<string>? BillingRoleAssignmentName { get; set; }
+        [Input("billingRoleAssignmentName", required: true)]
+        public Input<string> BillingRoleAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the department.

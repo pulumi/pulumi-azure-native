@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("virtualMachineName")]
-        public string? VirtualMachineName { get; set; }
+        [Input("virtualMachineName", required: true)]
+        public string VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("virtualMachineName")]
-        public Input<string>? VirtualMachineName { get; set; }
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineInvokeArgs()
         {

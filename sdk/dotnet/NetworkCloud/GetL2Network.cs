@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L2 network.
         /// </summary>
-        [Input("l2NetworkName")]
-        public string? L2NetworkName { get; set; }
+        [Input("l2NetworkName", required: true)]
+        public string L2NetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L2 network.
         /// </summary>
-        [Input("l2NetworkName")]
-        public Input<string>? L2NetworkName { get; set; }
+        [Input("l2NetworkName", required: true)]
+        public Input<string> L2NetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

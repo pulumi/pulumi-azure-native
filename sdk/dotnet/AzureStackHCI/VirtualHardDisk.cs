@@ -291,8 +291,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual hard disk
         /// </summary>
-        [Input("virtualHardDiskName", required: true)]
-        public Input<string> VirtualHardDiskName { get; set; } = null!;
+        [Input("virtualHardDiskName")]
+        public Input<string>? VirtualHardDiskName { get; set; }
 
         public VirtualHardDiskArgs()
         {

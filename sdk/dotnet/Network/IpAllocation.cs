@@ -196,8 +196,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the IpAllocation.
         /// </summary>
-        [Input("ipAllocationName", required: true)]
-        public Input<string> IpAllocationName { get; set; } = null!;
+        [Input("ipAllocationName")]
+        public Input<string>? IpAllocationName { get; set; }
 
         /// <summary>
         /// The IPAM allocation ID.

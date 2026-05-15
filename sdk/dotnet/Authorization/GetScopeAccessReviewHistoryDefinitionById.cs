@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review history definition.
         /// </summary>
-        [Input("historyDefinitionId")]
-        public string? HistoryDefinitionId { get; set; }
+        [Input("historyDefinitionId", required: true)]
+        public string HistoryDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review history definition.
         /// </summary>
-        [Input("historyDefinitionId")]
-        public Input<string>? HistoryDefinitionId { get; set; }
+        [Input("historyDefinitionId", required: true)]
+        public Input<string> HistoryDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource.

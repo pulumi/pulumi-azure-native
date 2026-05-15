@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Access Control List.
         /// </summary>
-        [Input("accessControlListName", required: true)]
-        public Input<string> AccessControlListName { get; set; } = null!;
+        [Input("accessControlListName")]
+        public Input<string>? AccessControlListName { get; set; }
 
         /// <summary>
         /// Access Control List file URL.

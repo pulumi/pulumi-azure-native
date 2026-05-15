@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("publicIPId", required: true)]
-        public Input<string> PublicIPId { get; set; } = null!;
+        [Input("publicIPId")]
+        public Input<string>? PublicIPId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

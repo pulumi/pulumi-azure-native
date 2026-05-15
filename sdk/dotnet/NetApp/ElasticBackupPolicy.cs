@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticBackupPolicy
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public Input<string> BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

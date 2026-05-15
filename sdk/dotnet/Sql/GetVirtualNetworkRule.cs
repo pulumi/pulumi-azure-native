@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the virtual network rule.
         /// </summary>
-        [Input("virtualNetworkRuleName")]
-        public string? VirtualNetworkRuleName { get; set; }
+        [Input("virtualNetworkRuleName", required: true)]
+        public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the virtual network rule.
         /// </summary>
-        [Input("virtualNetworkRuleName")]
-        public Input<string>? VirtualNetworkRuleName { get; set; }
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleInvokeArgs()
         {

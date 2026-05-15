@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// LocalRulestack resource name
         /// </summary>
-        [Input("localRulestackName")]
-        public string? LocalRulestackName { get; set; }
+        [Input("localRulestackName", required: true)]
+        public string LocalRulestackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// LocalRulestack resource name
         /// </summary>
-        [Input("localRulestackName")]
-        public Input<string>? LocalRulestackName { get; set; }
+        [Input("localRulestackName", required: true)]
+        public Input<string> LocalRulestackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

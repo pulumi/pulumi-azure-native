@@ -213,8 +213,8 @@ namespace Pulumi.AzureNative.Education
         /// <summary>
         /// Student alias.
         /// </summary>
-        [Input("studentAlias", required: true)]
-        public Input<string> StudentAlias { get; set; } = null!;
+        [Input("studentAlias")]
+        public Input<string>? StudentAlias { get; set; }
 
         /// <summary>
         /// Subscription alias

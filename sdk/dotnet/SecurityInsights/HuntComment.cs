@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt comment id (GUID)
         /// </summary>
-        [Input("huntCommentId", required: true)]
-        public Input<string> HuntCommentId { get; set; } = null!;
+        [Input("huntCommentId")]
+        public Input<string>? HuntCommentId { get; set; }
 
         /// <summary>
         /// The hunt id (GUID)

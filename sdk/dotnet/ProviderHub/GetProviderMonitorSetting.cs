@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The name of the provider monitor setting.
         /// </summary>
-        [Input("providerMonitorSettingName")]
-        public string? ProviderMonitorSettingName { get; set; }
+        [Input("providerMonitorSettingName", required: true)]
+        public string ProviderMonitorSettingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The name of the provider monitor setting.
         /// </summary>
-        [Input("providerMonitorSettingName")]
-        public Input<string>? ProviderMonitorSettingName { get; set; }
+        [Input("providerMonitorSettingName", required: true)]
+        public Input<string> ProviderMonitorSettingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

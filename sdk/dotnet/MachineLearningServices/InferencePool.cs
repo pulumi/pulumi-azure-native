@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of InferencePool
         /// </summary>
-        [Input("inferencePoolName", required: true)]
-        public Input<string> InferencePoolName { get; set; } = null!;
+        [Input("inferencePoolName")]
+        public Input<string>? InferencePoolName { get; set; }
 
         /// <summary>
         /// [Required] Additional attributes of the entity.

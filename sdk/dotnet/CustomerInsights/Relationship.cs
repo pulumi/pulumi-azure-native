@@ -238,8 +238,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the Relationship.
         /// </summary>
-        [Input("relationshipName", required: true)]
-        public Input<string> RelationshipName { get; set; } = null!;
+        [Input("relationshipName")]
+        public Input<string>? RelationshipName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

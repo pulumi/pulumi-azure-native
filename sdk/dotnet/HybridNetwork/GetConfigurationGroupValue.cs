@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the configuration group value.
         /// </summary>
-        [Input("configurationGroupValueName")]
-        public string? ConfigurationGroupValueName { get; set; }
+        [Input("configurationGroupValueName", required: true)]
+        public string ConfigurationGroupValueName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the configuration group value.
         /// </summary>
-        [Input("configurationGroupValueName")]
-        public Input<string>? ConfigurationGroupValueName { get; set; }
+        [Input("configurationGroupValueName", required: true)]
+        public Input<string> ConfigurationGroupValueName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

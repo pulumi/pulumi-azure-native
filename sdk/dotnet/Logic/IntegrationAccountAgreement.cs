@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account agreement name.
         /// </summary>
-        [Input("agreementName", required: true)]
-        public Input<string> AgreementName { get; set; } = null!;
+        [Input("agreementName")]
+        public Input<string>? AgreementName { get; set; }
 
         /// <summary>
         /// The agreement type.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Draft Package.
         /// </summary>
-        [Input("draftPackageName")]
-        public string? DraftPackageName { get; set; }
+        [Input("draftPackageName", required: true)]
+        public string DraftPackageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Draft Package.
         /// </summary>
-        [Input("draftPackageName")]
-        public Input<string>? DraftPackageName { get; set; }
+        [Input("draftPackageName", required: true)]
+        public Input<string> DraftPackageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -231,8 +231,8 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// The name of the account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The Managed Identity of the resource

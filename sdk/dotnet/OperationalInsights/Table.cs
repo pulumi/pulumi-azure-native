@@ -207,8 +207,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the table.
         /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         /// <summary>
         /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.

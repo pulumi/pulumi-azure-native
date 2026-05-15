@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the tier.
         /// </summary>
-        [Input("tierName")]
-        public string? TierName { get; set; }
+        [Input("tierName", required: true)]
+        public string TierName { get; set; } = null!;
 
         public GetFleetTierArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the tier.
         /// </summary>
-        [Input("tierName")]
-        public Input<string>? TierName { get; set; }
+        [Input("tierName", required: true)]
+        public Input<string> TierName { get; set; } = null!;
 
         public GetFleetTierInvokeArgs()
         {

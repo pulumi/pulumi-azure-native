@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.ComputeSchedule
         /// <summary>
         /// The name of the ScheduledAction
         /// </summary>
-        [Input("scheduledActionName", required: true)]
-        public Input<string> ScheduledActionName { get; set; } = null!;
+        [Input("scheduledActionName")]
+        public Input<string>? ScheduledActionName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

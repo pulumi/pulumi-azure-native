@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Impact
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
-        public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:impact:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Impact
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
-        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:impact:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// The name of the connector
         /// </summary>
-        [Input("connectorName")]
-        public string? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public string ConnectorName { get; set; } = null!;
 
         public GetConnectorArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// The name of the connector
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         public GetConnectorInvokeArgs()
         {

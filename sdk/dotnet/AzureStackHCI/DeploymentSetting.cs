@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Deployment Setting
         /// </summary>
-        [Input("deploymentSettingsName", required: true)]
-        public Input<string> DeploymentSettingsName { get; set; } = null!;
+        [Input("deploymentSettingsName")]
+        public Input<string>? DeploymentSettingsName { get; set; }
 
         /// <summary>
         /// The intended operation for a cluster.

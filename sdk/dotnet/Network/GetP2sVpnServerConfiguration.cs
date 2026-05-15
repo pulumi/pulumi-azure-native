@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
         /// </summary>
-        [Input("p2SVpnServerConfigurationName")]
-        public string? P2SVpnServerConfigurationName { get; set; }
+        [Input("p2SVpnServerConfigurationName", required: true)]
+        public string P2SVpnServerConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnServerConfiguration.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
         /// </summary>
-        [Input("p2SVpnServerConfigurationName")]
-        public Input<string>? P2SVpnServerConfigurationName { get; set; }
+        [Input("p2SVpnServerConfigurationName", required: true)]
+        public Input<string> P2SVpnServerConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnServerConfiguration.

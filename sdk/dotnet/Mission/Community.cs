@@ -199,8 +199,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the communityResource Resource
         /// </summary>
-        [Input("communityName", required: true)]
-        public Input<string> CommunityName { get; set; } = null!;
+        [Input("communityName")]
+        public Input<string>? CommunityName { get; set; }
 
         [Input("communityRoleAssignments")]
         private InputList<Inputs.RoleAssignmentItemArgs>? _communityRoleAssignments;

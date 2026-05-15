@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Private endpoint connection ARM name
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public string? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Private endpoint connection ARM name
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

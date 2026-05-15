@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DevSpaces
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Resource group to which the resource belongs.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DevSpaces
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Resource group to which the resource belongs.

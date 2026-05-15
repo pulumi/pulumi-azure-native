@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the data collection endpoint. The name is case insensitive.
         /// </summary>
-        [Input("dataCollectionEndpointName", required: true)]
-        public Input<string> DataCollectionEndpointName { get; set; } = null!;
+        [Input("dataCollectionEndpointName")]
+        public Input<string>? DataCollectionEndpointName { get; set; }
 
         /// <summary>
         /// Description of the data collection endpoint.

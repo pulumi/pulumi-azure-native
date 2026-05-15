@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Action ID
         /// </summary>
-        [Input("actionId", required: true)]
-        public Input<string> ActionId { get; set; } = null!;
+        [Input("actionId")]
+        public Input<string>? ActionId { get; set; }
 
         /// <summary>
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.

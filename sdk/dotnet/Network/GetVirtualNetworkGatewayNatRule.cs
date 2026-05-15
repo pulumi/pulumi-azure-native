@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the nat rule.
         /// </summary>
-        [Input("natRuleName")]
-        public string? NatRuleName { get; set; }
+        [Input("natRuleName", required: true)]
+        public string NatRuleName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the Virtual Network Gateway.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the nat rule.
         /// </summary>
-        [Input("natRuleName")]
-        public Input<string>? NatRuleName { get; set; }
+        [Input("natRuleName", required: true)]
+        public Input<string> NatRuleName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the Virtual Network Gateway.

@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Target resource name.
         /// </summary>
-        [Input("targetName")]
-        public string? TargetName { get; set; }
+        [Input("targetName", required: true)]
+        public string TargetName { get; set; } = null!;
 
         public GetTargetArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Target resource name.
         /// </summary>
-        [Input("targetName")]
-        public Input<string>? TargetName { get; set; }
+        [Input("targetName", required: true)]
+        public Input<string> TargetName { get; set; } = null!;
 
         public GetTargetInvokeArgs()
         {

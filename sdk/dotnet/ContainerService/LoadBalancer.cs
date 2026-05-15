@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public Input<string> LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
         /// Name of the public load balancer. There will be an internal load balancer created if needed, and the name will be `&lt;name&gt;-internal`. The internal lb shares the same configurations as the external one. The internal lbs are not needed to be included in LoadBalancer list. There must be a name of kubernetes in the list.

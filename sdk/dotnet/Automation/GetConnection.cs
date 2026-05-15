@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of connection.
         /// </summary>
-        [Input("connectionName")]
-        public string? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

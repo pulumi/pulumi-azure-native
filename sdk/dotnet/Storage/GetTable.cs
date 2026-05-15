@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
         /// </summary>
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {

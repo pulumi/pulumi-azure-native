@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Schema
         /// </summary>
-        [Input("schemaName")]
-        public string? SchemaName { get; set; }
+        [Input("schemaName", required: true)]
+        public string SchemaName { get; set; } = null!;
 
         public GetSchemaArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Schema
         /// </summary>
-        [Input("schemaName")]
-        public Input<string>? SchemaName { get; set; }
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
 
         public GetSchemaInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai Tool Label
         /// </summary>
-        [Input("raiToolConnectionName")]
-        public string? RaiToolConnectionName { get; set; }
+        [Input("raiToolConnectionName", required: true)]
+        public string RaiToolConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai Tool Label
         /// </summary>
-        [Input("raiToolConnectionName")]
-        public Input<string>? RaiToolConnectionName { get; set; }
+        [Input("raiToolConnectionName", required: true)]
+        public Input<string> RaiToolConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

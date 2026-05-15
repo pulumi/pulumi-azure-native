@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the resourcePool.
         /// </summary>
-        [Input("resourcePoolName")]
-        public string? ResourcePoolName { get; set; }
+        [Input("resourcePoolName", required: true)]
+        public string ResourcePoolName { get; set; } = null!;
 
         public GetResourcePoolArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the resourcePool.
         /// </summary>
-        [Input("resourcePoolName")]
-        public Input<string>? ResourcePoolName { get; set; }
+        [Input("resourcePoolName", required: true)]
+        public Input<string> ResourcePoolName { get; set; } = null!;
 
         public GetResourcePoolInvokeArgs()
         {

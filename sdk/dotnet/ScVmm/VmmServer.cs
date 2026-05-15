@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VMMServer.
         /// </summary>
-        [Input("vmmServerName", required: true)]
-        public Input<string> VmmServerName { get; set; } = null!;
+        [Input("vmmServerName")]
+        public Input<string>? VmmServerName { get; set; }
 
         public VmmServerArgs()
         {

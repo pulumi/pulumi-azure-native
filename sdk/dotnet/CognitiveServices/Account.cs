@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of Cognitive Services account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Identity for the resource.

@@ -261,8 +261,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.

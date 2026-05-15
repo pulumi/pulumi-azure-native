@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the encryptionScope associated with the Cognitive Services Account
         /// </summary>
-        [Input("encryptionScopeName", required: true)]
-        public Input<string> EncryptionScopeName { get; set; } = null!;
+        [Input("encryptionScopeName")]
+        public Input<string>? EncryptionScopeName { get; set; }
 
         /// <summary>
         /// Properties of Cognitive Services EncryptionScope.

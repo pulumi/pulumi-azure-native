@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the Custom Recommendation.
         /// </summary>
-        [Input("customRecommendationName")]
-        public string? CustomRecommendationName { get; set; }
+        [Input("customRecommendationName", required: true)]
+        public string CustomRecommendationName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the Custom Recommendation.
         /// </summary>
-        [Input("customRecommendationName")]
-        public Input<string>? CustomRecommendationName { get; set; }
+        [Input("customRecommendationName", required: true)]
+        public Input<string> CustomRecommendationName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'

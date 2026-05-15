@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.PowerBI
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public Input<string> PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public Input<string>? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// Specifies the connection state.

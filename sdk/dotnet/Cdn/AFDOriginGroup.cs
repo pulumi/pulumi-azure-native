@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
         /// </summary>
-        [Input("originGroupName", required: true)]
-        public Input<string> OriginGroupName { get; set; } = null!;
+        [Input("originGroupName")]
+        public Input<string>? OriginGroupName { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

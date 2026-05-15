@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a private endpoint connection within a project.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public string? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a private endpoint connection within a project.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

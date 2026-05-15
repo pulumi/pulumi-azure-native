@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticSnapshot
         /// </summary>
-        [Input("snapshotName")]
-        public string? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the ElasticVolume
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticSnapshot
         /// </summary>
-        [Input("snapshotName")]
-        public Input<string>? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the ElasticVolume

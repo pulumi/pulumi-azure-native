@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the elastic pool.
         /// </summary>
-        [Input("elasticPoolName")]
-        public string? ElasticPoolName { get; set; }
+        [Input("elasticPoolName", required: true)]
+        public string ElasticPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the elastic pool.
         /// </summary>
-        [Input("elasticPoolName")]
-        public Input<string>? ElasticPoolName { get; set; }
+        [Input("elasticPoolName", required: true)]
+        public Input<string> ElasticPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

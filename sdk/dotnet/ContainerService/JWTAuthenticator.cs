@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the JWT authenticator.
         /// </summary>
-        [Input("jwtAuthenticatorName", required: true)]
-        public Input<string> JwtAuthenticatorName { get; set; } = null!;
+        [Input("jwtAuthenticatorName")]
+        public Input<string>? JwtAuthenticatorName { get; set; }
 
         /// <summary>
         /// The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.

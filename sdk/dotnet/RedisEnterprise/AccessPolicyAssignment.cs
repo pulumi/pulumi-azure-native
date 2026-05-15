@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The name of the Redis Enterprise database access policy assignment.
         /// </summary>
-        [Input("accessPolicyAssignmentName", required: true)]
-        public Input<string> AccessPolicyAssignmentName { get; set; } = null!;
+        [Input("accessPolicyAssignmentName")]
+        public Input<string>? AccessPolicyAssignmentName { get; set; }
 
         /// <summary>
         /// Name of access policy under specific access policy assignment. Only "default" policy is supported for now.

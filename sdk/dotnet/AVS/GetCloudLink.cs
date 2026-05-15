@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the cloud link.
         /// </summary>
-        [Input("cloudLinkName")]
-        public string? CloudLinkName { get; set; }
+        [Input("cloudLinkName", required: true)]
+        public string CloudLinkName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the cloud link.
         /// </summary>
-        [Input("cloudLinkName")]
-        public Input<string>? CloudLinkName { get; set; }
+        [Input("cloudLinkName", required: true)]
+        public Input<string> CloudLinkName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

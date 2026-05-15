@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the device.
         /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided.

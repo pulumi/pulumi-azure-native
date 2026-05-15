@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the suppression list.
         /// </summary>
-        [Input("suppressionListName")]
-        public string? SuppressionListName { get; set; }
+        [Input("suppressionListName", required: true)]
+        public string SuppressionListName { get; set; } = null!;
 
         public GetSuppressionListArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the suppression list.
         /// </summary>
-        [Input("suppressionListName")]
-        public Input<string>? SuppressionListName { get; set; }
+        [Input("suppressionListName", required: true)]
+        public Input<string> SuppressionListName { get; set; } = null!;
 
         public GetSuppressionListInvokeArgs()
         {

@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L2 network.
         /// </summary>
-        [Input("l2NetworkName", required: true)]
-        public Input<string> L2NetworkName { get; set; } = null!;
+        [Input("l2NetworkName")]
+        public Input<string>? L2NetworkName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

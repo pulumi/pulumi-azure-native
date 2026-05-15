@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// The hub name.
         /// </summary>
-        [Input("hubName", required: true)]
-        public Input<string> HubName { get; set; } = null!;
+        [Input("hubName")]
+        public Input<string>? HubName { get; set; }
 
         /// <summary>
         /// Properties of a hub.

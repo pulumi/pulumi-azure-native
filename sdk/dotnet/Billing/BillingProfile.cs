@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a billing profile.
         /// </summary>
-        [Input("billingProfileName", required: true)]
-        public Input<string> BillingProfileName { get; set; } = null!;
+        [Input("billingProfileName")]
+        public Input<string>? BillingProfileName { get; set; }
 
         /// <summary>
         /// A billing profile.

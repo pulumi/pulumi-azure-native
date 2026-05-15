@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource.
         /// </summary>
-        [Input("secretResourceName")]
-        public string? SecretResourceName { get; set; }
+        [Input("secretResourceName", required: true)]
+        public string SecretResourceName { get; set; } = null!;
 
         public GetSecretArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource.
         /// </summary>
-        [Input("secretResourceName")]
-        public Input<string>? SecretResourceName { get; set; }
+        [Input("secretResourceName", required: true)]
+        public Input<string> SecretResourceName { get; set; } = null!;
 
         public GetSecretInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the bare metal machine.
         /// </summary>
-        [Input("bareMetalMachineName")]
-        public string? BareMetalMachineName { get; set; }
+        [Input("bareMetalMachineName", required: true)]
+        public string BareMetalMachineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the bare metal machine.
         /// </summary>
-        [Input("bareMetalMachineName")]
-        public Input<string>? BareMetalMachineName { get; set; }
+        [Input("bareMetalMachineName", required: true)]
+        public Input<string> BareMetalMachineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The relay name.
         /// </summary>
-        [Input("relayName")]
-        public string? RelayName { get; set; }
+        [Input("relayName", required: true)]
+        public string RelayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The relay name.
         /// </summary>
-        [Input("relayName")]
-        public Input<string>? RelayName { get; set; }
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

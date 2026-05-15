@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Compound Assessment ARM name
         /// </summary>
-        [Input("compoundAssessmentName", required: true)]
-        public Input<string> CompoundAssessmentName { get; set; } = null!;
+        [Input("compoundAssessmentName")]
+        public Input<string>? CompoundAssessmentName { get; set; }
 
         /// <summary>
         /// Assessment Project Name

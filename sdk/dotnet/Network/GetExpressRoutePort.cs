@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of ExpressRoutePort.
         /// </summary>
-        [Input("expressRoutePortName")]
-        public string? ExpressRoutePortName { get; set; }
+        [Input("expressRoutePortName", required: true)]
+        public string ExpressRoutePortName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of ExpressRoutePort.
         /// </summary>
-        [Input("expressRoutePortName")]
-        public Input<string>? ExpressRoutePortName { get; set; }
+        [Input("expressRoutePortName", required: true)]
+        public Input<string> ExpressRoutePortName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

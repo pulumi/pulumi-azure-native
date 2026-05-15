@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Source Control Configuration.
         /// </summary>
-        [Input("sourceControlConfigurationName")]
-        public string? SourceControlConfigurationName { get; set; }
+        [Input("sourceControlConfigurationName", required: true)]
+        public string SourceControlConfigurationName { get; set; } = null!;
 
         public GetSourceControlConfigurationArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Source Control Configuration.
         /// </summary>
-        [Input("sourceControlConfigurationName")]
-        public Input<string>? SourceControlConfigurationName { get; set; }
+        [Input("sourceControlConfigurationName", required: true)]
+        public Input<string> SourceControlConfigurationName { get; set; } = null!;
 
         public GetSourceControlConfigurationInvokeArgs()
         {

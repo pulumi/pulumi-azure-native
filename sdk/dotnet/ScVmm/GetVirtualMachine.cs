@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachine.
         /// </summary>
-        [Input("virtualMachineName")]
-        public string? VirtualMachineName { get; set; }
+        [Input("virtualMachineName", required: true)]
+        public string VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachine.
         /// </summary>
-        [Input("virtualMachineName")]
-        public Input<string>? VirtualMachineName { get; set; }
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineInvokeArgs()
         {

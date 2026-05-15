@@ -45,8 +45,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class GetOutboundFirewallRuleArgs : global::Pulumi.InvokeArgs
     {
-        [Input("outboundRuleFqdn")]
-        public string? OutboundRuleFqdn { get; set; }
+        [Input("outboundRuleFqdn", required: true)]
+        public string OutboundRuleFqdn { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class GetOutboundFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("outboundRuleFqdn")]
-        public Input<string>? OutboundRuleFqdn { get; set; }
+        [Input("outboundRuleFqdn", required: true)]
+        public Input<string> OutboundRuleFqdn { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

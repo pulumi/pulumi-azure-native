@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the gallery.
         /// </summary>
-        [Input("galleryName", required: true)]
-        public Input<string> GalleryName { get; set; } = null!;
+        [Input("galleryName")]
+        public Input<string>? GalleryName { get; set; }
 
         /// <summary>
         /// The resource ID of the backing Azure Compute Gallery.

@@ -385,8 +385,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualHub.
         /// </summary>
-        [Input("virtualHubName", required: true)]
-        public Input<string> VirtualHubName { get; set; } = null!;
+        [Input("virtualHubName")]
+        public Input<string>? VirtualHubName { get; set; }
 
         [Input("virtualHubRouteTableV2s")]
         private InputList<Inputs.VirtualHubRouteTableV2Args>? _virtualHubRouteTableV2s;

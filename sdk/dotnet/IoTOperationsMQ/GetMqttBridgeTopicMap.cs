@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ mqttBridgeTopicMap resource
         /// </summary>
-        [Input("topicMapName")]
-        public string? TopicMapName { get; set; }
+        [Input("topicMapName", required: true)]
+        public string TopicMapName { get; set; } = null!;
 
         public GetMqttBridgeTopicMapArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ mqttBridgeTopicMap resource
         /// </summary>
-        [Input("topicMapName")]
-        public Input<string>? TopicMapName { get; set; }
+        [Input("topicMapName", required: true)]
+        public Input<string> TopicMapName { get; set; } = null!;
 
         public GetMqttBridgeTopicMapInvokeArgs()
         {

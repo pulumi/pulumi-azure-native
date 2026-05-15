@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job agent to be retrieved.
         /// </summary>
-        [Input("jobAgentName")]
-        public string? JobAgentName { get; set; }
+        [Input("jobAgentName", required: true)]
+        public string JobAgentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job agent to be retrieved.
         /// </summary>
-        [Input("jobAgentName")]
-        public Input<string>? JobAgentName { get; set; }
+        [Input("jobAgentName", required: true)]
+        public Input<string> JobAgentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

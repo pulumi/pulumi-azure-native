@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the link.
         /// </summary>
-        [Input("linkName")]
-        public string? LinkName { get; set; }
+        [Input("linkName", required: true)]
+        public string LinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the link.
         /// </summary>
-        [Input("linkName")]
-        public Input<string>? LinkName { get; set; }
+        [Input("linkName", required: true)]
+        public Input<string> LinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// The name of the Azure Databricks Access Connector.
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

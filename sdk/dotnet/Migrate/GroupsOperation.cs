@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Group ARM name
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         /// <summary>
         /// The type of group.

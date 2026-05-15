@@ -273,8 +273,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the script cmdlet.
         /// </summary>
-        [Input("scriptExecutionName", required: true)]
-        public Input<string> ScriptExecutionName { get; set; } = null!;
+        [Input("scriptExecutionName")]
+        public Input<string>? ScriptExecutionName { get; set; }
 
         /// <summary>
         /// Time limit for execution

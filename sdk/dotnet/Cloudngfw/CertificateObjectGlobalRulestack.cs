@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// certificate name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public CertificateObjectGlobalRulestackArgs()
         {

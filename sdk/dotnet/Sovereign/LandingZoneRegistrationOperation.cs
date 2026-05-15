@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Sovereign
         /// <summary>
         /// The name of the landing zone registration resource.
         /// </summary>
-        [Input("landingZoneRegistrationName", required: true)]
-        public Input<string> LandingZoneRegistrationName { get; set; } = null!;
+        [Input("landingZoneRegistrationName")]
+        public Input<string>? LandingZoneRegistrationName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

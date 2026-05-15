@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the User Definition {dbName.userName}.
         /// </summary>
-        [Input("mongoUserDefinitionId")]
-        public string? MongoUserDefinitionId { get; set; }
+        [Input("mongoUserDefinitionId", required: true)]
+        public string MongoUserDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the User Definition {dbName.userName}.
         /// </summary>
-        [Input("mongoUserDefinitionId")]
-        public Input<string>? MongoUserDefinitionId { get; set; }
+        [Input("mongoUserDefinitionId", required: true)]
+        public Input<string> MongoUserDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

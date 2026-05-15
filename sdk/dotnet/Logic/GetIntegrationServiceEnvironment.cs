@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration service environment name.
         /// </summary>
-        [Input("integrationServiceEnvironmentName")]
-        public string? IntegrationServiceEnvironmentName { get; set; }
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public string IntegrationServiceEnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration service environment name.
         /// </summary>
-        [Input("integrationServiceEnvironmentName")]
-        public Input<string>? IntegrationServiceEnvironmentName { get; set; }
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The resource group.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Tag Rule Set resource name
         /// </summary>
-        [Input("ruleSetName")]
-        public string? RuleSetName { get; set; }
+        [Input("ruleSetName", required: true)]
+        public string RuleSetName { get; set; } = null!;
 
         public GetTagRuleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Tag Rule Set resource name
         /// </summary>
-        [Input("ruleSetName")]
-        public Input<string>? RuleSetName { get; set; }
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
 
         public GetTagRuleInvokeArgs()
         {

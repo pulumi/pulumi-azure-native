@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Schema version name parameter.
         /// </summary>
-        [Input("schemaVersionName", required: true)]
-        public Input<string> SchemaVersionName { get; set; } = null!;
+        [Input("schemaVersionName")]
+        public Input<string>? SchemaVersionName { get; set; }
 
         public SchemaVersionArgs()
         {

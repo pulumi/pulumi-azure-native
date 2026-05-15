@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the Azure Arc PrivateLinkScope resource.
         /// </summary>
-        [Input("scopeName", required: true)]
-        public Input<string> ScopeName { get; set; } = null!;
+        [Input("scopeName")]
+        public Input<string>? ScopeName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

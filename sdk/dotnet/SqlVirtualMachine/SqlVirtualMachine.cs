@@ -336,8 +336,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the SQL virtual machine.
         /// </summary>
-        [Input("sqlVirtualMachineName", required: true)]
-        public Input<string> SqlVirtualMachineName { get; set; } = null!;
+        [Input("sqlVirtualMachineName")]
+        public Input<string>? SqlVirtualMachineName { get; set; }
 
         /// <summary>
         /// Storage Configuration Settings.

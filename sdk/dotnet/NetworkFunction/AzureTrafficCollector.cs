@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Azure Traffic Collector name
         /// </summary>
-        [Input("azureTrafficCollectorName", required: true)]
-        public Input<string> AzureTrafficCollectorName { get; set; } = null!;
+        [Input("azureTrafficCollectorName")]
+        public Input<string>? AzureTrafficCollectorName { get; set; }
 
         /// <summary>
         /// Resource location.

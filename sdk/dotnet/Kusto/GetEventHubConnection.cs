@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the event hub connection.
         /// </summary>
-        [Input("eventHubConnectionName")]
-        public string? EventHubConnectionName { get; set; }
+        [Input("eventHubConnectionName", required: true)]
+        public string EventHubConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the event hub connection.
         /// </summary>
-        [Input("eventHubConnectionName")]
-        public Input<string>? EventHubConnectionName { get; set; }
+        [Input("eventHubConnectionName", required: true)]
+        public Input<string> EventHubConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the scope assignment to get.
         /// </summary>
-        [Input("scopeAssignmentName")]
-        public string? ScopeAssignmentName { get; set; }
+        [Input("scopeAssignmentName", required: true)]
+        public string ScopeAssignmentName { get; set; } = null!;
 
         public GetScopeAssignmentArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the scope assignment to get.
         /// </summary>
-        [Input("scopeAssignmentName")]
-        public Input<string>? ScopeAssignmentName { get; set; }
+        [Input("scopeAssignmentName", required: true)]
+        public Input<string> ScopeAssignmentName { get; set; } = null!;
 
         public GetScopeAssignmentInvokeArgs()
         {

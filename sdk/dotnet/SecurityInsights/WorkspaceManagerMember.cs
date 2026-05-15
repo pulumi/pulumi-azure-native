@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The name of the workspace manager member
         /// </summary>
-        [Input("workspaceManagerMemberName", required: true)]
-        public Input<string> WorkspaceManagerMemberName { get; set; } = null!;
+        [Input("workspaceManagerMemberName")]
+        public Input<string>? WorkspaceManagerMemberName { get; set; }
 
         /// <summary>
         /// The name of the workspace.

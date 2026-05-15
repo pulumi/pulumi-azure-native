@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// The springbootapps name.
         /// </summary>
-        [Input("springbootappsName", required: true)]
-        public Input<string> SpringbootappsName { get; set; } = null!;
+        [Input("springbootappsName")]
+        public Input<string>? SpringbootappsName { get; set; }
 
         public SpringbootappArgs()
         {

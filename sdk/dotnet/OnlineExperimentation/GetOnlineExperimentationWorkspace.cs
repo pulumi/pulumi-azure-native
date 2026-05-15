@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// <summary>
         /// The name of the OnlineExperimentationWorkspace
         /// </summary>
-        [Input("workspaceName")]
-        public string? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public string WorkspaceName { get; set; } = null!;
 
         public GetOnlineExperimentationWorkspaceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// <summary>
         /// The name of the OnlineExperimentationWorkspace
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public GetOnlineExperimentationWorkspaceInvokeArgs()
         {

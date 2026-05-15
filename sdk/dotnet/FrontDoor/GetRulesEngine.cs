@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// Name of the Rules Engine which is unique within the Front Door.
         /// </summary>
-        [Input("rulesEngineName")]
-        public string? RulesEngineName { get; set; }
+        [Input("rulesEngineName", required: true)]
+        public string RulesEngineName { get; set; } = null!;
 
         public GetRulesEngineArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// Name of the Rules Engine which is unique within the Front Door.
         /// </summary>
-        [Input("rulesEngineName")]
-        public Input<string>? RulesEngineName { get; set; }
+        [Input("rulesEngineName", required: true)]
+        public Input<string> RulesEngineName { get; set; } = null!;
 
         public GetRulesEngineInvokeArgs()
         {

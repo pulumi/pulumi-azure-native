@@ -162,8 +162,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Name of the managed instance Start/Stop schedule.
         /// </summary>
-        [Input("startStopScheduleName", required: true)]
-        public Input<string> StartStopScheduleName { get; set; } = null!;
+        [Input("startStopScheduleName")]
+        public Input<string>? StartStopScheduleName { get; set; }
 
         /// <summary>
         /// The time zone of the schedule.

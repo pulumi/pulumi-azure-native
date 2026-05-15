@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Container App SourceControl.
         /// </summary>
-        [Input("sourceControlName", required: true)]
-        public Input<string> SourceControlName { get; set; } = null!;
+        [Input("sourceControlName")]
+        public Input<string>? SourceControlName { get; set; }
 
         public ContainerAppsSourceControlArgs()
         {

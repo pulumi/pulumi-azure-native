@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Name of the managed instance Start/Stop schedule.
         /// </summary>
-        [Input("startStopScheduleName")]
-        public string? StartStopScheduleName { get; set; }
+        [Input("startStopScheduleName", required: true)]
+        public string StartStopScheduleName { get; set; } = null!;
 
         public GetStartStopManagedInstanceScheduleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Name of the managed instance Start/Stop schedule.
         /// </summary>
-        [Input("startStopScheduleName")]
-        public Input<string>? StartStopScheduleName { get; set; }
+        [Input("startStopScheduleName", required: true)]
+        public Input<string> StartStopScheduleName { get; set; } = null!;
 
         public GetStartStopManagedInstanceScheduleInvokeArgs()
         {

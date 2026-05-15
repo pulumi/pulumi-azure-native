@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The data flow name.
         /// </summary>
-        [Input("dataFlowName", required: true)]
-        public Input<string> DataFlowName { get; set; } = null!;
+        [Input("dataFlowName")]
+        public Input<string>? DataFlowName { get; set; }
 
         /// <summary>
         /// The factory name.

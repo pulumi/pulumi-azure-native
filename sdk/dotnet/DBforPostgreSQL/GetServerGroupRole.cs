@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The name of the cluster role.
         /// </summary>
-        [Input("roleName")]
-        public string? RoleName { get; set; }
+        [Input("roleName", required: true)]
+        public string RoleName { get; set; } = null!;
 
         public GetServerGroupRoleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The name of the cluster role.
         /// </summary>
-        [Input("roleName")]
-        public Input<string>? RoleName { get; set; }
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
 
         public GetServerGroupRoleInvokeArgs()
         {

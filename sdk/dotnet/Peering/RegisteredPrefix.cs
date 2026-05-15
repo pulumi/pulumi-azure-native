@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the registered prefix.
         /// </summary>
-        [Input("registeredPrefixName", required: true)]
-        public Input<string> RegisteredPrefixName { get; set; } = null!;
+        [Input("registeredPrefixName")]
+        public Input<string>? RegisteredPrefixName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

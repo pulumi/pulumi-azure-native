@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the discovery site resource for SAP Migration.
         /// </summary>
-        [Input("sapDiscoverySiteName", required: true)]
-        public Input<string> SapDiscoverySiteName { get; set; } = null!;
+        [Input("sapDiscoverySiteName")]
+        public Input<string>? SapDiscoverySiteName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

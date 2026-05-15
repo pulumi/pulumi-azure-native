@@ -51,8 +51,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Backup policy information to be fetched.
         /// </summary>
-        [Input("policyName")]
-        public string? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public string PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Backup policy information to be fetched.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

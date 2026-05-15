@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SiteReference
         /// </summary>
-        [Input("siteReferenceName")]
-        public string? SiteReferenceName { get; set; }
+        [Input("siteReferenceName", required: true)]
+        public string SiteReferenceName { get; set; } = null!;
 
         public GetSiteReferenceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SiteReference
         /// </summary>
-        [Input("siteReferenceName")]
-        public Input<string>? SiteReferenceName { get; set; }
+        [Input("siteReferenceName", required: true)]
+        public Input<string> SiteReferenceName { get; set; } = null!;
 
         public GetSiteReferenceInvokeArgs()
         {

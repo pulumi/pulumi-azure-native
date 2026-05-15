@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the inventoryItem.
         /// </summary>
-        [Input("inventoryItemName", required: true)]
-        public Input<string> InventoryItemName { get; set; } = null!;
+        [Input("inventoryItemName")]
+        public Input<string>? InventoryItemName { get; set; }
 
         /// <summary>
         /// They inventory type.

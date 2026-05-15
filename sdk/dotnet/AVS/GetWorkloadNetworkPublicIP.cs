@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("publicIPId")]
-        public string? PublicIPId { get; set; }
+        [Input("publicIPId", required: true)]
+        public string PublicIPId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("publicIPId")]
-        public Input<string>? PublicIPId { get; set; }
+        [Input("publicIPId", required: true)]
+        public Input<string> PublicIPId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

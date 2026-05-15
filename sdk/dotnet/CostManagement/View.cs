@@ -303,8 +303,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// View name
         /// </summary>
-        [Input("viewName", required: true)]
-        public Input<string> ViewName { get; set; } = null!;
+        [Input("viewName")]
+        public Input<string>? ViewName { get; set; }
 
         public ViewArgs()
         {

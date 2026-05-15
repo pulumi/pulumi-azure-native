@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the IssueResource
         /// </summary>
-        [Input("issueName")]
-        public string? IssueName { get; set; }
+        [Input("issueName", required: true)]
+        public string IssueName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the IssueResource
         /// </summary>
-        [Input("issueName")]
-        public Input<string>? IssueName { get; set; }
+        [Input("issueName", required: true)]
+        public Input<string> IssueName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

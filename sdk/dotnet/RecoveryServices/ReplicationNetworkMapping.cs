@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Network mapping name.
         /// </summary>
-        [Input("networkMappingName", required: true)]
-        public Input<string> NetworkMappingName { get; set; } = null!;
+        [Input("networkMappingName")]
+        public Input<string>? NetworkMappingName { get; set; }
 
         /// <summary>
         /// Primary network name.

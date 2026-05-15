@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the rack.
         /// </summary>
-        [Input("rackName")]
-        public string? RackName { get; set; }
+        [Input("rackName", required: true)]
+        public string RackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the rack.
         /// </summary>
-        [Input("rackName")]
-        public Input<string>? RackName { get; set; }
+        [Input("rackName", required: true)]
+        public Input<string> RackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The name of the container group.
         /// </summary>
-        [Input("containerGroupName")]
-        public string? ContainerGroupName { get; set; }
+        [Input("containerGroupName", required: true)]
+        public string ContainerGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The name of the container group.
         /// </summary>
-        [Input("containerGroupName")]
-        public Input<string>? ContainerGroupName { get; set; }
+        [Input("containerGroupName", required: true)]
+        public Input<string> ContainerGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Friendly name of the linked workspace
         /// </summary>
-        [Input("linkName")]
-        public string? LinkName { get; set; }
+        [Input("linkName", required: true)]
+        public string LinkName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Friendly name of the linked workspace
         /// </summary>
-        [Input("linkName")]
-        public Input<string>? LinkName { get; set; }
+        [Input("linkName", required: true)]
+        public Input<string> LinkName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

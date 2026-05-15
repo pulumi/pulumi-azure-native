@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The Shared Private Link resource name.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName", required: true)]
-        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
+        [Input("sharedPrivateLinkResourceName")]
+        public Input<string>? SharedPrivateLinkResourceName { get; set; }
 
         /// <summary>
         /// The database watcher name.

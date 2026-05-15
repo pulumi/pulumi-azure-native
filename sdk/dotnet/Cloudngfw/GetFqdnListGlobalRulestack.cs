@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// fqdn list name
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetFqdnListGlobalRulestackArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// fqdn list name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetFqdnListGlobalRulestackInvokeArgs()
         {

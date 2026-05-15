@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Full name of contact
         /// </summary>
-        [Input("contactName", required: true)]
-        public Input<string> ContactName { get; set; } = null!;
+        [Input("contactName")]
+        public Input<string>? ContactName { get; set; }
 
         /// <summary>
         /// Email address of contact

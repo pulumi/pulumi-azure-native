@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("encryptionScopeName")]
-        public string? EncryptionScopeName { get; set; }
+        [Input("encryptionScopeName", required: true)]
+        public string EncryptionScopeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("encryptionScopeName")]
-        public Input<string>? EncryptionScopeName { get; set; }
+        [Input("encryptionScopeName", required: true)]
+        public Input<string> EncryptionScopeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

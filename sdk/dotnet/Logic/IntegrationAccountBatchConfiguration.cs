@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The batch configuration name.
         /// </summary>
-        [Input("batchConfigurationName", required: true)]
-        public Input<string> BatchConfigurationName { get; set; } = null!;
+        [Input("batchConfigurationName")]
+        public Input<string>? BatchConfigurationName { get; set; }
 
         /// <summary>
         /// The integration account name.

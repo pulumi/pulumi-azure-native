@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the L2 Isolation Domain.
         /// </summary>
-        [Input("l2IsolationDomainName")]
-        public string? L2IsolationDomainName { get; set; }
+        [Input("l2IsolationDomainName", required: true)]
+        public string L2IsolationDomainName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the L2 Isolation Domain.
         /// </summary>
-        [Input("l2IsolationDomainName")]
-        public Input<string>? L2IsolationDomainName { get; set; }
+        [Input("l2IsolationDomainName", required: true)]
+        public Input<string> L2IsolationDomainName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

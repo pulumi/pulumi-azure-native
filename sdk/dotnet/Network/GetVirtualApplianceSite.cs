@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the site.
         /// </summary>
-        [Input("siteName")]
-        public string? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetVirtualApplianceSiteArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the site.
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public GetVirtualApplianceSiteInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the blob auditing policy.
         /// </summary>
-        [Input("blobAuditingPolicyName")]
-        public string? BlobAuditingPolicyName { get; set; }
+        [Input("blobAuditingPolicyName", required: true)]
+        public string BlobAuditingPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the blob auditing policy.
         /// </summary>
-        [Input("blobAuditingPolicyName")]
-        public Input<string>? BlobAuditingPolicyName { get; set; }
+        [Input("blobAuditingPolicyName", required: true)]
+        public Input<string> BlobAuditingPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the gateway.
         /// </summary>
-        [Input("gatewayName")]
-        public string? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public string GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the gateway.
         /// </summary>
-        [Input("gatewayName")]
-        public Input<string>? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.

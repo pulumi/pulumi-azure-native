@@ -218,8 +218,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         /// <summary>
         /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.

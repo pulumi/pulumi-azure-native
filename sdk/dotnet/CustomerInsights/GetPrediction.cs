@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the Prediction.
         /// </summary>
-        [Input("predictionName")]
-        public string? PredictionName { get; set; }
+        [Input("predictionName", required: true)]
+        public string PredictionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the Prediction.
         /// </summary>
-        [Input("predictionName")]
-        public Input<string>? PredictionName { get; set; }
+        [Input("predictionName", required: true)]
+        public Input<string> PredictionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -203,8 +203,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site name
         /// </summary>
-        [Input("siteName", required: true)]
-        public Input<string> SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

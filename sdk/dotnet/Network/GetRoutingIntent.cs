@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the RoutingIntent.
         /// </summary>
-        [Input("routingIntentName")]
-        public string? RoutingIntentName { get; set; }
+        [Input("routingIntentName", required: true)]
+        public string RoutingIntentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VirtualHub.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the RoutingIntent.
         /// </summary>
-        [Input("routingIntentName")]
-        public Input<string>? RoutingIntentName { get; set; }
+        [Input("routingIntentName", required: true)]
+        public Input<string> RoutingIntentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VirtualHub.

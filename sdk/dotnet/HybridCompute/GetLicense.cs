@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license.
         /// </summary>
-        [Input("licenseName")]
-        public string? LicenseName { get; set; }
+        [Input("licenseName", required: true)]
+        public string LicenseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license.
         /// </summary>
-        [Input("licenseName")]
-        public Input<string>? LicenseName { get; set; }
+        [Input("licenseName", required: true)]
+        public Input<string> LicenseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

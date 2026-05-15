@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the virtual network.
         /// </summary>
-        [Input("vnetName")]
-        public string? VnetName { get; set; }
+        [Input("vnetName", required: true)]
+        public string VnetName { get; set; } = null!;
 
         public GetWebAppVnetConnectionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the virtual network.
         /// </summary>
-        [Input("vnetName")]
-        public Input<string>? VnetName { get; set; }
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
 
         public GetWebAppVnetConnectionInvokeArgs()
         {

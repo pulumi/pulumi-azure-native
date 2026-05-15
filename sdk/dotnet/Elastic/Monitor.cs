@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Monitor resource name
         /// </summary>
-        [Input("monitorName", required: true)]
-        public Input<string> MonitorName { get; set; } = null!;
+        [Input("monitorName")]
+        public Input<string>? MonitorName { get; set; }
 
         /// <summary>
         /// Properties of the monitor resource.

@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The private endpoint connection name.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Core resource properties

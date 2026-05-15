@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Edge site name.
         /// </summary>
-        [Input("edgeSiteName", required: true)]
-        public Input<string> EdgeSiteName { get; set; } = null!;
+        [Input("edgeSiteName")]
+        public Input<string>? EdgeSiteName { get; set; }
 
         /// <summary>
         /// A reference to global communications site.

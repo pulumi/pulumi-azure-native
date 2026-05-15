@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// The name of the shared private link resource.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName")]
-        public string? SharedPrivateLinkResourceName { get; set; }
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public string SharedPrivateLinkResourceName { get; set; } = null!;
 
         public GetWebPubSubSharedPrivateLinkResourceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// The name of the shared private link resource.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName")]
-        public Input<string>? SharedPrivateLinkResourceName { get; set; }
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
 
         public GetWebPubSubSharedPrivateLinkResourceInvokeArgs()
         {

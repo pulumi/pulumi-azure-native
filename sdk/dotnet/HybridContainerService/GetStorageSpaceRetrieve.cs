@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the storage object
         /// </summary>
-        [Input("storageSpacesName")]
-        public string? StorageSpacesName { get; set; }
+        [Input("storageSpacesName", required: true)]
+        public string StorageSpacesName { get; set; } = null!;
 
         public GetStorageSpaceRetrieveArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the storage object
         /// </summary>
-        [Input("storageSpacesName")]
-        public Input<string>? StorageSpacesName { get; set; }
+        [Input("storageSpacesName", required: true)]
+        public Input<string> StorageSpacesName { get; set; } = null!;
 
         public GetStorageSpaceRetrieveInvokeArgs()
         {

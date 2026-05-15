@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Azure Traffic Collector name
         /// </summary>
-        [Input("azureTrafficCollectorName")]
-        public string? AzureTrafficCollectorName { get; set; }
+        [Input("azureTrafficCollectorName", required: true)]
+        public string AzureTrafficCollectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Azure Traffic Collector name
         /// </summary>
-        [Input("azureTrafficCollectorName")]
-        public Input<string>? AzureTrafficCollectorName { get; set; }
+        [Input("azureTrafficCollectorName", required: true)]
+        public Input<string> AzureTrafficCollectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

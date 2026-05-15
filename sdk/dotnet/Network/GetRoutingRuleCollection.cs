@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager routing Configuration rule collection.
         /// </summary>
-        [Input("ruleCollectionName")]
-        public string? RuleCollectionName { get; set; }
+        [Input("ruleCollectionName", required: true)]
+        public string RuleCollectionName { get; set; } = null!;
 
         public GetRoutingRuleCollectionArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager routing Configuration rule collection.
         /// </summary>
-        [Input("ruleCollectionName")]
-        public Input<string>? RuleCollectionName { get; set; }
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
 
         public GetRoutingRuleCollectionInvokeArgs()
         {

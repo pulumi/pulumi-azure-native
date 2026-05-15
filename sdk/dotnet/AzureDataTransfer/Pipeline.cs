@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name for the pipeline that is to be requested.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// Properties of pipeline

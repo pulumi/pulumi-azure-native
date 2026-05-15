@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Scom
         /// <summary>
         /// Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Application Configuration Service.
         /// </summary>
-        [Input("configurationServiceName", required: true)]
-        public Input<string> ConfigurationServiceName { get; set; } = null!;
+        [Input("configurationServiceName")]
+        public Input<string>? ConfigurationServiceName { get; set; }
 
         /// <summary>
         /// Application Configuration Service properties payload

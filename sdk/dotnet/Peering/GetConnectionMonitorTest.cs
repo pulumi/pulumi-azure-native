@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the connection monitor test
         /// </summary>
-        [Input("connectionMonitorTestName")]
-        public string? ConnectionMonitorTestName { get; set; }
+        [Input("connectionMonitorTestName", required: true)]
+        public string ConnectionMonitorTestName { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering service.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the connection monitor test
         /// </summary>
-        [Input("connectionMonitorTestName")]
-        public Input<string>? ConnectionMonitorTestName { get; set; }
+        [Input("connectionMonitorTestName", required: true)]
+        public Input<string> ConnectionMonitorTestName { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering service.

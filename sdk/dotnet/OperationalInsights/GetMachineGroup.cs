@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Machine Group resource name.
         /// </summary>
-        [Input("machineGroupName")]
-        public string? MachineGroupName { get; set; }
+        [Input("machineGroupName", required: true)]
+        public string MachineGroupName { get; set; } = null!;
 
         /// <summary>
         /// Resource group name within the specified subscriptionId.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Machine Group resource name.
         /// </summary>
-        [Input("machineGroupName")]
-        public Input<string>? MachineGroupName { get; set; }
+        [Input("machineGroupName", required: true)]
+        public Input<string> MachineGroupName { get; set; } = null!;
 
         /// <summary>
         /// Resource group name within the specified subscriptionId.

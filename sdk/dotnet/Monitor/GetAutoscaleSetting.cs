@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The autoscale setting name.
         /// </summary>
-        [Input("autoscaleSettingName")]
-        public string? AutoscaleSettingName { get; set; }
+        [Input("autoscaleSettingName", required: true)]
+        public string AutoscaleSettingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The autoscale setting name.
         /// </summary>
-        [Input("autoscaleSettingName")]
-        public Input<string>? AutoscaleSettingName { get; set; }
+        [Input("autoscaleSettingName", required: true)]
+        public Input<string> AutoscaleSettingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

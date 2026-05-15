@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         /// </summary>
-        [Input("snapshotName")]
-        public string? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         public GetSnapshotArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         /// </summary>
-        [Input("snapshotName")]
-        public Input<string>? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         public GetSnapshotInvokeArgs()
         {

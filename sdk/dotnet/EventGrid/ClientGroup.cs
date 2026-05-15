@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The client group name.
         /// </summary>
-        [Input("clientGroupName", required: true)]
-        public Input<string> ClientGroupName { get; set; } = null!;
+        [Input("clientGroupName")]
+        public Input<string>? ClientGroupName { get; set; }
 
         /// <summary>
         /// Description for the Client Group resource.

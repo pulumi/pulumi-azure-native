@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// Name of the access policy.
         /// </summary>
-        [Input("accessPolicyName", required: true)]
-        public Input<string> AccessPolicyName { get; set; } = null!;
+        [Input("accessPolicyName")]
+        public Input<string>? AccessPolicyName { get; set; }
 
         /// <summary>
         /// An description of the access policy.

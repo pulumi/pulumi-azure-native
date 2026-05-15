@@ -393,8 +393,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the application gateway.
         /// </summary>
-        [Input("applicationGatewayName", required: true)]
-        public Input<string> ApplicationGatewayName { get; set; } = null!;
+        [Input("applicationGatewayName")]
+        public Input<string>? ApplicationGatewayName { get; set; }
 
         [Input("authenticationCertificates")]
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;

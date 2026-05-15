@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the datastore.
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public Input<string> DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public Input<string>? DatastoreName { get; set; }
 
         /// <summary>
         /// Gets or sets the extended location.

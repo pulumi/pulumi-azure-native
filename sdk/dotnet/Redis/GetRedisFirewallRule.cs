@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("ruleName")]
-        public string? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         public GetRedisFirewallRuleArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         public GetRedisFirewallRuleInvokeArgs()
         {

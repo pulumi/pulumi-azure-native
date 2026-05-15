@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Widget
         /// <summary>
         /// The name of the Employee
         /// </summary>
-        [Input("employeeName", required: true)]
-        public Input<string> EmployeeName { get; set; } = null!;
+        [Input("employeeName")]
+        public Input<string>? EmployeeName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

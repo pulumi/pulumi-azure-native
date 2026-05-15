@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Scheduler
         /// <summary>
         /// The job collection name.
         /// </summary>
-        [Input("jobCollectionName", required: true)]
-        public Input<string> JobCollectionName { get; set; } = null!;
+        [Input("jobCollectionName")]
+        public Input<string>? JobCollectionName { get; set; }
 
         /// <summary>
         /// Gets or sets the storage account location.

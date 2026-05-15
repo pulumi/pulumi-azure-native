@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of security setting
         /// </summary>
-        [Input("securitySettingsName", required: true)]
-        public Input<string> SecuritySettingsName { get; set; } = null!;
+        [Input("securitySettingsName")]
+        public Input<string>? SecuritySettingsName { get; set; }
 
         /// <summary>
         /// SMB encryption for intra-cluster traffic Compliance Assignment

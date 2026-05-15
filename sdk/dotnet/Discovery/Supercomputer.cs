@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Supercomputer
         /// </summary>
-        [Input("supercomputerName", required: true)]
-        public Input<string> SupercomputerName { get; set; } = null!;
+        [Input("supercomputerName")]
+        public Input<string>? SupercomputerName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

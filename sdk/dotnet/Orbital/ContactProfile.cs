@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Contact Profile name.
         /// </summary>
-        [Input("contactProfileName", required: true)]
-        public Input<string> ContactProfileName { get; set; } = null!;
+        [Input("contactProfileName")]
+        public Input<string>? ContactProfileName { get; set; }
 
         /// <summary>
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.

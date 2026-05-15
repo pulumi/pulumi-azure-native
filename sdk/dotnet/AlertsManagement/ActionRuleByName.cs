@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of action rule that needs to be created/updated
         /// </summary>
-        [Input("actionRuleName", required: true)]
-        public Input<string> ActionRuleName { get; set; } = null!;
+        [Input("actionRuleName")]
+        public Input<string>? ActionRuleName { get; set; }
 
         /// <summary>
         /// Resource location

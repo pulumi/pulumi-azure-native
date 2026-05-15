@@ -236,8 +236,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Bastion Host.
         /// </summary>
-        [Input("bastionHostName", required: true)]
-        public Input<string> BastionHostName { get; set; } = null!;
+        [Input("bastionHostName")]
+        public Input<string>? BastionHostName { get; set; }
 
         /// <summary>
         /// Enable/Disable Copy/Paste feature of the Bastion Host resource.

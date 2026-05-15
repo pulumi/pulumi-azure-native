@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The ID of the PLA
         /// </summary>
-        [Input("plaId", required: true)]
-        public Input<string> PlaId { get; set; } = null!;
+        [Input("plaId")]
+        public Input<string>? PlaId { get; set; }
 
         /// <summary>
         /// The properties of the PrivateLinkAssociation.

@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         /// </summary>
-        [Input("tagDescriptionId")]
-        public string? TagDescriptionId { get; set; }
+        [Input("tagDescriptionId", required: true)]
+        public string TagDescriptionId { get; set; } = null!;
 
         public GetApiTagDescriptionArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         /// </summary>
-        [Input("tagDescriptionId")]
-        public Input<string>? TagDescriptionId { get; set; }
+        [Input("tagDescriptionId", required: true)]
+        public Input<string> TagDescriptionId { get; set; } = null!;
 
         public GetApiTagDescriptionInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HealthBot
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("botName")]
-        public string? BotName { get; set; }
+        [Input("botName", required: true)]
+        public string BotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HealthBot
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("botName")]
-        public Input<string>? BotName { get; set; }
+        [Input("botName", required: true)]
+        public Input<string> BotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

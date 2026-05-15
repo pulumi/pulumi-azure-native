@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Fleet resource.
         /// </summary>
-        [Input("fleetName")]
-        public string? FleetName { get; set; }
+        [Input("fleetName", required: true)]
+        public string FleetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Fleet resource.
         /// </summary>
-        [Input("fleetName")]
-        public Input<string>? FleetName { get; set; }
+        [Input("fleetName", required: true)]
+        public Input<string> FleetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

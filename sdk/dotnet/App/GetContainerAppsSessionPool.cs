@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the session pool.
         /// </summary>
-        [Input("sessionPoolName")]
-        public string? SessionPoolName { get; set; }
+        [Input("sessionPoolName", required: true)]
+        public string SessionPoolName { get; set; } = null!;
 
         public GetContainerAppsSessionPoolArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the session pool.
         /// </summary>
-        [Input("sessionPoolName")]
-        public Input<string>? SessionPoolName { get; set; }
+        [Input("sessionPoolName", required: true)]
+        public Input<string> SessionPoolName { get; set; } = null!;
 
         public GetContainerAppsSessionPoolInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of resource.
         /// </summary>
-        [Input("connectorName")]
-        public string? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public string ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of Azure region.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of resource.
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of Azure region.

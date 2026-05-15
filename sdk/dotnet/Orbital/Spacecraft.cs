@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Spacecraft ID.
         /// </summary>
-        [Input("spacecraftName", required: true)]
-        public Input<string> SpacecraftName { get; set; } = null!;
+        [Input("spacecraftName")]
+        public Input<string>? SpacecraftName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

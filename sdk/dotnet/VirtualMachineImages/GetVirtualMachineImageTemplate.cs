@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// The name of the image Template
         /// </summary>
-        [Input("imageTemplateName")]
-        public string? ImageTemplateName { get; set; }
+        [Input("imageTemplateName", required: true)]
+        public string ImageTemplateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// The name of the image Template
         /// </summary>
-        [Input("imageTemplateName")]
-        public Input<string>? ImageTemplateName { get; set; }
+        [Input("imageTemplateName", required: true)]
+        public Input<string> ImageTemplateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

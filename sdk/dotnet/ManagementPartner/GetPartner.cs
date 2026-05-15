@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// 
         /// Uses Azure REST API version 2018-02-01.
         /// </summary>
-        public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// 
         /// Uses Azure REST API version 2018-02-01.
         /// </summary>
-        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// <summary>
         /// Id of the Partner
         /// </summary>
-        [Input("partnerId")]
-        public string? PartnerId { get; set; }
+        [Input("partnerId", required: true)]
+        public string PartnerId { get; set; } = null!;
 
         public GetPartnerArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// <summary>
         /// Id of the Partner
         /// </summary>
-        [Input("partnerId")]
-        public Input<string>? PartnerId { get; set; }
+        [Input("partnerId", required: true)]
+        public Input<string> PartnerId { get; set; } = null!;
 
         public GetPartnerInvokeArgs()
         {

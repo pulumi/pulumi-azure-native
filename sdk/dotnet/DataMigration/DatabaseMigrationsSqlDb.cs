@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// The name of the target database.
         /// </summary>
-        [Input("targetDbName", required: true)]
-        public Input<string> TargetDbName { get; set; } = null!;
+        [Input("targetDbName")]
+        public Input<string>? TargetDbName { get; set; }
 
         public DatabaseMigrationsSqlDbArgs()
         {

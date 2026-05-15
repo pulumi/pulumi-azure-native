@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Collector Policy Name
         /// </summary>
-        [Input("collectorPolicyName", required: true)]
-        public Input<string> CollectorPolicyName { get; set; } = null!;
+        [Input("collectorPolicyName")]
+        public Input<string>? CollectorPolicyName { get; set; }
 
         [Input("emissionPolicies")]
         private InputList<Inputs.EmissionPoliciesPropertiesFormatArgs>? _emissionPolicies;

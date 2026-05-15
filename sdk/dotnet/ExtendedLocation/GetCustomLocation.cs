@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// <summary>
         /// Custom Locations name.
         /// </summary>
-        [Input("resourceName")]
-        public string? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetCustomLocationArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// <summary>
         /// Custom Locations name.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetCustomLocationInvokeArgs()
         {

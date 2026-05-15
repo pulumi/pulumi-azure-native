@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Endpoint resource.
         /// </summary>
-        [Input("endpointName")]
-        public string? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Endpoint resource.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Server Instance
         /// </summary>
-        [Input("sqlServerInstanceName", required: true)]
-        public Input<string> SqlServerInstanceName { get; set; } = null!;
+        [Input("sqlServerInstanceName")]
+        public Input<string>? SqlServerInstanceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

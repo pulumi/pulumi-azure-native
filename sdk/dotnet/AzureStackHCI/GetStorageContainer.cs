@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the storage container
         /// </summary>
-        [Input("storageContainerName")]
-        public string? StorageContainerName { get; set; }
+        [Input("storageContainerName", required: true)]
+        public string StorageContainerName { get; set; } = null!;
 
         public GetStorageContainerArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the storage container
         /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
+        [Input("storageContainerName", required: true)]
+        public Input<string> StorageContainerName { get; set; } = null!;
 
         public GetStorageContainerInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// entity query ID
         /// </summary>
-        [Input("entityQueryId")]
-        public string? EntityQueryId { get; set; }
+        [Input("entityQueryId", required: true)]
+        public string EntityQueryId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// entity query ID
         /// </summary>
-        [Input("entityQueryId")]
-        public Input<string>? EntityQueryId { get; set; }
+        [Input("entityQueryId", required: true)]
+        public Input<string> EntityQueryId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

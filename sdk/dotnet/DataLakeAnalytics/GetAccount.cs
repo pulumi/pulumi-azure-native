@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// The name of the Data Lake Analytics account.
         /// </summary>
-        [Input("accountName")]
-        public string? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// The name of the Data Lake Analytics account.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the script cmdlet.
         /// </summary>
-        [Input("scriptExecutionName")]
-        public string? ScriptExecutionName { get; set; }
+        [Input("scriptExecutionName", required: true)]
+        public string ScriptExecutionName { get; set; } = null!;
 
         public GetScriptExecutionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the script cmdlet.
         /// </summary>
-        [Input("scriptExecutionName")]
-        public Input<string>? ScriptExecutionName { get; set; }
+        [Input("scriptExecutionName", required: true)]
+        public Input<string> ScriptExecutionName { get; set; } = null!;
 
         public GetScriptExecutionInvokeArgs()
         {

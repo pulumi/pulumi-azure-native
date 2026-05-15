@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the IssueResource
         /// </summary>
-        [Input("issueName", required: true)]
-        public Input<string> IssueName { get; set; } = null!;
+        [Input("issueName")]
+        public Input<string>? IssueName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

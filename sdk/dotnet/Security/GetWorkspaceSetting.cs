@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2017-08-01-preview.
         /// </summary>
-        public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2017-08-01-preview.
         /// </summary>
-        public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the security setting
         /// </summary>
-        [Input("workspaceSettingName")]
-        public string? WorkspaceSettingName { get; set; }
+        [Input("workspaceSettingName", required: true)]
+        public string WorkspaceSettingName { get; set; } = null!;
 
         public GetWorkspaceSettingArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the security setting
         /// </summary>
-        [Input("workspaceSettingName")]
-        public Input<string>? WorkspaceSettingName { get; set; }
+        [Input("workspaceSettingName", required: true)]
+        public Input<string> WorkspaceSettingName { get; set; } = null!;
 
         public GetWorkspaceSettingInvokeArgs()
         {

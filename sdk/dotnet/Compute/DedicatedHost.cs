@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the dedicated host.
         /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**

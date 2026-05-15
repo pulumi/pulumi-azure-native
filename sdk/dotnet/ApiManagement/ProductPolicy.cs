@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The identifier of the Policy.
         /// </summary>
-        [Input("policyId", required: true)]
-        public Input<string> PolicyId { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

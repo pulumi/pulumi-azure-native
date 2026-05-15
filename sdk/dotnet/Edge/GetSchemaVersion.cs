@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SchemaVersion
         /// </summary>
-        [Input("schemaVersionName")]
-        public string? SchemaVersionName { get; set; }
+        [Input("schemaVersionName", required: true)]
+        public string SchemaVersionName { get; set; } = null!;
 
         public GetSchemaVersionArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SchemaVersion
         /// </summary>
-        [Input("schemaVersionName")]
-        public Input<string>? SchemaVersionName { get; set; }
+        [Input("schemaVersionName", required: true)]
+        public Input<string> SchemaVersionName { get; set; } = null!;
 
         public GetSchemaVersionInvokeArgs()
         {

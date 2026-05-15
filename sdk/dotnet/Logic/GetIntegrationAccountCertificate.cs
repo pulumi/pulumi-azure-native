@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account certificate name.
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The integration account name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account certificate name.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The integration account name.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
-        [Input("scheduleName")]
-        public string? ScheduleName { get; set; }
+        [Input("scheduleName", required: true)]
+        public string ScheduleName { get; set; } = null!;
 
         public GetScheduleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
-        [Input("scheduleName")]
-        public Input<string>? ScheduleName { get; set; }
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
 
         public GetScheduleInvokeArgs()
         {

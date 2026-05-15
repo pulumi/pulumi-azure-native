@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The name and identifier for the LabelingJob.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// [Required] Additional attributes of the entity.

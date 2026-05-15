@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The global parameter name.
         /// </summary>
-        [Input("globalParameterName", required: true)]
-        public Input<string> GlobalParameterName { get; set; } = null!;
+        [Input("globalParameterName")]
+        public Input<string>? GlobalParameterName { get; set; }
 
         [Input("properties", required: true)]
         private InputMap<Inputs.GlobalParameterSpecificationArgs>? _properties;

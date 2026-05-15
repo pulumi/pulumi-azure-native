@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API.
         /// </summary>
-        [Input("apiName", required: true)]
-        public Input<string> ApiName { get; set; } = null!;
+        [Input("apiName")]
+        public Input<string>? ApiName { get; set; }
 
         [Input("contacts")]
         private InputList<Inputs.ContactArgs>? _contacts;

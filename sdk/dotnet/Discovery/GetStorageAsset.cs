@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the StorageAsset
         /// </summary>
-        [Input("storageAssetName")]
-        public string? StorageAssetName { get; set; }
+        [Input("storageAssetName", required: true)]
+        public string StorageAssetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the StorageContainer
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the StorageAsset
         /// </summary>
-        [Input("storageAssetName")]
-        public Input<string>? StorageAssetName { get; set; }
+        [Input("storageAssetName", required: true)]
+        public Input<string> StorageAssetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the StorageContainer

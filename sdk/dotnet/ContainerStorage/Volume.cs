@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Volume Resource
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         public VolumeArgs()
         {

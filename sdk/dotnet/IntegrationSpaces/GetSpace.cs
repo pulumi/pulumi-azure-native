@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the space
         /// </summary>
-        [Input("spaceName")]
-        public string? SpaceName { get; set; }
+        [Input("spaceName", required: true)]
+        public string SpaceName { get; set; } = null!;
 
         public GetSpaceArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the space
         /// </summary>
-        [Input("spaceName")]
-        public Input<string>? SpaceName { get; set; }
+        [Input("spaceName", required: true)]
+        public Input<string> SpaceName { get; set; } = null!;
 
         public GetSpaceInvokeArgs()
         {

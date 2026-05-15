@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Application Group name 
         /// </summary>
-        [Input("applicationGroupName")]
-        public string? ApplicationGroupName { get; set; }
+        [Input("applicationGroupName", required: true)]
+        public string ApplicationGroupName { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Application Group name 
         /// </summary>
-        [Input("applicationGroupName")]
-        public Input<string>? ApplicationGroupName { get; set; }
+        [Input("applicationGroupName", required: true)]
+        public Input<string> ApplicationGroupName { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

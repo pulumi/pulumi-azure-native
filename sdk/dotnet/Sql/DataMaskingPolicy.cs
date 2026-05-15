@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the database for which the data masking policy applies.
         /// </summary>
-        [Input("dataMaskingPolicyName", required: true)]
-        public Input<string> DataMaskingPolicyName { get; set; } = null!;
+        [Input("dataMaskingPolicyName")]
+        public Input<string>? DataMaskingPolicyName { get; set; }
 
         /// <summary>
         /// The state of the data masking policy.

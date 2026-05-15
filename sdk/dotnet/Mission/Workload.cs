@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the workloadResource Resource
         /// </summary>
-        [Input("workloadName", required: true)]
-        public Input<string> WorkloadName { get; set; } = null!;
+        [Input("workloadName")]
+        public Input<string>? WorkloadName { get; set; }
 
         public WorkloadArgs()
         {

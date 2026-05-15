@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the import pipeline.
         /// </summary>
-        [Input("importPipelineName", required: true)]
-        public Input<string> ImportPipelineName { get; set; } = null!;
+        [Input("importPipelineName")]
+        public Input<string>? ImportPipelineName { get; set; }
 
         /// <summary>
         /// The location of the import pipeline.

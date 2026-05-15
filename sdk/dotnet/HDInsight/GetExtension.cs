@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// The name of the cluster extension.
         /// </summary>
-        [Input("extensionName")]
-        public string? ExtensionName { get; set; }
+        [Input("extensionName", required: true)]
+        public string ExtensionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// The name of the cluster extension.
         /// </summary>
-        [Input("extensionName")]
-        public Input<string>? ExtensionName { get; set; }
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

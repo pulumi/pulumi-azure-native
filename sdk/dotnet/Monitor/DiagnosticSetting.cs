@@ -198,8 +198,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The identifier of the resource.

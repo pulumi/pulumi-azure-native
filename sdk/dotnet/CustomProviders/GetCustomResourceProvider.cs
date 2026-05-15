@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CustomProviders
         /// <summary>
         /// The name of the resource provider.
         /// </summary>
-        [Input("resourceProviderName")]
-        public string? ResourceProviderName { get; set; }
+        [Input("resourceProviderName", required: true)]
+        public string ResourceProviderName { get; set; } = null!;
 
         public GetCustomResourceProviderArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CustomProviders
         /// <summary>
         /// The name of the resource provider.
         /// </summary>
-        [Input("resourceProviderName")]
-        public Input<string>? ResourceProviderName { get; set; }
+        [Input("resourceProviderName", required: true)]
+        public Input<string> ResourceProviderName { get; set; } = null!;
 
         public GetCustomResourceProviderInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Container App.
         /// </summary>
-        [Input("containerAppName")]
-        public string? ContainerAppName { get; set; }
+        [Input("containerAppName", required: true)]
+        public string ContainerAppName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Container App.
         /// </summary>
-        [Input("containerAppName")]
-        public Input<string>? ContainerAppName { get; set; }
+        [Input("containerAppName", required: true)]
+        public Input<string> ContainerAppName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

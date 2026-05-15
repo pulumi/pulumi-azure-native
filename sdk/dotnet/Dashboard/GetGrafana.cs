@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The workspace name of Azure Managed Grafana.
         /// </summary>
-        [Input("workspaceName")]
-        public string? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public string WorkspaceName { get; set; } = null!;
 
         public GetGrafanaArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The workspace name of Azure Managed Grafana.
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public GetGrafanaInvokeArgs()
         {

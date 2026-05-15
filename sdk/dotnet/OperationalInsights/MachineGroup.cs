@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Machine Group resource name.
         /// </summary>
-        [Input("machineGroupName", required: true)]
-        public Input<string> MachineGroupName { get; set; } = null!;
+        [Input("machineGroupName")]
+        public Input<string>? MachineGroupName { get; set; }
 
         [Input("machines")]
         private InputList<Inputs.MachineReferenceWithHintsArgs>? _machines;

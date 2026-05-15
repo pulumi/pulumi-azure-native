@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("profileName")]
-        public string? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

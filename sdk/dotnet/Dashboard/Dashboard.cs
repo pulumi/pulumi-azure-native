@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Azure Managed Dashboard.
         /// </summary>
-        [Input("dashboardName", required: true)]
-        public Input<string> DashboardName { get; set; } = null!;
+        [Input("dashboardName")]
+        public Input<string>? DashboardName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

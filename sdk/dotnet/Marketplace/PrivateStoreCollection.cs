@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The collection ID
         /// </summary>
-        [Input("collectionId", required: true)]
-        public Input<string> CollectionId { get; set; } = null!;
+        [Input("collectionId")]
+        public Input<string>? CollectionId { get; set; }
 
         /// <summary>
         /// Gets or sets collection name.

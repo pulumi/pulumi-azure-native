@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The credential resource name.
         /// </summary>
-        [Input("credentialName", required: true)]
-        public Input<string> CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// Credential type.

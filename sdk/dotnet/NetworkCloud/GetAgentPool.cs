@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public string? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public string AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kubernetes cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kubernetes cluster.

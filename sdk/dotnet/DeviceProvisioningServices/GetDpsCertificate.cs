@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Name of the certificate to retrieve.
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the provisioning service the certificate is associated with.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Name of the certificate to retrieve.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the provisioning service the certificate is associated with.

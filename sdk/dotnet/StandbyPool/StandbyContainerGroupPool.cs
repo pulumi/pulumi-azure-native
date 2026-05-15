@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.StandbyPool
         /// <summary>
         /// Name of the standby container group pool
         /// </summary>
-        [Input("standbyContainerGroupPoolName", required: true)]
-        public Input<string> StandbyContainerGroupPoolName { get; set; } = null!;
+        [Input("standbyContainerGroupPoolName")]
+        public Input<string>? StandbyContainerGroupPoolName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

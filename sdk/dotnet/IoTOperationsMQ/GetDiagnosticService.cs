@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ diagnostic resource
         /// </summary>
-        [Input("diagnosticServiceName")]
-        public string? DiagnosticServiceName { get; set; }
+        [Input("diagnosticServiceName", required: true)]
+        public string DiagnosticServiceName { get; set; } = null!;
 
         /// <summary>
         /// Name of MQ resource
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ diagnostic resource
         /// </summary>
-        [Input("diagnosticServiceName")]
-        public Input<string>? DiagnosticServiceName { get; set; }
+        [Input("diagnosticServiceName", required: true)]
+        public Input<string> DiagnosticServiceName { get; set; } = null!;
 
         /// <summary>
         /// Name of MQ resource

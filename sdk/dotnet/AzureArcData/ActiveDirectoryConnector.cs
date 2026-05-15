@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// The name of the Active Directory connector instance
         /// </summary>
-        [Input("activeDirectoryConnectorName", required: true)]
-        public Input<string> ActiveDirectoryConnectorName { get; set; } = null!;
+        [Input("activeDirectoryConnectorName")]
+        public Input<string>? ActiveDirectoryConnectorName { get; set; }
 
         /// <summary>
         /// The name of the data controller

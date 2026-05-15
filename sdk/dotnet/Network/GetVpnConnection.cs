@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the vpn connection.
         /// </summary>
-        [Input("connectionName")]
-        public string? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the gateway.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the vpn connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the gateway.

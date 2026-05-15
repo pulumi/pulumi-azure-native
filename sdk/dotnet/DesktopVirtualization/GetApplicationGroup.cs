@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the application group
         /// </summary>
-        [Input("applicationGroupName")]
-        public string? ApplicationGroupName { get; set; }
+        [Input("applicationGroupName", required: true)]
+        public string ApplicationGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the application group
         /// </summary>
-        [Input("applicationGroupName")]
-        public Input<string>? ApplicationGroupName { get; set; }
+        [Input("applicationGroupName", required: true)]
+        public Input<string> ApplicationGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

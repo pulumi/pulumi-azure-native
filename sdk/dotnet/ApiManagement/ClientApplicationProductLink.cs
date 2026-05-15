@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application Product Link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationProductLinkId", required: true)]
-        public Input<string> ClientApplicationProductLinkId { get; set; } = null!;
+        [Input("clientApplicationProductLinkId")]
+        public Input<string>? ClientApplicationProductLinkId { get; set; }
 
         /// <summary>
         /// The unique resource identifier of the Product.

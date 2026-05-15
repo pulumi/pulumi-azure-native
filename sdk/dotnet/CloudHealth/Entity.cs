@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the entity. Must be unique within a health model.
         /// </summary>
-        [Input("entityName", required: true)]
-        public Input<string> EntityName { get; set; } = null!;
+        [Input("entityName")]
+        public Input<string>? EntityName { get; set; }
 
         /// <summary>
         /// Name of health model resource

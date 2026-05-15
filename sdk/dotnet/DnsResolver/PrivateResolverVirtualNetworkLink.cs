@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the virtual network link.
         /// </summary>
-        [Input("virtualNetworkLinkName", required: true)]
-        public Input<string> VirtualNetworkLinkName { get; set; } = null!;
+        [Input("virtualNetworkLinkName")]
+        public Input<string>? VirtualNetworkLinkName { get; set; }
 
         public PrivateResolverVirtualNetworkLinkArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Edge site name.
         /// </summary>
-        [Input("edgeSiteName")]
-        public string? EdgeSiteName { get; set; }
+        [Input("edgeSiteName", required: true)]
+        public string EdgeSiteName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Edge site name.
         /// </summary>
-        [Input("edgeSiteName")]
-        public Input<string>? EdgeSiteName { get; set; }
+        [Input("edgeSiteName", required: true)]
+        public Input<string> EdgeSiteName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

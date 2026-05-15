@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the registered ASN.
         /// </summary>
-        [Input("registeredAsnName")]
-        public string? RegisteredAsnName { get; set; }
+        [Input("registeredAsnName", required: true)]
+        public string RegisteredAsnName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the registered ASN.
         /// </summary>
-        [Input("registeredAsnName")]
-        public Input<string>? RegisteredAsnName { get; set; }
+        [Input("registeredAsnName", required: true)]
+        public Input<string> RegisteredAsnName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

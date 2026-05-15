@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User Management Configuration Name.
         /// </summary>
-        [Input("managementConfigurationName")]
-        public string? ManagementConfigurationName { get; set; }
+        [Input("managementConfigurationName", required: true)]
+        public string ManagementConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User Management Configuration Name.
         /// </summary>
-        [Input("managementConfigurationName")]
-        public Input<string>? ManagementConfigurationName { get; set; }
+        [Input("managementConfigurationName", required: true)]
+        public Input<string> ManagementConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.

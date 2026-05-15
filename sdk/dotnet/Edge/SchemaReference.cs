@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SchemaReference
         /// </summary>
-        [Input("schemaReferenceName", required: true)]
-        public Input<string> SchemaReferenceName { get; set; } = null!;
+        [Input("schemaReferenceName")]
+        public Input<string>? SchemaReferenceName { get; set; }
 
         public SchemaReferenceArgs()
         {

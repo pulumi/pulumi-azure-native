@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the linked backend that should be retrieved
         /// </summary>
-        [Input("linkedBackendName")]
-        public string? LinkedBackendName { get; set; }
+        [Input("linkedBackendName", required: true)]
+        public string LinkedBackendName { get; set; } = null!;
 
         /// <summary>
         /// Name of the static site
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the linked backend that should be retrieved
         /// </summary>
-        [Input("linkedBackendName")]
-        public Input<string>? LinkedBackendName { get; set; }
+        [Input("linkedBackendName", required: true)]
+        public Input<string> LinkedBackendName { get; set; } = null!;
 
         /// <summary>
         /// Name of the static site

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the configuration group schema.
         /// </summary>
-        [Input("configurationGroupSchemaName")]
-        public string? ConfigurationGroupSchemaName { get; set; }
+        [Input("configurationGroupSchemaName", required: true)]
+        public string ConfigurationGroupSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the publisher.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the configuration group schema.
         /// </summary>
-        [Input("configurationGroupSchemaName")]
-        public Input<string>? ConfigurationGroupSchemaName { get; set; }
+        [Input("configurationGroupSchemaName", required: true)]
+        public Input<string> ConfigurationGroupSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the publisher.

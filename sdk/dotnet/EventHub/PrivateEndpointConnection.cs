@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The PrivateEndpointConnection name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Details about the state of the connection.

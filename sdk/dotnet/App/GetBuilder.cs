@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the builder.
         /// </summary>
-        [Input("builderName")]
-        public string? BuilderName { get; set; }
+        [Input("builderName", required: true)]
+        public string BuilderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the builder.
         /// </summary>
-        [Input("builderName")]
-        public Input<string>? BuilderName { get; set; }
+        [Input("builderName", required: true)]
+        public Input<string> BuilderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

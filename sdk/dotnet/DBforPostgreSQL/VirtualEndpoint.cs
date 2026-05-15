@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Base name of the virtual endpoints.
         /// </summary>
-        [Input("virtualEndpointName", required: true)]
-        public Input<string> VirtualEndpointName { get; set; } = null!;
+        [Input("virtualEndpointName")]
+        public Input<string>? VirtualEndpointName { get; set; }
 
         public VirtualEndpointArgs()
         {

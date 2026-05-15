@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Data Source ARM name.
         /// </summary>
-        [Input("discoverySiteDataSourceName")]
-        public string? DiscoverySiteDataSourceName { get; set; }
+        [Input("discoverySiteDataSourceName", required: true)]
+        public string DiscoverySiteDataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Data Source ARM name.
         /// </summary>
-        [Input("discoverySiteDataSourceName")]
-        public Input<string>? DiscoverySiteDataSourceName { get; set; }
+        [Input("discoverySiteDataSourceName", required: true)]
+        public Input<string> DiscoverySiteDataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

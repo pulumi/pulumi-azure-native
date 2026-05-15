@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The factory name.
         /// </summary>
-        [Input("factoryName", required: true)]
-        public Input<string> FactoryName { get; set; } = null!;
+        [Input("factoryName")]
+        public Input<string>? FactoryName { get; set; }
 
         [Input("globalParameters")]
         private InputMap<Inputs.GlobalParameterSpecificationArgs>? _globalParameters;

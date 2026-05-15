@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the sandbox custom image.
         /// </summary>
-        [Input("sandboxCustomImageName")]
-        public string? SandboxCustomImageName { get; set; }
+        [Input("sandboxCustomImageName", required: true)]
+        public string SandboxCustomImageName { get; set; } = null!;
 
         public GetSandboxCustomImageArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the sandbox custom image.
         /// </summary>
-        [Input("sandboxCustomImageName")]
-        public Input<string>? SandboxCustomImageName { get; set; }
+        [Input("sandboxCustomImageName", required: true)]
+        public Input<string> SandboxCustomImageName { get; set; } = null!;
 
         public GetSandboxCustomImageInvokeArgs()
         {

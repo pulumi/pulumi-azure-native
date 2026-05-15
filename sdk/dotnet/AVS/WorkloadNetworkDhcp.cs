@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The ID of the DHCP configuration
         /// </summary>
-        [Input("dhcpId", required: true)]
-        public Input<string> DhcpId { get; set; } = null!;
+        [Input("dhcpId")]
+        public Input<string>? DhcpId { get; set; }
 
         /// <summary>
         /// Name of the private cloud

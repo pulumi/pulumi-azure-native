@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the Volume.
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         public VolumeArgs()
         {

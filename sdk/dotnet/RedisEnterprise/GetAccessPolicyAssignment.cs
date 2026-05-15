@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The name of the Redis Enterprise database access policy assignment.
         /// </summary>
-        [Input("accessPolicyAssignmentName")]
-        public string? AccessPolicyAssignmentName { get; set; }
+        [Input("accessPolicyAssignmentName", required: true)]
+        public string AccessPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The name of the Redis Enterprise database access policy assignment.
         /// </summary>
-        [Input("accessPolicyAssignmentName")]
-        public Input<string>? AccessPolicyAssignmentName { get; set; }
+        [Input("accessPolicyAssignmentName", required: true)]
+        public Input<string> AccessPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens

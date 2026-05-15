@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Tunnel Policy under the profile.
         /// </summary>
-        [Input("tunnelPolicyName")]
-        public string? TunnelPolicyName { get; set; }
+        [Input("tunnelPolicyName", required: true)]
+        public string TunnelPolicyName { get; set; } = null!;
 
         public GetTunnelPolicyArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Tunnel Policy under the profile.
         /// </summary>
-        [Input("tunnelPolicyName")]
-        public Input<string>? TunnelPolicyName { get; set; }
+        [Input("tunnelPolicyName", required: true)]
+        public Input<string> TunnelPolicyName { get; set; } = null!;
 
         public GetTunnelPolicyInvokeArgs()
         {

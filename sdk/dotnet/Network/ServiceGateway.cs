@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the service gateway.
         /// </summary>
-        [Input("serviceGatewayName", required: true)]
-        public Input<string> ServiceGatewayName { get; set; } = null!;
+        [Input("serviceGatewayName")]
+        public Input<string>? ServiceGatewayName { get; set; }
 
         /// <summary>
         /// The service gateway SKU.

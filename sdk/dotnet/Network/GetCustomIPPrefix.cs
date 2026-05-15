@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the custom IP prefix.
         /// </summary>
-        [Input("customIpPrefixName")]
-        public string? CustomIpPrefixName { get; set; }
+        [Input("customIpPrefixName", required: true)]
+        public string CustomIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// Expands referenced resources.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the custom IP prefix.
         /// </summary>
-        [Input("customIpPrefixName")]
-        public Input<string>? CustomIpPrefixName { get; set; }
+        [Input("customIpPrefixName", required: true)]
+        public Input<string> CustomIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// Expands referenced resources.

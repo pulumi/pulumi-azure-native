@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Internet Gateway.
         /// </summary>
-        [Input("internetGatewayName", required: true)]
-        public Input<string> InternetGatewayName { get; set; } = null!;
+        [Input("internetGatewayName")]
+        public Input<string>? InternetGatewayName { get; set; }
 
         /// <summary>
         /// ARM Resource ID of the Internet Gateway Rule.

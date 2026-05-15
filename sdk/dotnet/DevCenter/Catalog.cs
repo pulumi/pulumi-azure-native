@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the Catalog.
         /// </summary>
-        [Input("catalogName", required: true)]
-        public Input<string> CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
 
         /// <summary>
         /// The name of the devcenter.

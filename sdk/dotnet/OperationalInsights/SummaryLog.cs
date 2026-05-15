@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the summary logs. Must not contain '/'.
         /// </summary>
-        [Input("summaryLogsName", required: true)]
-        public Input<string> SummaryLogsName { get; set; } = null!;
+        [Input("summaryLogsName")]
+        public Input<string>? SummaryLogsName { get; set; }
 
         /// <summary>
         /// The name of the workspace.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the express route circuit connection.
         /// </summary>
-        [Input("connectionName")]
-        public string? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the express route circuit connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering.

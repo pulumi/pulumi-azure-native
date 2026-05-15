@@ -223,8 +223,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The webhook name.
         /// </summary>
-        [Input("webhookName", required: true)]
-        public Input<string> WebhookName { get; set; } = null!;
+        [Input("webhookName")]
+        public Input<string>? WebhookName { get; set; }
 
         public WebhookArgs()
         {

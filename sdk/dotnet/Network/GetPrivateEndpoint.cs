@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName")]
-        public string? PrivateEndpointName { get; set; }
+        [Input("privateEndpointName", required: true)]
+        public string PrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName")]
-        public Input<string>? PrivateEndpointName { get; set; }
+        [Input("privateEndpointName", required: true)]
+        public Input<string> PrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

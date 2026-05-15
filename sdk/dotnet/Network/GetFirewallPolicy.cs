@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Firewall Policy.
         /// </summary>
-        [Input("firewallPolicyName")]
-        public string? FirewallPolicyName { get; set; }
+        [Input("firewallPolicyName", required: true)]
+        public string FirewallPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Firewall Policy.
         /// </summary>
-        [Input("firewallPolicyName")]
-        public Input<string>? FirewallPolicyName { get; set; }
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

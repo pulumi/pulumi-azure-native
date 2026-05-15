@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
         /// </summary>
-        [Input("flowProfileName", required: true)]
-        public Input<string> FlowProfileName { get; set; } = null!;
+        [Input("flowProfileName")]
+        public Input<string>? FlowProfileName { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

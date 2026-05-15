@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hostnameBindingName", required: true)]
-        public Input<string> HostnameBindingName { get; set; } = null!;
+        [Input("hostnameBindingName")]
+        public Input<string>? HostnameBindingName { get; set; }
 
         /// <summary>
         /// The link to the API Management service workspace.

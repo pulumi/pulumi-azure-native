@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Tag Rule Set resource name
         /// </summary>
-        [Input("ruleSetName", required: true)]
-        public Input<string> RuleSetName { get; set; } = null!;
+        [Input("ruleSetName")]
+        public Input<string>? RuleSetName { get; set; }
 
         public TagRuleArgs()
         {

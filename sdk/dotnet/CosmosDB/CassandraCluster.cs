@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Managed Cassandra cluster name.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// Identity for the resource.

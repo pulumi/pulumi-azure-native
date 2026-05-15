@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class OutboundFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("outboundRuleFqdn", required: true)]
-        public Input<string> OutboundRuleFqdn { get; set; } = null!;
+        [Input("outboundRuleFqdn")]
+        public Input<string>? OutboundRuleFqdn { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

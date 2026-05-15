@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         ///  Cluster ARM name
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// Gets or sets the FQDN/IPAddress of the Hyper-V cluster.

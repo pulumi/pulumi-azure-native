@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of dryrun.
         /// </summary>
-        [Input("dryrunName", required: true)]
-        public Input<string> DryrunName { get; set; } = null!;
+        [Input("dryrunName")]
+        public Input<string>? DryrunName { get; set; }
 
         /// <summary>
         /// The parameters of the dryrun

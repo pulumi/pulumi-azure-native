@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of Analytics Connector resource.
         /// </summary>
-        [Input("analyticsConnectorName", required: true)]
-        public Input<string> AnalyticsConnectorName { get; set; } = null!;
+        [Input("analyticsConnectorName")]
+        public Input<string>? AnalyticsConnectorName { get; set; }
 
         /// <summary>
         /// Data destination configuration for Analytics Connector.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// 
         /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetGlobalRulestackResult> InvokeAsync(GetGlobalRulestackArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGlobalRulestackResult> InvokeAsync(GetGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalRulestackResult>("azure-native:cloudngfw:getGlobalRulestack", args ?? new GetGlobalRulestackArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// 
         /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetGlobalRulestackResult> Invoke(GetGlobalRulestackInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGlobalRulestackResult> Invoke(GetGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalRulestackResult>("azure-native:cloudngfw:getGlobalRulestack", args ?? new GetGlobalRulestackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// GlobalRulestack resource name
         /// </summary>
-        [Input("globalRulestackName")]
-        public string? GlobalRulestackName { get; set; }
+        [Input("globalRulestackName", required: true)]
+        public string GlobalRulestackName { get; set; } = null!;
 
         public GetGlobalRulestackArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// GlobalRulestack resource name
         /// </summary>
-        [Input("globalRulestackName")]
-        public Input<string>? GlobalRulestackName { get; set; }
+        [Input("globalRulestackName", required: true)]
+        public Input<string> GlobalRulestackName { get; set; } = null!;
 
         public GetGlobalRulestackInvokeArgs()
         {

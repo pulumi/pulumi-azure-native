@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// LocalRulestack resource name
         /// </summary>
-        [Input("localRulestackName", required: true)]
-        public Input<string> LocalRulestackName { get; set; } = null!;
+        [Input("localRulestackName")]
+        public Input<string>? LocalRulestackName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

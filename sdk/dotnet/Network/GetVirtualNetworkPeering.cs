@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network peering.
         /// </summary>
-        [Input("virtualNetworkPeeringName")]
-        public string? VirtualNetworkPeeringName { get; set; }
+        [Input("virtualNetworkPeeringName", required: true)]
+        public string VirtualNetworkPeeringName { get; set; } = null!;
 
         public GetVirtualNetworkPeeringArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network peering.
         /// </summary>
-        [Input("virtualNetworkPeeringName")]
-        public Input<string>? VirtualNetworkPeeringName { get; set; }
+        [Input("virtualNetworkPeeringName", required: true)]
+        public Input<string> VirtualNetworkPeeringName { get; set; } = null!;
 
         public GetVirtualNetworkPeeringInvokeArgs()
         {

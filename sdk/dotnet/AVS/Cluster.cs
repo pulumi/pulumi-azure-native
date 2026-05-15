@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the cluster
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The cluster size

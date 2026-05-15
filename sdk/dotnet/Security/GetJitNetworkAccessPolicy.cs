@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of a Just-in-Time access configuration policy.
         /// </summary>
-        [Input("jitNetworkAccessPolicyName")]
-        public string? JitNetworkAccessPolicyName { get; set; }
+        [Input("jitNetworkAccessPolicyName", required: true)]
+        public string JitNetworkAccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of a Just-in-Time access configuration policy.
         /// </summary>
-        [Input("jitNetworkAccessPolicyName")]
-        public Input<string>? JitNetworkAccessPolicyName { get; set; }
+        [Input("jitNetworkAccessPolicyName", required: true)]
+        public Input<string> JitNetworkAccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

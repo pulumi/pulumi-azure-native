@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The python package name.
         /// </summary>
-        [Input("packageName")]
-        public string? PackageName { get; set; }
+        [Input("packageName", required: true)]
+        public string PackageName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The python package name.
         /// </summary>
-        [Input("packageName")]
-        public Input<string>? PackageName { get; set; }
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

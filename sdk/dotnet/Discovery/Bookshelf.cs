@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Bookshelf
         /// </summary>
-        [Input("bookshelfName", required: true)]
-        public Input<string> BookshelfName { get; set; } = null!;
+        [Input("bookshelfName")]
+        public Input<string>? BookshelfName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

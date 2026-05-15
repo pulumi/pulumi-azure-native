@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the hybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public Input<string> MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public Input<string>? MetadataName { get; set; }
 
         /// <summary>
         /// The Public Key.

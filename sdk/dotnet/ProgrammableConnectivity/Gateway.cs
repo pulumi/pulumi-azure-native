@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity Gateway Name.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public Input<string> GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

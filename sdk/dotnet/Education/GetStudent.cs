@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Education
         /// <summary>
         /// Student alias.
         /// </summary>
-        [Input("studentAlias")]
-        public string? StudentAlias { get; set; }
+        [Input("studentAlias", required: true)]
+        public string StudentAlias { get; set; } = null!;
 
         public GetStudentArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Education
         /// <summary>
         /// Student alias.
         /// </summary>
-        [Input("studentAlias")]
-        public Input<string>? StudentAlias { get; set; }
+        [Input("studentAlias", required: true)]
+        public Input<string> StudentAlias { get; set; } = null!;
 
         public GetStudentInvokeArgs()
         {

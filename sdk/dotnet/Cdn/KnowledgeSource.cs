@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the knowledge source.
         /// </summary>
-        [Input("knowledgeSourceName", required: true)]
-        public Input<string> KnowledgeSourceName { get; set; } = null!;
+        [Input("knowledgeSourceName")]
+        public Input<string>? KnowledgeSourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

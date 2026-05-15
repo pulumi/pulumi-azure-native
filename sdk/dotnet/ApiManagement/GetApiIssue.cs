@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("issueId")]
-        public string? IssueId { get; set; }
+        [Input("issueId", required: true)]
+        public string IssueId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("issueId")]
-        public Input<string>? IssueId { get; set; }
+        [Input("issueId", required: true)]
+        public Input<string> IssueId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

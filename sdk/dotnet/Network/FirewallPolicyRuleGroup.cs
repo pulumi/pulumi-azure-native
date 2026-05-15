@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the FirewallPolicyRuleGroup.
         /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public Input<string>? RuleGroupName { get; set; }
 
         [Input("rules")]
         private InputList<Union<Inputs.FirewallPolicyFilterRuleArgs, Inputs.FirewallPolicyNatRuleArgs>>? _rules;

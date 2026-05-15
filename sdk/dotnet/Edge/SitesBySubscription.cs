@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Edge
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SitesBySubscription(string name, SitesBySubscriptionArgs args, CustomResourceOptions? options = null)
+        public SitesBySubscription(string name, SitesBySubscriptionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:edge:SitesBySubscription", name, args ?? new SitesBySubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Site
         /// </summary>
-        [Input("siteName", required: true)]
-        public Input<string> SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         public SitesBySubscriptionArgs()
         {

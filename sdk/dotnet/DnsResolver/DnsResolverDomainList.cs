@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver domain list.
         /// </summary>
-        [Input("dnsResolverDomainListName", required: true)]
-        public Input<string> DnsResolverDomainListName { get; set; } = null!;
+        [Input("dnsResolverDomainListName")]
+        public Input<string>? DnsResolverDomainListName { get; set; }
 
         [Input("domains", required: true)]
         private InputList<string>? _domains;

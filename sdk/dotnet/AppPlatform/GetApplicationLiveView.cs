@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Application Live View.
         /// </summary>
-        [Input("applicationLiveViewName")]
-        public string? ApplicationLiveViewName { get; set; }
+        [Input("applicationLiveViewName", required: true)]
+        public string ApplicationLiveViewName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Application Live View.
         /// </summary>
-        [Input("applicationLiveViewName")]
-        public Input<string>? ApplicationLiveViewName { get; set; }
+        [Input("applicationLiveViewName", required: true)]
+        public Input<string> ApplicationLiveViewName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

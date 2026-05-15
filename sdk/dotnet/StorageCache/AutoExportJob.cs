@@ -229,8 +229,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("autoExportJobName", required: true)]
-        public Input<string> AutoExportJobName { get; set; } = null!;
+        [Input("autoExportJobName")]
+        public Input<string>? AutoExportJobName { get; set; }
 
         [Input("autoExportPrefixes")]
         private InputList<string>? _autoExportPrefixes;

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the Configuration
         /// </summary>
-        [Input("configurationName")]
-        public string? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public string ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the Configuration
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

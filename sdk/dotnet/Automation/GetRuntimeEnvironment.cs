@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the Runtime Environment.
         /// </summary>
-        [Input("runtimeEnvironmentName")]
-        public string? RuntimeEnvironmentName { get; set; }
+        [Input("runtimeEnvironmentName", required: true)]
+        public string RuntimeEnvironmentName { get; set; } = null!;
 
         public GetRuntimeEnvironmentArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the Runtime Environment.
         /// </summary>
-        [Input("runtimeEnvironmentName")]
-        public Input<string>? RuntimeEnvironmentName { get; set; }
+        [Input("runtimeEnvironmentName", required: true)]
+        public Input<string> RuntimeEnvironmentName { get; set; } = null!;
 
         public GetRuntimeEnvironmentInvokeArgs()
         {

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution
         /// </summary>
-        [Input("solutionName", required: true)]
-        public Input<string> SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public Input<string>? SolutionName { get; set; }
 
         /// <summary>
         /// Name of the target

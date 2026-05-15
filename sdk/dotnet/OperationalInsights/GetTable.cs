@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the table.
         /// </summary>
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the table.
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

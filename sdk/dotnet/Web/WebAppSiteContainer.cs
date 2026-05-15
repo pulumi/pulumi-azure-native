@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site Container Name
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.EnvironmentVariableArgs>? _environmentVariables;

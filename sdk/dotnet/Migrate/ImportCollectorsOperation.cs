@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Import collector ARM name
         /// </summary>
-        [Input("importCollectorName", required: true)]
-        public Input<string> ImportCollectorName { get; set; } = null!;
+        [Input("importCollectorName")]
+        public Input<string>? ImportCollectorName { get; set; }
 
         /// <summary>
         /// Assessment Project Name

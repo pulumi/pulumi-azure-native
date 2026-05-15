@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Service resource.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         /// <summary>
         /// Sku of the Service resource

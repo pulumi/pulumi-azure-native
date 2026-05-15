@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The name of the Azure AD Administrator.
         /// </summary>
-        [Input("administratorName")]
-        public string? AdministratorName { get; set; }
+        [Input("administratorName", required: true)]
+        public string AdministratorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The name of the Azure AD Administrator.
         /// </summary>
-        [Input("administratorName")]
-        public Input<string>? AdministratorName { get; set; }
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

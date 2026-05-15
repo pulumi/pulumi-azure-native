@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public string? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

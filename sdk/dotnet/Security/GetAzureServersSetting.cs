@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2023-05-01.
         /// </summary>
-        public static Task<GetAzureServersSettingResult> InvokeAsync(GetAzureServersSettingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAzureServersSettingResult> InvokeAsync(GetAzureServersSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureServersSettingResult>("azure-native:security:getAzureServersSetting", args ?? new GetAzureServersSettingArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2023-05-01.
         /// </summary>
-        public static Output<GetAzureServersSettingResult> Invoke(GetAzureServersSettingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAzureServersSettingResult> Invoke(GetAzureServersSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureServersSettingResult>("azure-native:security:getAzureServersSetting", args ?? new GetAzureServersSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The kind of the server vulnerability assessments setting
         /// </summary>
-        [Input("settingKind")]
-        public string? SettingKind { get; set; }
+        [Input("settingKind", required: true)]
+        public string SettingKind { get; set; } = null!;
 
         public GetAzureServersSettingArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The kind of the server vulnerability assessments setting
         /// </summary>
-        [Input("settingKind")]
-        public Input<string>? SettingKind { get; set; }
+        [Input("settingKind", required: true)]
+        public Input<string> SettingKind { get; set; } = null!;
 
         public GetAzureServersSettingInvokeArgs()
         {

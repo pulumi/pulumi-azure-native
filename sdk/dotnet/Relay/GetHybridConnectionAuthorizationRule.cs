@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName")]
-        public string? AuthorizationRuleName { get; set; }
+        [Input("authorizationRuleName", required: true)]
+        public string AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
         /// The hybrid connection name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName")]
-        public Input<string>? AuthorizationRuleName { get; set; }
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
         /// The hybrid connection name.

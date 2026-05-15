@@ -212,8 +212,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the marketplace gallery image
         /// </summary>
-        [Input("marketplaceGalleryImageName", required: true)]
-        public Input<string> MarketplaceGalleryImageName { get; set; } = null!;
+        [Input("marketplaceGalleryImageName")]
+        public Input<string>? MarketplaceGalleryImageName { get; set; }
 
         /// <summary>
         /// Operating system type that the gallery image uses [Windows, Linux]

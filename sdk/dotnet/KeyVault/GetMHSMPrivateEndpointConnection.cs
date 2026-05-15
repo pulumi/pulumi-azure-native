@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the private endpoint connection associated with the managed hsm pool.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public string? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group that contains the managed HSM pool.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the private endpoint connection associated with the managed hsm pool.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group that contains the managed HSM pool.

@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the infrastructure resource in the space.
         /// </summary>
-        [Input("infrastructureResourceName", required: true)]
-        public Input<string> InfrastructureResourceName { get; set; } = null!;
+        [Input("infrastructureResourceName")]
+        public Input<string>? InfrastructureResourceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

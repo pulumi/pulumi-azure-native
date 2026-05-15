@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the summary logs. Must not contain '/'.
         /// </summary>
-        [Input("summaryLogsName")]
-        public string? SummaryLogsName { get; set; }
+        [Input("summaryLogsName", required: true)]
+        public string SummaryLogsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the summary logs. Must not contain '/'.
         /// </summary>
-        [Input("summaryLogsName")]
-        public Input<string>? SummaryLogsName { get; set; }
+        [Input("summaryLogsName", required: true)]
+        public Input<string> SummaryLogsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

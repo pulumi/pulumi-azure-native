@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the global reach connection
         /// </summary>
-        [Input("globalReachConnectionName", required: true)]
-        public Input<string> GlobalReachConnectionName { get; set; } = null!;
+        [Input("globalReachConnectionName")]
+        public Input<string>? GlobalReachConnectionName { get; set; }
 
         /// <summary>
         /// Identifier of the ExpressRoute Circuit to peer with in the global reach

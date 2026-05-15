@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Storage Sync Service resource.
         /// </summary>
-        [Input("storageSyncServiceName")]
-        public string? StorageSyncServiceName { get; set; }
+        [Input("storageSyncServiceName", required: true)]
+        public string StorageSyncServiceName { get; set; } = null!;
 
         public GetStorageSyncServiceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Storage Sync Service resource.
         /// </summary>
-        [Input("storageSyncServiceName")]
-        public Input<string>? StorageSyncServiceName { get; set; }
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
 
         public GetStorageSyncServiceInvokeArgs()
         {

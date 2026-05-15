@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

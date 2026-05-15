@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Widget
         /// <summary>
         /// The name of the Employee
         /// </summary>
-        [Input("employeeName")]
-        public string? EmployeeName { get; set; }
+        [Input("employeeName", required: true)]
+        public string EmployeeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Widget
         /// <summary>
         /// The name of the Employee
         /// </summary>
-        [Input("employeeName")]
-        public Input<string>? EmployeeName { get; set; }
+        [Input("employeeName", required: true)]
+        public Input<string> EmployeeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

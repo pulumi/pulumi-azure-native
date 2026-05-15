@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the bare metal machine key set.
         /// </summary>
-        [Input("bareMetalMachineKeySetName")]
-        public string? BareMetalMachineKeySetName { get; set; }
+        [Input("bareMetalMachineKeySetName", required: true)]
+        public string BareMetalMachineKeySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the bare metal machine key set.
         /// </summary>
-        [Input("bareMetalMachineKeySetName")]
-        public Input<string>? BareMetalMachineKeySetName { get; set; }
+        [Input("bareMetalMachineKeySetName", required: true)]
+        public Input<string> BareMetalMachineKeySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.

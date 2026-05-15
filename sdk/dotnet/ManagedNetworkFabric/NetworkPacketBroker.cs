@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Packet Broker.
         /// </summary>
-        [Input("networkPacketBrokerName", required: true)]
-        public Input<string> NetworkPacketBrokerName { get; set; } = null!;
+        [Input("networkPacketBrokerName")]
+        public Input<string>? NetworkPacketBrokerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

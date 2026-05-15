@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai Tool Label
         /// </summary>
-        [Input("raiToolConnectionName", required: true)]
-        public Input<string> RaiToolConnectionName { get; set; } = null!;
+        [Input("raiToolConnectionName")]
+        public Input<string>? RaiToolConnectionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the security policy under the profile.
         /// </summary>
-        [Input("securityPolicyName", required: true)]
-        public Input<string> SecurityPolicyName { get; set; } = null!;
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         public SecurityPolicyArgs()
         {

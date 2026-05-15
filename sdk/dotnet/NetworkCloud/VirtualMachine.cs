@@ -407,8 +407,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         /// <summary>
         /// The type of the device model to use.

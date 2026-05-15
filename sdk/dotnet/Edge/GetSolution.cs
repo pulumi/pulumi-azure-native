@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution
         /// </summary>
-        [Input("solutionName")]
-        public string? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public string SolutionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the target
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution
         /// </summary>
-        [Input("solutionName")]
-        public Input<string>? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the target

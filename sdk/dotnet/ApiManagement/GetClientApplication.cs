@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationId")]
-        public string? ClientApplicationId { get; set; }
+        [Input("clientApplicationId", required: true)]
+        public string ClientApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationId")]
-        public Input<string>? ClientApplicationId { get; set; }
+        [Input("clientApplicationId", required: true)]
+        public Input<string> ClientApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

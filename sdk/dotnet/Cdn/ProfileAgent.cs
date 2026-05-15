@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the web agent association.
         /// </summary>
-        [Input("agentName", required: true)]
-        public Input<string> AgentName { get; set; } = null!;
+        [Input("agentName")]
+        public Input<string>? AgentName { get; set; }
 
         [Input("customDomains", required: true)]
         private InputList<Inputs.ResourceReferenceArgs>? _customDomains;

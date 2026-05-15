@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ManagedOps
         /// 
         /// Uses Azure REST API version 2025-07-28-preview.
         /// </summary>
-        public static Task<GetManagedOpResult> InvokeAsync(GetManagedOpArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetManagedOpResult> InvokeAsync(GetManagedOpArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedOpResult>("azure-native:managedops:getManagedOp", args ?? new GetManagedOpArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ManagedOps
         /// 
         /// Uses Azure REST API version 2025-07-28-preview.
         /// </summary>
-        public static Output<GetManagedOpResult> Invoke(GetManagedOpInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetManagedOpResult> Invoke(GetManagedOpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedOpResult>("azure-native:managedops:getManagedOp", args ?? new GetManagedOpInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManagedOps
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("managedOpsName")]
-        public string? ManagedOpsName { get; set; }
+        [Input("managedOpsName", required: true)]
+        public string ManagedOpsName { get; set; } = null!;
 
         public GetManagedOpArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.ManagedOps
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("managedOpsName")]
-        public Input<string>? ManagedOpsName { get; set; }
+        [Input("managedOpsName", required: true)]
+        public Input<string> ManagedOpsName { get; set; } = null!;
 
         public GetManagedOpInvokeArgs()
         {

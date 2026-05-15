@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter encryption set.
         /// </summary>
-        [Input("encryptionSetName")]
-        public string? EncryptionSetName { get; set; }
+        [Input("encryptionSetName", required: true)]
+        public string EncryptionSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter encryption set.
         /// </summary>
-        [Input("encryptionSetName")]
-        public Input<string>? EncryptionSetName { get; set; }
+        [Input("encryptionSetName", required: true)]
+        public Input<string> EncryptionSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

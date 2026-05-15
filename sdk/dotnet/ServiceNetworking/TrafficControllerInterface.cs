@@ -178,8 +178,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// traffic controller name for path
         /// </summary>
-        [Input("trafficControllerName", required: true)]
-        public Input<string> TrafficControllerName { get; set; } = null!;
+        [Input("trafficControllerName")]
+        public Input<string>? TrafficControllerName { get; set; }
 
         public TrafficControllerInterfaceArgs()
         {

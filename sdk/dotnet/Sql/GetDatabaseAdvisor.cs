@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the Database Advisor.
         /// </summary>
-        [Input("advisorName")]
-        public string? AdvisorName { get; set; }
+        [Input("advisorName", required: true)]
+        public string AdvisorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the Database Advisor.
         /// </summary>
-        [Input("advisorName")]
-        public Input<string>? AdvisorName { get; set; }
+        [Input("advisorName", required: true)]
+        public Input<string> AdvisorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database.

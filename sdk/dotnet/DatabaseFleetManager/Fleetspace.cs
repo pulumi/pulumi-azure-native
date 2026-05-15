@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the fleetspace.
         /// </summary>
-        [Input("fleetspaceName", required: true)]
-        public Input<string> FleetspaceName { get; set; } = null!;
+        [Input("fleetspaceName")]
+        public Input<string>? FleetspaceName { get; set; }
 
         /// <summary>
         /// A Fleetspace properties.

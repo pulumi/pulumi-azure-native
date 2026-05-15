@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Internet Gateway rule.
         /// </summary>
-        [Input("internetGatewayRuleName", required: true)]
-        public Input<string> InternetGatewayRuleName { get; set; } = null!;
+        [Input("internetGatewayRuleName")]
+        public Input<string>? InternetGatewayRuleName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

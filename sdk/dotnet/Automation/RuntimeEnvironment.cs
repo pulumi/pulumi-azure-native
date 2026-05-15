@@ -174,8 +174,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the Runtime Environment.
         /// </summary>
-        [Input("runtimeEnvironmentName", required: true)]
-        public Input<string> RuntimeEnvironmentName { get; set; } = null!;
+        [Input("runtimeEnvironmentName")]
+        public Input<string>? RuntimeEnvironmentName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

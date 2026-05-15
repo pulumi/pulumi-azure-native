@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The connection gateway name
         /// </summary>
-        [Input("connectionGatewayName", required: true)]
-        public Input<string> ConnectionGatewayName { get; set; } = null!;
+        [Input("connectionGatewayName")]
+        public Input<string>? ConnectionGatewayName { get; set; }
 
         /// <summary>
         /// Resource location

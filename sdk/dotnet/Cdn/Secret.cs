@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Secret under the profile.
         /// </summary>
-        [Input("secretName", required: true)]
-        public Input<string> SecretName { get; set; } = null!;
+        [Input("secretName")]
+        public Input<string>? SecretName { get; set; }
 
         public SecretArgs()
         {

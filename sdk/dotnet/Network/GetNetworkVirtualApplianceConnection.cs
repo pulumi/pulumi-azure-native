@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NVA connection.
         /// </summary>
-        [Input("connectionName")]
-        public string? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Virtual Appliance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NVA connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Virtual Appliance.

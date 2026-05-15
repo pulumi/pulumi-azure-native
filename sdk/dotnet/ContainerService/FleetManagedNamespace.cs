@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the fleet managed namespace resource.
         /// </summary>
-        [Input("managedNamespaceName", required: true)]
-        public Input<string> ManagedNamespaceName { get; set; } = null!;
+        [Input("managedNamespaceName")]
+        public Input<string>? ManagedNamespaceName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

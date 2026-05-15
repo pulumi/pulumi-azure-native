@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the synchronizationSetting.
         /// </summary>
-        [Input("synchronizationSettingName")]
-        public string? SynchronizationSettingName { get; set; }
+        [Input("synchronizationSettingName", required: true)]
+        public string SynchronizationSettingName { get; set; } = null!;
 
         public GetScheduledSynchronizationSettingArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the synchronizationSetting.
         /// </summary>
-        [Input("synchronizationSettingName")]
-        public Input<string>? SynchronizationSettingName { get; set; }
+        [Input("synchronizationSettingName", required: true)]
+        public Input<string> SynchronizationSettingName { get; set; } = null!;
 
         public GetScheduledSynchronizationSettingInvokeArgs()
         {

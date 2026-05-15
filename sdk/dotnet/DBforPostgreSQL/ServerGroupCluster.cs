@@ -323,8 +323,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// If public access is enabled on coordinator.

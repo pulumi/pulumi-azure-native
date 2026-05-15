@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the JIT request.
         /// </summary>
-        [Input("jitRequestName")]
-        public string? JitRequestName { get; set; }
+        [Input("jitRequestName", required: true)]
+        public string JitRequestName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the JIT request.
         /// </summary>
-        [Input("jitRequestName")]
-        public Input<string>? JitRequestName { get; set; }
+        [Input("jitRequestName", required: true)]
+        public Input<string> JitRequestName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

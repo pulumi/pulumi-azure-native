@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the workbook resource. The value must be an UUID.
         /// </summary>
-        [Input("resourceName")]
-        public string? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetWorkbookArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the workbook resource. The value must be an UUID.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetWorkbookInvokeArgs()
         {

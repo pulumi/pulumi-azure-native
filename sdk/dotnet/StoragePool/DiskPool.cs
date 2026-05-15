@@ -185,8 +185,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the Disk Pool.
         /// </summary>
-        [Input("diskPoolName", required: true)]
-        public Input<string> DiskPoolName { get; set; } = null!;
+        [Input("diskPoolName")]
+        public Input<string>? DiskPoolName { get; set; }
 
         [Input("disks")]
         private InputList<Inputs.DiskArgs>? _disks;

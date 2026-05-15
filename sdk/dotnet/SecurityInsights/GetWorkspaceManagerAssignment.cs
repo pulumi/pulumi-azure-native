@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The name of the workspace manager assignment
         /// </summary>
-        [Input("workspaceManagerAssignmentName")]
-        public string? WorkspaceManagerAssignmentName { get; set; }
+        [Input("workspaceManagerAssignmentName", required: true)]
+        public string WorkspaceManagerAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The name of the workspace manager assignment
         /// </summary>
-        [Input("workspaceManagerAssignmentName")]
-        public Input<string>? WorkspaceManagerAssignmentName { get; set; }
+        [Input("workspaceManagerAssignmentName", required: true)]
+        public Input<string> WorkspaceManagerAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

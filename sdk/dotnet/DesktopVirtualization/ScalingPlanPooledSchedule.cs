@@ -335,8 +335,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the ScalingPlanSchedule
         /// </summary>
-        [Input("scalingPlanScheduleName", required: true)]
-        public Input<string> ScalingPlanScheduleName { get; set; } = null!;
+        [Input("scalingPlanScheduleName")]
+        public Input<string>? ScalingPlanScheduleName { get; set; }
 
         public ScalingPlanPooledScheduleArgs()
         {

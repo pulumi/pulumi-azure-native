@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// The name of the IacProfile.
         /// </summary>
-        [Input("iacProfileName")]
-        public string? IacProfileName { get; set; }
+        [Input("iacProfileName", required: true)]
+        public string IacProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// The name of the IacProfile.
         /// </summary>
-        [Input("iacProfileName")]
-        public Input<string>? IacProfileName { get; set; }
+        [Input("iacProfileName", required: true)]
+        public Input<string> IacProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

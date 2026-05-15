@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Private endpoint connection name
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public string? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Private endpoint connection name
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

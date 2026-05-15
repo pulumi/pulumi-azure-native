@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Peering
         /// 
         /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Peering
         /// 
         /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The peer ASN name.
         /// </summary>
-        [Input("peerAsnName")]
-        public string? PeerAsnName { get; set; }
+        [Input("peerAsnName", required: true)]
+        public string PeerAsnName { get; set; } = null!;
 
         public GetPeerAsnArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The peer ASN name.
         /// </summary>
-        [Input("peerAsnName")]
-        public Input<string>? PeerAsnName { get; set; }
+        [Input("peerAsnName", required: true)]
+        public Input<string> PeerAsnName { get; set; } = null!;
 
         public GetPeerAsnInvokeArgs()
         {

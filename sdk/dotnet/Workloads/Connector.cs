@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the connector resource
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// Managed service identity (user assigned identities)

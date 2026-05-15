@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicSchema
         /// </summary>
-        [Input("dynamicSchemaName")]
-        public string? DynamicSchemaName { get; set; }
+        [Input("dynamicSchemaName", required: true)]
+        public string DynamicSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicSchema
         /// </summary>
-        [Input("dynamicSchemaName")]
-        public Input<string>? DynamicSchemaName { get; set; }
+        [Input("dynamicSchemaName", required: true)]
+        public Input<string> DynamicSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

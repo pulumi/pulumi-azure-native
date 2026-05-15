@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// The name of the replica.
         /// </summary>
-        [Input("replicaName", required: true)]
-        public Input<string> ReplicaName { get; set; } = null!;
+        [Input("replicaName")]
+        public Input<string>? ReplicaName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

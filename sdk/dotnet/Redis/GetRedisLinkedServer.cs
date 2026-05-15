@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the linked server.
         /// </summary>
-        [Input("linkedServerName")]
-        public string? LinkedServerName { get; set; }
+        [Input("linkedServerName", required: true)]
+        public string LinkedServerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the redis cache.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the linked server.
         /// </summary>
-        [Input("linkedServerName")]
-        public Input<string>? LinkedServerName { get; set; }
+        [Input("linkedServerName", required: true)]
+        public Input<string> LinkedServerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the redis cache.

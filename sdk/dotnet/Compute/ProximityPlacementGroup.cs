@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the proximity placement group.
         /// </summary>
-        [Input("proximityPlacementGroupName", required: true)]
-        public Input<string> ProximityPlacementGroupName { get; set; } = null!;
+        [Input("proximityPlacementGroupName")]
+        public Input<string>? ProximityPlacementGroupName { get; set; }
 
         /// <summary>
         /// Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.

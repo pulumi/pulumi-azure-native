@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("schemaId", required: true)]
-        public Input<string> SchemaId { get; set; } = null!;
+        [Input("schemaId")]
+        public Input<string>? SchemaId { get; set; }
 
         /// <summary>
         /// Schema Type. Immutable.

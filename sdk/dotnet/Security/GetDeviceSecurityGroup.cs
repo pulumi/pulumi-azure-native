@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
-        [Input("deviceSecurityGroupName")]
-        public string? DeviceSecurityGroupName { get; set; }
+        [Input("deviceSecurityGroupName", required: true)]
+        public string DeviceSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
-        [Input("deviceSecurityGroupName")]
-        public Input<string>? DeviceSecurityGroupName { get; set; }
+        [Input("deviceSecurityGroupName", required: true)]
+        public Input<string> DeviceSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

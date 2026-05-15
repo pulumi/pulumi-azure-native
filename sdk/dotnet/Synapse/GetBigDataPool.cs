@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Big Data pool name
         /// </summary>
-        [Input("bigDataPoolName")]
-        public string? BigDataPoolName { get; set; }
+        [Input("bigDataPoolName", required: true)]
+        public string BigDataPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Big Data pool name
         /// </summary>
-        [Input("bigDataPoolName")]
-        public Input<string>? BigDataPoolName { get; set; }
+        [Input("bigDataPoolName", required: true)]
+        public Input<string> BigDataPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

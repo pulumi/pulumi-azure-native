@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The id of the firmware.
         /// </summary>
-        [Input("firmwareId")]
-        public string? FirmwareId { get; set; }
+        [Input("firmwareId", required: true)]
+        public string FirmwareId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The id of the firmware.
         /// </summary>
-        [Input("firmwareId")]
-        public Input<string>? FirmwareId { get; set; }
+        [Input("firmwareId", required: true)]
+        public Input<string> FirmwareId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

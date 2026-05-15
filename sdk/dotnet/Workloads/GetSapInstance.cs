@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Instance resource for SAP Migration.
         /// </summary>
-        [Input("sapInstanceName")]
-        public string? SapInstanceName { get; set; }
+        [Input("sapInstanceName", required: true)]
+        public string SapInstanceName { get; set; } = null!;
 
         public GetSapInstanceArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Instance resource for SAP Migration.
         /// </summary>
-        [Input("sapInstanceName")]
-        public Input<string>? SapInstanceName { get; set; }
+        [Input("sapInstanceName", required: true)]
+        public Input<string> SapInstanceName { get; set; } = null!;
 
         public GetSapInstanceInvokeArgs()
         {

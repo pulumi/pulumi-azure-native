@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticBackupVault
         /// </summary>
-        [Input("backupVaultName", required: true)]
-        public Input<string> BackupVaultName { get; set; } = null!;
+        [Input("backupVaultName")]
+        public Input<string>? BackupVaultName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

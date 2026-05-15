@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Virtual Router.
         /// </summary>
-        [Input("virtualRouterName")]
-        public string? VirtualRouterName { get; set; }
+        [Input("virtualRouterName", required: true)]
+        public string VirtualRouterName { get; set; } = null!;
 
         public GetVirtualRouterArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Virtual Router.
         /// </summary>
-        [Input("virtualRouterName")]
-        public Input<string>? VirtualRouterName { get; set; }
+        [Input("virtualRouterName", required: true)]
+        public Input<string> VirtualRouterName { get; set; } = null!;
 
         public GetVirtualRouterInvokeArgs()
         {

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
         /// </summary>
-        [Input("relationshipName")]
-        public string? RelationshipName { get; set; }
+        [Input("relationshipName", required: true)]
+        public string RelationshipName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
         /// </summary>
-        [Input("relationshipName")]
-        public Input<string>? RelationshipName { get; set; }
+        [Input("relationshipName", required: true)]
+        public Input<string> RelationshipName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

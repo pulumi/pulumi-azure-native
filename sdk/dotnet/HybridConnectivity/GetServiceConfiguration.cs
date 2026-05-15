@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// The service name.
         /// </summary>
-        [Input("serviceConfigurationName")]
-        public string? ServiceConfigurationName { get; set; }
+        [Input("serviceConfigurationName", required: true)]
+        public string ServiceConfigurationName { get; set; } = null!;
 
         public GetServiceConfigurationArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// The service name.
         /// </summary>
-        [Input("serviceConfigurationName")]
-        public Input<string>? ServiceConfigurationName { get; set; }
+        [Input("serviceConfigurationName", required: true)]
+        public Input<string> ServiceConfigurationName { get; set; } = null!;
 
         public GetServiceConfigurationInvokeArgs()
         {

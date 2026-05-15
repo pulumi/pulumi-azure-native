@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Name of the private endpoint connection associated with the Cloud HSM Cluster.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public Input<string> PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public Input<string>? PeConnectionName { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

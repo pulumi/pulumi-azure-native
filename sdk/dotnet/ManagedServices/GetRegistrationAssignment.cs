@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// The GUID of the registration assignment.
         /// </summary>
-        [Input("registrationAssignmentId")]
-        public string? RegistrationAssignmentId { get; set; }
+        [Input("registrationAssignmentId", required: true)]
+        public string RegistrationAssignmentId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// The GUID of the registration assignment.
         /// </summary>
-        [Input("registrationAssignmentId")]
-        public Input<string>? RegistrationAssignmentId { get; set; }
+        [Input("registrationAssignmentId", required: true)]
+        public Input<string> RegistrationAssignmentId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource.

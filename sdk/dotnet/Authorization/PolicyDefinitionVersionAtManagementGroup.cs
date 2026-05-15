@@ -196,8 +196,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The policy definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         /// </summary>
-        [Input("policyDefinitionVersion", required: true)]
-        public Input<string> PolicyDefinitionVersion { get; set; } = null!;
+        [Input("policyDefinitionVersion")]
+        public Input<string>? PolicyDefinitionVersion { get; set; }
 
         /// <summary>
         /// The policy rule.

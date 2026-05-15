@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job agent to be created or updated.
         /// </summary>
-        [Input("jobAgentName", required: true)]
-        public Input<string> JobAgentName { get; set; } = null!;
+        [Input("jobAgentName")]
+        public Input<string>? JobAgentName { get; set; }
 
         /// <summary>
         /// Resource location.

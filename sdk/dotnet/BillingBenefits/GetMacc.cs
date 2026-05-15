@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of primary MACC.
         /// </summary>
-        [Input("maccName")]
-        public string? MaccName { get; set; }
+        [Input("maccName", required: true)]
+        public string MaccName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of primary MACC.
         /// </summary>
-        [Input("maccName")]
-        public Input<string>? MaccName { get; set; }
+        [Input("maccName", required: true)]
+        public Input<string> MaccName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

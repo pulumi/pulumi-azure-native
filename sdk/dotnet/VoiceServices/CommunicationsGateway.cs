@@ -254,8 +254,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Unique identifier for this deployment
         /// </summary>
-        [Input("communicationsGatewayName", required: true)]
-        public Input<string> CommunicationsGatewayName { get; set; } = null!;
+        [Input("communicationsGatewayName")]
+        public Input<string>? CommunicationsGatewayName { get; set; }
 
         /// <summary>
         /// How to connect back to the operator network, e.g. MAPS

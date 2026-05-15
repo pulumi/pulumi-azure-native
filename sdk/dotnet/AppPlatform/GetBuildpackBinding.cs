@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Buildpack Binding Name
         /// </summary>
-        [Input("buildpackBindingName")]
-        public string? BuildpackBindingName { get; set; }
+        [Input("buildpackBindingName", required: true)]
+        public string BuildpackBindingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Buildpack Binding Name
         /// </summary>
-        [Input("buildpackBindingName")]
-        public Input<string>? BuildpackBindingName { get; set; }
+        [Input("buildpackBindingName", required: true)]
+        public Input<string> BuildpackBindingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

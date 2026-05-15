@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
         /// </summary>
-        public static Task<GetSubscriptionRaiPolicyResult> InvokeAsync(GetSubscriptionRaiPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionRaiPolicyResult> InvokeAsync(GetSubscriptionRaiPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionRaiPolicyResult>("azure-native:cognitiveservices:getSubscriptionRaiPolicy", args ?? new GetSubscriptionRaiPolicyArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
         /// </summary>
-        public static Output<GetSubscriptionRaiPolicyResult> Invoke(GetSubscriptionRaiPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionRaiPolicyResult> Invoke(GetSubscriptionRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionRaiPolicyResult>("azure-native:cognitiveservices:getSubscriptionRaiPolicy", args ?? new GetSubscriptionRaiPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiPolicy associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiPolicyName")]
-        public string? RaiPolicyName { get; set; }
+        [Input("raiPolicyName", required: true)]
+        public string RaiPolicyName { get; set; } = null!;
 
         public GetSubscriptionRaiPolicyArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiPolicy associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiPolicyName")]
-        public Input<string>? RaiPolicyName { get; set; }
+        [Input("raiPolicyName", required: true)]
+        public Input<string> RaiPolicyName { get; set; } = null!;
 
         public GetSubscriptionRaiPolicyInvokeArgs()
         {

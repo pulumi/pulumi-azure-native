@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// Instance name.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         [Input("iotHubs")]
         private InputList<Inputs.IotHubSettingsArgs>? _iotHubs;

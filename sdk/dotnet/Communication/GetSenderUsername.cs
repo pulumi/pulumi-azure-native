@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The valid sender Username.
         /// </summary>
-        [Input("senderUsername")]
-        public string? SenderUsername { get; set; }
+        [Input("senderUsername", required: true)]
+        public string SenderUsername { get; set; } = null!;
 
         public GetSenderUsernameArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The valid sender Username.
         /// </summary>
-        [Input("senderUsername")]
-        public Input<string>? SenderUsername { get; set; }
+        [Input("senderUsername", required: true)]
+        public Input<string> SenderUsername { get; set; } = null!;
 
         public GetSenderUsernameInvokeArgs()
         {

@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered device.
         /// </summary>
-        [Input("discoveredDeviceName", required: true)]
-        public Input<string> DiscoveredDeviceName { get; set; } = null!;
+        [Input("discoveredDeviceName")]
+        public Input<string>? DiscoveredDeviceName { get; set; }
 
         /// <summary>
         /// Identifier used to detect changes in the discovered device.

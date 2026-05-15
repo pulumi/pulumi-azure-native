@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("dataManagerForAgricultureResourceName")]
-        public string? DataManagerForAgricultureResourceName { get; set; }
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public string DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("dataManagerForAgricultureResourceName")]
-        public Input<string>? DataManagerForAgricultureResourceName { get; set; }
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

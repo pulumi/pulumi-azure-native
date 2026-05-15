@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name (guid) of the role management policy to get.
         /// </summary>
-        [Input("roleManagementPolicyName")]
-        public string? RoleManagementPolicyName { get; set; }
+        [Input("roleManagementPolicyName", required: true)]
+        public string RoleManagementPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role management policy.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name (guid) of the role management policy to get.
         /// </summary>
-        [Input("roleManagementPolicyName")]
-        public Input<string>? RoleManagementPolicyName { get; set; }
+        [Input("roleManagementPolicyName", required: true)]
+        public Input<string> RoleManagementPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role management policy.

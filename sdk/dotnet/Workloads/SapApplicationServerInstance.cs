@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Application Server instance resource.
         /// </summary>
-        [Input("applicationInstanceName", required: true)]
-        public Input<string> ApplicationInstanceName { get; set; } = null!;
+        [Input("applicationInstanceName")]
+        public Input<string>? ApplicationInstanceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

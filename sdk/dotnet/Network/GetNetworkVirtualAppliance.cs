@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("networkVirtualApplianceName")]
-        public string? NetworkVirtualApplianceName { get; set; }
+        [Input("networkVirtualApplianceName", required: true)]
+        public string NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("networkVirtualApplianceName")]
-        public Input<string>? NetworkVirtualApplianceName { get; set; }
+        [Input("networkVirtualApplianceName", required: true)]
+        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

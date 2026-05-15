@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Dapr Component.
         /// </summary>
-        [Input("componentName", required: true)]
-        public Input<string> ComponentName { get; set; } = null!;
+        [Input("componentName")]
+        public Input<string>? ComponentName { get; set; }
 
         /// <summary>
         /// Component type

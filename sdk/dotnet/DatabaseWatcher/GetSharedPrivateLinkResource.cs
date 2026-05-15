@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The Shared Private Link resource name.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName")]
-        public string? SharedPrivateLinkResourceName { get; set; }
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public string SharedPrivateLinkResourceName { get; set; } = null!;
 
         /// <summary>
         /// The database watcher name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The Shared Private Link resource name.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName")]
-        public Input<string>? SharedPrivateLinkResourceName { get; set; }
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
 
         /// <summary>
         /// The database watcher name.

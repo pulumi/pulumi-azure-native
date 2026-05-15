@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource name
         /// </summary>
-        [Input("organizationName")]
-        public string? OrganizationName { get; set; }
+        [Input("organizationName", required: true)]
+        public string OrganizationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource name
         /// </summary>
-        [Input("organizationName")]
-        public Input<string>? OrganizationName { get; set; }
+        [Input("organizationName", required: true)]
+        public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

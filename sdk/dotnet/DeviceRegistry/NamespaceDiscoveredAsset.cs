@@ -364,8 +364,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the discovered asset.
         /// </summary>
-        [Input("discoveredAssetName", required: true)]
-        public Input<string> DiscoveredAssetName { get; set; } = null!;
+        [Input("discoveredAssetName")]
+        public Input<string>? DiscoveredAssetName { get; set; }
 
         /// <summary>
         /// Identifier used to detect changes in the asset.

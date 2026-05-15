@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Load Test name
         /// </summary>
-        [Input("loadTestName", required: true)]
-        public Input<string> LoadTestName { get; set; } = null!;
+        [Input("loadTestName")]
+        public Input<string>? LoadTestName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

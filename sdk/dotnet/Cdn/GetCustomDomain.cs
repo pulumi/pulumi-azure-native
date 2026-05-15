@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the custom domain within an endpoint.
         /// </summary>
-        [Input("customDomainName")]
-        public string? CustomDomainName { get; set; }
+        [Input("customDomainName", required: true)]
+        public string CustomDomainName { get; set; } = null!;
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the custom domain within an endpoint.
         /// </summary>
-        [Input("customDomainName")]
-        public Input<string>? CustomDomainName { get; set; }
+        [Input("customDomainName", required: true)]
+        public Input<string> CustomDomainName { get; set; } = null!;
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Custom certificate name
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Custom certificate name
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

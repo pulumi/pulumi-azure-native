@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ManagedOps
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ManagedOp(string name, ManagedOpArgs args, CustomResourceOptions? options = null)
+        public ManagedOp(string name, ManagedOpArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:managedops:ManagedOp", name, args ?? new ManagedOpArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.ManagedOps
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("managedOpsName", required: true)]
-        public Input<string> ManagedOpsName { get; set; } = null!;
+        [Input("managedOpsName")]
+        public Input<string>? ManagedOpsName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

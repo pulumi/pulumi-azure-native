@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Bookshelf
         /// </summary>
-        [Input("bookshelfName")]
-        public string? BookshelfName { get; set; }
+        [Input("bookshelfName", required: true)]
+        public string BookshelfName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Bookshelf
         /// </summary>
-        [Input("bookshelfName")]
-        public Input<string>? BookshelfName { get; set; }
+        [Input("bookshelfName", required: true)]
+        public Input<string> BookshelfName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

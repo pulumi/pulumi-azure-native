@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the marketplace gallery image
         /// </summary>
-        [Input("marketplaceGalleryImageName")]
-        public string? MarketplaceGalleryImageName { get; set; }
+        [Input("marketplaceGalleryImageName", required: true)]
+        public string MarketplaceGalleryImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the marketplace gallery image
         /// </summary>
-        [Input("marketplaceGalleryImageName")]
-        public Input<string>? MarketplaceGalleryImageName { get; set; }
+        [Input("marketplaceGalleryImageName", required: true)]
+        public Input<string> MarketplaceGalleryImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

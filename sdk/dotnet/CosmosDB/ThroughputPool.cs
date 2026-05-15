@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB Throughput Pool name.
         /// </summary>
-        [Input("throughputPoolName", required: true)]
-        public Input<string> ThroughputPoolName { get; set; } = null!;
+        [Input("throughputPoolName")]
+        public Input<string>? ThroughputPoolName { get; set; }
 
         public ThroughputPoolArgs()
         {

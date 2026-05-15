@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Marketplace
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public UserSolution(string name, UserSolutionArgs args, CustomResourceOptions? options = null)
+        public UserSolution(string name, UserSolutionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:marketplace:UserSolution", name, args ?? new UserSolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The solution id
         /// </summary>
-        [Input("solutionId", required: true)]
-        public Input<string> SolutionId { get; set; } = null!;
+        [Input("solutionId")]
+        public Input<string>? SolutionId { get; set; }
 
         public UserSolutionArgs()
         {

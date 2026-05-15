@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Advisor
         /// 
         /// Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:advisor:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Advisor
         /// 
         /// Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:advisor:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Advisor assessment name.
         /// </summary>
-        [Input("assessmentName")]
-        public string? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public string AssessmentName { get; set; } = null!;
 
         public GetAssessmentArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Advisor assessment name.
         /// </summary>
-        [Input("assessmentName")]
-        public Input<string>? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
 
         public GetAssessmentInvokeArgs()
         {

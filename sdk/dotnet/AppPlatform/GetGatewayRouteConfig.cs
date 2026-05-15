@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Spring Cloud Gateway route config.
         /// </summary>
-        [Input("routeConfigName")]
-        public string? RouteConfigName { get; set; }
+        [Input("routeConfigName", required: true)]
+        public string RouteConfigName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Service resource.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Spring Cloud Gateway route config.
         /// </summary>
-        [Input("routeConfigName")]
-        public Input<string>? RouteConfigName { get; set; }
+        [Input("routeConfigName", required: true)]
+        public Input<string> RouteConfigName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Service resource.

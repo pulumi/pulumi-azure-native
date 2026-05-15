@@ -194,8 +194,8 @@ namespace Pulumi.AzureNative.AzureFleet
         /// <summary>
         /// The name of the Compute Fleet
         /// </summary>
-        [Input("fleetName", required: true)]
-        public Input<string> FleetName { get; set; } = null!;
+        [Input("fleetName")]
+        public Input<string>? FleetName { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network.
         /// </summary>
-        [Input("virtualNetworkName")]
-        public string? VirtualNetworkName { get; set; }
+        [Input("virtualNetworkName", required: true)]
+        public string VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network.
         /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkInvokeArgs()
         {

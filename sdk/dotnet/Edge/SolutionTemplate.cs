@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the SolutionTemplate
         /// </summary>
-        [Input("solutionTemplateName", required: true)]
-        public Input<string> SolutionTemplateName { get; set; } = null!;
+        [Input("solutionTemplateName")]
+        public Input<string>? SolutionTemplateName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

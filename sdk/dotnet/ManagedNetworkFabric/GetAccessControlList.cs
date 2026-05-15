@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Access Control List.
         /// </summary>
-        [Input("accessControlListName")]
-        public string? AccessControlListName { get; set; }
+        [Input("accessControlListName", required: true)]
+        public string AccessControlListName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Access Control List.
         /// </summary>
-        [Input("accessControlListName")]
-        public Input<string>? AccessControlListName { get; set; }
+        [Input("accessControlListName", required: true)]
+        public Input<string> AccessControlListName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -185,8 +185,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the schedule that uniquely identifies it.
         /// </summary>
-        [Input("scheduleName", required: true)]
-        public Input<string> ScheduleName { get; set; } = null!;
+        [Input("scheduleName")]
+        public Input<string>? ScheduleName { get; set; }
 
         /// <summary>
         /// Indicates whether or not this scheduled task is enabled.

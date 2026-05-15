@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnSite being retrieved.
         /// </summary>
-        [Input("vpnSiteName")]
-        public string? VpnSiteName { get; set; }
+        [Input("vpnSiteName", required: true)]
+        public string VpnSiteName { get; set; } = null!;
 
         public GetVpnSiteArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnSite being retrieved.
         /// </summary>
-        [Input("vpnSiteName")]
-        public Input<string>? VpnSiteName { get; set; }
+        [Input("vpnSiteName", required: true)]
+        public Input<string> VpnSiteName { get; set; } = null!;
 
         public GetVpnSiteInvokeArgs()
         {

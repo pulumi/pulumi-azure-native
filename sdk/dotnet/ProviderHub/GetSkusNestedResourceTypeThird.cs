@@ -78,8 +78,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The SKU.
         /// </summary>
-        [Input("sku")]
-        public string? Sku { get; set; }
+        [Input("sku", required: true)]
+        public string Sku { get; set; } = null!;
 
         public GetSkusNestedResourceTypeThirdArgs()
         {
@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The SKU.
         /// </summary>
-        [Input("sku")]
-        public Input<string>? Sku { get; set; }
+        [Input("sku", required: true)]
+        public Input<string> Sku { get; set; } = null!;
 
         public GetSkusNestedResourceTypeThirdInvokeArgs()
         {

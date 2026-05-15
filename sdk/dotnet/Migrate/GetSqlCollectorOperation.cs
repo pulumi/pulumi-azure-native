@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Sql collector ARM name.
         /// </summary>
-        [Input("collectorName")]
-        public string? CollectorName { get; set; }
+        [Input("collectorName", required: true)]
+        public string CollectorName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Sql collector ARM name.
         /// </summary>
-        [Input("collectorName")]
-        public Input<string>? CollectorName { get; set; }
+        [Input("collectorName", required: true)]
+        public Input<string> CollectorName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of domain ownership identifier.
         /// </summary>
-        [Input("domainOwnershipIdentifierName", required: true)]
-        public Input<string> DomainOwnershipIdentifierName { get; set; } = null!;
+        [Input("domainOwnershipIdentifierName")]
+        public Input<string>? DomainOwnershipIdentifierName { get; set; }
 
         /// <summary>
         /// Kind of resource.

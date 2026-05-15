@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The fabric name.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public Input<string> FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public Input<string>? FabricName { get; set; }
 
         /// <summary>
         /// Gets or sets the location of the fabric.

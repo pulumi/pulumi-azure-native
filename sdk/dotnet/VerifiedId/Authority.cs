@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.VerifiedId
         /// <summary>
         /// The ID of the authority
         /// </summary>
-        [Input("authorityName", required: true)]
-        public Input<string> AuthorityName { get; set; } = null!;
+        [Input("authorityName")]
+        public Input<string>? AuthorityName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

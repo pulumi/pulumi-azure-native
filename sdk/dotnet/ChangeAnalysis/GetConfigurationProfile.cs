@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// 
         /// Uses Azure REST API version 2020-04-01-preview.
         /// </summary>
-        public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// 
         /// Uses Azure REST API version 2020-04-01-preview.
         /// </summary>
-        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         /// </summary>
-        [Input("profileName")]
-        public string? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
         public GetConfigurationProfileArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         public GetConfigurationProfileInvokeArgs()
         {

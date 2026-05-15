@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of RegistryEndpoint resource
         /// </summary>
-        [Input("registryEndpointName")]
-        public string? RegistryEndpointName { get; set; }
+        [Input("registryEndpointName", required: true)]
+        public string RegistryEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of RegistryEndpoint resource
         /// </summary>
-        [Input("registryEndpointName")]
-        public Input<string>? RegistryEndpointName { get; set; }
+        [Input("registryEndpointName", required: true)]
+        public Input<string> RegistryEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

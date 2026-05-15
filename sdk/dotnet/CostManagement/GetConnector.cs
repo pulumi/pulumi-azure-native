@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Connector Name.
         /// </summary>
-        [Input("connectorName")]
-        public string? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public string ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Connector Name.
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.

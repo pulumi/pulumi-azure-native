@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// <summary>
         /// The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// Location of the DFP resource.

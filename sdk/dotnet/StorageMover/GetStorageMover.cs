@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Storage Mover resource.
         /// </summary>
-        [Input("storageMoverName")]
-        public string? StorageMoverName { get; set; }
+        [Input("storageMoverName", required: true)]
+        public string StorageMoverName { get; set; } = null!;
 
         public GetStorageMoverArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Storage Mover resource.
         /// </summary>
-        [Input("storageMoverName")]
-        public Input<string>? StorageMoverName { get; set; }
+        [Input("storageMoverName", required: true)]
+        public Input<string> StorageMoverName { get; set; } = null!;
 
         public GetStorageMoverInvokeArgs()
         {

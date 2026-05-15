@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the managed private endpoint.
         /// </summary>
-        [Input("managedPrivateEndpointName", required: true)]
-        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+        [Input("managedPrivateEndpointName")]
+        public Input<string>? ManagedPrivateEndpointName { get; set; }
 
         /// <summary>
         /// The ARM resource ID of the resource for which the managed private endpoint is created.

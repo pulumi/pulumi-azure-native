@@ -539,8 +539,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Machine Learning Workspace Name
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the lock to get.
         /// </summary>
-        [Input("lockName")]
-        public string? LockName { get; set; }
+        [Input("lockName", required: true)]
+        public string LockName { get; set; } = null!;
 
         /// <summary>
         /// The name of the locked resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the lock to get.
         /// </summary>
-        [Input("lockName")]
-        public Input<string>? LockName { get; set; }
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
 
         /// <summary>
         /// The name of the locked resource group.

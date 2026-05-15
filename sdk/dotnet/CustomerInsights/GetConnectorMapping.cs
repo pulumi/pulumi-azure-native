@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the connector mapping.
         /// </summary>
-        [Input("mappingName")]
-        public string? MappingName { get; set; }
+        [Input("mappingName", required: true)]
+        public string MappingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the connector mapping.
         /// </summary>
-        [Input("mappingName")]
-        public Input<string>? MappingName { get; set; }
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

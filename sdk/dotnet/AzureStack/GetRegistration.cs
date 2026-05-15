@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
-        [Input("registrationName")]
-        public string? RegistrationName { get; set; }
+        [Input("registrationName", required: true)]
+        public string RegistrationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
-        [Input("registrationName")]
-        public Input<string>? RegistrationName { get; set; }
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the App Attach package
         /// </summary>
-        [Input("appAttachPackageName")]
-        public string? AppAttachPackageName { get; set; }
+        [Input("appAttachPackageName", required: true)]
+        public string AppAttachPackageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the App Attach package
         /// </summary>
-        [Input("appAttachPackageName")]
-        public Input<string>? AppAttachPackageName { get; set; }
+        [Input("appAttachPackageName", required: true)]
+        public Input<string> AppAttachPackageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

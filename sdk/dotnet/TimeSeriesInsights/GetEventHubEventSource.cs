@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights event source associated with the specified environment.
         /// </summary>
-        [Input("eventSourceName")]
-        public string? EventSourceName { get; set; }
+        [Input("eventSourceName", required: true)]
+        public string EventSourceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights event source associated with the specified environment.
         /// </summary>
-        [Input("eventSourceName")]
-        public Input<string>? EventSourceName { get; set; }
+        [Input("eventSourceName", required: true)]
+        public Input<string> EventSourceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

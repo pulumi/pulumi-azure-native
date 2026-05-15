@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("keyspaceName")]
-        public string? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public string KeyspaceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("keyspaceName")]
-        public Input<string>? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

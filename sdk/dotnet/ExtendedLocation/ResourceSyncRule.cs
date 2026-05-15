@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// <summary>
         /// Resource Sync Rule name.
         /// </summary>
-        [Input("childResourceName", required: true)]
-        public Input<string> ChildResourceName { get; set; } = null!;
+        [Input("childResourceName")]
+        public Input<string>? ChildResourceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

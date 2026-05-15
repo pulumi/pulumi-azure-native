@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("ipConfigName")]
-        public string? IpConfigName { get; set; }
+        [Input("ipConfigName", required: true)]
+        public string IpConfigName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("ipConfigName")]
-        public Input<string>? IpConfigName { get; set; }
+        [Input("ipConfigName", required: true)]
+        public Input<string> IpConfigName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.

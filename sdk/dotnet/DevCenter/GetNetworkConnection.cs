@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Name of the Network Connection that can be applied to a Pool.
         /// </summary>
-        [Input("networkConnectionName")]
-        public string? NetworkConnectionName { get; set; }
+        [Input("networkConnectionName", required: true)]
+        public string NetworkConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Name of the Network Connection that can be applied to a Pool.
         /// </summary>
-        [Input("networkConnectionName")]
-        public Input<string>? NetworkConnectionName { get; set; }
+        [Input("networkConnectionName", required: true)]
+        public Input<string> NetworkConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

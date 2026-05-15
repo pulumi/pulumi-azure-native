@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Scheduled action name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Notification properties based on scheduled action kind.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the relationship link.
         /// </summary>
-        [Input("relationshipLinkName")]
-        public string? RelationshipLinkName { get; set; }
+        [Input("relationshipLinkName", required: true)]
+        public string RelationshipLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the relationship link.
         /// </summary>
-        [Input("relationshipLinkName")]
-        public Input<string>? RelationshipLinkName { get; set; }
+        [Input("relationshipLinkName", required: true)]
+        public Input<string> RelationshipLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

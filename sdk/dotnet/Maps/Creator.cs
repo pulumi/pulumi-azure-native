@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Maps Creator instance.
         /// </summary>
-        [Input("creatorName", required: true)]
-        public Input<string> CreatorName { get; set; } = null!;
+        [Input("creatorName")]
+        public Input<string>? CreatorName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

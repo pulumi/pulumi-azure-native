@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("resourceName")]
-        public string? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetDelegatedSubnetServiceDetailsArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetDelegatedSubnetServiceDetailsInvokeArgs()
         {

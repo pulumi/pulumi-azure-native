@@ -249,8 +249,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafka/topicMap resource
         /// </summary>
-        [Input("topicMapName", required: true)]
-        public Input<string> TopicMapName { get; set; } = null!;
+        [Input("topicMapName")]
+        public Input<string>? TopicMapName { get; set; }
 
         public KafkaConnectorTopicMapArgs()
         {

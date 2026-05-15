@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API definition.
         /// </summary>
-        [Input("definitionName")]
-        public string? DefinitionName { get; set; }
+        [Input("definitionName", required: true)]
+        public string DefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API definition.
         /// </summary>
-        [Input("definitionName")]
-        public Input<string>? DefinitionName { get; set; }
+        [Input("definitionName", required: true)]
+        public Input<string> DefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

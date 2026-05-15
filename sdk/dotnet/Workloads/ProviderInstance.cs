@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the provider instance.
         /// </summary>
-        [Input("providerInstanceName", required: true)]
-        public Input<string> ProviderInstanceName { get; set; } = null!;
+        [Input("providerInstanceName")]
+        public Input<string>? ProviderInstanceName { get; set; }
 
         /// <summary>
         /// Defines the provider specific properties.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name (guid) of the role eligibility schedule request to get.
         /// </summary>
-        [Input("roleEligibilityScheduleRequestName")]
-        public string? RoleEligibilityScheduleRequestName { get; set; }
+        [Input("roleEligibilityScheduleRequestName", required: true)]
+        public string RoleEligibilityScheduleRequestName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role eligibility schedule request.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name (guid) of the role eligibility schedule request to get.
         /// </summary>
-        [Input("roleEligibilityScheduleRequestName")]
-        public Input<string>? RoleEligibilityScheduleRequestName { get; set; }
+        [Input("roleEligibilityScheduleRequestName", required: true)]
+        public Input<string> RoleEligibilityScheduleRequestName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role eligibility schedule request.

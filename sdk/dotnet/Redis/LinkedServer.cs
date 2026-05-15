@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the RedisLinkedServerWithProperties
         /// </summary>
-        [Input("linkedServerName", required: true)]
-        public Input<string> LinkedServerName { get; set; } = null!;
+        [Input("linkedServerName")]
+        public Input<string>? LinkedServerName { get; set; }
 
         /// <summary>
         /// The name of the redis cache.

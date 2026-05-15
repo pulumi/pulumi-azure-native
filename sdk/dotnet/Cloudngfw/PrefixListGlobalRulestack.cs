@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("prefixList", required: true)]
         private InputList<string>? _prefixList;

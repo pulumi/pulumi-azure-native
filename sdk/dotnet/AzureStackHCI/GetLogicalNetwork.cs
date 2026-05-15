@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the logical network
         /// </summary>
-        [Input("logicalNetworkName")]
-        public string? LogicalNetworkName { get; set; }
+        [Input("logicalNetworkName", required: true)]
+        public string LogicalNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the logical network
         /// </summary>
-        [Input("logicalNetworkName")]
-        public Input<string>? LogicalNetworkName { get; set; }
+        [Input("logicalNetworkName", required: true)]
+        public Input<string> LogicalNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

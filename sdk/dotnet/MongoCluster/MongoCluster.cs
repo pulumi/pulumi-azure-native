@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster.
         /// </summary>
-        [Input("mongoClusterName", required: true)]
-        public Input<string> MongoClusterName { get; set; } = null!;
+        [Input("mongoClusterName")]
+        public Input<string>? MongoClusterName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

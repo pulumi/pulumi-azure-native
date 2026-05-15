@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The rollout name.
         /// </summary>
-        [Input("rolloutName")]
-        public string? RolloutName { get; set; }
+        [Input("rolloutName", required: true)]
+        public string RolloutName { get; set; } = null!;
 
         public GetDefaultRolloutArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The rollout name.
         /// </summary>
-        [Input("rolloutName")]
-        public Input<string>? RolloutName { get; set; }
+        [Input("rolloutName", required: true)]
+        public Input<string> RolloutName { get; set; } = null!;
 
         public GetDefaultRolloutInvokeArgs()
         {

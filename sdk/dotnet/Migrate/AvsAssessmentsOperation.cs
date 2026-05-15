@@ -412,8 +412,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// AVS Assessment ARM name
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// AVS Assessment Scenario.

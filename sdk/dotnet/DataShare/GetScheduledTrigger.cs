@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("triggerName")]
-        public string? TriggerName { get; set; }
+        [Input("triggerName", required: true)]
+        public string TriggerName { get; set; } = null!;
 
         public GetScheduledTriggerArgs()
         {
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("triggerName")]
-        public Input<string>? TriggerName { get; set; }
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
 
         public GetScheduledTriggerInvokeArgs()
         {

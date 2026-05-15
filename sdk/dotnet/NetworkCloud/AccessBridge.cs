@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the access bridge.
         /// </summary>
-        [Input("accessBridgeName", required: true)]
-        public Input<string> AccessBridgeName { get; set; } = null!;
+        [Input("accessBridgeName")]
+        public Input<string>? AccessBridgeName { get; set; }
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.

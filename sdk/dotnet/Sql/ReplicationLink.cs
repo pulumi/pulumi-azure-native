@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.Sql
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        [Input("linkId", required: true)]
-        public Input<string> LinkId { get; set; } = null!;
+        [Input("linkId")]
+        public Input<string>? LinkId { get; set; }
 
         /// <summary>
         /// Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.

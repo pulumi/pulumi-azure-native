@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the deployment associated with the Cognitive Services Account
         /// </summary>
-        [Input("deploymentName")]
-        public string? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// The name of Cognitive Services account's project.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the deployment associated with the Cognitive Services Account
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// The name of Cognitive Services account's project.

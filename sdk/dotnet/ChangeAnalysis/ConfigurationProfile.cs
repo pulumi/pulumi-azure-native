@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConfigurationProfile(string name, ConfigurationProfileArgs args, CustomResourceOptions? options = null)
+        public ConfigurationProfile(string name, ConfigurationProfileArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:changeanalysis:ConfigurationProfile", name, args ?? new ConfigurationProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// The properties of a configuration profile.

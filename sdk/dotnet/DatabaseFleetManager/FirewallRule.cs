@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the firewall rule.
         /// </summary>
-        [Input("firewallRuleName", required: true)]
-        public Input<string> FirewallRuleName { get; set; } = null!;
+        [Input("firewallRuleName")]
+        public Input<string>? FirewallRuleName { get; set; }
 
         /// <summary>
         /// Name of the database fleet.

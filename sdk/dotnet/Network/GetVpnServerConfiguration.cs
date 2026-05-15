@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnServerConfiguration being retrieved.
         /// </summary>
-        [Input("vpnServerConfigurationName")]
-        public string? VpnServerConfigurationName { get; set; }
+        [Input("vpnServerConfigurationName", required: true)]
+        public string VpnServerConfigurationName { get; set; } = null!;
 
         public GetVpnServerConfigurationArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnServerConfiguration being retrieved.
         /// </summary>
-        [Input("vpnServerConfigurationName")]
-        public Input<string>? VpnServerConfigurationName { get; set; }
+        [Input("vpnServerConfigurationName", required: true)]
+        public Input<string> VpnServerConfigurationName { get; set; } = null!;
 
         public GetVpnServerConfigurationInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The integration runtime name.
         /// </summary>
-        [Input("integrationRuntimeName")]
-        public string? IntegrationRuntimeName { get; set; }
+        [Input("integrationRuntimeName", required: true)]
+        public string IntegrationRuntimeName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The integration runtime name.
         /// </summary>
-        [Input("integrationRuntimeName")]
-        public Input<string>? IntegrationRuntimeName { get; set; }
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

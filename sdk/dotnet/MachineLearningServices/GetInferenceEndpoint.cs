@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceEndpoint name.
         /// </summary>
-        [Input("endpointName")]
-        public string? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// InferencePool name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceEndpoint name.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// InferencePool name.

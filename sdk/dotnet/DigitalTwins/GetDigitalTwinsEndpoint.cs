@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Name of Endpoint Resource.
         /// </summary>
-        [Input("endpointName")]
-        public string? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Name of Endpoint Resource.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

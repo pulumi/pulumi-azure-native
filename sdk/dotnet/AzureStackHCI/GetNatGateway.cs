@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the nat gateway
         /// </summary>
-        [Input("natGatewayName")]
-        public string? NatGatewayName { get; set; }
+        [Input("natGatewayName", required: true)]
+        public string NatGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the nat gateway
         /// </summary>
-        [Input("natGatewayName")]
-        public Input<string>? NatGatewayName { get; set; }
+        [Input("natGatewayName", required: true)]
+        public Input<string> NatGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

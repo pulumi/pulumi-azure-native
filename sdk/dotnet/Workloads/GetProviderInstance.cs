@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the provider instance.
         /// </summary>
-        [Input("providerInstanceName")]
-        public string? ProviderInstanceName { get; set; }
+        [Input("providerInstanceName", required: true)]
+        public string ProviderInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the provider instance.
         /// </summary>
-        [Input("providerInstanceName")]
-        public Input<string>? ProviderInstanceName { get; set; }
+        [Input("providerInstanceName", required: true)]
+        public Input<string> ProviderInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName")]
-        public string? PrivateEndpointName { get; set; }
+        [Input("privateEndpointName", required: true)]
+        public string PrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName")]
-        public Input<string>? PrivateEndpointName { get; set; }
+        [Input("privateEndpointName", required: true)]
+        public Input<string> PrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

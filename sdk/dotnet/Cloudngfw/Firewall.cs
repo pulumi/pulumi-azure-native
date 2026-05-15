@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Firewall resource name
         /// </summary>
-        [Input("firewallName", required: true)]
-        public Input<string> FirewallName { get; set; } = null!;
+        [Input("firewallName")]
+        public Input<string>? FirewallName { get; set; }
 
         [Input("frontEndSettings")]
         private InputList<Inputs.FrontendSettingArgs>? _frontEndSettings;

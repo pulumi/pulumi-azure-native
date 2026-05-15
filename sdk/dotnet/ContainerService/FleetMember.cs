@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Fleet member resource.
         /// </summary>
-        [Input("fleetMemberName", required: true)]
-        public Input<string> FleetMemberName { get; set; } = null!;
+        [Input("fleetMemberName")]
+        public Input<string>? FleetMemberName { get; set; }
 
         /// <summary>
         /// The name of the Fleet resource.

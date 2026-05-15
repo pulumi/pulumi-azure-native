@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Email identifier.
         /// </summary>
-        [Input("email", required: true)]
-        public Input<string> Email { get; set; } = null!;
+        [Input("email")]
+        public Input<string>? Email { get; set; }
 
         /// <summary>
         /// Notification Name Identifier.

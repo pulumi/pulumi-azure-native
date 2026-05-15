@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         ///  VCenters name
         /// </summary>
-        [Input("vcenterName")]
-        public string? VcenterName { get; set; }
+        [Input("vcenterName", required: true)]
+        public string VcenterName { get; set; } = null!;
 
         public GetVcenterControllerArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         ///  VCenters name
         /// </summary>
-        [Input("vcenterName")]
-        public Input<string>? VcenterName { get; set; }
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
 
         public GetVcenterControllerInvokeArgs()
         {

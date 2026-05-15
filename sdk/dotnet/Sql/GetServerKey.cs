@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server key to be retrieved.
         /// </summary>
-        [Input("keyName")]
-        public string? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public string KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server key to be retrieved.
         /// </summary>
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the consumer group to retrieve.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the consumer group to retrieve.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

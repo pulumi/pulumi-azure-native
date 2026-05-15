@@ -226,8 +226,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the route filter rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         public RouteFilterRuleArgs()
         {

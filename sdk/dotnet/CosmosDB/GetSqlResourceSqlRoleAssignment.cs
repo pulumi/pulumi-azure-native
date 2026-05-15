@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Assignment.
         /// </summary>
-        [Input("roleAssignmentId")]
-        public string? RoleAssignmentId { get; set; }
+        [Input("roleAssignmentId", required: true)]
+        public string RoleAssignmentId { get; set; } = null!;
 
         public GetSqlResourceSqlRoleAssignmentArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Assignment.
         /// </summary>
-        [Input("roleAssignmentId")]
-        public Input<string>? RoleAssignmentId { get; set; }
+        [Input("roleAssignmentId", required: true)]
+        public Input<string> RoleAssignmentId { get; set; } = null!;
 
         public GetSqlResourceSqlRoleAssignmentInvokeArgs()
         {

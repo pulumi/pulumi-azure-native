@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the StorageAsset
         /// </summary>
-        [Input("storageAssetName", required: true)]
-        public Input<string> StorageAssetName { get; set; } = null!;
+        [Input("storageAssetName")]
+        public Input<string>? StorageAssetName { get; set; }
 
         /// <summary>
         /// The name of the StorageContainer

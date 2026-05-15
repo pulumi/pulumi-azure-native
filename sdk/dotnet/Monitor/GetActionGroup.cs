@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("actionGroupName")]
-        public string? ActionGroupName { get; set; }
+        [Input("actionGroupName", required: true)]
+        public string ActionGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("actionGroupName")]
-        public Input<string>? ActionGroupName { get; set; }
+        [Input("actionGroupName", required: true)]
+        public Input<string> ActionGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

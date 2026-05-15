@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the APM
         /// </summary>
-        [Input("apmName", required: true)]
-        public Input<string> ApmName { get; set; } = null!;
+        [Input("apmName")]
+        public Input<string>? ApmName { get; set; }
 
         /// <summary>
         /// Properties of an APM

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the baseboard management controller key set.
         /// </summary>
-        [Input("bmcKeySetName")]
-        public string? BmcKeySetName { get; set; }
+        [Input("bmcKeySetName", required: true)]
+        public string BmcKeySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the baseboard management controller key set.
         /// </summary>
-        [Input("bmcKeySetName")]
-        public Input<string>? BmcKeySetName { get; set; }
+        [Input("bmcKeySetName", required: true)]
+        public Input<string> BmcKeySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The device name.
         /// </summary>
-        [Input("deviceName")]
-        public string? DeviceName { get; set; }
+        [Input("deviceName", required: true)]
+        public string DeviceName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The device name.
         /// </summary>
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

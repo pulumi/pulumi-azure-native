@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Inference Endpoint Deployment name.
         /// </summary>
-        [Input("deploymentName")]
-        public string? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Online Endpoint name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Inference Endpoint Deployment name.
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Online Endpoint name.

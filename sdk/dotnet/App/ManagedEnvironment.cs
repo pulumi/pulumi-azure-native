@@ -334,8 +334,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Environment.
         /// </summary>
-        [Input("environmentName", required: true)]
-        public Input<string> EnvironmentName { get; set; } = null!;
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
         /// Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.

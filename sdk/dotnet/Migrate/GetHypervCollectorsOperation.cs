@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Hyper-V collector ARM name
         /// </summary>
-        [Input("hypervCollectorName")]
-        public string? HypervCollectorName { get; set; }
+        [Input("hypervCollectorName", required: true)]
+        public string HypervCollectorName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Hyper-V collector ARM name
         /// </summary>
-        [Input("hypervCollectorName")]
-        public Input<string>? HypervCollectorName { get; set; }
+        [Input("hypervCollectorName", required: true)]
+        public Input<string> HypervCollectorName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Neighbor Group.
         /// </summary>
-        [Input("neighborGroupName")]
-        public string? NeighborGroupName { get; set; }
+        [Input("neighborGroupName", required: true)]
+        public string NeighborGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Neighbor Group.
         /// </summary>
-        [Input("neighborGroupName")]
-        public Input<string>? NeighborGroupName { get; set; }
+        [Input("neighborGroupName", required: true)]
+        public Input<string> NeighborGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the availability group listener.
         /// </summary>
-        [Input("availabilityGroupListenerName")]
-        public string? AvailabilityGroupListenerName { get; set; }
+        [Input("availabilityGroupListenerName", required: true)]
+        public string AvailabilityGroupListenerName { get; set; } = null!;
 
         /// <summary>
         /// The child resources to include in the response.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the availability group listener.
         /// </summary>
-        [Input("availabilityGroupListenerName")]
-        public Input<string>? AvailabilityGroupListenerName { get; set; }
+        [Input("availabilityGroupListenerName", required: true)]
+        public Input<string> AvailabilityGroupListenerName { get; set; } = null!;
 
         /// <summary>
         /// The child resources to include in the response.

@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Protection container mapping name.
         /// </summary>
-        [Input("mappingName", required: true)]
-        public Input<string> MappingName { get; set; } = null!;
+        [Input("mappingName")]
+        public Input<string>? MappingName { get; set; }
 
         /// <summary>
         /// Configure protection input properties.

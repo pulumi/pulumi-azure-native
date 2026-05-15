@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The name of the SecretSync
         /// </summary>
-        [Input("secretSyncName")]
-        public string? SecretSyncName { get; set; }
+        [Input("secretSyncName", required: true)]
+        public string SecretSyncName { get; set; } = null!;
 
         public GetSecretSyncArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The name of the SecretSync
         /// </summary>
-        [Input("secretSyncName")]
-        public Input<string>? SecretSyncName { get; set; }
+        [Input("secretSyncName", required: true)]
+        public Input<string> SecretSyncName { get; set; } = null!;
 
         public GetSecretSyncInvokeArgs()
         {

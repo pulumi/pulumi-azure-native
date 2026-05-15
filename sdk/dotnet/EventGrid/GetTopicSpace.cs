@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the Topic space.
         /// </summary>
-        [Input("topicSpaceName")]
-        public string? TopicSpaceName { get; set; }
+        [Input("topicSpaceName", required: true)]
+        public string TopicSpaceName { get; set; } = null!;
 
         public GetTopicSpaceArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the Topic space.
         /// </summary>
-        [Input("topicSpaceName")]
-        public Input<string>? TopicSpaceName { get; set; }
+        [Input("topicSpaceName", required: true)]
+        public Input<string> TopicSpaceName { get; set; } = null!;
 
         public GetTopicSpaceInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network.
         /// </summary>
-        [Input("managedNetworkName")]
-        public string? ManagedNetworkName { get; set; }
+        [Input("managedNetworkName", required: true)]
+        public string ManagedNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network.
         /// </summary>
-        [Input("managedNetworkName")]
-        public Input<string>? ManagedNetworkName { get; set; }
+        [Input("managedNetworkName", required: true)]
+        public Input<string> ManagedNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

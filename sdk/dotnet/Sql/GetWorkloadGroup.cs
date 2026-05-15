@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the workload group.
         /// </summary>
-        [Input("workloadGroupName")]
-        public string? WorkloadGroupName { get; set; }
+        [Input("workloadGroupName", required: true)]
+        public string WorkloadGroupName { get; set; } = null!;
 
         public GetWorkloadGroupArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the workload group.
         /// </summary>
-        [Input("workloadGroupName")]
-        public Input<string>? WorkloadGroupName { get; set; }
+        [Input("workloadGroupName", required: true)]
+        public Input<string> WorkloadGroupName { get; set; } = null!;
 
         public GetWorkloadGroupInvokeArgs()
         {

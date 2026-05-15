@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
-        [Input("environmentName")]
-        public string? EnvironmentName { get; set; }
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
-        [Input("environmentName")]
-        public Input<string>? EnvironmentName { get; set; }
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.

@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Artifact Signing account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

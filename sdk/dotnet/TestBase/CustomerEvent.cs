@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Customer event.
         /// </summary>
-        [Input("customerEventName", required: true)]
-        public Input<string> CustomerEventName { get; set; } = null!;
+        [Input("customerEventName")]
+        public Input<string>? CustomerEventName { get; set; }
 
         /// <summary>
         /// The name of the event subscribed to.

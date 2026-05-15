@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Fleet resource.
         /// </summary>
-        [Input("fleetName", required: true)]
-        public Input<string> FleetName { get; set; } = null!;
+        [Input("fleetName")]
+        public Input<string>? FleetName { get; set; }
 
         /// <summary>
         /// The FleetHubProfile configures the Fleet's hub.

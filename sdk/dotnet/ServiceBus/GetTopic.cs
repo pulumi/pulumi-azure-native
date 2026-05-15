@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The topic name.
         /// </summary>
-        [Input("topicName")]
-        public string? TopicName { get; set; }
+        [Input("topicName", required: true)]
+        public string TopicName { get; set; } = null!;
 
         public GetTopicArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The topic name.
         /// </summary>
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
 
         public GetTopicInvokeArgs()
         {

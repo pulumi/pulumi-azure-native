@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery inVMAccessControlProfile version to be retrieved.
         /// </summary>
-        [Input("inVMAccessControlProfileVersionName")]
-        public string? InVMAccessControlProfileVersionName { get; set; }
+        [Input("inVMAccessControlProfileVersionName", required: true)]
+        public string InVMAccessControlProfileVersionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery inVMAccessControlProfile version to be retrieved.
         /// </summary>
-        [Input("inVMAccessControlProfileVersionName")]
-        public Input<string>? InVMAccessControlProfileVersionName { get; set; }
+        [Input("inVMAccessControlProfileVersionName", required: true)]
+        public Input<string> InVMAccessControlProfileVersionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

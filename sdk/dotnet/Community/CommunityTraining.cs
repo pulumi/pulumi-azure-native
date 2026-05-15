@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.Community
         /// <summary>
         /// The name of the Community Training Resource
         /// </summary>
-        [Input("communityTrainingName", required: true)]
-        public Input<string> CommunityTrainingName { get; set; } = null!;
+        [Input("communityTrainingName")]
+        public Input<string>? CommunityTrainingName { get; set; }
 
         /// <summary>
         /// To indicate whether the Community Training instance has Disaster Recovery enabled

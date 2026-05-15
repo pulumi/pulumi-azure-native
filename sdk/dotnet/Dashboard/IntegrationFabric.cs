@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The integration fabric name of Azure Managed Grafana.
         /// </summary>
-        [Input("integrationFabricName", required: true)]
-        public Input<string> IntegrationFabricName { get; set; } = null!;
+        [Input("integrationFabricName")]
+        public Input<string>? IntegrationFabricName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

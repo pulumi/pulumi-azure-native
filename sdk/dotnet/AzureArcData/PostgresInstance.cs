@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of Postgres Instance
         /// </summary>
-        [Input("postgresInstanceName", required: true)]
-        public Input<string> PostgresInstanceName { get; set; } = null!;
+        [Input("postgresInstanceName")]
+        public Input<string>? PostgresInstanceName { get; set; }
 
         /// <summary>
         /// null

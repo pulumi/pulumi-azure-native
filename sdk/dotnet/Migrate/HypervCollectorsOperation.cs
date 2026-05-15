@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Hyper-V collector ARM name
         /// </summary>
-        [Input("hypervCollectorName", required: true)]
-        public Input<string> HypervCollectorName { get; set; } = null!;
+        [Input("hypervCollectorName")]
+        public Input<string>? HypervCollectorName { get; set; }
 
         /// <summary>
         /// Assessment Project Name

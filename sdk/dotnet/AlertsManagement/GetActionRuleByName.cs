@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of action rule that needs to be fetched
         /// </summary>
-        [Input("actionRuleName")]
-        public string? ActionRuleName { get; set; }
+        [Input("actionRuleName", required: true)]
+        public string ActionRuleName { get; set; } = null!;
 
         /// <summary>
         /// Resource group name where the resource is created.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of action rule that needs to be fetched
         /// </summary>
-        [Input("actionRuleName")]
-        public Input<string>? ActionRuleName { get; set; }
+        [Input("actionRuleName", required: true)]
+        public Input<string> ActionRuleName { get; set; } = null!;
 
         /// <summary>
         /// Resource group name where the resource is created.

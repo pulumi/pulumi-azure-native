@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account partner name.
         /// </summary>
-        [Input("partnerName")]
-        public string? PartnerName { get; set; }
+        [Input("partnerName", required: true)]
+        public string PartnerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account partner name.
         /// </summary>
-        [Input("partnerName")]
-        public Input<string>? PartnerName { get; set; }
+        [Input("partnerName", required: true)]
+        public Input<string> PartnerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

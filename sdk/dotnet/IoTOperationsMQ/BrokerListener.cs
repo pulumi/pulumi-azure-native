@@ -195,8 +195,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ broker/listener resource
         /// </summary>
-        [Input("listenerName", required: true)]
-        public Input<string> ListenerName { get; set; } = null!;
+        [Input("listenerName")]
+        public Input<string>? ListenerName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the SQL Migration Service.
         /// </summary>
-        [Input("sqlMigrationServiceName", required: true)]
-        public Input<string> SqlMigrationServiceName { get; set; } = null!;
+        [Input("sqlMigrationServiceName")]
+        public Input<string>? SqlMigrationServiceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

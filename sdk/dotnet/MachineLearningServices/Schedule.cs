@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Schedule name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// [Required] Additional attributes of the entity.

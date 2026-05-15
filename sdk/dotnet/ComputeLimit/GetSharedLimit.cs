@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// <summary>
         /// The name of the SharedLimit
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetSharedLimitArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// <summary>
         /// The name of the SharedLimit
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetSharedLimitInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// The constant value for the application name.
         /// </summary>
-        [Input("applicationName")]
-        public string? ApplicationName { get; set; }
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// The constant value for the application name.
         /// </summary>
-        [Input("applicationName")]
-        public Input<string>? ApplicationName { get; set; }
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster.

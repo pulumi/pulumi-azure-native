@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Online Endpoint name.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

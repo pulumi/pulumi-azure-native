@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Migration Entity ARM name
         /// </summary>
-        [Input("migrationEntityName", required: true)]
-        public Input<string> MigrationEntityName { get; set; } = null!;
+        [Input("migrationEntityName")]
+        public Input<string>? MigrationEntityName { get; set; }
 
         /// <summary>
         /// Migrate Project Name

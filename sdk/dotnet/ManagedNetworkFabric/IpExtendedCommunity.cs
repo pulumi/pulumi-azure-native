@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Extended Community.
         /// </summary>
-        [Input("ipExtendedCommunityName", required: true)]
-        public Input<string> IpExtendedCommunityName { get; set; } = null!;
+        [Input("ipExtendedCommunityName")]
+        public Input<string>? IpExtendedCommunityName { get; set; }
 
         [Input("ipExtendedCommunityRules", required: true)]
         private InputList<Inputs.IpExtendedCommunityRuleArgs>? _ipExtendedCommunityRules;

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the customized accelerator.
         /// </summary>
-        [Input("customizedAcceleratorName", required: true)]
-        public Input<string> CustomizedAcceleratorName { get; set; } = null!;
+        [Input("customizedAcceleratorName")]
+        public Input<string>? CustomizedAcceleratorName { get; set; }
 
         /// <summary>
         /// Customized accelerator properties payload

@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Device name
         /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// Name of product.

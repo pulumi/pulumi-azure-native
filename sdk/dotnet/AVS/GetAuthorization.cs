@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
-        [Input("authorizationName")]
-        public string? AuthorizationName { get; set; }
+        [Input("authorizationName", required: true)]
+        public string AuthorizationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
-        [Input("authorizationName")]
-        public Input<string>? AuthorizationName { get; set; }
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

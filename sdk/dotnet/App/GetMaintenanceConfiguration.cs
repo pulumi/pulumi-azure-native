@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the maintenance configuration.
         /// </summary>
-        [Input("configName")]
-        public string? ConfigName { get; set; }
+        [Input("configName", required: true)]
+        public string ConfigName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Managed Environment.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the maintenance configuration.
         /// </summary>
-        [Input("configName")]
-        public Input<string>? ConfigName { get; set; }
+        [Input("configName", required: true)]
+        public Input<string> ConfigName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Managed Environment.

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Name of the account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The description of the account.

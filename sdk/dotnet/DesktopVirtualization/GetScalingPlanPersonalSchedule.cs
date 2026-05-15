@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the ScalingPlanSchedule
         /// </summary>
-        [Input("scalingPlanScheduleName")]
-        public string? ScalingPlanScheduleName { get; set; }
+        [Input("scalingPlanScheduleName", required: true)]
+        public string ScalingPlanScheduleName { get; set; } = null!;
 
         public GetScalingPlanPersonalScheduleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the ScalingPlanSchedule
         /// </summary>
-        [Input("scalingPlanScheduleName")]
-        public Input<string>? ScalingPlanScheduleName { get; set; }
+        [Input("scalingPlanScheduleName", required: true)]
+        public Input<string> ScalingPlanScheduleName { get; set; } = null!;
 
         public GetScalingPlanPersonalScheduleInvokeArgs()
         {

@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
         /// <summary>
         /// Name of pipeline
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

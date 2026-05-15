@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("tenantActionGroupName")]
-        public string? TenantActionGroupName { get; set; }
+        [Input("tenantActionGroupName", required: true)]
+        public string TenantActionGroupName { get; set; } = null!;
 
         public GetTenantActionGroupArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("tenantActionGroupName")]
-        public Input<string>? TenantActionGroupName { get; set; }
+        [Input("tenantActionGroupName", required: true)]
+        public Input<string> TenantActionGroupName { get; set; } = null!;
 
         public GetTenantActionGroupInvokeArgs()
         {

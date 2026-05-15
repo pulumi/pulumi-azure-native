@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the DDoS protection plan.
         /// </summary>
-        [Input("ddosProtectionPlanName")]
-        public string? DdosProtectionPlanName { get; set; }
+        [Input("ddosProtectionPlanName", required: true)]
+        public string DdosProtectionPlanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the DDoS protection plan.
         /// </summary>
-        [Input("ddosProtectionPlanName")]
-        public Input<string>? DdosProtectionPlanName { get; set; }
+        [Input("ddosProtectionPlanName", required: true)]
+        public Input<string> DdosProtectionPlanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the VM scale set.
         /// </summary>
-        [Input("vmScaleSetName")]
-        public string? VmScaleSetName { get; set; }
+        [Input("vmScaleSetName", required: true)]
+        public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the VM scale set.
         /// </summary>
-        [Input("vmScaleSetName")]
-        public Input<string>? VmScaleSetName { get; set; }
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetInvokeArgs()
         {

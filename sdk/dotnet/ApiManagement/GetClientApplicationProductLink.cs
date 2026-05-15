@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application Product Link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationProductLinkId")]
-        public string? ClientApplicationProductLinkId { get; set; }
+        [Input("clientApplicationProductLinkId", required: true)]
+        public string ClientApplicationProductLinkId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application Product Link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationProductLinkId")]
-        public Input<string>? ClientApplicationProductLinkId { get; set; }
+        [Input("clientApplicationProductLinkId", required: true)]
+        public Input<string> ClientApplicationProductLinkId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

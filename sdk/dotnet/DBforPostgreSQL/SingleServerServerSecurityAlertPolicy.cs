@@ -174,8 +174,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The name of the threat detection policy.
         /// </summary>
-        [Input("securityAlertPolicyName", required: true)]
-        public Input<string> SecurityAlertPolicyName { get; set; } = null!;
+        [Input("securityAlertPolicyName")]
+        public Input<string>? SecurityAlertPolicyName { get; set; }
 
         /// <summary>
         /// The name of the server.

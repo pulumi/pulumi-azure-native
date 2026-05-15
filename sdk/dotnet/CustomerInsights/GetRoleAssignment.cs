@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the role assignment.
         /// </summary>
-        [Input("assignmentName")]
-        public string? AssignmentName { get; set; }
+        [Input("assignmentName", required: true)]
+        public string AssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the hub.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the role assignment.
         /// </summary>
-        [Input("assignmentName")]
-        public Input<string>? AssignmentName { get; set; }
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the hub.

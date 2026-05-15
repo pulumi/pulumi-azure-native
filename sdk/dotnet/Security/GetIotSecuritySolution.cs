@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the IoT Security solution.
         /// </summary>
-        [Input("solutionName")]
-        public string? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public string SolutionName { get; set; } = null!;
 
         public GetIotSecuritySolutionArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the IoT Security solution.
         /// </summary>
-        [Input("solutionName")]
-        public Input<string>? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
 
         public GetIotSecuritySolutionInvokeArgs()
         {

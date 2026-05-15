@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB table name.
         /// </summary>
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetCassandraResourceCassandraTableArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB table name.
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetCassandraResourceCassandraTableInvokeArgs()
         {

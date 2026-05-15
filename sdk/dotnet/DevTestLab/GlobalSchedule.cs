@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The name of the Schedule
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Notification settings.

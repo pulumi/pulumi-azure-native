@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Static Cidr allocation name.
         /// </summary>
-        [Input("staticCidrName", required: true)]
-        public Input<string> StaticCidrName { get; set; } = null!;
+        [Input("staticCidrName")]
+        public Input<string>? StaticCidrName { get; set; }
 
         public StaticCidrArgs()
         {

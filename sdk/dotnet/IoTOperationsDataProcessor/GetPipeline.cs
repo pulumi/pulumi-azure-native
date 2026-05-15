@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
         /// <summary>
         /// Name of pipeline
         /// </summary>
-        [Input("pipelineName")]
-        public string? PipelineName { get; set; }
+        [Input("pipelineName", required: true)]
+        public string PipelineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
         /// <summary>
         /// Name of pipeline
         /// </summary>
-        [Input("pipelineName")]
-        public Input<string>? PipelineName { get; set; }
+        [Input("pipelineName", required: true)]
+        public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Node Customization resource.
         /// </summary>
-        [Input("nodeCustomizationName")]
-        public string? NodeCustomizationName { get; set; }
+        [Input("nodeCustomizationName", required: true)]
+        public string NodeCustomizationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Node Customization resource.
         /// </summary>
-        [Input("nodeCustomizationName")]
-        public Input<string>? NodeCustomizationName { get; set; }
+        [Input("nodeCustomizationName", required: true)]
+        public Input<string> NodeCustomizationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

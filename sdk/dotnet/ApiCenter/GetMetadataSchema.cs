@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the metadata schema.
         /// </summary>
-        [Input("metadataSchemaName")]
-        public string? MetadataSchemaName { get; set; }
+        [Input("metadataSchemaName", required: true)]
+        public string MetadataSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the metadata schema.
         /// </summary>
-        [Input("metadataSchemaName")]
-        public Input<string>? MetadataSchemaName { get; set; }
+        [Input("metadataSchemaName", required: true)]
+        public Input<string> MetadataSchemaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

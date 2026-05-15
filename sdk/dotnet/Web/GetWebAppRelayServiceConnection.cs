@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the hybrid connection.
         /// </summary>
-        [Input("entityName")]
-        public string? EntityName { get; set; }
+        [Input("entityName", required: true)]
+        public string EntityName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the hybrid connection.
         /// </summary>
-        [Input("entityName")]
-        public Input<string>? EntityName { get; set; }
+        [Input("entityName", required: true)]
+        public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cloud services network.
         /// </summary>
-        [Input("cloudServicesNetworkName")]
-        public string? CloudServicesNetworkName { get; set; }
+        [Input("cloudServicesNetworkName", required: true)]
+        public string CloudServicesNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cloud services network.
         /// </summary>
-        [Input("cloudServicesNetworkName")]
-        public Input<string>? CloudServicesNetworkName { get; set; }
+        [Input("cloudServicesNetworkName", required: true)]
+        public Input<string> CloudServicesNetworkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

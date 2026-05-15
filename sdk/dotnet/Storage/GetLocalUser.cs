@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         /// </summary>
-        [Input("username")]
-        public string? Username { get; set; }
+        [Input("username", required: true)]
+        public string Username { get; set; } = null!;
 
         public GetLocalUserArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
+        [Input("username", required: true)]
+        public Input<string> Username { get; set; } = null!;
 
         public GetLocalUserInvokeArgs()
         {

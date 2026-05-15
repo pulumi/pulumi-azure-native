@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cloud services network.
         /// </summary>
-        [Input("cloudServicesNetworkName", required: true)]
-        public Input<string> CloudServicesNetworkName { get; set; } = null!;
+        [Input("cloudServicesNetworkName")]
+        public Input<string>? CloudServicesNetworkName { get; set; }
 
         /// <summary>
         /// The indicator of whether the platform default endpoints are allowed for the egress traffic.

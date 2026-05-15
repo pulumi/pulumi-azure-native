@@ -336,8 +336,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The service principal to be used by the cluster during Arc Appliance installation.

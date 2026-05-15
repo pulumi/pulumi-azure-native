@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// String that represents a Experiment resource name.
         /// </summary>
-        [Input("experimentName", required: true)]
-        public Input<string> ExperimentName { get; set; } = null!;
+        [Input("experimentName")]
+        public Input<string>? ExperimentName { get; set; }
 
         /// <summary>
         /// The identity of the experiment resource.

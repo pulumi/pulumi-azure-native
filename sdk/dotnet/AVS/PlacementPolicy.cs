@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the placement policy.
         /// </summary>
-        [Input("placementPolicyName", required: true)]
-        public Input<string> PlacementPolicyName { get; set; } = null!;
+        [Input("placementPolicyName")]
+        public Input<string>? PlacementPolicyName { get; set; }
 
         /// <summary>
         /// Name of the private cloud

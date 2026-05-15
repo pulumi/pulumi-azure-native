@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the NodePool
         /// </summary>
-        [Input("nodePoolName")]
-        public string? NodePoolName { get; set; }
+        [Input("nodePoolName", required: true)]
+        public string NodePoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the NodePool
         /// </summary>
-        [Input("nodePoolName")]
-        public Input<string>? NodePoolName { get; set; }
+        [Input("nodePoolName", required: true)]
+        public Input<string> NodePoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Group ID
         /// </summary>
-        [Input("groupId", required: true)]
-        public Input<string> GroupId { get; set; } = null!;
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

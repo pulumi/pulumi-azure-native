@@ -205,8 +205,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security connector name.
         /// </summary>
-        [Input("securityConnectorName", required: true)]
-        public Input<string> SecurityConnectorName { get; set; } = null!;
+        [Input("securityConnectorName")]
+        public Input<string>? SecurityConnectorName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

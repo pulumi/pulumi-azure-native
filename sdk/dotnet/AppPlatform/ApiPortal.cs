@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of API portal.
         /// </summary>
-        [Input("apiPortalName", required: true)]
-        public Input<string> ApiPortalName { get; set; } = null!;
+        [Input("apiPortalName")]
+        public Input<string>? ApiPortalName { get; set; }
 
         /// <summary>
         /// API portal properties payload

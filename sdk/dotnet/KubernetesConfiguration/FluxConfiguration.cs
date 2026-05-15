@@ -259,8 +259,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Flux Configuration.
         /// </summary>
-        [Input("fluxConfigurationName", required: true)]
-        public Input<string> FluxConfigurationName { get; set; } = null!;
+        [Input("fluxConfigurationName")]
+        public Input<string>? FluxConfigurationName { get; set; }
 
         /// <summary>
         /// Parameters to reconcile to the GitRepository source kind type.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("connectionName")]
-        public string? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.

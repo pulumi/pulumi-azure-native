@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeDeviceName")]
-        public string? EdgeDeviceName { get; set; }
+        [Input("edgeDeviceName", required: true)]
+        public string EdgeDeviceName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeDeviceName")]
-        public Input<string>? EdgeDeviceName { get; set; }
+        [Input("edgeDeviceName", required: true)]
+        public Input<string> EdgeDeviceName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

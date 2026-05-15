@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint artifact.
         /// </summary>
-        [Input("artifactName")]
-        public string? ArtifactName { get; set; }
+        [Input("artifactName", required: true)]
+        public string ArtifactName { get; set; } = null!;
 
         /// <summary>
         /// Name of the blueprint definition.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint artifact.
         /// </summary>
-        [Input("artifactName")]
-        public Input<string>? ArtifactName { get; set; }
+        [Input("artifactName", required: true)]
+        public Input<string> ArtifactName { get; set; } = null!;
 
         /// <summary>
         /// Name of the blueprint definition.

@@ -203,8 +203,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the ElasticSan.
         /// </summary>
-        [Input("elasticSanName", required: true)]
-        public Input<string> ElasticSanName { get; set; } = null!;
+        [Input("elasticSanName")]
+        public Input<string>? ElasticSanName { get; set; }
 
         /// <summary>
         /// Extended size of the Elastic San appliance in TiB.

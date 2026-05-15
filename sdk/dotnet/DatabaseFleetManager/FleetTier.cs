@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the tier.
         /// </summary>
-        [Input("tierName", required: true)]
-        public Input<string> TierName { get; set; } = null!;
+        [Input("tierName")]
+        public Input<string>? TierName { get; set; }
 
         public FleetTierArgs()
         {

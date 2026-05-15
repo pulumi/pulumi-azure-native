@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the volume snapshot within the given volume group.
         /// </summary>
-        [Input("snapshotName")]
-        public string? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VolumeGroup.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the volume snapshot within the given volume group.
         /// </summary>
-        [Input("snapshotName")]
-        public Input<string>? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VolumeGroup.

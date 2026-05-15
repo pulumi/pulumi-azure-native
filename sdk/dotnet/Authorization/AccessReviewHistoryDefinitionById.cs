@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessReviewHistoryDefinitionById(string name, AccessReviewHistoryDefinitionByIdArgs args, CustomResourceOptions? options = null)
+        public AccessReviewHistoryDefinitionById(string name, AccessReviewHistoryDefinitionByIdArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:authorization:AccessReviewHistoryDefinitionById", name, args ?? new AccessReviewHistoryDefinitionByIdArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review history definition.
         /// </summary>
-        [Input("historyDefinitionId", required: true)]
-        public Input<string> HistoryDefinitionId { get; set; } = null!;
+        [Input("historyDefinitionId")]
+        public Input<string>? HistoryDefinitionId { get; set; }
 
         [Input("instances")]
         private InputList<Inputs.AccessReviewHistoryInstanceArgs>? _instances;

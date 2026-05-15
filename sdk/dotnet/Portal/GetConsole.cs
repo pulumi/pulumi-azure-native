@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Uses Azure REST API version 2018-10-01.
         /// </summary>
-        public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Uses Azure REST API version 2018-10-01.
         /// </summary>
-        public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the console
         /// </summary>
-        [Input("consoleName")]
-        public string? ConsoleName { get; set; }
+        [Input("consoleName", required: true)]
+        public string ConsoleName { get; set; } = null!;
 
         public GetConsoleArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the console
         /// </summary>
-        [Input("consoleName")]
-        public Input<string>? ConsoleName { get; set; }
+        [Input("consoleName", required: true)]
+        public Input<string> ConsoleName { get; set; } = null!;
 
         public GetConsoleInvokeArgs()
         {

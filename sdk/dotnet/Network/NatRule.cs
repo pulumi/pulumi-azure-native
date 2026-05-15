@@ -215,8 +215,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the nat rule.
         /// </summary>
-        [Input("natRuleName", required: true)]
-        public Input<string> NatRuleName { get; set; } = null!;
+        [Input("natRuleName")]
+        public Input<string>? NatRuleName { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnGateway.

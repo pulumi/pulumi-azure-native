@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of EdgeMachineJob
         /// </summary>
-        [Input("jobsName")]
-        public string? JobsName { get; set; }
+        [Input("jobsName", required: true)]
+        public string JobsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of EdgeMachineJob
         /// </summary>
-        [Input("jobsName")]
-        public Input<string>? JobsName { get; set; }
+        [Input("jobsName", required: true)]
+        public Input<string> JobsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

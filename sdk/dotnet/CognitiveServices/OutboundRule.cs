@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Name of the cognitive services account managed network outbound rule
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         public OutboundRuleArgs()
         {

@@ -240,8 +240,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// ContainerGroupProfile name.
         /// </summary>
-        [Input("containerGroupProfileName", required: true)]
-        public Input<string> ContainerGroupProfileName { get; set; } = null!;
+        [Input("containerGroupProfileName")]
+        public Input<string>? ContainerGroupProfileName { get; set; }
 
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerArgs>? _containers;

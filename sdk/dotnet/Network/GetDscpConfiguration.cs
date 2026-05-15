@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("dscpConfigurationName")]
-        public string? DscpConfigurationName { get; set; }
+        [Input("dscpConfigurationName", required: true)]
+        public string DscpConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("dscpConfigurationName")]
-        public Input<string>? DscpConfigurationName { get; set; }
+        [Input("dscpConfigurationName", required: true)]
+        public Input<string> DscpConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

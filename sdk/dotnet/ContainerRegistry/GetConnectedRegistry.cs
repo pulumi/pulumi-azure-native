@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the connected registry.
         /// </summary>
-        [Input("connectedRegistryName")]
-        public string? ConnectedRegistryName { get; set; }
+        [Input("connectedRegistryName", required: true)]
+        public string ConnectedRegistryName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the connected registry.
         /// </summary>
-        [Input("connectedRegistryName")]
-        public Input<string>? ConnectedRegistryName { get; set; }
+        [Input("connectedRegistryName", required: true)]
+        public Input<string> ConnectedRegistryName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.

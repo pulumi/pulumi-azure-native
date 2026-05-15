@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ConfigurationPolicyGroup.
         /// </summary>
-        [Input("configurationPolicyGroupName", required: true)]
-        public Input<string> ConfigurationPolicyGroupName { get; set; } = null!;
+        [Input("configurationPolicyGroupName")]
+        public Input<string>? ConfigurationPolicyGroupName { get; set; }
 
         /// <summary>
         /// Resource ID.

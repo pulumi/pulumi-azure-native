@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName")]
-        public string? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         public GetUserRuleArgs()
         {
@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         public GetUserRuleInvokeArgs()
         {

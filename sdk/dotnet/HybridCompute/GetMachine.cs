@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("machineName")]
-        public string? MachineName { get; set; }
+        [Input("machineName", required: true)]
+        public string MachineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("machineName")]
-        public Input<string>? MachineName { get; set; }
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

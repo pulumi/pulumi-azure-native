@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Scom
         /// <summary>
         /// The monitored resource name.
         /// </summary>
-        [Input("monitoredResourceName")]
-        public string? MonitoredResourceName { get; set; }
+        [Input("monitoredResourceName", required: true)]
+        public string MonitoredResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Scom
         /// <summary>
         /// The monitored resource name.
         /// </summary>
-        [Input("monitoredResourceName")]
-        public Input<string>? MonitoredResourceName { get; set; }
+        [Input("monitoredResourceName", required: true)]
+        public Input<string> MonitoredResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

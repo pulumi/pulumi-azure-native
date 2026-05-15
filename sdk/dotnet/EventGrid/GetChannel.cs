@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the channel.
         /// </summary>
-        [Input("channelName")]
-        public string? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public string ChannelName { get; set; } = null!;
 
         /// <summary>
         /// Name of the partner namespace.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the channel.
         /// </summary>
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
         /// Name of the partner namespace.

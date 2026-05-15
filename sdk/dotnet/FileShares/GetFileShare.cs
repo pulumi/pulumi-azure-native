@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.FileShares
         /// <summary>
         /// The resource name of the file share, as seen by the administrator through Azure Resource Manager.
         /// </summary>
-        [Input("resourceName")]
-        public string? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetFileShareArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.FileShares
         /// <summary>
         /// The resource name of the file share, as seen by the administrator through Azure Resource Manager.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetFileShareInvokeArgs()
         {

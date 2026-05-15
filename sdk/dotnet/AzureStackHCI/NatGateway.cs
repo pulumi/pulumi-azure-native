@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the nat gateway
         /// </summary>
-        [Input("natGatewayName", required: true)]
-        public Input<string> NatGatewayName { get; set; } = null!;
+        [Input("natGatewayName")]
+        public Input<string>? NatGatewayName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

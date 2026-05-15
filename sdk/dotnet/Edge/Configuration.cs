@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the Configuration
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

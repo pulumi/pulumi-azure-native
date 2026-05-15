@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The api name.
         /// </summary>
-        [Input("apiName", required: true)]
-        public Input<string> ApiName { get; set; } = null!;
+        [Input("apiName")]
+        public Input<string>? ApiName { get; set; }
 
         /// <summary>
         /// The integration service environment managed api deployment parameters.

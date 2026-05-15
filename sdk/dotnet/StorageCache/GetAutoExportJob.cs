@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("autoExportJobName")]
-        public string? AutoExportJobName { get; set; }
+        [Input("autoExportJobName", required: true)]
+        public string AutoExportJobName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("autoExportJobName")]
-        public Input<string>? AutoExportJobName { get; set; }
+        [Input("autoExportJobName", required: true)]
+        public Input<string> AutoExportJobName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

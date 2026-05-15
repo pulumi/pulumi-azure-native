@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Spring Cloud Gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public Input<string> GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
 
         /// <summary>
         /// Spring Cloud Gateway properties payload

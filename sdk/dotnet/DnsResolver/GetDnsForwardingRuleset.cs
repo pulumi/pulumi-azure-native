@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("dnsForwardingRulesetName")]
-        public string? DnsForwardingRulesetName { get; set; }
+        [Input("dnsForwardingRulesetName", required: true)]
+        public string DnsForwardingRulesetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("dnsForwardingRulesetName")]
-        public Input<string>? DnsForwardingRulesetName { get; set; }
+        [Input("dnsForwardingRulesetName", required: true)]
+        public Input<string> DnsForwardingRulesetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -207,8 +207,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the gallery image
         /// </summary>
-        [Input("galleryImageName", required: true)]
-        public Input<string> GalleryImageName { get; set; } = null!;
+        [Input("galleryImageName")]
+        public Input<string>? GalleryImageName { get; set; }
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine [V1, V2]

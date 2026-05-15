@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         /// </summary>
-        [Input("cacheId")]
-        public string? CacheId { get; set; }
+        [Input("cacheId", required: true)]
+        public string CacheId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         /// </summary>
-        [Input("cacheId")]
-        public Input<string>? CacheId { get; set; }
+        [Input("cacheId", required: true)]
+        public Input<string> CacheId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP logging configuration. Accepts 'instance' as name.
         /// </summary>
-        [Input("loggingConfigurationName", required: true)]
-        public Input<string> LoggingConfigurationName { get; set; } = null!;
+        [Input("loggingConfigurationName")]
+        public Input<string>? LoggingConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.

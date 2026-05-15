@@ -275,8 +275,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the session pool.
         /// </summary>
-        [Input("sessionPoolName", required: true)]
-        public Input<string> SessionPoolName { get; set; } = null!;
+        [Input("sessionPoolName")]
+        public Input<string>? SessionPoolName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

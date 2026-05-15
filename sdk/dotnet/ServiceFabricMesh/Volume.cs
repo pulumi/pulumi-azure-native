@@ -178,8 +178,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the volume.
         /// </summary>
-        [Input("volumeResourceName", required: true)]
-        public Input<string> VolumeResourceName { get; set; } = null!;
+        [Input("volumeResourceName")]
+        public Input<string>? VolumeResourceName { get; set; }
 
         public VolumeArgs()
         {

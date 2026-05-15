@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the hybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName", required: true)]
-        public Input<string> MetadataName { get; set; } = null!;
+        [Input("metadataName")]
+        public Input<string>? MetadataName { get; set; }
 
         /// <summary>
         /// Gets or sets the Public Key.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The database watcher name.
         /// </summary>
-        [Input("watcherName")]
-        public string? WatcherName { get; set; }
+        [Input("watcherName", required: true)]
+        public string WatcherName { get; set; } = null!;
 
         public GetWatcherArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The database watcher name.
         /// </summary>
-        [Input("watcherName")]
-        public Input<string>? WatcherName { get; set; }
+        [Input("watcherName", required: true)]
+        public Input<string> WatcherName { get; set; } = null!;
 
         public GetWatcherInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Group ID
         /// </summary>
-        [Input("groupId")]
-        public string? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public string GroupId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Group ID
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

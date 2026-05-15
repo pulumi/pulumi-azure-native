@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack.
         /// </summary>
-        [Input("deploymentStackName")]
-        public string? DeploymentStackName { get; set; }
+        [Input("deploymentStackName", required: true)]
+        public string DeploymentStackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack.
         /// </summary>
-        [Input("deploymentStackName")]
-        public Input<string>? DeploymentStackName { get; set; }
+        [Input("deploymentStackName", required: true)]
+        public Input<string> DeploymentStackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

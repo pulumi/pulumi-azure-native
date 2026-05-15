@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
         /// <summary>
         /// The name of Site
         /// </summary>
-        [Input("siteName")]
-        public string? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetMySQLSiteArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
         /// <summary>
         /// The name of Site
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public GetMySQLSiteInvokeArgs()
         {

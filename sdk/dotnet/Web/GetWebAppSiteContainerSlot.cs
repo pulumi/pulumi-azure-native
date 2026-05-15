@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site Container Name
         /// </summary>
-        [Input("containerName")]
-        public string? ContainerName { get; set; }
+        [Input("containerName", required: true)]
+        public string ContainerName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site Container Name
         /// </summary>
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.

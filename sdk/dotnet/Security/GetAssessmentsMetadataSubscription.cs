@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
-        public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
-        public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
-        [Input("assessmentMetadataName")]
-        public string? AssessmentMetadataName { get; set; }
+        [Input("assessmentMetadataName", required: true)]
+        public string AssessmentMetadataName { get; set; } = null!;
 
         public GetAssessmentsMetadataSubscriptionArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
-        [Input("assessmentMetadataName")]
-        public Input<string>? AssessmentMetadataName { get; set; }
+        [Input("assessmentMetadataName", required: true)]
+        public Input<string> AssessmentMetadataName { get; set; } = null!;
 
         public GetAssessmentsMetadataSubscriptionInvokeArgs()
         {

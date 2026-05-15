@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of format {guid_guid} the role management policy assignment to upsert.
         /// </summary>
-        [Input("roleManagementPolicyAssignmentName", required: true)]
-        public Input<string> RoleManagementPolicyAssignmentName { get; set; } = null!;
+        [Input("roleManagementPolicyAssignmentName")]
+        public Input<string>? RoleManagementPolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The role management policy scope.

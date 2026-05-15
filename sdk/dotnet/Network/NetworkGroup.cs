@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network group.
         /// </summary>
-        [Input("networkGroupName", required: true)]
-        public Input<string> NetworkGroupName { get; set; } = null!;
+        [Input("networkGroupName")]
+        public Input<string>? NetworkGroupName { get; set; }
 
         /// <summary>
         /// The name of the network manager.

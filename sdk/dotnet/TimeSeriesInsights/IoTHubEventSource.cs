@@ -186,8 +186,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// Name of the event source.
         /// </summary>
-        [Input("eventSourceName", required: true)]
-        public Input<string> EventSourceName { get; set; } = null!;
+        [Input("eventSourceName")]
+        public Input<string>? EventSourceName { get; set; }
 
         /// <summary>
         /// The resource id of the event source in Azure Resource Manager.

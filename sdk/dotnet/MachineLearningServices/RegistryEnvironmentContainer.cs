@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Container name. This is case-sensitive.
         /// </summary>
-        [Input("environmentName", required: true)]
-        public Input<string> EnvironmentName { get; set; } = null!;
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
         /// [Required] Additional attributes of the entity.

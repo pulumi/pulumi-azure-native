@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the variable value to operate on.
         /// </summary>
-        [Input("variableValueName", required: true)]
-        public Input<string> VariableValueName { get; set; } = null!;
+        [Input("variableValueName")]
+        public Input<string>? VariableValueName { get; set; }
 
         public VariableValueArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of the backup instance.
         /// </summary>
-        [Input("backupInstanceName")]
-        public string? BackupInstanceName { get; set; }
+        [Input("backupInstanceName", required: true)]
+        public string BackupInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of the backup instance.
         /// </summary>
-        [Input("backupInstanceName")]
-        public Input<string>? BackupInstanceName { get; set; }
+        [Input("backupInstanceName", required: true)]
+        public Input<string> BackupInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

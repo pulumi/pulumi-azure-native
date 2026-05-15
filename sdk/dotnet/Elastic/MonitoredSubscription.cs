@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The configuration name. Only 'default' value is supported.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// Monitor resource name

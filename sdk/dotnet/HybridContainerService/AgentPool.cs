@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the agent pool in the provisioned cluster
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public Input<string> AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

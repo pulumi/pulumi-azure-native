@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The name of the Event Hubs Cluster.
         /// </summary>
-        [Input("clusterName")]
-        public string? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The name of the Event Hubs Cluster.
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

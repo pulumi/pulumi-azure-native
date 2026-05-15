@@ -163,8 +163,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS service.
         /// </summary>
-        [Input("dnsServiceId", required: true)]
-        public Input<string> DnsServiceId { get; set; } = null!;
+        [Input("dnsServiceId")]
+        public Input<string>? DnsServiceId { get; set; }
 
         /// <summary>
         /// DNS service IP of the DNS Service.

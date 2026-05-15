@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB trigger name.
         /// </summary>
-        [Input("triggerName", required: true)]
-        public Input<string> TriggerName { get; set; } = null!;
+        [Input("triggerName")]
+        public Input<string>? TriggerName { get; set; }
 
         public SqlResourceSqlTriggerArgs()
         {

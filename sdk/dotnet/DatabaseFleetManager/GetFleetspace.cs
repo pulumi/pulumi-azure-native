@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the fleetspace.
         /// </summary>
-        [Input("fleetspaceName")]
-        public string? FleetspaceName { get; set; }
+        [Input("fleetspaceName", required: true)]
+        public string FleetspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the fleetspace.
         /// </summary>
-        [Input("fleetspaceName")]
-        public Input<string>? FleetspaceName { get; set; }
+        [Input("fleetspaceName", required: true)]
+        public Input<string> FleetspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

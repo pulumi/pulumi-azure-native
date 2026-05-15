@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the metadata schema.
         /// </summary>
-        [Input("metadataSchemaName", required: true)]
-        public Input<string> MetadataSchemaName { get; set; } = null!;
+        [Input("metadataSchemaName")]
+        public Input<string>? MetadataSchemaName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

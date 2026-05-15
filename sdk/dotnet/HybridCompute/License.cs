@@ -149,8 +149,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license.
         /// </summary>
-        [Input("licenseName", required: true)]
-        public Input<string> LicenseName { get; set; } = null!;
+        [Input("licenseName")]
+        public Input<string>? LicenseName { get; set; }
 
         /// <summary>
         /// The type of the license resource.

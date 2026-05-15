@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of a devcenter plan member.
         /// </summary>
-        [Input("memberName")]
-        public string? MemberName { get; set; }
+        [Input("memberName", required: true)]
+        public string MemberName { get; set; } = null!;
 
         /// <summary>
         /// The name of the devcenter plan.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of a devcenter plan member.
         /// </summary>
-        [Input("memberName")]
-        public Input<string>? MemberName { get; set; }
+        [Input("memberName", required: true)]
+        public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
         /// The name of the devcenter plan.

@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network service design group.
         /// </summary>
-        [Input("networkServiceDesignGroupName", required: true)]
-        public Input<string> NetworkServiceDesignGroupName { get; set; } = null!;
+        [Input("networkServiceDesignGroupName")]
+        public Input<string>? NetworkServiceDesignGroupName { get; set; }
 
         /// <summary>
         /// network service design group properties.

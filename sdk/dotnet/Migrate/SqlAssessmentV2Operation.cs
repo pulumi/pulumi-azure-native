@@ -333,8 +333,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// SQL Assessment arm name.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// Assessment type of the assessment.

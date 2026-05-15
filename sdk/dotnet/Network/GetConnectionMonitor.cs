@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the connection monitor.
         /// </summary>
-        [Input("connectionMonitorName")]
-        public string? ConnectionMonitorName { get; set; }
+        [Input("connectionMonitorName", required: true)]
+        public string ConnectionMonitorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Watcher resource.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the connection monitor.
         /// </summary>
-        [Input("connectionMonitorName")]
-        public Input<string>? ConnectionMonitorName { get; set; }
+        [Input("connectionMonitorName", required: true)]
+        public Input<string> ConnectionMonitorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Watcher resource.

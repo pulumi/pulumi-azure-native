@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the iSCSI Target.
         /// </summary>
-        [Input("iscsiTargetName")]
-        public string? IscsiTargetName { get; set; }
+        [Input("iscsiTargetName", required: true)]
+        public string IscsiTargetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the iSCSI Target.
         /// </summary>
-        [Input("iscsiTargetName")]
-        public Input<string>? IscsiTargetName { get; set; }
+        [Input("iscsiTargetName", required: true)]
+        public Input<string> IscsiTargetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

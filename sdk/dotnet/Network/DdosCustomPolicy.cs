@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the DDoS custom policy.
         /// </summary>
-        [Input("ddosCustomPolicyName", required: true)]
-        public Input<string> DdosCustomPolicyName { get; set; } = null!;
+        [Input("ddosCustomPolicyName")]
+        public Input<string>? DdosCustomPolicyName { get; set; }
 
         /// <summary>
         /// Resource ID.

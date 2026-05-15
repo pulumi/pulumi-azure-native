@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster.
         /// </summary>
-        [Input("mongoClusterName")]
-        public string? MongoClusterName { get; set; }
+        [Input("mongoClusterName", required: true)]
+        public string MongoClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster.
         /// </summary>
-        [Input("mongoClusterName")]
-        public Input<string>? MongoClusterName { get; set; }
+        [Input("mongoClusterName", required: true)]
+        public Input<string> MongoClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

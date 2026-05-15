@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Managed Certificate.
         /// </summary>
-        [Input("managedCertificateName")]
-        public string? ManagedCertificateName { get; set; }
+        [Input("managedCertificateName", required: true)]
+        public string ManagedCertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Managed Certificate.
         /// </summary>
-        [Input("managedCertificateName")]
-        public Input<string>? ManagedCertificateName { get; set; }
+        [Input("managedCertificateName", required: true)]
+        public Input<string> ManagedCertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

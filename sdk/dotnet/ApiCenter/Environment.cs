@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("environmentName", required: true)]
-        public Input<string> EnvironmentName { get; set; } = null!;
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
         /// Environment kind.

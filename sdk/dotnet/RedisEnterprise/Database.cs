@@ -221,8 +221,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// The name of the Redis Enterprise database.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The watchlist item id (GUID)
         /// </summary>
-        [Input("watchlistItemId")]
-        public string? WatchlistItemId { get; set; }
+        [Input("watchlistItemId", required: true)]
+        public string WatchlistItemId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The watchlist item id (GUID)
         /// </summary>
-        [Input("watchlistItemId")]
-        public Input<string>? WatchlistItemId { get; set; }
+        [Input("watchlistItemId", required: true)]
+        public Input<string> WatchlistItemId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

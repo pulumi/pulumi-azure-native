@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
         /// <summary>
         /// The name of the deid service
         /// </summary>
-        [Input("deidServiceName", required: true)]
-        public Input<string> DeidServiceName { get; set; } = null!;
+        [Input("deidServiceName")]
+        public Input<string>? DeidServiceName { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

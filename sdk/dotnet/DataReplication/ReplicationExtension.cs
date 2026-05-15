@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The replication extension name.
         /// </summary>
-        [Input("replicationExtensionName", required: true)]
-        public Input<string> ReplicationExtensionName { get; set; } = null!;
+        [Input("replicationExtensionName")]
+        public Input<string>? ReplicationExtensionName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

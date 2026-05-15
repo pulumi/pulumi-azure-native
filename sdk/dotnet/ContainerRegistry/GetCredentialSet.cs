@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the credential set.
         /// </summary>
-        [Input("credentialSetName")]
-        public string? CredentialSetName { get; set; }
+        [Input("credentialSetName", required: true)]
+        public string CredentialSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the credential set.
         /// </summary>
-        [Input("credentialSetName")]
-        public Input<string>? CredentialSetName { get; set; }
+        [Input("credentialSetName", required: true)]
+        public Input<string> CredentialSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.

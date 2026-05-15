@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The global parameter name.
         /// </summary>
-        [Input("globalParameterName")]
-        public string? GlobalParameterName { get; set; }
+        [Input("globalParameterName", required: true)]
+        public string GlobalParameterName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The global parameter name.
         /// </summary>
-        [Input("globalParameterName")]
-        public Input<string>? GlobalParameterName { get; set; }
+        [Input("globalParameterName", required: true)]
+        public Input<string> GlobalParameterName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

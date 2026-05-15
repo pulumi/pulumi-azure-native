@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ broker/listener resource
         /// </summary>
-        [Input("listenerName")]
-        public string? ListenerName { get; set; }
+        [Input("listenerName", required: true)]
+        public string ListenerName { get; set; } = null!;
 
         /// <summary>
         /// Name of MQ resource
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ broker/listener resource
         /// </summary>
-        [Input("listenerName")]
-        public Input<string>? ListenerName { get; set; }
+        [Input("listenerName", required: true)]
+        public Input<string> ListenerName { get; set; } = null!;
 
         /// <summary>
         /// Name of MQ resource

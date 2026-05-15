@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager.
         /// </summary>
-        [Input("networkManagerName", required: true)]
-        public Input<string> NetworkManagerName { get; set; } = null!;
+        [Input("networkManagerName")]
+        public Input<string>? NetworkManagerName { get; set; }
 
         [Input("networkManagerScopeAccesses")]
         private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _networkManagerScopeAccesses;

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetAccessReviewScheduleDefinitionByIdResult> Invoke(GetAccessReviewScheduleDefinitionByIdInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessReviewScheduleDefinitionByIdResult> Invoke(GetAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId")]
-        public string? ScheduleDefinitionId { get; set; }
+        [Input("scheduleDefinitionId", required: true)]
+        public string ScheduleDefinitionId { get; set; } = null!;
 
         public GetAccessReviewScheduleDefinitionByIdArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId")]
-        public Input<string>? ScheduleDefinitionId { get; set; }
+        [Input("scheduleDefinitionId", required: true)]
+        public Input<string> ScheduleDefinitionId { get; set; } = null!;
 
         public GetAccessReviewScheduleDefinitionByIdInvokeArgs()
         {

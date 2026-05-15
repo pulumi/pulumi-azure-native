@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Uses Azure REST API version 2025-07-01.
         /// </summary>
-        public static Task<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> InvokeAsync(GetDeploymentStacksWhatIfResultsAtSubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> InvokeAsync(GetDeploymentStacksWhatIfResultsAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStacksWhatIfResultsAtSubscriptionResult>("azure-native:resources:getDeploymentStacksWhatIfResultsAtSubscription", args ?? new GetDeploymentStacksWhatIfResultsAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Uses Azure REST API version 2025-07-01.
         /// </summary>
-        public static Output<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> Invoke(GetDeploymentStacksWhatIfResultsAtSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> Invoke(GetDeploymentStacksWhatIfResultsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStacksWhatIfResultsAtSubscriptionResult>("azure-native:resources:getDeploymentStacksWhatIfResultsAtSubscription", args ?? new GetDeploymentStacksWhatIfResultsAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName")]
-        public string? DeploymentStacksWhatIfResultName { get; set; }
+        [Input("deploymentStacksWhatIfResultName", required: true)]
+        public string DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         public GetDeploymentStacksWhatIfResultsAtSubscriptionArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName")]
-        public Input<string>? DeploymentStacksWhatIfResultName { get; set; }
+        [Input("deploymentStacksWhatIfResultName", required: true)]
+        public Input<string> DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         public GetDeploymentStacksWhatIfResultsAtSubscriptionInvokeArgs()
         {

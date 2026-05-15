@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the load balancer
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public Input<string> LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

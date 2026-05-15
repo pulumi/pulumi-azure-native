@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource value which is typically the version identifier for the value.
         /// </summary>
-        [Input("secretValueResourceName")]
-        public string? SecretValueResourceName { get; set; }
+        [Input("secretValueResourceName", required: true)]
+        public string SecretValueResourceName { get; set; } = null!;
 
         public GetSecretValueArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource value which is typically the version identifier for the value.
         /// </summary>
-        [Input("secretValueResourceName")]
-        public Input<string>? SecretValueResourceName { get; set; }
+        [Input("secretValueResourceName", required: true)]
+        public Input<string> SecretValueResourceName { get; set; } = null!;
 
         public GetSecretValueInvokeArgs()
         {

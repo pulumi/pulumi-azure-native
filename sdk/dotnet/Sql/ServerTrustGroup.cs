@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server trust group.
         /// </summary>
-        [Input("serverTrustGroupName", required: true)]
-        public Input<string> ServerTrustGroupName { get; set; } = null!;
+        [Input("serverTrustGroupName")]
+        public Input<string>? ServerTrustGroupName { get; set; }
 
         [Input("trustScopes", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.Sql.TrustScope>>? _trustScopes;

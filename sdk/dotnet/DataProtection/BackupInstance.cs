@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of the backup instance.
         /// </summary>
-        [Input("backupInstanceName", required: true)]
-        public Input<string> BackupInstanceName { get; set; } = null!;
+        [Input("backupInstanceName")]
+        public Input<string>? BackupInstanceName { get; set; }
 
         /// <summary>
         /// BackupInstanceResource properties

@@ -198,8 +198,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt id (GUID)
         /// </summary>
-        [Input("huntId", required: true)]
-        public Input<string> HuntId { get; set; } = null!;
+        [Input("huntId")]
+        public Input<string>? HuntId { get; set; }
 
         /// <summary>
         /// The hypothesis status of the hunt.

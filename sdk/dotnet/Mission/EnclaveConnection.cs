@@ -163,8 +163,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Enclave Connection Resource
         /// </summary>
-        [Input("enclaveConnectionName", required: true)]
-        public Input<string> EnclaveConnectionName { get; set; } = null!;
+        [Input("enclaveConnectionName")]
+        public Input<string>? EnclaveConnectionName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

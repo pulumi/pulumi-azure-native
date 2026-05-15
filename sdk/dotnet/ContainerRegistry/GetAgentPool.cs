@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public string? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public string AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.

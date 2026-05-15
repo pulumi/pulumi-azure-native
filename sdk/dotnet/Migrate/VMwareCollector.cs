@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a VMware collector within a project.
         /// </summary>
-        [Input("vmWareCollectorName", required: true)]
-        public Input<string> VmWareCollectorName { get; set; } = null!;
+        [Input("vmWareCollectorName")]
+        public Input<string>? VmWareCollectorName { get; set; }
 
         public VMwareCollectorArgs()
         {

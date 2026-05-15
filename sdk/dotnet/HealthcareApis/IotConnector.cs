@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of IoT Connector resource.
         /// </summary>
-        [Input("iotConnectorName", required: true)]
-        public Input<string> IotConnectorName { get; set; } = null!;
+        [Input("iotConnectorName")]
+        public Input<string>? IotConnectorName { get; set; }
 
         /// <summary>
         /// The resource location.

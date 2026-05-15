@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The collection ID
         /// </summary>
-        [Input("collectionId")]
-        public string? CollectionId { get; set; }
+        [Input("collectionId", required: true)]
+        public string CollectionId { get; set; } = null!;
 
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The collection ID
         /// </summary>
-        [Input("collectionId")]
-        public Input<string>? CollectionId { get; set; }
+        [Input("collectionId", required: true)]
+        public Input<string> CollectionId { get; set; } = null!;
 
         /// <summary>
         /// The store ID - must use the tenant ID

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the archive resource.
         /// </summary>
-        [Input("archiveName", required: true)]
-        public Input<string> ArchiveName { get; set; } = null!;
+        [Input("archiveName")]
+        public Input<string>? ArchiveName { get; set; }
 
         /// <summary>
         /// The package source of the archive.

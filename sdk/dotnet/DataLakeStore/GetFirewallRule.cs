@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the firewall rule to retrieve.
         /// </summary>
-        [Input("firewallRuleName")]
-        public string? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public string FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the firewall rule to retrieve.
         /// </summary>
-        [Input("firewallRuleName")]
-        public Input<string>? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

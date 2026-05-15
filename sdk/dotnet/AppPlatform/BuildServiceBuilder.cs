@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the builder resource.
         /// </summary>
-        [Input("builderName", required: true)]
-        public Input<string> BuilderName { get; set; } = null!;
+        [Input("builderName")]
+        public Input<string>? BuilderName { get; set; }
 
         /// <summary>
         /// Property of the Builder resource.

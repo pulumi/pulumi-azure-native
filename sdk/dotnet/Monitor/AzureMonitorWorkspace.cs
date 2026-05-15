@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
-        [Input("azureMonitorWorkspaceName", required: true)]
-        public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;
+        [Input("azureMonitorWorkspaceName")]
+        public Input<string>? AzureMonitorWorkspaceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

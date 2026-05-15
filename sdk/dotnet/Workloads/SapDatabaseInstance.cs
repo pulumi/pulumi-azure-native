@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("databaseInstanceName", required: true)]
-        public Input<string> DatabaseInstanceName { get; set; } = null!;
+        [Input("databaseInstanceName")]
+        public Input<string>? DatabaseInstanceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

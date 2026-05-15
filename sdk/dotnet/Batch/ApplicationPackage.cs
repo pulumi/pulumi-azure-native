@@ -186,8 +186,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// The version of the application.
         /// </summary>
-        [Input("versionName", required: true)]
-        public Input<string> VersionName { get; set; } = null!;
+        [Input("versionName")]
+        public Input<string>? VersionName { get; set; }
 
         public ApplicationPackageArgs()
         {

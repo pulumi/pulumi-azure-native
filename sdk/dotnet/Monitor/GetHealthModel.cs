@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of health model resource
         /// </summary>
-        [Input("healthModelName")]
-        public string? HealthModelName { get; set; }
+        [Input("healthModelName", required: true)]
+        public string HealthModelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of health model resource
         /// </summary>
-        [Input("healthModelName")]
-        public Input<string>? HealthModelName { get; set; }
+        [Input("healthModelName", required: true)]
+        public Input<string> HealthModelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

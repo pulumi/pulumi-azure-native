@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the event subscription to be found.
         /// </summary>
-        [Input("eventSubscriptionName")]
-        public string? EventSubscriptionName { get; set; }
+        [Input("eventSubscriptionName", required: true)]
+        public string EventSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the event subscription to be found.
         /// </summary>
-        [Input("eventSubscriptionName")]
-        public Input<string>? EventSubscriptionName { get; set; }
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.

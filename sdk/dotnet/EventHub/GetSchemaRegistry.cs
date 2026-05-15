@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Schema Group name 
         /// </summary>
-        [Input("schemaGroupName")]
-        public string? SchemaGroupName { get; set; }
+        [Input("schemaGroupName", required: true)]
+        public string SchemaGroupName { get; set; } = null!;
 
         public GetSchemaRegistryArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Schema Group name 
         /// </summary>
-        [Input("schemaGroupName")]
-        public Input<string>? SchemaGroupName { get; set; }
+        [Input("schemaGroupName", required: true)]
+        public Input<string> SchemaGroupName { get; set; } = null!;
 
         public GetSchemaRegistryInvokeArgs()
         {

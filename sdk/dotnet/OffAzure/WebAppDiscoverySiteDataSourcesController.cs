@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Data Source ARM name.
         /// </summary>
-        [Input("discoverySiteDataSourceName", required: true)]
-        public Input<string> DiscoverySiteDataSourceName { get; set; } = null!;
+        [Input("discoverySiteDataSourceName")]
+        public Input<string>? DiscoverySiteDataSourceName { get; set; }
 
         /// <summary>
         /// Gets or sets the discovery site Id.

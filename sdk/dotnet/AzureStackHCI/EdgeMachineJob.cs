@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of EdgeMachineJob
         /// </summary>
-        [Input("jobsName", required: true)]
-        public Input<string> JobsName { get; set; } = null!;
+        [Input("jobsName")]
+        public Input<string>? JobsName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

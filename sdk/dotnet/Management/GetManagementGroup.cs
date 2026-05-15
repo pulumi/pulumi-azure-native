@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("groupId")]
-        public string? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public string GroupId { get; set; } = null!;
 
         /// <summary>
         /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
         /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.

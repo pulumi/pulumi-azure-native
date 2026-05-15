@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The job schedule name.
         /// </summary>
-        [Input("jobScheduleId", required: true)]
-        public Input<string> JobScheduleId { get; set; } = null!;
+        [Input("jobScheduleId")]
+        public Input<string>? JobScheduleId { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

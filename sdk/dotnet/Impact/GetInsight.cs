@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// Name of the insight
         /// </summary>
-        [Input("insightName")]
-        public string? InsightName { get; set; }
+        [Input("insightName", required: true)]
+        public string InsightName { get; set; } = null!;
 
         /// <summary>
         /// workloadImpact resource 
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// Name of the insight
         /// </summary>
-        [Input("insightName")]
-        public Input<string>? InsightName { get; set; }
+        [Input("insightName", required: true)]
+        public Input<string> InsightName { get; set; } = null!;
 
         /// <summary>
         /// workloadImpact resource 

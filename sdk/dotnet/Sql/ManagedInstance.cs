@@ -447,8 +447,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the managed instance.
         /// </summary>
-        [Input("managedInstanceName", required: true)]
-        public Input<string> ManagedInstanceName { get; set; } = null!;
+        [Input("managedInstanceName")]
+        public Input<string>? ManagedInstanceName { get; set; }
 
         /// <summary>
         /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("databaseInstanceName")]
-        public string? DatabaseInstanceName { get; set; }
+        [Input("databaseInstanceName", required: true)]
+        public string DatabaseInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("databaseInstanceName")]
-        public Input<string>? DatabaseInstanceName { get; set; }
+        [Input("databaseInstanceName", required: true)]
+        public Input<string> DatabaseInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Impact
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
+        public Connector(string name, ConnectorArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:impact:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// The name of the connector
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Version of the published blueprint definition.
         /// </summary>
-        [Input("versionId")]
-        public string? VersionId { get; set; }
+        [Input("versionId", required: true)]
+        public string VersionId { get; set; } = null!;
 
         public GetPublishedBlueprintArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Version of the published blueprint definition.
         /// </summary>
-        [Input("versionId")]
-        public Input<string>? VersionId { get; set; }
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
 
         public GetPublishedBlueprintInvokeArgs()
         {

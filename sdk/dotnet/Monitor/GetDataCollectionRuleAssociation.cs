@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the association. The name is case insensitive.
         /// </summary>
-        [Input("associationName")]
-        public string? AssociationName { get; set; }
+        [Input("associationName", required: true)]
+        public string AssociationName { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the association. The name is case insensitive.
         /// </summary>
-        [Input("associationName")]
-        public Input<string>? AssociationName { get; set; }
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

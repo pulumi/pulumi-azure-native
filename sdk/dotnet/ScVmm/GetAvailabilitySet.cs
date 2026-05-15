@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the AvailabilitySet.
         /// </summary>
-        [Input("availabilitySetName")]
-        public string? AvailabilitySetName { get; set; }
+        [Input("availabilitySetName", required: true)]
+        public string AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the AvailabilitySet.
         /// </summary>
-        [Input("availabilitySetName")]
-        public Input<string>? AvailabilitySetName { get; set; }
+        [Input("availabilitySetName", required: true)]
+        public Input<string> AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

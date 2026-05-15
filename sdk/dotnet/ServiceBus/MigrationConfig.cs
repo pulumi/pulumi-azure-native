@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The configuration name. Should always be "$default".
         /// </summary>
-        [Input("configName", required: true)]
-        public Input<string> ConfigName { get; set; } = null!;
+        [Input("configName")]
+        public Input<string>? ConfigName { get; set; }
 
         /// <summary>
         /// The namespace name

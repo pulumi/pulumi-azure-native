@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigurationReference
         /// </summary>
-        [Input("configurationReferenceName", required: true)]
-        public Input<string> ConfigurationReferenceName { get; set; } = null!;
+        [Input("configurationReferenceName")]
+        public Input<string>? ConfigurationReferenceName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// The name of the replica.
         /// </summary>
-        [Input("replicaName")]
-        public string? ReplicaName { get; set; }
+        [Input("replicaName", required: true)]
+        public string ReplicaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// The name of the replica.
         /// </summary>
-        [Input("replicaName")]
-        public Input<string>? ReplicaName { get; set; }
+        [Input("replicaName", required: true)]
+        public Input<string> ReplicaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

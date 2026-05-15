@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The name of the firmware analysis workspace.
         /// </summary>
-        [Input("workspaceName")]
-        public string? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The name of the firmware analysis workspace.
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceInvokeArgs()
         {

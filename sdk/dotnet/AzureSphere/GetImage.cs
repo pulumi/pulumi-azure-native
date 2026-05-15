@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
-        [Input("imageName")]
-        public string? ImageName { get; set; }
+        [Input("imageName", required: true)]
+        public string ImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
-        [Input("imageName")]
-        public Input<string>? ImageName { get; set; }
+        [Input("imageName", required: true)]
+        public Input<string> ImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

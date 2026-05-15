@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB view name.
         /// </summary>
-        [Input("viewName")]
-        public string? ViewName { get; set; }
+        [Input("viewName", required: true)]
+        public string ViewName { get; set; } = null!;
 
         public GetCassandraResourceCassandraViewArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB view name.
         /// </summary>
-        [Input("viewName")]
-        public Input<string>? ViewName { get; set; }
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
 
         public GetCassandraResourceCassandraViewInvokeArgs()
         {

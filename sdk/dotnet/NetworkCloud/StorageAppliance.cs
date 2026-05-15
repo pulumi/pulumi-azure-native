@@ -275,8 +275,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the storage appliance.
         /// </summary>
-        [Input("storageApplianceName", required: true)]
-        public Input<string> StorageApplianceName { get; set; } = null!;
+        [Input("storageApplianceName")]
+        public Input<string>? StorageApplianceName { get; set; }
 
         /// <summary>
         /// The SKU for the storage appliance.

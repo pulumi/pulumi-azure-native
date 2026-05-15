@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the App resource.
         /// </summary>
-        [Input("appName")]
-        public string? AppName { get; set; }
+        [Input("appName", required: true)]
+        public string AppName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the App resource.
         /// </summary>
-        [Input("appName")]
-        public Input<string>? AppName { get; set; }
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         ///  Private link resource name.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public Input<string> PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public Input<string>? PeConnectionName { get; set; }
 
         /// <summary>
         /// private endpoints connection state

@@ -281,8 +281,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the public IP prefix.
         /// </summary>
-        [Input("publicIpPrefixName", required: true)]
-        public Input<string> PublicIpPrefixName { get; set; } = null!;
+        [Input("publicIpPrefixName")]
+        public Input<string>? PublicIpPrefixName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

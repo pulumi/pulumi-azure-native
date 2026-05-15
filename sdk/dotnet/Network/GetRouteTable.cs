@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the route table.
         /// </summary>
-        [Input("routeTableName")]
-        public string? RouteTableName { get; set; }
+        [Input("routeTableName", required: true)]
+        public string RouteTableName { get; set; } = null!;
 
         public GetRouteTableArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the route table.
         /// </summary>
-        [Input("routeTableName")]
-        public Input<string>? RouteTableName { get; set; }
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         public GetRouteTableInvokeArgs()
         {

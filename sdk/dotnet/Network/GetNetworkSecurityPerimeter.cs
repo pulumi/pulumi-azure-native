@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network security perimeter.
         /// </summary>
-        [Input("networkSecurityPerimeterName")]
-        public string? NetworkSecurityPerimeterName { get; set; }
+        [Input("networkSecurityPerimeterName", required: true)]
+        public string NetworkSecurityPerimeterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network security perimeter.
         /// </summary>
-        [Input("networkSecurityPerimeterName")]
-        public Input<string>? NetworkSecurityPerimeterName { get; set; }
+        [Input("networkSecurityPerimeterName", required: true)]
+        public Input<string> NetworkSecurityPerimeterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

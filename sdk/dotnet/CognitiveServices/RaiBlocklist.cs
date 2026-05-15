@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiBlocklist associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiBlocklistName", required: true)]
-        public Input<string> RaiBlocklistName { get; set; } = null!;
+        [Input("raiBlocklistName")]
+        public Input<string>? RaiBlocklistName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

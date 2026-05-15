@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Task ARM name
         /// </summary>
-        [Input("taskName")]
-        public string? TaskName { get; set; }
+        [Input("taskName", required: true)]
+        public string TaskName { get; set; } = null!;
 
         public GetTaskArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Task ARM name
         /// </summary>
-        [Input("taskName")]
-        public Input<string>? TaskName { get; set; }
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
 
         public GetTaskInvokeArgs()
         {

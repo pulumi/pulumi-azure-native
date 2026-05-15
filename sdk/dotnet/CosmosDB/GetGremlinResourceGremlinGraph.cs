@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("graphName")]
-        public string? GraphName { get; set; }
+        [Input("graphName", required: true)]
+        public string GraphName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("graphName")]
-        public Input<string>? GraphName { get; set; }
+        [Input("graphName", required: true)]
+        public Input<string> GraphName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

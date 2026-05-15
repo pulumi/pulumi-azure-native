@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network group.
         /// </summary>
-        [Input("networkGroupName")]
-        public string? NetworkGroupName { get; set; }
+        [Input("networkGroupName", required: true)]
+        public string NetworkGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the network manager.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network group.
         /// </summary>
-        [Input("networkGroupName")]
-        public Input<string>? NetworkGroupName { get; set; }
+        [Input("networkGroupName", required: true)]
+        public Input<string> NetworkGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the network manager.

@@ -233,8 +233,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the data connection.
         /// </summary>
-        [Input("dataConnectionName", required: true)]
-        public Input<string> DataConnectionName { get; set; } = null!;
+        [Input("dataConnectionName")]
+        public Input<string>? DataConnectionName { get; set; }
 
         /// <summary>
         /// The data format of the message. Optionally the data format can be added to each message.

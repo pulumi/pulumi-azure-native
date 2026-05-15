@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workspace key
         /// </summary>
-        [Input("keyName")]
-        public string? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public string KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workspace key
         /// </summary>
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

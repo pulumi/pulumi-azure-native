@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Execution.
         /// </summary>
-        [Input("executionName", required: true)]
-        public Input<string> ExecutionName { get; set; } = null!;
+        [Input("executionName")]
+        public Input<string>? ExecutionName { get; set; }
 
         /// <summary>
         /// The complex type of the extended location.

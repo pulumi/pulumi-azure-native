@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Application Group name 
         /// </summary>
-        [Input("applicationGroupName", required: true)]
-        public Input<string> ApplicationGroupName { get; set; } = null!;
+        [Input("applicationGroupName")]
+        public Input<string>? ApplicationGroupName { get; set; }
 
         /// <summary>
         /// The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)

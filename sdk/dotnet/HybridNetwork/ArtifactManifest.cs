@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the artifact manifest.
         /// </summary>
-        [Input("artifactManifestName", required: true)]
-        public Input<string> ArtifactManifestName { get; set; } = null!;
+        [Input("artifactManifestName")]
+        public Input<string>? ArtifactManifestName { get; set; }
 
         /// <summary>
         /// The name of the artifact store.

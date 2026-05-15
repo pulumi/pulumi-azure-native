@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the security rule.
         /// </summary>
-        [Input("securityRuleName")]
-        public string? SecurityRuleName { get; set; }
+        [Input("securityRuleName", required: true)]
+        public string SecurityRuleName { get; set; } = null!;
 
         public GetSecurityRuleArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the security rule.
         /// </summary>
-        [Input("securityRuleName")]
-        public Input<string>? SecurityRuleName { get; set; }
+        [Input("securityRuleName", required: true)]
+        public Input<string> SecurityRuleName { get; set; } = null!;
 
         public GetSecurityRuleInvokeArgs()
         {

@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// L2 Connection name.
         /// </summary>
-        [Input("l2ConnectionName", required: true)]
-        public Input<string> L2ConnectionName { get; set; } = null!;
+        [Input("l2ConnectionName")]
+        public Input<string>? L2ConnectionName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

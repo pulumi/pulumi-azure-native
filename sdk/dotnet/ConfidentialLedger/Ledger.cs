@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// <summary>
         /// Name of the Confidential Ledger
         /// </summary>
-        [Input("ledgerName", required: true)]
-        public Input<string> LedgerName { get; set; } = null!;
+        [Input("ledgerName")]
+        public Input<string>? LedgerName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

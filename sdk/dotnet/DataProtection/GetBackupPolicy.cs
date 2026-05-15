@@ -45,8 +45,8 @@ namespace Pulumi.AzureNative.DataProtection
 
     public sealed class GetBackupPolicyArgs : global::Pulumi.InvokeArgs
     {
-        [Input("backupPolicyName")]
-        public string? BackupPolicyName { get; set; }
+        [Input("backupPolicyName", required: true)]
+        public string BackupPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataProtection
 
     public sealed class GetBackupPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("backupPolicyName")]
-        public Input<string>? BackupPolicyName { get; set; }
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

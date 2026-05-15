@@ -195,8 +195,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the backend address pool.
         /// </summary>
-        [Input("backendAddressPoolName", required: true)]
-        public Input<string> BackendAddressPoolName { get; set; } = null!;
+        [Input("backendAddressPoolName")]
+        public Input<string>? BackendAddressPoolName { get; set; }
 
         /// <summary>
         /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the DevicePool
         /// </summary>
-        [Input("devicePoolName", required: true)]
-        public Input<string> DevicePoolName { get; set; } = null!;
+        [Input("devicePoolName")]
+        public Input<string>? DevicePoolName { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

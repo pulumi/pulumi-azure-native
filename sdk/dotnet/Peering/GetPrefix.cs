@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the prefix.
         /// </summary>
-        [Input("prefixName")]
-        public string? PrefixName { get; set; }
+        [Input("prefixName", required: true)]
+        public string PrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the prefix.
         /// </summary>
-        [Input("prefixName")]
-        public Input<string>? PrefixName { get; set; }
+        [Input("prefixName", required: true)]
+        public Input<string> PrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Neighbor Group.
         /// </summary>
-        [Input("neighborGroupName", required: true)]
-        public Input<string> NeighborGroupName { get; set; } = null!;
+        [Input("neighborGroupName")]
+        public Input<string>? NeighborGroupName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

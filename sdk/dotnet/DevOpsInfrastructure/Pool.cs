@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// <summary>
         /// Name of the pool. It needs to be globally unique.
         /// </summary>
-        [Input("poolName", required: true)]
-        public Input<string> PoolName { get; set; } = null!;
+        [Input("poolName")]
+        public Input<string>? PoolName { get; set; }
 
         /// <summary>
         /// The status of the current operation.

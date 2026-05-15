@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Syntex
         /// <summary>
         /// The name of document processor resource.
         /// </summary>
-        [Input("processorName", required: true)]
-        public Input<string> ProcessorName { get; set; } = null!;
+        [Input("processorName")]
+        public Input<string>? ProcessorName { get; set; }
 
         /// <summary>
         /// Document processor properties.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Frontends
         /// </summary>
-        [Input("frontendName")]
-        public string? FrontendName { get; set; }
+        [Input("frontendName", required: true)]
+        public string FrontendName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Frontends
         /// </summary>
-        [Input("frontendName")]
-        public Input<string>? FrontendName { get; set; }
+        [Input("frontendName", required: true)]
+        public Input<string> FrontendName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

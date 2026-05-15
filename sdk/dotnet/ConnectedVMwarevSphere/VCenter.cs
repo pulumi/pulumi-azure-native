@@ -238,8 +238,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the vCenter.
         /// </summary>
-        [Input("vcenterName", required: true)]
-        public Input<string> VcenterName { get; set; } = null!;
+        [Input("vcenterName")]
+        public Input<string>? VcenterName { get; set; }
 
         public VCenterArgs()
         {

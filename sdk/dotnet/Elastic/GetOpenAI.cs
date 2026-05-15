@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// OpenAI Integration name
         /// </summary>
-        [Input("integrationName")]
-        public string? IntegrationName { get; set; }
+        [Input("integrationName", required: true)]
+        public string IntegrationName { get; set; } = null!;
 
         /// <summary>
         /// Monitor resource name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// OpenAI Integration name
         /// </summary>
-        [Input("integrationName")]
-        public Input<string>? IntegrationName { get; set; }
+        [Input("integrationName", required: true)]
+        public Input<string> IntegrationName { get; set; } = null!;
 
         /// <summary>
         /// Monitor resource name

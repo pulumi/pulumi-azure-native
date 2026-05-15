@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Version identifier. This is case-sensitive.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public RegistryEnvironmentVersionArgs()
         {

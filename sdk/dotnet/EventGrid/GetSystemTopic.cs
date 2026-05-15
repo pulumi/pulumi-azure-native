@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the system topic.
         /// </summary>
-        [Input("systemTopicName")]
-        public string? SystemTopicName { get; set; }
+        [Input("systemTopicName", required: true)]
+        public string SystemTopicName { get; set; } = null!;
 
         public GetSystemTopicArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the system topic.
         /// </summary>
-        [Input("systemTopicName")]
-        public Input<string>? SystemTopicName { get; set; }
+        [Input("systemTopicName", required: true)]
+        public Input<string> SystemTopicName { get; set; } = null!;
 
         public GetSystemTopicInvokeArgs()
         {

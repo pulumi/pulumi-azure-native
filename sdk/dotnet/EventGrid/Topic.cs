@@ -295,8 +295,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the topic.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public TopicArgs()
         {

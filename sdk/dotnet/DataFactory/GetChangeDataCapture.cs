@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The change data capture name.
         /// </summary>
-        [Input("changeDataCaptureName")]
-        public string? ChangeDataCaptureName { get; set; }
+        [Input("changeDataCaptureName", required: true)]
+        public string ChangeDataCaptureName { get; set; } = null!;
 
         /// <summary>
         /// The factory name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The change data capture name.
         /// </summary>
-        [Input("changeDataCaptureName")]
-        public Input<string>? ChangeDataCaptureName { get; set; }
+        [Input("changeDataCaptureName", required: true)]
+        public Input<string> ChangeDataCaptureName { get; set; } = null!;
 
         /// <summary>
         /// The factory name.

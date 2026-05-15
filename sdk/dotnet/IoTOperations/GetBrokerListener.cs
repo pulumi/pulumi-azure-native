@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker listener resource
         /// </summary>
-        [Input("listenerName")]
-        public string? ListenerName { get; set; }
+        [Input("listenerName", required: true)]
+        public string ListenerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker listener resource
         /// </summary>
-        [Input("listenerName")]
-        public Input<string>? ListenerName { get; set; }
+        [Input("listenerName", required: true)]
+        public Input<string> ListenerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Server ESU License
         /// </summary>
-        [Input("sqlServerEsuLicenseName")]
-        public string? SqlServerEsuLicenseName { get; set; }
+        [Input("sqlServerEsuLicenseName", required: true)]
+        public string SqlServerEsuLicenseName { get; set; } = null!;
 
         public GetSqlServerEsuLicenseArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Server ESU License
         /// </summary>
-        [Input("sqlServerEsuLicenseName")]
-        public Input<string>? SqlServerEsuLicenseName { get; set; }
+        [Input("sqlServerEsuLicenseName", required: true)]
+        public Input<string> SqlServerEsuLicenseName { get; set; } = null!;
 
         public GetSqlServerEsuLicenseInvokeArgs()
         {

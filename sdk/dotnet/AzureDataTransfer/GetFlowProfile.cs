@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
         /// </summary>
-        [Input("flowProfileName")]
-        public string? FlowProfileName { get; set; }
+        [Input("flowProfileName", required: true)]
+        public string FlowProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the pipeline on which to operate.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
         /// </summary>
-        [Input("flowProfileName")]
-        public Input<string>? FlowProfileName { get; set; }
+        [Input("flowProfileName", required: true)]
+        public Input<string> FlowProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the pipeline on which to operate.

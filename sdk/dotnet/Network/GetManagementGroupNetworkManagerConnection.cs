@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Name for the network manager connection.
         /// </summary>
-        [Input("networkManagerConnectionName")]
-        public string? NetworkManagerConnectionName { get; set; }
+        [Input("networkManagerConnectionName", required: true)]
+        public string NetworkManagerConnectionName { get; set; } = null!;
 
         public GetManagementGroupNetworkManagerConnectionArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Name for the network manager connection.
         /// </summary>
-        [Input("networkManagerConnectionName")]
-        public Input<string>? NetworkManagerConnectionName { get; set; }
+        [Input("networkManagerConnectionName", required: true)]
+        public Input<string> NetworkManagerConnectionName { get; set; } = null!;
 
         public GetManagementGroupNetworkManagerConnectionInvokeArgs()
         {

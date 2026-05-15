@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery Script Definition to be retrieved.
         /// </summary>
-        [Input("galleryScriptName", required: true)]
-        public Input<string> GalleryScriptName { get; set; } = null!;
+        [Input("galleryScriptName")]
+        public Input<string>? GalleryScriptName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

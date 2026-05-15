@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceGroup name.
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
-        [Input("azureMonitorWorkspaceName")]
-        public string? AzureMonitorWorkspaceName { get; set; }
+        [Input("azureMonitorWorkspaceName", required: true)]
+        public string AzureMonitorWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
-        [Input("azureMonitorWorkspaceName")]
-        public Input<string>? AzureMonitorWorkspaceName { get; set; }
+        [Input("azureMonitorWorkspaceName", required: true)]
+        public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the business process
         /// </summary>
-        [Input("businessProcessName", required: true)]
-        public Input<string> BusinessProcessName { get; set; } = null!;
+        [Input("businessProcessName")]
+        public Input<string>? BusinessProcessName { get; set; }
 
         [Input("businessProcessStages")]
         private InputMap<Inputs.BusinessProcessStageArgs>? _businessProcessStages;

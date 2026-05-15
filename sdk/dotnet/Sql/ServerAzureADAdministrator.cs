@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of server active directory administrator.
         /// </summary>
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// Type of the sever administrator.

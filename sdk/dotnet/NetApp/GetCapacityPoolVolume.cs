@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volume
         /// </summary>
-        [Input("volumeName")]
-        public string? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public string VolumeName { get; set; } = null!;
 
         public GetCapacityPoolVolumeArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volume
         /// </summary>
-        [Input("volumeName")]
-        public Input<string>? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
 
         public GetCapacityPoolVolumeInvokeArgs()
         {

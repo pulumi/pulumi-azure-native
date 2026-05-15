@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Event Hub name
         /// </summary>
-        [Input("eventHubName")]
-        public string? EventHubName { get; set; }
+        [Input("eventHubName", required: true)]
+        public string EventHubName { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Event Hub name
         /// </summary>
-        [Input("eventHubName")]
-        public Input<string>? EventHubName { get; set; }
+        [Input("eventHubName", required: true)]
+        public Input<string> EventHubName { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

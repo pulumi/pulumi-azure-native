@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AadIam
         /// 
         /// Uses Azure REST API version 2017-04-01.
         /// </summary>
-        public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:aadiam:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AadIam
         /// 
         /// Uses Azure REST API version 2017-04-01.
         /// </summary>
-        public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:aadiam:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AadIam
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDiagnosticSettingArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.AadIam
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDiagnosticSettingInvokeArgs()
         {

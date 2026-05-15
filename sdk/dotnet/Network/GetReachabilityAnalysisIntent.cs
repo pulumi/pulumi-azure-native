@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reachability Analysis Intent name.
         /// </summary>
-        [Input("reachabilityAnalysisIntentName")]
-        public string? ReachabilityAnalysisIntentName { get; set; }
+        [Input("reachabilityAnalysisIntentName", required: true)]
+        public string ReachabilityAnalysisIntentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reachability Analysis Intent name.
         /// </summary>
-        [Input("reachabilityAnalysisIntentName")]
-        public Input<string>? ReachabilityAnalysisIntentName { get; set; }
+        [Input("reachabilityAnalysisIntentName", required: true)]
+        public Input<string> ReachabilityAnalysisIntentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the global reach connection
         /// </summary>
-        [Input("globalReachConnectionName")]
-        public string? GlobalReachConnectionName { get; set; }
+        [Input("globalReachConnectionName", required: true)]
+        public string GlobalReachConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the global reach connection
         /// </summary>
-        [Input("globalReachConnectionName")]
-        public Input<string>? GlobalReachConnectionName { get; set; }
+        [Input("globalReachConnectionName", required: true)]
+        public Input<string> GlobalReachConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

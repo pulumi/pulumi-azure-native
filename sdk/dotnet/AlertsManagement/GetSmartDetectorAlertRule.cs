@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the alert rule.
         /// </summary>
-        [Input("alertRuleName")]
-        public string? AlertRuleName { get; set; }
+        [Input("alertRuleName", required: true)]
+        public string AlertRuleName { get; set; } = null!;
 
         /// <summary>
         /// Indicates if Smart Detector should be expanded.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the alert rule.
         /// </summary>
-        [Input("alertRuleName")]
-        public Input<string>? AlertRuleName { get; set; }
+        [Input("alertRuleName", required: true)]
+        public Input<string> AlertRuleName { get; set; } = null!;
 
         /// <summary>
         /// Indicates if Smart Detector should be expanded.

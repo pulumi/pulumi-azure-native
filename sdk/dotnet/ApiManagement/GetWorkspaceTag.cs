@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("tagId")]
-        public string? TagId { get; set; }
+        [Input("tagId", required: true)]
+        public string TagId { get; set; } = null!;
 
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("tagId")]
-        public Input<string>? TagId { get; set; }
+        [Input("tagId", required: true)]
+        public Input<string> TagId { get; set; } = null!;
 
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.

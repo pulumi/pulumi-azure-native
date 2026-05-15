@@ -191,8 +191,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB view name.
         /// </summary>
-        [Input("viewName", required: true)]
-        public Input<string> ViewName { get; set; } = null!;
+        [Input("viewName")]
+        public Input<string>? ViewName { get; set; }
 
         public CassandraResourceCassandraViewArgs()
         {

@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicSchemaVersion
         /// </summary>
-        [Input("dynamicSchemaVersionName", required: true)]
-        public Input<string> DynamicSchemaVersionName { get; set; } = null!;
+        [Input("dynamicSchemaVersionName")]
+        public Input<string>? DynamicSchemaVersionName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

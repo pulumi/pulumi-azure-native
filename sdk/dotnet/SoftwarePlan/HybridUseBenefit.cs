@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.SoftwarePlan
         /// <summary>
         /// This is a unique identifier for a plan. Should be a guid.
         /// </summary>
-        [Input("planId", required: true)]
-        public Input<string> PlanId { get; set; } = null!;
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now

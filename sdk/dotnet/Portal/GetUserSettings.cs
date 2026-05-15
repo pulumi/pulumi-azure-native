@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Uses Azure REST API version 2018-10-01.
         /// </summary>
-        public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Uses Azure REST API version 2018-10-01.
         /// </summary>
-        public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the user settings
         /// </summary>
-        [Input("userSettingsName")]
-        public string? UserSettingsName { get; set; }
+        [Input("userSettingsName", required: true)]
+        public string UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the user settings
         /// </summary>
-        [Input("userSettingsName")]
-        public Input<string>? UserSettingsName { get; set; }
+        [Input("userSettingsName", required: true)]
+        public Input<string> UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsInvokeArgs()
         {

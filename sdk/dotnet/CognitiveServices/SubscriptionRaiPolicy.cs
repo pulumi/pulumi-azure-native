@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SubscriptionRaiPolicy(string name, SubscriptionRaiPolicyArgs args, CustomResourceOptions? options = null)
+        public SubscriptionRaiPolicy(string name, SubscriptionRaiPolicyArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:cognitiveservices:SubscriptionRaiPolicy", name, args ?? new SubscriptionRaiPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiPolicy associated with the Cognitive Services Account
         /// </summary>
-        [Input("raiPolicyName", required: true)]
-        public Input<string> RaiPolicyName { get; set; } = null!;
+        [Input("raiPolicyName")]
+        public Input<string>? RaiPolicyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -200,8 +200,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the connected registry.
         /// </summary>
-        [Input("connectedRegistryName", required: true)]
-        public Input<string> ConnectedRegistryName { get; set; } = null!;
+        [Input("connectedRegistryName")]
+        public Input<string>? ConnectedRegistryName { get; set; }
 
         /// <summary>
         /// The garbage collection properties of the connected registry.

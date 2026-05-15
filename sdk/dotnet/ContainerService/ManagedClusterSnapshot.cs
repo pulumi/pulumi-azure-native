@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the managed cluster resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// The type of a snapshot. The default is NodePool.

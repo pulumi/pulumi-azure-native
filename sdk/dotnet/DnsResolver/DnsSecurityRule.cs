@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS security rule.
         /// </summary>
-        [Input("dnsSecurityRuleName", required: true)]
-        public Input<string> DnsSecurityRuleName { get; set; } = null!;
+        [Input("dnsSecurityRuleName")]
+        public Input<string>? DnsSecurityRuleName { get; set; }
 
         /// <summary>
         /// The state of DNS security rule.

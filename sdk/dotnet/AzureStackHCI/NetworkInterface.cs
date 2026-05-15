@@ -213,8 +213,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the network interface
         /// </summary>
-        [Input("networkInterfaceName", required: true)]
-        public Input<string> NetworkInterfaceName { get; set; } = null!;
+        [Input("networkInterfaceName")]
+        public Input<string>? NetworkInterfaceName { get; set; }
 
         /// <summary>
         /// NetworkSecurityGroup - Network Security Group attached to the network interface.

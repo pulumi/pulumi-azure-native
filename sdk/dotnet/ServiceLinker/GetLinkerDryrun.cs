@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of dryrun.
         /// </summary>
-        [Input("dryrunName")]
-        public string? DryrunName { get; set; }
+        [Input("dryrunName", required: true)]
+        public string DryrunName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of dryrun.
         /// </summary>
-        [Input("dryrunName")]
-        public Input<string>? DryrunName { get; set; }
+        [Input("dryrunName", required: true)]
+        public Input<string> DryrunName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.

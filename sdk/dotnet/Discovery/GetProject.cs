@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Project
         /// </summary>
-        [Input("projectName")]
-        public string? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public string ProjectName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Project
         /// </summary>
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The private endpoint connection name.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

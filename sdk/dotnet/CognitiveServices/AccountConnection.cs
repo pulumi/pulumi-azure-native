@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Friendly name of the connection
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Connection property base schema.

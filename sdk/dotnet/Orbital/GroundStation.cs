@@ -186,8 +186,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Ground Station name.
         /// </summary>
-        [Input("groundStationName", required: true)]
-        public Input<string> GroundStationName { get; set; } = null!;
+        [Input("groundStationName")]
+        public Input<string>? GroundStationName { get; set; }
 
         /// <summary>
         /// Latitude of the ground station in decimal degrees.

@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The workflow access key name.
         /// </summary>
-        [Input("accessKeyName", required: true)]
-        public Input<string> AccessKeyName { get; set; } = null!;
+        [Input("accessKeyName")]
+        public Input<string>? AccessKeyName { get; set; }
 
         /// <summary>
         /// Gets or sets the resource id.

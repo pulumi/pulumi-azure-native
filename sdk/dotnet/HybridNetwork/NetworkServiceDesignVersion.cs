@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
         /// </summary>
-        [Input("networkServiceDesignVersionName", required: true)]
-        public Input<string> NetworkServiceDesignVersionName { get; set; } = null!;
+        [Input("networkServiceDesignVersionName")]
+        public Input<string>? NetworkServiceDesignVersionName { get; set; }
 
         /// <summary>
         /// network service design version properties.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the public IP prefix.
         /// </summary>
-        [Input("networkProfileName")]
-        public string? NetworkProfileName { get; set; }
+        [Input("networkProfileName", required: true)]
+        public string NetworkProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the public IP prefix.
         /// </summary>
-        [Input("networkProfileName")]
-        public Input<string>? NetworkProfileName { get; set; }
+        [Input("networkProfileName", required: true)]
+        public Input<string> NetworkProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

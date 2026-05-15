@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName")]
-        public string? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public string ReportName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName")]
-        public Input<string>? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.

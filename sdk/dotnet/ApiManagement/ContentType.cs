@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content type identifier.
         /// </summary>
-        [Input("contentTypeId", required: true)]
-        public Input<string> ContentTypeId { get; set; } = null!;
+        [Input("contentTypeId")]
+        public Input<string>? ContentTypeId { get; set; }
 
         /// <summary>
         /// Content type description.

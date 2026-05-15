@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Private link resource name.
         /// </summary>
-        [Input("peConnectionName")]
-        public string? PeConnectionName { get; set; }
+        [Input("peConnectionName", required: true)]
+        public string PeConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Private link resource name.
         /// </summary>
-        [Input("peConnectionName")]
-        public Input<string>? PeConnectionName { get; set; }
+        [Input("peConnectionName", required: true)]
+        public Input<string> PeConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

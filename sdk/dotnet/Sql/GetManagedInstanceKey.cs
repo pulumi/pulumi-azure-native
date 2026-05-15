@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the managed instance key to be retrieved.
         /// </summary>
-        [Input("keyName")]
-        public string? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public string KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the managed instance key to be retrieved.
         /// </summary>
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.

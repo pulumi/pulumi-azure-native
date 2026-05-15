@@ -196,8 +196,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the link.
         /// </summary>
-        [Input("linkName", required: true)]
-        public Input<string> LinkName { get; set; } = null!;
+        [Input("linkName")]
+        public Input<string>? LinkName { get; set; }
 
         [Input("mappings")]
         private InputList<Inputs.TypePropertiesMappingArgs>? _mappings;

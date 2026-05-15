@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the App Attach package
         /// </summary>
-        [Input("appAttachPackageName", required: true)]
-        public Input<string> AppAttachPackageName { get; set; } = null!;
+        [Input("appAttachPackageName")]
+        public Input<string>? AppAttachPackageName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

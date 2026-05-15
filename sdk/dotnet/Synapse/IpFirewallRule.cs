@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The IP firewall rule name
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// The start IP address of the firewall rule. Must be IPv4 format

@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The hybrid runbook worker group name
         /// </summary>
-        [Input("hybridRunbookWorkerGroupName", required: true)]
-        public Input<string> HybridRunbookWorkerGroupName { get; set; } = null!;
+        [Input("hybridRunbookWorkerGroupName")]
+        public Input<string>? HybridRunbookWorkerGroupName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the resource.

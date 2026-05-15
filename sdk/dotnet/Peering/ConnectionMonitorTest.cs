@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the connection monitor test
         /// </summary>
-        [Input("connectionMonitorTestName", required: true)]
-        public Input<string> ConnectionMonitorTestName { get; set; } = null!;
+        [Input("connectionMonitorTestName")]
+        public Input<string>? ConnectionMonitorTestName { get; set; }
 
         /// <summary>
         /// The Connection Monitor test destination

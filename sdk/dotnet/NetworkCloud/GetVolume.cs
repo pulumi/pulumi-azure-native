@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the volume.
         /// </summary>
-        [Input("volumeName")]
-        public string? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public string VolumeName { get; set; } = null!;
 
         public GetVolumeArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the volume.
         /// </summary>
-        [Input("volumeName")]
-        public Input<string>? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
 
         public GetVolumeInvokeArgs()
         {

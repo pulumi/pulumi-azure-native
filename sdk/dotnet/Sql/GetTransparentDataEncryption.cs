@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("tdeName")]
-        public string? TdeName { get; set; }
+        [Input("tdeName", required: true)]
+        public string TdeName { get; set; } = null!;
 
         public GetTransparentDataEncryptionArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("tdeName")]
-        public Input<string>? TdeName { get; set; }
+        [Input("tdeName", required: true)]
+        public Input<string> TdeName { get; set; } = null!;
 
         public GetTransparentDataEncryptionInvokeArgs()
         {

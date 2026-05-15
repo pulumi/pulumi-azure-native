@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

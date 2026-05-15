@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of certificate.
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of certificate.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

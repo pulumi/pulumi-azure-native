@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Unique identifier for this test line
         /// </summary>
-        [Input("testLineName")]
-        public string? TestLineName { get; set; }
+        [Input("testLineName", required: true)]
+        public string TestLineName { get; set; } = null!;
 
         public GetTestLineArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Unique identifier for this test line
         /// </summary>
-        [Input("testLineName")]
-        public Input<string>? TestLineName { get; set; }
+        [Input("testLineName", required: true)]
+        public Input<string> TestLineName { get; set; } = null!;
 
         public GetTestLineInvokeArgs()
         {

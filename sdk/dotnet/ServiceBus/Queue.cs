@@ -328,8 +328,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The queue name.
         /// </summary>
-        [Input("queueName", required: true)]
-        public Input<string> QueueName { get; set; } = null!;
+        [Input("queueName")]
+        public Input<string>? QueueName { get; set; }
 
         /// <summary>
         /// A value indicating if this queue requires duplicate detection.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Hostname in the hostname binding.
         /// </summary>
-        [Input("hostName")]
-        public string? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public string HostName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Hostname in the hostname binding.
         /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.

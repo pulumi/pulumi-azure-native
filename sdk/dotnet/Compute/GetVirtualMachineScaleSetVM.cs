@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The instance ID of the virtual machine.
         /// </summary>
-        [Input("instanceId")]
-        public string? InstanceId { get; set; }
+        [Input("instanceId", required: true)]
+        public string InstanceId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The instance ID of the virtual machine.
         /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

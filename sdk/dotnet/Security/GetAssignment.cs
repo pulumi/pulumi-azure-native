@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security assignment key - unique key for the standard assignment
         /// </summary>
-        [Input("assignmentId")]
-        public string? AssignmentId { get; set; }
+        [Input("assignmentId", required: true)]
+        public string AssignmentId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security assignment key - unique key for the standard assignment
         /// </summary>
-        [Input("assignmentId")]
-        public Input<string>? AssignmentId { get; set; }
+        [Input("assignmentId", required: true)]
+        public Input<string> AssignmentId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

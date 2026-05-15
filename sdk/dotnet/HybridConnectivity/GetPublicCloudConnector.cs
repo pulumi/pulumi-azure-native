@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Represent public cloud connectors resource.
         /// </summary>
-        [Input("publicCloudConnector")]
-        public string? PublicCloudConnector { get; set; }
+        [Input("publicCloudConnector", required: true)]
+        public string PublicCloudConnector { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Represent public cloud connectors resource.
         /// </summary>
-        [Input("publicCloudConnector")]
-        public Input<string>? PublicCloudConnector { get; set; }
+        [Input("publicCloudConnector", required: true)]
+        public Input<string> PublicCloudConnector { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the channel.
         /// </summary>
-        [Input("channelName", required: true)]
-        public Input<string> ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public Input<string>? ChannelName { get; set; }
 
         /// <summary>
         /// The type of the event channel which represents the direction flow of events.

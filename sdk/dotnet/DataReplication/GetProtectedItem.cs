@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The protected item name.
         /// </summary>
-        [Input("protectedItemName")]
-        public string? ProtectedItemName { get; set; }
+        [Input("protectedItemName", required: true)]
+        public string ProtectedItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The protected item name.
         /// </summary>
-        [Input("protectedItemName")]
-        public Input<string>? ProtectedItemName { get; set; }
+        [Input("protectedItemName", required: true)]
+        public Input<string> ProtectedItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

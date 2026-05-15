@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.GraphServices
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

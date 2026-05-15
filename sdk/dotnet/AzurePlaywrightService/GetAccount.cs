@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Name of account.
         /// </summary>
-        [Input("accountName")]
-        public string? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Name of account.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

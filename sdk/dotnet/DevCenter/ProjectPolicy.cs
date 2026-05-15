@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the project policy.
         /// </summary>
-        [Input("projectPolicyName", required: true)]
-        public Input<string> ProjectPolicyName { get; set; } = null!;
+        [Input("projectPolicyName")]
+        public Input<string>? ProjectPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

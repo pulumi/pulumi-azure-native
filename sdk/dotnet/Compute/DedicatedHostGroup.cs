@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the dedicated host group.
         /// </summary>
-        [Input("hostGroupName", required: true)]
-        public Input<string> HostGroupName { get; set; } = null!;
+        [Input("hostGroupName")]
+        public Input<string>? HostGroupName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

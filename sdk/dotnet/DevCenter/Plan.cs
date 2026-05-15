@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter plan.
         /// </summary>
-        [Input("planName", required: true)]
-        public Input<string> PlanName { get; set; } = null!;
+        [Input("planName")]
+        public Input<string>? PlanName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

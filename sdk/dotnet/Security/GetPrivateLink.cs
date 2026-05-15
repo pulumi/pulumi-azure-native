@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
         /// </summary>
-        [Input("privateLinkName")]
-        public string? PrivateLinkName { get; set; }
+        [Input("privateLinkName", required: true)]
+        public string PrivateLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
         /// </summary>
-        [Input("privateLinkName")]
-        public Input<string>? PrivateLinkName { get; set; }
+        [Input("privateLinkName", required: true)]
+        public Input<string> PrivateLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

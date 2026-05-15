@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the forwarding rule.
         /// </summary>
-        [Input("forwardingRuleName", required: true)]
-        public Input<string> ForwardingRuleName { get; set; } = null!;
+        [Input("forwardingRuleName")]
+        public Input<string>? ForwardingRuleName { get; set; }
 
         /// <summary>
         /// The state of forwarding rule.

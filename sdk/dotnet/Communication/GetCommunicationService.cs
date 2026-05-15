@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the CommunicationService resource.
         /// </summary>
-        [Input("communicationServiceName")]
-        public string? CommunicationServiceName { get; set; }
+        [Input("communicationServiceName", required: true)]
+        public string CommunicationServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the CommunicationService resource.
         /// </summary>
-        [Input("communicationServiceName")]
-        public Input<string>? CommunicationServiceName { get; set; }
+        [Input("communicationServiceName", required: true)]
+        public Input<string> CommunicationServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

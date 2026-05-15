@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Pre Rule priority
         /// </summary>
-        [Input("priority")]
-        public string? Priority { get; set; }
+        [Input("priority", required: true)]
+        public string Priority { get; set; } = null!;
 
         public GetPreRuleArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Pre Rule priority
         /// </summary>
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<string> Priority { get; set; } = null!;
 
         public GetPreRuleInvokeArgs()
         {

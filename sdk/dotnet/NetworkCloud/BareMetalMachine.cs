@@ -317,8 +317,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the bare metal machine.
         /// </summary>
-        [Input("bareMetalMachineName", required: true)]
-        public Input<string> BareMetalMachineName { get; set; } = null!;
+        [Input("bareMetalMachineName")]
+        public Input<string>? BareMetalMachineName { get; set; }
 
         /// <summary>
         /// The connection string for the baseboard management controller including IP address and protocol.

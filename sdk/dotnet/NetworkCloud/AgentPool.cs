@@ -221,8 +221,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster agent pool.
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public Input<string> AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
         /// The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.

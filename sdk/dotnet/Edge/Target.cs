@@ -162,8 +162,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the target
         /// </summary>
-        [Input("targetName", required: true)]
-        public Input<string> TargetName { get; set; } = null!;
+        [Input("targetName")]
+        public Input<string>? TargetName { get; set; }
 
         public TargetArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the user settings
         /// </summary>
-        [Input("userSettingsName")]
-        public string? UserSettingsName { get; set; }
+        [Input("userSettingsName", required: true)]
+        public string UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsWithLocationArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the user settings
         /// </summary>
-        [Input("userSettingsName")]
-        public Input<string>? UserSettingsName { get; set; }
+        [Input("userSettingsName", required: true)]
+        public Input<string> UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsWithLocationInvokeArgs()
         {

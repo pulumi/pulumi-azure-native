@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Application Server instance resource.
         /// </summary>
-        [Input("applicationInstanceName")]
-        public string? ApplicationInstanceName { get; set; }
+        [Input("applicationInstanceName", required: true)]
+        public string ApplicationInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Application Server instance resource.
         /// </summary>
-        [Input("applicationInstanceName")]
-        public Input<string>? ApplicationInstanceName { get; set; }
+        [Input("applicationInstanceName", required: true)]
+        public Input<string> ApplicationInstanceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

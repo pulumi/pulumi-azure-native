@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// Name of the connector.
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         [Input("connectorProperties", required: true)]
         private InputMap<object>? _connectorProperties;

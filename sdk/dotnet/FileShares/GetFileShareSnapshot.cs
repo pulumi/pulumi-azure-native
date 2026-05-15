@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.FileShares
         /// <summary>
         /// The name of the FileShareSnapshot
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.FileShares
         /// <summary>
         /// The name of the FileShareSnapshot
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name for the connection that is to be requested.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

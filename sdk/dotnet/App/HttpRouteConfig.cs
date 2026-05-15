@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Http Route Config Resource.
         /// </summary>
-        [Input("httpRouteName", required: true)]
-        public Input<string> HttpRouteName { get; set; } = null!;
+        [Input("httpRouteName")]
+        public Input<string>? HttpRouteName { get; set; }
 
         /// <summary>
         /// Http Route Config properties

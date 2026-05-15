@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The Datastore name.
         /// </summary>
-        [Input("datastoreName")]
-        public string? DatastoreName { get; set; }
+        [Input("datastoreName", required: true)]
+        public string DatastoreName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The Datastore name.
         /// </summary>
-        [Input("datastoreName")]
-        public Input<string>? DatastoreName { get; set; }
+        [Input("datastoreName", required: true)]
+        public Input<string> DatastoreName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

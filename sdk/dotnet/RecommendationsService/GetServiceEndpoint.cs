@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the ServiceEndpoint resource.
         /// </summary>
-        [Input("serviceEndpointName")]
-        public string? ServiceEndpointName { get; set; }
+        [Input("serviceEndpointName", required: true)]
+        public string ServiceEndpointName { get; set; } = null!;
 
         public GetServiceEndpointArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the ServiceEndpoint resource.
         /// </summary>
-        [Input("serviceEndpointName")]
-        public Input<string>? ServiceEndpointName { get; set; }
+        [Input("serviceEndpointName", required: true)]
+        public Input<string> ServiceEndpointName { get; set; } = null!;
 
         public GetServiceEndpointInvokeArgs()
         {

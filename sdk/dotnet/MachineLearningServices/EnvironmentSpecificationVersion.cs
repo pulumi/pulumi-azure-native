@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Version of EnvironmentSpecificationVersion.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

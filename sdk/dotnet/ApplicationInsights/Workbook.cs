@@ -239,8 +239,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the workbook resource. The value must be an UUID.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON

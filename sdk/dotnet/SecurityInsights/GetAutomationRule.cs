@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Automation rule ID
         /// </summary>
-        [Input("automationRuleId")]
-        public string? AutomationRuleId { get; set; }
+        [Input("automationRuleId", required: true)]
+        public string AutomationRuleId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Automation rule ID
         /// </summary>
-        [Input("automationRuleId")]
-        public Input<string>? AutomationRuleId { get; set; }
+        [Input("automationRuleId", required: true)]
+        public Input<string> AutomationRuleId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

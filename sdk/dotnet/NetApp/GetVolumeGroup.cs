@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volumeGroup
         /// </summary>
-        [Input("volumeGroupName")]
-        public string? VolumeGroupName { get; set; }
+        [Input("volumeGroupName", required: true)]
+        public string VolumeGroupName { get; set; } = null!;
 
         public GetVolumeGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volumeGroup
         /// </summary>
-        [Input("volumeGroupName")]
-        public Input<string>? VolumeGroupName { get; set; }
+        [Input("volumeGroupName", required: true)]
+        public Input<string> VolumeGroupName { get; set; } = null!;
 
         public GetVolumeGroupInvokeArgs()
         {

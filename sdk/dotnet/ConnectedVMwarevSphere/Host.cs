@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the host.
         /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// Gets or sets the inventory Item ID for the host.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Secret under the profile.
         /// </summary>
-        [Input("secretName")]
-        public string? SecretName { get; set; }
+        [Input("secretName", required: true)]
+        public string SecretName { get; set; } = null!;
 
         public GetSecretArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Secret under the profile.
         /// </summary>
-        [Input("secretName")]
-        public Input<string>? SecretName { get; set; }
+        [Input("secretName", required: true)]
+        public Input<string> SecretName { get; set; } = null!;
 
         public GetSecretInvokeArgs()
         {

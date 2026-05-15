@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The id of a specific query defined in the Log Analytics QueryPack
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The id of a specific query defined in the Log Analytics QueryPack
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.

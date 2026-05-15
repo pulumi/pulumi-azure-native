@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// OpenAI Integration name
         /// </summary>
-        [Input("integrationName", required: true)]
-        public Input<string> IntegrationName { get; set; } = null!;
+        [Input("integrationName")]
+        public Input<string>? IntegrationName { get; set; }
 
         /// <summary>
         /// Monitor resource name

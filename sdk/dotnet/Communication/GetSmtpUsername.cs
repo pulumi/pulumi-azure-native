@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the SmtpUsernameResource.
         /// </summary>
-        [Input("smtpUsername")]
-        public string? SmtpUsername { get; set; }
+        [Input("smtpUsername", required: true)]
+        public string SmtpUsername { get; set; } = null!;
 
         public GetSmtpUsernameArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the SmtpUsernameResource.
         /// </summary>
-        [Input("smtpUsername")]
-        public Input<string>? SmtpUsername { get; set; }
+        [Input("smtpUsername", required: true)]
+        public Input<string> SmtpUsername { get; set; } = null!;
 
         public GetSmtpUsernameInvokeArgs()
         {

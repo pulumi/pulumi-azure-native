@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Schema
         /// </summary>
-        [Input("schemaName", required: true)]
-        public Input<string> SchemaName { get; set; } = null!;
+        [Input("schemaName")]
+        public Input<string>? SchemaName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

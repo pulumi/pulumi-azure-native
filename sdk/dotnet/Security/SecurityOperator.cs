@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// name of the securityOperator
         /// </summary>
-        [Input("securityOperatorName", required: true)]
-        public Input<string> SecurityOperatorName { get; set; } = null!;
+        [Input("securityOperatorName")]
+        public Input<string>? SecurityOperatorName { get; set; }
 
         public SecurityOperatorArgs()
         {

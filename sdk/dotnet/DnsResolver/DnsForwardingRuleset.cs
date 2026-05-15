@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("dnsForwardingRulesetName", required: true)]
-        public Input<string> DnsForwardingRulesetName { get; set; } = null!;
+        [Input("dnsForwardingRulesetName")]
+        public Input<string>? DnsForwardingRulesetName { get; set; }
 
         [Input("dnsResolverOutboundEndpoints", required: true)]
         private InputList<Inputs.SubResourceArgs>? _dnsResolverOutboundEndpoints;

@@ -203,8 +203,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public Input<string> MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public Input<string>? MigrationName { get; set; }
 
         /// <summary>
         /// ID for current migration operation.

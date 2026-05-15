@@ -328,8 +328,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of migration.
         /// </summary>
-        [Input("migrationName", required: true)]
-        public Input<string> MigrationName { get; set; } = null!;
+        [Input("migrationName")]
+        public Input<string>? MigrationName { get; set; }
 
         /// <summary>
         /// Supported option for a migration.

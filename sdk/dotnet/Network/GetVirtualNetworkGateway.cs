@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network gateway.
         /// </summary>
-        [Input("virtualNetworkGatewayName")]
-        public string? VirtualNetworkGatewayName { get; set; }
+        [Input("virtualNetworkGatewayName", required: true)]
+        public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network gateway.
         /// </summary>
-        [Input("virtualNetworkGatewayName")]
-        public Input<string>? VirtualNetworkGatewayName { get; set; }
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayInvokeArgs()
         {

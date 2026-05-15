@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server communication link.
         /// </summary>
-        [Input("communicationLinkName")]
-        public string? CommunicationLinkName { get; set; }
+        [Input("communicationLinkName", required: true)]
+        public string CommunicationLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server communication link.
         /// </summary>
-        [Input("communicationLinkName")]
-        public Input<string>? CommunicationLinkName { get; set; }
+        [Input("communicationLinkName", required: true)]
+        public Input<string> CommunicationLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

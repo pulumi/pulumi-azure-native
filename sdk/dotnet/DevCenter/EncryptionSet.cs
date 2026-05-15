@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter encryption set.
         /// </summary>
-        [Input("encryptionSetName", required: true)]
-        public Input<string> EncryptionSetName { get; set; } = null!;
+        [Input("encryptionSetName")]
+        public Input<string>? EncryptionSetName { get; set; }
 
         /// <summary>
         /// Managed identity properties

@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the backup connection resource of virtual instance for SAP.
         /// </summary>
-        [Input("backupName", required: true)]
-        public Input<string> BackupName { get; set; } = null!;
+        [Input("backupName")]
+        public Input<string>? BackupName { get; set; }
 
         /// <summary>
         /// The name of the connector resource

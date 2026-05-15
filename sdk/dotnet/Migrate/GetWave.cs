@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Migration Wave Resource
         /// </summary>
-        [Input("waveName")]
-        public string? WaveName { get; set; }
+        [Input("waveName", required: true)]
+        public string WaveName { get; set; } = null!;
 
         public GetWaveArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Migration Wave Resource
         /// </summary>
-        [Input("waveName")]
-        public Input<string>? WaveName { get; set; }
+        [Input("waveName", required: true)]
+        public Input<string> WaveName { get; set; } = null!;
 
         public GetWaveInvokeArgs()
         {

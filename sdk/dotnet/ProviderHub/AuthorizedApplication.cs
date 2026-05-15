@@ -96,8 +96,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         [Input("properties")]
         public Input<Inputs.AuthorizedApplicationPropertiesArgs>? Properties { get; set; }

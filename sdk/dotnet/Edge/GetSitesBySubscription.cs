@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Edge
         /// 
         /// Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetSitesBySubscriptionResult> InvokeAsync(GetSitesBySubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSitesBySubscriptionResult> InvokeAsync(GetSitesBySubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesBySubscriptionResult>("azure-native:edge:getSitesBySubscription", args ?? new GetSitesBySubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Edge
         /// 
         /// Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesBySubscriptionResult>("azure-native:edge:getSitesBySubscription", args ?? new GetSitesBySubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Site
         /// </summary>
-        [Input("siteName")]
-        public string? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetSitesBySubscriptionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Site
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public GetSitesBySubscriptionInvokeArgs()
         {

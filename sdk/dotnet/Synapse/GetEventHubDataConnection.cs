@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the data connection.
         /// </summary>
-        [Input("dataConnectionName")]
-        public string? DataConnectionName { get; set; }
+        [Input("dataConnectionName", required: true)]
+        public string DataConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the data connection.
         /// </summary>
-        [Input("dataConnectionName")]
-        public Input<string>? DataConnectionName { get; set; }
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database in the Kusto pool.

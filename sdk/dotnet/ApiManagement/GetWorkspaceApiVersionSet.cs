@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Api Version Set identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("versionSetId")]
-        public string? VersionSetId { get; set; }
+        [Input("versionSetId", required: true)]
+        public string VersionSetId { get; set; } = null!;
 
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Api Version Set identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("versionSetId")]
-        public Input<string>? VersionSetId { get; set; }
+        [Input("versionSetId", required: true)]
+        public Input<string> VersionSetId { get; set; } = null!;
 
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
-        [Input("endpointName")]
-        public string? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

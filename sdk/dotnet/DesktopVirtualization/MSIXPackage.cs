@@ -226,8 +226,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The version specific package full name of the MSIX package within specified hostpool
         /// </summary>
-        [Input("msixPackageFullName", required: true)]
-        public Input<string> MsixPackageFullName { get; set; } = null!;
+        [Input("msixPackageFullName")]
+        public Input<string>? MsixPackageFullName { get; set; }
 
         [Input("packageApplications")]
         private InputList<Inputs.MsixPackageApplicationsArgs>? _packageApplications;

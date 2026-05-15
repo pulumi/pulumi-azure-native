@@ -253,8 +253,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The name of the domain service.
         /// </summary>
-        [Input("domainServiceName", required: true)]
-        public Input<string> DomainServiceName { get; set; } = null!;
+        [Input("domainServiceName")]
+        public Input<string>? DomainServiceName { get; set; }
 
         /// <summary>
         /// Enabled or Disabled flag to turn on Group-based filtered sync

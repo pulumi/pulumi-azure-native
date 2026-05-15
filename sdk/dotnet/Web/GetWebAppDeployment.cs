@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Deployment ID.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Deployment ID.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Name of the app.

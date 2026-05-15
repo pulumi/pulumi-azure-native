@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the partner registration.
         /// </summary>
-        [Input("partnerRegistrationName", required: true)]
-        public Input<string> PartnerRegistrationName { get; set; } = null!;
+        [Input("partnerRegistrationName")]
+        public Input<string>? PartnerRegistrationName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

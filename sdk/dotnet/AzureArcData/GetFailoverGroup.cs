@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// The name of the Failover Group
         /// </summary>
-        [Input("failoverGroupName")]
-        public string? FailoverGroupName { get; set; }
+        [Input("failoverGroupName", required: true)]
+        public string FailoverGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// The name of the Failover Group
         /// </summary>
-        [Input("failoverGroupName")]
-        public Input<string>? FailoverGroupName { get; set; }
+        [Input("failoverGroupName", required: true)]
+        public Input<string> FailoverGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group

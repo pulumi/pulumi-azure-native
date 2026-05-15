@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StandbyPool
         /// <summary>
         /// Name of the standby virtual machine pool
         /// </summary>
-        [Input("standbyVirtualMachinePoolName")]
-        public string? StandbyVirtualMachinePoolName { get; set; }
+        [Input("standbyVirtualMachinePoolName", required: true)]
+        public string StandbyVirtualMachinePoolName { get; set; } = null!;
 
         public GetStandbyVirtualMachinePoolArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StandbyPool
         /// <summary>
         /// Name of the standby virtual machine pool
         /// </summary>
-        [Input("standbyVirtualMachinePoolName")]
-        public Input<string>? StandbyVirtualMachinePoolName { get; set; }
+        [Input("standbyVirtualMachinePoolName", required: true)]
+        public Input<string> StandbyVirtualMachinePoolName { get; set; } = null!;
 
         public GetStandbyVirtualMachinePoolInvokeArgs()
         {

@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The properties of the key to be created.

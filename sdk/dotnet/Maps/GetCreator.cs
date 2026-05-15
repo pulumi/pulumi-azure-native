@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Maps Creator instance.
         /// </summary>
-        [Input("creatorName")]
-        public string? CreatorName { get; set; }
+        [Input("creatorName", required: true)]
+        public string CreatorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Maps Creator instance.
         /// </summary>
-        [Input("creatorName")]
-        public Input<string>? CreatorName { get; set; }
+        [Input("creatorName", required: true)]
+        public Input<string> CreatorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Name of the policy
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public Input<string> BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
         /// BaseBackupPolicyResource properties

@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the outbound endpoint for the DNS resolver.
         /// </summary>
-        [Input("outboundEndpointName", required: true)]
-        public Input<string> OutboundEndpointName { get; set; } = null!;
+        [Input("outboundEndpointName")]
+        public Input<string>? OutboundEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

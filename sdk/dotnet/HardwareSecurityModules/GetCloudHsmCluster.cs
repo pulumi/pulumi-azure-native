@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         /// </summary>
-        [Input("cloudHsmClusterName")]
-        public string? CloudHsmClusterName { get; set; }
+        [Input("cloudHsmClusterName", required: true)]
+        public string CloudHsmClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         /// </summary>
-        [Input("cloudHsmClusterName")]
-        public Input<string>? CloudHsmClusterName { get; set; }
+        [Input("cloudHsmClusterName", required: true)]
+        public Input<string> CloudHsmClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

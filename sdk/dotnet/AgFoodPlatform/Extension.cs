@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Id of extension resource.
         /// </summary>
-        [Input("extensionId", required: true)]
-        public Input<string> ExtensionId { get; set; } = null!;
+        [Input("extensionId")]
+        public Input<string>? ExtensionId { get; set; }
 
         /// <summary>
         /// Extension Version.

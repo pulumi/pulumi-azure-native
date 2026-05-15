@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Protection Container mapping name.
         /// </summary>
-        [Input("mappingName")]
-        public string? MappingName { get; set; }
+        [Input("mappingName", required: true)]
+        public string MappingName { get; set; } = null!;
 
         /// <summary>
         /// Protection container name.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Protection Container mapping name.
         /// </summary>
-        [Input("mappingName")]
-        public Input<string>? MappingName { get; set; }
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
 
         /// <summary>
         /// Protection container name.

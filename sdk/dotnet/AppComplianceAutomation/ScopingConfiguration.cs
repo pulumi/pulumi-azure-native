@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// The scoping configuration of the specific report.
         /// </summary>
-        [Input("scopingConfigurationName", required: true)]
-        public Input<string> ScopingConfigurationName { get; set; } = null!;
+        [Input("scopingConfigurationName")]
+        public Input<string>? ScopingConfigurationName { get; set; }
 
         public ScopingConfigurationArgs()
         {

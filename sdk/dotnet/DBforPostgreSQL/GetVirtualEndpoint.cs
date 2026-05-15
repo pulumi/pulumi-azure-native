@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Base name of the virtual endpoints.
         /// </summary>
-        [Input("virtualEndpointName")]
-        public string? VirtualEndpointName { get; set; }
+        [Input("virtualEndpointName", required: true)]
+        public string VirtualEndpointName { get; set; } = null!;
 
         public GetVirtualEndpointArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Base name of the virtual endpoints.
         /// </summary>
-        [Input("virtualEndpointName")]
-        public Input<string>? VirtualEndpointName { get; set; }
+        [Input("virtualEndpointName", required: true)]
+        public Input<string> VirtualEndpointName { get; set; } = null!;
 
         public GetVirtualEndpointInvokeArgs()
         {

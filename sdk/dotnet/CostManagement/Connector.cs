@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Connector Name.
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// Credentials authentication key (eg AWS ARN)

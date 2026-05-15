@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Workload deployment name.
         /// </summary>
-        [Input("workloadDeploymentName", required: true)]
-        public Input<string> WorkloadDeploymentName { get; set; } = null!;
+        [Input("workloadDeploymentName")]
+        public Input<string>? WorkloadDeploymentName { get; set; }
 
         public WorkloadDeploymentArgs()
         {

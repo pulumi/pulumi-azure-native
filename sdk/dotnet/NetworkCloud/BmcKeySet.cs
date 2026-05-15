@@ -185,8 +185,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the baseboard management controller key set.
         /// </summary>
-        [Input("bmcKeySetName", required: true)]
-        public Input<string> BmcKeySetName { get; set; } = null!;
+        [Input("bmcKeySetName")]
+        public Input<string>? BmcKeySetName { get; set; }
 
         /// <summary>
         /// The name of the cluster.

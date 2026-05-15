@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// The name of the Bot Service Connection Setting resource.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the Kind of the resource.

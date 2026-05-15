@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User Solution Name.
         /// </summary>
-        [Input("solutionName")]
-        public string? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public string SolutionName { get; set; } = null!;
 
         public GetSolutionArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User Solution Name.
         /// </summary>
-        [Input("solutionName")]
-        public Input<string>? SolutionName { get; set; }
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
 
         public GetSolutionInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The Continuous Export configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("exportId")]
-        public string? ExportId { get; set; }
+        [Input("exportId", required: true)]
+        public string ExportId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The Continuous Export configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("exportId")]
-        public Input<string>? ExportId { get; set; }
+        [Input("exportId", required: true)]
+        public Input<string> ExportId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

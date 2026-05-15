@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The name of the OuContainer.
         /// </summary>
-        [Input("ouContainerName")]
-        public string? OuContainerName { get; set; }
+        [Input("ouContainerName", required: true)]
+        public string OuContainerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The name of the OuContainer.
         /// </summary>
-        [Input("ouContainerName")]
-        public Input<string>? OuContainerName { get; set; }
+        [Input("ouContainerName", required: true)]
+        public Input<string> OuContainerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2019-03-01-preview.
         /// </summary>
-        public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:costmanagement:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2019-03-01-preview.
         /// </summary>
-        public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Connector Name.
         /// </summary>
-        [Input("connectorName")]
-        public string? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public string ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// May be used to expand the collectionInfo property. By default, collectionInfo is not included.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Connector Name.
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// May be used to expand the collectionInfo property. By default, collectionInfo is not included.

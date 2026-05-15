@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster.
         /// </summary>
-        [Input("kubernetesClusterName")]
-        public string? KubernetesClusterName { get; set; }
+        [Input("kubernetesClusterName", required: true)]
+        public string KubernetesClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster.
         /// </summary>
-        [Input("kubernetesClusterName")]
-        public Input<string>? KubernetesClusterName { get; set; }
+        [Input("kubernetesClusterName", required: true)]
+        public Input<string> KubernetesClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

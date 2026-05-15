@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The trigger name.
         /// </summary>
-        [Input("triggerName", required: true)]
-        public Input<string> TriggerName { get; set; } = null!;
+        [Input("triggerName")]
+        public Input<string>? TriggerName { get; set; }
 
         public TriggerArgs()
         {

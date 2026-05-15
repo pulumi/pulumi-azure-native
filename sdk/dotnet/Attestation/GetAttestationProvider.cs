@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// Name of the attestation provider.
         /// </summary>
-        [Input("providerName")]
-        public string? ProviderName { get; set; }
+        [Input("providerName", required: true)]
+        public string ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Attestation
         /// <summary>
         /// Name of the attestation provider.
         /// </summary>
-        [Input("providerName")]
-        public Input<string>? ProviderName { get; set; }
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

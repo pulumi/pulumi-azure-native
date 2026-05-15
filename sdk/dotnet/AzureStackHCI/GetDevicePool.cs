@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the DevicePool
         /// </summary>
-        [Input("devicePoolName")]
-        public string? DevicePoolName { get; set; }
+        [Input("devicePoolName", required: true)]
+        public string DevicePoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the DevicePool
         /// </summary>
-        [Input("devicePoolName")]
-        public Input<string>? DevicePoolName { get; set; }
+        [Input("devicePoolName", required: true)]
+        public Input<string> DevicePoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

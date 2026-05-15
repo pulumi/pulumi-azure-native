@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the EmailService resource.
         /// </summary>
-        [Input("emailServiceName")]
-        public string? EmailServiceName { get; set; }
+        [Input("emailServiceName", required: true)]
+        public string EmailServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the EmailService resource.
         /// </summary>
-        [Input("emailServiceName")]
-        public Input<string>? EmailServiceName { get; set; }
+        [Input("emailServiceName", required: true)]
+        public Input<string> EmailServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

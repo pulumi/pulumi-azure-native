@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Name of the certificate order..
         /// </summary>
-        [Input("certificateOrderName")]
-        public string? CertificateOrderName { get; set; }
+        [Input("certificateOrderName", required: true)]
+        public string CertificateOrderName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Name of the certificate order..
         /// </summary>
-        [Input("certificateOrderName")]
-        public Input<string>? CertificateOrderName { get; set; }
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

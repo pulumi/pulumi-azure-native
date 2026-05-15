@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the event subscription to be found.
         /// </summary>
-        [Input("eventSubscriptionName")]
-        public string? EventSubscriptionName { get; set; }
+        [Input("eventSubscriptionName", required: true)]
+        public string EventSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the event subscription to be found.
         /// </summary>
-        [Input("eventSubscriptionName")]
-        public Input<string>? EventSubscriptionName { get; set; }
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

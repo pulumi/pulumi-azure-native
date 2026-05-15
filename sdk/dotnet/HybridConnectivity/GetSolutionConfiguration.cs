@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Represent Solution Configuration Resource.
         /// </summary>
-        [Input("solutionConfiguration")]
-        public string? SolutionConfiguration { get; set; }
+        [Input("solutionConfiguration", required: true)]
+        public string SolutionConfiguration { get; set; } = null!;
 
         public GetSolutionConfigurationArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Represent Solution Configuration Resource.
         /// </summary>
-        [Input("solutionConfiguration")]
-        public Input<string>? SolutionConfiguration { get; set; }
+        [Input("solutionConfiguration", required: true)]
+        public Input<string> SolutionConfiguration { get; set; } = null!;
 
         public GetSolutionConfigurationInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the import pipeline.
         /// </summary>
-        [Input("importPipelineName")]
-        public string? ImportPipelineName { get; set; }
+        [Input("importPipelineName", required: true)]
+        public string ImportPipelineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the import pipeline.
         /// </summary>
-        [Input("importPipelineName")]
-        public Input<string>? ImportPipelineName { get; set; }
+        [Input("importPipelineName", required: true)]
+        public Input<string> ImportPipelineName { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.

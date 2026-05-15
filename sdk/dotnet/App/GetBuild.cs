@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of a build.
         /// </summary>
-        [Input("buildName")]
-        public string? BuildName { get; set; }
+        [Input("buildName", required: true)]
+        public string BuildName { get; set; } = null!;
 
         /// <summary>
         /// The name of the builder.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of a build.
         /// </summary>
-        [Input("buildName")]
-        public Input<string>? BuildName { get; set; }
+        [Input("buildName", required: true)]
+        public Input<string> BuildName { get; set; } = null!;
 
         /// <summary>
         /// The name of the builder.

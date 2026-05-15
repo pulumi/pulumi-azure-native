@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The name of the AzureKeyVaultSecretProviderClass
         /// </summary>
-        [Input("azureKeyVaultSecretProviderClassName", required: true)]
-        public Input<string> AzureKeyVaultSecretProviderClassName { get; set; } = null!;
+        [Input("azureKeyVaultSecretProviderClassName")]
+        public Input<string>? AzureKeyVaultSecretProviderClassName { get; set; }
 
         /// <summary>
         /// The user assigned managed identity client ID that should be used to access the Azure Key Vault.

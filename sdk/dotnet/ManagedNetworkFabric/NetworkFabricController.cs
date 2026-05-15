@@ -242,8 +242,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Fabric Controller.
         /// </summary>
-        [Input("networkFabricControllerName", required: true)]
-        public Input<string> NetworkFabricControllerName { get; set; } = null!;
+        [Input("networkFabricControllerName")]
+        public Input<string>? NetworkFabricControllerName { get; set; }
 
         /// <summary>
         /// Network Fabric Controller SKU.

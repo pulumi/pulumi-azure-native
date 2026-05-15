@@ -222,8 +222,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// The status of the Traffic Manager profile.

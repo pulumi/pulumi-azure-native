@@ -185,8 +185,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// NRP Private Endpoint Connection Name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The connection state.

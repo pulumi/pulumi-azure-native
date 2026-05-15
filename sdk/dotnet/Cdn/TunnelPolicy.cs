@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the Tunnel Policy under the profile.
         /// </summary>
-        [Input("tunnelPolicyName", required: true)]
-        public Input<string> TunnelPolicyName { get; set; } = null!;
+        [Input("tunnelPolicyName")]
+        public Input<string>? TunnelPolicyName { get; set; }
 
         /// <summary>
         /// Protocol this tunnel will use for allowing traffic to backends.

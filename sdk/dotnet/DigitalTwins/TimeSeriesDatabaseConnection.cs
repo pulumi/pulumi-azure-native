@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Name of time series database connection.
         /// </summary>
-        [Input("timeSeriesDatabaseConnectionName", required: true)]
-        public Input<string> TimeSeriesDatabaseConnectionName { get; set; } = null!;
+        [Input("timeSeriesDatabaseConnectionName")]
+        public Input<string>? TimeSeriesDatabaseConnectionName { get; set; }
 
         public TimeSeriesDatabaseConnectionArgs()
         {

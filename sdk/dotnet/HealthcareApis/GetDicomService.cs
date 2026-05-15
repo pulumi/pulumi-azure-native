@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of DICOM Service resource.
         /// </summary>
-        [Input("dicomServiceName")]
-        public string? DicomServiceName { get; set; }
+        [Input("dicomServiceName", required: true)]
+        public string DicomServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of DICOM Service resource.
         /// </summary>
-        [Input("dicomServiceName")]
-        public Input<string>? DicomServiceName { get; set; }
+        [Input("dicomServiceName", required: true)]
+        public Input<string> DicomServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.

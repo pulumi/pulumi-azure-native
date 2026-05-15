@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
         /// </summary>
-        [Input("apiCollectionId")]
-        public string? ApiCollectionId { get; set; }
+        [Input("apiCollectionId", required: true)]
+        public string ApiCollectionId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
         /// </summary>
-        [Input("apiCollectionId")]
-        public Input<string>? ApiCollectionId { get; set; }
+        [Input("apiCollectionId", required: true)]
+        public Input<string> ApiCollectionId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of EdgeDevice Job
         /// </summary>
-        [Input("jobsName", required: true)]
-        public Input<string> JobsName { get; set; } = null!;
+        [Input("jobsName")]
+        public Input<string>? JobsName { get; set; }
 
         /// <summary>
         /// Edge device kind.

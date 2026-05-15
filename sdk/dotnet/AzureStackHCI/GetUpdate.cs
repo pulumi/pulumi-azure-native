@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the Update
         /// </summary>
-        [Input("updateName")]
-        public string? UpdateName { get; set; }
+        [Input("updateName", required: true)]
+        public string UpdateName { get; set; } = null!;
 
         public GetUpdateArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the Update
         /// </summary>
-        [Input("updateName")]
-        public Input<string>? UpdateName { get; set; }
+        [Input("updateName", required: true)]
+        public Input<string> UpdateName { get; set; } = null!;
 
         public GetUpdateInvokeArgs()
         {

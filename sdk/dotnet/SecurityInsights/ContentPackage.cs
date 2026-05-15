@@ -354,8 +354,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// package Id
         /// </summary>
-        [Input("packageId", required: true)]
-        public Input<string> PackageId { get; set; } = null!;
+        [Input("packageId")]
+        public Input<string>? PackageId { get; set; }
 
         [Input("providers")]
         private InputList<string>? _providers;

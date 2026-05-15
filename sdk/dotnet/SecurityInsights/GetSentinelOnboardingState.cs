@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The Sentinel onboarding state name. Supports - default
         /// </summary>
-        [Input("sentinelOnboardingStateName")]
-        public string? SentinelOnboardingStateName { get; set; }
+        [Input("sentinelOnboardingStateName", required: true)]
+        public string SentinelOnboardingStateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The Sentinel onboarding state name. Supports - default
         /// </summary>
-        [Input("sentinelOnboardingStateName")]
-        public Input<string>? SentinelOnboardingStateName { get; set; }
+        [Input("sentinelOnboardingStateName", required: true)]
+        public Input<string> SentinelOnboardingStateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

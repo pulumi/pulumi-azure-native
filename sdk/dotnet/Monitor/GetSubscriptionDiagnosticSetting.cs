@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Monitor
         /// 
         /// Uses Azure REST API version 2021-05-01-preview.
         /// </summary>
-        public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:monitor:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Monitor
         /// 
         /// Uses Azure REST API version 2021-05-01-preview.
         /// </summary>
-        public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:monitor:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetSubscriptionDiagnosticSettingArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetSubscriptionDiagnosticSettingInvokeArgs()
         {

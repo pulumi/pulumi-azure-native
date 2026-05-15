@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// StaticCidr resource name to retrieve.
         /// </summary>
-        [Input("staticCidrName")]
-        public string? StaticCidrName { get; set; }
+        [Input("staticCidrName", required: true)]
+        public string StaticCidrName { get; set; } = null!;
 
         public GetStaticCidrArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// StaticCidr resource name to retrieve.
         /// </summary>
-        [Input("staticCidrName")]
-        public Input<string>? StaticCidrName { get; set; }
+        [Input("staticCidrName", required: true)]
+        public Input<string> StaticCidrName { get; set; } = null!;
 
         public GetStaticCidrInvokeArgs()
         {

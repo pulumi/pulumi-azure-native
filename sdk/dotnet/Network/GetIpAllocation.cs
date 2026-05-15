@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the IpAllocation.
         /// </summary>
-        [Input("ipAllocationName")]
-        public string? IpAllocationName { get; set; }
+        [Input("ipAllocationName", required: true)]
+        public string IpAllocationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the IpAllocation.
         /// </summary>
-        [Input("ipAllocationName")]
-        public Input<string>? IpAllocationName { get; set; }
+        [Input("ipAllocationName", required: true)]
+        public Input<string> IpAllocationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

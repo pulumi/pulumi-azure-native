@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The id of the firmware.
         /// </summary>
-        [Input("firmwareId", required: true)]
-        public Input<string> FirmwareId { get; set; } = null!;
+        [Input("firmwareId")]
+        public Input<string>? FirmwareId { get; set; }
 
         /// <summary>
         /// Firmware model.

@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticVolume
         /// </summary>
-        [Input("volumeName")]
-        public string? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public string VolumeName { get; set; } = null!;
 
         public GetElasticVolumeArgs()
         {
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticVolume
         /// </summary>
-        [Input("volumeName")]
-        public Input<string>? VolumeName { get; set; }
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
 
         public GetElasticVolumeInvokeArgs()
         {

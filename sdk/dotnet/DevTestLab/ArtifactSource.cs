@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The name of the artifact source.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

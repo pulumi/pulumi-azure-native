@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment script.
         /// </summary>
-        [Input("scriptName")]
-        public string? ScriptName { get; set; }
+        [Input("scriptName", required: true)]
+        public string ScriptName { get; set; } = null!;
 
         public GetAzureCliScriptArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment script.
         /// </summary>
-        [Input("scriptName")]
-        public Input<string>? ScriptName { get; set; }
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
 
         public GetAzureCliScriptInvokeArgs()
         {

@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the Server Advisor.
         /// </summary>
-        [Input("advisorName", required: true)]
-        public Input<string> AdvisorName { get; set; } = null!;
+        [Input("advisorName")]
+        public Input<string>? AdvisorName { get; set; }
 
         /// <summary>
         /// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'

@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the dataSet.
         /// </summary>
-        [Input("dataSetName", required: true)]
-        public Input<string> DataSetName { get; set; } = null!;
+        [Input("dataSetName")]
+        public Input<string>? DataSetName { get; set; }
 
         /// <summary>
         /// The folder path within the ADLS account.

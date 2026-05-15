@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of Diagnostic.
         /// </summary>
-        [Input("diagnosticName", required: true)]
-        public Input<string> DiagnosticName { get; set; } = null!;
+        [Input("diagnosticName")]
+        public Input<string>? DiagnosticName { get; set; }
 
         /// <summary>
         /// The complex type of the extended location.

@@ -797,8 +797,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volume
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         /// <summary>
         /// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log

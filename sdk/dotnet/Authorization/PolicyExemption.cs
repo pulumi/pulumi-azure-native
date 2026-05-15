@@ -206,8 +206,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy exemption to delete.
         /// </summary>
-        [Input("policyExemptionName", required: true)]
-        public Input<string> PolicyExemptionName { get; set; } = null!;
+        [Input("policyExemptionName")]
+        public Input<string>? PolicyExemptionName { get; set; }
 
         [Input("resourceSelectors")]
         private InputList<Inputs.ResourceSelectorArgs>? _resourceSelectors;

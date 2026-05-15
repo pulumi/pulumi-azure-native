@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ broker/authentication resource
         /// </summary>
-        [Input("authenticationName", required: true)]
-        public Input<string> AuthenticationName { get; set; } = null!;
+        [Input("authenticationName")]
+        public Input<string>? AuthenticationName { get; set; }
 
         /// <summary>
         /// Name of MQ broker resource

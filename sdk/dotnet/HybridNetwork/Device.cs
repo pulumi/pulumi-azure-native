@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Resource name for the device resource.
         /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// The type of the device.

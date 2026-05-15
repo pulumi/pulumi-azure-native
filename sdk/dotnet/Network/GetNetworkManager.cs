@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager.
         /// </summary>
-        [Input("networkManagerName")]
-        public string? NetworkManagerName { get; set; }
+        [Input("networkManagerName", required: true)]
+        public string NetworkManagerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager.
         /// </summary>
-        [Input("networkManagerName")]
-        public Input<string>? NetworkManagerName { get; set; }
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

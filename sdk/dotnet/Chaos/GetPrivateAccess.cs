@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
-        [Input("privateAccessName")]
-        public string? PrivateAccessName { get; set; }
+        [Input("privateAccessName", required: true)]
+        public string PrivateAccessName { get; set; } = null!;
 
         /// <summary>
         /// String that represents an Azure resource group.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
-        [Input("privateAccessName")]
-        public Input<string>? PrivateAccessName { get; set; }
+        [Input("privateAccessName", required: true)]
+        public Input<string> PrivateAccessName { get; set; } = null!;
 
         /// <summary>
         /// String that represents an Azure resource group.

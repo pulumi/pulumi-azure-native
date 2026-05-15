@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource name
         /// </summary>
-        [Input("organizationName", required: true)]
-        public Input<string> OrganizationName { get; set; } = null!;
+        [Input("organizationName")]
+        public Input<string>? OrganizationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

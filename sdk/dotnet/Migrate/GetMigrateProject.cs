@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("migrateProjectName")]
-        public string? MigrateProjectName { get; set; }
+        [Input("migrateProjectName", required: true)]
+        public string MigrateProjectName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Resource Group that migrate project is part of.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("migrateProjectName")]
-        public Input<string>? MigrateProjectName { get; set; }
+        [Input("migrateProjectName", required: true)]
+        public Input<string> MigrateProjectName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Resource Group that migrate project is part of.

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the connector resource
         /// </summary>
-        [Input("connectorName")]
-        public string? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public string ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the connector resource
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Marketplace
         /// 
         /// Uses Azure REST API version 2023-03-01-preview.
         /// </summary>
-        public static Task<GetUserSolutionResult> InvokeAsync(GetUserSolutionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserSolutionResult> InvokeAsync(GetUserSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSolutionResult>("azure-native:marketplace:getUserSolution", args ?? new GetUserSolutionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Marketplace
         /// 
         /// Uses Azure REST API version 2023-03-01-preview.
         /// </summary>
-        public static Output<GetUserSolutionResult> Invoke(GetUserSolutionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserSolutionResult> Invoke(GetUserSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSolutionResult>("azure-native:marketplace:getUserSolution", args ?? new GetUserSolutionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The solution id
         /// </summary>
-        [Input("solutionId")]
-        public string? SolutionId { get; set; }
+        [Input("solutionId", required: true)]
+        public string SolutionId { get; set; } = null!;
 
         public GetUserSolutionArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The solution id
         /// </summary>
-        [Input("solutionId")]
-        public Input<string>? SolutionId { get; set; }
+        [Input("solutionId", required: true)]
+        public Input<string> SolutionId { get; set; } = null!;
 
         public GetUserSolutionInvokeArgs()
         {

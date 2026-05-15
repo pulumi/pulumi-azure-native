@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("ipConfigName", required: true)]
-        public Input<string> IpConfigName { get; set; } = null!;
+        [Input("ipConfigName")]
+        public Input<string>? IpConfigName { get; set; }
 
         /// <summary>
         /// Name of the Ip Configuration.

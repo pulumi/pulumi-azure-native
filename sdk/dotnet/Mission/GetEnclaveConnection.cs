@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Enclave Connection Resource
         /// </summary>
-        [Input("enclaveConnectionName")]
-        public string? EnclaveConnectionName { get; set; }
+        [Input("enclaveConnectionName", required: true)]
+        public string EnclaveConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Enclave Connection Resource
         /// </summary>
-        [Input("enclaveConnectionName")]
-        public Input<string>? EnclaveConnectionName { get; set; }
+        [Input("enclaveConnectionName", required: true)]
+        public Input<string> EnclaveConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

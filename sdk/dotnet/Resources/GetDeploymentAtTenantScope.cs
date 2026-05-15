@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The name of the deployment.
         /// </summary>
-        [Input("deploymentName")]
-        public string? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         public GetDeploymentAtTenantScopeArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The name of the deployment.
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         public GetDeploymentAtTenantScopeInvokeArgs()
         {

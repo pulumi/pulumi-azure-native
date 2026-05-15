@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the product.
         /// </summary>
-        [Input("customerSubscriptionName")]
-        public string? CustomerSubscriptionName { get; set; }
+        [Input("customerSubscriptionName", required: true)]
+        public string CustomerSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Stack registration.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the product.
         /// </summary>
-        [Input("customerSubscriptionName")]
-        public Input<string>? CustomerSubscriptionName { get; set; }
+        [Input("customerSubscriptionName", required: true)]
+        public Input<string> CustomerSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Stack registration.

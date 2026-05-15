@@ -201,8 +201,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the free service
         /// </summary>
-        [Input("freeServiceName", required: true)]
-        public Input<string> FreeServiceName { get; set; } = null!;
+        [Input("freeServiceName")]
+        public Input<string>? FreeServiceName { get; set; }
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

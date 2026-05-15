@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
         /// </summary>
-        [Input("relationshipName", required: true)]
-        public Input<string> RelationshipName { get; set; } = null!;
+        [Input("relationshipName")]
+        public Input<string>? RelationshipName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

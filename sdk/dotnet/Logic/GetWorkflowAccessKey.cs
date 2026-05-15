@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The workflow access key name.
         /// </summary>
-        [Input("accessKeyName")]
-        public string? AccessKeyName { get; set; }
+        [Input("accessKeyName", required: true)]
+        public string AccessKeyName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The workflow access key name.
         /// </summary>
-        [Input("accessKeyName")]
-        public Input<string>? AccessKeyName { get; set; }
+        [Input("accessKeyName", required: true)]
+        public Input<string> AccessKeyName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

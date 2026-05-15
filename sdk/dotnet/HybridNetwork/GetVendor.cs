@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// 
         /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
-        public static Task<GetVendorResult> InvokeAsync(GetVendorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// 
         /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
-        public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the vendor.
         /// </summary>
-        [Input("vendorName")]
-        public string? VendorName { get; set; }
+        [Input("vendorName", required: true)]
+        public string VendorName { get; set; } = null!;
 
         public GetVendorArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the vendor.
         /// </summary>
-        [Input("vendorName")]
-        public Input<string>? VendorName { get; set; }
+        [Input("vendorName", required: true)]
+        public Input<string> VendorName { get; set; } = null!;
 
         public GetVendorInvokeArgs()
         {

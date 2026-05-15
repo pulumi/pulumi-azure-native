@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The distributed availability group name.
         /// </summary>
-        [Input("distributedAvailabilityGroupName")]
-        public string? DistributedAvailabilityGroupName { get; set; }
+        [Input("distributedAvailabilityGroupName", required: true)]
+        public string DistributedAvailabilityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The distributed availability group name.
         /// </summary>
-        [Input("distributedAvailabilityGroupName")]
-        public Input<string>? DistributedAvailabilityGroupName { get; set; }
+        [Input("distributedAvailabilityGroupName", required: true)]
+        public Input<string> DistributedAvailabilityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.

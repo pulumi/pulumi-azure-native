@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// The springbootsites name.
         /// </summary>
-        [Input("springbootsitesName")]
-        public string? SpringbootsitesName { get; set; }
+        [Input("springbootsitesName", required: true)]
+        public string SpringbootsitesName { get; set; } = null!;
 
         public GetSpringbootsiteArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// The springbootsites name.
         /// </summary>
-        [Input("springbootsitesName")]
-        public Input<string>? SpringbootsitesName { get; set; }
+        [Input("springbootsitesName", required: true)]
+        public Input<string> SpringbootsitesName { get; set; } = null!;
 
         public GetSpringbootsiteInvokeArgs()
         {

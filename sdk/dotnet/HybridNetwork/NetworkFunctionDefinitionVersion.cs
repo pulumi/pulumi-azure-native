@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
         /// </summary>
-        [Input("networkFunctionDefinitionVersionName", required: true)]
-        public Input<string> NetworkFunctionDefinitionVersionName { get; set; } = null!;
+        [Input("networkFunctionDefinitionVersionName")]
+        public Input<string>? NetworkFunctionDefinitionVersionName { get; set; }
 
         /// <summary>
         /// Network function definition version properties.

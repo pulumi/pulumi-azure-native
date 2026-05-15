@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the vault.
         /// </summary>
-        [Input("vaultName")]
-        public string? VaultName { get; set; }
+        [Input("vaultName", required: true)]
+        public string VaultName { get; set; } = null!;
 
         public GetVaultArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The name of the vault.
         /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
 
         public GetVaultInvokeArgs()
         {

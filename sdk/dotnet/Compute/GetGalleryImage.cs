@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery image definition to be retrieved.
         /// </summary>
-        [Input("galleryImageName")]
-        public string? GalleryImageName { get; set; }
+        [Input("galleryImageName", required: true)]
+        public string GalleryImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Shared Image Gallery.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery image definition to be retrieved.
         /// </summary>
-        [Input("galleryImageName")]
-        public Input<string>? GalleryImageName { get; set; }
+        [Input("galleryImageName", required: true)]
+        public Input<string> GalleryImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Shared Image Gallery.

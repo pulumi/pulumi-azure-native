@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// Account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// CMK encryption at rest properties

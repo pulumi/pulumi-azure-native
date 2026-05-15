@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the rack.
         /// </summary>
-        [Input("rackName", required: true)]
-        public Input<string> RackName { get; set; } = null!;
+        [Input("rackName")]
+        public Input<string>? RackName { get; set; }
 
         /// <summary>
         /// The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.

@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName")]
-        public string? ServerName { get; set; }
+        [Input("serverName", required: true)]
+        public string ServerName { get; set; } = null!;
 
         public GetServerArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName")]
-        public Input<string>? ServerName { get; set; }
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         public GetServerInvokeArgs()
         {

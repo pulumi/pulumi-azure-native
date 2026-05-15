@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// L2 Connection name.
         /// </summary>
-        [Input("l2ConnectionName")]
-        public string? L2ConnectionName { get; set; }
+        [Input("l2ConnectionName", required: true)]
+        public string L2ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// L2 Connection name.
         /// </summary>
-        [Input("l2ConnectionName")]
-        public Input<string>? L2ConnectionName { get; set; }
+        [Input("l2ConnectionName", required: true)]
+        public Input<string> L2ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

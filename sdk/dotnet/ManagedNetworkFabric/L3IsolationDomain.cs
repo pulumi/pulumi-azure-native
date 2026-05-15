@@ -182,8 +182,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the L3 Isolation Domain.
         /// </summary>
-        [Input("l3IsolationDomainName", required: true)]
-        public Input<string> L3IsolationDomainName { get; set; } = null!;
+        [Input("l3IsolationDomainName")]
+        public Input<string>? L3IsolationDomainName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

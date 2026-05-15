@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the service gateway.
         /// </summary>
-        [Input("serviceGatewayName")]
-        public string? ServiceGatewayName { get; set; }
+        [Input("serviceGatewayName", required: true)]
+        public string ServiceGatewayName { get; set; } = null!;
 
         public GetServiceGatewayArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the service gateway.
         /// </summary>
-        [Input("serviceGatewayName")]
-        public Input<string>? ServiceGatewayName { get; set; }
+        [Input("serviceGatewayName", required: true)]
+        public Input<string> ServiceGatewayName { get; set; } = null!;
 
         public GetServiceGatewayInvokeArgs()
         {

@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ImportExport
         /// <summary>
         /// The name of the import/export job.
         /// </summary>
-        [Input("jobName")]
-        public string? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name uniquely identifies the resource group within the user subscription.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ImportExport
         /// <summary>
         /// The name of the import/export job.
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name uniquely identifies the resource group within the user subscription.

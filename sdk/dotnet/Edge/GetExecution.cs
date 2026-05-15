@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Execution.
         /// </summary>
-        [Input("executionName")]
-        public string? ExecutionName { get; set; }
+        [Input("executionName", required: true)]
+        public string ExecutionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Execution.
         /// </summary>
-        [Input("executionName")]
-        public Input<string>? ExecutionName { get; set; }
+        [Input("executionName", required: true)]
+        public Input<string> ExecutionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

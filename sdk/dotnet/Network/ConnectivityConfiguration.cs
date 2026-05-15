@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager connectivity configuration.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// Connectivity topology type.

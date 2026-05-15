@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the UpdateStrategy resource.
         /// </summary>
-        [Input("updateStrategyName", required: true)]
-        public Input<string> UpdateStrategyName { get; set; } = null!;
+        [Input("updateStrategyName")]
+        public Input<string>? UpdateStrategyName { get; set; }
 
         public FleetUpdateStrategyArgs()
         {

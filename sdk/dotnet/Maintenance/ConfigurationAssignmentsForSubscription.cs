@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConfigurationAssignmentsForSubscription(string name, ConfigurationAssignmentsForSubscriptionArgs args, CustomResourceOptions? options = null)
+        public ConfigurationAssignmentsForSubscription(string name, ConfigurationAssignmentsForSubscriptionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:maintenance:ConfigurationAssignmentsForSubscription", name, args ?? new ConfigurationAssignmentsForSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public Input<string>? ConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// Properties of the configuration assignment

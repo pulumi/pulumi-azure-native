@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Function name.
         /// </summary>
-        [Input("functionName")]
-        public string? FunctionName { get; set; }
+        [Input("functionName", required: true)]
+        public string FunctionName { get; set; } = null!;
 
         /// <summary>
         /// Site name.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Function name.
         /// </summary>
-        [Input("functionName")]
-        public Input<string>? FunctionName { get; set; }
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
         /// Site name.

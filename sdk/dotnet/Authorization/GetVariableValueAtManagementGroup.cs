@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the variable value to operate on.
         /// </summary>
-        [Input("variableValueName")]
-        public string? VariableValueName { get; set; }
+        [Input("variableValueName", required: true)]
+        public string VariableValueName { get; set; } = null!;
 
         public GetVariableValueAtManagementGroupArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the variable value to operate on.
         /// </summary>
-        [Input("variableValueName")]
-        public Input<string>? VariableValueName { get; set; }
+        [Input("variableValueName", required: true)]
+        public Input<string> VariableValueName { get; set; } = null!;
 
         public GetVariableValueAtManagementGroupInvokeArgs()
         {

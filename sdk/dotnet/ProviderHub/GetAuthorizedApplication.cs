@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
-        public string? ApplicationId { get; set; }
+        [Input("applicationId", required: true)]
+        public string ApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.

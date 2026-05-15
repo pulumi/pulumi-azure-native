@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Managed private endpoint name
         /// </summary>
-        [Input("managedPrivateEndpointName")]
-        public string? ManagedPrivateEndpointName { get; set; }
+        [Input("managedPrivateEndpointName", required: true)]
+        public string ManagedPrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Managed virtual network name
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Managed private endpoint name
         /// </summary>
-        [Input("managedPrivateEndpointName")]
-        public Input<string>? ManagedPrivateEndpointName { get; set; }
+        [Input("managedPrivateEndpointName", required: true)]
+        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Managed virtual network name

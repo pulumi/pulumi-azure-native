@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity Gateway Name.
         /// </summary>
-        [Input("gatewayName")]
-        public string? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public string GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity Gateway Name.
         /// </summary>
-        [Input("gatewayName")]
-        public Input<string>? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

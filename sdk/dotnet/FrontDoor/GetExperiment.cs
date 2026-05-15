@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// The Experiment identifier associated with the Experiment
         /// </summary>
-        [Input("experimentName")]
-        public string? ExperimentName { get; set; }
+        [Input("experimentName", required: true)]
+        public string ExperimentName { get; set; } = null!;
 
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// The Experiment identifier associated with the Experiment
         /// </summary>
-        [Input("experimentName")]
-        public Input<string>? ExperimentName { get; set; }
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
 
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The id of the address in a suppression list.
         /// </summary>
-        [Input("addressId")]
-        public string? AddressId { get; set; }
+        [Input("addressId", required: true)]
+        public string AddressId { get; set; } = null!;
 
         /// <summary>
         /// The name of the Domains resource.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The id of the address in a suppression list.
         /// </summary>
-        [Input("addressId")]
-        public Input<string>? AddressId { get; set; }
+        [Input("addressId", required: true)]
+        public Input<string> AddressId { get; set; } = null!;
 
         /// <summary>
         /// The name of the Domains resource.

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// <summary>
         /// Name of the Instance resource
         /// </summary>
-        [Input("instancename", required: true)]
-        public Input<string> Instancename { get; set; } = null!;
+        [Input("instancename")]
+        public Input<string>? Instancename { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

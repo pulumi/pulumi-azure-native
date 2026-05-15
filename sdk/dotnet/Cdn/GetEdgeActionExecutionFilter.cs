@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the execution filter
         /// </summary>
-        [Input("executionFilter")]
-        public string? ExecutionFilter { get; set; }
+        [Input("executionFilter", required: true)]
+        public string ExecutionFilter { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the execution filter
         /// </summary>
-        [Input("executionFilter")]
-        public Input<string>? ExecutionFilter { get; set; }
+        [Input("executionFilter", required: true)]
+        public Input<string> ExecutionFilter { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

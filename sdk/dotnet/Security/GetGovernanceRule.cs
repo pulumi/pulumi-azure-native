@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
-        [Input("ruleId")]
-        public string? RuleId { get; set; }
+        [Input("ruleId", required: true)]
+        public string RuleId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
-        [Input("ruleId")]
-        public Input<string>? RuleId { get; set; }
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'

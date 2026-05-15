@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of health model resource
         /// </summary>
-        [Input("healthModelName", required: true)]
-        public Input<string> HealthModelName { get; set; } = null!;
+        [Input("healthModelName")]
+        public Input<string>? HealthModelName { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

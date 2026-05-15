@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
-        public string? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The child resources to include in the response.
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The child resources to include in the response.

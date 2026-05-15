@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("moduleName")]
-        public string? ModuleName { get; set; }
+        [Input("moduleName", required: true)]
+        public string ModuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("moduleName")]
-        public Input<string>? ModuleName { get; set; }
+        [Input("moduleName", required: true)]
+        public Input<string> ModuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

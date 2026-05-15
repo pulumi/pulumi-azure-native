@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.PrivateDns
         /// <summary>
         /// The name of the virtual network link.
         /// </summary>
-        [Input("virtualNetworkLinkName")]
-        public string? VirtualNetworkLinkName { get; set; }
+        [Input("virtualNetworkLinkName", required: true)]
+        public string VirtualNetworkLinkName { get; set; } = null!;
 
         public GetVirtualNetworkLinkArgs()
         {
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.PrivateDns
         /// <summary>
         /// The name of the virtual network link.
         /// </summary>
-        [Input("virtualNetworkLinkName")]
-        public Input<string>? VirtualNetworkLinkName { get; set; }
+        [Input("virtualNetworkLinkName", required: true)]
+        public Input<string> VirtualNetworkLinkName { get; set; } = null!;
 
         public GetVirtualNetworkLinkInvokeArgs()
         {

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
-        [Input("namedValueId")]
-        public string? NamedValueId { get; set; }
+        [Input("namedValueId", required: true)]
+        public string NamedValueId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
-        [Input("namedValueId")]
-        public Input<string>? NamedValueId { get; set; }
+        [Input("namedValueId", required: true)]
+        public Input<string> NamedValueId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

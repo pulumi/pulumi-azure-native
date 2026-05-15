@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the flow log resource.
         /// </summary>
-        [Input("flowLogName")]
-        public string? FlowLogName { get; set; }
+        [Input("flowLogName", required: true)]
+        public string FlowLogName { get; set; } = null!;
 
         /// <summary>
         /// The name of the network watcher.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the flow log resource.
         /// </summary>
-        [Input("flowLogName")]
-        public Input<string>? FlowLogName { get; set; }
+        [Input("flowLogName", required: true)]
+        public Input<string> FlowLogName { get; set; } = null!;
 
         /// <summary>
         /// The name of the network watcher.

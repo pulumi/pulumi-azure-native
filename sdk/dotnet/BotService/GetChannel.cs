@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("channelName")]
-        public string? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public string ChannelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt comment id (GUID)
         /// </summary>
-        [Input("huntCommentId")]
-        public string? HuntCommentId { get; set; }
+        [Input("huntCommentId", required: true)]
+        public string HuntCommentId { get; set; } = null!;
 
         /// <summary>
         /// The hunt id (GUID)
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The hunt comment id (GUID)
         /// </summary>
-        [Input("huntCommentId")]
-        public Input<string>? HuntCommentId { get; set; }
+        [Input("huntCommentId", required: true)]
+        public Input<string> HuntCommentId { get; set; } = null!;
 
         /// <summary>
         /// The hunt id (GUID)

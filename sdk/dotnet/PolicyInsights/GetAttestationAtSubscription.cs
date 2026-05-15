@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// 
         /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetAttestationAtSubscriptionResult> InvokeAsync(GetAttestationAtSubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAttestationAtSubscriptionResult> InvokeAsync(GetAttestationAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtSubscriptionResult>("azure-native:policyinsights:getAttestationAtSubscription", args ?? new GetAttestationAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// 
         /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetAttestationAtSubscriptionResult> Invoke(GetAttestationAtSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAttestationAtSubscriptionResult> Invoke(GetAttestationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtSubscriptionResult>("azure-native:policyinsights:getAttestationAtSubscription", args ?? new GetAttestationAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the attestation.
         /// </summary>
-        [Input("attestationName")]
-        public string? AttestationName { get; set; }
+        [Input("attestationName", required: true)]
+        public string AttestationName { get; set; } = null!;
 
         public GetAttestationAtSubscriptionArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The name of the attestation.
         /// </summary>
-        [Input("attestationName")]
-        public Input<string>? AttestationName { get; set; }
+        [Input("attestationName", required: true)]
+        public Input<string> AttestationName { get; set; } = null!;
 
         public GetAttestationAtSubscriptionInvokeArgs()
         {

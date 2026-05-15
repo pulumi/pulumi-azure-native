@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the resource management private link.
         /// </summary>
-        [Input("rmplName", required: true)]
-        public Input<string> RmplName { get; set; } = null!;
+        [Input("rmplName")]
+        public Input<string>? RmplName { get; set; }
 
         public ResourceManagementPrivateLinkArgs()
         {

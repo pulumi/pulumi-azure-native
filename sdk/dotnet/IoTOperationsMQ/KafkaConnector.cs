@@ -189,8 +189,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ kafkaConnector resource
         /// </summary>
-        [Input("kafkaConnectorName", required: true)]
-        public Input<string> KafkaConnectorName { get; set; } = null!;
+        [Input("kafkaConnectorName")]
+        public Input<string>? KafkaConnectorName { get; set; }
 
         /// <summary>
         /// The details for connecting with Local Broker.

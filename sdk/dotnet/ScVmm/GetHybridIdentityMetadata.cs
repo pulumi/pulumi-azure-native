@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the HybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName")]
-        public string? MetadataName { get; set; }
+        [Input("metadataName", required: true)]
+        public string MetadataName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the HybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName")]
-        public Input<string>? MetadataName { get; set; }
+        [Input("metadataName", required: true)]
+        public Input<string> MetadataName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

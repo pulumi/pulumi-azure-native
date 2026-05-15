@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the trusted identity provider to retrieve.
         /// </summary>
-        [Input("trustedIdProviderName")]
-        public string? TrustedIdProviderName { get; set; }
+        [Input("trustedIdProviderName", required: true)]
+        public string TrustedIdProviderName { get; set; } = null!;
 
         public GetTrustedIdProviderArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the trusted identity provider to retrieve.
         /// </summary>
-        [Input("trustedIdProviderName")]
-        public Input<string>? TrustedIdProviderName { get; set; }
+        [Input("trustedIdProviderName", required: true)]
+        public Input<string> TrustedIdProviderName { get; set; } = null!;
 
         public GetTrustedIdProviderInvokeArgs()
         {

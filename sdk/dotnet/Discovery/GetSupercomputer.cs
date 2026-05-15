@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Supercomputer
         /// </summary>
-        [Input("supercomputerName")]
-        public string? SupercomputerName { get; set; }
+        [Input("supercomputerName", required: true)]
+        public string SupercomputerName { get; set; } = null!;
 
         public GetSupercomputerArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Supercomputer
         /// </summary>
-        [Input("supercomputerName")]
-        public Input<string>? SupercomputerName { get; set; }
+        [Input("supercomputerName", required: true)]
+        public Input<string> SupercomputerName { get; set; } = null!;
 
         public GetSupercomputerInvokeArgs()
         {

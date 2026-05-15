@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Job resource.
         /// </summary>
-        [Input("jobName")]
-        public string? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Job resource.
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

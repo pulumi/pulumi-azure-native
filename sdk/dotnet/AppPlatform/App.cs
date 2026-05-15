@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the App resource.
         /// </summary>
-        [Input("appName", required: true)]
-        public Input<string> AppName { get; set; } = null!;
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
 
         /// <summary>
         /// The Managed Identity type of the app resource

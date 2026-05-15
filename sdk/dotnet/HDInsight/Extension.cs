@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.HDInsight
         /// <summary>
         /// The name of the cluster extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// The certificate for the cluster monitoring extensions.

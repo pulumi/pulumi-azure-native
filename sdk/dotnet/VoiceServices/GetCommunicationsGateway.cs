@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Unique identifier for this deployment
         /// </summary>
-        [Input("communicationsGatewayName")]
-        public string? CommunicationsGatewayName { get; set; }
+        [Input("communicationsGatewayName", required: true)]
+        public string CommunicationsGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Unique identifier for this deployment
         /// </summary>
-        [Input("communicationsGatewayName")]
-        public Input<string>? CommunicationsGatewayName { get; set; }
+        [Input("communicationsGatewayName", required: true)]
+        public Input<string> CommunicationsGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

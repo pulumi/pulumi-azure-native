@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Buildpack Binding Name
         /// </summary>
-        [Input("buildpackBindingName", required: true)]
-        public Input<string> BuildpackBindingName { get; set; } = null!;
+        [Input("buildpackBindingName")]
+        public Input<string>? BuildpackBindingName { get; set; }
 
         /// <summary>
         /// Properties of a buildpack binding

@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tool identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("toolId", required: true)]
-        public Input<string> ToolId { get; set; } = null!;
+        [Input("toolId")]
+        public Input<string>? ToolId { get; set; }
 
         public ApiToolArgs()
         {

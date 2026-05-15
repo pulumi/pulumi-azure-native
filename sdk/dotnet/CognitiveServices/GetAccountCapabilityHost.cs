@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the capability host associated with the Cognitive Services Resource
         /// </summary>
-        [Input("capabilityHostName")]
-        public string? CapabilityHostName { get; set; }
+        [Input("capabilityHostName", required: true)]
+        public string CapabilityHostName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the capability host associated with the Cognitive Services Resource
         /// </summary>
-        [Input("capabilityHostName")]
-        public Input<string>? CapabilityHostName { get; set; }
+        [Input("capabilityHostName", required: true)]
+        public Input<string> CapabilityHostName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

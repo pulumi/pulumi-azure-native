@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         /// </summary>
-        [Input("queueServiceName")]
-        public string? QueueServiceName { get; set; }
+        [Input("queueServiceName", required: true)]
+        public string QueueServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         /// </summary>
-        [Input("queueServiceName")]
-        public Input<string>? QueueServiceName { get; set; }
+        [Input("queueServiceName", required: true)]
+        public Input<string> QueueServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

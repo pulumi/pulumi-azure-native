@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the backend address pool.
         /// </summary>
-        [Input("backendAddressPoolName")]
-        public string? BackendAddressPoolName { get; set; }
+        [Input("backendAddressPoolName", required: true)]
+        public string BackendAddressPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the load balancer.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the backend address pool.
         /// </summary>
-        [Input("backendAddressPoolName")]
-        public Input<string>? BackendAddressPoolName { get; set; }
+        [Input("backendAddressPoolName", required: true)]
+        public Input<string> BackendAddressPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the load balancer.

@@ -263,8 +263,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes cluster.
         /// </summary>
-        [Input("kubernetesClusterName", required: true)]
-        public Input<string> KubernetesClusterName { get; set; } = null!;
+        [Input("kubernetesClusterName")]
+        public Input<string>? KubernetesClusterName { get; set; }
 
         /// <summary>
         /// The Kubernetes version for this cluster.

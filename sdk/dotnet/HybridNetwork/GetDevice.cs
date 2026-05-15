@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the device resource.
         /// </summary>
-        [Input("deviceName")]
-        public string? DeviceName { get; set; }
+        [Input("deviceName", required: true)]
+        public string DeviceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the device resource.
         /// </summary>
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

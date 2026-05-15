@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the association. The name is case insensitive.
         /// </summary>
-        [Input("associationName", required: true)]
-        public Input<string> AssociationName { get; set; } = null!;
+        [Input("associationName")]
+        public Input<string>? AssociationName { get; set; }
 
         /// <summary>
         /// The resource ID of the data collection endpoint that is to be associated.

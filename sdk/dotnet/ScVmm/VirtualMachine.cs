@@ -355,8 +355,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachine.
         /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         /// <summary>
         /// VMName is the name of VM on the SCVMM server.

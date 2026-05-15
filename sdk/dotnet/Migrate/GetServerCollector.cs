@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a Server collector within a project.
         /// </summary>
-        [Input("serverCollectorName")]
-        public string? ServerCollectorName { get; set; }
+        [Input("serverCollectorName", required: true)]
+        public string ServerCollectorName { get; set; } = null!;
 
         public GetServerCollectorArgs()
         {
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a Server collector within a project.
         /// </summary>
-        [Input("serverCollectorName")]
-        public Input<string>? ServerCollectorName { get; set; }
+        [Input("serverCollectorName", required: true)]
+        public Input<string> ServerCollectorName { get; set; } = null!;
 
         public GetServerCollectorInvokeArgs()
         {

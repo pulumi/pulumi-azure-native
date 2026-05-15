@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The name of the Dashboard Definition.
         /// </summary>
-        [Input("definitionName", required: true)]
-        public Input<string> DefinitionName { get; set; } = null!;
+        [Input("definitionName")]
+        public Input<string>? DefinitionName { get; set; }
 
         /// <summary>
         /// Properties specific to the dashboard definition resource.

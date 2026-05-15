@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Budget Name.
         /// </summary>
-        [Input("budgetName")]
-        public string? BudgetName { get; set; }
+        [Input("budgetName", required: true)]
+        public string BudgetName { get; set; } = null!;
 
         /// <summary>
         /// The scope associated with budget operations.
@@ -96,8 +96,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Budget Name.
         /// </summary>
-        [Input("budgetName")]
-        public Input<string>? BudgetName { get; set; }
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
 
         /// <summary>
         /// The scope associated with budget operations.

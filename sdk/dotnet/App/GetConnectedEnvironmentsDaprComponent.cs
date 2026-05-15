@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Dapr Component.
         /// </summary>
-        [Input("componentName")]
-        public string? ComponentName { get; set; }
+        [Input("componentName", required: true)]
+        public string ComponentName { get; set; } = null!;
 
         /// <summary>
         /// Name of the connected environment.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Dapr Component.
         /// </summary>
-        [Input("componentName")]
-        public Input<string>? ComponentName { get; set; }
+        [Input("componentName", required: true)]
+        public Input<string> ComponentName { get; set; } = null!;
 
         /// <summary>
         /// Name of the connected environment.

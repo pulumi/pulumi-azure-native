@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The CA certificate name.
         /// </summary>
-        [Input("caCertificateName", required: true)]
-        public Input<string> CaCertificateName { get; set; } = null!;
+        [Input("caCertificateName")]
+        public Input<string>? CaCertificateName { get; set; }
 
         /// <summary>
         /// Description for the CA Certificate resource.

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Comment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("commentId")]
-        public string? CommentId { get; set; }
+        [Input("commentId", required: true)]
+        public string CommentId { get; set; } = null!;
 
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Comment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("commentId")]
-        public Input<string>? CommentId { get; set; }
+        [Input("commentId", required: true)]
+        public Input<string> CommentId { get; set; } = null!;
 
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.

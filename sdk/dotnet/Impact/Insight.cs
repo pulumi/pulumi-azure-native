@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// Name of the insight
         /// </summary>
-        [Input("insightName", required: true)]
-        public Input<string> InsightName { get; set; } = null!;
+        [Input("insightName")]
+        public Input<string>? InsightName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

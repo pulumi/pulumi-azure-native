@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of Analytics Connector resource.
         /// </summary>
-        [Input("analyticsConnectorName")]
-        public string? AnalyticsConnectorName { get; set; }
+        [Input("analyticsConnectorName", required: true)]
+        public string AnalyticsConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of Analytics Connector resource.
         /// </summary>
-        [Input("analyticsConnectorName")]
-        public Input<string>? AnalyticsConnectorName { get; set; }
+        [Input("analyticsConnectorName", required: true)]
+        public Input<string> AnalyticsConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the service instance.

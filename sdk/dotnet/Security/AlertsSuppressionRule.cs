@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The unique name of the suppression alert rule
         /// </summary>
-        [Input("alertsSuppressionRuleName", required: true)]
-        public Input<string> AlertsSuppressionRuleName { get; set; } = null!;
+        [Input("alertsSuppressionRuleName")]
+        public Input<string>? AlertsSuppressionRuleName { get; set; }
 
         /// <summary>
         /// Any comment regarding the rule

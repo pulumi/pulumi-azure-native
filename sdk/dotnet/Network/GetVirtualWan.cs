@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualWAN being retrieved.
         /// </summary>
-        [Input("virtualWANName")]
-        public string? VirtualWANName { get; set; }
+        [Input("virtualWANName", required: true)]
+        public string VirtualWANName { get; set; } = null!;
 
         public GetVirtualWanArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualWAN being retrieved.
         /// </summary>
-        [Input("virtualWANName")]
-        public Input<string>? VirtualWANName { get; set; }
+        [Input("virtualWANName", required: true)]
+        public Input<string> VirtualWANName { get; set; } = null!;
 
         public GetVirtualWanInvokeArgs()
         {

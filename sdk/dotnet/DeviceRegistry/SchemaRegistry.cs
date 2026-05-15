@@ -191,8 +191,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Schema registry name parameter.
         /// </summary>
-        [Input("schemaRegistryName", required: true)]
-        public Input<string> SchemaRegistryName { get; set; } = null!;
+        [Input("schemaRegistryName")]
+        public Input<string>? SchemaRegistryName { get; set; }
 
         /// <summary>
         /// The Storage Account's Container URL where schemas will be stored.

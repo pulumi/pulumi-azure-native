@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
         /// </summary>
-        [Input("originGroupName", required: true)]
-        public Input<string> OriginGroupName { get; set; } = null!;
+        [Input("originGroupName")]
+        public Input<string>? OriginGroupName { get; set; }
 
         [Input("origins")]
         private InputList<Inputs.ResourceReferenceArgs>? _origins;

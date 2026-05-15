@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery Script Definition to be retrieved.
         /// </summary>
-        [Input("galleryScriptName")]
-        public string? GalleryScriptName { get; set; }
+        [Input("galleryScriptName", required: true)]
+        public string GalleryScriptName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery Script Definition to be retrieved.
         /// </summary>
-        [Input("galleryScriptName")]
-        public Input<string>? GalleryScriptName { get; set; }
+        [Input("galleryScriptName", required: true)]
+        public Input<string> GalleryScriptName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the DynamicConfigurationVersion
         /// </summary>
-        [Input("dynamicConfigurationVersionName", required: true)]
-        public Input<string> DynamicConfigurationVersionName { get; set; } = null!;
+        [Input("dynamicConfigurationVersionName")]
+        public Input<string>? DynamicConfigurationVersionName { get; set; }
 
         /// <summary>
         /// The resource-specific properties for this resource.

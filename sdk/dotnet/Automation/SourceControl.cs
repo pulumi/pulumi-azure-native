@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The source control name.
         /// </summary>
-        [Input("sourceControlName", required: true)]
-        public Input<string> SourceControlName { get; set; } = null!;
+        [Input("sourceControlName")]
+        public Input<string>? SourceControlName { get; set; }
 
         /// <summary>
         /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.

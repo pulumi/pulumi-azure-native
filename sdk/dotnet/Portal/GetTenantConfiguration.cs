@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Portal
         /// 
         /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the Configuration
         /// </summary>
-        [Input("configurationName")]
-        public string? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public string ConfigurationName { get; set; } = null!;
 
         public GetTenantConfigurationArgs()
         {
@@ -62,8 +62,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the Configuration
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         public GetTenantConfigurationInvokeArgs()
         {

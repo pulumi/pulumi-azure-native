@@ -242,8 +242,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// SQL pool name
         /// </summary>
-        [Input("sqlPoolName", required: true)]
-        public Input<string> SqlPoolName { get; set; } = null!;
+        [Input("sqlPoolName")]
+        public Input<string>? SqlPoolName { get; set; }
 
         /// <summary>
         /// The storage account type used to store backups for this sql pool.

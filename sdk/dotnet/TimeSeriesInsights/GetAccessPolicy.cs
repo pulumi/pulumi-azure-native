@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights access policy associated with the specified environment.
         /// </summary>
-        [Input("accessPolicyName")]
-        public string? AccessPolicyName { get; set; }
+        [Input("accessPolicyName", required: true)]
+        public string AccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// The name of the Time Series Insights access policy associated with the specified environment.
         /// </summary>
-        [Input("accessPolicyName")]
-        public Input<string>? AccessPolicyName { get; set; }
+        [Input("accessPolicyName", required: true)]
+        public Input<string> AccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.

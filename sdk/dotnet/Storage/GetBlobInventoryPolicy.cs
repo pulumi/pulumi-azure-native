@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the storage account blob inventory policy. It should always be 'default'
         /// </summary>
-        [Input("blobInventoryPolicyName")]
-        public string? BlobInventoryPolicyName { get; set; }
+        [Input("blobInventoryPolicyName", required: true)]
+        public string BlobInventoryPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the storage account blob inventory policy. It should always be 'default'
         /// </summary>
-        [Input("blobInventoryPolicyName")]
-        public Input<string>? BlobInventoryPolicyName { get; set; }
+        [Input("blobInventoryPolicyName", required: true)]
+        public Input<string> BlobInventoryPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

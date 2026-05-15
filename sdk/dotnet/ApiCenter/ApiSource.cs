@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API.
         /// </summary>
-        [Input("apiSourceName", required: true)]
-        public Input<string> ApiSourceName { get; set; } = null!;
+        [Input("apiSourceName")]
+        public Input<string>? ApiSourceName { get; set; }
 
         /// <summary>
         /// API source configuration for Azure API Management.

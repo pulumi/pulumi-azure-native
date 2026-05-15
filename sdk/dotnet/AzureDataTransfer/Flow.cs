@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// The name for the flow that is to be onboarded.
         /// </summary>
-        [Input("flowName", required: true)]
-        public Input<string> FlowName { get; set; } = null!;
+        [Input("flowName")]
+        public Input<string>? FlowName { get; set; }
 
         /// <summary>
         /// The managed identity of the flow resource, if configured.

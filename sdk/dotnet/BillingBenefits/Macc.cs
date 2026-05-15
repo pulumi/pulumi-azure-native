@@ -318,8 +318,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of primary MACC.
         /// </summary>
-        [Input("maccName", required: true)]
-        public Input<string> MaccName { get; set; } = null!;
+        [Input("maccName")]
+        public Input<string>? MaccName { get; set; }
 
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.

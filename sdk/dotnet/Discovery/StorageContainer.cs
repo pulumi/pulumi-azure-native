@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the StorageContainer
         /// </summary>
-        [Input("storageContainerName", required: true)]
-        public Input<string> StorageContainerName { get; set; } = null!;
+        [Input("storageContainerName")]
+        public Input<string>? StorageContainerName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

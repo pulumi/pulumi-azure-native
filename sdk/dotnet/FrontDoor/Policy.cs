@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// The name of the Web Application Firewall Policy.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// Describes settings for the policy.

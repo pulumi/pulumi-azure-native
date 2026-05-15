@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent kafka or schema registry cluster id
         /// </summary>
-        [Input("clusterId")]
-        public string? ClusterId { get; set; }
+        [Input("clusterId", required: true)]
+        public string ClusterId { get; set; } = null!;
 
         /// <summary>
         /// Confluent environment id
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent kafka or schema registry cluster id
         /// </summary>
-        [Input("clusterId")]
-        public Input<string>? ClusterId { get; set; }
+        [Input("clusterId", required: true)]
+        public Input<string> ClusterId { get; set; } = null!;
 
         /// <summary>
         /// Confluent environment id

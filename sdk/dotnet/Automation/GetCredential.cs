@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of credential.
         /// </summary>
-        [Input("credentialName")]
-        public string? CredentialName { get; set; }
+        [Input("credentialName", required: true)]
+        public string CredentialName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of credential.
         /// </summary>
-        [Input("credentialName")]
-        public Input<string>? CredentialName { get; set; }
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

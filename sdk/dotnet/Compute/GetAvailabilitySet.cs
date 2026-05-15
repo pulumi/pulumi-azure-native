@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the availability set.
         /// </summary>
-        [Input("availabilitySetName")]
-        public string? AvailabilitySetName { get; set; }
+        [Input("availabilitySetName", required: true)]
+        public string AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the availability set.
         /// </summary>
-        [Input("availabilitySetName")]
-        public Input<string>? AvailabilitySetName { get; set; }
+        [Input("availabilitySetName", required: true)]
+        public Input<string> AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

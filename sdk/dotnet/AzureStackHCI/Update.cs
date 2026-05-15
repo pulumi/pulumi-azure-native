@@ -349,8 +349,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the Update
         /// </summary>
-        [Input("updateName", required: true)]
-        public Input<string> UpdateName { get; set; } = null!;
+        [Input("updateName")]
+        public Input<string>? UpdateName { get; set; }
 
         /// <summary>
         /// Version of the update.

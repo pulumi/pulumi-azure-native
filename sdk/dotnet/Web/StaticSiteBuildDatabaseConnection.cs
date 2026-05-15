@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the database connection.
         /// </summary>
-        [Input("databaseConnectionName", required: true)]
-        public Input<string> DatabaseConnectionName { get; set; } = null!;
+        [Input("databaseConnectionName")]
+        public Input<string>? DatabaseConnectionName { get; set; }
 
         /// <summary>
         /// The stage site identifier.

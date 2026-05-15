@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The protected item name.
         /// </summary>
-        [Input("protectedItemName", required: true)]
-        public Input<string> ProtectedItemName { get; set; } = null!;
+        [Input("protectedItemName")]
+        public Input<string>? ProtectedItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

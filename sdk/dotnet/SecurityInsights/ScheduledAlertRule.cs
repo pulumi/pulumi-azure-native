@@ -435,8 +435,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
+        [Input("ruleId")]
+        public Input<string>? RuleId { get; set; }
 
         /// <summary>
         /// The severity for alerts created by this alert rule.

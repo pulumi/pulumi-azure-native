@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the outbound endpoint for the DNS resolver.
         /// </summary>
-        [Input("outboundEndpointName")]
-        public string? OutboundEndpointName { get; set; }
+        [Input("outboundEndpointName", required: true)]
+        public string OutboundEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the outbound endpoint for the DNS resolver.
         /// </summary>
-        [Input("outboundEndpointName")]
-        public Input<string>? OutboundEndpointName { get; set; }
+        [Input("outboundEndpointName", required: true)]
+        public Input<string> OutboundEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

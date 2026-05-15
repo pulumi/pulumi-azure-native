@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.StandbyPool
         /// <summary>
         /// Name of the standby container group pool
         /// </summary>
-        [Input("standbyContainerGroupPoolName")]
-        public string? StandbyContainerGroupPoolName { get; set; }
+        [Input("standbyContainerGroupPoolName", required: true)]
+        public string StandbyContainerGroupPoolName { get; set; } = null!;
 
         public GetStandbyContainerGroupPoolArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.StandbyPool
         /// <summary>
         /// Name of the standby container group pool
         /// </summary>
-        [Input("standbyContainerGroupPoolName")]
-        public Input<string>? StandbyContainerGroupPoolName { get; set; }
+        [Input("standbyContainerGroupPoolName", required: true)]
+        public Input<string> StandbyContainerGroupPoolName { get; set; } = null!;
 
         public GetStandbyContainerGroupPoolInvokeArgs()
         {

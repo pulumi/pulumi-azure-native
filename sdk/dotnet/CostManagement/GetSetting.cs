@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2019-11-01.
         /// </summary>
-        public static Task<GetSettingResult> InvokeAsync(GetSettingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSettingResult> InvokeAsync(GetSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingArgs(), options.WithDefaults());
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// 
         /// Uses Azure REST API version 2019-11-01.
         /// </summary>
-        public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Name of the setting. Allowed values: myscope
         /// </summary>
-        [Input("settingName")]
-        public string? SettingName { get; set; }
+        [Input("settingName", required: true)]
+        public string SettingName { get; set; } = null!;
 
         public GetSettingArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Name of the setting. Allowed values: myscope
         /// </summary>
-        [Input("settingName")]
-        public Input<string>? SettingName { get; set; }
+        [Input("settingName", required: true)]
+        public Input<string> SettingName { get; set; } = null!;
 
         public GetSettingInvokeArgs()
         {

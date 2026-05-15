@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
-        [Input("sapVirtualInstanceName")]
-        public string? SapVirtualInstanceName { get; set; }
+        [Input("sapVirtualInstanceName", required: true)]
+        public string SapVirtualInstanceName { get; set; } = null!;
 
         public GetSapVirtualInstanceArgs()
         {
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
-        [Input("sapVirtualInstanceName")]
-        public Input<string>? SapVirtualInstanceName { get; set; }
+        [Input("sapVirtualInstanceName", required: true)]
+        public Input<string> SapVirtualInstanceName { get; set; } = null!;
 
         public GetSapVirtualInstanceInvokeArgs()
         {

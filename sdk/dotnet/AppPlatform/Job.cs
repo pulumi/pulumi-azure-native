@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Job resource.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// Properties of the Job resource

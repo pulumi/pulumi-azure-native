@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>
-        [Input("policySetDefinitionName")]
-        public string? PolicySetDefinitionName { get; set; }
+        [Input("policySetDefinitionName", required: true)]
+        public string PolicySetDefinitionName { get; set; } = null!;
 
         public GetPolicySetDefinitionArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>
-        [Input("policySetDefinitionName")]
-        public Input<string>? PolicySetDefinitionName { get; set; }
+        [Input("policySetDefinitionName", required: true)]
+        public Input<string> PolicySetDefinitionName { get; set; } = null!;
 
         public GetPolicySetDefinitionInvokeArgs()
         {

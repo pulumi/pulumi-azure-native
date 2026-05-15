@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// SecurityPolicy
         /// </summary>
-        [Input("securityPolicyName", required: true)]
-        public Input<string> SecurityPolicyName { get; set; } = null!;
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

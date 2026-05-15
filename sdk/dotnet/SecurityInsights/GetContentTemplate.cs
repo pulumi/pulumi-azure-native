@@ -63,8 +63,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// template Id
         /// </summary>
-        [Input("templateId")]
-        public string? TemplateId { get; set; }
+        [Input("templateId", required: true)]
+        public string TemplateId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// template Id
         /// </summary>
-        [Input("templateId")]
-        public Input<string>? TemplateId { get; set; }
+        [Input("templateId", required: true)]
+        public Input<string> TemplateId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

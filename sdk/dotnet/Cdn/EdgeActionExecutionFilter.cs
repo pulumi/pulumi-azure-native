@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the execution filter
         /// </summary>
-        [Input("executionFilter", required: true)]
-        public Input<string> ExecutionFilter { get; set; } = null!;
+        [Input("executionFilter")]
+        public Input<string>? ExecutionFilter { get; set; }
 
         /// <summary>
         /// Custom Header Key associated with the execution filter

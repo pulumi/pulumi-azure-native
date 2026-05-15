@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the credential set.
         /// </summary>
-        [Input("credentialSetName", required: true)]
-        public Input<string> CredentialSetName { get; set; } = null!;
+        [Input("credentialSetName")]
+        public Input<string>? CredentialSetName { get; set; }
 
         /// <summary>
         /// Identities associated with the resource. This is used to access the KeyVault secrets.

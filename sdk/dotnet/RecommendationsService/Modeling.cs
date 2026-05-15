@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the Modeling resource.
         /// </summary>
-        [Input("modelingName", required: true)]
-        public Input<string> ModelingName { get; set; } = null!;
+        [Input("modelingName")]
+        public Input<string>? ModelingName { get; set; }
 
         /// <summary>
         /// Modeling resource properties.

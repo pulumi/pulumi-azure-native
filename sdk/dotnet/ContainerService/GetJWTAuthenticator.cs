@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the JWT authenticator.
         /// </summary>
-        [Input("jwtAuthenticatorName")]
-        public string? JwtAuthenticatorName { get; set; }
+        [Input("jwtAuthenticatorName", required: true)]
+        public string JwtAuthenticatorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the JWT authenticator.
         /// </summary>
-        [Input("jwtAuthenticatorName")]
-        public Input<string>? JwtAuthenticatorName { get; set; }
+        [Input("jwtAuthenticatorName", required: true)]
+        public Input<string> JwtAuthenticatorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

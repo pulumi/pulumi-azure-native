@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the knowledge source.
         /// </summary>
-        [Input("knowledgeSourceName")]
-        public string? KnowledgeSourceName { get; set; }
+        [Input("knowledgeSourceName", required: true)]
+        public string KnowledgeSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,8 +68,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the knowledge source.
         /// </summary>
-        [Input("knowledgeSourceName")]
-        public Input<string>? KnowledgeSourceName { get; set; }
+        [Input("knowledgeSourceName", required: true)]
+        public Input<string> KnowledgeSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

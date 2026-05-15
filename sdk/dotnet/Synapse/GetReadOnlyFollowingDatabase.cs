@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the database in the Kusto pool.
         /// </summary>
-        [Input("databaseName")]
-        public string? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kusto pool.
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the database in the Kusto pool.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kusto pool.
